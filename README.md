@@ -1,7 +1,7 @@
 # 2024.2 Aries - Projeto Mamutes do Cerrado
 
 <p align="center">
-  <img src="./view/img/logoMamutes.PNG" height='300px' style={{ display: 'block', margin: 'auto', marginTop: '100px' }} />
+  <img src="./docs/view/img/logoMamutes.PNG" height='300px' style={{ display: 'block', margin: 'auto', marginTop: '100px' }} />
 </p>
 
 # Sobre
@@ -53,6 +53,14 @@ Conheça a contribuição dos membros em cada uma das nossas áreas abaixo:
 | **Nome**  | [Caio Duarte](https://github.com/caioduart3)                                    |  
 | **Cargo** | Product Owner                                                                   |
 
+<br></br>
+
+
+| **📸**    | [<img src="https://avatars.githubusercontent.com/" width=100>]() |
+|:---------:|:------------------------------------------------------------------------------: |
+| **Nome**  | [nome](https://github.com/caioduart3)                                    |  
+| **Cargo** | Scrum Master                                                                    |
+ 
 <br></br>
 
 
