@@ -1,12 +1,12 @@
 # 2024.2 Aries - Projeto Mamutes do Cerrado
 
 <p align="center">
-  <img src="./view/img/logoMamutes.png" height='300px' style={{ display: 'block', margin: 'auto', marginTop: '100px' }} />
+  <img src="./view/img/logoMamutes.PNG" height='300px' style={{ display: 'block', margin: 'auto', marginTop: '100px' }} />
 </p>
 
 # Sobre
 
-Desenvolvimento de um sistema para a equipe de competição Mamutes do Cerrado UnB - FCTE que têm como objetivo criar uma aplicação web que sirva para divulgação e também para o gerenciamento da equipe na qual, nesse primeiro momento, somente membros da equipe poderão ter acesso. Dessa forma, teremos os seguintes módulos de desenvolvimento.
+O projeto consiste no desenvolvimento de um sistema para a equipe de competição Mamutes do Cerrado UnB - FCTE que têm como objetivo criar uma aplicação web que sirva para divulgação e também para o gerenciamento da equipe na qual, nesse primeiro momento, somente membros da equipe poderão ter acesso. Dessa forma, teremos os seguintes módulos de desenvolvimento.
 
 # Principais Recursos 
 
