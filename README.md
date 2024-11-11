@@ -1,7 +1,7 @@
 # 2024.2 Aries - Projeto Mamutes do Cerrado
 
 <p align="center">
-  <img src="./view/edraV.svg" height='300px' style={{ display: 'block', margin: 'auto', marginTop: '100px' }} />
+  <img src="./view/img/logoMamutes.png" height='300px' style={{ display: 'block', margin: 'auto', marginTop: '100px' }} />
 </p>
 
 # Sobre
