@@ -24,7 +24,7 @@ O projeto consiste no desenvolvimento de um sistema para a equipe de competiçã
   
 # Documentação
 
-Link para a documentação do projeto: [MkDocs - Aries 2024.1](https://fga0138-mds-ajax.github.io/2024.2-Aries/) <br><br>
+Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-mds-ajax.github.io/2024.2-Aries/) <br><br>
 
 <!--
 

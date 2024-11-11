@@ -1,7 +1,7 @@
-site_name: Documentação
+site_name: Projeto Mamutes do Cerrado
 
 nav:
-  - Instruções mkdocs: "index.md"
+  - Apresentação: "index.md"
   - Documento de Visão: "documento-visao/documento-visao.md"
   - Documento de Requisitos: "documento-requisitos/documento-requisitos.md"
   - Documento de Arquitetura: "documento-arquitetura/documento-arquitetura.md"
