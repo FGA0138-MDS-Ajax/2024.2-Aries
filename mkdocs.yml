@@ -1,13 +1,32 @@
-site_name: Projeto Mamutes do Cerrado
+site_name: Documentação Mamutes do Cerrado
 
 nav:
-  - Apresentação: "index.md"
-  - Documento de Visão: "documento-visao/documento-visao.md"
-  - Documento de Requisitos: "documento-requisitos/documento-requisitos.md"
-  - Documento de Arquitetura: "documento-arquitetura/documento-arquitetura.md"
-  - Documento de Plano de Testes: "documento-plano-testes/documento-plano-testes.md"
-  - Atas de Reunião:
-    - Ata 1: "atas-reuniao/ata-reuniao-1.md"
+  - Apresentação: index.md
+
+  - Atas de reuniao:
+      - Cliente:
+          - Ata 1: "atas-reuniao/cliente/ata-reuniao-1.md"
+
+      - Equipe:
+          - Ata 1: "atas-reuniao/equipe/ata-reuniao-1-equipe.md"
+
+  - Documentação de Visão: "documento-visao/documento-visao.md"
+  - Documentação de Requisitos: "documento-requisitos/documento-requisitos.md"
+  - Documentação de Arquitetura: "documento-arquitetura/documento-arquitetura.md"
+  - Documentação do Plano de Testes: "documento-plano-testes/documento-plano-testes.md"
 
 theme:
   name: material
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    - header.autohide
+    - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+  language: pt
+
+styles_css:
+  - view/css/styles.css
