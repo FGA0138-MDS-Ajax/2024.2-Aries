@@ -7,7 +7,8 @@ from .forms import *
 
 def login (request):
     if request.method ==  'GET':
-        return render (request, 'cadastro/login.html')
+        return render(request, 'login.html')
+
     else:
         username = request.POST.get('username')
         senha = request.POST.get('senha')
@@ -16,7 +17,7 @@ def login (request):
 
         if user is not None:
             login_django (request, user)
-            return render(request, 'templates/login.html')
+            return render(request, 'login.html')
             
         else:
             return HttpResponse("Credenciais inválidas.")
