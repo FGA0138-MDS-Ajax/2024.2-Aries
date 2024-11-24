@@ -7,8 +7,7 @@ from .forms import *
 
 def login (request):
     if request.method ==  'GET':
-        return render(request, 'login.html')
-
+        return render (request, '/login.html')
     else:
         username = request.POST.get('username')
         senha = request.POST.get('senha')
