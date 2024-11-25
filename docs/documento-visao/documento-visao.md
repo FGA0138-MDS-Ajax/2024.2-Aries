@@ -8,14 +8,21 @@ Este documento será usado como guia para registrar as informações gerais do p
 ## Problema
 
 ### Contexto do Problema
+
+
 A equipe de competição **Mamutes do Cerrado**, da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: **divulgação externa** e **gestão interna**. Como uma equipe acadêmica e técnica que busca representar a instituição em competições de alto nível, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo.
 
 Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos (como estoque e finanças), tarefas (calendários e reuniões) e documentos essenciais.
 
+
 ### Problema Encontrado
+
 O principal problema enfrentado pelos **Mamutes do Cerrado** é a falta de uma **plataforma centralizada** que conecte as necessidades de **divulgação externa** e **gestão interna**. Isso resulta em:
+
 - **Baixa visibilidade externa**: Falta de uma identidade visual unificada e dificuldade em atrair novos membros e patrocinadores.
+
 - **Desorganização interna**: A ausência de ferramentas adequadas para gerenciar tarefas, compromissos, recursos materiais e financeiros gera atrasos, retrabalho e perda de eficiência.
+
 - **Risco de perda de informações**: O armazenamento descentralizado de documentos e atas compromete a transparência e dificulta o acesso às informações essenciais.
 
 A necessidade de um software surge como uma oportunidade de resolver esses gargalos, otimizando processos internos e fortalecendo a presença externa da equipe.
@@ -33,8 +40,11 @@ O diagrama abaixo identifica as causas do problema central: **Ineficiência na g
 (Diagrama visual pode ser incluído aqui com as categorias listadas acima conectadas ao problema central.)
 
 ### Solução Proposta
+
 A solução sugerida é o desenvolvimento de um **aplicativo web unificado**, que aborde as duas dimensões centrais do problema:
+
 1. **Divulgação Externa**: Uma página inicial atraente e funcional, destacando a identidade visual dos Mamutes do Cerrado, informações sobre os integrantes, competições e o processo seletivo.
+
 2. **Gestão Interna**: Módulos dedicados para:
    - **Calendário e Tarefas**: Organização visual das atividades com quadro Kanban e calendário consolidado.
    - **Estoque**: Controle preciso de materiais e peças.
@@ -87,13 +97,8 @@ Espera-se que a solução não só resolva os problemas atuais, mas também prop
 ## Visão Geral do Projeto
 
 ### Ciclo de Vida do Projeto
-O desenvolvimento será dividido em sprints, com entregas claras e incrementais:  
 
-| Sprint  | Produto (Entrega)              | Data Início  | Data Fim      | % Conclusão |
-|---------|--------------------------------|--------------|---------------|-------------|
-| 1       | Definição do Produto           | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
-| 2       | MVP e Planejamento do Projeto  | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
-| 3       | Funcionalidades A, B, C, D     | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
+desenvolver
 
 ---
 
@@ -110,7 +115,13 @@ O desenvolvimento será dividido em sprints, com entregas claras e incrementais:
 ---
 
 ### Planejamento das Fases
-As fases serão detalhadas e adaptadas em cada sprint, com priorização do backlog.  
+As fases serão detalhadas e adaptadas em cada sprint, com priorização do backlog com entregas claras e incrementais:  
+
+| Sprint  | Produto (Entrega)              | Data Início  | Data Fim      | % Conclusão |
+|---------|--------------------------------|--------------|---------------|-------------|
+| 1       | Definição do Produto           | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
+| 2       | MVP e Planejamento do Projeto  | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
+| 3       | Funcionalidades A, B, C, D     | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
 
 ---
 
@@ -133,6 +144,7 @@ As fases serão detalhadas e adaptadas em cada sprint, com priorização do back
 ## Processo de Desenvolvimento de Software
 O processo seguirá metodologias ágeis (Scrum e XP), com fluxos organizados de atividades para garantir eficiência e colaboração.
 
+
 ---
 
 ## Declaração de Escopo do Projeto
@@ -145,6 +157,40 @@ O processo seguirá metodologias ágeis (Scrum e XP), com fluxos organizados de 
 |-----------|-----------------|--------|-------------|---------------------|------------------------------|
 | Gestão    | Calendário      | 2      | Must        | Funcional           | Gerenciamento de tarefas     |
 | Divulgação| Página inicial  | 1      | Must        | Funcional           | Apresentar a equipe          |
+
+
+### Backlog do Produto
+
+
+### Perfis
+
+Tabela : Perfis de acesso
+
+| Nome do perfil  | Características do perfil   | Permissões de acesso    |
+|------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| Administrador    | Responsável por manter os perfis de acesso da aplicação, criar novos usuários, alterar usuários existentes, ou excluir usuários (Manter usuários) | Descrever sucintamente as permissões de acesso |
+
+### Cenários
+
+Tabela : Cenários funcionais
+
+| Nome do perfil  | Características do perfil                                                                                      | Permissões de acesso                       |
+|------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| <1>             | <ex> Administrador                                                                                            | Responsável por manter os perfis de acesso da aplicação, criar novos usuários, alterar usuários já existentes, ou excluir usuários (Manter usuários) | Descrever sucintamente as permissões de acesso |
+
+### Tabela de Backlog do Produto
+
+Tabela : Backlog do produto
+
+| Numeração (Cenário / Requisito) | Sprint | Nome do Requisito | Tipo de Requisito (Funcional / Não Funcional) | Priorização do Requisito (Must, Should, Could) | Descrição Sucinta do Requisito            | User Stories (U.S.) Associadas            |
+|--------------------------------|--------|-------------------|-----------------------------------------------|-----------------------------------------------|-------------------------------------------|-------------------------------------------|
+| <Número>                      | <Sprint> | <Nome>            | <Funcional/Não Funcional>                     | <Must/Should/Could>                          | <Descrição breve do requisito>            | <Identifique as U.S. associadas ao requisito> |
+
+
+---
+
+## REFERÊNCIAS BIBLIOGRÁFICAS
+
 
 ---
 
