@@ -6,21 +6,23 @@
 
 # Sobre
 
-O projeto consiste no desenvolvimento de um sistema para a equipe de competição Mamutes do Cerrado UnB - FCTE que têm como objetivo criar uma aplicação web que sirva para divulgação e também para o gerenciamento da equipe na qual, nesse primeiro momento, somente membros da equipe poderão ter acesso. Dessa forma, teremos os seguintes módulos de desenvolvimento.
+Este projeto visa o desenvolvimento de um aplicativo web, concebido para atender às necessidades da equipe de competição Mamutes do Cerrado da UnB - FCTE. A proposta é oferecer uma plataforma unificada que atenda dois pilares principais: divulgação da equipe e gerenciamento interno, otimizando a organização e a visibilidade da equipe.
 
-# Principais Recursos 
+## Objetivos do Sistema
 
-- Divulgação: página com intuito de apresentar a identidade visual da equipe, seus integrantes, competições e informações essenciais para o processo seletivo.
+1. Divulgação da Equipe
 
-- Gerência de calendário: página para gerenciar quadro Kanban de tarefas da equipe, e, também um calendário disponível para compromissos.
+Uma página inicial que apresente a identidade visual dos Mamutes do Cerrado, seus integrantes, competições e informações essenciais, como o processo seletivo para novos membros. Essa área será o ponto de entrada, projetada para atrair e engajar visitantes.
 
-- Gerência de estoque: página para controlar as peças, com suas respectivas quantidades e status.
+2. Gerenciamento Interno
 
-- Gerência de reuniões: página para adicionar atas e ter o controle de presença de reuniões.
+Oferecer ferramentas dedicadas para a organização eficiente das atividades da equipe, distribuídas em módulos específicos:
 
-- Gerência de documentos: página para administração de documentos linkadode voos e correlatos.
-
-- Gerência de Financeiro: página para controle de entradas e saídas com suas respectivas descrições. Além do cálculo final com o saldo atualizado.
+- Gerência de Calendário: Uma interface com quadro Kanban para organização de tarefas e um calendário que consolida os compromissos da equipe.
+- Gerência de Estoque: Controle detalhado de peças e materiais, incluindo quantidades disponíveis e status atualizado.
+- Gerência de Reuniões: Registro de atas e controle de presença nas reuniões, promovendo transparência e acompanhamento das decisões.
+- Gerência de Documentos: Administração centralizada de arquivos relacionados à equipe, como documentos de voo e outros correlatos.
+- Gerência Financeira: Controle de entradas e saídas financeiras, com registro de descrições e saldo atualizado, garantindo maior controle e planejamento.
   
 # Documentação
 
@@ -48,30 +50,30 @@ Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-m
 Conheça a contribuição dos membros em cada uma das nossas áreas abaixo:
 
 
-| **📸**    | [<img src="https://avatars.githubusercontent.com/u/134105981?v=4" width=100>]() |
+| **📸**    | [<img src="./docs/view/img/klei.jpg" width=100>]() |
 |:---------:|:------------------------------------------------------------------------------: |
-| **Nome**  | [Caio Duarte](https://github.com/caioduart3)                                    |  
+| **Nome**  | [Klei Nacarat](https://github.com/caioduart3)                                    |  
 | **Cargo** | Product Owner                                                                   |
 
 <br></br>
 
 
-| **📸**    | [<img src="https://avatars.githubusercontent.com/" width=100>]() |
+| **📸**    | [<img src="https://avatars.githubusercontent.com/u/134105981?v=4" width=100>]() |
 |:---------:|:------------------------------------------------------------------------------: |
-| **Nome**  | [nome](https://github.com/caioduart3)                                    |  
+| **Nome**  | [Caio Duarte](https://github.com/caioduart3)                                    |  
 | **Cargo** | Scrum Master                                                                    |
  
 <br></br>
 
 
-| **📸**    | [<img src="https://avatars.githubusercontent.com/" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/" width=100>]() | [<img src="https://avatars.githubusercontent.com/" width=100>]() | [<img src="https://avatars.githubusercontent.com/" width=100>]() |
-|:---------:|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|
-| **Nome**  | [nome](https://github.com/) | [nome](https://github.com/)  | [Felipe Freire](https://github.com/FelipeFreire-gf)                           | [nome](https://github.com/)                            | [nome](https://github.com/)                        | [nome](https://github.com/5)                              |
-| **Cargo** | Leader Squad - Front End                           | Leader Squad - Back End                                                              | Leader Squad - Banco de Dados                                                             | Leader Squad - Testes e Deploy                                                                       | Leader Squad - Add                                                            | Leader Squad - Add                                                           |
+| **📸**    | [<img src="https://avatars.githubusercontent.com/u/91512745?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/179030119?" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/" width=100>]() |
+|:---------:|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|
+| **Nome**  | [Ludmila Aysha](https://github.com/ludmilaaysha) | [Rafael Welz](https://github.com/)  | [Felipe Freire](https://github.com/FelipeFreire-gf)                           | [nome](https://github.com/)                            | [nome](https://github.com/)                        | [nome](https://github.com/5)                              |
+| **Cargo** | Leader Squad - Front End                           | Leader Squad - Back End                                                              | Leader Squad - Banco de Dados                                                             | Leader Squad - Testes e Deploy                                                                       |
 
 <br></br>
 
-| **📸**    | [<img src="https://avatars.githubusercontent.com/" width=100>]() | [<img src="https://avatars.githubusercontent.com/" width=100>]() | [<img src="https://avatars.githubusercontent.com/" width=100>]() | [<img src="https://avatars.githubusercontent.com/" width=100>]() | [<img src="https://avatars.githubusercontent.com/" width=100>]() | [<img src="https://avatars.githubusercontent.com/" width=100>]() |
+| **📸**    | [<img src="https://avatars.githubusercontent.com/u/128251768?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/173021374?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/144369305?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/179030119?" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/69173517?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/145882190?v=4" width=100>]() |
 |:---------:|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|
-| **Nome**  | [nome](https://github.com/) | [nome](https://github.com/)  | [nome](https://github.com/)                           | [nome](https://github.com/)                            | [nome](https://github.com/)                        | [nome](https://github.com/)                              |
-| **Cargo** | DEV                                                    | DEV                                                              | DEV                                                             | DEV                                                                       | DEV                                                            | DEV                                                              |
+| **Nome**  | [Amanda Cruz](https://github.com/) | [Felipe Duarte](https://github.com/)  | [Mayara Marques](https://github.com/maymarquee)                           | [Othavio Araujo](https://github.com/)                            | [Vinicíus Alves](https://github.com/)                        | [Izaque Camargos](https://github.com/)                              |
+| **Cargo** |  DEV   |  DEV  |  DEV  |  DEV    | DEV    | DEV    |
