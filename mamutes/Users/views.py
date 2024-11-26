@@ -13,7 +13,9 @@ def login (request):
         username = request.POST.get('username')
         senha = request.POST.get('password')
 
+        print(username, senha)
         user = authenticate(username=username, password=senha)
+
 
         if user is not None:
             login_django (request, user)
