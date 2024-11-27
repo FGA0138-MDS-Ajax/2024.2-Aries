@@ -10,6 +10,7 @@ nav:
 
       - Equipe:
           - Ata 1: "atas-reuniao/equipe/ata-reuniao-1-equipe.md"
+          - Ata 2: "atas-reuniao/equipe/ata-reuniao-2-equipe.md"
 
   - Documentação de Visão: "documento-visao/documento-visao.md"
   - Documentação de Requisitos: "documento-requisitos/documento-requisitos.md"
