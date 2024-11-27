@@ -10,19 +10,22 @@
 ---
 
 ### Participantes
-1. Amanda Cruz  
-2. Caio Duarte  
-3. Ester Lino (monitora)  
-4. Felipe Duarte  
-5. Felipe Freire  
-6. Isaque Camargos  
-7. Kleyson de Moura (cliente)  
-8. Ludmila Aysha  
-9. Mayara Marques  
-10. Othavio Bolzan  
-11. Rafael Schadt  
-12. Vinicius Alves  
-13. Pedro Andrade (cliente)  
+
+| Nome            | Função               | Presença |
+|-----------------|----------------------|----------|
+| Amanda Cruz     | Membro               | ✔️       |
+| Caio Duarte     | Responsável pela reunião | ✔️ |
+| Ester Lino      | Monitora             | ✔️       |
+| Felipe Duarte   | Membro               | ✔️       |
+| Felipe Freire   | Membro               | ✔️       |
+| Isaque Camargos | Membro               | ✔️       |
+| Kleyson de Moura| Cliente              | ✔️       |
+| Ludmila Aysha   | Membro               | ✔️       |
+| Mayara Marques  | Responsável pela ata | ✔️       |
+| Othavio Bolzan  | Membro               | ✔️       |
+| Rafael Schadt   | Membro               | ✔️       |
+| Vinicius Alves  | Membro               | ✔️       |
+| Pedro Andrade   | Cliente              | ✔️       |
 
 ---
 
@@ -87,8 +90,9 @@ Baseado em um documento prévio elaborado pelo líder do grupo, que continha inf
 
 **Fim da ATA**
 
+---
 # Tabela de Versionamento 
 
 | Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
 | :----: | :--: | :--------------------: | :-------------------: |
-| 1.0 | 26/11/2024 | Criação do Documento | Mayara Marques |
+| 1.1 | 26/11/2024 | Inserção da tabela de participantes | Mayara Marques |
