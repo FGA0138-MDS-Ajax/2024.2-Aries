@@ -6,9 +6,10 @@ nav:
   - Atas de reuniao:
       - Cliente:
           - Ata 1: "atas-reuniao/cliente/ata-reuniao-1.md"
+          - Ata 2: "atas-reuniao/cliente/ata-reuniao-2.md"
 
       - Equipe:
-          - Ata 1: "atas-reuniao/equipe/ata-reuniao-2.md"
+          - Ata 1: "atas-reuniao/equipe/ata-reuniao-1-equipe.md"
 
   - Documentação de Visão: "documento-visao/documento-visao.md"
   - Documentação de Requisitos: "documento-requisitos/documento-requisitos.md"

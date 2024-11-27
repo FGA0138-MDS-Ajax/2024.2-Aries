@@ -1,4 +1,4 @@
-# Ata da Reunião 2 - Gestão de Desenvolvimento
+# Ata da Reunião 1 - Gestão de Desenvolvimento
 
 **Data:** 10/11/2024  
 **Hora:** 21:00  
@@ -8,7 +8,7 @@
 
 ---
 
-### Participantes
+## Participantes
 
 | Nome            | Função               | Presença |
 |-----------------|----------------------|----------|
@@ -24,12 +24,10 @@
 | Vinicius Alves  | Membro               | ❌       |
 
 ---
-
 ## Objetivo
 Definir tecnologias, organização de equipe e designação de tarefas.
 
 ---
-
 ## Divisão de Tarefas
 - **Back-end:**  
   Caio, Isaque, Othavio, Amanda, Felipe Duarte, Vinicius Alves, Rafael.  
@@ -52,7 +50,6 @@ Definir tecnologias, organização de equipe e designação de tarefas.
 
 
 ---
-
 ## Proposta de Tecnologias
 - **Linguagens e Frameworks:**  
   Django, HTML, CSS, React, Bootstrap  
@@ -83,7 +80,6 @@ Definir tecnologias, organização de equipe e designação de tarefas.
   Scrum  
 
 ---
-
 ## Designação de Tarefas
 - **Prototipação:**  
   Front-end  
@@ -100,7 +96,8 @@ Definir tecnologias, organização de equipe e designação de tarefas.
 **Obs:** Os prazos serão definidos após a organização das Sprints no Trello/documentação.
 
 ---
+# Tabela de Versionamento 
 
 | Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
 | :----: | :--: | :--------------------: | :-------------------: |
-| 1.0 | 26/11/2024 | Criação da ata | Mayara Marques |
+| 1.2 | 26/11/2024 | Renumeração das reuniões | Mayara Marques |
