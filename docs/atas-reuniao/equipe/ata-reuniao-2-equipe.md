@@ -1,4 +1,4 @@
-# Ata da Reunião 2 - Ínicio Sprint 1
+# Ata da Reunião 2 - Início Sprint 1
 
 **Data:** 18/11/2024  
 **Hora:** 21:00  
