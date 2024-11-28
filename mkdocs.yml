@@ -1,9 +1,10 @@
 site_name: Documentação Mamutes do Cerrado
 
 nav:
+  - Landing Page: "landing.html"
   - Apresentação: index.md
 
-  - Atas de reuniao:
+  - Atas:
       - Cliente:
           - Ata 1: "atas-reuniao/cliente/ata-reuniao-1.md"
           - Ata 2: "atas-reuniao/cliente/ata-reuniao-2.md"
@@ -15,10 +16,13 @@ nav:
           - Ata 2: "atas-reuniao/equipe/ata-reuniao-2-equipe.md"
           - Ata 3: "atas-reuniao/equipe/ata-reuniao-3-equipe.md"
 
-  - Documentação de Visão: "documento-visao/documento-visao.md"
-  - Documentação de Requisitos: "documento-requisitos/documento-requisitos.md"
-  - Documentação de Arquitetura: "documento-arquitetura/documento-arquitetura.md"
-  - Documentação do Plano de Testes: "documento-plano-testes/documento-plano-testes.md"
+  - Documentação:
+      - Visão Geral: "documento-visao/documento-visao.md"
+      - Requisitos: "documento-requisitos/documento-requisitos.md"
+      - Arquitetura: "documento-arquitetura/documento-arquitetura.md"
+      - Plano de Testes: "documento-plano-testes/documento-plano-testes.md"
+
+  - Links: "links/links.md"
 
 theme:
   name: material
@@ -26,12 +30,37 @@ theme:
     - content.code.annotate
     - content.tabs.link
     - header.autohide
+    - navigation.expand
     - navigation.instant
     - navigation.sections
     - navigation.tabs
     - navigation.top
     - navigation.tracking
-  language: pt
+
+  palette:
+    # Paleta para modo claro
+    - scheme: default
+      primary: white
+      accent: light blue
+      toggle:
+        icon: material/weather-night
+        name: Mudar para modo escuro
+
+    # Paleta para modo escuro
+    - scheme: slate
+      primary: black
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: Mudar para modo claro
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+extra_css:
+  - stylesheets/styles.css
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css
 
 styles_css:
   - view/css/styles.css

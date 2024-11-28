@@ -22,7 +22,6 @@ Oferecer ferramentas dedicadas para a organização eficiente das atividades da 
 - Gerência de Estoque: Controle detalhado de peças e materiais, incluindo quantidades disponíveis e status atualizado.
 - Gerência de Reuniões: Registro de atas e controle de presença nas reuniões, promovendo transparência e acompanhamento das decisões.
 - Gerência de Documentos: Administração centralizada de arquivos relacionados à equipe, como documentos de voo e outros correlatos.
-- Gerência Financeira: Controle de entradas e saídas financeiras, com registro de descrições e saldo atualizado, garantindo maior controle e planejamento.
   
 # Documentação
 
@@ -52,7 +51,7 @@ Conheça a contribuição dos membros em cada uma das nossas áreas abaixo:
 
 | **📸**    | [<img src="./docs/view/img/klei.jpg" width=100>]() |
 |:---------:|:------------------------------------------------------------------------------: |
-| **Nome**  | [Klei Nacarat](https://github.com/caioduart3)                                    |  
+| **Nome**  | [Kleyson Nacarat](https://github.com/caioduart3)                                    |  
 | **Cargo** | Product Owner                                                                   |
 
 <br></br>
@@ -66,10 +65,10 @@ Conheça a contribuição dos membros em cada uma das nossas áreas abaixo:
 <br></br>
 
 
-| **📸**    | [<img src="https://avatars.githubusercontent.com/u/91512745?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/179030119?" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/" width=100>]() |
+| **📸**    | [<img src="https://avatars.githubusercontent.com/u/91512745?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/179030119?" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100>]() |  |
 |:---------:|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|
-| **Nome**  | [Ludmila Aysha](https://github.com/ludmilaaysha) | [Rafael Welz](https://github.com/)  | [Felipe Freire](https://github.com/FelipeFreire-gf)                           | [nome](https://github.com/)                            | [nome](https://github.com/)                        | [nome](https://github.com/5)                              |
-| **Cargo** | Leader Squad - Front End                           | Leader Squad - Back End                                                              | Leader Squad - Banco de Dados                                                             | Leader Squad - Testes e Deploy                                                                       |
+| **Nome**  | [Ludmila Aysha](https://github.com/ludmilaaysha) | [Rafael Welz](https://github.com/)  | [Felipe Freire](https://github.com/FelipeFreire-gf)                           |                     
+| **Cargo** | Leader Squad - Front End                           | Leader Squad - Back End                                                              | Leader Squad - Banco de Dados e Testes                                                            |
 
 <br></br>
 
