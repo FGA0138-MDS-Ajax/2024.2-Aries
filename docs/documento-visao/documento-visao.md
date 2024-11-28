@@ -1,7 +1,11 @@
 
 # Visão do Produto e Projeto
 
+<div style="text-align: justify;">
+
 Este documento será usado como guia para registrar as informações gerais do produto e projeto. Ele será refinado e atualizado ao longo do ciclo de vida do desenvolvimento, conforme o padrão ABNT para documentos técnicos.
+
+</div>
 
 ---
 
@@ -9,57 +13,82 @@ Este documento será usado como guia para registrar as informações gerais do p
 
 ### Contexto do Problema
 
+<div style="text-align: justify;">
 
-A equipe de competição **Mamutes do Cerrado**, da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: **divulgação externa** e **gestão interna**. Como uma equipe acadêmica e técnica que busca representar a instituição em competições de alto nível, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo.
+A equipe de competição <strong>Mamutes do Cerrado</strong>, da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: <strong>divulgação externa</strong> e <strong>gestão interna</strong>. Como uma equipe acadêmica e técnica que busca representar a instituição em competições de alto nível, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo.
 
 Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos (como estoque e finanças), tarefas (calendários e reuniões) e documentos essenciais.
 
+</div>
+
+---
 
 ### Problema Encontrado
 
-O principal problema enfrentado pelos **Mamutes do Cerrado** é a falta de uma **plataforma centralizada** que conecte as necessidades de **divulgação externa** e **gestão interna**. Isso resulta em:
+<div style="text-align: justify;">
 
-- **Baixa visibilidade externa**: Falta de uma identidade visual unificada e dificuldade em atrair novos membros e patrocinadores.
+O principal problema enfrentado pelos <strong>Mamutes do Cerrado</strong> é a falta de uma <strong>plataforma centralizada</strong> que conecte as necessidades de <strong>divulgação externa</strong> e <strong>gestão interna</strong>. Isso resulta em: <br> <br>
 
-- **Desorganização interna**: A ausência de ferramentas adequadas para gerenciar tarefas, compromissos, recursos materiais e financeiros gera atrasos, retrabalho e perda de eficiência.
+- <strong>Baixa visibilidade externa</strong>: Falta de uma identidade visual unificada e dificuldade em atrair novos membros e patrocinadores.<br> <br>
 
-- **Risco de perda de informações**: O armazenamento descentralizado de documentos e atas compromete a transparência e dificulta o acesso às informações essenciais.
+- <strong>Desorganização interna</strong>: A ausência de ferramentas adequadas para gerenciar tarefas, compromissos, recursos materiais e financeiros gera atrasos, retrabalho e perda de eficiência.<br> <br>
 
-A necessidade de um software surge como uma oportunidade de resolver esses gargalos, otimizando processos internos e fortalecendo a presença externa da equipe.
+- <strong>Risco de perda de informações</strong>: O armazenamento descentralizado de documentos e atas compromete a transparência e dificulta o acesso às informações essenciais.<br> <br>
+
+A necessidade de um software surge como uma oportunidade de resolver esses gargalos, otimizando processos internos e fortalecendo a presença externa da equipe.<br>
+
+</div>
+
+---
 
 ### Diagrama de Ishikawa (Espinha de Peixe)
-O diagrama abaixo identifica as causas do problema central: **Ineficiência na gestão e divulgação da equipe**.
 
-**Problema Central:** Ineficiência na gestão e divulgação  
-1. **Pessoas**: Falta de integração entre os membros; dificuldade em acompanhar tarefas e reuniões.  
-2. **Processos**: Gestão manual ou uso de ferramentas dispersas; ausência de um padrão de operação.  
-3. **Tecnologia**: Inexistência de uma plataforma única e dedicada às necessidades específicas da equipe.  
-4. **Finanças**: Controle inadequado de entradas e saídas financeiras, dificultando o planejamento.  
-5. **Comunicação**: Divulgação fragmentada, impactando o alcance do público-alvo e a captação de recursos.
+<div style="text-align: justify;">
 
-(Diagrama visual pode ser incluído aqui com as categorias listadas acima conectadas ao problema central.)
+O diagrama abaixo identifica as causas do problema central: <strong> Ineficiência na gestão e divulgação da equipe</strong> . <br><br>
+
+<strong>Problema Central:</strong> Ineficiência na gestão e divulgação <br><br>
+1. <strong>Pessoas</strong>: Falta de integração entre os membros; dificuldade em acompanhar tarefas e reuniões.  <br>
+2. <strong>Processos</strong>: Gestão manual ou uso de ferramentas dispersas; ausência de um padrão de operação.  <br>
+3. <strong>Tecnologia</strong>: Inexistência de uma plataforma única e dedicada às necessidades específicas da equipe.  <br> 
+4. <strong>Comunicação</strong>: Divulgação fragmentada, impactando o alcance do público-alvo e a captação de recursos. <br>
+
+</div>
+
+(colocar diagrama aqui.)
+
+---
 
 ### Solução Proposta
 
-A solução sugerida é o desenvolvimento de um **aplicativo web unificado**, que aborde as duas dimensões centrais do problema:
+<div style="text-align: justify;">
 
-1. **Divulgação Externa**: Uma página inicial atraente e funcional, destacando a identidade visual dos Mamutes do Cerrado, informações sobre os integrantes, competições e o processo seletivo.
+A solução sugerida é o desenvolvimento de um <strong>aplicativo web unificado</strong>, que aborde as duas dimensões centrais do problema:<br><br>
 
-2. **Gestão Interna**: Módulos dedicados para:
-   - **Calendário e Tarefas**: Organização visual das atividades com quadro Kanban e calendário consolidado.
-   - **Estoque**: Controle preciso de materiais e peças.
-   - **Reuniões**: Registro de atas e controle de presença.
-   - **Documentos**: Centralização e fácil acesso a arquivos importantes.
-   - **Finanças**: Rastreamento de entradas e saídas financeiras, garantindo maior planejamento.
+1. <strong>Divulgação Externa</strong>: Uma página inicial atraente e funcional, destacando a identidade visual dos Mamutes do Cerrado, informações sobre os integrantes, competições e o processo seletivo.<br><br>
+
+2. <strong>Gestão Interna</strong>: Módulos dedicados para:<br><br>
+   - <strong>Calendário e Tarefas</strong>: Organização visual das atividades com quadro Kanban e calendário consolidado.<br>
+   - <strong>Estoque</strong>: Controle preciso de materiais e peças.<br>
+   - <strong>Reuniões</strong>: Registro de atas e controle de presença.<br>
+   - <strong>Documentos</strong>: Centralização e fácil acesso a arquivos importantes.<br>
+
+</div>
+
+---
 
 ### Justificativa da Solução
-O aplicativo proposto oferece uma abordagem centralizada, promovendo:
-- **Eficiência operacional**: Reduzindo o tempo gasto em tarefas administrativas e possibilitando maior foco nas atividades das competições.
-- **Transparência e organização**: Com dados centralizados e acessíveis aos membros.
-- **Engajamento externo**: Aumentando a visibilidade da equipe e atraindo talentos e recursos estratégicos.
 
-Espera-se que a solução não só resolva os problemas atuais, mas também proporcione um ambiente mais estruturado e motivador para os integrantes, contribuindo diretamente para o sucesso da equipe.
+<div style="text-align: justify;">
 
+O aplicativo proposto oferece uma abordagem centralizada, promovendo:<br><br>
+- <strong>Eficiência operacional</strong>: Reduzindo o tempo gasto em tarefas administrativas e possibilitando maior foco nas atividades das competições.<br><br>
+- <strong>Transparência e organização</strong>: Com dados centralizados e acessíveis aos membros.<br><br>
+- <strong>Engajamento externo</strong>: Aumentando a visibilidade da equipe e atraindo talentos e recursos estratégicos.<br><br>
+
+Espera-se que a solução não só resolva os problemas atuais, mas também proporcione um ambiente mais estruturado e motivador para os integrantes, contribuindo diretamente para o sucesso da equipe.<br>
+
+</div>
 ---
 
 ### Declaração de Posição do Produto
@@ -72,9 +101,11 @@ Espera-se que a solução não só resolva os problemas atuais, mas também prop
 | **Ao Contrário**       | De soluções dispersas ou inexistentes.     | 
 | **Nosso Produto**       | Integra gestão e divulgação em um único ambiente acessível.     | 
 
+
 ---
 
 ### Objetivos do Produto
+
 - **Principal**: Otimizar a gestão interna e fortalecer a presença externa da equipe.  
 - **Secundários**: 
   - Automatizar tarefas administrativas.  
@@ -84,6 +115,7 @@ Espera-se que a solução não só resolva os problemas atuais, mas também prop
 ---
 
 ### Tecnologias a Serem Utilizadas
+
 
 - **Linguagem**: Python  
 - **Framework**: Django  
@@ -103,6 +135,7 @@ desenvolver
 ---
 
 ### Organização do Projeto
+
 | Papel                | Atribuições                                                 | Responsáveis                |
 |----------------------|------------------------------------------------------------|-----------------------------|
 | **Cliente**          | Fornecer feedback e acompanhar o progresso                 | Equipe Mamutes              |
@@ -110,7 +143,6 @@ desenvolver
 | **Líderes de Squad**    |                       |    |
 | **Desenvolvedores**    | Codificar e realizar implementações                      |    |
 | **Analistas de Qualidade** | Garantir qualidade e execuctar testes de software                   |   |
-
 
 ---
 
@@ -179,6 +211,19 @@ Tabela : Cenários funcionais
 | <1>             | <ex> Administrador                                                                                            | Responsável por manter os perfis de acesso da aplicação, criar novos usuários, alterar usuários já existentes, ou excluir usuários (Manter usuários) | Descrever sucintamente as permissões de acesso |
 
 ### Tabela de Backlog do Produto
+
+
+<p style="text-align: justify;">
+A representação gráfica da EAP é realizada através de um diagrama hierárquico, que ilustra todas as atividades do projeto de forma estruturada. Este diagrama é uma ferramenta vital para a comunicação clara das expectativas e responsabilidades entre a equipe de projeto.
+</p>
+
+<iframe width="768" height="432" src="https://miro.com/welcomeonboard/QUF3OTYxa3VNVG12c013d3o2YVBaemdrSUdLRWhLZk1ONnpqdUZzWDlMMjBtbFd0NUt3ZTZlVGt6c2x4b2NIZHwzNDU4NzY0NTI4NTgyMjMyNzQyfDI=?share_link_id=351611239794" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+
+<p style="text-align:center;">
+    Figura 1 - <a href ="https://miro.com/welcomeonboard/QUF3OTYxa3VNVG12c013d3o2YVBaemdrSUdLRWhLZk1ONnpqdUZzWDlMMjBtbFd0NUt3ZTZlVGt6c2x4b2NIZHwzNDU4NzY0NTI4NTgyMjMyNzQyfDI=?share_link_id=351611239794">EAP de Estruturas</a> <br />
+    Fonte: Autores.
+</p>
+
 
 Tabela : Backlog do produto
 
