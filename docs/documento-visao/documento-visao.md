@@ -305,24 +305,73 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 | Gestão    | Calendário      | 2      | Must        | Funcional           | Gerenciamento de tarefas     |
 | Divulgação| Página inicial  | 1      | Must        | Funcional           | Apresentar a equipe          |
 
+---
 
 ## 4.1 Backlog do Produto
+
+<div style="text-align: justify;">
+
+Tendo em vista o objetivo central do projeto, foram realizadas entrevistas com o cliente para compreender suas necessidades e estabelecer prioridades. Por meio de sessões de brainstorming e decisões conjuntas com o Product Owner, as funcionalidades principais foram definidas. Essas funcionalidades, consideradas prioritárias, incluem: <br> <br>
+
+- Um <strong>site de divulgação</strong> para apresentar a identidade e atividades da equipe.<br> <br>
+- Um <strong>cronograma e calendário</strong> para planejamento de reuniões e eventos internos.<br> <br>
+- Um <strong>sistema de login</strong> para membros e capitães, permitindo acesso a um sistema de gerenciamento.<br> <br>
+- Um <strong>sistema de gerenciamento de inventário</strong>, facilitando o controle de materiais e equipamentos.<br> <br>
+- Funcionalidades para <strong>administração e registro de reuniões</strong>, garantindo a documentação de atas.<br> <br>
+- Um espaço para <strong>gestão de documentos da equipe</strong>, como links de acesso rápido.<br> <br>
+
+Além dessas prioridades, outras funcionalidades importantes foram identificadas para fortalecer a divulgação externa e organização interna da equipe. Entre elas:<br> <br>
+
+- Uma <strong>página de apresentação</strong>, destacando membros e a história da equipe.<br> <br>
+- Uma <strong>página de eventos passados e conquistas</strong>, valorizando o legado e resultados obtidos.<br> <br>
+- Uma <strong>seção de informações sobre o processo seletivo</strong>, atraindo novos talentos para a equipe.<br> <br>
+- Uma <strong>apresentação detalhada dos drones</strong> com os quais a equipe trabalha, mostrando sua expertise técnica.<br> <br>
+
+Essas funcionalidades refletem as necessidades de visibilidade externa e eficiência interna, alinhando-se aos objetivos estratégicos do projeto para os Mamutes do Cerrado.<br> <br>
+
+</div>
+
+---
 
 ## 4.2 Perfis
 
 Tabela : Perfis de acesso
 
-| Nome do perfil  | Características do perfil   | Permissões de acesso    |
-|------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------|
-| Administrador    | Responsável por manter os perfis de acesso da aplicação, criar novos usuários, alterar usuários existentes, ou excluir usuários (Manter usuários) | Descrever sucintamente as permissões de acesso |
+
+| Nome do Perfil  | Características do Perfil                                                                 | Permissões de Acesso                                                                                         |
+|------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Administrador    | Responsável por manter os perfis de acesso da aplicação, criar novos usuários, alterar usuários existentes ou excluir usuários (Manter usuários). | Manter usuários, controle completo sobre configurações do sistema e acessos administrativos.                |
+| Capitão          | Membro responsável pela Mamutes como um todo. Um membro é capitão (verificar capitães). | Terá login. Acesso completo a CRUD de planilhas, atas, processo seletivo, presenças, estoque e disponibilidade de membros. |
+| Membro           | Membro da Mamutes de alguma das áreas existentes na equipe.                                | Terá login. Manter suas informações atualizadas, visualizar planilhas e editá-las quando permitido, gerenciar estoque (quando necessário). |
+| Visitante        | Usuário interessado em obter informações sobre a Mamutes e conhecer a equipe.               | Não terá login. Acesso ao site de divulgação.                                                              |
+
+inserir texto explicativo
+ 
+
+---
 
 ## 4.3 Cenários
 
 Tabela : Cenários funcionais
 
-| Nome do perfil  | Características do perfil                                                                                      | Permissões de acesso                       |
-|------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------|
-| <1>             | <ex> Administrador                                                                                            | Responsável por manter os perfis de acesso da aplicação, criar novos usuários, alterar usuários já existentes, ou excluir usuários (Manter usuários) | Descrever sucintamente as permissões de acesso |
+| Numeração do Cenário | Nome do Cenário                         | Descrição                                                                                                   |
+|-----------------------|-----------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| 1                     | Definição do produto, backlog, identidade visual, documento de visão | Definir os principais aspectos do produto, incluindo backlog inicial, identidade visual e documento de visão. |
+| 2                     | MVP e planejamento do projeto          | Planejar o desenvolvimento do MVP e estruturar as entregas ao longo do projeto.                              |
+| 3                     | Login de Usuário                       | Implementar funcionalidade para autenticação de usuários no sistema.                                        |
+| 4                     | Cadastro de Novo Usuário               | Permitir o registro de novos usuários no sistema.                                                           |
+| 5                     | Visualização de Perfil do Usuário      | Permitir aos usuários visualizar seus próprios perfis, com informações detalhadas.                          |
+| 6                     | Criação de Atividade                   | Implementar a funcionalidade de adicionar novas atividades no sistema.                                      |
+| 7                     | Edição de Atividade                    | Permitir a modificação de atividades existentes no sistema.                                                 |
+| 8                     | Exclusão de Atividade                  | Implementar a funcionalidade para excluir atividades do sistema.                                            |
+| 9                     | Criação de Estoque                     | Criar e registrar novos itens no estoque através do sistema.                                                |
+| 10                    | Edição de Estoque                      | Permitir a atualização das informações de itens no estoque.                                                 |
+| 11                    | Exclusão de Estoque                    | Implementar a funcionalidade de remover itens do estoque no sistema.                                        |
+| 12                    | Dados Calendário                    | ...                                        |
+
+inserir texto explicativo e completar tabela com calendário
+
+---
 
 ## 4.4 Tabela de Backlog do Produto
 
@@ -364,3 +413,5 @@ Tabela : Backlog do produto
 | 1.0 | 25/11/2024 | Desenvolvimento do artefato **contexto do problema**, **declaração do produto**, **objetivo do produto** e **tecnologias a serem utilizadas**   | Felipe Freire |
 | 1.1 | 29/11/2024 | Evolução dos artefatos **contexto do problema**, **declaração do produto**, **objetivo do produto** e **tecnologias a serem utilizadas**   | Felipe Freire |
 | 1.2 | 29/11/2024 | Desenvolvimento dos artefatos **ciclo de vida do projeto**   | Felipe Freire |
+| 1.3 | 29/11/2024 | Desenvolvimento dos artefatos **backlog do produto**, **perfis** e **cenários**   | Felipe Freire |
+
