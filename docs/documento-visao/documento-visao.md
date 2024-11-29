@@ -1,5 +1,5 @@
 
-# Visão do Produto e Projeto
+# 1. Visão Geral do Produto e Projeto
 
 <div style="text-align: justify;">
 
@@ -9,9 +9,9 @@ Este documento será usado como guia para registrar as informações gerais do p
 
 ---
 
-## Problema
+## 1.1 Problema
 
-### Contexto do Problema
+### 1.1.1 Contexto do Problema
 
 <div style="text-align: justify;">
 
@@ -23,7 +23,7 @@ Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de
 
 ---
 
-### Problema Encontrado
+### 1.1.2 Problema Encontrado
 
 <div style="text-align: justify;">
 
@@ -40,11 +40,22 @@ O principal problema enfrentado pela equipe <strong>mamutes</strong> é a falta 
 
 ---
 
-### Diagrama de Ishikawa (Espinha de Peixe)
+### 1.1.3 Diagrama de Ishikawa (Espinha de Peixe)
 
 <div style="text-align: justify;">
 
-A ineficiência na gestão e divulgação da equipe é causada por quatro fatores principais: falta de integração entre os membros, ausência de padrões nos processos, inexistência de uma plataforma única para gestão e uma comunicação desorganizada. Esses problemas prejudicam o trabalho interno, dificultam o alcance do público-alvo e comprometem a captação de recursos, destacando a necessidade de uma solução centralizada para melhorar a organização e a visibilidade da equipe. Sendo demonstrada na seguinte tabela:
+A equipe de competição Mamutes do Cerrado da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: divulgação externa e gestão interna. Como uma equipe acadêmica e técnica que busca representar a instituição em competições de alto nível, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo. <br> <br>
+Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos (como estoque e finanças), tarefas (calendários e reuniões) e documentos essenciais. <br> <br>
+
+● O principal problema enfrentado pelos membros da Mamutes do Cerrado é a falta de uma plataforma centralizada que conecte as necessidades de divulgação externa e gestão interna. Conforme a tabela seguinte, isso resulta em: <br> <br>
+
+● Baixa visibilidade externa: Falta de uma identidade visual unificada e dificuldade em atrair novos membros e patrocinadores.<br> <br>
+
+● Desorganização interna: A ausência de ferramentas adequadas para gerenciar tarefas, compromissos, recursos materiais e financeiros gera atrasos, retrabalho e perda de eficiência.<br> <br>
+
+● Risco de perda de informações: O armazenamento descentralizado de documentos e atas compromete a transparência e dificulta o acesso às informações essenciais.<br> <br>
+
+A necessidade de um software surge como uma oportunidade de resolver esses gargalos, otimizando processos internos e fortalecendo a presença externa da equipe.  <br>
 
 </div>
 
@@ -52,12 +63,14 @@ A ineficiência na gestão e divulgação da equipe é causada por quatro fatore
 |-----------------|-------------------------------------------------------------------------------------------------------|
 | **Pessoas**     | Falta de integração entre os membros; dificuldade em acompanhar tarefas e reuniões.                   |
 | **Processos**   | Gestão manual ou uso de ferramentas dispersas; ausência de um padrão de operação.                     |
-| **Tecnologia**  | Inexistência de uma plataforma única e dedicada às necessidades específicas da equipe.                 |
+| **Tecnologia**  | Inexistência de uma plataforma de integração única e dedicada às necessidades específicas da equipe.                 |
 | **Comunicação** | Divulgação fragmentada, impactando o alcance do público-alvo e a captação de recursos.                |
 
 <div style="text-align: justify;">
 
 A tabela resume as principais causas da ineficiência na gestão e divulgação da equipe. Entre elas, a falta de integração entre os membros dificulta o acompanhamento de tarefas e reuniões, enquanto a ausência de um padrão nos processos e o uso de ferramentas dispersas tornam a gestão desorganizada. Além disso, a inexistência de uma plataforma única que atenda às necessidades específicas da equipe agrava os problemas tecnológicos. Por fim, a divulgação fragmentada impacta negativamente o alcance do público-alvo e dificulta a captação de recursos. Esses fatores evidenciam a urgência de uma solução centralizada para melhorar a organização interna e fortalecer a comunicação externa.
+
+O digrama abaixo identifica as causas do problema central: Ineficiência na gestão e divulgação da equipe:
 
 </div>
 
@@ -65,7 +78,7 @@ A tabela resume as principais causas da ineficiência na gestão e divulgação 
 
 ---
 
-### Solução Proposta
+### 1.1.3 Solução Proposta
 
 <div style="text-align: justify;">
 
@@ -85,7 +98,7 @@ A seguinte tabela demonstra a dimensão do problema analoga a sua proposta de so
 
 ---
 
-### Justificativa da Solução
+### 1.1.4 Justificativa da Solução
 
 <div style="text-align: justify;">
 
@@ -104,7 +117,7 @@ Podendo ser analisados com mais detalhes na tabela seguinte: <br>
 
 ---
 
-### Declaração de Posição do Produto
+### 1.2 Declaração de Posição do Produto
 
 <div style="text-align: justify;">
 
@@ -124,11 +137,11 @@ Ao contrário das soluções dispersas ou inexistentes que dificultam a comunica
 
 ---
 
-### Objetivos do Produto
+### 1.3 Objetivos do Produto
 
 <div style="text-align: justify;">
 
-O objetivo <strong>principal</strong> da solução é otimizar a gestão interna da equipe e fortalecer sua presença externa, abordando as dificuldades atuais de organização e visibilidade. Para isso, a aplicação proposta busca automatizar tarefas administrativas, permitindo que a equipe se concentre mais nas atividades essenciais. Além disso, a plataforma facilita a <strong>comunicação interna e externa</strong>, proporcionando uma interação mais eficiente entre os membros da equipe e com o público-alvo.
+O objetivo <strong>principal</strong> da solução é otimizar a gestão interna da equipe e fortalecer sua presença externa, abordando as dificuldades atuais de organização e visibilidade. Para isso, a aplicação proposta busca automatizar tarefas administrativas, permitindo que a equipe se concentre mais nas atividades essenciais. Além disso, a plataforma facilita a <strong>comunicação interna e externa</strong>, proporcionando uma interação mais eficiente entre os membros da equipe e com o público-alvo. <br> <br>
 
 Outro aspecto importante é garantir <strong>acessibilidade aos documentos e recursos</strong> da equipe, permitindo que todos os membros possam acessar informações relevantes de forma rápida e organizada. Dessa forma, a solução não só melhora a operação interna, mas também contribui para uma maior visibilidade e engajamento externo, com uma gestão mais fluida e transparente.
 
@@ -146,7 +159,7 @@ Podendo ser analisados com mais detalhes na tabela seguinte: <br>
 
 ---
 
-### Tecnologias a Serem Utilizadas
+### 1.4 Tecnologias a Serem Utilizadas
 
 <div class="text-align: justify;">
     <p><em><strong></strong> Tecnologias e ferramentas utilizadas no desenvolvimento do sistema:</em></p>
@@ -163,15 +176,23 @@ Podendo ser analisados com mais detalhes na tabela seguinte: <br>
 
 ---
 
-## Visão Geral do Projeto
+## 2. Visão Geral do Projeto
 
-### Ciclo de Vida do Projeto
+### 2.1 Ciclo de Vida do Projeto
 
-desenvolver
+<div style="text-align: justify;">
+
+O ciclo de vida do projeto será ágil, baseado nas metodologias <strong>SCRUM</strong> e <strong>XP</strong>, visando garantir eficiência e organização no desenvolvimento. Com essa abordagem, espera-se que o projeto seja concluído dentro do prazo estipulado e atenda a todos os requisitos definidos. Para isso, será utilizado como referência o <strong>SCRUM Guide</strong> e o <strong>XP Guide</strong>, além de boas práticas amplamente discutidas na literatura técnica. <br> <br>
+
+Entre os métodos aplicados estão <strong>pair programming</strong>, que acelera o desenvolvimento e promove a troca de conhecimento entre os desenvolvedores, e <strong>code review</strong>, garantindo maior qualidade no código. Outros métodos incluem o uso de padrões de codificação, planejamento de <strong>releases e sprints</strong>, além de execução de testes de aceitação. Essas práticas contribuem para um desenvolvimento mais controlado e de alta qualidade, atendendo às demandas do projeto. <br> <br>
+
+Quanto às ferramentas, serão utilizados o <strong>GitHub</strong> para repositório e controle de versionamento do código, bem como o <strong>Astah</strong> para modelagem de diagramas e o <strong>Miro</strong> para organização visual e gerenciamento do backlog. 
+
+</div>
 
 ---
 
-### Organização do Projeto
+### 2.2 Organização do Projeto
 
 <div style="text-align: justify;">
 
@@ -197,13 +218,13 @@ O <strong>Scrum Master</strong> (Caio Duarte) atualiza o escopo do projeto e val
 
 Os <strong>Líderes de Squad</strong> lideram as equipes de desenvolvimento, incentivando e orientando os membros. Eles também atuam como revisores de código, garantindo que o versionamento e as práticas de desenvolvimento sejam seguidos corretamente. Os <strong>Desenvolvedores</strong> são os responsáveis por codificar e implementar as funcionalidades do sistema, transformando as necessidades em soluções práticas e operacionais. <br> <br>
 
-Por fim, os <strong>Analistas de Qualidade</strong> executam testes de software para garantir que o produto esteja livre de erros e com a qualidade necessária. Cada papel tem uma função essencial para o sucesso do projeto, garantindo colaboração, organização e entrega de um produto confiável e bem executado. <br> <br>
+Por fim, os <strong>Analistas de Qualidade</strong> executam testes de software para garantir que o produto esteja livre de erros e com a qualidade necessária. Cada papel tem uma função essencial para o sucesso do projeto, garantindo colaboração, organização e entrega de um produto confiável e bem executado.
 
 </div>
 
 ---
 
-### Planejamento das Fases
+### 2.3 Planejamento das Fases
 
 As fases serão detalhadas e adaptadas em cada sprint, com priorização do backlog com entregas claras e incrementais:  
 
@@ -213,18 +234,39 @@ As fases serão detalhadas e adaptadas em cada sprint, com priorização do back
 | 2       | MVP e Planejamento do Projeto  | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
 | 3       | Funcionalidades A, B, C, D     | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
 
+
+#### 2.3.3 Detalhamento da Tabela
+
+<div style="text-align: justify;">
+
+A tabela apresenta o planejamento das <strong>sprints</strong> do projeto, detalhando as entregas, datas de início e fim, e o progresso de cada etapa. Na <strong>Sprint 1</strong>, o foco será na <strong>definição do produto</strong>, estabelecendo as principais funcionalidades e alinhando os objetivos do projeto. Isso garantirá uma visão clara e compartilhada entre todos os membros da equipe. <br> <br>
+
+Na <strong>Sprint 2</strong>, será entregue o <strong>MVP (Produto Mínimo Viável)</strong> e realizado o planejamento detalhado do projeto. Essa etapa é crucial para definir prioridades e preparar a equipe para o desenvolvimento das funcionalidades principais. <br> <br>
+
+Por fim, a <strong>Sprint 3</strong> será dedicada à implementação das <strong>funcionalidades A, B, C e D</strong>, que compõem a base técnica do produto final. Todas as sprints são planejadas com datas específicas para garantir o controle de tempo e o acompanhamento do progresso, promovendo entregas organizadas e dentro dos prazos estabelecidos. 
+
+</div>
+
 ---
 
-### Matriz de Comunicação
+### 2.4 Matriz de Comunicação
 
-| Descrição                             | Área/Envolvidos      | Periodicidade | Produtos Gerados              |
-|---------------------------------------|----------------------|---------------|--------------------------------|
-| Acompanhamento das Atividades         | Equipe do Projeto    | Semanal       | Ata de Reunião, Relatório      |
-| Situação do Projeto                   | Equipe/Prof/Monitor  | Quinzenal     | Relatório de Situação          |
+| Descrição                                       | Área/Envolvidos       | Periodicidade | Produtos Gerados                |
+|------------------------------------------------|-----------------------|---------------|---------------------------------|
+| Acompanhamento das Atividades em Andamento e situação do projeto    | Equipe do Projeto, Monitor e PO   | Semanal       | Ata de reunião|
+| Acompanhamento de atividades em andamento (Stand-up meetings) | Líderes Squad, Scrum Master    | Diário     | Comunicação de alinhamento entre membros do squad       |
+
+<div style="text-align: justify;">
+
+O Acompanhamento das Atividades em Andamento e Situação do Projeto, realizado semanalmente pela Equipe do Projeto, Monitor e PO (Product Owner), tem como objetivo revisar o progresso das tarefas, discutir o estado atual do projeto e planejar ações para mitigar possíveis riscos. Como resultado, são gerados a Ata de Reunião, que registra as discussões e decisões. <br> <br>
+
+Já o Acompanhamento de Atividades em Andamento (Stand-up Meetings) ocorre diariamente, sendo conduzido pelos Líderes de Squad e o Scrum Master. Esse encontro tem foco no alinhamento entre os membros do squad, promovendo a comunicação e garantindo que todos estejam cientes do progresso e dos próximos passos. A principal entrega desse acompanhamento é a Comunicação de Alinhamento, que mantém todos informados sobre o andamento das atividades e facilita a colaboração contínua.
+
+</div>
 
 ---
 
-## Gerenciamento de Riscos
+## 2.5 Gerenciamento de Riscos
 
 | Risco                      | Grau de Exposição | Mitigação                    | Plano de Contingência          |
 |----------------------------|-------------------|------------------------------|--------------------------------|
@@ -233,14 +275,26 @@ As fases serão detalhadas e adaptadas em cada sprint, com priorização do back
 
 ---
 
-## Processo de Desenvolvimento de Software
-
-O processo seguirá metodologias ágeis (Scrum e XP), com fluxos organizados de atividades para garantir eficiência e colaboração.
+## 2.6 Criterios de Replanejamento
 
 
 ---
 
-## Declaração de Escopo do Projeto
+# 3. Processo de Desenvolvimento de Software
+
+<div style="text-align: justify;">
+
+O desenvolvimento do software para a equipe <strong>Mamutes do Cerrado</strong> será guiado pelas metodologias <strong>SCRUM</strong> e <strong>XP</strong>, escolhidas por sua eficácia em organizar equipes e promover práticas de programação de alta qualidade. O <strong>SCRUM</strong> será responsável por estruturar o trabalho da equipe, garantindo controle de tempo e produtividade, enquanto o <strong>XP</strong> trará suporte com técnicas específicas para o desenvolvimento do software. <br> <br>
+
+O <strong>SCRUM</strong> será aplicado por meio de eventos como <strong>reuniões semanais de Planejamento e Entrega de Sprints</strong>, realizadas às segundas-feiras, e revisões de sprint, que permitirão avaliar o progresso e planejar melhorias. Além disso, as <strong>Stand-up Meetings diárias</strong> serão fundamentais para monitorar as atividades em andamento, identificar obstáculos e alinhar prioridades. Esses encontros irão reforçar a comunicação dentro da equipe, que é um elemento essencial para o sucesso do projeto. Sendo gerenciadas por meio dos lideres de squad. <br> <br>
+
+Complementando, a metodologia <strong>XP</strong> será implementada com a formação de pares de programação, <strong>code review</strong>, uso de <strong>padrões de codificação</strong> e execução de <strong>testes de aceitação</strong>. Esses métodos garantirão que o software seja desenvolvido com qualidade, respeitando os prazos estabelecidos e atendendo às expectativas do cliente. Essa combinação de práticas ágeis proporcionará uma abordagem eficiente e colaborativa ao desenvolvimento do projeto. <br> <br>
+
+</div>
+
+---
+
+# 4. Declaração de Escopo do Projeto
 
 **Backlog do Produto**:  
 - Requisitos obrigatórios (*Must*): Módulos de gestão e divulgação.  
@@ -252,10 +306,9 @@ O processo seguirá metodologias ágeis (Scrum e XP), com fluxos organizados de 
 | Divulgação| Página inicial  | 1      | Must        | Funcional           | Apresentar a equipe          |
 
 
-### Backlog do Produto
+## 4.1 Backlog do Produto
 
-
-### Perfis
+## 4.2 Perfis
 
 Tabela : Perfis de acesso
 
@@ -263,7 +316,7 @@ Tabela : Perfis de acesso
 |------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------|
 | Administrador    | Responsável por manter os perfis de acesso da aplicação, criar novos usuários, alterar usuários existentes, ou excluir usuários (Manter usuários) | Descrever sucintamente as permissões de acesso |
 
-### Cenários
+## 4.3 Cenários
 
 Tabela : Cenários funcionais
 
@@ -271,7 +324,7 @@ Tabela : Cenários funcionais
 |------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------|
 | <1>             | <ex> Administrador                                                                                            | Responsável por manter os perfis de acesso da aplicação, criar novos usuários, alterar usuários já existentes, ou excluir usuários (Manter usuários) | Descrever sucintamente as permissões de acesso |
 
-### Tabela de Backlog do Produto
+## 4.4 Tabela de Backlog do Produto
 
 
 <p style="text-align: justify;">
@@ -307,6 +360,7 @@ Tabela : Backlog do produto
 
 | Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
 | :----: | :--: | :--------------------: | :-------------------: |
-| 1.0 | 25/11/2024 | Criação inicial e estrutura do artefato | Felipe Freire |
+| 1.0 | 25/11/2024 | Criação inicial e estrutura do artefato | Felipe Freire e Amanda Cruz Lima |
 | 1.0 | 25/11/2024 | Desenvolvimento do artefato **contexto do problema**, **declaração do produto**, **objetivo do produto** e **tecnologias a serem utilizadas**   | Felipe Freire |
 | 1.1 | 29/11/2024 | Evolução dos artefatos **contexto do problema**, **declaração do produto**, **objetivo do produto** e **tecnologias a serem utilizadas**   | Felipe Freire |
+| 1.2 | 29/11/2024 | Desenvolvimento dos artefatos **ciclo de vida do projeto**   | Felipe Freire |
