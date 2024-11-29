@@ -17,13 +17,14 @@ Este documento será usado como guia para os integrantes do projeto tenha acesso
 | **Confiabilidade**                  | Documento de confiabilidade                   | [Acessar](https://unbbr-my.sharepoint.com/:x:/g/personal/211039475_aluno_unb_br/EbmijmhQ8oxDqLiCq4aBGXgBklqS-087RaNaLTouaGDmkQ?rtime=ukoS-zYP3Ug) |
 | **FMEA**                            | Tabela FMEA                                   | [Acessar](https://drive.google.com/drive/folders/13MhOG4tuQMfC5uhNSO4BLevcbZqCPCq0)                                                 |
 
-# Links Funcionais para o Front-End do Projeto
+# Links Funcionais para o Front-End do Projeto 
 
 | Categoria                | Descrição                                     | Link                                                                                                                                  |
 |--------------------------|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Requisitos de Front-End** | Requisitos do front-end do projeto          | [Acessar](https://www.canva.com/design/DAFQo7YpQgk/8aGu1jU3FS_afrScamCT4A/edit)                                                      |
 | **Jornada do Usuário**   | Jornada do usuário                            | [Acessar](https://www.canva.com/design/DAFQo7YpQgk/8aGu1jU3FS_afrScamCT4A/edit)                                                      |
-| **Requisitos de Páginas**| Requisitos de páginas                         | [Acessar](https://docs.google.com/document/d/1kDp9HKBoK-4CKxUfCm3X-8PvnqyY_zZ2xrZw05No-v8/edit?usp=sharing)                          |
+| **Requisitos de Páginas**| Requisitos de páginas                         | [Acessar](https://docs.google.com/document/d/1kDp9HKBoK-4CKxUfCm3X-8PvnqyY_zZ2xrZw05No-v8/edit?usp=sharing)    
+| **Prototipo**| Protótipo das páginas                         | [Acessar](https://www.figma.com/design/91Uplom2dbGErUgCocwR7I/Protótipo---Mamutes-do-Cerrado?node-id=2-7&node-type=canvas)                       |
 
 # Vetores da Equipe
 
@@ -43,3 +44,4 @@ Este documento será usado como guia para os integrantes do projeto tenha acesso
 | Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
 | :----: | :--: | :--------------------: | :-------------------: |
 | 1.0 | 28/11/2024 | Criação da Estrutura do Arquivo e Inserção dos Links Encontrados | Felipe Freire |
+| 1.1 | 28/11/2024 | Atualização link figma | Felipe Freire |
