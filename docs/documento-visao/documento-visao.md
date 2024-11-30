@@ -76,6 +76,8 @@ O digrama abaixo identifica as causas do problema central: Ineficiência na gest
 
 (colocar diagrama aqui.)
 
+![Diagrama de Ishikawa](/docs/view/img/Diagrama%20de%20Ishikawa%20da%20Mamute.jpg)
+
 ---
 
 ### 1.1.3 Solução Proposta
@@ -228,11 +230,18 @@ Por fim, os <strong>Analistas de Qualidade</strong> executam testes de software 
 
 As fases serão detalhadas e adaptadas em cada sprint, com priorização do backlog com entregas claras e incrementais:  
 
-| Sprint  | Produto (Entrega)              | Data Início  | Data Fim      | % Conclusão |
-|---------|--------------------------------|--------------|---------------|-------------|
-| 1       | Definição do Produto           | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
-| 2       | MVP e Planejamento do Projeto  | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
-| 3       | Funcionalidades A, B, C, D     | dd/mm/aaaa   | dd/mm/aaaa    | 0%          |
+| Sprint  | Produto (Entrega)                                                                                                 | Data Início  | Data Fim      | % Conclusão |
+|---------|-------------------------------------------------------------------------------------------------------------------|--------------|---------------|-------------|
+| 1       | Definição do Produto                                                                                              | 10/11/2024   | 18/11/2024    | 100%          |
+| 2       | Documentação de arquitetura, Criação de Banco de dados em MySql, Finalizar Documento da Visão, Página Quem Somos  | 18/11/2024   | 25/11/2024    | ?%          |
+| 3       | Página de Competição, Página de Processo Seletivo, Página Configurações de Conta                                  | 25/11/2024  | 02/11/2024    | 0%          |
+| 4       |Menu lateral, Aba home, Aviso, Times da equipe                                                                     | 02/12/2024   | 09/11/2024   | 0%          |
+| 5       |Criação de tarefas, Calendário                                                                                     | 09/12/2024   | 16/11/2024    | 0%          |
+| 6       | Rastreio de tarefas, Kanban                                                                                       | 30/12/2024  | 06/01/2025    | 0%          |
+| 7       | Página Estoque                                                                                                    | 06/01/2025  | 13/01/2025      | 0%          |
+| 8       | Página Registro de Acidentes, Página registro de vôo                                                              | 13/01/2025  | 20/01/2025    | 0%          |
+| 9       |Página Registro de Acidentes                                                                                       | 20/01/2025   | 27/01/2025      | 0%          |
+| 10      | Deploy                                                                                                            | 27/01/2025    | 02/02/2025   | 0%          |
 
 
 #### 2.3.3 Detalhamento da Tabela
@@ -278,6 +287,7 @@ Já o Acompanhamento de Atividades em Andamento (Stand-up Meetings) ocorre diari
 ## 2.6 Criterios de Replanejamento
 
 
+
 ---
 
 # 3. Processo de Desenvolvimento de Software
@@ -300,10 +310,23 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 - Requisitos obrigatórios (*Must*): Módulos de gestão e divulgação.  
 - Requisitos desejáveis (*Should/Could*): Customização e integração com redes sociais.  
 
-| Cenário   | Requisito       | Sprint | Priorização | Tipo de Requisito   | Descrição                    |
-|-----------|-----------------|--------|-------------|---------------------|------------------------------|
-| Gestão    | Calendário      | 2      | Must        | Funcional           | Gerenciamento de tarefas     |
-| Divulgação| Página inicial  | 1      | Must        | Funcional           | Apresentar a equipe          |
+| Cenário   | Requisito                      | Sprint | Priorização | Tipo de Requisito   | Descrição                   |
+|-----------|--------------------------------|--------|-------------|---------------------|-----------------------------|
+| Gestão    | Calendário                     | 5      | Must        | Funcional           | Gerenciamento de tarefas    |
+| Divulgação| Página inicial                 | 1      | Must        | Funcional           | Apresentar a equipe         |
+| Divulgação| Página de Competição           | 3      | could       | Funcional           | seção de notícias no site   |
+| Divulgação| Página de Processo Seletivo    | 3      | must        | Funcional           | informações do processo seletivo |
+| Gestão    | Página Configurações de Conta | 3      | Must        | Funcional           | configuração de conta        |
+| navegação | Menu lateral (àrea restrita)   | 4      | Must        | Funcional           | Anavegação e pesquisa         |
+| divugação | Aba home                       | 4      | Must        | Funcional           | aba principal e de aviso       |
+| gestão    | Criação de tarefas             | 5      | Must        | Funcional           | criar e atribuir tarefas        |
+| gestão    | Rastreio de tarefas            | 6      | Must        | Funcional           | rastreamento do que ser feito, e do que foi        |
+| gestão    | Times da equipe                | 6      | Must        | Funcional           |  destacando membros e a história da equipe         |
+|organização| Kanban                         | 6      | Must        | Funcional           | organizar, gerenciar e visualizar tarefas e projetos|
+|organização| Página Estoque                 | 7      | Must        | Funcional           | Apresentar a equipe         |
+|gestão     | Página Registro de Acidentes   | 8      | Must        | Funcional           | documentação de acidentes       |
+|gestão     | Página registro de vôo         | 8      | Must        | Funcional           | documentação de vôos        |
+
 
 ---
 
@@ -338,12 +361,13 @@ Essas funcionalidades refletem as necessidades de visibilidade externa e eficiê
 Tabela : Perfis de acesso
 
 
-| Nome do Perfil  | Características do Perfil                                                                 | Permissões de Acesso                                                                                         |
+| Nome do Perfil   | Características do Perfil                                                                 | Permissões de Acesso                                                                                         |
 |------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
 | Administrador    | Responsável por manter os perfis de acesso da aplicação, criar novos usuários, alterar usuários existentes ou excluir usuários (Manter usuários). | Manter usuários, controle completo sobre configurações do sistema e acessos administrativos.                |
 | Capitão          | Membro responsável pela Mamutes como um todo. Um membro é capitão (verificar capitães). | Terá login. Acesso completo a CRUD de planilhas, atas, processo seletivo, presenças, estoque e disponibilidade de membros. |
 | Membro           | Membro da Mamutes de alguma das áreas existentes na equipe.                                | Terá login. Manter suas informações atualizadas, visualizar planilhas e editá-las quando permitido, gerenciar estoque (quando necessário). |
 | Visitante        | Usuário interessado em obter informações sobre a Mamutes e conhecer a equipe.               | Não terá login. Acesso ao site de divulgação.                                                              |
+| treinees       | pagina dos treinees         |                                                             |
 
 inserir texto explicativo
  
