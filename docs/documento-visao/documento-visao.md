@@ -391,7 +391,7 @@ Tabela : Cenários funcionais
 | 9                     | Criação de Estoque                     | Criar e registrar novos itens no estoque através do sistema.                                                |
 | 10                    | Edição de Estoque                      | Permitir a atualização das informações de itens no estoque.                                                 |
 | 11                    | Exclusão de Estoque                    | Implementar a funcionalidade de remover itens do estoque no sistema.                                        |
-| 12                    | Dados Calendário                    | ...                                        |
+| 12                    | Dados Calendário                    |marcar datas e eventos importantes e marcar data de entrega de tarefas                                          |
 
 inserir texto explicativo e completar tabela com calendário
 
