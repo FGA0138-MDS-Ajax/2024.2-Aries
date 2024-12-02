@@ -42,20 +42,33 @@ O principal problema enfrentado pela equipe <strong>mamutes</strong> é a falta 
 
 ### 1.1.3 Diagrama de Ishikawa (Espinha de Peixe)
 
-<div style="text-align: justify;">
+<div style="text-align: justify;"> 
 
-A equipe de competição Mamutes do Cerrado da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: divulgação externa e gestão interna. Como uma equipe acadêmica e técnica que busca representar a instituição em competições de alto nível, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo. <br> <br>
-Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos (como estoque e finanças), tarefas (calendários e reuniões) e documentos essenciais. <br> <br>
+A equipe de competição <strong>Mamutes do Cerrado</strong>, da Universidade de Brasília (UnB) - FCTE, enfrenta desafios em dois pilares fundamentais: <strong>divulgação externa</strong> e <strong>gestão interna</strong>. Como um grupo acadêmico e técnico que representa a instituição em competições de alto nível, é essencial conciliar uma forte presença pública com uma organização interna eficiente para alcançar seus objetivos estratégicos. <br> <br>
 
-● O principal problema enfrentado pelos membros da Mamutes do Cerrado é a falta de uma plataforma centralizada que conecte as necessidades de divulgação externa e gestão interna. Conforme a tabela seguinte, isso resulta em: <br> <br>
+Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de recursos (estoque e finanças), tarefas (calendários e reuniões) e documentos essenciais. Isso gera uma série de dificuldades, conforme detalhado na tabela abaixo: <br> <br>
 
-● Baixa visibilidade externa: Falta de uma identidade visual unificada e dificuldade em atrair novos membros e patrocinadores.<br> <br>
+</div>
 
-● Desorganização interna: A ausência de ferramentas adequadas para gerenciar tarefas, compromissos, recursos materiais e financeiros gera atrasos, retrabalho e perda de eficiência.<br> <br>
+| **Aspecto**               | **Problemas Identificados**                                                                                      | **Impactos**                                                                                  |
+|---------------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| **Visibilidade Externa**   | Falta de identidade visual unificada e dificuldade em atrair novos membros e patrocinadores.                    | Baixa captação de talentos e financiamentos, além de menor reconhecimento institucional.    |
+| **Gestão Interna**         | Ausência de ferramentas adequadas para organizar tarefas, compromissos, materiais e finanças.                   | Atrasos, retrabalho, perda de eficiência e dificuldade em planejar ações estratégicas.       |
+| **Armazenamento de Dados** | Armazenamento descentralizado de documentos e atas.                                                            | Compromete a transparência, dificulta o acesso à informação e aumenta o risco de perda de dados. |
 
-● Risco de perda de informações: O armazenamento descentralizado de documentos e atas compromete a transparência e dificulta o acesso às informações essenciais.<br> <br>
+<div style="text-align: justify;"> 
 
-A necessidade de um software surge como uma oportunidade de resolver esses gargalos, otimizando processos internos e fortalecendo a presença externa da equipe.  <br>
+Esses problemas apontam para a urgência de implementar um software que centralize e integre as funcionalidades necessárias. A plataforma deverá:  
+
+</div>
+
+1. **Fortalecer a presença externa** com uma identidade visual consolidada e ferramentas para atrair novos membros e patrocinadores.  
+2. **Otimizar a gestão interna**, promovendo organização, eficiência e transparência nos processos da equipe.  
+3. **Garantir segurança de dados** com armazenamento centralizado e fácil acesso a informações essenciais.  
+
+<div style="text-align: justify;"> 
+
+A adoção dessa solução tecnológica é crucial para superar os gargalos atuais, fortalecer a equipe e maximizar seu desempenho competitivo.
 
 </div>
 
@@ -68,9 +81,11 @@ A necessidade de um software surge como uma oportunidade de resolver esses garga
 
 <div style="text-align: justify;">
 
-A tabela resume as principais causas da ineficiência na gestão e divulgação da equipe. Entre elas, a falta de integração entre os membros dificulta o acompanhamento de tarefas e reuniões, enquanto a ausência de um padrão nos processos e o uso de ferramentas dispersas tornam a gestão desorganizada. Além disso, a inexistência de uma plataforma única que atenda às necessidades específicas da equipe agrava os problemas tecnológicos. Por fim, a divulgação fragmentada impacta negativamente o alcance do público-alvo e dificulta a captação de recursos. Esses fatores evidenciam a urgência de uma solução centralizada para melhorar a organização interna e fortalecer a comunicação externa.
+A tabela resume as principais causas da ineficiência na gestão e divulgação da equipe. Entre elas, a falta de integração entre os membros dificulta o acompanhamento de tarefas e reuniões, enquanto a ausência de um padrão nos processos e o uso de ferramentas dispersas tornam a gestão desorganizada. <br> <br>
 
-O digrama abaixo identifica as causas do problema central: Ineficiência na gestão e divulgação da equipe:
+Além disso, a inexistência de uma plataforma única que atenda às necessidades específicas da equipe agrava os problemas tecnológicos. Por fim, a divulgação fragmentada impacta negativamente o alcance do público-alvo e dificulta a captação de recursos. Esses fatores evidenciam a urgência de uma solução centralizada para melhorar a organização interna e fortalecer a comunicação externa.
+
+O digrama abaixo identifica as causas do problema central: Ineficiência na gestão e divulgação da equipe: <br> <br>
 
 </div>
 
@@ -339,7 +354,7 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 | Divugação | Aba home                       | 4      | Must        | Funcional           | aba principal e de aviso       |
 | Gestão    | Criação de tarefas             | 5      | Must        | Funcional           | criar e atribuir tarefas        |
 | Gestão    | Rastreio de tarefas            | 6      | Must        | Funcional           | rastreamento do que ser feito, e do que foi        |
-| Gestão    | Times da equipe                | 6      | Must        | Funcional           |  destacando membros e a história da equipe         |
+| Gestão    | Times da equipe                | 6      | Must        | Funcional           | destacando membros e a história da equipe         |
 |Organização| Kanban                         | 6      | Must        | Funcional           | organizar, gerenciar e visualizar tarefas e projetos|
 |Organização| Página Estoque                 | 7      | Must        | Funcional           | Apresentar a equipe         |
 |Gestão     | Página Registro de Acidentes   | 8      | Must        | Funcional           | documentação de acidentes       |
@@ -402,7 +417,7 @@ Tabela : Perfis de acesso
 | Capitão          | Membro responsável pela Mamutes como um todo. Um membro é capitão (verificar capitães). | Terá login. Acesso completo a CRUD de planilhas, atas, processo seletivo, presenças, estoque e disponibilidade de membros. |
 | Membro           | Membro da Mamutes de alguma das áreas existentes na equipe.                                | Terá login. Manter suas informações atualizadas, visualizar planilhas e editá-las quando permitido, gerenciar estoque (quando necessário). |
 | Visitante        | Usuário interessado em obter informações sobre a Mamutes e conhecer a equipe.               | Não terá login. Acesso ao site de divulgação.                                                              |
-| treinees       | pagina dos treinees         |                                                             |
+| Treinee          | Membro em período inicial na equipe, destinado a aprendizagem e integração com a Mamutes. | Terá login. Acesso restrito para visualizar planilhas, consultar documentos e acompanhar cronogramas de tarefas. | 
 
 ---
 
@@ -433,7 +448,9 @@ Tabela : Cenários funcionais
 | 9                     | Criação de Estoque                     | Criar e registrar novos itens no estoque através do sistema.                                                |
 | 10                    | Edição de Estoque                      | Permitir a atualização das informações de itens no estoque.                                                 |
 | 11                    | Exclusão de Estoque                    | Implementar a funcionalidade de remover itens do estoque no sistema.                                        |
-| 12                    | Dados Calendário                    |marcar datas e eventos importantes e marcar data de entrega de tarefas                                          |
+| 12                    | Gerenciamento de Calendário            | Implementar um calendário para marcar eventos internos como reuniões, competições e datas importantes.       |
+| 13                    | Agendamento de Entregas                | Permitir aos membros definir e acompanhar datas de entrega de tarefas e projetos no calendário.             |
+| 14                    | Notificações de Eventos e Prazos       | Adicionar funcionalidade de notificações automáticas para lembrar membros sobre eventos e prazos registrados. |
 
 ---
 
@@ -466,6 +483,20 @@ Tabela : Backlog do produto
 
 ## Referências Bibliográficas
 
+- **Quais são os 12 Princípios da Gestão de Projetos Ágeis?**  
+  Disponível em: [https://businessmap.io/pt/metodologia-agil/principios-manifesto-agil](https://businessmap.io/pt/metodologia-agil/principios-manifesto-agil)  
+
+- **SWEBOK - Software Engineering Body of Knowledge**  
+  Disponível em: [https://www.computer.org/education/bodies-of-knowledge/software-engineering](https://www.computer.org/education/bodies-of-knowledge/software-engineering)  
+
+- **O que é backlog do produto Scrum e como fazer um**  
+  Disponível em: [https://www.lucidchart.com/blog/pt/como-fazer-um-backlog-do-produto](https://www.lucidchart.com/blog/pt/como-fazer-um-backlog-do-produto)  
+
+- **Diagrama de Ishikawa**  
+  Disponível em: [https://miro.com/pt/diagrama/o-que-e-diagrama-ishikawa/](https://miro.com/pt/diagrama/o-que-e-diagrama-ishikawa/)  
+
+- **Documento de Visão do Produto**  
+  Disponível em: [https://kb.ufla.br/books/termos-e-definicoes/page/documento-de-visao-do-produto](https://kb.ufla.br/books/termos-e-definicoes/page/documento-de-visao-do-produto)  
 
 ---
 
@@ -479,5 +510,6 @@ Tabela : Backlog do produto
 | 1.2 | 29/11/2024 | Desenvolvimento dos artefatos **ciclo de vida do projeto**   | Felipe Freire |
 | 1.3 | 29/11/2024 | Desenvolvimento dos artefatos **backlog do produto**, **perfis** e **cenários**   | Felipe Freire e Felipe Duarte |
 | 1.4 | 02/12/2024 | Desenvolvimento dos artefatos **Gerenciamento de Riscos** e **Critérios de Replanejamento**| Isaque Camargos | 
-| 1.5 | 29/11/2024 | Upgrade nos artefatos **backlog do produto**, **perfis**, **cenários** e **declaração de escopo**   | Felipe Freire e Felipe Duarte | 
+| 1.5 | 02/12/2024 | Upgrade nos artefatos **backlog do produto**, **perfis**, **cenários** e **declaração de escopo**   | Felipe Freire e Felipe Duarte | 
+| 1.6 | 02/12/2024 | Ajuste no texto do **diagrama espinha de peixe** e inserção das **referencias** | Felipe Freire | 
 
