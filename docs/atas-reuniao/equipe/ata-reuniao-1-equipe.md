@@ -100,4 +100,6 @@ Definir tecnologias, organização de equipe e designação de tarefas.
 
 | Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
 | :----: | :--: | :--------------------: | :-------------------: |
-| 1.2 | 26/11/2024 | Renumeração das reuniões | Mayara Marques |
+| 1.0 | 26/11/2024 | Criação da ata | Mayara Marques |
+| 1.1 | 26/11/2024 | Renumeração das reuniões | Mayara Marques |
+| 1.2 | 02/12/2024 | Reorganização da tabela de versionamento | Mayara Marques |
