@@ -95,4 +95,6 @@ Baseado em um documento prévio elaborado pelo líder do grupo, que continha inf
 
 | Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
 | :----: | :--: | :--------------------: | :-------------------: |
+| 1.0 | 25/11/2024 | Criação da ata | Mayara Marques |
 | 1.1 | 26/11/2024 | Inserção da tabela de participantes | Mayara Marques |
+| 1.2 | 02/12/2024 | Reorganização da tabela de versionamento | Mayara Marques |
