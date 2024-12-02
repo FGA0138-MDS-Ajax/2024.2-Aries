@@ -275,22 +275,38 @@ Já o Acompanhamento de Atividades em Andamento (Stand-up Meetings) ocorre diari
 
 ---
 
-## 2.5 Gerenciamento de Riscos
+### 2.5 Gerenciamento de Riscos
 
 | Risco                      | Grau de Exposição | Mitigação                    | Plano de Contingência          |
 |----------------------------|-------------------|------------------------------|--------------------------------|
 | Atrasos no cronograma      | Alto              | Reorganização do backlog     | Redistribuir tarefas           |
 | Perda de dados             | Médio             | Backup semanal               | Recuperação de backups         |
+|Falta de comunicação eficiente na equipe |Médio |Estabelecer reuniões regulares e usar ferramentas para comunicação rápida (whatsapp) ou padronizada (teams) |Acionar o Srcum Master para centralizar informações e resolver dúvidas urgentes |
+|Falta de conhecimento de membros da equipe |Alto|Identificar a deficiência e estudar|Redirecionar tarefas críticas para membros mais experientes ou buscar ajuda externa|
+|Escopo mal definido ou mudanças de requisitos |Alto |Validar o escopo com o cliente antes de iniciar o desenvolvimento|Ajustar o cronograma e priorizar entregas essenciais em caso de mudanças inesperadas|
+|Falta de recursos (tempo, ferramentas) |Médio |Monitorar os recursos necessários e informar problemas com antecedência|Ajustar o cronograma, buscar ferramentas gratuitas/alternativas e se necessário reavaliar o escopo do projeto|
+|Problemas de compatibilidade no site |Baixo |Realizar testes em navegadores e dispositivos diferentes durante o processo|Corrigir problemas emergenciais e desativar funcionalidades que não comprometam o todo|
+|Desistência de integrantes da equipe|Médio |Dividir tarefas de forma justa, manter boa comunicação e resolver  |Dividir tarefas de forma justa, manter boa comunicação e resolver|
 
 ---
 
-## 2.6 Criterios de Replanejamento
+### 2.6 Critérios de Replanejamento
 
+<div style="text-align: justify;">
 
+<strong>Mudanças nos requisitos: </strong> Sempre que houver alterações nos requisitos do projeto, seja por solicitação do cliente ou identificação de novas necessidades, o impacto dessas mudanças será avaliado. Se o impacto for significativo, será necessário ajustar o escopo e o cronograma, garantindo que os novos requisitos sejam integrados de maneira eficiente. <br> <br> 
+
+<strong> Problemas de recursos: </strong> A indisponibilidade de recursos, como membros da equipe, ferramentas ou infraestrutura, exigirá uma reavaliação das atividades. Nessa situação, o replanejamento priorizará o uso dos recursos disponíveis para assegurar que as entregas críticas sejam concluídas. <br> <br> 
+
+<strong> Baixa qualidade nas entregas: </strong> Caso entregas apresentem qualidade abaixo do esperado, problemas técnicos recorrentes ou as entregas planejadas não sejam cumpridas dentro do prazo acordado, será necessário revisar os processos e redefinir prazos para corrigir as falhas. <br> <br> 
+
+<strong> Feedback do cliente: </strong> Se o cliente identificar insatisfações ou oportunidades de melhoria significativas no produto em desenvolvimento, as sugestões serão avaliadas. Caso aprovadas, o planejamento será revisado para incorporá-las, mediante a existência de período ágil.<br> <br> 
+
+</div>
 
 ---
 
-# 3. Processo de Desenvolvimento de Software
+## 3. Processo de Desenvolvimento de Software
 
 <div style="text-align: justify;">
 
@@ -304,7 +320,7 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 
 ---
 
-# 4. Declaração de Escopo do Projeto
+## 4. Declaração de Escopo do Projeto
 
 **Backlog do Produto**:  
 - Requisitos obrigatórios (*Must*): Módulos de gestão e divulgação.  
@@ -330,7 +346,7 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 
 ---
 
-## 4.1 Backlog do Produto
+### 4.1 Backlog do Produto
 
 <div style="text-align: justify;">
 
@@ -356,7 +372,7 @@ Essas funcionalidades refletem as necessidades de visibilidade externa e eficiê
 
 ---
 
-## 4.2 Perfis
+### 4.2 Perfis
 
 Tabela : Perfis de acesso
 
@@ -374,7 +390,7 @@ inserir texto explicativo
 
 ---
 
-## 4.3 Cenários
+### 4.3 Cenários
 
 Tabela : Cenários funcionais
 
@@ -397,7 +413,7 @@ inserir texto explicativo e completar tabela com calendário
 
 ---
 
-## 4.4 Tabela de Backlog do Produto
+### 4.4 Tabela de Backlog do Produto
 
 
 <p style="text-align: justify;">
@@ -424,7 +440,7 @@ Tabela : Backlog do produto
 
 ---
 
-## REFERÊNCIAS BIBLIOGRÁFICAS
+## Referências Bibliográficas
 
 
 ---
@@ -438,4 +454,5 @@ Tabela : Backlog do produto
 | 1.1 | 29/11/2024 | Evolução dos artefatos **contexto do problema**, **declaração do produto**, **objetivo do produto** e **tecnologias a serem utilizadas**   | Felipe Freire |
 | 1.2 | 29/11/2024 | Desenvolvimento dos artefatos **ciclo de vida do projeto**   | Felipe Freire |
 | 1.3 | 29/11/2024 | Desenvolvimento dos artefatos **backlog do produto**, **perfis** e **cenários**   | Felipe Freire |
+| 1.4 | 02/12/2024 | Desenvolvimento dos artefatos **Gerenciamento de Riscos** e **Critérios de Replanejamento**| Isaque Camargos | 
 
