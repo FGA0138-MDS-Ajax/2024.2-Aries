@@ -244,15 +244,17 @@ As fases serão detalhadas e adaptadas em cada sprint, com priorização do back
 | 10      | Deploy                                                                                                            | 27/01/2025    | 02/02/2025   | 0%          |
 
 
-#### 2.3.3 Detalhamento da Tabela
+#### 2.3.1 Detalhamento da Tabela
 
 <div style="text-align: justify;">
 
-A tabela apresenta o planejamento das <strong>sprints</strong> do projeto, detalhando as entregas, datas de início e fim, e o progresso de cada etapa. Na <strong>Sprint 1</strong>, o foco será na <strong>definição do produto</strong>, estabelecendo as principais funcionalidades e alinhando os objetivos do projeto. Isso garantirá uma visão clara e compartilhada entre todos os membros da equipe. <br> <br>
+As fases do projeto serão realizadas de maneira incremental, organizadas em sprints para priorizar entregas específicas e garantir progresso contínuo.  
 
-Na <strong>Sprint 2</strong>, será entregue o <strong>MVP (Produto Mínimo Viável)</strong> e realizado o planejamento detalhado do projeto. Essa etapa é crucial para definir prioridades e preparar a equipe para o desenvolvimento das funcionalidades principais. <br> <br>
+Na <strong>Sprint 1</strong>, a equipe focará na <strong>definição do produto</strong>, alinhando objetivos e estabelecendo as bases para o desenvolvimento. Este passo inicial é essencial para assegurar que todos os membros tenham uma visão clara do escopo do projeto. <br> <br> 
 
-Por fim, a <strong>Sprint 3</strong> será dedicada à implementação das <strong>funcionalidades A, B, C e D</strong>, que compõem a base técnica do produto final. Todas as sprints são planejadas com datas específicas para garantir o controle de tempo e o acompanhamento do progresso, promovendo entregas organizadas e dentro dos prazos estabelecidos. 
+A <strong>Sprint 2</strong> envolverá a produção da <strong>documentação de arquitetura</strong>, a criação do banco de dados em MySQL, a finalização do documento de visão e a entrega da página "Quem Somos". Essa etapa organizará os fundamentos técnicos do sistema. <br> <br>
+
+As etapas seguintes, começando pela <strong>Sprint 3</strong>, irão abordar a implementação das páginas "Competição", "Processo Seletivo" e "Configurações de Conta", além de funcionalidades específicas como menus e avisos. Esse fluxo de trabalho visa manter um ritmo consistente e alinhado às prioridades do backlog. <br> <br>
 
 </div>
 
@@ -328,20 +330,20 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 
 | Cenário   | Requisito                      | Sprint | Priorização | Tipo de Requisito   | Descrição                   |
 |-----------|--------------------------------|--------|-------------|---------------------|-----------------------------|
-| Gestão    | Calendário                     | 5      | Must        | Funcional           | Gerenciamento de tarefas    |
-| Divulgação| Página inicial                 | 1      | Must        | Funcional           | Apresentar a equipe         |
+| Gestão    | Calendário                     | 5      | Must        | Funcional           | gerenciamento de tarefas    |
+| Divulgação| Página inicial                 | 1      | Must        | Funcional           | apresentar a equipe         |
 | Divulgação| Página de Competição           | 3      | could       | Funcional           | seção de notícias no site   |
 | Divulgação| Página de Processo Seletivo    | 3      | must        | Funcional           | informações do processo seletivo |
 | Gestão    | Página Configurações de Conta | 3      | Must        | Funcional           | configuração de conta        |
-| navegação | Menu lateral (àrea restrita)   | 4      | Must        | Funcional           | Anavegação e pesquisa         |
-| divugação | Aba home                       | 4      | Must        | Funcional           | aba principal e de aviso       |
-| gestão    | Criação de tarefas             | 5      | Must        | Funcional           | criar e atribuir tarefas        |
-| gestão    | Rastreio de tarefas            | 6      | Must        | Funcional           | rastreamento do que ser feito, e do que foi        |
-| gestão    | Times da equipe                | 6      | Must        | Funcional           |  destacando membros e a história da equipe         |
-|organização| Kanban                         | 6      | Must        | Funcional           | organizar, gerenciar e visualizar tarefas e projetos|
-|organização| Página Estoque                 | 7      | Must        | Funcional           | Apresentar a equipe         |
-|gestão     | Página Registro de Acidentes   | 8      | Must        | Funcional           | documentação de acidentes       |
-|gestão     | Página registro de vôo         | 8      | Must        | Funcional           | documentação de vôos        |
+| Navegação | Menu lateral (àrea restrita)   | 4      | Must        | Funcional           | Anavegação e pesquisa         |
+| Divugação | Aba home                       | 4      | Must        | Funcional           | aba principal e de aviso       |
+| Gestão    | Criação de tarefas             | 5      | Must        | Funcional           | criar e atribuir tarefas        |
+| Gestão    | Rastreio de tarefas            | 6      | Must        | Funcional           | rastreamento do que ser feito, e do que foi        |
+| Gestão    | Times da equipe                | 6      | Must        | Funcional           |  destacando membros e a história da equipe         |
+|Organização| Kanban                         | 6      | Must        | Funcional           | organizar, gerenciar e visualizar tarefas e projetos|
+|Organização| Página Estoque                 | 7      | Must        | Funcional           | Apresentar a equipe         |
+|Gestão     | Página Registro de Acidentes   | 8      | Must        | Funcional           | documentação de acidentes       |
+|Gestão     | Página registro de vôo         | 8      | Must        | Funcional           | documentação de vôos        |
 
 
 ---
@@ -350,23 +352,31 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 
 <div style="text-align: justify;">
 
-Tendo em vista o objetivo central do projeto, foram realizadas entrevistas com o cliente para compreender suas necessidades e estabelecer prioridades. Por meio de sessões de brainstorming e decisões conjuntas com o Product Owner, as funcionalidades principais foram definidas. Essas funcionalidades, consideradas prioritárias, incluem: <br> <br>
+Tendo em vista o objetivo central do projeto, foram realizadas entrevistas com o cliente para compreender suas necessidades e estabelecer prioridades. Por meio de sessões de brainstorming e decisões conjuntas com o Product Owner, as funcionalidades principais foram definidas. Abaixo, estão as funcionalidades prioritárias para o sucesso do projeto:
 
-- Um <strong>site de divulgação</strong> para apresentar a identidade e atividades da equipe.<br> <br>
-- Um <strong>cronograma e calendário</strong> para planejamento de reuniões e eventos internos.<br> <br>
-- Um <strong>sistema de login</strong> para membros e capitães, permitindo acesso a um sistema de gerenciamento.<br> <br>
-- Um <strong>sistema de gerenciamento de inventário</strong>, facilitando o controle de materiais e equipamentos.<br> <br>
-- Funcionalidades para <strong>administração e registro de reuniões</strong>, garantindo a documentação de atas.<br> <br>
-- Um espaço para <strong>gestão de documentos da equipe</strong>, como links de acesso rápido.<br> <br>
+</div>
 
-Além dessas prioridades, outras funcionalidades importantes foram identificadas para fortalecer a divulgação externa e organização interna da equipe. Entre elas:<br> <br>
+| **Funcionalidade**                                     | **Descrição**                                                                         |
+|--------------------------------------------------------|---------------------------------------------------------------------------------------|
+| **Site de Divulgação**                                 | Apresentar a identidade e atividades da equipe.                                        |
+| **Cronograma e Calendário**                            | Planejamento de reuniões e eventos internos.                                           |
+| **Sistema de Login**                                   | Acesso ao sistema de gerenciamento para membros e capitães.                            |
+| **Sistema de Gerenciamento de Inventário**             | Controle de materiais e equipamentos da equipe.                                        |
+| **Administração e Registro de Reuniões**               | Garantir a documentação de atas de reuniões.                                           |
+| **Gestão de Documentos da Equipe**                     | Armazenamento de links de acesso rápido a documentos da equipe.                        |
 
-- Uma <strong>página de apresentação</strong>, destacando membros e a história da equipe.<br> <br>
-- Uma <strong>página de eventos passados e conquistas</strong>, valorizando o legado e resultados obtidos.<br> <br>
-- Uma <strong>seção de informações sobre o processo seletivo</strong>, atraindo novos talentos para a equipe.<br> <br>
-- Uma <strong>apresentação detalhada dos drones</strong> com os quais a equipe trabalha, mostrando sua expertise técnica.<br> <br>
+Além dessas funcionalidades prioritárias, outras funcionalidades foram identificadas para fortalecer a divulgação externa e a organização interna da equipe. Estas incluem:
 
-Essas funcionalidades refletem as necessidades de visibilidade externa e eficiência interna, alinhando-se aos objetivos estratégicos do projeto para os Mamutes do Cerrado.<br> <br>
+| **Funcionalidade**                                     | **Descrição**                                                                         |
+|--------------------------------------------------------|---------------------------------------------------------------------------------------|
+| **Página de Apresentação**                             | Destacar membros e a história da equipe.                                               |
+| **Página de Eventos Passados e Conquistas**            | Valorizar o legado e os resultados obtidos pela equipe.                               |
+| **Seção de Informações sobre o Processo Seletivo**     | Atração de novos talentos para a equipe.                                               |
+| **Apresentação Detalhada dos Drones**                  | Exibir os drones com os quais a equipe trabalha, destacando sua expertise técnica.     |
+
+<div style="text-align: justify;">
+
+Essas funcionalidades estão alinhadas com os objetivos estratégicos do projeto, focando tanto em visibilidade externa quanto em eficiência interna para os membros da equipe.
 
 </div>
 
@@ -374,8 +384,17 @@ Essas funcionalidades refletem as necessidades de visibilidade externa e eficiê
 
 ### 4.2 Perfis
 
-Tabela : Perfis de acesso
+<div style="text-align: justify;">
 
+Os perfis de acesso do projeto foram criados para atender às necessidades específicas de cada tipo de usuário, garantindo organização e segurança. O Administrador tem o maior nível de acesso, sendo responsável por gerenciar os perfis de usuários, configurar o sistema e administrar permissões. <br> <br>
+
+O Capitão lidera a equipe com acesso completo para gerenciar planilhas, atas, processo seletivo, presenças, estoque e a disponibilidade dos membros. Já os Membros têm permissões ajustadas às suas funções, permitindo a atualização de informações pessoais, visualização e edição de planilhas (quando autorizado), e gestão de estoques, se necessário. <br> <br>
+
+Por fim, o Visitante pode acessar apenas o site de divulgação para conhecer a equipe, enquanto os Trainees, novos integrantes em treinamento, possuem acesso restrito às ferramentas essenciais para seu aprendizado e integração. Essa divisão garante eficiência no trabalho e um uso adequado do sistema. Pdendo ser analisados de maneira detalhada na seguinte tabela:
+
+</div>
+
+Tabela : Perfis de acesso
 
 | Nome do Perfil   | Características do Perfil                                                                 | Permissões de Acesso                                                                                         |
 |------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
@@ -385,12 +404,19 @@ Tabela : Perfis de acesso
 | Visitante        | Usuário interessado em obter informações sobre a Mamutes e conhecer a equipe.               | Não terá login. Acesso ao site de divulgação.                                                              |
 | treinees       | pagina dos treinees         |                                                             |
 
-inserir texto explicativo
- 
-
 ---
 
 ### 4.3 Cenários
+
+<div style="text-align: justify;">
+
+Os <strong>cenários funcionais</strong> definidos para o sistema dos <strong>Mamutes do Cerrado</strong> abrangem desde a concepção inicial do projeto até a gestão completa de atividades e estoques, promovendo eficiência e organização. O ciclo inicia com a <strong>definição do produto</strong>, onde o backlog, identidade visual e documento de visão são estruturados, seguido pelo planejamento do <strong>MVP</strong> e organização das entregas do projeto. <br> <br> 
+
+Funcionalidades voltadas para a interação com os usuários incluem <strong>login</strong> e <strong>cadastro de novos usuários</strong>, além da visualização de perfis. Já no âmbito operacional, o sistema permite a <strong>criação, edição e exclusão de atividades</strong>, garantindo flexibilidade na gestão das tarefas. Adicionalmente, há funcionalidades específicas para o <strong>estoque</strong>, como registro, atualização e exclusão de itens, essenciais para o controle dos recursos da equipe.  <br> <br>
+
+Por fim, o sistema integra um <strong>calendário</strong> para gerenciamento de datas importantes, como eventos e prazos de entrega, ajudando na coordenação do time. Podem ser analisadas na seguinte tabela:
+
+</div>
 
 Tabela : Cenários funcionais
 
@@ -408,8 +434,6 @@ Tabela : Cenários funcionais
 | 10                    | Edição de Estoque                      | Permitir a atualização das informações de itens no estoque.                                                 |
 | 11                    | Exclusão de Estoque                    | Implementar a funcionalidade de remover itens do estoque no sistema.                                        |
 | 12                    | Dados Calendário                    |marcar datas e eventos importantes e marcar data de entrega de tarefas                                          |
-
-inserir texto explicativo e completar tabela com calendário
 
 ---
 
@@ -453,6 +477,7 @@ Tabela : Backlog do produto
 | 1.0 | 25/11/2024 | Desenvolvimento do artefato **contexto do problema**, **declaração do produto**, **objetivo do produto** e **tecnologias a serem utilizadas**   | Felipe Freire |
 | 1.1 | 29/11/2024 | Evolução dos artefatos **contexto do problema**, **declaração do produto**, **objetivo do produto** e **tecnologias a serem utilizadas**   | Felipe Freire |
 | 1.2 | 29/11/2024 | Desenvolvimento dos artefatos **ciclo de vida do projeto**   | Felipe Freire |
-| 1.3 | 29/11/2024 | Desenvolvimento dos artefatos **backlog do produto**, **perfis** e **cenários**   | Felipe Freire |
+| 1.3 | 29/11/2024 | Desenvolvimento dos artefatos **backlog do produto**, **perfis** e **cenários**   | Felipe Freire e Felipe Duarte |
 | 1.4 | 02/12/2024 | Desenvolvimento dos artefatos **Gerenciamento de Riscos** e **Critérios de Replanejamento**| Isaque Camargos | 
+| 1.5 | 29/11/2024 | Upgrade nos artefatos **backlog do produto**, **perfis**, **cenários** e **declaração de escopo**   | Felipe Freire e Felipe Duarte | 
 
