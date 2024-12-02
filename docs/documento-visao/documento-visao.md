@@ -17,7 +17,7 @@ Este documento será usado como guia para registrar as informações gerais do p
 
 A equipe de competição <strong>Mamutes do Cerrado</strong>, da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: <strong>divulgação externa</strong> e <strong>gestão interna</strong>. Como uma equipe acadêmica e técnica que busca representar a instituição em competições de alto nível, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo.
 
-Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos (como estoque e finanças), tarefas (calendários e reuniões) e documentos essenciais.
+Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos (ferramentas e peças), tarefas (calendários e reuniões) e documentos essenciais.
 
 </div>
 
@@ -34,7 +34,7 @@ O principal problema enfrentado pela equipe <strong>mamutes</strong> é a falta 
 | Problema Encontrado          | Descrição                                                                                  |
 |------------------------------|--------------------------------------------------------------------------------------------|
 | **Baixa visibilidade externa** | Falta de uma identidade visual unificada e dificuldade em atrair novos membros e patrocinadores. |
-| **Desorganização interna**    | Ausência de ferramentas adequadas para gerenciar tarefas, compromissos, recursos materiais e financeiros, gerando atrasos, retrabalho e perda de eficiência. |
+| **Desorganização interna**    | Ausência de ferramentas adequadas para gerenciar tarefas, compromissos e recursos materiais, gerando atrasos, retrabalho e perda de eficiência. |
 | **Risco de perda de informações** | Armazenamento descentralizado de documentos e atas compromete a transparência e dificulta o acesso às informações essenciais. |
 | **Solução Proposta**          | Desenvolvimento de um software para otimizar processos internos e fortalecer a presença externa da equipe. |
 
@@ -45,13 +45,12 @@ O principal problema enfrentado pela equipe <strong>mamutes</strong> é a falta 
 <div style="text-align: justify;">
 
 A equipe de competição Mamutes do Cerrado da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: divulgação externa e gestão interna. Como uma equipe acadêmica e técnica que busca representar a instituição em competições de alto nível, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo. <br> <br>
-Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos (como estoque e finanças), tarefas (calendários e reuniões) e documentos essenciais. <br> <br>
 
 ● O principal problema enfrentado pelos membros da Mamutes do Cerrado é a falta de uma plataforma centralizada que conecte as necessidades de divulgação externa e gestão interna. Conforme a tabela seguinte, isso resulta em: <br> <br>
 
 ● Baixa visibilidade externa: Falta de uma identidade visual unificada e dificuldade em atrair novos membros e patrocinadores.<br> <br>
 
-● Desorganização interna: A ausência de ferramentas adequadas para gerenciar tarefas, compromissos, recursos materiais e financeiros gera atrasos, retrabalho e perda de eficiência.<br> <br>
+● Desorganização interna: A ausência de ferramentas adequadas para gerenciar tarefas, compromissos e recursos materiais gera atrasos, retrabalho e perda de eficiência.<br> <br>
 
 ● Risco de perda de informações: O armazenamento descentralizado de documentos e atas compromete a transparência e dificulta o acesso às informações essenciais.<br> <br>
 
@@ -76,7 +75,7 @@ O digrama abaixo identifica as causas do problema central: Ineficiência na gest
 
 (colocar diagrama aqui.)
 
-![Diagrama de Ishikawa](/docs/view/img/Diagrama%20de%20Ishikawa%20da%20Mamute.jpg)
+![Diagrama de Ishikawa](/docs/view/img/DiagramaIshikawaMamute.jpg)
 
 ---
 
@@ -335,13 +334,13 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 | Gestão    | Página Configurações de Conta | 3      | Must        | Funcional           | configuração de conta        |
 | navegação | Menu lateral (àrea restrita)   | 4      | Must        | Funcional           | Anavegação e pesquisa         |
 | divugação | Aba home                       | 4      | Must        | Funcional           | aba principal e de aviso       |
-| gestão    | Criação de tarefas             | 5      | Must        | Funcional           | criar e atribuir tarefas        |
-| gestão    | Rastreio de tarefas            | 6      | Must        | Funcional           | rastreamento do que ser feito, e do que foi        |
-| gestão    | Times da equipe                | 6      | Must        | Funcional           |  destacando membros e a história da equipe         |
-|organização| Kanban                         | 6      | Must        | Funcional           | organizar, gerenciar e visualizar tarefas e projetos|
-|organização| Página Estoque                 | 7      | Must        | Funcional           | Apresentar a equipe         |
-|gestão     | Página Registro de Acidentes   | 8      | Must        | Funcional           | documentação de acidentes       |
-|gestão     | Página registro de vôo         | 8      | Must        | Funcional           | documentação de vôos        |
+| Gestão    | Criação de tarefas             | 5      | Must        | Funcional           | criar e atribuir tarefas        |
+| Gestão    | Rastreio de tarefas            | 6      | Must        | Funcional           | rastreamento do que ser feito, e do que foi        |
+| Gestão    | Times da equipe                | 6      | Must        | Funcional           |  destacando membros e a história da equipe         |
+|Organização| Kanban                         | 6      | Must        | Funcional           | organizar, gerenciar e visualizar tarefas e projetos|
+|Organização| Página Estoque                 | 7      | Must        | Funcional           | Apresentar a equipe         |
+|Gestão     | Página Registro de Acidentes   | 8      | Must        | Funcional           | documentação de acidentes       |
+|Gestão     | Página registro de vôo         | 8      | Must        | Funcional           | documentação de vôos        |
 
 
 ---
@@ -383,10 +382,11 @@ Tabela : Perfis de acesso
 | Capitão          | Membro responsável pela Mamutes como um todo. Um membro é capitão (verificar capitães). | Terá login. Acesso completo a CRUD de planilhas, atas, processo seletivo, presenças, estoque e disponibilidade de membros. |
 | Membro           | Membro da Mamutes de alguma das áreas existentes na equipe.                                | Terá login. Manter suas informações atualizadas, visualizar planilhas e editá-las quando permitido, gerenciar estoque (quando necessário). |
 | Visitante        | Usuário interessado em obter informações sobre a Mamutes e conhecer a equipe.               | Não terá login. Acesso ao site de divulgação.                                                              |
-| treinees       | pagina dos treinees         |                                                             |
+| Trainees       | Pagina dos Trainees         | Não terá login.                                                             |
 
-inserir texto explicativo
- 
+<div style= "text-align">
+Na tabela acima definimos os perfis de acesso do produto, ou seja, os diferentes tipos de usuários do sistema, detalhando suas responsabilidades e os níveis de acesso às funcionalidades. Essa classificação organiza os direitos e limitações de cada grupo, garantindo que cada perfil tenha acesso adequado às ferramentas e informações necessárias.
+</div>
 
 ---
 
@@ -407,41 +407,56 @@ Tabela : Cenários funcionais
 | 9                     | Criação de Estoque                     | Criar e registrar novos itens no estoque através do sistema.                                                |
 | 10                    | Edição de Estoque                      | Permitir a atualização das informações de itens no estoque.                                                 |
 | 11                    | Exclusão de Estoque                    | Implementar a funcionalidade de remover itens do estoque no sistema.                                        |
-| 12                    | Dados Calendário                    |marcar datas e eventos importantes e marcar data de entrega de tarefas                                          |
+| 12                    | Dados Calendário                    |Marcar datas e eventos importantes e marcar data de entrega de tarefas                                          |
 
-inserir texto explicativo e completar tabela com calendário
-
+<div style="text-align">
+A tabela acima descreve os cenários e as funcionalidades que devem ser implementadas no sistema. Cada cenário é identificado por um número, possui um nome que resume sua funcionalidade e uma descrição que detalha o objetivo principal. Essa estrutura ajuda no planejamento e acompanhamento do desenvolvimento do projeto, dividindo-o em etapas claras e bem definidas.
+</div>
 ---
 
 ### 4.4 Tabela de Backlog do Produto
 
 
-<p style="text-align: justify;">
-
-
-
-</p>
-
-<iframe width="768" height="432" src="https://miro.com/welcomeonboard/aGh1UkhGYkpsMGUxdUxkTE9kYnRkdlR4ZEdSYUdEQ0lQVmE5dDFwc3NnS1l0czB4VTJJNnl3TXN6cWRvRXVIU1pqSlJEc1lHUmw5Q25VNmZnZks1RVdqQ05wSHAwbEcrNTloazlNdGg2VHJNVUNPTnBmcFRLY3lGOG80VUZKbEQhZQ==?share_link_id=967577464010" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
-
-<p style="text-align:center;">
-    Figura 1 - <a href ="https://miro.com/welcomeonboard/aGh1UkhGYkpsMGUxdUxkTE9kYnRkdlR4ZEdSYUdEQ0lQVmE5dDFwc3NnS1l0czB4VTJJNnl3TXN6cWRvRXVIU1pqSlJEc1lHUmw5Q25VNmZnZks1RVdqQ05wSHAwbEcrNTloazlNdGg2VHJNVUNPTnBmcFRLY3lGOG80VUZKbEQhZQ==?share_link_id=967577464010">Backlog do Produto</a> <br />
-    Fonte: Autores.
-</p>
-
-<!--
 Tabela : Backlog do produto
 
-| Numeração (Cenário / Requisito) | Sprint | Nome do Requisito | Tipo de Requisito (Funcional / Não Funcional) | Priorização do Requisito (Must, Should, Could) | Descrição Sucinta do Requisito            | User Stories (U.S.) Associadas            |
+| Numeração (Cenário / Requisito) | Sprint | Nome do Requisito | Tipo de Requisito (Funcional / Não Funcional) | Priorização do Requisito (Must, Should, Could) | Descrição Sucinta do Requisito | User Stories (U.S.) Associadas |
 |--------------------------------|--------|-------------------|-----------------------------------------------|-----------------------------------------------|-------------------------------------------|-------------------------------------------|
-| <Número>                      | <Sprint> | <Nome>            | <Funcional/Não Funcional>                     | <Must/Should/Could>                          | <Descrição breve do requisito>            | <Identifique as U.S. associadas ao requisito> |
+| 001 | Sprint 1 | Cadastro | Funcional | Must | Usuário consegue registrar no sistema  | "Como um visitante, quero criar uma conta no sistema para utilizar suas funcionalidades." |
+| 002 | Sprint 1 | Login | Funcional | Must | Usuário com registro no site tem a capacidade de autenticar no sistema | "Como um usuário registrado, quero fazer login no sistema para acessar as funcionalidades disponíveis." |
+| 003 | Sprint 1 | Barra de navegação | Funcional | Must | Menu que possibilita o usuário transitar no site | "Como um usuário, quero acessar a barra de navegação para me mover facilmente entre as páginas do site." |
+| 004 | Sprint 1 | Index | Funcional | Must | Página inicial do site | "Como um visitante, quero acessar a página inicial para visualizar o conteúdo introdutório do site." |
+| 005 | Sprint 2 | Página "Quem Somos" | Funcional | Must | Página que mostra mais sobre a Mamutes do Cerrado  | "Como um visitante, quero acessar a página "Quem Somos" para conhecer mais sobre a equipe Mamutes do Cerrado." |
+| 006 | Sprint 3 | Página de Competição | Funcional | Must | Página dedicada a competição SAE, com uma galeria de fotos da equipe, além dos cards detalhados dos aviões competidores | "Como um visitante, quero acessar a página de competição para ver as fotos e detalhes dos aviões competidores." |
+| 007 | Sprint 3 | Página de Processo Seletivo | Funcional  | Must | Página dedicada ao Processo Seletivo, com um formulário de inscrição | "Como um candidato, quero acessar a página do Processo Seletivo para me inscrever na equipe." |
+| 008 | Sprint 3 | Página de Configurações de Conta | Funcional  | Must | Uma página com o objetivo de exibir informações da conta do usuário, além de permitir a edição dos dados cadastrados | "Como um usuário autenticado, quero acessar a página de configurações para editar minhas informações." |
+| 009 | Sprint 4 | Menu Lateral (área restrita) | Funcional | Must | Menu com as outras opçoês do software, como estoque, registros de voo e etc | "Como um usuário autorizado, quero usar o menu lateral para acessar ferramentas de gerenciamento interno"|
+| 010 | Sprint 4 | Aba Home | Funcional | Must | Aba central do projeto, com avisos gerais e calendário da equipe | "Como um membro da equipe, quero acessar a aba home para acompanhar os avisos gerais e o calendário." |
+| 011 | Sprint 4 | Times da Equipe | Não funcional | Must | Separação dos times dentro da equipe de competição | "Como um administrador, quero visualizar/editar os times da equipe para organizar as divisões internas" |
+| 012 | Sprint 5 | Calendário | Funcional | Could | Calendário que possibilita que os usuários tenham a visibilidade de tarefas e eventos importantes | "Como um usuário, quero visualizar um calendário para acompanhar tarefas e eventos importantes da equipe." |
+| 013 | Sprint 5 | Criação de Tarefas | Funcional | Could | Criação de tarefas e eventos para serem registrados no calendário | "Como um usuário autorizado, quero criar tarefas e eventos no calendário para organizar os compromissos da equipe." |
+| 014 | Sprint 6 | Rastreio de Tarefas | Não Funcional | Must | Rastrear as tarefas da equipe, como documentações, atribuições de cada membro as tarefas designadas, reuniões agendadas e feitas | "Como líder, quero rastrear as tarefas da equipe para garantir que as atribuições sejam claras, os prazos sejam cumpridos e as reuniões sejam registradas." | 
+| 015 | Sprint 6 | Kanban | Funcional |Could | Criação de um quadro de sinalização Kanban para a equipe, com o objetivo de organização dos membros para atividades propostas, como reuniões | "Como membro da equipe, quero usar um quadro Kanban para organizar e acompanhar as atividades propostas, como reuniões e tarefas em andamento, para melhorar a eficiência." | 
+| 016 | Sprint 7 | Página de Estoque | Funcional | Should | Usuário consegue visualizar e adicionar itens no estoque | "Como usuário do sistema, quero visualizar os itens no estoque e adicionar novos itens, para manter o controle do inventário atualizado." | 
+| 017 | Sprint 8 | Página de Registro de Acidentes | Funcional | Must | Página em que os membros da equipe registraram acidentes de voo | "Como membro da equipe, quero registrar acidentes de voo, para garantir a rastreabilidade e análise de incidentes." | 
+| 018 | Sprint 9 | Página de Registro de Voo | Funcional | Must | Cada um dos membros responsáveis conseguem registrar suas documentações de voo | "Como integrante da equipe, quero registrar as documentações de voo no sistema, para manter os registros organizados e acessíveis para consultas futuras." | 
 
--->
-
----
 
 ## Referências Bibliográficas
 
+- **Quais são os 12 Princípios da Gestão de Projetos Ágeis?**  
+  Disponível em: [https://businessmap.io/pt/metodologia-agil/principios-manifesto-agil](https://businessmap.io/pt/metodologia-agil/principios-manifesto-agil)  
+
+- **SWEBOK - Software Engineering Body of Knowledge**  
+  Disponível em: [https://www.computer.org/education/bodies-of-knowledge/software-engineering](https://www.computer.org/education/bodies-of-knowledge/software-engineering)  
+
+- **O que é backlog do produto Scrum e como fazer um**  
+  Disponível em: [https://www.lucidchart.com/blog/pt/como-fazer-um-backlog-do-produto](https://www.lucidchart.com/blog/pt/como-fazer-um-backlog-do-produto)  
+
+- **Diagrama de Ishikawa**  
+  Disponível em: [https://miro.com/pt/diagrama/o-que-e-diagrama-ishikawa/](https://miro.com/pt/diagrama/o-que-e-diagrama-ishikawa/)  
+
+- **Documento de Visão do Produto**  
+  Disponível em: [https://kb.ufla.br/books/termos-e-definicoes/page/documento-de-visao-do-produto](https://kb.ufla.br/books/termos-e-definicoes/page/documento-de-visao-do-produto)  
 
 ---
 
@@ -455,4 +470,8 @@ Tabela : Backlog do produto
 | 1.2 | 29/11/2024 | Desenvolvimento dos artefatos **ciclo de vida do projeto**   | Felipe Freire |
 | 1.3 | 29/11/2024 | Desenvolvimento dos artefatos **backlog do produto**, **perfis** e **cenários**   | Felipe Freire |
 | 1.4 | 02/12/2024 | Desenvolvimento dos artefatos **Gerenciamento de Riscos** e **Critérios de Replanejamento**| Isaque Camargos | 
+| 1.5 | 02/12/2024 | Desenvolvimento dos artefatos **Tabela de Backlog do Produto** | Caio Duarte e Amanda Cruz Lima | 
 
+## Tabela de Contribuintes
+
+|
