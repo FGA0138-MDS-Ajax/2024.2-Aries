@@ -511,5 +511,5 @@ Tabela : Backlog do produto
 | 1.3 | 29/11/2024 | Desenvolvimento dos artefatos **backlog do produto**, **perfis** e **cenários**   | Felipe Freire e Felipe Duarte |
 | 1.4 | 02/12/2024 | Desenvolvimento dos artefatos **Gerenciamento de Riscos** e **Critérios de Replanejamento**| Isaque Camargos | 
 | 1.5 | 02/12/2024 | Upgrade nos artefatos **backlog do produto**, **perfis**, **cenários** e **declaração de escopo**   | Felipe Freire e Felipe Duarte | 
-| 1.6 | 02/12/2024 | Ajuste no texto do **diagrama espinha de peixe** e inserção das **referencias** | Felipe Freire | 
+| 1.6 | 02/12/2024 | Ajuste no texto do **diagrama espinha de peixe** e inserção das **referencias** | Felipe Duarte e Felipe Freire | 
 
