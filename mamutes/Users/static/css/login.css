@@ -241,13 +241,13 @@ border: none;
 .ilustration-box{
     width: 100%;
     position: relative;
-    aspect-ratio: 1/1;
+    overflow: hidden;
     display: flex;
     align-items: flex-end;
     justify-content: center;
 }
 .ilustration-box svg{
-    width: 100%;
+    width: 160%;
     height: auto;
 }
 
@@ -270,21 +270,74 @@ border: none;
     }
 }
 
+
+.nuvens-img{
+  position: absolute; /* Para sobrepor o shape */
+  z-index: 2; /* Coloca as listas na frente do shape */
+  width:100%;
+  display: flex; /* Para organizar as nuvens em linha */
+  ;
+
+}
 .img-cloud{
-    z-index: 1;
+    bottom: 150px;
     position: absolute;
-    width: 100%;
-    animation: slide 2s linear infinite;
-    scale: 3;
-    background-repeat: repeat-x;
-    animation: moveClouds 2s linear infinite;
+    left: 100%;
+    animation: scrollleft 6s linear infinite;
+    
   }
-  
-  @keyframes moveClouds {
+  .img-cloud2{
+    bottom: 150px;
+    position: absolute;
+    left: 120%;
+    animation: scrollleft2 9s linear infinite
+  }
+  .img-cloud3{
+    bottom: 150px;
+    position: absolute;
+    left: 140%;
+    animation: scrollleft3 18s linear infinite
+  }
+  @keyframes scrollleft {
     0% {
-      background-position: 0 0;
+        opacity: 1; /* Visível no começo */
+      }
+    50%{
+        opacity: 0.7;
     }
-    100% {
-      background-position: -50% 0;
-    }
-  }
+      90% {
+        opacity: 0; 
+      }
+      100% {
+        transform: translateX(-140%);
+        opacity: 0; /* Ao final, volta a opacidade para 1 (visível) */
+      }
+}
+     @keyframes scrollleft2 {
+        0% {
+            opacity: 1; /* Visível no começo */
+          }
+        50%{
+            opacity: 0.7;
+        }
+        90% {
+            opacity: 0; 
+          }
+        100% {
+            transform: translateX(-140%);
+            opacity: 0; /* Ao final, volta a opacidade para 1 (visível) */
+          } }
+    @keyframes scrollleft3{
+        0% {
+            opacity: 1; /* Visível no começo */
+          }
+        50%{
+            opacity: 0.7;
+        }
+        90% {
+            opacity: 0; 
+          }
+          100% {
+            transform: translateX(-140%);
+            opacity: 0; /* Ao final, volta a opacidade para 1 (visível) */
+          } }
