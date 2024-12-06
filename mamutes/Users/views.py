@@ -39,7 +39,7 @@ def cadastro(request):
      return render(request, 'cadastro.html')
 
 def recuperarConta(request):
-    #no momento ele dá sinal de envio pelo console, ainda não está enviando para caixa postal
+    
     if request.method == 'GET':
         return render(request, 'recuperarConta.html')
     else:
@@ -50,12 +50,15 @@ def recuperarConta(request):
             usuario = MembroEquipe.objects.get(email=email)
             token = geradorToken.make_token(usuario)
             username = usuario.username
+
             send_mail(
                 subject="Redefinição de senha",
-                message=f"Uma requisição de redefinição de senha foi feita no site ABNT Model para a conta vinculada a este email, para prosseguir com a redefinição de senha basta acessar o seguinte link: http://127.0.0.1:8000/redefinir_senha/{username}/{token}. Caso a requisição não tenha sido feita por você por favor ignore este email.",
+                message=f"Uma requisição de redefinição de senha foi feita no site ABNT Model para a conta vinculada a este email, para prosseguir com a redefinição de senha basta acessar o seguinte link: http://127.0.0.1:8000/redefinir_senha/{username}/{token}. Caso a requisição não tenha sido feita por você, por favor ignore este email.",
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[email]
             )
+
+            
             context = {
                 'mensagem': f'Enviamos um email de recuperação de conta para {email}, cheque em sua caixa postal.',
             }
@@ -69,5 +72,9 @@ def recuperarConta(request):
             return render(request, 'recuperarConta.html', context)
         
 def redefinirSenha(request):
-    pass
+    if request.method == 'GET':
+        return render('redefinirSenha.html')
+    else:
+        return 
+
 
