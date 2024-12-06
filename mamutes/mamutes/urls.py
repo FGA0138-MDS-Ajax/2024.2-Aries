@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path ('login/', views.login, name = 'login'),
     path('cadastro/', views.cadastro, name = 'cadastro'),
+    path('recuperarConta/', views.recuperarConta, name = 'recuperarConta'),
 ]

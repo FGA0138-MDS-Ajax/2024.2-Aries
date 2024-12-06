@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Mamutes do cerrado | Login </title>
+</head>
+<body>
+    <form action="{% url 'recuperarConta' %}" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" id="email">
+        <button type="submit">ENVIAR</button>
+        {% if mensagem %}
+            {{ mensagem }}
+        {% endif%}
+    </form>
+</body>
+</html>

@@ -1,10 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import authenticate, login as login_django
 from .models import * 
 from .forms import *
+from .models import MembroEquipe
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core.mail import send_mail
+from mamutes import settings
+
 
 def login (request):
     if request.method ==  'GET':
@@ -32,4 +37,37 @@ def isSuperUser(user):
 @user_passes_test(isSuperUser) 
 def cadastro(request):
      return render(request, 'cadastro.html')
+
+def recuperarConta(request):
+    #no momento ele dá sinal de envio pelo console, ainda não está enviando para caixa postal
+    if request.method == 'GET':
+        return render(request, 'recuperarConta.html')
+    else:
+        email = request.POST.get('email')
+
+        if MembroEquipe.objects.filter(email__exact=email).exists():
+            geradorToken = PasswordResetTokenGenerator()
+            usuario = MembroEquipe.objects.get(email=email)
+            token = geradorToken.make_token(usuario)
+            username = usuario.username
+            send_mail(
+                subject="Redefinição de senha",
+                message=f"Uma requisição de redefinição de senha foi feita no site ABNT Model para a conta vinculada a este email, para prosseguir com a redefinição de senha basta acessar o seguinte link: http://127.0.0.1:8000/redefinir_senha/{username}/{token}. Caso a requisição não tenha sido feita por você por favor ignore este email.",
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[email]
+            )
+            context = {
+                'mensagem': f'Enviamos um email de recuperação de conta para {email}, cheque em sua caixa postal.',
+            }
+
+            return render(request, 'recuperarConta.html', context)
+        
+        else:
+            context = {
+                'mensagem': f'Este email não existe, é necessário o email tenha registro no sistema para recuperá-lo.',
+            }
+            return render(request, 'recuperarConta.html', context)
+        
+def redefinirSenha(request):
+    pass
 
