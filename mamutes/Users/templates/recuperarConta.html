@@ -4,17 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="{% static 'css/recuperarConta.css' %}" rel="stylesheet">
     <title>Mamutes do cerrado | Login </title>
 </head>
-<body>
-    <form action="{% url 'recuperarConta' %}" method="POST">
-        {% csrf_token %}
-        <input type="email" name="email" id="email">
-        <button type="submit">ENVIAR</button>
-        {% if mensagem %}
-            {{ mensagem }}
-        {% endif%}
-    </form>
+<body class="recuperarConta">
+    <div class="recuperarContaCentral">
+        <div class="tituloModal">
+            <h1 class="titulo">Recuperar Conta</h1>
+            <h2 class="subtitulo">Preencha o formulário</h2>
+        </div>
+        <form action="{% url 'recuperarConta' %}" method="POST" class="formLogin">
+            <div class="divsFields">
+                <p class="tituloInputs">Email</p>
+                {% csrf_token %}
+                <input type="email" name="email" id="email" placeholder="Ex.: joao@gmail.com" class="inputForm">
+                {% if mensagem %}
+                    {{ mensagem }}
+                {% endif%}
+            </div>
+            <div class="botoesRecuperar">
+                <button type="submit" class="submitBotao" value="adicionar" style="border-radius: 8px; background: #1F1A99;">
+                    <span class="addLabel">Enviar</span>
+                </button>
+            </div>
+        </form>
+        
+    </div>
+    
 </body>
 </html>
