@@ -7,5 +7,5 @@ urlpatterns = [
     path ('login/', views.login, name = 'login'),
     path('cadastro/', views.cadastro, name = 'cadastro'),
     path('recuperarConta/', views.recuperarConta, name = 'recuperarConta'),
-    path('redefinirSenha/', views.redefinirSenha, name = 'redefinirSenha'),
+    path('redefinirSenha/<str:username>/<str:token>', views.redefinirSenha, name="redefinirSenha"),
 ]

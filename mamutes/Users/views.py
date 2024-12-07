@@ -53,7 +53,7 @@ def recuperarConta(request):
 
             send_mail(
                 subject="Redefinição de senha",
-                message=f"Uma requisição de redefinição de senha foi feita no site ABNT Model para a conta vinculada a este email, para prosseguir com a redefinição de senha basta acessar o seguinte link: http://127.0.0.1:8000/redefinir_senha/{username}/{token}. Caso a requisição não tenha sido feita por você, por favor ignore este email.",
+                message=f"Uma requisição de redefinição de senha foi feita no site da Mamutes do Cerrado para a conta vinculada a este email, para prosseguir com a redefinição de senha basta acessar o seguinte link: http://127.0.0.1:8000/redefinirSenha/{username}/{token}. Caso a requisição não tenha sido feita por você, por favor ignore este email.",
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[email]
             )
@@ -71,10 +71,27 @@ def recuperarConta(request):
             }
             return render(request, 'recuperarConta.html', context)
         
-def redefinirSenha(request):
+def redefinirSenha(request, username, token):
     if request.method == 'GET':
-        return render('redefinirSenha.html')
+        usuario = MembroEquipe.objects.get(username=username)
+        senha = request.POST.get("password1")
+        confirmar_senha = request.POST.get("password2")
+        context = {
+            "username":username, 
+            "token":token,
+            }
+        
+        gerador = PasswordResetTokenGenerator()
+        if gerador.check_token(usuario, token):
+            return render(request,'redefinirSenha.html', context)
+        
     else:
-        return 
+        if senha != confirmar_senha:
+            return render(request,'redefinirSenha.html', context={"mensagem":'As senhas não são iguais, tente novamente.'})
+
+        usuario.set_password(senha)
+        usuario.save(force_update=True)
+
+        return redirect("login")
 
 

@@ -30,7 +30,6 @@ body{
 }
 .container-central-login{
     display: flex;
-    /* padding: 80px 96px; */
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
