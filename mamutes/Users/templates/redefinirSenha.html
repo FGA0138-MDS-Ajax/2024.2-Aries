@@ -13,7 +13,7 @@
                     <div class="apresentation-texts">
                         <div class="greeting-login">
                             <h2 class="greeting-login-h2">Olá, membro!</h2>
-                            <h1 class="greeting-login-h1">Bem-vindo de <b class="greeting-login-h1-colorizer">volta</b>?</h1>
+                            <h1 class="greeting-login-h1">Bem-vindo de <b class="greeting-login-h1-colorizer">volta</b></h1>
                         </div>
                         <h3 class="apresentation-text-h3">Redefina sua senha para recuperar seu login</h3>
                     </div>
@@ -41,6 +41,9 @@
                                     </div>
                                 </div>
                             </div>
+                            {% if mensagem %}
+                            {{mensagem}}
+                            {% endif %}
                             <button class="btn-login" type="submit">Redefinir senha</button>
                         </form>
                 </div>

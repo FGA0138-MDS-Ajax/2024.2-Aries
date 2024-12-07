@@ -67,7 +67,7 @@ def recuperarConta(request):
         
         else:
             context = {
-                'mensagem': f'Este email não existe, é necessário o email tenha registro no sistema para recuperá-lo.',
+                'mensagem': f'Este email não existe, é necessário que o email tenha registro no sistema para recuperá-lo.',
             }
             return render(request, 'recuperarConta.html', context)
         
