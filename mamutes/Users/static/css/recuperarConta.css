@@ -5,21 +5,24 @@ body {
     font: inherit;
     background: none;
     color: inherit;
-    height: 100vh;
-}
-
-.adicionarMembro{
+    height: auto;
     display: flex;
-    /* width: 100%;
-    height: 100%; */
+    justify-content: center;
+    align-items: center;
+}
+.inputForm:focus{
+    border-color: none;
+    outline: none;
+}
+.recuperarConta{
+    display: flex;
     justify-content: center;
     align-items: center;
     background: #A6A6A6;
     padding: 4%;
     min-width: 200px;
 }
-
-.adicionarMembroCentral{
+.recuperarContaCentral{
     display: flex;
     padding: 56px;
     flex-direction: column;
@@ -77,20 +80,6 @@ body {
     min-width: 240px;
 }
 
-.formPrincipal{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* gap: 32px; */
-    flex: 1 0 0;
-    width: 100%;
-    overflow-y: auto;
-    padding-right: 2%;
-    align-self: stretch;
-    justify-content: space-between;
-    /* min-wi */
-}
-
 .tituloInputs{
     align-self: stretch;
     color: #1E1E1E;
@@ -130,26 +119,7 @@ body {
     outline: none;
 }
 
-.divsFieldsRow{
-    display: flex;
-    align-items: flex-start;
-    align-content: flex-start;
-    gap: 16px;
-    align-self: stretch;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-}
-
-.rowDiv{
-    display: flex;
-    min-width: 200px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    flex: 1 0 0;
-}
-
-.botoesCadastro{
+.botoesRecuperar{
     display: flex;
     align-items: flex-start;
     gap: 8px;
@@ -157,7 +127,7 @@ body {
     flex-wrap: wrap;
 }
 
-.submitCancelBotao{
+.submitBotao{
     display: flex;
     padding: 8px 16px;
     justify-content: center;
@@ -166,7 +136,6 @@ body {
     flex: 1 0 0;
     border: none;
     min-width: 200px;
-    
     cursor: pointer;
 }
 
@@ -178,16 +147,5 @@ body {
     font-style: normal;
     font-weight: 600;
     line-height: 150%; /* 24px */
-    letter-spacing: -0.176px;
-}
-
-.cancelLabel{
-    color: #1E1E1E;
-    text-align: center;
-    font-family: Inter;
-    font-size: clamp(10px, 1vw, 14px);
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; /* 24px */
     letter-spacing: -0.176px;
 }

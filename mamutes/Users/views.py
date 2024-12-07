@@ -70,28 +70,29 @@ def recuperarConta(request):
                 'mensagem': f'Este email não existe, é necessário o email tenha registro no sistema para recuperá-lo.',
             }
             return render(request, 'recuperarConta.html', context)
-        
+     
 def redefinirSenha(request, username, token):
-    if request.method == 'GET':
-        usuario = MembroEquipe.objects.get(username=username)
+    usuario = MembroEquipe.objects.get(username=username)
+    gerador = PasswordResetTokenGenerator()
+
+    if gerador.check_token(usuario, token):
+        return render(request, 'redefinirSenha.html')
+    
+    if request.method == "POST":
         senha = request.POST.get("password1")
         confirmar_senha = request.POST.get("password2")
-        context = {
-            "username":username, 
-            "token":token,
-            }
-        
-        gerador = PasswordResetTokenGenerator()
-        if gerador.check_token(usuario, token):
-            return render(request,'redefinirSenha.html', context)
-        
-    else:
-        if senha != confirmar_senha:
-            return render(request,'redefinirSenha.html', context={"mensagem":'As senhas não são iguais, tente novamente.'})
 
+        if senha != confirmar_senha:
+            return render(request, 'redefinirSenha.html',{
+                "username": username,
+                "token": token,
+            })
+        
         usuario.set_password(senha)
         usuario.save(force_update=True)
-
         return redirect("login")
-
-
+    
+    return render(request, 'redefinirSenha.html', {
+        "username": username,
+        "token": token,
+    })
