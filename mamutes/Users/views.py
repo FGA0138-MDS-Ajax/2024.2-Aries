@@ -23,9 +23,8 @@ def login (request):
         if user is not None:
             login_django (request, user)
             return HttpResponse("boa paizao deu certo")
-            
         else:
-            return HttpResponse("Credenciais inválidas.")
+            return render (request, 'login.html')
 
         
 def isSuperUser(user):
