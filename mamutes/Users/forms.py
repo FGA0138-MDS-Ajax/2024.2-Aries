@@ -33,3 +33,9 @@ class MembroEquipeChangeForm(UserChangeForm):
     class Meta:
         model = MembroEquipe
         fields = ('username', 'email', 'phone', 'fullname', 'areas', 'functions')
+
+
+class EditProfileForm(UserChangeForm):
+    class Meta:
+        model = MembroEquipe
+        fields = ('username', 'fullname', 'email', 'phone')

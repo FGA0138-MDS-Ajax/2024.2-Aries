@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth import authenticate, login as login_django
 from .models import * 
 from .forms import *
@@ -96,3 +96,16 @@ def redefinePassword(request, username, token):
         })
 
     return redirect("login") 
+
+
+@login_required
+def configUser(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  # ou qualquer página de redirecionamento
+    else:
+        form = EditProfileForm(instance=request.user)
+
+    return render(request, 'edit_profile.html', {'form': form})
