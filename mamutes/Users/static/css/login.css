@@ -205,6 +205,7 @@ letter-spacing: -0.22px;
     outline: none;
     color: var(--black);
 }
+
 .btn-login{
     cursor: pointer;
     display: flex;
@@ -283,7 +284,49 @@ border: none;
     0% {
       background-position: 0 0;
     }
+<<<<<<< Updated upstream
     100% {
       background-position: -50% 0;
     }
   }
+=======
+      90% {
+        opacity: 0; 
+      }
+      100% {
+        transform: translateX(-140%);
+        opacity: 0; /* Ao final, volta a opacidade para 1 (visível) */
+      }
+}
+     @keyframes scrollleft2 {
+        0% {
+            opacity: 1; /* Visível no começo */
+          }
+        50%{
+            opacity: 0.7;
+        }
+        90% {
+            opacity: 0; 
+          }
+        100% {
+            transform: translateX(-140%);
+            opacity: 0; /* Ao final, volta a opacidade para 1 (visível) */
+          } }
+    @keyframes scrollleft3{
+        0% {
+            opacity: 1; /* Visível no começo */
+          }
+        50%{
+            opacity: 0.7;
+        }
+        90% {
+            opacity: 0; 
+          }
+          100% {
+            transform: translateX(-140%);
+            opacity: 0; /* Ao final, volta a opacidade para 1 (visível) */
+          } }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
