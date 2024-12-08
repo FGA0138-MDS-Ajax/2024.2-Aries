@@ -70,7 +70,7 @@ def recuperarConta(request):
                 'mensagem': f'Este email não existe, é necessário que o email tenha registro no sistema para recuperá-lo.',
             }
             return render(request, 'recuperarConta.html', context)
-     
+
 def redefinirSenha(request, username, token):
     usuario = MembroEquipe.objects.get(username=username)
     gerador = PasswordResetTokenGenerator()
@@ -86,6 +86,7 @@ def redefinirSenha(request, username, token):
             return render(request, 'redefinirSenha.html',{
                 "username": username,
                 "token": token,
+                "mensagem": 'As senhas precisam ser iguais, tente novamente.'
             })
         
         usuario.set_password(senha)
