@@ -16,9 +16,9 @@ def login (request):
         return render (request, 'login.html')
     else:
         username = request.POST.get('username')
-        senha = request.POST.get('password')
+        user_password = request.POST.get('password')
 
-        user = authenticate(username=username, password=senha)
+        user = authenticate(username=username, password=user_password)
 
         if user is not None:
             login_django (request, user)
@@ -33,25 +33,25 @@ def isSuperUser(user):
     
     
 @user_passes_test(isSuperUser) 
-def cadastro(request):
-     return render(request, 'cadastro.html')
+def register(request):
+     return render(request, 'register.html')
 
-def recuperarConta(request):
+def recoverAccount(request):
     
     if request.method == 'GET':
-        return render(request, 'recuperarConta.html')
+        return render(request, 'recoverAccount.html')
     else:
         email = request.POST.get('email')
 
         if MembroEquipe.objects.filter(email__exact=email).exists():
-            geradorToken = PasswordResetTokenGenerator()
-            usuario = MembroEquipe.objects.get(email=email)
-            token = geradorToken.make_token(usuario)
-            username = usuario.username
+            tokenGenerator = PasswordResetTokenGenerator()
+            user = MembroEquipe.objects.get(email=email)
+            token = tokenGenerator.make_token(user)
+            username = user.username
 
             send_mail(
                 subject="Redefinição de senha",
-                message=f"Uma requisição de redefinição de senha foi feita no site da Mamutes do Cerrado para a conta vinculada a este email, para prosseguir com a redefinição de senha basta acessar o seguinte link: http://127.0.0.1:8000/redefinirSenha/{username}/{token}. Caso a requisição não tenha sido feita por você, por favor ignore este email.",
+                message=f"Uma requisição de redefinição de senha foi feita no site da Mamutes do Cerrado para a conta vinculada a este email, para prosseguir com a redefinição de senha basta acessar o seguinte link: http://127.0.0.1:8000/redefine_password/{username}/{token}. Caso a requisição não tenha sido feita por você, por favor ignore este email.",
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[email]
             )
@@ -61,37 +61,37 @@ def recuperarConta(request):
                 'mensagem': f'Enviamos um email de recuperação de conta para {email}, cheque em sua caixa postal.',
             }
 
-            return render(request, 'recuperarConta.html', context)
+            return render(request, 'recoverAccount.html', context)
         
         else:
             context = {
                 'mensagem': f'Este email não existe, é necessário que o email tenha registro no sistema para recuperá-lo.',
             }
-            return render(request, 'recuperarConta.html', context)
-def redefinirSenha(request, username, token):
-    usuario = MembroEquipe.objects.get(username=username)
-    gerador = PasswordResetTokenGenerator()
+            return render(request, 'recoverAccount.html', context)
+def redefinePassword(request, username, token):
+    user = MembroEquipe.objects.get(username=username)
+    generator = PasswordResetTokenGenerator()
 
     if request.method == "POST":
-        senha = request.POST.get("password1")
-        confirmar_senha = request.POST.get("password2")
+        user_password = request.POST.get("password1")
+        check_password = request.POST.get("password2")
 
-        if senha != confirmar_senha:
+        if user_password != check_password:
             print('As senhas não coincidem')
-            return render(request, 'redefinirSenha.html', {
+            return render(request, 'redefinePassword.html', {
                 "username": username,
                 "token": token,
                 "mensagem": "As senhas não coincidem."
             })
 
-        usuario.set_password(senha)
-        usuario.save()
+        user.set_password(user_password)
+        user.save()
         print('Senha redefinida com sucesso')
         return redirect("login")
 
-    if gerador.check_token(usuario, token):
+    if generator.check_token(user, token):
         print('Token válido')
-        return render(request, 'redefinirSenha.html', {
+        return render(request, 'redefinePassword.html', {
             "username": username,
             "token": token,
         })
