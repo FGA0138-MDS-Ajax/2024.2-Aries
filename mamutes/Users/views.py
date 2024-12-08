@@ -18,13 +18,11 @@ def login (request):
         username = request.POST.get('username')
         senha = request.POST.get('password')
 
-        print(username, senha)
         user = authenticate(username=username, password=senha)
-
 
         if user is not None:
             login_django (request, user)
-            return render(request, 'login.html')
+            return HttpResponse("boa paizao deu certo")
             
         else:
             return HttpResponse("Credenciais inválidas.")
@@ -70,30 +68,32 @@ def recuperarConta(request):
                 'mensagem': f'Este email não existe, é necessário que o email tenha registro no sistema para recuperá-lo.',
             }
             return render(request, 'recuperarConta.html', context)
-
 def redefinirSenha(request, username, token):
     usuario = MembroEquipe.objects.get(username=username)
     gerador = PasswordResetTokenGenerator()
 
-    if gerador.check_token(usuario, token):
-        return render(request, 'redefinirSenha.html')
-    
     if request.method == "POST":
         senha = request.POST.get("password1")
         confirmar_senha = request.POST.get("password2")
 
         if senha != confirmar_senha:
-            return render(request, 'redefinirSenha.html',{
+            print('As senhas não coincidem')
+            return render(request, 'redefinirSenha.html', {
                 "username": username,
                 "token": token,
-                "mensagem": 'As senhas precisam ser iguais, tente novamente.'
+                "mensagem": "As senhas não coincidem."
             })
-        
+
         usuario.set_password(senha)
-        usuario.save(force_update=True)
+        usuario.save()
+        print('Senha redefinida com sucesso')
         return redirect("login")
-    
-    return render(request, 'redefinirSenha.html', {
-        "username": username,
-        "token": token,
-    })
+
+    if gerador.check_token(usuario, token):
+        print('Token válido')
+        return render(request, 'redefinirSenha.html', {
+            "username": username,
+            "token": token,
+        })
+
+    return redirect("login") 
