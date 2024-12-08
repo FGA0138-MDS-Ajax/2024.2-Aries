@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #A6A6A6;
+    background: #a6a6a600;
     padding: 4%;
     min-width: 200px;
 }
