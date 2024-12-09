@@ -285,7 +285,7 @@ path{
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    row-gap: 24px;
+    row-gap: 16px;
     align-self: stretch;
     flex-wrap: wrap;
     flex: 1 0 0;
@@ -369,27 +369,40 @@ path{
     height: 378px;
     min-width: 380px;
     align-items: center;
-    gap: 0px 19px;
+    gap: 16px;
     flex: 1 0 0;
     flex-wrap: wrap;
     width: 100%;
+    padding: 0;
 }
 
-.img-quemsomos{
+.containerWho{
     display: flex;
-    padding-bottom: 56px;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex: 1 0 0;
     align-self: stretch;
     border-radius: 16px 32px;
     background: #36B5FF;
     overflow: hidden;
+    min-width: 0;
 }
 
-.img-quemsomos img{
-    height: 100%;
-    width: auto;
+.img-quemsomos-after{
+    margin-top: 56px;
+    padding: 0;
+}
+
+.img-quemsomos-before{
+    margin-bottom: 56px;
+    padding: 0;
+}
+
+.imgWho{
+    width: 100%;      /* A imagem ocupa 100% da largura da div */
+    height: 100%;     /* A imagem ocupa 100% da altura da div */
+    object-fit: cover; /* A imagem preenche a div sem distorcer */
+    object-position: center;
 }
 
 .infos-quemsomos{
@@ -416,6 +429,7 @@ path{
     font-style: normal;
     font-weight: 800;
     letter-spacing: -0.352px;
+    min-width: 230px;
 }
 
 .quemsomos-icones{
@@ -559,6 +573,17 @@ path{
     gap: 8px;
 }
 
+.ballCarousel{
+    display: flex;
+    width: 12px;
+    height: 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #DDD;
+    cursor: pointer;
+}
 
 .diferenciais{
     display: flex;
@@ -902,6 +927,7 @@ path{
     align-items: flex-start;
     gap: 24px;
     flex: 1 0 0;
+    z-index: 3;
 }
 
 .recado-advice{
@@ -937,7 +963,7 @@ path{
     padding: 12px 24px;
     justify-content: center;
     align-items: center;
-    border-radius: 24px;
+    border-radius: 800px;
     background: #0075F6;
     color: #F9F9F9;
     text-align: center;
@@ -946,7 +972,8 @@ path{
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    gap: 8px
+    gap: 8px;
+    cursor: pointer;
 }
 
 .img-megafone-advice{
@@ -1480,7 +1507,7 @@ path{
     }
 
     .frase-hero{
-        font-size: 48px;
+        font-size: clamp(32px, 7vw, 48px);
     }
 
     .button-cta-hero{
@@ -1503,12 +1530,148 @@ path{
 
     .infos-quemsomos{
         order: -1;
+        align-items: center;
+    }
+    
+    .img-quemsomos-before{
+        min-width: 200px;
+    }
+
+
+    .nuvens-advice svg{
+        height: 100%;
+        width: auto;
+    }
+    
+    .info-centro{
+        border: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-text{
+        font-size: 16px;
+    }
+
+    .info-icon{
+        height: 32px;
+    }
+
+    .info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        flex: 1 0 0;
+        align-items: center;
+    }
+
+    .info-centro{
+        display: flex;
+        min-width: 200px;
+        padding-inline: 0px;
+        padding-block: 12px;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        flex: 1 0 0;
+        border-inline: none;
+
+        margin-inline: 0;
+        width: 100%;
+    }
+
+    .infos-equipe{
+        padding-inline: 10%;
+        padding-top: 32px;
+    }
+
+    .navbar-irrestr{
+        padding: 0;
+    }
+    
+    .logo-navbar{
+        height: 32px;
+        width: 32px;
+    }
+    
+    .quemsomos-titulo{
+        flex-wrap: wrap;
+    }
+    
+    .quemsomos-icones{
+        order: -1;
+    }
+
+    .imgs-quemsomos{
+        min-width: 300px;
+    }
+    .img-quemsomos-after{
+        min-width: 300px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .img-quemsomos-before{
+        min-width: 300px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .titulo-advice{
+        font-size: 20px;
+    }
+
+    .subtitulo-advice{
+        font-size: 12px;
+    }
+
+    .botao-ps-advice{
+        font-size: 12px;
+    }
+
+    .texto-principal-advice{
+        padding: 40px 24px
+    }
+
+    .quemsomos-central{
+        padding-top: 0;
+    }
+
+    .footer-menu{
+        order: 0;
+        flex-direction: column;
+    }
+
+    .socialmedia-footer{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu.shown{
+        padding: 24px;
+    }
+
+    .imgs-quemsomos{
+        height: unset;
     }
 
 }
 
-@media (max-width: 480px) {
-    .footer-menu{
-        order: 0;
+@media (max-width: 474px) {
+    .apres-cta{
+        min-width: 0;
     }
+    .frase-hero{
+        font-size: 32px;
+    }
+
+    .nome-hero{
+        font-size: 16px;
+    }
+
+    .button-cta-hero{
+        font-size: 12px;
+    }
+
 }

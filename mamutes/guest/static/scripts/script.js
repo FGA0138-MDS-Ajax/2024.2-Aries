@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const menu = document.querySelector(".menu");
     const sidebarMenu = document.querySelector(".sidebarMenu");
     const buttonHamb = document.querySelector(".hamb-navbar");
+    const navSideBar = document.querySelectorAll(".navSideBar");
+    const itemMenu = document.querySelector(".itemMenu");
 
     buttonHamb.addEventListener("click", () => {
         menu.classList.add("shown");
@@ -58,6 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
         menu.classList.remove("shown");
         sidebarMenu.classList.remove("shown");
     });
-});
 
+    navSideBar.forEach(itemMenu => {
+        itemMenu.addEventListener("click", () => {
+            menu.classList.remove("shown");
+            sidebarMenu.classList.remove("shown");
+        });
+    });
+});
 
