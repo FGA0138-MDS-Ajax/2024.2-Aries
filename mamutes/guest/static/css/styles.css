@@ -1247,7 +1247,7 @@ path{
 }
 
 .menu.shown {
-    transform: translateX(0); /* Traz o menu de volta para a tela */
+    transform: translateX(0);
 }
 
 
