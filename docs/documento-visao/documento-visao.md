@@ -89,7 +89,7 @@ O digrama abaixo identifica as causas do problema central: Ineficiência na gest
 
 </div>
 
-![Diagrama de Ishikawa](\view\img\Ishikawa.jpg)
+![Diagrama de Ishikawa](https://raw.githubusercontent.com/FGA0138-MDS-Ajax/2024.2-Aries/refs/heads/main/docs/view/img/Ishikawa.jpg)
 
 ---
 
@@ -271,7 +271,7 @@ Na <strong>Sprint 1</strong>, a equipe focará na <strong>definição do produto
 
 A <strong>Sprint 2</strong> envolverá a produção da <strong>documentação de arquitetura</strong>, a criação do banco de dados em MySQL, a finalização do documento de visão e a entrega da página "Quem Somos". Essa etapa organizará os fundamentos técnicos do sistema. <br> <br>
 
-As etapas seguintes, começando pela <strong>Sprint 3</strong>, irão abordar a implementação das páginas "Competição", "Processo Seletivo" e "Configurações de Conta", além de funcionalidades específicas como menus e avisos. Esse fluxo de trabalho visa manter um ritmo consistente e alinhado às prioridades do backlog. <br> <br>
+As etapas seguintes, começando pela <strong>Sprint 3</strong>, irão abordar a implementação das páginas "Competição", "Processo Seletivo" e "Configurações de Conta", além de funcionalidades específicas como menus e avisos. Esse fluxo de trabalho visa manter um ritmo consistente e alinhado às prioridades do backlog. <br>
 
 </div>
 
