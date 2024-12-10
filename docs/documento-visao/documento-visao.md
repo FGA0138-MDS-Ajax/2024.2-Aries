@@ -89,9 +89,7 @@ O digrama abaixo identifica as causas do problema central: Ineficiência na gest
 
 </div>
 
-(colocar diagrama aqui.)
-
-![Diagrama de Ishikawa](/docs/view/img/Diagrama%20de%20Ishikawa%20da%20Mamute.jpg)
+![Diagrama de Ishikawa](\view\img\Ishikawa.jpg)
 
 ---
 
@@ -169,7 +167,9 @@ Podendo ser analisados com mais detalhes na tabela seguinte: <br>
 | Objetivo        | Descrição                                                                                  |
 |-----------------|--------------------------------------------------------------------------------------------|
 | **Principal**   | Otimizar a gestão interna e fortalecer a presença externa da equipe.                      |
-| **Secundários** |                                                                                             |
+
+| Objetivos Secundários       | Descrição                                                                                  |
+|-----------------|--------------------------------------------------------------------------------------------|
 | **Automatizar tarefas administrativas** | Reduzir o tempo gasto com atividades repetitivas, permitindo mais foco nas ações principais. |
 | **Facilitar a comunicação interna e externa** | Melhorar a troca de informações dentro da equipe e com o público externo, tornando-a mais eficiente. |
 | **Garantir acessibilidade aos documentos e recursos** | Proporcionar fácil acesso a arquivos e materiais importantes, garantindo que todos os membros tenham as informações necessárias. |
@@ -245,18 +245,20 @@ Por fim, os <strong>Analistas de Qualidade</strong> executam testes de software 
 
 As fases serão detalhadas e adaptadas em cada sprint, com priorização do backlog com entregas claras e incrementais:  
 
-| Sprint  | Produto (Entrega)                                                                                                 | Data Início  | Data Fim      | % Conclusão |
-|---------|-------------------------------------------------------------------------------------------------------------------|--------------|---------------|-------------|
-| 1       | Definição do Produto                                                                                              | 10/11/2024   | 18/11/2024    | 100%          |
-| 2       | Documentação de arquitetura, Criação de Banco de dados em MySql, Finalizar Documento da Visão, Página Quem Somos  | 18/11/2024   | 25/11/2024    | ?%          |
-| 3       | Página de Competição, Página de Processo Seletivo, Página Configurações de Conta                                  | 25/11/2024  | 02/11/2024    | 0%          |
-| 4       |Menu lateral, Aba home, Aviso, Times da equipe                                                                     | 02/12/2024   | 09/11/2024   | 0%          |
-| 5       |Criação de tarefas, Calendário                                                                                     | 09/12/2024   | 16/11/2024    | 0%          |
-| 6       | Rastreio de tarefas, Kanban                                                                                       | 30/12/2024  | 06/01/2025    | 0%          |
-| 7       | Página Estoque                                                                                                    | 06/01/2025  | 13/01/2025      | 0%          |
-| 8       | Página Registro de Acidentes, Página registro de vôo                                                              | 13/01/2025  | 20/01/2025    | 0%          |
-| 9       |Página Registro de Acidentes                                                                                       | 20/01/2025   | 27/01/2025      | 0%          |
-| 10      | Deploy                                                                                                            | 27/01/2025    | 02/02/2025   | 0%          |
+| Sprint | Produto (Entrega)                                                         | Data Início | Data Fim   | % Conclusão |
+|--------|---------------------------------------------------------------------------|-------------|------------|-------------|
+| 0      | Definição do Produto                                                     | 02/11/24    | 10/11/24   | 100%        |
+| 1      | Página de Cadastro, Login, Index                                         | 10/11/24    | 18/11/24   | 100%        |
+| 2      | Documentação de arquitetura, Finalizar Documento da Visão, Página Quem Somos | 18/11/24    | 25/11/24   | 33%         |
+| 3      | Página de Competição, Página de Processo Seletivo, Página Configurações de Conta | 25/11/24    | 02/12/24   | 0%          |
+| 4      | Menu lateral, Aba home, Aviso, Configurações de SuperUser                | 02/12/24    | 09/12/24   | 0%          |
+| 5      | Criação de tarefas, Calendário                                           | 09/12/24    | 16/12/24   | 0%          |
+| 6      | Rastreio de tarefas, Kanban                                              | 30/12/24    | 06/01/25   | 0%          |
+| 7      | Página Estoque                                                          | 06/01/25    | 13/01/25   | 0%          |
+| 8      | Página Registro de Acidentes, Página registro de vôo                    | 13/01/25    | 20/01/25   | 0%          |
+| 9      | Página Registro de Acidentes                                            | 20/01/25    | 27/01/25   | 0%          |
+| 10     | Deploy                                                                  | 27/01/25    | 02/02/25   | 0%          |
+
 
 
 #### 2.3.1 Detalhamento da Tabela
@@ -343,23 +345,24 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 - Requisitos obrigatórios (*Must*): Módulos de gestão e divulgação.  
 - Requisitos desejáveis (*Should/Could*): Customização e integração com redes sociais.  
 
-| Cenário   | Requisito                      | Sprint | Priorização | Tipo de Requisito   | Descrição                   |
-|-----------|--------------------------------|--------|-------------|---------------------|-----------------------------|
-| Gestão    | Calendário                     | 5      | Must        | Funcional           | gerenciamento de tarefas    |
-| Divulgação| Página inicial                 | 1      | Must        | Funcional           | apresentar a equipe         |
-| Divulgação| Página de Competição           | 3      | could       | Funcional           | seção de notícias no site   |
-| Divulgação| Página de Processo Seletivo    | 3      | must        | Funcional           | informações do processo seletivo |
-| Gestão    | Página Configurações de Conta | 3      | Must        | Funcional           | configuração de conta        |
-| Navegação | Menu lateral (àrea restrita)   | 4      | Must        | Funcional           | Anavegação e pesquisa         |
-| Divugação | Aba home                       | 4      | Must        | Funcional           | aba principal e de aviso       |
-| Gestão    | Criação de tarefas             | 5      | Must        | Funcional           | criar e atribuir tarefas        |
-| Gestão    | Rastreio de tarefas            | 6      | Must        | Funcional           | rastreamento do que ser feito, e do que foi        |
-| Gestão    | Times da equipe                | 6      | Must        | Funcional           | destacando membros e a história da equipe         |
-|Organização| Kanban                         | 6      | Must        | Funcional           | organizar, gerenciar e visualizar tarefas e projetos|
-|Organização| Página Estoque                 | 7      | Must        | Funcional           | Apresentar a equipe         |
-|Gestão     | Página Registro de Acidentes   | 8      | Must        | Funcional           | documentação de acidentes       |
-|Gestão     | Página registro de vôo         | 8      | Must        | Funcional           | documentação de vôos        |
+Aqui está a tabela em Markdown formatada:
 
+| Cenário       | Requisito                   | Sprint | Priorização | Tipo de Requisito | Descrição                                     |
+|---------------|-----------------------------|--------|-------------|--------------------|---------------------------------------------|
+| Gestão        | Calendário                  | 5      | Must        | Funcional          | Gerenciamento de tarefas                     |
+| Divulgação    | Página inicial              | 1      | Must        | Funcional          | Apresentar a equipe                          |
+| Divulgação    | Página de Competição        | 3      | Could       | Funcional          | Seção de notícias no site                    |
+| Divulgação    | Página de Processo Seletivo | 3      | Could       | Funcional          | Informações do processo seletivo             |
+| Gestão        | Página Configurações de Conta | 3    | Must        | Funcional          | Configuração de conta                        |
+| Navegação     | Menu lateral (área restrita)| 4      | Must        | Funcional          | Navegação e pesquisa                         |
+| Divulgação    | Aba home                    | 4      | Must        | Funcional          | Aba principal e de aviso                     |
+| Gestão        | Criação de tarefas          | 5      | Must        | Funcional          | Criar e atribuir tarefas                     |
+| Gestão        | Rastreio de tarefas         | 6      | Must        | Funcional          | Rastreamento do que ser feito, e do que foi  |
+| Gestão        | Times da equipe             | 6      | Must        | Funcional          | Destacando membros e a história da equipe    |
+| Organização   | Kanban                      | 6      | Must        | Funcional          | Organizar, gerenciar e visualizar tarefas    |
+| Organização   | Página Estoque              | 7      | Should      | Funcional          | Apresentar a equipe                          |
+| Gestão        | Página Registro de Acidentes| 8      | Must        | Funcional          | Documentação de acidentes                    |
+| Gestão        | Página registro de voo      | 8      | Must        | Funcional          | Documentação de voos                         |
 
 ---
 
@@ -455,7 +458,7 @@ Tabela : Cenários funcionais
 ---
 
 ### 4.4 Tabela de Backlog do Produto
-
+<!--
 
 <p style="text-align: justify;">
 
@@ -470,16 +473,68 @@ Tabela : Cenários funcionais
     Fonte: Autores.
 </p>
 
-<!--
-Tabela : Backlog do produto
-
-| Numeração (Cenário / Requisito) | Sprint | Nome do Requisito | Tipo de Requisito (Funcional / Não Funcional) | Priorização do Requisito (Must, Should, Could) | Descrição Sucinta do Requisito            | User Stories (U.S.) Associadas            |
-|--------------------------------|--------|-------------------|-----------------------------------------------|-----------------------------------------------|-------------------------------------------|-------------------------------------------|
-| <Número>                      | <Sprint> | <Nome>            | <Funcional/Não Funcional>                     | <Must/Should/Could>                          | <Descrição breve do requisito>            | <Identifique as U.S. associadas ao requisito> |
-
 -->
 
+Tabela : Backlog do produto
+
+| Numeração | Sprint | Nome do requisito             | Tipo de requisito | Priorização | Descrição sucinta do requisito                                      | User stories (U.S.) associadas                                                                                      |
+|-----------|--------|-------------------------------|--------------------|-------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| 001       | 1      | Cadastro                     | Funcional          | Must        | Usuário consegue registrar no sistema                                | "Como um visitante, quero criar uma conta no sistema para utilizar suas funcionalidades."                           |
+| 002       | 1      | Login                        | Funcional          | Must        | Usuário com registro no site tem a capacidade de autenticar no sistema | "Como um usuário registrado, quero fazer login no sistema para acessar as funcionalidades disponíveis."             |
+| 003       | 1      | Barra de navegação           | Funcional          | Must        | Menu que possibilita o usuário transitar no site                     | "Como um usuário, quero acessar a barra de navegação para me mover facilmente entre as páginas do site."            |
+| 004       | 1      | Index                        | Funcional          | Must        | Definir o escopo, objetivos e visão do produto no documento.          | "Como um visitante, quero acessar a página inicial para visualizar o conteúdo introdutório do site."               |
+| 005       | 2      | Página “Quem Somos”          | Funcional          | Must        | Página inicial do site                                               | "Como um visitante, quero acessar a página 'Quem Somos' para conhecer mais sobre a equipe Mamutes do Cerrado."      |
+| 006       | 3      | Página de Competição         | Funcional          | Could       | Página que mostra mais sobre a Mamutes do Cerrado                    | "Como um visitante, quero acessar a página de competição para ver as fotos e detalhes dos aviões competidores."     |
+| 007       | 3      | Página de Processo Seletivo  | Funcional          | Could       | Página dedicada a competição SAE, com uma galeria de fotos da equipe | "Como um candidato, quero acessar a página do Processo Seletivo para me inscrever na equipe."                       |
+| 008       | 3      | Página de Configurações de Conta | Funcional       | Must        | Página dedicada ao Processo Seletivo, com um formulário de inscrição | "Como um usuário autenticado, quero acessar a página de configurações para editar minhas informações."              |
+| 009       | 4      | Menu Lateral (área restrita) | Funcional          | Must        | Uma página com o objetivo de exibir informações da conta do usuário   | "Como um usuário autorizado, quero usar o menu lateral para acessar ferramentas de gerenciamento interno."          |
+| 010       | 4      | Aba Home                     | Funcional          | Must        | Menu com as outras opções do software, como estoque, registros de voo | "Como um membro da equipe, quero acessar a aba home para acompanhar os avisos gerais e o calendário."               |
+| 011       | 4      | Configurações de Administrador | Funcional         | Must        | Seção onde o administrador consegue total controle sobre o CRUD       | "Como um administrador, quero criar, visualizar, editar e deletar informações pelo site, desde avisos, tarefas etc."|
+| 012       | 5      | Calendário                   | Funcional          | Could       | Calendário que possibilita visibilidade de tarefas e eventos importantes | "Como um usuário, quero visualizar um calendário para acompanhar tarefas e eventos importantes da equipe."          |
+| 013       | 5      | Criação de Tarefas           | Funcional          | Could       | Criação de tarefas e eventos para serem registrados no calendário     | "Como um usuário autorizado, quero criar tarefas e eventos no calendário para organizar os compromissos da equipe." |
+| 014       | 6      | Rastreio de Tarefas          | Não Funcional      | Must        | Rastrear tarefas da equipe                                           | "Como líder, quero rastrear as tarefas da equipe para garantir que as atribuições sejam claras e prazos cumpridos." |
+| 015       | 6      | Kanban                       | Funcional          | Could       | Criação de quadro Kanban para organização de atividades               | "Como membro da equipe, quero usar um quadro Kanban para organizar e acompanhar atividades para melhorar a eficiência."|
+| 016       | 7      | Página de Estoque            | Funcional          | Should      | Usuário consegue visualizar e adicionar itens no estoque              | "Como usuário do sistema, quero visualizar os itens no estoque e adicionar novos itens, para manter o controle do inventário."|
+| 017       | 8      | Página de Registro de Acidentes | Funcional        | Must        | Página em que os membros registram acidentes de voo                  | "Como membro da equipe, quero registrar acidentes de voo, para garantir rastreabilidade e análise de incidentes."    |
+| 018       | 9      | Página de Registro de Voo    | Funcional          | Must        | Membros registram documentações de voo                                | "Como integrante da equipe, quero registrar as documentações de voo no sistema, para manter registros organizados."  |
+
 ---
+
+## Tabela de Contribuição da Equipe ( início da sprint 1 - fim da sprint 2)
+
+| Matrícula   | Nome da Equipe                          | Descrição das atividades realizadas                                    | % de contribuição ao trabalho |
+|-------------|-----------------------------------------|------------------------------------------------------------------------|-------------------------------|
+| 231027023   | AMANDA CRUZ LIMA                       | Desenvolvimento de documentação e de back-end.                        | 10%                           |
+| 231026901   | CAIO FERREIRA DUARTE                   | Desenvolvimento de documentação, Scrum e implementação de páginas web.| 11%                           |
+| 231012192   | FELIPE JUNIOR DUARTE DA SILVA          | Desenvolvimento de documentação e de back-end.                        | 10%                           |
+| 231011515   | ISAQUE CAMARGOS NASCIMENTO             | Desenvolvimento de documentação, back-end e implementação de páginas web. | 10%                       |
+| 231026750   | LUDMILA AYSHA OLIVEIRA NUNES           | Prototipação de páginas de alta fidelidade, desenvolvimento de documentos de requisitos, e implementação de páginas web. | 12% |
+| 231035731   | MAYARA MARQUES SILVA                   | Prototipação de páginas de alta fidelidade, desenvolvimento de ATAS.  | 10%                           |
+| 231039150   | OTHAVIO ARAUJO BOLZAN                  | Desenvolvimento Full-stack e modelagem de dados de autenticação.       | 10%                           |
+| 231011800   | RAFAEL WELZ SCHADT                     | Desenvolvimento de documentação, back-end, Scrum.                     | 10%                           |
+| 190039116   | VINÍCIUS ALVES FREITAS LIVRAMENTO      | Desenvolvimento de diagrama de classes e implementação de página.     | 5%                            |
+| 202046102   | FELIPE DAS NEVES FREIRE                | Desenvolvimento de documentação e back-end.                           | 12%                           |
+
+
+<div style="text-align: justify;">
+
+No desenvolvimento deste documento, a equipe foi organizada em grupos distintos, cada um com responsabilidades específicas. A divisão das equipes visou otimizar o processo de coleta e organização das informações, garantindo uma estrutura sólida para a entrega do documento oficial em formato PDF e a implementação na plataforma GitHub Pages. Este último recurso foi destinado a análises e revisões por parte do monitor da disciplina. Abaixo detalhamos as equipes e as respectivas atividades realizadas: <br> <br>
+
+Equipes e Responsabilidades:<br> <br>
+
+1. Equipe de Documentação <br>
+<strong>Responsáveis:</strong> Caio Ferreira, Felipe Freire, Amanda Cruz, Felipe Duarte, Mayara Marques e Rafael Schadt. <br>
+Descrição: Esta equipe focou na síntese das informações oriundas das discussões do grupo, estruturando-as para compor o documento final. Além disso, contribuíram na elaboração de atas e requisitos essenciais para o desenvolvimento do projeto, estruturação da github pages e sintetização das informações obtidas de todas as fontes do projeto. <br> <br>
+
+2. Equipe de Desenvolvimento Back-end <br>
+<strong>Responsáveis:</strong> Rafael Schadt, Felipe Duarte, Othavio Araujo, Amanda, Isaque Camargos e Felipe Freire. <br>
+Descrição: Atuaram na construção e manutenção das funcionalidades do sistema, integrando dados e desenvolvendo soluções de autenticação, além de contribuir com informações para o desenvolvimento de todo o tópico 1,2 e tabela de backlog do produto. <br> <br>
+
+3. Equipe de Implementação de Páginas <br>
+<strong>Responsáveis:</strong> Caio Ferreira, Ludmila Aysha, Vinícius Alves, Isaque Camargos e Othavio Araujo. <br>
+Descrição: Trabalharam na criação das páginas do projeto, integrando-as de forma eficiente com o back-end e garantindo uma interface coerente e funcional contribuindo com informações para o desenvolvimento de todo o tópico 1,2 e tabela de backlog do produto. <br>
+
+</div>
 
 ## Referências Bibliográficas
 
@@ -511,5 +566,7 @@ Tabela : Backlog do produto
 | 1.3 | 29/11/2024 | Desenvolvimento dos artefatos **backlog do produto**, **perfis** e **cenários**   | Felipe Freire e Felipe Duarte |
 | 1.4 | 02/12/2024 | Desenvolvimento dos artefatos **Gerenciamento de Riscos** e **Critérios de Replanejamento**| Isaque Camargos | 
 | 1.5 | 02/12/2024 | Upgrade nos artefatos **backlog do produto**, **perfis**, **cenários** e **declaração de escopo**   | Felipe Freire e Felipe Duarte | 
-| 1.6 | 02/12/2024 | Ajuste no texto do **diagrama espinha de peixe** e inserção das **referencias** | Felipe Duarte e Felipe Freire | 
-
+| 1.6 | 02/12/2024 | Desenvolvimento dos artefatos **Gerenciamento de Riscos** e **Critérios de Replanejamento** | Isaque Camargos |
+| 1.6 | 02/12/2024 | Desenvolvimento dos artefatos **Tabela de Backlog do Produto** | Amanda Cruz, Caio Duarte e Rafael Schadt |
+| 1.7 | 02/12/2024 | Revisão final dos artefatos **"Doc"** | Caio Ferreira, Felipe Freire, Isaque Camargos e Amanda Cruz |
+| 1.7 | 10/12/2024 | Inserção na gitpages | Felipe Freire |
