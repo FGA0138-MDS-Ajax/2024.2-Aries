@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/pagConfig.css' %}">
+    <script src="{% static 'scripts/showDados.js' %}" defer></script>
+    <title>Mamutes do Cerrado | Configuração</title>
+</head>
+<body>
+    <div  class="minhaconta-page">
+      <div class="central-minha-conta">
+        <div class="inicio-perfil-user">
+          <div class="foto-perfil">
+            <img class="tag-img" src="{% static 'img/tagimg.png' %}"></img>
+            <img class="change-pic-bar" src="{% static 'img/Vector.png' %}" /> 
+          </div>
+          <div class="infos-membro">
+            <div class="text-wrapper">@josevictor</div>
+            <div class="div">José Victor Camargos Nunes</div>
+            <div class="infos-cargo-area">
+              <p class="p">Gerente de operações | Capitão | Piloto</p>
+              <div class="text-wrapper-2">Marketing | Estruturas</div>
+            </div>
+          </div>
+        </div>
+        <div  class="meus-dados">
+          <div id="userDetails" class="form-principal-input">
+            <div class="name-data">
+              <div class="text-wrapper-3">Meus dados</div>
+              <img id="toggleButton" class="img" src="{% static 'img/edit-icon.png' %}" style="cursor: pointer;" />
+            </div>
+            <div class="div-2">
+              <div class="text-wrapper-4">Nome completo</div>
+              <div class="div-wrapper"><div class="text-wrapper-5">José Victor Camargos Nunes</div></div>
+            </div>
+            <div class="div-2">
+              <div class="text-wrapper-4">E-mail</div>
+              <div class="div-wrapper"><div class="text-wrapper-5">jose@gmail.com</div></div>
+            </div>
+            <div class="user-contato">
+              <div class="div-3">
+                <div class="text-wrapper-4">Nome de usuário</div>
+                <div class="div-wrapper"><div class="text-wrapper-5">@josevictor</div></div>
+              </div>
+              <div class="div-3">
+                <div class="text-wrapper-4">Contato</div>
+                <div class="div-wrapper"><div class="text-wrapper-5">(61) 99999-9999</div></div>
+              </div>
+            </div>
+          </div>
+          <div id="userEdit" class="form-principal-input"style="display: none;" >
+            <div class="name-data-2"><div class="text-wrapper-3">Meus dados</div></div>
+            <div class="div-2">
+              <div class="text-wrapper-4">Nome completo</div>
+              <div class="div-wrapper-2"><div class="text-wrapper-6">José Victor Camargos Nunes</div></div>
+            </div>
+            <div class="div-2">
+              <div class="text-wrapper-4">E-mail</div>
+              <div class="div-wrapper-2"><div class="text-wrapper-6">jose@gmail.com</div></div>
+            </div>
+            <div class="user-contato">
+              <div class="div-3">
+                <div class="text-wrapper-4">Nome de usuário</div>
+                <div class="div-wrapper-2"><div class="text-wrapper-6">@josevictor</div></div>
+              </div>
+              <div class="div-3">
+                <div class="text-wrapper-4">Contato</div>
+                <div class="div-wrapper-2"><div class="text-wrapper-6">(61) 99999-9999</div></div>
+              </div>
+            </div>
+            <div class="botoes">
+              <div class="botao-login"><div class="text-wrapper-7">Salvar alterações</div></div>
+              <div id="userCancelar" style="cursor: pointer;" class="botao-cancelar"><div class="text-wrapper-8">Cancelar</div></div>
+            </div>
+          </div>
+        </div>
+        <div  id="butaoSenha" class="botao-login" style="display: flex;"><div class="text-wrapper-7" style="cursor: pointer;">Alterar senha</div></div>
+        <div id="userSenha" class="form-principal" style="display: none;"> 
+          <div class="name-data">
+            <div class="text-wrapper-3">Alterar senha</div>
+            <img class="img" src="{% static 'img/key-icon.png' %}" />
+          </div>
+          <div class="div-2">
+            <div class="text-wrapper-4">Senha atual</div>
+            <input type="password" id="currentPassword" class="password-field"></input>
+          </div>
+          <div class="div-2">
+            <div class="text-wrapper-4">Nova senha</div>
+            <input type="password" id="newPassword" class="password-field"></input>
+          </div>
+          <div class="div-2">
+            <div class="text-wrapper-4">Confirmar senha</div>
+            <input type="password" id="confirmPassword" class="password-field"></input>
+          </div>
+          <p id="errorMessage" style="color: red; display: none;" class="text-wrapper-9">As senhas não coincidem</p>
+          <p id="Message" style="color: green; display: none;" class="text-wrapper-9">Deu Certo!</p>
+          <div class="botoes">
+            <button id="submitButton" disabled="true" style="cursor: pointer;" class="botao-login"><div class="text-wrapper-7" >Alterar senha</div></button >
+            <div  id="cancelButton" class="botao-cancelar"><div class="text-wrapper-8" style="cursor: pointer;">Cancelar</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

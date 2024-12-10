@@ -96,3 +96,6 @@ def redefinePassword(request, username, token):
         })
 
     return redirect("login") 
+
+def pagConfig(response):
+     return render(response,'pagConfig.html')
