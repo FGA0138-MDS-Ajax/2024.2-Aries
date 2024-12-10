@@ -167,6 +167,7 @@ path{
 
 .vetor-mmts-hero{
     position: absolute;
+    pointer-events: none;
     /* display: none; */
 }
 
@@ -187,7 +188,7 @@ path{
     align-self: stretch;
     background: linear-gradient(270deg, #0075F6 28%, #010032 100%);
     overflow: hidden;
-    z-index: -1;
+    z-index: 0;
 }
 
 .hero-central{
@@ -214,6 +215,7 @@ path{
     padding-bottom: 8%;
     gap: 40px;
     flex: 1 0 0;
+    z-index: 5;
 }
 
 .apresentacao{
@@ -257,6 +259,7 @@ path{
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    cursor: pointer;
 }
 
 .imagem-hero{
@@ -290,6 +293,7 @@ path{
     flex-wrap: wrap;
     flex: 1 0 0;
     background-color: #F9F9F9;
+    z-index: 1;
 }
 
 .info{
@@ -350,6 +354,7 @@ path{
     align-items: flex-start;
     gap: 64px;
     align-self: stretch;
+    z-index: 1;
 }
 
 

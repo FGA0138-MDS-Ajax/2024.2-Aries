@@ -16,7 +16,7 @@
                         <p class="nome-hero">Mamutes do Cerrado,</p>
                         <span class="frase-hero">Muito mais que uma equipe.</span>
                     </div>
-                    <button class="button-cta-hero">Saiba mais sobre nós</button>
+                    <a href="{% url 'index' %}#quemsomos" class="button-cta-hero">Saiba mais sobre nós</a>
                 </div>
                 <div class="imagem-hero">
                     <img class="imagem-time-hero" src="{% static 'img/imagem-exemplo-time.png'%}">
@@ -113,7 +113,7 @@
                     <br>
                     <br>
                     Nosso objetivo é <b>fomentar a paixão pela indústria aeronáutica no Brasil</b>, preparando futuros líderes com habilidades em planejamento, liderança e ética profissional.</p>
-                    <button class="knowmore-quemsomos">Conheça mais nosso trabalho na competição!</button>
+                    <a href="{% url 'competition' %}" class="knowmore-quemsomos">Conheça mais nosso trabalho na competição!</a>
                 </div>
             </div>
             <div class="oqfazemos">
