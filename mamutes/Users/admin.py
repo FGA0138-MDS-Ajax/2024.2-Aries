@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .forms import MembroEquipeCreationForm, MembroEquipeChangeForm
 from .models import MembroEquipe, Area, Function
+from .models import Usuario, Tarefa, Produto, Ata, RegistroAcidente
 
 class MembroEquipeAdmin(UserAdmin):
     add_form = MembroEquipeCreationForm
@@ -41,3 +42,8 @@ class FunctionAdmin(admin.ModelAdmin):
 admin.site.register(MembroEquipe, MembroEquipeAdmin)
 admin.site.register(Area, AreaAdmin)
 admin.site.register(Function, FunctionAdmin)
+admin.site.register(Usuario)
+admin.site.register(Tarefa)
+admin.site.register(Produto)
+admin.site.register(Ata)
+admin.site.register(RegistroAcidente)

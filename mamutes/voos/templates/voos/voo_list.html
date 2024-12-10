@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Voos</title>
+    <link rel="stylesheet" href="{% static 'css/voolist.css' %}">
+</head>
+<body>
+    <h1>Lista de Voos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Nome do Piloto</th>
+                <th>Local</th>
+                <th>Membros Envolvidos</th>
+                <th>Nível de Sucesso</th>
+                <th>Descrição do Objetivo</th>
+                <th>Êxito</th>
+                <th>Impressões do Piloto</th>
+                <th>Melhorias</th>
+                <th>Velocidade (m/s)</th>
+                <th>Direção do Vento</th>
+                <th>Pressão Atmosférica (hPa)</th>
+                <th>Peso de Decolagem (kg)</th>
+                <th>Ciclos de Voo</th>
+                <th>Telemetria (Link)</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for voo in voos %}
+            <tr>
+                <td>{{ voo.id }}</td>
+                <td>{{ voo.data }}</td>
+                <td>{{ voo.nome_piloto }}</td>
+                <td>{{ voo.local }}</td>
+                <td>{{ voo.membros_envolvidos }}</td>
+                <td>{{ voo.nivel_sucesso }}</td>
+                <td>{{ voo.descricao_objetivo }}</td>
+                <td>{{ voo.exito }}</td>
+                <td>{{ voo.impressoes_piloto }}</td>
+                <td>{{ voo.melhorias }}</td>
+                <td>{{ voo.velocidade_m_s }}</td>
+                <td>{{ voo.direcao_vento }}</td>
+                <td>{{ voo.pressao_atmosferica_hpa }}</td>
+                <td>{{ voo.peso_decolagem_kg }}</td>
+                <td>{{ voo.ciclos_voo }}</td>
+                <td><a href="{{ voo.telemetria_link }}" target="_blank">Acessar Telemetria</a></td>
+                <td>
+                    <a href="{% url 'voo_edit' voo.id %}" class="btn btn-editar">Editar</a>
+                    <a href="{% url 'voo_delete' voo.id %}" class="btn btn-excluir">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
