@@ -58,29 +58,6 @@ function validateForm() {
   input.addEventListener("input", validateForm)
 );
 
-document.getElementById("butaoSenha").addEventListener("click", function() {
-    const userDetails = document.getElementById("userDetails");
-    const userSenha = document.getElementById("userSenha");
-    const butaoSenha= document.getElementById("butaoSenha");
-    if (userDetails.style.display != "none") {
-        userDetails.style.display = "none";
-        userSenha.style.display = "flex";
-        butaoSenha.style.display = "none";
-    } else {
-        userDetails.style.display = "flex";
-    }
-  });
-
-  document.getElementById("cancelButton").addEventListener("click", function() {
-    const userDetails = document.getElementById("userDetails");
-    const userSenha = document.getElementById("userSenha");
-    const butaoSenha= document.getElementById("butaoSenha");
-    if (userEdit.style.display === "none") {
-        userDetails.style.display = "flex";
-        userSenha.style.display = "none";
-        butaoSenha.style.display = "flex";
-        }
-  });
 
   document.getElementById("submitButton").addEventListener("click", function() {
     const msg = document.getElementById("Message");
