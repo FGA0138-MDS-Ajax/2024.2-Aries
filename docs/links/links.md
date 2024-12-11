@@ -45,3 +45,4 @@ Este documento será usado como guia para os integrantes do projeto tenha acesso
 | :----: | :--: | :--------------------: | :-------------------: |
 | 1.0 | 28/11/2024 | Criação da Estrutura do Arquivo e Inserção dos Links Encontrados | Felipe Freire |
 | 1.1 | 28/11/2024 | Atualização link figma | Felipe Freire |
+| 1.2 | 11/12/2024 | Atualização link jornada do usuário | Mayara Marques |
