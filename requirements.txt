@@ -1,1 +1,3 @@
 python-decouple==3.8
+>>>>>>> main
+>>>>>>> e5672ae3334ae66d7fa49fb6cd6aaa29bddc6234

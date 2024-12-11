@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Minha Página{% endblock %} | Mamutes do Cerrado</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
+    <meta name="description" content="Conheça a equipe Mamutes do Cerrado, participantes da competição SAE Brasil AeroDesign. Aprenda mais sobre nossos projetos e conquistas.">
+    <meta name="author" content="Equipe Mamutes do Cerrado">
+    <meta property="og:title" content="Conheça a Equipe Mamutes do Cerrado - Engenharia Aeroespacial">
+    <meta property="og:description" content="Saiba mais sobre a equipe Mamutes do Cerrado, nossa participação na competição SAE AeroDesign e como fazemos a diferença na engenharia aeroespacial.">
+    <meta property="og:image" content="{% static 'img/hero-alterar.css' %}"><!--ALTERARRRRRRRRRRR-->
+    <meta property="og:url" content="https://www.seusite.com">
+    <meta property="og:type" content="website">
+    {% block css %}{% endblock %}
+</head>
+</head>
+<body>
+    {% include 'partials/_header.html' %}
+    {% block content %}
+    {% endblock %}
+    {% include 'partials/_footer.html' %}
+    <script src="{% static 'scripts/script.js' %}"></script>
+</body>
+</html>
