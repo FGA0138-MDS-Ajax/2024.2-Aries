@@ -22,7 +22,7 @@ Este documento será usado como guia para os integrantes do projeto tenha acesso
 | Categoria                | Descrição                                     | Link                                                                                                                                  |
 |--------------------------|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Requisitos de Front-End** | Requisitos do front-end do projeto          | [Acessar](https://www.canva.com/design/DAFQo7YpQgk/8aGu1jU3FS_afrScamCT4A/edit)                                                      |
-| **Jornada do Usuário**   | Jornada do usuário                            | [Acessar](https://www.canva.com/design/DAFQo7YpQgk/8aGu1jU3FS_afrScamCT4A/edit)                                                      |
+| **Jornada do Usuário**   | Jornada do usuário                            | [Acessar](https://www.figma.com/board/fnmScFfTDTFkSSNWFO6Ut2/Mamutes-do-Cerrado?node-id=0-1&t=8taay5WXlfzVGqv2-1)                                                      |
 | **Requisitos de Páginas**| Requisitos de páginas                         | [Acessar](https://docs.google.com/document/d/1kDp9HKBoK-4CKxUfCm3X-8PvnqyY_zZ2xrZw05No-v8/edit?usp=sharing)    
 | **Prototipo**| Protótipo das páginas                         | [Acessar](https://www.figma.com/design/91Uplom2dbGErUgCocwR7I/Protótipo---Mamutes-do-Cerrado?node-id=2-7&node-type=canvas)                       |
 
