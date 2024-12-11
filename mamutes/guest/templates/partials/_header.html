@@ -74,24 +74,25 @@
         </div>
         <ul class="central-menu">
             <li>
-                <a href="{% url 'index' %}" style="color: #010032; font-weight: 700;">Início</a>
-                <div class="active-dot" style="background: #36B5FF;"></div>
+                
+                <a href="{% url 'index'%}" {% if request.path == '/' %}style="color: #010032; font-weight: 700;"{% endif %}>Início</a>
+                <div class="active-dot" {% if request.path == '/' %}style="background: #36B5FF;"{% endif %}></div>
             </li>
             <li>
-                <a href="{% url 'index' %}#quemsomos">Quem somos?</a>
+                <a href="{% url 'index' %}" >Quem somos?</a>
                 <div class="active-dot"></div>
             </li>
             <li>
-                <a href="{% url 'index' %}#apoiadores">Apoiadores</a>
+                <a href="{% url 'index' %}">Apoiadores</a>
                 <div class="active-dot"></div>
             </li>
             <li>
-                <a href="{% url 'competition' %}">Competição</a>
-                <div class="active-dot"></div>
+                <a href="{% url 'competition' %}" {% if request.path == '/competition/' %}style="color: #010032; font-weight: 700;"{% endif %}>Competição</a>
+                <div class="active-dot" {% if request.path == '/competition/' %}style="background: #36B5FF;"{% endif %}></div>
             </li>
             <li>
                 <a href="#processo">Processo seletivo</a>
-                <div class="active-dot"></div>
+                <div class="active-dot" {% if request.path == '/selectionProcess/' %}style="background: #36B5FF;"{% endif %}></div>
             </li>
         </ul>
         <div class="lock-menu">

@@ -549,27 +549,44 @@ path{
     line-height: 150%; /* 24px */
     letter-spacing: -0.176px;
 }
-
-.carrossel{
+.carrossel {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 16px;
-    flex: 1 0 0;
     max-width: 500px;
     min-width: 240px;
+    width: 100%;
 }
 
-.imagens-carrossel{
-    display: flex;
+.swiper {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
+    height: auto; /* Ajusta altura com base no conteúdo */
+    aspect-ratio: 16 / 9; /* Define proporção padrão para slides */
+}
+
+.swiper-wrapper {
+    width: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
-    background: #CACACA;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.swiper-slide img {
+    border-radius: 16px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .passador-carrossel{

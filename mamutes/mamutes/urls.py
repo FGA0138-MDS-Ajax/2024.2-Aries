@@ -9,6 +9,6 @@ urlpatterns = [
     path('register/', register, name = 'register'),
     path('account_recovery/', recoverAccount, name = 'recoverAccount'),
     path('redefine_password/<str:username>/<str:token>', redefinePassword, name="redefinePassword"),
-    path('index/', index, name="index"),
+    path('', index, name="index"),
     path('competition/', competition, name="competition"),
 ]
