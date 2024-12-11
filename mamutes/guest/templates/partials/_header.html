@@ -79,11 +79,11 @@
                 <div class="active-dot" {% if request.path == '/' %}style="background: #36B5FF;"{% endif %}></div>
             </li>
             <li>
-                <a href="#quemsomos" >Quem somos?</a>
+                <a href="{% url 'index' %}#quemsomos" >Quem somos?</a>
                 <div class="active-dot"></div>
             </li>
             <li>
-                <a href="#apoiadores">Apoiadores</a>
+                <a href="{% url 'index' %}#apoiadores">Apoiadores</a>
                 <div class="active-dot"></div>
             </li>
             <li>
