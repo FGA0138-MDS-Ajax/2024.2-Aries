@@ -1,6 +1,5 @@
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import authenticate, login as login_django
 from .models import * 
@@ -36,10 +35,7 @@ def register(request):
      return render(request, 'register.html')
 
 def recoverAccount(request):
-    
-    if request.method == 'GET':
-        return render(request, 'recoverAccount.html')
-    else:
+    if request.method == 'POST':
         email = request.POST.get('email')
 
         if MembroEquipe.objects.filter(email__exact=email).exists():
@@ -55,18 +51,19 @@ def recoverAccount(request):
                 recipient_list=[email]
             )
 
-            
-            context = {
+            response = {
                 'mensagem': f'Enviamos um email de recuperação de conta para {email}, cheque em sua caixa postal.',
+                'success': True
+            }
+        else:
+            response = {
+                'mensagem': f'Este email não existe, é necessário que o email tenha registro no sistema para recuperá-lo.',
+                'success': False
             }
 
-            return render(request, 'recoverAccount.html', context)
-        
-        else:
-            context = {
-                'mensagem': f'Este email não existe, é necessário que o email tenha registro no sistema para recuperá-lo.',
-            }
-            return render(request, 'recoverAccount.html', context)
+        return JsonResponse(response)
+
+
 def redefinePassword(request, username, token):
     user = MembroEquipe.objects.get(username=username)
     generator = PasswordResetTokenGenerator()
@@ -95,4 +92,4 @@ def redefinePassword(request, username, token):
             "token": token,
         })
 
-    return redirect("login") 
+    return redirect("login")

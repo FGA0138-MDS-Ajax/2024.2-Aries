@@ -14,15 +14,13 @@
                     <h2 class="subtitulo">Preencha o formulário</h2>
                 </div>
             </div>
-            <form action="{% url 'recoverAccount' %}" method="POST" class="formLogin">
+            <form id="recoverAccountForm" action="{% url 'recoverAccount' %}" method="POST" class="formLogin">
                 <div class="divsFields">
                     <p class="tituloInputs">Email</p>
                     {% csrf_token %}
                     <input type="email" name="email" id="email" placeholder="Ex.: joao@gmail.com" class="inputForm">
-                    {% if mensagem %}
-                        {{ mensagem }}
-                    {% endif%}
                 </div>
+                <div id="mensagemContainer" class="mensagemContainer"></div>
                 <div class="botoesRecuperar">
                     <button type="submit" class="submitBotao" value="adicionar" style="border-radius: 8px; background: #1F1A99;">
                         <span class="addLabel">Enviar</span>
