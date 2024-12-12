@@ -500,7 +500,7 @@ Tabela : Backlog do produto
 
 ---
 
-## Tabela de Contribuição da Equipe ( início da sprint 1 - fim da sprint 2)
+## 5. Tabela de Contribuição da Equipe ( início da sprint 1 - fim da sprint 2)
 
 | Matrícula   | Nome da Equipe                          | Descrição das atividades realizadas                                    | % de contribuição ao trabalho |
 |-------------|-----------------------------------------|------------------------------------------------------------------------|-------------------------------|
