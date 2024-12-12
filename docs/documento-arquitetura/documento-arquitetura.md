@@ -30,90 +30,94 @@ Demais detalhes com relação ao escopo do projeto, se encontram no documento �
 
 <div style="text-align: justify;">
 
-O sistema da equipe <strong>Mamutes do Cerrado</strong> adotará a arquitetura em camadas, alinhada ao padrão <strong>Model-View-Controller (MVC)</strong>, para atender às demandas de gerenciamento interno e divulgação externa. Essa abordagem organiza o sistema em três camadas principais, cada uma com responsabilidades bem definidas: <br>
+O sistema da equipe Mamutes do Cerrado adotará a arquitetura em camadas, alinhada ao padrão Model-View-Template (MVT), utilizado pelo framework Django. Essa abordagem organiza o sistema em três componentes principais, cada um com responsabilidades bem definidas:
 
 </div>
 
 ### 2.1.1 Camada de Lógica de Negócios (Model)
+Essa camada gerencia os dados e a lógica de negócios da aplicação. No contexto do sistema Mamutes, será responsável por:
 
-Essa camada gerencia os dados e a lógica de negócios da aplicação. No contexto do sistema Mamutes, será responsável por: 
-
-- Armazenar informações sobre membros, estoques, cronogramas e documentos;
-- Gerenciar os processos de registro de atividades e cálculo de métricas, como presenças e disponibilidade de recursos; 
-- Fornecer as bases para relatórios e indicadores de desempenho da equipe.
+Armazenar informações sobre membros, estoques, cronogramas e documentos em um banco de dados relacional.
+Gerenciar processos internos, como registro de atividades, cálculo de métricas (presenças e disponibilidade de recursos) e controle de acesso.
+Fornecer suporte aos relatórios e indicadores de desempenho da equipe.
 
 ### 2.1.2 Camada de Apresentação (View)
 
-Responsável pela interface com o usuário, esta camada exibirá os dados de maneira organizada e acessível. Exemplos de funcionalidades nesta camada incluem:
+Os templates são responsáveis pela renderização de conteúdo dinâmico para o usuário, utilizando HTML integrado com variáveis e expressões do Django Template Language (DTL). Exemplos de funcionalidades nesta camada incluem:
 
-- Exibição de dashboards com cronogramas e indicadores-chave; 
-- Páginas públicas para a divulgação da identidade visual e eventos da equipe; 
-- Interfaces intuitivas para o gerenciamento de recursos internos, como estoques e tarefas.
+Exibição de dashboards com cronogramas, indicadores-chave e relatórios dinâmicos.
+Criação de páginas públicas para divulgar eventos, identidade visual e novidades da equipe.
+Interfaces amigáveis e responsivas para facilitar o gerenciamento interno de recursos como estoques e cronogramas.
 
-### 2.1.3 Camada de Controle (Controller)
+### 2.1.3 Camada de Apresentação (Template)
 
-<div style="text-align: justify;">
+As views atuam como intermediárias, processando as solicitações dos usuários e interagindo com o Model e o Template. São responsáveis por:
 
-Atuando como intermediária, essa camada processará as solicitações dos usuários, interagindo com o <strong>Model</strong> para acessar ou atualizar dados e definindo como essas informações serão exibidas na <strong>View</strong>. Exemplos incluem: 
-
-</div>
-
-- Controle de login e permissões de acesso para diferentes perfis (administrador, capitão, membro, trainee e visitante); 
-- Processamento de entradas de dados para o cadastro de novos membros ou alterações no estoque; 
-- Integração com APIs externas. 
-
+Receber requisições do usuário e retornar respostas adequadas, como páginas HTML ou dados em formato JSON.
+Gerenciar lógica de apresentação dinâmica, como filtrar dados de cronogramas ou estoques com base no perfil do usuário.
+Integração com APIs externas, como o Google Maps, para funcionalidades avançadas, como cálculo de rotas.
 ---
 
 ## 2.2 Justificativa
 
 <div style="text-align: justify;">
 
-A escolha da arquitetura <strong>MVC</strong> foi motivada por suas diversas vantagens, especialmente no contexto da <strong>Mamutes do Cerrado</strong>, que requer um sistema eficiente, modular e de fácil manutenção. Entre os principais benefícios estão:
+A escolha da arquitetura MVT, fornecida pelo Django, foi motivada por suas diversas vantagens, que se alinham diretamente às necessidades da equipe Mamutes do Cerrado. Entre os principais benefícios, destacam-se:
 
 </div>
 
 ### 2.2.1 Separação de Responsabilidades
 
-A divisão em três camadas permite:
+A arquitetura MVT separa claramente as funções do sistema, o que:
 
-- Manutenção independente de cada componente;
-- Alterações na interface do usuário (View) sem impactar a lógica de negócios (Model);
-- Facilitação do desenvolvimento e aprimoramento contínuo do sistema.
+Facilita a manutenção e a evolução independente de cada componente.
+Permite alterações no Template (interface do usuário) sem impactar a lógica de negócios no Model.
+Simplifica o desenvolvimento contínuo e modular do sistema.
 
-### 2.2.2 Facilidade de Teste
+### 2.2.2 Reutilização de Componentes
 
 <div style="text-align: justify;">
 
-Com o <strong>MVC</strong>, cada camada pode ser testada de forma isolada, garantindo a identificação rápida de erros e sua resolução eficiente, algo crucial para atender às demandas da equipe.
+A estrutura dos templates do Django permite a reutilização de layouts e blocos de código, agilizando a criação de páginas consistentes e minimizando redundâncias.
 
 </div>
 
-### 2.2.3 Escalabilidade
+### 2.2.3 Facilidade de Teste
+
+Com o MVT, as camadas podem ser testadas isoladamente:
+
+- Models podem ser validados com testes unitários para garantir a integridade dos dados.
+- Views podem ser testadas para confirmar o comportamento esperado das requisições.
+- Templates podem ser revisados para verificar se os dados estão sendo apresentados corretamente.
+
+### 2.2.4 Escalabilidade
+
+A arquitetura MVT é flexível e escalável, permitindo que novas funcionalidades sejam adicionadas ou modificadas com facilidade. Isso é crucial para suportar:
+
+- Expansões futuras, como novos módulos para gerenciamento de eventos ou integração com novos sistemas.
+- Adaptações às demandas específicas da equipe Mamutes do Cerrado, como melhorias no controle de estoque e comunicação automatizada.
+
+### 2.2.5 Desenvolvimento Paralelo
+
+A separação em camadas permite que diferentes equipes trabalhem simultaneamente:
+
+- Uma equipe pode desenvolver os Models, configurando o banco de dados e regras de negócio.
+- Outra pode focar na criação de Templates e no design das páginas.
+- Uma terceira equipe pode trabalhar nas Views, integrando os dados e ajustando a lógica de controle.
+
+### 2.2.6 Alinhamento às Necessidades
 
 <div style="text-align: justify;">
 
-A arquitetura permite que novas funcionalidades sejam adicionadas sem comprometer o funcionamento do sistema existente. Isso será útil para futuras expansões, como integração com novos sistemas ou adição de novas áreas de gerenciamento.
-
-</div>
-
-### 2.2.4 Desenvolvimento Paralelo
-
-O padrão permite que equipes distintas trabalhem simultaneamente em diferentes partes do sistema, aumentando a eficiência do desenvolvimento. Por exemplo:
-
-- Uma equipe pode se concentrar no desenvolvimento da prototipação das páginas do site;
-- Outra pode trabalhar na lógica de negócios para o gerenciamento de estoques.
-
-### 2.2.5 Alinhamento às Necessidades
-
-<div style="text-align: justify;">
-
-Essa arquitetura atende à necessidade de um sistema modular, que conecte <strong>gestão interna</strong> (estoque, cronogramas, tarefas) e <strong>divulgação externa</strong> (site público, eventos), permitindo que a Mamutes do Cerrado cresça e se organize de forma sustentável.
+A arquitetura MVT atende perfeitamente à necessidade de um sistema robusto, modular e de fácil manutenção, conectando <strong>gestão interna</strong> (estoques, cronogramas, tarefas) e <strong>divulgação externa</strong> (site público, eventos), permitindo que a Mamutes do Cerrado se organize e cresça de forma sustentável e eficiente.
 
 </div>
 
 ---
 
 ## 2.3 Detalhamento
+
+
 
 ---
 
@@ -148,6 +152,8 @@ Essa arquitetura atende à necessidade de um sistema modular, que conecte <stron
 ---
 
 # 3. Bibliografia
+
+OiArquitetura MVC e princípios de projeto https://medium.com/@celionormando/arquitetura-mvc-e-princípios-de-projeto-3d0b278ef910 12/12
 
 
 ---
