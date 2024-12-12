@@ -162,7 +162,7 @@ As views atuam como intermediárias, processando as solicitações dos usuários
 
 A figura abaixo ilustra a arquitetura MVT utilizada no desenvolvimento do sistema Mamutes do Cerrado, destacando a interação entre os componentes e suas responsabilidades:
 
-![Esquema MVT]()
+![Esquema MVT](https://raw.githubusercontent.com/FGA0138-MDS-Ajax/2024.2-Aries/refs/heads/main/docs/view/img/mvt.png)
 Figura 1. Esquema da arquitetura MVT adaptada ao sistema Mamutes do Cerrado
 
 ---
