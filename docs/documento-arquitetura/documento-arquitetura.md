@@ -163,7 +163,12 @@ As views atuam como intermediárias, processando as solicitações dos usuários
 A figura abaixo ilustra a arquitetura MVT utilizada no desenvolvimento do sistema Mamutes do Cerrado, destacando a interação entre os componentes e suas responsabilidades:
 
 ![Esquema MVT](https://raw.githubusercontent.com/FGA0138-MDS-Ajax/2024.2-Aries/refs/heads/main/docs/view/img/mvt.png)
+
+<div style="text-align: justify;">
+
 Figura 1. Esquema da arquitetura MVT adaptada ao sistema Mamutes do Cerrado
+
+</div>
 
 ---
 
@@ -254,9 +259,9 @@ Justificativa: O Django é robusto, oferece ferramentas integradas para desenvol
 
 <div style="text-align: justify;">
 
-O sistema deve utilizar PostgreSQL como banco de dados principal, com suporte a armazenamento de até 1 TB de dados no primeiro ano.<br>
+O sistema deve utilizar --- como banco de dados principal, com suporte a armazenamento de até 1 TB de dados no primeiro ano.<br>
 
-Justificativa: PostgreSQL oferece alto desempenho e suporte para operações complexas, além de ser escalável e compatível com o Django.
+Justificativa: --- oferece alto desempenho e suporte para operações complexas, além de ser escalável e compatível com o Django.
 
 </div>
 
