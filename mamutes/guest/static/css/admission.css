@@ -481,10 +481,9 @@ body{
 }
 .fac{
     display: flex;
-    padding: 53px 33px;
+    padding: 3%;
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
     align-self: stretch;
     border-radius: 8px;
     border: 2px solid #36B5FF;
@@ -493,8 +492,50 @@ body{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    align-self: stretch;
+    /* align-self: stretch; */
+    max-width: 100%;
+    cursor: pointer;
 }
+.accordionHeader{
+    display: flex;
+    padding: 24px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    /* border-top: 1px solid #EEE; */
+    background: #FFF;
+}
+.headerAccordionText{
+    color: #1E1E1E;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    flex: 1 0 0;
+}
+.accordionContent{
+    /* padding-top: 1rem; DEIXAM ESPAÇAMENTO DO CONTEUDO À CABEÇA
+    line-height: 1.6; */
+    background: #F9F9F9;
+    font-size: 14px;
+    color:#1E1E1E;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease;
+}
+.accordion.active .accordionContent{
+    max-height: 300px;
+}
+
+.accordion.active svg{
+    transform: rotate(180deg);
+}
+
+svg{
+    transition: transform .5s ease-in;
+}
+
 #titleFAQ{
     position: absolute;
     left: 349px;
