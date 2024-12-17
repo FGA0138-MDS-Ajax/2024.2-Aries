@@ -6,3 +6,6 @@ def index(request):
 def competition(request):
     return render(request,'comp.html')
 
+def admission(request):
+    return render(request,'admission.html')
+

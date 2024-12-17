@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from Users.views import login, register, recoverAccount, redefinePassword
-from guest.views import index, competition
+from guest.views import index, competition, admission
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,4 +12,5 @@ urlpatterns = [
     path('redefine_password/<str:username>/<str:token>', redefinePassword, name="redefinePassword"),
     path('', index, name="index"),
     path('competition/', competition, name="competition"),
+    path('admission/', admission, name="admission"),
 ]
