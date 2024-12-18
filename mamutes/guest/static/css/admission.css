@@ -1,0 +1,770 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    background: #F9F9F9;
+}
+
+.fullScreen{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #F9F9F9;
+}
+.header{
+    display: flex;
+    /* height: 1%; */
+    /* padding: 0px 56px; */
+    border-bottom-left-radius: 80px;
+    align-items: center;
+    align-self: stretch;
+    background: #F9F9F9;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    flex-direction: column;
+    overflow: hidden;
+}
+.heroPS{
+    display: flex;
+    /* align-items: flex-end; 
+    align-self: flex-end; */
+    /* gap: 10px; */
+    /* height: 100%; */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    justify-content: space-between;
+    /* border-bottom: 12px solid #02004E; */
+    background: #0B096B;
+}
+.textPS{
+    display: flex;
+    width: 100%;
+    padding: clamp(80px, 6%, 120px);
+    padding-right: 0%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+    z-index: 2;
+}
+.mainText{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+#title1{
+    /* align-self: stretch; */
+    color: #FEFEFE;
+    font-family: Inter;
+    font-size: clamp(64px, 5vw, 80px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#title2{
+    align-self: stretch;
+    color: #FEFEFE;
+    font-family: Inter;
+    font-size: clamp(64px, 5vw, 80px);
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+#subTitle2{
+    color: #36B5FF;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.buttonAdmission{
+    display: flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    background: #36B5FF;
+    color: #FEFEFE;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 133.333% */
+}
+.imageHeroPS{
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    right: 0;
+    /* height: 408px; */
+    /* flex-direction: column; */
+    align-items: flex-end;
+    /* gap: 30%;
+    align-self: stretch; */
+    /* background: linear-gradient(270deg, rgba(31, 26, 153, 0.00) 0%, #1F1A99 100%); */
+    /* overflow: hidden; */
+    position: absolute;
+}
+.imagePS{
+    width: auto;
+    height: 100%;
+    /* position: absolute;
+    max-width: 100%;
+    min-width: 500px;
+    height: 100%; 
+    align-items: flex-end;  */
+    flex: 1 0 0;
+    align-self: stretch; 
+    object-fit: cover;
+}
+.borderHero{
+    display: flex;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(90deg, #02004E 0%, #36B5FF 100%);
+}
+.principal{
+    display: flex;
+    padding-inline: 12%;
+    padding-block: 80px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    align-self: stretch;
+}
+.titleBenefits{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    align-self: stretch;
+}
+.titlePS{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+.whyEnter{
+    align-self: stretch;
+    color: #1E1E1E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.MMTS{
+    align-self: stretch;
+    color: #1F1A99;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+#questionMark{
+    color: #36B5FF;
+    font-weight: 800;
+}
+.benefitsPS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 16px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+.block{
+    display: flex;
+    height: 224px;
+    min-width: 200px;
+    padding: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+    border-radius: 16px;
+    background: #F0F0F0;
+}
+.categorieIcon{
+    display: flex;
+    width: 64px;
+    height: 64px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 800px;
+    background: #F8F8F8;
+}
+.phrase{
+    color: #1E1E1E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+    letter-spacing: -0.198px;   
+}
+#subphrase{
+    color: #1E1E1E;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -0.198px;
+}
+.titleInfosPS{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 53px;
+    align-self: stretch;
+}
+#howItWorks{
+    align-self: stretch;
+    text-align: center;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: linear-gradient(90deg, #1F1A99 22.72%, #0075F6 50.12%, #36B5FF 76.7%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#selectionProcess{
+    background: linear-gradient(90deg, #1F1A99 22.72%, #0075F6 50.12%, #36B5FF 76.7%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+#paragraph{
+    align-self: stretch;
+    color: #1E1E1E;
+    text-align: justify;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#boldWords{
+    color: #1E1E1E;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.stepsPS{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 34px;
+    align-self: stretch;
+}
+#titleSteps{
+    align-self: stretch;
+    color: #A0A0A0;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.stepsTimeline{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    align-self: stretch;
+}
+.step{
+    display: flex;
+    min-width: 200px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 32px;
+    flex: 1 0 0;
+}
+.timeline{
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+}
+.distance{
+    height: 2px;
+    flex: 1 0 0;
+}
+.ball{
+    display: flex;
+    width: 64px;
+    height: 64px;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 800px;
+    background: linear-gradient(90deg, #0075F6 0%, #36B5FF 100%);
+}
+.number{
+    align-self: stretch;
+    color: #F9F9F9;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+.line{
+    height: 2px;
+    flex: 1 0 0;
+    background: #DDD;
+}
+.textBlock{
+    display: flex;
+    padding: 0px 8px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+}
+.titleBlock{
+    align-self: stretch;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.subtitleBlock{
+    align-self: stretch;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.warning{
+    display: flex;
+    padding: 40px 64px;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 34px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    border-radius: 23px;
+    background: #FFF2E2;
+}
+.warningIcon{
+    display: flex;
+    width: 64px;
+    height: 64px;
+    padding: 0px 3px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 800px;
+    background: #FFD9A9;
+}
+#warningText{
+    color: #5C5C5C;
+    text-align: justify;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 133%;
+    min-width: 200px;
+    flex: 1 0 0;
+}
+#boldWarning{
+    color: #5C5C5C;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+}
+.textTitlePS{
+    display: flex;
+    /* min-width: 400px; */
+    max-width: 800px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+.upperTitleCall{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+#lowerTitle{
+    color: #0095EB;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    align-self: stretch;
+}
+#centerTitle{
+    color: #02004E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.704px;
+    align-self: stretch;
+}
+#subtext{
+    color: #02004E;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.704px;
+}
+#subtextMark{
+    color: #36B5FF;
+}
+#lowercase{
+    color: #1E1E1E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    align-self: stretch;
+}
+.faq{
+    display: flex;
+    padding: 56px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    border-radius: 8px;
+    background: #F9F9F9;
+    position: relative;
+}
+.accordion{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* align-self: stretch; */
+    max-width: 100%;
+    cursor: pointer;
+}
+.accordionHeader{
+    display: flex;
+    border-top: 1px solid #EEE;
+    padding: 24px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    /* border-top: 1px solid #EEE; */
+    background: #FFF;
+}
+.headerAccordionText{
+    color: #1E1E1E;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    flex: 1 0 0;
+}
+.accordionContent{
+    box-sizing: border-box;
+    padding: 0 24px;
+    background: #FFF;
+    font-size: 14px;
+    color:#1E1E1E;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease;
+}
+.accordion.active .accordionContent{
+    max-height: 2000px; 
+}
+
+.accordion.active svg{
+    transform: rotate(180deg);
+}
+
+svg{
+    transition: transform .5s ease-in;
+}
+.backgroundTitle{
+    display: flex;
+    background: #F9F9F9;
+    padding: 8px;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    text-align: center;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+.titleFAQ{
+    display: flex;
+    color: #1F1A99;
+    text-align: justify;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    flex: 1 0 0;
+    gap: 6px;
+}
+.subtextFAQ{
+    color: #0075F6; 
+}
+
+@media (max-width: 1080px) {
+    .stepsTimeline{
+        flex-direction: column;
+
+    }
+
+    .timeline{
+        flex-direction: column;
+        height: 120px;
+    }
+
+    .step{
+        flex-direction: row;
+        align-items: center;
+        flex: 1 0 0;
+        justify-content: space-around;
+    }
+
+    .line{
+        width: 2px;
+        height: 100%;
+    }
+
+    .textBlock p{
+        text-align: left;
+    }
+
+    .textBlock{
+        justify-content: center;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .warning{
+        flex-direction: column;
+    }
+
+    #centerTitle{
+        font-size: 48px;
+    }
+
+    #subtext{
+        font-size: 48px;
+    }
+
+    #subtextMark{
+        font-size: 48px;
+    }
+
+    .titleFAQ{
+        font-size: 24px;
+    
+    }
+
+    .subtextFAQ{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .textPS{
+        padding: 32px;
+        flex: 1 0 0;
+        align-items: center;
+        padding-top: 96px;
+    }
+
+    .mainText{
+        align-items: center;
+    }
+
+    #title1{
+        text-align: center;
+        font-size: 48px;
+    }
+
+    #title2{
+        text-align: center;
+        font-size: 48px;
+    }
+    
+    #subTitle2{
+        font-size: 48px;
+    }
+
+    .buttonAdmission{
+        font-size: 14px;
+    }
+
+    .whyEnter{
+        font-size: 18px;
+    }
+
+    .MMTS{
+        font-size: 32px;
+    }
+
+    #questionMark{
+        font-size: 32px;
+    }
+
+    .block{
+        padding: 32px;
+        height: unset;
+    }
+
+    .phrase{
+        font-size: 14px;
+    }
+
+    #howItWorks{
+        font-size: 24px;
+    }
+
+    #paragraph{
+        font-size: 12px;
+    }
+
+    #titleSteps{
+        font-size: 18px;
+    }
+
+    .warning{
+        padding: 24px;
+    }
+
+    #warningText{
+        font-size: 12px;
+    }
+
+    .warningIcon{
+        transform: scale(0.8);
+    }
+
+    #lowerTitle{
+        font-size: 16px;
+    }
+
+    #centerTitle{
+        font-size: 32px;
+    }
+
+    #lowercase{
+        font-size: 16px;
+        padding-inline: 8px;
+    }
+
+    .headerAccordionText{
+        font-size: 14px;
+    }
+
+    .accordionContent p{
+        font-size: 14px;
+    }
+
+    .backgroundTitle{
+        order: -1;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .faq{
+        padding: 8px;
+        padding-top: 24px;
+        align-items: center;
+    }
+
+    .titleBlock{
+        font-size: 14px;
+    }
+
+    .subtitleBlock{
+        font-size: 12px;
+    }
+
+    .step{
+        gap: 16px;
+    }
+
+    .ball{
+        width: 48px;
+        height: 48px;
+    }
+
+    .number{
+        font-size: 18px;
+    }
+
+    .textTitlePS{
+        gap: 16px;
+    }
+
+    .principal{
+        gap: 64px;
+    }
+}
