@@ -782,10 +782,17 @@ path{
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    transition: transform 0.3s ease-in-out;
 }
 
-.carousel-item.active {
-    transform: scale(1.2);
+.carousel-item:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    opacity: 0.85;
+}
+
+.carousel-item .carousel-item-inner {
+    pointer-events: none;
 }
 
 .card-hall{
