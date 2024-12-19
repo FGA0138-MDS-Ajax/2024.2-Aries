@@ -284,6 +284,71 @@ Justificativa: --- oferece alto desempenho e suporte para operações complexas,
 
 ## 8 Visão de Implantação
 
+<div style="text-align: justify;">
+O software será implantado utilizando servidores que possam suportar o tráfego de usuário simultâneos e a carga de trabalho do sistema, o objetivo da implantação é tornar o sistema funcional e acessível aos usuários finais de forma eficiente e segura e isso envolve garantir que a infraestrutura de hardware e software sejam adequadas
+<div>
+
+---
+
+<div style="text-align: justify;">
+### 8.1 Infraestrutura de hardware
+
+- A infraestrutura física necessária para suportar o sistema inclui servidores, a configuração de rede e como esses servidores serão dimensionados para garantir o desempenho esperado:
+    Servidores Web: Os servidores responsáveis por hospedar a aplicação e atender às requisições HTTP/HTTPS dos usuários.
+        Especificações: De acordo com a necessidade de processamento, a escolha pode ser feita entre servidores dedicados ou servidores em nuvem (AWS, Azure, Google Cloud).
+        Justificativa: Dependendo do tráfego esperado, o número de servidores pode variar para garantir a escalabilidade horizontal.
+
+    Servidores de Banco de Dados: O banco de dados PostgreSQL será hospedado em um servidor dedicado ou como parte da infraestrutura em nuvem
+        Especificações: O banco de dados deverá ser dimensionado para suportar a quantidade de dados prevista (por exemplo, até 1 TB no primeiro ano).
+        Redundância e Backup: Configuração de backup e replicação do banco de dados para garantir a continuidade dos negócios em caso de falhas.
+
+    Escalabilidade: Em um ambiente de nuvem, a escalabilidade pode ser garantida com balanceadores de carga e instâncias de servidores adicionais conforme necessário.
+<div>
+
+---
+
+<div style="text-align: justify;">
+
+### 8.2 tecnologia e justificativa
+
+- Framework Django:  O Django foi escolhido pela sua robustez e facilidade de escalabilidade, além de ter boa integração com o banco de dados PostgreSQL. 
+    Justificativa:  O Django oferece um desenvolvimento rápido e seguro, com muitos recursos prontos para produção, como autenticação, gerenciamento de banco de dados e segurança.
+
+- Servidor Web:  pache ou Nginx podem ser usados para hospedar a aplicação Django, dependendo da preferência da equipe e dos requisitos de desempenho.
+    O Nginx, por exemplo, é altamente eficiente para servir conteúdo estático e pode atuar como um balanceador de carga, se necessário.
+
+- Segurança: TLS 1.3 será utilizado para garantir a segurança das comunicações entre o cliente e o servidor, e a criptografia de dados sensíveis será realizada com AES-256.
+    Justificativa: A segurança é essencial, pois o sistema lidará com informações sensíveis, como dados pessoais e logs da equipe.
+
+Escalabilidade Horizontal: O sistema será projetado para permitir a adição de novos servidores para distribuir a carga conforme o aumento no número de usuários ou de dados.
+    Justificativa: A escalabilidade horizontal é essencial para que o sistema continue funcionando sem falhas à medida que a equipe cresce ou quando o número de acessos simultâneos aumenta.
+
+Banco de Dados PostgreSQL: O PostgreSQL foi escolhido por ser um banco de dados relacional altamente eficiente, com suporte à escalabilidade e alta disponibilidade.
+    Justificativa: Ele é adequado para armazenar grandes volumes de dados, como registros de membros da equipe, inventário e logs de atividades, além de ser bem suportado pelo Django.
+<div>
+
+<div style="text-align: justify;">
+
+### 8.3 estratégia de implantação:
+Fases de Implantação:
+    Preparação do Ambiente: Configuração do ambiente de desenvolvimento e testes, com servidores e banco de dados configurados.
+    Testes: A realização de testes em ambiente de homologação para validar as funcionalidades e o desempenho do sistema.
+    Implantação em Produção: Após os testes, a aplicação será implantada no ambiente de produção. Esta fase inclui a migração do banco de dados e a configuração final de servidores.
+
+plantação Contínua:
+     A implantação será realizada de forma contínua, utilizando ferramentas como Docker, Kubernetes, ou CI/CD (Integração Contínua/Entrega Contínua) para facilitar atualizações e manutenção contínua.
+        Justificativa: A utilização de CI/CD garante um ciclo de vida de desenvolvimento ágil e permite que novas versões sejam disponibilizadas rapidamente, sem impactar os usuários finais.
+<div>
+
+<div style="text-align: justify;">
+
+### 8.4 Monitoramento e manutenção:
+
+Backup e Recuperação: 
+    Será implementado um sistema de backup automático para garantir que os dados estejam protegidos e possam ser restaurados em caso de falha.
+        Justificativa: O backup frequente é necessário para evitar a perda de dados críticos, como registros de membros e inventários.
+
+<div>
 
 ---
 
