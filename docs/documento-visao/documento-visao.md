@@ -349,8 +349,6 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 - Requisitos obrigatórios (*Must*): Módulos de gestão e divulgação.  
 - Requisitos desejáveis (*Should/Could*): Customização e integração com redes sociais.  
 
-Aqui está a tabela em Markdown formatada:
-
 | Cenário       | Requisito                   | Sprint | Priorização | Tipo de Requisito | Descrição                                     |
 |---------------|-----------------------------|--------|-------------|--------------------|---------------------------------------------|
 | Gestão        | Calendário                  | 5      | Must        | Funcional          | Gerenciamento de tarefas                     |
@@ -368,6 +366,21 @@ Aqui está a tabela em Markdown formatada:
 | Gestão        | Página Registro de Acidentes| 8      | Must        | Funcional          | Documentação de acidentes                    |
 | Gestão        | Página registro de voo      | 8      | Must        | Funcional          | Documentação de voos                         |
 
+<div style="text-align: justify;">
+
+A equipe reconhece que os requisitos obrigatórios (Must) representam a base funcional mínima do sistema e, portanto, são prioritários para garantir o atendimento às principais necessidades da equipe. Esses requisitos serão entregues dentro do prazo estipulado no cronograma, pois sua implementação é essencial para que o sistema cumpra seus objetivos de gestão interna e divulgação externa. Esses requisitos foram discutidos na primeira ata. 
+
+</div>
+
+Acesse este link para acessar as atas: [Atas](https://fga0138-mds-ajax.github.io/2024.2-Aries/atas-reuniao/cliente/ata-reuniao-1/)
+
+<div style="text-align: justify;">
+
+Em relação aos requisitos desejáveis (Could/Should), como a customização e integração com redes sociais, a equipe avalia que alguns desses itens possuem potencial para agregar valor ao sistema, mas não comprometem o funcionamento principal caso sejam adiados. Por exemplo, as páginas de Competição e Processo Seletivo podem ser deixadas para uma fase de manutenção evolutiva, uma vez que o foco inicial será consolidar funcionalidades essenciais e estabilizar a plataforma. Essa decisão garante que os esforços da equipe sejam concentrados nos itens críticos para a entrega inicial, ao mesmo tempo que permite planejar evoluções futuras. <br> <br>
+
+A escolha de quais requisitos desejáveis serão implementados depende de fatores como a complexidade técnica, disponibilidade de recursos e relevância para os objetivos a curto prazo. Itens que demandam maior tempo de desenvolvimento ou possuem impacto reduzido no atendimento imediato às necessidades da equipe serão priorizados em fases futuras, assegurando a entrega de um sistema funcional e escalável dentro do prazo inicial. <br> <br>
+
+</div>
 ---
 
 ### 4.1 Backlog do Produto
