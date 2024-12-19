@@ -15,7 +15,7 @@ Este documento será usado como guia para registrar as informações gerais do p
 
 <div style="text-align: justify;">
 
-A equipe de competição <strong>Mamutes do Cerrado</strong>, da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: <strong>divulgação externa</strong> e <strong>gestão interna</strong>. Como uma equipe acadêmica e técnica que busca representar a instituição em competições de alto nível, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo.
+A equipe de competição <strong>Mamutes do Cerrado</strong>, da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: <strong>divulgação externa</strong> e <strong>gestão interna</strong>. Como uma equipe acadêmica que busca representar a instituição em competições, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo. <br> <br>
 
 Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos (como estoque e finanças), tarefas (calendários e reuniões) e documentos essenciais.
 
@@ -44,9 +44,7 @@ O principal problema enfrentado pela equipe <strong>mamutes</strong> é a falta 
 
 <div style="text-align: justify;"> 
 
-A equipe de competição <strong>Mamutes do Cerrado</strong>, da Universidade de Brasília (UnB) - FCTE, enfrenta desafios em dois pilares fundamentais: <strong>divulgação externa</strong> e <strong>gestão interna</strong>. Como um grupo acadêmico e técnico que representa a instituição em competições de alto nível, é essencial conciliar uma forte presença pública com uma organização interna eficiente para alcançar seus objetivos estratégicos. <br> <br>
-
-Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de recursos (estoque e finanças), tarefas (calendários e reuniões) e documentos essenciais. Isso gera uma série de dificuldades, conforme detalhado na tabela abaixo: <br> <br>
+De acordo com os problemas já citados a respeito da equipe, cintetizamos em algumas tabelas para facilitar na escolha de escopo do projeto:
 
 </div>
 
@@ -158,7 +156,7 @@ Ao contrário das soluções dispersas ou inexistentes que dificultam a comunica
 
 O objetivo <strong>principal</strong> da solução é otimizar a gestão interna da equipe e fortalecer sua presença externa, abordando as dificuldades atuais de organização e visibilidade. Para isso, a aplicação proposta busca automatizar tarefas administrativas, permitindo que a equipe se concentre mais nas atividades essenciais. Além disso, a plataforma facilita a <strong>comunicação interna e externa</strong>, proporcionando uma interação mais eficiente entre os membros da equipe e com o público-alvo. <br> <br>
 
-Outro aspecto importante é garantir <strong>acessibilidade aos documentos e recursos</strong> da equipe, permitindo que todos os membros possam acessar informações relevantes de forma rápida e organizada. Dessa forma, a solução não só melhora a operação interna, mas também contribui para uma maior visibilidade e engajamento externo, com uma gestão mais fluida e transparente.
+Outro aspecto importante é garantir <strong>acessibilidade aos documentos e recursos</strong> da equipe, permitindo que todos os membros possam acessar informações relevantes de forma rápida e organizada de acordo com seu perfil de acesso. Dessa forma, a solução não só melhora a operação interna, mas também contribui para uma maior visibilidade e engajamento externo, com uma gestão mais fluida e transparente.
 
 </div>
 
@@ -198,12 +196,18 @@ Podendo ser analisados com mais detalhes na tabela seguinte: <br>
 ### 2.1 Ciclo de Vida do Projeto
 
 <div style="text-align: justify;">
+Com base no sequinte diagrama estudado em aula:
+</div>
+
+![Diagrama de Ishikawa](https://raw.githubusercontent.com/FGA0138-MDS-Ajax/2024.2-Aries/refs/heads/main/docs/view/img/cicloDeVida.png)
+
+<div style="text-align: justify;">
 
 O ciclo de vida do projeto será ágil, baseado nas metodologias <strong>SCRUM</strong> e <strong>XP</strong>, visando garantir eficiência e organização no desenvolvimento. Com essa abordagem, espera-se que o projeto seja concluído dentro do prazo estipulado e atenda a todos os requisitos definidos. Para isso, será utilizado como referência o <strong>SCRUM Guide</strong> e o <strong>XP Guide</strong>, além de boas práticas amplamente discutidas na literatura técnica. <br> <br>
 
 Entre os métodos aplicados estão <strong>pair programming</strong>, que acelera o desenvolvimento e promove a troca de conhecimento entre os desenvolvedores, e <strong>code review</strong>, garantindo maior qualidade no código. Outros métodos incluem o uso de padrões de codificação, planejamento de <strong>releases e sprints</strong>, além de execução de testes de aceitação. Essas práticas contribuem para um desenvolvimento mais controlado e de alta qualidade, atendendo às demandas do projeto. <br> <br>
 
-Quanto às ferramentas, serão utilizados o <strong>GitHub</strong> para repositório e controle de versionamento do código, bem como o <strong>Astah</strong> para modelagem de diagramas e o <strong>Miro</strong> para organização visual e gerenciamento do backlog. 
+Quanto às ferramentas, serão utilizados o <strong>GitHub</strong> para repositório e controle de versionamento do código, bem como o <strong>Astah</strong> para modelagem de diagramas, o <strong>Figma</strong> prototipação das páginas e o <strong>Miro</strong> para organização visual e gerenciamento do backlog. 
 
 </div>
 
@@ -220,11 +224,11 @@ O o seguinte quadro apresenta os principais papéis e responsabilidades dentro d
 
 | Papel                | Atribuições                                                 | Responsáveis                |
 |----------------------|------------------------------------------------------------|-----------------------------|
-| **Cliente**          | Fornecer feedback e acompanhar o progresso                 | Equipe Mamutes              |
+| **Cliente**          | Fornecer feedback e acompanhar o progresso                 | Membro da Mamutes - Marina Mello             |
 | **Scrum Master**  | Atualizar escopo e validar entregas                        | Caio Duarte    |
-| **Líderes de Squad**    | Fomentar os desenvolvedores, aliada ao squad que o compete, sendo eles: Front, Back e Testes, e atuar como reviwers quanto ao versionamento e afins. | Ludmila Aysha;	Rafael Welz e	Felipe Freire    |
-| **Desenvolvedores**    | Codificar e realizar implementações                      | Equipe dev   |
-| **Analistas de Qualidade** | Garantir qualidade e execuctar testes de software    | Equipe dev  |
+| **Líderes de Equipe**    | Fomentar os desenvolvedores, aliada ao squad que o compete, sendo eles: Front, Back e Testes, e atuar como reviwers quanto ao versionamento e afins. | Ludmila Aysha;	Rafael Welz e	Felipe Freire    |
+| **Desenvolvedores**    | Codificar e realizar implementações                      | Amanda Cruz, Felipe Duarte, Mayara Marques, Othavio Araujo, Vinicius Alves e Izaque camargos   |
+| **Analistas de Qualidade** | Garantir qualidade e executar testes de software    | Felipe Freire e Felipe Duarte  |
 
 Acesse este link para saber com detalhes cada equipe: [Integrantes Equipe](https://github.com/FGA0138-MDS-Ajax/2024.2-Aries/tree/main)
 
@@ -233,7 +237,7 @@ Acesse este link para saber com detalhes cada equipe: [Integrantes Equipe](https
 
 O <strong>Scrum Master</strong> (Caio Duarte) atualiza o escopo do projeto e valida as entregas, assegurando que o time siga os processos ágeis de Scrum e que o trabalho seja entregue com qualidade. <br> <br>
 
-Os <strong>Líderes de Squad</strong> lideram as equipes de desenvolvimento, incentivando e orientando os membros. Eles também atuam como revisores de código, garantindo que o versionamento e as práticas de desenvolvimento sejam seguidos corretamente. Os <strong>Desenvolvedores</strong> são os responsáveis por codificar e implementar as funcionalidades do sistema, transformando as necessidades em soluções práticas e operacionais. <br> <br>
+Os <strong>Líderes de Equipe</strong> lideram as equipes de desenvolvimento, incentivando e orientando os membros. Eles também atuam como revisores de código, garantindo que o versionamento e as práticas de desenvolvimento sejam seguidos corretamente. Os <strong>Desenvolvedores</strong> são os responsáveis por codificar e implementar as funcionalidades do sistema, transformando as necessidades em soluções práticas e operacionais. <br> <br>
 
 Por fim, os <strong>Analistas de Qualidade</strong> executam testes de software para garantir que o produto esteja livre de erros e com a qualidade necessária. Cada papel tem uma função essencial para o sucesso do projeto, garantindo colaboração, organização e entrega de um produto confiável e bem executado.
 
@@ -250,7 +254,7 @@ As fases serão detalhadas e adaptadas em cada sprint, com priorização do back
 | 0      | Definição do Produto                                                     | 02/11/24    | 10/11/24   | 100%        |
 | 1      | Página de Cadastro, Login, Index                                         | 10/11/24    | 18/11/24   | 100%        |
 | 2      | Documentação de arquitetura, Finalizar Documento da Visão, Página Quem Somos | 18/11/24    | 25/11/24   | 33%         |
-| 3      | Página de Competição, Página de Processo Seletivo, Página Configurações de Conta | 25/11/24    | 02/12/24   | 0%          |
+| 3      | Página de Participação em Competições, Página de Processo Seletivo, Página Configurações de Conta | 25/11/24    | 02/12/24   | 0%          |
 | 4      | Menu lateral, Aba home, Aviso, Configurações de SuperUser                | 02/12/24    | 09/12/24   | 0%          |
 | 5      | Criação de tarefas, Calendário                                           | 09/12/24    | 16/12/24   | 0%          |
 | 6      | Rastreio de tarefas, Kanban                                              | 30/12/24    | 06/01/25   | 0%          |
@@ -406,7 +410,7 @@ Essas funcionalidades estão alinhadas com os objetivos estratégicos do projeto
 
 Os perfis de acesso do projeto foram criados para atender às necessidades específicas de cada tipo de usuário, garantindo organização e segurança. O Administrador tem o maior nível de acesso, sendo responsável por gerenciar os perfis de usuários, configurar o sistema e administrar permissões. <br> <br>
 
-O Capitão lidera a equipe com acesso completo para gerenciar planilhas, atas, processo seletivo, presenças, estoque e a disponibilidade dos membros. Já os Membros têm permissões ajustadas às suas funções, permitindo a atualização de informações pessoais, visualização e edição de planilhas (quando autorizado), e gestão de estoques, se necessário. <br> <br>
+O Capitão lidera a equipe com acesso completo para gerenciar planilhas, atas, processo seletivo, presenças, estoque e a disponibilidade dos membros. Já os Membros têm permissões ajustadas pelo capitão às suas funções, permitindo a atualização de informações pessoais, visualização e edição de planilhas (quando autorizado), e gestão de estoques, se necessário. <br> <br>
 
 Por fim, o Visitante pode acessar apenas o site de divulgação para conhecer a equipe, enquanto os Trainees, novos integrantes em treinamento, possuem acesso restrito às ferramentas essenciais para seu aprendizado e integração. Essa divisão garante eficiência no trabalho e um uso adequado do sistema. Pdendo ser analisados de maneira detalhada na seguinte tabela:
 
