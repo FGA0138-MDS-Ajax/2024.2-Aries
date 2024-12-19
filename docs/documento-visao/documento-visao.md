@@ -17,7 +17,7 @@ Este documento será usado como guia para registrar as informações gerais do p
 
 A equipe de competição <strong>Mamutes do Cerrado</strong>, da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: <strong>divulgação externa</strong> e <strong>gestão interna</strong>. Como uma equipe acadêmica que busca representar a instituição em competições, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo. <br> <br>
 
-Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos (como estoque e finanças), tarefas (calendários e reuniões) e documentos essenciais.
+Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos como estoque, tarefas (calendários e reuniões) e documentação de voo.
 
 </div>
 
@@ -145,8 +145,8 @@ Ao contrário das soluções dispersas ou inexistentes que dificultam a comunica
 | **Necessidade**       | Centralizar a gestão e melhorar a visibilidade da equipe. |
 | **O Produto**       | Uma aplicação web.     | 
 | **Que**       | Oferece ferramentas de organização interna e divulgação externa.     | 
-| **Ao Contrário**       | De soluções dispersas ou inexistentes.     | 
-| **Nosso Produto**       | Integra gestão e divulgação em um único ambiente acessível.     | 
+| **Ao Contrário**       | De uma situação atual onde a equipe enfrenta desafios de organização devido a ferramentas dispersas ou inexistentes.     | 
+| **Nosso Produto**       | Integra gestão e divulgação em um único ambiente acessível, proporcionando eficiência e maior visibilidade.     | 
 
 ---
 
@@ -563,14 +563,14 @@ Descrição: Trabalharam na criação das páginas do projeto, integrando-as de 
 
 | Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
 | :----: | :--: | :--------------------: | :-------------------: |
-| 1.0 | 25/11/2024 | Criação inicial e estrutura do artefato | Felipe Freire e Amanda Cruz Lima |
-| 1.0 | 25/11/2024 | Desenvolvimento do artefato **contexto do problema**, **declaração do produto**, **objetivo do produto** e **tecnologias a serem utilizadas**   | Felipe Freire |
+| 1.0 | 25/11/2024 | Criação inicial e desenvolvimento dos artefatos: **contexto do problema**, **declaração do produto**, **objetivo do produto** e **tecnologias a serem utilizadas**  | Felipe Freire e Amanda Cruz Lima |
 | 1.1 | 29/11/2024 | Evolução dos artefatos **contexto do problema**, **declaração do produto**, **objetivo do produto** e **tecnologias a serem utilizadas**   | Felipe Freire |
 | 1.2 | 29/11/2024 | Desenvolvimento dos artefatos **ciclo de vida do projeto**   | Felipe Freire |
 | 1.3 | 29/11/2024 | Desenvolvimento dos artefatos **backlog do produto**, **perfis** e **cenários**   | Felipe Freire e Felipe Duarte |
 | 1.4 | 02/12/2024 | Desenvolvimento dos artefatos **Gerenciamento de Riscos** e **Critérios de Replanejamento**| Isaque Camargos | 
 | 1.5 | 02/12/2024 | Upgrade nos artefatos **backlog do produto**, **perfis**, **cenários** e **declaração de escopo**   | Felipe Freire e Felipe Duarte | 
 | 1.6 | 02/12/2024 | Desenvolvimento dos artefatos **Gerenciamento de Riscos** e **Critérios de Replanejamento** | Isaque Camargos |
-| 1.6 | 02/12/2024 | Desenvolvimento dos artefatos **Tabela de Backlog do Produto** | Amanda Cruz, Caio Duarte e Rafael Schadt |
-| 1.7 | 02/12/2024 | Revisão final dos artefatos **"Doc"** | Caio Ferreira, Felipe Freire, Isaque Camargos e Amanda Cruz |
-| 1.7 | 10/12/2024 | Inserção na gitpages | Felipe Freire |
+| 1.7 | 02/12/2024 | Desenvolvimento dos artefatos **Tabela de Backlog do Produto** | Amanda Cruz, Caio Duarte e Rafael Schadt |
+| 1.8 | 02/12/2024 | Revisão final dos artefatos **"Doc"** | Caio Ferreira, Felipe Freire, Isaque Camargos e Amanda Cruz |
+| 1.9 | 10/12/2024 | Inserção na gitpages | Felipe Freire |
+| 1.10 | 19/12/2024 | Correções nos artefatos com base nas sujestões do professor  | Felipe Freire |
