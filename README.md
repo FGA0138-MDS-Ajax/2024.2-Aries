@@ -51,7 +51,7 @@ Conheça a contribuição dos membros em cada uma das nossas áreas abaixo:
 
 | **📸**    | [<img src="./docs/view/img/klei.jpg" width=100>]() |
 |:---------:|:------------------------------------------------------------------------------: |
-| **Nome**  | [Kleyson Nacarat](https://github.com/caioduart3)                                    |  
+| **Nome**  | [Kleyson Nacarat](https://github.com/caioduart3)                                |  
 | **Cargo** | Product Owner                                                                   |
 
 <br></br>
@@ -65,8 +65,8 @@ Conheça a contribuição dos membros em cada uma das nossas áreas abaixo:
 <br></br>
 
 
-| **📸**    | [<img src="https://avatars.githubusercontent.com/u/91512745?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/179030119?" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100>]() |  |
-|:---------:|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|
+| **📸**    | [<img src="https://avatars.githubusercontent.com/u/91512745?v=4" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/179030119?" width=100>]() | [<img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100>]() |
+|:---------:|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 | **Nome**  | [Ludmila Aysha](https://github.com/ludmilaaysha) | [Rafael Welz](https://github.com/)  | [Felipe Freire](https://github.com/FelipeFreire-gf)                           |                     
 | **Cargo** | Leader Squad - Front End                           | Leader Squad - Back End                                                              | Leader Squad - Banco de Dados e Testes                                                            |
 
