@@ -21,9 +21,7 @@ nav:
 
   - Documentação:
       - Visão Geral: "documento-visao/documento-visao.md"
-      - Requisitos: "documento-requisitos/documento-requisitos.md"
       - Arquitetura: "documento-arquitetura/documento-arquitetura.md"
-      - Plano de Testes: "documento-plano-testes/documento-plano-testes.md"
 
   - Links: "links/links.md"
 
