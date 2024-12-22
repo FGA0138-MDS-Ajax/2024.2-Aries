@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Voos</title>
+    <link rel="stylesheet" href="{% static 'css/voolist.css' %}">
+</head>
+<body>
+    <h1>Lista de Voos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Hora de inicio</th>
+                <th>Hora de fim</th>
+                <th>Documento feito por</th>
+                <th>Nome do Piloto</th>
+                <th>Local</th>
+                <th>Membros Envolvidos</th>
+                <th>Nível de Sucesso</th>
+                <th>Descrição do Objetivo</th>
+                <th>Êxito</th>
+                <th>Impressões do Piloto</th>
+                <th>Melhorias</th>
+                <th>Velocidade (m/s)</th>
+                <th>Direção do Vento</th>
+                <th>Pressão Atmosférica (hPa)</th>
+                <th>Peso de Decolagem (kg)</th>
+                <th>Ciclos de Voo</th>
+                <th>Telemetria (Link)</th>
+                <th>Acidente</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for flight in flights %}
+            <tr>
+                <td>{{ flight.id }}</td>
+                <td>{{ flight.date }}</td>
+                <td>{{ flight.start_time}}</td>
+                <td>{{ flight.end_time}}</td>
+                <td>{{ flight.document_username}}</td>
+                <td>{{ flight.pilot_name }}</td>
+                <td>{{ flight.location }}</td>
+                <td>{{ flight.team_members }}</td>
+                <td>{{ flight.flight_success_rating }}</td>
+                <td>{{ flight.flight_objective_description }}</td>
+                <td>{{ flight.results }}</td>
+                <td>{{ flight.pilot_impressions }}</td>
+                <td>{{ flight.improvements }}</td>
+                <td>{{ flight.wind_speed }}</td>
+                <td>{{ flight.wind_direction }}</td>
+                <td>{{ flight.atmospheric_pressure }}</td>
+                <td>{{ flight.total_takeoff_weight }}</td>
+                <td>{{ flight.flight_cycles }}</td>
+                <td><a href="{{ flight.telemetry_link }}" target="_blank">Acessar Telemetria</a></td>
+                <td>{{ flight.occurred_accident }}</td>
+                <td>
+                    <a href="{% url 'flight_edit' flight.id %}" class="btn btn-editar">Editar</a>
+                    <a href="{% url 'flight_delete' flight.id %}" class="btn btn-excluir">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+<!-- id = models.AutoField(primary_key=True)
+date = models.DateField()
+start_time = models.TimeField()
+end_time = models.TimeField()
+document_username = models.CharField(max_length=255)
+pilot_name = models.CharField(max_length=255)
+location = models.CharField(max_length=255)
+team_members = models.TextField()  
+flight_success_rating = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)]) 
+flight_objective_description = models.TextField() #########
+results = models.TextField()  
+pilot_impressions = models.TextField()
+improvements = models.TextField()
+wind_speed = models.DecimalField(max_digits=4, decimal_places=3) 
+wind_direction = models.CharField(max_length=100)  
+atmospheric_pressure = models.DecimalField(max_digits=4, decimal_places=3)  
+total_takeoff_weight = models.DecimalField(max_digits=4, decimal_places=3) 
+flight_cycles = models.PositiveIntegerField()
+telemetry_link = models.URLField()
+occurred_accident = models.BooleanField(default=False) -->

@@ -19,8 +19,8 @@ class MembroEquipe(AbstractUser):
     email = models.EmailField(max_length=200, blank=False, null=False)
     phone = models.CharField(max_length=20, blank=False, null=False)
 
-    areas = models.ManyToManyField(Area, related_name='membros', blank=True)
-    functions = models.ManyToManyField(Function, related_name='membros', blank=True)
+    #areas = models.ManyToManyField(Area, related_name='membros', blank=True)
+    #functions = models.ManyToManyField(Function, related_name='membros', blank=True)
 
     def __str__(self):
         return self.username

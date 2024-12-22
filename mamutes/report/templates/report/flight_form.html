@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário de Voo</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Editar Voo{% else %}Adicionar Voo{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'flight_list' %}">Voltar</a>
+</body>
+</html>

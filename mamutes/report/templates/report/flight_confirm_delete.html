@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excluir Voo</title>
+</head>
+<body>
+    <h1>Excluir Voo</h1>
+    <p>Tem certeza de que deseja excluir o voo "{{ flight }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sim, excluir</button>
+    </form>
+    <a href="{% url 'flight_list' %}">Cancelar</a>
+</body>
+</html>
