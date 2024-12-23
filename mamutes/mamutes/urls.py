@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from Users.views import login, register, recoverAccount, redefinePassword
 from guest.views import index, competition, admission
+from members.views import sidebar
 
 urlpatterns = [
 
@@ -22,6 +23,7 @@ urlpatterns = [
     path('report/', include('report.urls')),
 
     # members
+    path('sidebar/', sidebar,name="sidebar"),
 
     # stock
     
