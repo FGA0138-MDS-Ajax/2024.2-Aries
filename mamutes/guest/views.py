@@ -9,3 +9,6 @@ def competition(request):
 def admission(request):
     return render(request,'admission.html')
 
+def handler404(request, exception):
+    return render(request, 'error404.html')
+

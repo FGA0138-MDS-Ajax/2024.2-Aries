@@ -28,3 +28,5 @@ urlpatterns = [
     # stock
     
 ]
+
+handler404 = 'guest.views.handler404'
