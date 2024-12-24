@@ -11,6 +11,7 @@ nav:
           - Ata 3: "atas-reuniao/cliente/ata-reuniao-3.md"
           - Ata 4: "atas-reuniao/cliente/ata-reuniao-4.md"
           - Ata 5: "atas-reuniao/cliente/ata-reuniao-5.md"
+          - Ata 6: "atas-reuniao/cliente/ata-reuniao-6.md"
 
       - Equipe:
           - Ata 1: "atas-reuniao/equipe/ata-reuniao-1-equipe.md"
@@ -19,6 +20,7 @@ nav:
           - Ata 4: "atas-reuniao/equipe/ata-reuniao-4-equipe.md"
           - Ata 5: "atas-reuniao/equipe/ata-reuniao-5-equipe.md"
           - Ata 6: "atas-reuniao/equipe/ata-reuniao-6-equipe.md"
+          - Ata 7: "atas-reuniao/equipe/ata-reuniao-7-equipe.md"
 
   - Documentação:
       - Visão Geral: "documento-visao/documento-visao.md"
