@@ -1,0 +1,23 @@
+<body>
+    <h1>Controle do Processo Seletivo</h1>
+    <p>O processo seletivo está atualmente:
+        <b>
+            {% if state.is_open %}
+            ABERTO
+            {% else %}
+            FECHADO
+            {% endif %}
+        </b>
+    </p>
+
+    <form action="{% url 'control_admission' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="toggleButton">
+            {% if state.is_open %}
+                Fechar Processo Seletivo
+            {% else %}
+                Abrir Processo Seletivo
+            {% endif %}
+        </button>
+    </form>
+</body>

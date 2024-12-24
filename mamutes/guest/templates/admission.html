@@ -16,6 +16,7 @@
             <div class="heroPS">
                 <div class="textPS">
                     <div class="mainText">
+                    {% if state.is_open %}
                         <p id="title1">Faça parte</p>
                         <p id="title2">da MMTS<span id="subTitle2">!</span></p>
                     </div>
@@ -24,6 +25,11 @@
                             <p class="textButton">Inscreva-se agora!</p>
                         </button>
                     </a>
+                    {% else %}
+                        <p id="title1">Faça parte</p>
+                            <p id="title2">da MMTS<span id="subTitle2">!</span></p>
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="imageHeroPS">
                     <img class="imagePS" src="{% static 'img/imagens-PS.png' %}" alt="Erro ao carregar imagem">
@@ -139,6 +145,7 @@
             </div>
             <div class="textTitlePS">
                 <div class="upperTitleCall">
+                {% if state.is_open %}
                     <p id="lowerTitle">O Processo Seletivo está aberto!</p>
                     <p id="centerTitle">Pronto para se juntar à <b>nossa equipe</b><span style="color: #36B5FF;">?</span></p>
                 </div>
@@ -148,6 +155,11 @@
                         <p class="textButton">Inscreva-se agora!</p>
                     </button>
                 </a>
+                {% else %}
+                    <p id="lowerTitle">O Processo Seletivo está fechado :(</p>
+                    <p id="centerTitle">Fique atento na próxima oportunidade!</p>
+                    <p id="lowercase">Não perca a chance de fazer parte dessa família.</p>
+                {% endif %}
             </div>
             <div style="padding: 2px; background: linear-gradient(97deg, #36B5FF 0%, #1F1A99 50%, #02004E 100%); border-radius: 10px;">
                 <div class="faq">

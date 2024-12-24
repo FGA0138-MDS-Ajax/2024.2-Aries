@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from Users.views import login, register, recoverAccount, redefinePassword
-from guest.views import index, competition, admission
+from guest.views import index, competition, admission, control_admission
 from members.views import sidebar
 
 urlpatterns = [
@@ -18,6 +18,7 @@ urlpatterns = [
     path('', index, name="index"),
     path('competition/', competition, name="competition"),
     path('admission/', admission, name="admission"),
+    path('control_admission/', control_admission, name='control_admission'),
 
     # report
     path('report/', include('report.urls')),
