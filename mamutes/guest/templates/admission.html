@@ -144,8 +144,8 @@
                 <p id="warningText">O conselho diretor <b>se reserva ao direito de desclassificar os candidatos que não possuem o perfil desejado</b> para a equipe desde que o número de candidatos <b>exceda</b> o dobro do número de vagas, em qualquer etapa. Bem como também, à possibilidade de <b>agregar novos membros</b> a equipe em caráter extraordinário, desde que tais tenham sido previamente estabelecidas pelo conselho.</p>
             </div>
             <div class="textTitlePS">
-                <div class="upperTitleCall">
                 {% if state.is_open %}
+                <div class="upperTitleCall">
                     <p id="lowerTitle">O Processo Seletivo está aberto!</p>
                     <p id="centerTitle">Pronto para se juntar à <b>nossa equipe</b><span style="color: #36B5FF;">?</span></p>
                 </div>
@@ -156,9 +156,12 @@
                     </button>
                 </a>
                 {% else %}
+                <div class="upperTitleCall">
                     <p id="lowerTitle">O Processo Seletivo está fechado :(</p>
                     <p id="centerTitle">Fique atento na próxima oportunidade!</p>
+                </div>
                     <p id="lowercase">Não perca a chance de fazer parte dessa família.</p>
+                </a>
                 {% endif %}
             </div>
             <div style="padding: 2px; background: linear-gradient(97deg, #36B5FF 0%, #1F1A99 50%, #02004E 100%); border-radius: 10px;">
