@@ -1,5 +1,4 @@
 <dialog id="modal">
-    <div class="recuperarConta">
         <div class="recuperarContaCentral">
             <div style="gap: 8px; display: flex; align-items: center; justify-content: center; width: 100%; flex-direction: column;">
                 <div style="width: 100%; display: flex; align-items: flex-end; flex-direction:column;">
@@ -14,7 +13,7 @@
                     <h2 class="subtitulo">Preencha o formulário</h2>
                 </div>
             </div>
-            <form id="recoverAccountForm" action="{% url 'recoverAccount' %}" method="POST" class="formLogin">
+            <form id="recoverAccountForm" action="{% url 'recoverAccount' %}" method="POST" class="formLogin" style="gap:0">
                 <div class="divsFields">
                     <p class="tituloInputs">Email</p>
                     {% csrf_token %}
@@ -28,5 +27,4 @@
                 </div>
             </form>
         </div>
-    </div>
 </dialog>

@@ -17,10 +17,6 @@
     margin: 0;
 }
 body{
-    /* overflow-y: hidden; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 background: var(--light-bg);
 }
 .container{
