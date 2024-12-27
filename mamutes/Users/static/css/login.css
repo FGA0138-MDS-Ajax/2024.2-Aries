@@ -12,34 +12,81 @@
     /* fontes: */
     --font-Inter:"Inter", sans-serif;
 }
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%; /* Garante que o body ocupe toda a altura da janela */
+}
+
+body {
+    line-height: 1.5; /* Ajusta o espaçamento entre linhas */
+    text-size-adjust: 100%; /* Previne redimensionamento de texto automático em dispositivos móveis */
+    background: #F9F9F9;
+}
+
+ul, ol {
+    list-style: none; /* Remove as bolinhas e números de listas */
+}
+
+a {
+    text-decoration: none; /* Remove sublinhado de links */
+    color: inherit; /* Faz os links herdarem a cor do texto ao invés de ter uma cor padrão */
+}
+
+img {
+    max-width: 100%; /* Garante que imagens não extrapolem o tamanho do contêiner */
+    height: auto;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+svg{
+    overflow: hidden;
+}
+
+path{
+    width: 100%;
+    height: auto;
+}
+
 *{
     padding: 0;
     margin: 0;
 }
 body{
-    /* overflow-y: hidden; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 background: var(--light-bg);
 }
 .container{
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    height: 100%;
 }
 .container-central-login{
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     gap: 20px;
-    padding-block: 3%;
-    padding-inline: 6%;
+    padding: 5% 8%;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     flex: 1 0 0;
     align-self: stretch;
+    min-width: 320px;
 }
 .btn-back{
     display: flex;
@@ -79,7 +126,7 @@ background: var(--light-bg);
 .greeting-login-h1{
     color: var(--color1);
     font-family: var(--font-Inter);
-    font-size: clamp(16px, 4vw, 56px);
+    font-size: clamp(40px, 4vw, 56px);
     font-style: normal;
     font-weight: 800;
     line-height: 104%; /* 66.56px */
@@ -87,12 +134,7 @@ background: var(--light-bg);
 }
 .greeting-login-h1-colorizer{
     color: var(--color2);
-    font-family: var(--font-Inter);
-    font-size: clamp(16px, 4vw, 56px);
-    font-style: normal;
     font-weight: 800;
-    line-height: 104%;
-    letter-spacing: -0.704px;
 }
 .greeting-login-h2{
     color: var(--color3);
@@ -106,12 +148,12 @@ background: var(--light-bg);
 .apresentation-text-h3{
     align-self: stretch;
     color: var(--gray-text1);
-font-family: var(--font-Inter);
-font-size: clamp(12px, 1.5vw, 20px);
-font-style: normal;
-font-weight: 500;
-line-height: 150%; /* 30px */
-letter-spacing: -0.22px;
+    font-family: var(--font-Inter);
+    font-size: clamp(14px, 1.5vw, 20px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 30px */
+    letter-spacing: -0.22px;
 }
 .form-login{
     display: flex;
@@ -191,7 +233,7 @@ letter-spacing: -0.22px;
     align-items: center;
     align-self: stretch;
     background: var(--color-input);
-    border-radius: 8px;
+    border-radius: 8px 0 0 8px;
     background: #FFF;
     border: none;
     font-family: var(--font-Inter);
@@ -227,23 +269,23 @@ border: none;
 
 .container-ilustration{
     display: flex;
-    /* width: 50%; */
-    height: 100vh;
+    width: 50%;
+    height: 100%;
     aspect-ratio: 1/1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     flex: 1 0 0;
-    background: linear-gradient(132deg, #36B5FF 23.36%, #01A2FF 96.8%);
 }
 .ilustration-box{
     width: 100%;
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
+    background: linear-gradient(132deg, #36B5FF 23.36%, #01A2FF 96.8%);
 }
 .ilustration-box svg{
     width: 160%;
@@ -258,6 +300,29 @@ border: none;
     width: 70%;
     aspect-ratio: 1/1;
     animation: moveY 2s ease-in-out infinite alternate;
+}
+
+.clouds{
+    height: 100%;
+    aspect-ratio: 1556/675;
+    position: absolute;
+    left: 0;
+    animation: moveX 5s linear infinite;
+    /* animation-iteration-count: infinite; */
+}
+
+.img-clouds{
+    height: 100%;
+}
+
+@keyframes moveX {
+    from {
+        margin-left: 0%;
+      }
+    
+      to {
+        margin-left: -130%;
+      }
 }
 
 @keyframes moveY {
@@ -343,4 +408,26 @@ border: none;
 
 #btnModal{
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .container-ilustration{
+        display: none;
+    }
+
+    .container-central-login{
+        padding: 64px 48px;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-central-login{
+        padding: 32px;
+    }
+
+    .container-central-login a svg{
+        width: 17px;
+        height: 16px;
+    }
 }

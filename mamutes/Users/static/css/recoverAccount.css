@@ -6,16 +6,16 @@
 
 .recuperarContaCentral{
     display: flex;
-    padding: 56px;
+    padding: 40px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    gap: 40px;
+    gap: 16px;
     align-self: stretch;
     border-radius: 16px;
     background: #f2f2f2;
     overflow: hidden;
-    width: 50vw;
+    width: 100%;
 }
 
 .tituloModal{
@@ -30,7 +30,7 @@
     color: #1E1E1E;
     text-align: center;
     font-family: Inter;
-    font-size: clamp(1rem, 3vw, 24px);
+    font-size: clamp(18px, 3vw, 24px);
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -58,7 +58,6 @@
     gap: 16px;
     flex: 1 0 0;
     width: 100%;
-    min-width: 240px;
 }
 
 .tituloInputs{
@@ -116,7 +115,6 @@
     gap: 8px;
     flex: 1 0 0;
     border: none;
-    min-width: 200px;
     cursor: pointer;
 }
 
@@ -142,16 +140,21 @@ dialog::backdrop{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 24px;
 }
 dialog{
     border: none;
     padding: 0;
     margin: 0;
     border-radius: 16px;
-       /* Centralizar na tela */
-       position: fixed;
-       top: 50%;
-       left: 50%;
-       transform: translate(-50%, -50%);
-       z-index: 1000; /* Garante que o diálogo fique sobre outros elementos */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; 
+    width: 80%;
+    max-width: 400px;
+}
+dialog[open]{
+    display: flex;
 }
