@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="{% static 'css/criarTarefa.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{%static 'css/sidebar.css'%}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="{% static 'scripts/openModal.js' %}" defer></script>
     <title>sidebar</title>
 </head>
 <body>
@@ -36,7 +37,7 @@
             </div>
         </a>
 
-        <a href="#" class="aba">
+        <a href="" class="aba">
             <div class="marker"></div>
             <div class="idAba">
                 <div class="dashboard">
@@ -99,5 +100,11 @@
     </aside>
 
     <script src="{% static 'scripts/sideBar.js' %}"></script>
+
+    <p id="btnModal" class="forgot-my-password">testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+
+    {% include 'create_task.html' %}
 </body>
+
+
 </html>
