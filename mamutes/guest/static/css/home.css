@@ -20,10 +20,6 @@ body {
     background: #F9F9F9;
 }
 
-ul, ol {
-    list-style: none; /* Remove as bolinhas e números de listas */
-}
-
 a {
     text-decoration: none; /* Remove sublinhado de links */
     color: inherit; /* Faz os links herdarem a cor do texto ao invés de ter uma cor padrão */
@@ -668,7 +664,7 @@ path{
     font-family: Inter;
     font-size: clamp(12px, 1vw, 16px);
     font-style: normal;
-    font-weight: 100;
+    font-weight: 400;
     line-height: 150%; /* 24px */
     letter-spacing: -0.176px;
     z-index: 1;
@@ -1683,6 +1679,10 @@ path{
 
     .imgs-quemsomos{
         height: unset;
+    }
+
+    .knowmore-quemsomos{
+        padding: 12px 16px;
     }
 
 }
