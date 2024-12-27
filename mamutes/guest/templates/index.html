@@ -154,23 +154,6 @@
                     <div class="swiper-pagination"></div>
                 </div>
 
-                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-                <!-- Initialize Swiper -->
-                <script>
-                  var swiper = new Swiper(".mySwiper", {
-                    pagination: {
-                      el: ".swiper-pagination",
-                      clickable: true,
-                      dynamicBullets: true,
-                    },
-                    autoplay: {
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    },
-                    loop: true
-                  });
-                </script>
 
 
             </div>
@@ -621,8 +604,35 @@
                 </div>
                 <div class="carrossel-apoiadores">
                     <div class="apoiadores-tracker">
+                        <div class="logo-apoiador" style="background: #1a1a1a;">
+                            <img src="{% static 'img/ft.png' %}" alt="faculdade de tecnologia">
+                        </div>
+                        <div class="logo-apoiador" style="background: #FFFFFF;">
+                            <img src="{% static 'img/ansys.svg' %}" alt="ansys">
+                        </div>
                         <div class="logo-apoiador" style="background: #FE0000;">
                             <img src="{% static 'img/logoesss.png' %}" alt="ESSS">
+                        </div>
+                        <div class="logo-apoiador" style="background: #4c0088;">
+                            <img src="{% static 'img/voolt.png' %}" alt="voolt">
+                        </div>
+                        <div class="logo-apoiador" style="background: #FFFFFF;">
+                            <img src="{% static 'img/hexagon.png' %}" alt="hexagon">
+                        </div>
+                        <div class="logo-apoiador" style="background: #ffffff;">
+                            <img src="{% static 'img/woodpecker.jpeg' %}" alt="woodpecker">
+                        </div>
+                        <div class="logo-apoiador" style="background: #FFFFFF;">
+                            <img src="{% static 'img/esteco.webp' %}" alt="esteco">
+                        </div>
+                        <div class="logo-apoiador" style="background: #FFFFFF;">
+                            <img src="{% static 'img/LAB.png' %}" alt="lab">
+                        </div>
+                        <div class="logo-apoiador" style="background: #FFFFFF;">
+                            <img src="{% static 'img/unb_padrao.png' %}" alt="unb">
+                        </div>
+                        <div class="logo-apoiador" style="background: #FFFFFF;">
+                            <img src="{% static 'img/fga.png' %}" alt="faculdade do gama">
                         </div>
                     </div>
                     <div class="inferior-carrossel-apoi">
@@ -701,7 +711,23 @@
         </section>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+                <!-- Initialize Swiper -->
+    <script>
+                  var swiper = new Swiper(".mySwiper", {
+                    pagination: {
+                      el: ".swiper-pagination",
+                      clickable: true,
+                      dynamicBullets: true,
+                    },
+                    autoplay: {
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    },
+                    loop: true
+                  });
+    </script>
     <script src="{% static 'scripts/index.js' %}"></script>
 {% endblock %}
   
