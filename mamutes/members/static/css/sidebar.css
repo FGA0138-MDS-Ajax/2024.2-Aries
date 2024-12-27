@@ -25,8 +25,6 @@ body{
     transition: width 1s ease;
 }
 
-
-
 .sidebar-central .arrow-icon {
     all: unset;
     display: flex;
@@ -64,9 +62,8 @@ body{
     text-decoration: none; 
     background-color: #FEFEFE;
     color: #808080;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease, width 1s ease;
     border-radius: 0px 8px 8px 0px;
-    transition: width 1s ease;
 }
 
 .marker{
@@ -102,15 +99,13 @@ body{
 }
 
 
-.texto{
+.texto {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
+    /*-webkit-line-clamp: 1;*/
     flex: 1 0 0;
     overflow: hidden;
     color: #808080;
-    leading-trim: both;
-    text-edge: cap;
     text-overflow: ellipsis;
     font-family: Inter;
     font-size: 14px;
@@ -120,9 +115,6 @@ body{
     letter-spacing: -0.154px;
     transition: display 2s ease;
 }
-
-
-
 
 .sidebar-central .aba:hover {
     background: #F7F7F7;

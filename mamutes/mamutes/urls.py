@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from Users.views import login, register, recoverAccount, redefinePassword
 from guest.views import index, competition, admission, control_admission
-from members.views import sidebar
+from members.views import sidebar, create_task
 
 urlpatterns = [
 
@@ -24,8 +24,8 @@ urlpatterns = [
     path('report/', include('report.urls')),
 
     # members
-    path('sidebar/', sidebar,name="sidebar"),
-
+    path('sidebar/', sidebar , name="sidebar"),
+    path('create_task/', create_task, name= "create_task")
     # stock
     
 ]
