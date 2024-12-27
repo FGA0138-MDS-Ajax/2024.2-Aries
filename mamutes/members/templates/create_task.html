@@ -16,40 +16,53 @@
 
             <form id="create_task" action="{% url 'create_task' %}" method="POST" class="formLogin">
                 {% csrf_token %}
+                {% csrf_token %}
+
+                    
                 <div class="divsFields">
                     <p class="tituloInputs">Título</p>
-                    <input type="text" name="title" id="email" placeholder="Entitule a tarefa" class="inputForm">
-
+                    <input type="text" name="title" id="title" placeholder="Entitule a tarefa" class="inputForm">
+                
                     <p class="tituloInputs">Descrição</p>
-                    <input type="text" name="description" id="email" placeholder="Descreva a tarefa" class="inputForm desc">
+                    <textarea name="description" id="description" placeholder="Descreva a tarefa" class="inputForm desc"></textarea>
 
+                     <!-- 
                     <p class="tituloInputs">Subtarefas</p>
                     <input type="checkbox" id="subtarefa" name="subtasks">
                     <input type="text" id="textInput" name="textInput">
-
-                    <p class="tituloInputs">Status</p>
-                    <select id="status" name="status" class="inputForm">
-                        <option value="Pendente">Pendente</option>
-                        <option value="Em Progresso">Em progresso</option>
-                        <option value="Concluída">Concluída</option>
-                    </select>
-                    <p class="tituloInputs">Data</p>
+                    -->
                     
-                    <input type="date" name="creation_date" id="email" placeholder="Definir data" class="inputForm">
-
+                    <div class="statusDataContainer">
+                        <div class="statusContainer">
+                            <p class="tituloInputs">Status</p>
+                            <select id="status" name="status" class="inputForm">
+                                <option value="Pendente">Pendente</option>
+                                <option value="Em Progresso">Em progresso</option>
+                                <option value="Concluída">Concluída</option>
+                            </select>
+                        </div>
+                
+                        <div class="dateContainer">
+                            <p class="tituloInputs">Data</p>
+                            <input type="date" name="creation_date" id="date" placeholder="Definir data" class="inputForm">
+                        </div>
+                    </div>
+                
                     <p class="tituloInputs">Designar Membros</p>
-                    <select name="responsible" id="status" class="inputForm" multiple="multiple">
+                    <select name="responsible" id="responsible" class="inputForm" multiple="multiple">
                         {% for member in members %}
                             <option value="{{ member.id }}">{{ member.username }}</option>
                         {% endfor %}
                     </select>
                 </div>
+                
                 <div id="mensagemContainer" class="mensagemContainer"></div>
                 <div class="botoesRecuperar">
                     <button type="submit" class="submitBotao" value="adicionar" style="border-radius: 8px; background: #1F1A99;">
                         <span class="addLabel">Concluir tarefa</span>
                     </button>
                 </div>
+                
             </form>
         </div>
     </div>

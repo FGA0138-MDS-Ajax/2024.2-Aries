@@ -18,6 +18,8 @@
     width: 50vw;
 }
 
+
+
 .tituloModal{
     display: flex;
     width: 100%;
@@ -30,9 +32,9 @@
     color: #1E1E1E;
     text-align: center;
     font-family: Inter;
-    font-size: clamp(1rem, 3vw, 24px);
+    font-size: clamp(2rem, 3vw, 24px);
     font-style: normal;
-    font-weight: 600;
+    font-weight: bold;
     line-height: normal;
     letter-spacing: -0.352px;
     margin: 0;
@@ -88,6 +90,11 @@
     outline: none;
 }
 
+.inputForm.desc {
+    height: 120px;
+    resize: none;
+}
+
 .botoesRecuperar{
     display: flex;
     align-items: flex-start;
@@ -136,10 +143,22 @@ dialog{
     padding: 0;
     margin: 0;
     border-radius: 16px;
-       /* Centralizar na tela */
-       position: fixed;
-       top: 50%;
-       left: 50%;
-       transform: translate(-50%, -50%);
-       z-index: 1000; /* Garante que o diálogo fique sobre outros elementos */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; 
 }
+
+.statusDataContainer {
+    display: flex;
+    gap: 16px; 
+    width: 100%;
+}
+
+.statusContainer, .dateContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%; 
+}
+

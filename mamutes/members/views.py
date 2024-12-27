@@ -7,6 +7,9 @@ def sidebar(request):
     members = MembroEquipe.objects.all()
     return render(request,"partials/_sidebar.html", {'members':members})
 
+def Top(request):
+    return render(request, 'partials/Top.html')
+
 def create_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
