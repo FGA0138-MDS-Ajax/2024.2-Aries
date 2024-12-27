@@ -1,21 +1,8 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
-body{
-    width: 100%;
-    height: 100%;
-    background-color: rgb(86, 84, 84);
-}
-
 
 .sidebar-central{
-    width: 248px;
+    width: 264px;
     height: 100%;
-    margin-left: 24px;
     padding-top: 16px;
-    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -24,7 +11,6 @@ body{
     border-radius: 16px;
     transition: width 1s ease;
 }
-
 
 
 .sidebar-central .arrow-icon {

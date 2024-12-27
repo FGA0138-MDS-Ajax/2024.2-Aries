@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from Users.views import login, register, recoverAccount, redefinePassword
 from guest.views import index, competition, admission
-from members.views import sidebar
+from members.views import sidebar, home
 
 urlpatterns = [
 
@@ -24,6 +24,7 @@ urlpatterns = [
 
     # members
     path('sidebar/', sidebar,name="sidebar"),
+    path('home/', home, name="home"),
 
     # stock
     
