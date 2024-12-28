@@ -200,6 +200,31 @@ body {
 
 }
 
+dialog::backdrop{
+    background: rgba(0, 0, 0, 0.550);
+    backdrop-filter: blur(1.5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+dialog{
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 16px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; 
+    width: 80%;
+    max-width: 400px;
+}
+dialog[open]{
+    display: flex;
+}
+
 
 @media (max-width: 480px) {
 

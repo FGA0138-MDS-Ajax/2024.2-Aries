@@ -132,6 +132,8 @@
 }
 
 .searchField{
+    background-color: transparent;
+    border: none;
     color: #717171;
     /* leading-trim: both;
     text-edge: cap; */
@@ -326,6 +328,9 @@
     .tableAllItens{
         overflow-x: auto;
         overflow-y: auto;
+        border-radius: 16px;
+        border: 1px solid #EEE;
+        background: #FEFEFE;
     } 
     
     .headerTable{
@@ -346,7 +351,14 @@
     } 
     
     td{
-        border: none;
+        
+        /* gap: 16px; */
+        padding-right: 16px;
+        padding-left: none;
+    }
+
+    tr{
+        border: 1px solid #EEE;
     }
     
     .itens:disabled{
@@ -384,7 +396,9 @@
         outline: none;
         border: none;
         border-radius: 4px;
-        background: #F2F2F2;     
+        background: #F2F2F2; 
+        gap: 4px;
+        padding: 8px;    
     }
     
     .firtsItens{
@@ -392,9 +406,13 @@
         border: none;
         border-radius: 4px;
         background: #F2F2F2;    
+        gap: 4px;
+        padding: 8px; 
     }
     
-
+.tableItens{
+    border: 1px solid #EEE;
+}
 
 
 #no_results {
@@ -402,15 +420,38 @@
     text-align: center;
 }
 
-/* .styled-table{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1 0 0;
-    align-self: stretch;
+.styled-table{
+    border: 1px solid #EEE;
+    background: #FFF;
+    padding: 12px 24px;
 }
 
-thead{
+#saveButton{
+    border-radius: 4px;
+    background: #0075F6;
+    border: none;
+    padding: 8px;
+    /* width: 48px; */
+    justify-content: center;
+    color: #FEFEFE;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+}
+
+.line{
+    border: 1px solid #EEE;
+    padding: 16px 24px;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+/* thead{
     display: flex;
     min-width: 760px;
     padding: 12px 24px;
@@ -419,9 +460,9 @@ thead{
     align-self: stretch;
     border: 1px solid #EEE;
     background: #FFF;
-} 
+}  */
 
-th{
+/* th{
     display: flex;
     align-items: center;
     gap: 4px;
