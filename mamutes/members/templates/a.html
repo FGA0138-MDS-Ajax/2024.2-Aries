@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{%static 'css/kanban.css'%}">
+   
+  </head>
+  <body>
+    <div class="tasks-page-main">
+      <div class="header-tasks-page">
+        <div class="title-people">
+          <div class="team-star">
+            <div class="team-pin">
+              <div class="div">
+                <div class="color-team"><div class="text-wrapper">E</div></div>
+                <div class="text-wrapper-2">Estabilidade</div>
+              </div>
+              <img class="arrow-icon" src="img/arrow-icon.svg" />
+            </div>
+            <img class="star-icon" src="img/star-icon.svg" />
+          </div>
+          <div class="people-meeting">
+            <div class="foto-perfil"><div class="tag-img"></div></div>
+            <div class="tag-img-wrapper"><div class="tag-img-2"></div></div>
+            <div class="tag-img-wrapper"><div class="tag-img-3"></div></div>
+            <div class="tag-img-wrapper"><div class="tag-img-4"></div></div>
+            <div class="plus-people"><div class="text-wrapper-3">+8</div></div>
+          </div>
+        </div>
+        <div class="abas-tasks">
+          <div class="abas-tarefas">
+            <div class="frame"><div class="text-wrapper-4">Quadros</div></div>
+            <div class="div-wrapper"><div class="text-wrapper-5">Calendário</div></div>
+          </div>
+          <div class="actions">
+            <div class="my-tasks-button"><div class="text-wrapper-6">Minhas tarefas</div></div>
+            <div class="my-tasks-button-2"><div class="text-wrapper-7">Ver todas as tarefas</div></div>
+            <div class="action">
+              <img class="box-icon" src="img/box-icon.svg" />
+              <div class="text-wrapper-8">Nova tarefa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="boards">
+        <div class="scroll-boards">
+          <div class="board">
+            <div class="board-title">
+              <div class="title">
+                <div class="div">
+                  <div class="text-wrapper-9">A começar</div>
+                  <div class="quantity-tasks"><div class="text-wrapper-10">6</div></div>
+                </div>
+                <img class="img" src="img/action-2.svg" />
+              </div>
+              <div class="progress-bar"></div>
+            </div>
+            <div class="board-main">
+              <div class="cards-scroll">
+                {% for item in items %}
+                  {% if item.status == "Pendente" %}             
+                    {% include 'card.html' with status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible%}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="board">
+            <div class="board-title">
+              <div class="title">
+                <div class="div">
+                  <div class="text-wrapper-9">Em andamento</div>
+                  <div class="quantity-tasks-2"><div class="text-wrapper-20">4</div></div>
+                </div>
+                <img class="img" src="img/action-3.svg" />
+              </div>
+              <div class="progress-bar-2"></div>
+            </div>
+            
+            <div class="cards-scroll" >
+                {% for item in items %}
+                  {% if item.status == "Em Progresso" %}             
+                    {% include 'card.html' with status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible%}
+                  {% endif %}
+                {% endfor %}
+              </div>
+          </div>
+          <div class="board">
+            <div class="board-title">
+              <div class="title">
+                <div class="label-quantity">
+                  <div class="text-wrapper-9">Concluído</div>
+                  <div class="quantity-tasks-3"><div class="text-wrapper-23">2</div></div>
+                </div>
+                <img class="img" src="img/action.svg" />
+              </div>
+              <div class="progress-bar-3"></div>
+            </div>
+            <div class="board-main">
+              <div class="cards-scroll" >
+                {% for item in items %}
+                  {% if item.status == "Concluída" %}             
+                    {% include 'card.html' with status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible%}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

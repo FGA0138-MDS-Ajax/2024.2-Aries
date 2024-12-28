@@ -1,0 +1,25 @@
+<!-- templates/card.html -->
+{% load static %}
+<link rel="stylesheet" href="{%static 'css/card.css'%}">
+<div class="card" draggable="true" data-id="{{id}}">
+    <div class="main">
+      <div class="label" >
+        {% if status == "Concluída" %}  
+          <div class="div-wrapper" style="background-color: rgba(0, 117, 246, 0.20);"><div class="text-wrapper" style="color: #0075F6;">Concluída</div></div>
+        {% endif %}
+        {% if status == "Pendente" %}
+        <div class="div-wrapper" style="background-color: rgba(215, 0, 0, 0.20);"><div class="text-wrapper" style="color: #D70000;">A Começar</div></div>
+        {% endif %}
+        {% if status == "Em Progresso" %}
+        <div class="div-wrapper" style="background-color: rgba(255, 192, 57, 0.20);"><div class="text-wrapper" style="color: #CF8E00;">Em Progresso</div></div>
+      {% endif %}
+        <img class="dots-button" src="img/pepicons-pencil-dots-x.svg" />
+      </div>
+      <div class="card-title">
+        <p class="div">{{title}}</p>
+        <p class="p">
+          {{description}}        
+        </p>
+      </div>
+    </div>
+</div>

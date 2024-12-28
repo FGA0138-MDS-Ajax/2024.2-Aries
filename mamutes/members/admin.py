@@ -56,3 +56,5 @@ class MeetingAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 admin.site.register(Task, TaskAdmin)
 admin.site.register(Meeting, MeetingAdmin)
+admin.site.register(Task1)
+admin.site.register(Column)

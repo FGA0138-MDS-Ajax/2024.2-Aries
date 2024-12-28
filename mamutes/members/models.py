@@ -65,3 +65,19 @@ class Meeting(models.Model):
 
     def __str__(self):
         return f"Reunião: {self.title} - {self.meeting_date.strftime('%d/%m/%Y %H:%M')} - Áreas: {', '.join([area.name for area in self.areas.all()])}"
+    
+    
+class Column(models.Model):
+    name = models.CharField(max_length=100)
+
+def __str__(self):
+    return self.name
+
+class Task1(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    column = models.ForeignKey(Column, on_delete=models.CASCADE, related_name='tasks')
+    position = models.PositiveIntegerField(default=0)  # Para ordenar as tarefas
+
+    def __str__(self):
+        return self.title

@@ -26,7 +26,8 @@ urlpatterns = [
     # members
     path('sidebar/', sidebar , name="sidebar"),
     path('create_task/', create_task, name= "create_task"),
-    path('Top/', Top, name='top')
+    path('Top/', Top, name='top'),
+    path('members/', include('members.urls')),
     # stock
     
 ]
