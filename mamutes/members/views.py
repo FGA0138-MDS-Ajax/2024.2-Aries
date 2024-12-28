@@ -10,8 +10,12 @@ from .serializers import ColumnSerializer, TaskSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from datetime import date, datetime
 
-from django.views.decorators.csrf import csrf_exempt
+import locale
+
+locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
+
 def sidebar(request):
     members = MembroEquipe.objects.all()
     return render(request,"partials/_sidebar.html", {'members':members})
@@ -48,7 +52,35 @@ class TaskViewSet(viewsets.ModelViewSet):
 
 
 def kanban_view(request):
-    items = Task.objects.all()
+    tasks = Task.objects.all()  # Ou aplique filtros conforme necessário
+    items = []
+   
+
+    for task in tasks:
+        responsible_count = task.responsible.count() 
+        prazo = task.Prazo
+        today = datetime.now().date() 
+        
+        if prazo:
+            if prazo == today:
+                formatted_date = "HOJE"
+            else:
+                formatted_date = prazo.strftime("%d de %B")
+        else:
+            formatted_date = "Sem prazo definido"
+        
+        items.append({
+            'id': task.id,
+            'status': task.status,
+            'title': task.title,
+            'description': task.description,
+            'creation_date': task.creation_date,
+            'prazo': formatted_date,
+            'completion_date': task.completion_date,
+            # Passando responsáveis como string formatada
+            'responsible': task.get_responsibles_as_string(),
+            'responsible_count': responsible_count 
+        }) # Lista de responsáveis # Exibindo no console
     return render(request, 'kanbam.html',{'items': items})
 
 
@@ -56,6 +88,7 @@ def kanban_view(request):
 def update_task_status(request, task_id):
     try:
         task = Task.objects.get(id=task_id)
+        
     except Task.DoesNotExist:
         return Response({"error": "Task not found"}, status=status.HTTP_404_NOT_FOUND)
     

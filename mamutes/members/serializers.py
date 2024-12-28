@@ -10,3 +10,6 @@ class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = '__all__'
+    
+    def get_responsible_names(self, obj):
+        return [responsible.username for responsible in obj.responsible.all()]

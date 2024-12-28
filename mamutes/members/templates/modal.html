@@ -1,0 +1,50 @@
+<!-- Div da nova tarefa -->
+{% load static %}
+<link rel="stylesheet" href="{%static 'css/modal.css'%}">
+<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+<div class="text-wrapper-8">Nova tarefa</div>
+
+<!-- Modal (inicialmente oculto) -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal">&times;</span>
+    <div class="modal-form">
+      <h2 class="head-label">Criar nova tarefa</h2>
+      <form class="form">
+        <label class="title-form">Titulo</label>
+        <input type="text" class="Titulo-input" placeholder="Entitule a tarefa" required><br>
+        <label class="title-form">Descrição</label>
+        <input  type="text"class="Descrição-input" placeholder="Descreva a tarefa" required><br>
+        <div style=" display:flex; flex-direction:column; margin-bottom: 10px;">
+            <label class="title-form">Subtarefas</label>
+            <div style="display:flex; flex-direction:row;">
+                <input type="checkbox" name="Subtarefas-check" id="Subtarefas-check" style="border-radius: 4px; border: 1px solid #555; padding: 0px; margin-right: 5px;">
+                <label class="checkbox-label">Estilo de subtarefa adicionada</label>
+            </div>
+        </div>
+       
+       
+        <div class="status-data" style="display: flex; flex-direction: row;">
+            <div style="display: flex; flex-direction:column;width: 100%;">
+                <label class="title-form">Status</label>
+                <select class="option_field" name="option_field" id="option_field" aria-placeholder="Andamento da tarefa">
+                    <option value="opcao1">Andamento da tarefa</option>
+                    <option value="opcao2">Opção 2</option>
+                    <option value="opcao3">Opção 3</option>
+                  </select>
+            </div >
+            <div style="display: flex; flex-direction: column;width: 100%;">
+                <label class="title-form">Data</label>
+                <input type="date" class="data-input" required><br>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction:column">
+            <label class="title-form">Designar membros</label>
+            <input type="text" class="Membros-input" required><br>
+        </div>
+        
+        <button class="button-form" type="submit">Criar Tarefa</button>
+      </form>
+  </div>
+</div>
+</div>

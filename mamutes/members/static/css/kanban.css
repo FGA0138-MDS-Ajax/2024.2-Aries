@@ -19,11 +19,13 @@ a {
 
 .tasks-page-main {
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
   padding: 24px 24px 0px;
   position: relative;
+  background-color: #f2f2f2;
 }
 
 .tasks-page-main .header-tasks-page {
@@ -458,7 +460,6 @@ a {
 .tasks-page-main .board-title {
   width: 100%;
   flex: 0 0 auto;
-  background-color: #fdfdfd;
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -466,9 +467,11 @@ a {
   align-items: flex-start;
   position: relative;
   align-self: stretch;
+  border-radius: 18px;
 }
 
 .tasks-page-main .title {
+  background-color: #fefefe;
   gap: 8px 206px;
   padding: 16px;
   display: flex;
@@ -479,6 +482,8 @@ a {
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
 }
 
 .tasks-page-main .text-wrapper-9 {
@@ -525,8 +530,11 @@ a {
 
 .tasks-page-main .progress-bar {
   position: relative;
+  padding: 0%;
+  margin: 0%;
   width: 144px;
-  height: 4px;
+  height:4px;
+  margin-left: 10px;
   background-color: #d70000;
   border-radius: 0px 16px 16px 0px;
 }
@@ -1387,4 +1395,17 @@ a {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
   background: rgb(50, 50, 50);
   color: white;
+}
+.space-button{
+  width: 45px; 
+  height: 45px; 
+  background: #36B5FF; 
+  border-radius: 800px; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 8px; 
+  display: inline-flex
+}
+.text-wrapper-8 {
+  cursor: pointer;
 }

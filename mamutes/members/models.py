@@ -38,14 +38,27 @@ class Task(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     status = models.CharField(max_length=15, choices=STATUS_CHOICES)
-    creation_date = models.DateTimeField(auto_now_add=True)
-    completion_date = models.DateTimeField(null=True, blank=True)
+    creation_date = models.DateField(auto_now_add=True)
+    completion_date = models.DateField(null=True, blank=True)
+    Prazo = models.DateField(null=True, blank=True)
     responsible = models.ManyToManyField(MembroEquipe)
     has_subtasks = models.BooleanField(default=False)  
     subtasks = models.ManyToManyField(Subtask, related_name='tasks', blank=True)  # Relacionamento de muitos para muitos com Subtask
 
     def is_complete(self):
         return all(subtask.done for subtask in self.subtasks.all())
+    
+    def get_responsibles(self):
+        """
+        Retorna uma lista com os nomes de todos os responsáveis.
+        """
+        return [responsible.fullname for responsible in self.responsible.all()]
+
+    def get_responsibles_as_string(self):
+        """
+        Retorna os nomes de todos os responsáveis em uma string formatada.
+        """
+        return ", ".join(responsible.username for responsible in self.responsible.all())
 
     def __str__(self):
         return f"{self.description} - {self.status}"
