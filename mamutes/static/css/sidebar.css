@@ -11,12 +11,12 @@ body{
 
 
 .sidebar-central{
-    width: 248px;
-    height: 100%;
-    margin-left: 24px;
-    padding-top: 16px;
-    position: fixed;
     display: flex;
+    width: 264px;
+    height: 100%;
+    /* margin-left: 24px;
+    padding-top: 16px; */
+    /* position: fixed; */
     flex-direction: column;
     justify-content: space-between;
     padding:  8px 16px 8px 0px;

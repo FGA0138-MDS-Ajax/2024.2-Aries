@@ -1,18 +1,51 @@
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-}
-
-body{
-    width: 100%;
-    height: 100%;
-    background: gray;
-}
+    font-family: Inter;
+  }
+  
+  html{
+      scroll-behavior: smooth;
+  }
+  
+  html, body {
+      height: 100%;
+  }
+  
+  body {
+      line-height: 1.5;
+      text-size-adjust: 100%;
+      background: #F9F9F9;
+  }
+  
+  a {
+      text-decoration: none;
+      color: inherit;
+  }
+  
+  img {
+      max-width: 100%;
+      height: auto;
+  }
+  
+  button {
+      all: unset;
+      cursor: pointer;
+  }
+  
+  svg{
+      overflow: hidden;
+  }
+  
+  path{
+      width: 100%;
+      height: auto;
+  }
 
 .Top{
     display: flex;
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     /* max-width: 1280px; */
     padding: 16px 48px;

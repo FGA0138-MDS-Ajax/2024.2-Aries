@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Minha Página{% endblock %} | Área do membro</title>
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/top.css' %}">
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <meta property="og:type" content="website">
+    <style>
+        .org{
+            display: flex;
+            height: calc(100% - 80px);
+            flex-direction: row;
+            padding: 24px;
+            align-items: flex-start;
+            gap: 24px;
+            flex: 1 0 0;
+            align-self: stretch;
+        }
+    </style>
+    {% block css %}{% endblock %}
+</head>
+<body >
+    {% include 'partials/_top.html' %}
+    <div class="org">
+        {% include 'partials/_sidebar.html' %}
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+    <script src="{% static 'scripts/sideBar.js' %}"></script>
+    <script src="{% static 'scripts/Top.js' %}"></script>
+</body>
+</html>

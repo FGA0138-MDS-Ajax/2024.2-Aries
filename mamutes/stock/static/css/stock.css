@@ -1,0 +1,434 @@
+/* Reset CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que largura e altura incluam bordas e padding */
+    font-family: Inter;
+  }
+  
+  html{
+      scroll-behavior: smooth;
+  }
+  
+  html, body {
+      height: 100%; /* Garante que o body ocupe toda a altura da janela /
+  }
+  
+  body {
+      line-height: 1.5; / Ajusta o espaçamento entre linhas /
+      text-size-adjust: 100%; / Previne redimensionamento de texto automático em dispositivos móveis /
+      background: #F9F9F9;
+  }
+  
+  ul, ol {
+      list-style: none; / Remove as bolinhas e números de listas /
+  }
+  
+  a {
+      text-decoration: none; / Remove sublinhado de links /
+      color: inherit; / Faz os links herdarem a cor do texto ao invés de ter uma cor padrão /
+  }
+  
+  img {
+      max-width: 100%; / Garante que imagens não extrapolem o tamanho do contêiner */
+      height: auto;
+  }
+  
+  button {
+      all: unset;
+      cursor: pointer;
+  }
+  
+  svg{
+      overflow: hidden;
+  }
+  
+  path{
+      width: 100%;
+      height: auto;
+  }
+
+
+
+.stockPageMain{
+    display: flex;
+    padding: 24px 24px 0px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
+    align-self: stretch;
+    height: 100%;
+    overflow: hidden;
+}
+
+.headerStock{
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    gap: 32px 16px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.titleStock{
+    display: flex;
+    min-width: 256px;
+    max-width: 320px;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+}
+
+.boxIcon{
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.stock{
+    color: #1E1E1E;
+    /* leading-trim: both;
+    text-edge: cap; */
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 48px */
+    letter-spacing: -0.352px;
+}
+
+.actions{
+    display: flex;
+    min-width: 480px;
+    align-items: center;
+    align-content: center;
+    gap: 16px;
+    flex: 1 0 0;
+    flex-wrap: wrap;
+}
+
+.searchFieldBox{
+    display: flex;
+    min-width: 160px;
+    max-width: 560px;
+    padding: 14px 16px;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border-radius: 8px;
+    background: #FEFEFE;
+}
+
+.searchIcon{
+    display: flex;
+    width: 16px;
+    height: 16px;
+    padding: 2.667px;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchField{
+    color: #717171;
+    /* leading-trim: both;
+    text-edge: cap; */
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 15px */
+    letter-spacing: -0.11px;
+}
+
+.dowloadFieldBox{
+    display: flex;
+    padding: 16px 24px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid #0075F6;
+}
+
+.dowloadIcon{
+    display: flex;
+    width: 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dowloadField{
+    color: #0075F6;
+    /* leading-trim: both;
+    text-edge: cap; */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 14.4px */
+    letter-spacing: -0.132px;
+}
+
+.addItemFieldBox{
+    display: flex;
+    padding: 16px 24px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: #1F1A99;
+}
+
+.addItemIcon{
+    /* display: flex;
+    width: 12px;
+    height: 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px; */
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border: none;
+    min-width: 200px;
+    cursor: pointer;
+}
+
+.addItemField{
+    color: #FEFEFE;
+    /* leading-trim: both;
+    text-edge: cap; */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 14.4px */
+    letter-spacing: -0.132px;
+}
+
+
+.submitCancelBotao{
+
+    display: flex;
+    width: 12px;
+    height: 12px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    min-width: 200px;
+    cursor: pointer;
+
+    /* display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border: none;
+    min-width: 200px; */
+    
+}
+
+.addLabel{
+    color: #F2F2F2;
+    text-align: center;
+    font-family: Inter;
+    font-size: clamp(10px, 1vw, 14px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 24px */
+    letter-spacing: -0.176px;
+}
+
+.cancelLabel{
+    color: #0075F6;
+    text-align: center;
+    font-family: Inter;
+    font-size: clamp(10px, 1vw, 14px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 24px */
+    letter-spacing: -0.176px;
+}
+
+
+.toOpen{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    /* padding: 9px 4px; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.twoButton{
+    display: flex;
+    padding: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    left: -73px;
+    bottom: -81px;
+    border-radius: 8px;
+    background: #FEFEFE;
+    box-shadow: 0px 4px 32px 0px rgba(30, 30, 30, 0.20);
+    z-index: 3;
+}
+
+.editExcludeButton{
+    white-space: nowrap;
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 4px;
+}
+
+.iconEditExclude{
+    display: flex;
+    width: 16px;
+    height: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    }
+    
+    ::-webkit-scrollbar-track {
+    background: none;
+    border-radius: 3px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 3px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+    }
+    
+    .tableAllItens{
+        overflow-x: auto;
+        overflow-y: auto;
+    } 
+    
+    .headerTable{
+        text-align: start;
+        color: #808080;
+        /* leading-trim: both;
+        text-edge: cap; */
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; /* 18px */
+        letter-spacing: -0.132px;
+    }
+    thead{
+        border: 1px solid #EEE;
+        background: #FFF;
+    } 
+    
+    td{
+        border: none;
+    }
+    
+    .itens:disabled{
+        text-align: start;
+        background-color: transparent;
+        border: none;
+        color: #1E1E1E;
+        /* leading-trim: both;
+        text-edge: cap; */
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 18px */
+        letter-spacing: -0.132px;
+        
+    }
+    
+    .firtsItens:disabled{
+        text-align: start;
+        background-color: transparent;
+        border: none;
+        color: #1E1E1E;
+        /* leading-trim: both;
+        text-edge: cap; */
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; /* 18px */
+        letter-spacing: -0.132px;
+        
+    }
+    .itens{
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        background: #F2F2F2;     
+    }
+    
+    .firtsItens{
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        background: #F2F2F2;    
+    }
+    
+
+
+
+#no_results {
+    display: none;
+    text-align: center;
+}
+
+/* .styled-table{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+thead{
+    display: flex;
+    min-width: 760px;
+    padding: 12px 24px;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    border: 1px solid #EEE;
+    background: #FFF;
+} 
+
+th{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: calc((100%-384px)/5);
+
+} */
+
+/* .editExcludeButton span, .editExcludeButton div {
+    pointer-events: none;
+} */
