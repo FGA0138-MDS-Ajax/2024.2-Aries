@@ -16,15 +16,12 @@
 
             <form id="create_task" action="{% url 'create_task' %}" method="POST" class="formLogin">
                 {% csrf_token %}
-                {% csrf_token %}
-
-                    
                 <div class="divsFields">
                     <p class="tituloInputs">Título</p>
-                    <input type="text" name="title" id="title" placeholder="Entitule a tarefa" class="inputForm">
+                    <input type="text" name="title" id="title" placeholder="Entitule a tarefa" class="inputForm"> <br>
                 
                     <p class="tituloInputs">Descrição</p>
-                    <textarea name="description" id="description" placeholder="Descreva a tarefa" class="inputForm desc"></textarea>
+                    <textarea name="description" id="description" placeholder="Descreva a tarefa" class="inputForm desc"></textarea> <br>
 
                      <!-- 
                     <p class="tituloInputs">Subtarefas</p>
@@ -33,20 +30,42 @@
                     -->
                     
                     <div class="statusDataContainer">
+
                         <div class="statusContainer">
-                            <p class="tituloInputs">Status</p>
-                            <select id="status" name="status" class="inputForm">
-                                <option value="Pendente">Pendente</option>
-                                <option value="Em Progresso">Em progresso</option>
-                                <option value="Concluída">Concluída</option>
+                            <p class="tituloInputs">Prioridade</p>
+                            <select 
+                                id="status" 
+                                name="status" 
+                                class="inputForm" 
+                                onchange="
+                                    this.classList.remove('status-pendente', 'status-progresso', 'status-concluida');
+                                    if (this.value === 'Alta_Prioridade') {
+                                        this.classList.add('status-pendente');
+                                    } else if (this.value === 'Media_Prioridade') {
+                                        this.classList.add('status-progresso');
+                                    } else if (this.value === 'Baixa_Prioridade') {
+                                        this.classList.add('status-concluida');
+                                    }
+                                "
+                            >
+                                <option id="placeholder-status" disabled selected>Selecionar</option>
+                                <option value="Alta_Prioridade" id="Alta-Prioridade">Alta Prioridade </option>
+                                <option value="Media_Prioridade" id="Media-Prioridade">Média Prioridade</option>
+                                <option value="Baixa_Prioridade" id="Baixa-Prioridade">Baixa Prioridade</option>
                             </select>
-                        </div>
-                
+                        </div> <br>
+                        
                         <div class="dateContainer">
                             <p class="tituloInputs">Data</p>
-                            <input type="date" name="creation_date" id="date" placeholder="Definir data" class="inputForm">
+        
+                            <input type="date" name="creation_date" id="date" placeholder="Definir data" class="inputForm"
+                            onchange="
+                                    this.classList.add('data-changed');
+                                   
+                                ">
                         </div>
-                    </div>
+                        
+                    </div> <br>
                 
                     <p class="tituloInputs">Designar Membros</p>
                     <select name="responsible" id="responsible" class="inputForm" multiple="multiple">
