@@ -227,6 +227,7 @@ path{
     gap: 8px;
     border-radius: 8px;
     background: #1F1A99;
+    cursor: pointer;
 }
 #boxIcon{
     display: flex;
@@ -236,7 +237,7 @@ path{
     align-items: center;
     border-radius: 24px;
 }
-#addButtonText{
+#textbtnModal{
     color: #FEFEFE;
     leading-trim: both;
     text-edge: cap;
