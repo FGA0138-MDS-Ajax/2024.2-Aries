@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro 404</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/error404.css' %}">
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
+</head>
+<body>
+    <div class="page404">
+        <div class="gif404">
+            <img class="gif" src="{% static 'img/error404.gif' %}" alt="Erro ao carregar gif error404">
+        </div>
+        <div class="explanButton">
+            <div class="explanation">
+                <p class="title">Ops! Este voo perdeu a rota.</p>
+                <p class="subTitle">Mas não se preocupe, você pode voltar para a base agora mesmo.</p>
+            </div>
+            <!-- Alterando para usar JavaScript -->
+            <button onclick="window.history.back()" class="return">
+                <p class="textA">Voltar para o Hangar</p>
+            </button>
+        </div>    
+    </div>
+</body>
+</html>

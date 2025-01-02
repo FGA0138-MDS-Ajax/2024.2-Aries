@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que largura e altura incluam bordas e padding */
+    font-family: Inter;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%; /* Garante que o body ocupe toda a altura da janela */
+}
+
+body {
+    line-height: 1.5; /* Ajusta o espaçamento entre linhas */
+    text-size-adjust: 100%; /* Previne redimensionamento de texto automático em dispositivos móveis */
+    background: #F9F9F9;
+    overflow-y: hidden;
+}
+
+ul, ol {
+    list-style: none; /* Remove as bolinhas e números de listas */
+}
+
+a {
+    text-decoration: none; /* Remove sublinhado de links */
+    color: inherit; /* Faz os links herdarem a cor do texto ao invés de ter uma cor padrão */
+}
+
+img {
+    max-width: 100%; /* Garante que imagens não extrapolem o tamanho do contêiner */
+    height: auto;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+svg{
+    overflow: hidden;
+}
+
+path{
+    width: 100%;
+    height: auto;
+}
+ 
+ 
+ 
+.page404{
+    display: flex;
+    width: auto;
+    height: 100%;
+    padding: 25%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    background: #fefefe;
+}
+
+.gif404{
+    display: flex;
+    height: auto;
+    width: 100%;
+    aspect-ratio: 217%;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    align-self: stretch;
+    overflow: hidden
+}
+
+.gif{
+    /* width: auto;
+    height: 100%; */
+    /* flex-shrink: 0; */
+    object-fit: cover
+    
+}
+
+.subTitle{
+    align-self: stretch;
+    color: #717171;
+    text-align: center;
+    /* leading-trim: both;
+    text-edge: cap; */
+    font-family: Inter;
+    font-size: clamp(14px ,3vw, 20px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.22px;
+}
+
+.title{
+    align-self: stretch;
+    color: #1E1E1E;
+    text-align: center;
+    /* leading-trim: both;
+    text-edge: cap; */
+    font-family: Inter;
+    font-size: clamp(18px ,5vw, 40px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.44px;
+}
+
+.explanButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    align-self: stretch;
+}
+
+.explanation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+}
+.return{
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #1F1A99;
+    text-decoration: none;
+
+}
+
+.textA{
+    color: #FEFEFE;
+    /* leading-trim: both;
+    text-edge: cap; */
+    font-family: Inter;
+    font-size: clamp(12px,2vw,14px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.154px;
+    text-decoration: none;
+    text-align: center;
+    
+}
+
+
+
+@media (max-width: 480px) {
+
+    .page404{
+        padding-inline: 16px;
+    }
+    .title{
+        font-size: clamp(18px,5vw,32px);
+    }
+    .subTitle{
+        font-size: 14px;
+    }
+
+    .textA{
+        font-size: 12px;
+    }
+    .explanation{
+        gap: 8px;
+    }
+}
