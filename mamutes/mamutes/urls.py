@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.conf.urls import handler404
 from django.urls import path, include
 from Users.views import login, register, recoverAccount, redefinePassword
 from guest.views import index, competition, admission
@@ -29,4 +30,4 @@ urlpatterns = [
     
 ]
 
-handler404 = 'guest.views.handler404'
+handler404 = 'guest.views.custom_404_view'
