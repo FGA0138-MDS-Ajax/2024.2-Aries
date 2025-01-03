@@ -49,15 +49,15 @@
             </div>
             <div class="addTabs">
                 <div class="centerTabs">
-                    <a  href="#" class="tab">
-                        <p class="tabContent1">Tudo</p>
-                    </a>
-                    <a  href="#" class="tab">
-                        <p class="tabContent2">Avisos</p>
-                    </a>
-                    <a  href="#" class="tab">
-                        <p class="tabContent2">Eventos</p>
-                    </a>
+                    <div class="tab">
+                        <p id="all" class="tabContent active" onclick="selectWord(this)" data-filter="all">Tudo</p>
+                    </div>
+                    <div class="tab">
+                        <p id="announcement" class="tabContent" onclick="selectWord(this)" data-filter="announcement">Avisos</p>
+                    </div>
+                    <div class="tab">
+                        <p id="event" class="tabContent" onclick="selectWord(this)" data-filter="event">Eventos</p>
+                    </div>
                 </div>
                 <div id="btnModal" class="addButton">
                     <div id="boxIcon">
@@ -74,10 +74,7 @@
                 </svg>
                 <p id="textNoAnnouncement">Nada a ser exibido aqui.</p>
             </div>
-            <div class="centerContent">
-                {% include 'partials/_announcement.html' %}
-                {% include 'partials/_event.html' %}
-            </div>
+            {% include 'partials/_all.html' %}
         </div>
         {% include 'partials/_calendar.html' %}
         {% include 'newPost.html' %}

@@ -198,27 +198,21 @@ path{
     align-items: center;
     gap: 10px;
 }
-.tabContent1{
-    color: #1E1E1E;
-    leading-trim: both;
-    text-edge: cap;
-    font-family: Inter;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%; /* 18px */
-    letter-spacing: -0.132px;
-}
-.tabContent2{
+.tabContent{
     color: #696969;
     leading-trim: both;
     text-edge: cap;
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 150%; /* 18px */
     letter-spacing: -0.132px;
+    cursor: pointer;
+}
+.tabContent.active{
+    color: #1E1E1E;
+    font-weight: 700;
 }
 .addButton{
     display: flex;
@@ -265,7 +259,7 @@ path{
     line-height: 120%; /* 19.2px */
     letter-spacing: -0.176px;
 }
-.centerContent{
+#centerContent{
     display: flex;
     flex-direction: column;
     align-items: center;
