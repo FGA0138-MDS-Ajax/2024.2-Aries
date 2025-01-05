@@ -1,10 +1,4 @@
 (function(){
-    // document.body.addEventListener("click", (e)=>{
-    //     const event = e.target;
-
-    //     alert(event.outerHTML)
-
-    // })
     const btnModal = document.querySelector('#btnModal');
     const modal  = document.querySelector('#modal');
     const btnClose = document.querySelector('#btnClose');
@@ -49,3 +43,4 @@ const locationInput = document.getElementById("locationEvent");
             locationInput.disabled = false; 
         }
     });
+    

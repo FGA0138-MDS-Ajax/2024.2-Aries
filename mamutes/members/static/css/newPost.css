@@ -24,11 +24,14 @@ dialog{
 dialog[open]{
     display: flex;
 }
+#modal{
+    max-height: 80%;
+}
 
 .newPost{
     display: flex;
     width: 100%;
-    height: auto;
+    height: 100%;
     padding: 16px 16px 32px 16px;
     flex-direction: column;
     justify-content: center;
@@ -127,20 +130,33 @@ dialog[open]{
 }
 .inputDescriptionPost{
     display: flex;
-    padding: 16px 16px 114px 16px;
+    height: auto;
+    min-height: 112px;
+    max-height: 240px;
+    padding: 16px;
     min-width: 100px;
     line-height: 1.5;
     box-sizing: border-box;
     vertical-align: text-top;
     gap: 10px;
+    margin: 0;
     align-self: stretch;
     border-radius: 8px;
     background: #F2F2F2;
     border: none;
+    resize: none;
 }
 .inputDescriptionPost:focus{
     border: none;
     outline: none;
+}
+textarea::placeholder{
+    color: #717171;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
 }
 input::placeholder{
     color: #717171;
@@ -199,6 +215,7 @@ input::placeholder{
 }
 .dateBox{
     display: flex;
+    width: 100%;
     min-width: 200px;
     flex-direction: column;
     align-items: flex-start;
@@ -221,6 +238,7 @@ input::placeholder{
     border: none;
     outline: none;
 }
+
 .orgDate{
     display: flex;
     height: 16px;
@@ -229,6 +247,7 @@ input::placeholder{
 }
 .HourBox{
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;

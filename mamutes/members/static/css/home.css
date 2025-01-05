@@ -346,6 +346,7 @@ path{
     padding: 8px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .dotsIcon{
     display: flex;
@@ -1010,16 +1011,6 @@ path{
     font-weight: 600;
     line-height: normal;
     letter-spacing: -0.11px;
-}
-/* AJEITAR  */
-.gradient{
-    display: flex;
-    width: 264px;
-    height: 48px;
-    align-items: flex-start;
-    position: absolute;
-    bottom: 0px;
-    background: linear-gradient(180deg, rgba(254, 254, 254, 0.00) 0%, #FEFEFE 85.4%);
 }
 
 ::-webkit-scrollbar {
