@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +12,17 @@
     <div  class="minhaconta-page">
       <div class="central-minha-conta">
         <div class="inicio-perfil-user">
-          <div class="foto-perfil">
-            <img class="tag-img" src="{% static 'img/tagimg.png' %}"></img>
-            <img class="change-pic-bar" src="{% static 'img/Vector.png' %}" /> 
+          <div class="div-profile-pic" onclick="document.getElementById('fileInput').click();">
+            <!-- Input para escolher a foto -->
+            <input type="file" class="foto-perfil" style="cursor: pointer;" id="fileInput" accept="image/*">
+            
+            <div class="div-tag-img"><img class="tag-img" src="{% static 'img/tagimg.png' %}" id="profileImage"></div>
+            
+            <button class="change-pic-bar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.08599 11.7273H7.91399C9.90008 11.7273 10.8934 11.7273 11.6068 11.2596C11.9147 11.0579 12.1798 10.7976 12.387 10.4934C12.8636 9.79337 12.8636 8.81783 12.8636 6.86801C12.8636 4.91819 12.8636 3.94264 12.387 3.24264C12.1798 2.93846 11.9147 2.6781 11.6068 2.47646C11.1486 2.17546 10.5746 2.06792 9.69581 2.02973C9.27644 2.02973 8.91563 1.71792 8.83354 1.31383C8.7708 1.01783 8.6078 0.752576 8.37208 0.562885C8.13635 0.373195 7.84237 0.270704 7.53981 0.272735H5.46017C4.83144 0.272735 4.2899 0.708644 4.16644 1.31383C4.08435 1.71792 3.72353 2.02973 3.30417 2.02973C2.42599 2.06792 1.85199 2.1761 1.39317 2.47646C1.08551 2.67816 0.820618 2.93852 0.613625 3.24264C0.136353 3.94264 0.136353 4.91755 0.136353 6.86801C0.136353 8.81846 0.136353 9.79273 0.612989 10.4934C0.819171 10.7963 1.0839 11.0566 1.39317 11.2596C2.10653 11.7273 3.0999 11.7273 5.08599 11.7273ZM6.49999 4.26464C5.03572 4.26464 3.84826 5.42983 3.84826 6.86737C3.84826 8.30492 5.03635 9.47201 6.49999 9.47201C7.96363 9.47201 9.15172 8.30619 9.15172 6.86864C9.15172 5.4311 7.96363 4.26464 6.49999 4.26464ZM6.49999 5.30574C5.62181 5.30574 4.90908 6.0051 4.90908 6.86801C4.90908 7.73028 5.62181 8.42964 6.49999 8.42964C7.37817 8.42964 8.0909 7.73028 8.0909 6.86801C8.0909 6.00573 7.37817 5.30574 6.49999 5.30574ZM9.5049 4.78519C9.5049 4.49755 9.74226 4.26464 10.0356 4.26464H10.742C11.0347 4.26464 11.2727 4.49755 11.2727 4.78519C11.2714 4.92449 11.2148 5.05756 11.1154 5.15516C11.016 5.25276 10.8819 5.30692 10.7426 5.30574H10.0356C9.9666 5.30641 9.89811 5.29347 9.83408 5.26768C9.77005 5.24188 9.71173 5.20372 9.66245 5.15539C9.61316 5.10705 9.57388 5.04948 9.54685 4.98596C9.51982 4.92244 9.50556 4.85422 9.5049 4.78519Z" fill="#FEFEFE"/>
+              </svg>
+            </button>
           </div>
           <div class="infos-membro">
             <div class="text-wrapper">@josevictor</div>
@@ -29,7 +37,12 @@
           <div id="userDetails" class="form-principal-input">
             <div class="name-data">
               <div class="text-wrapper-3">Meus dados</div>
-              <img id="toggleButton" class="img" src="{% static 'img/edit-icon.png' %}" style="cursor: pointer;" />
+              <button id="toggleButton" class="edit-button" style="cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                  <path d="M10.5037 1.99634H3.50366C2.97323 1.99634 2.46452 2.20705 2.08945 2.58212C1.71438 2.9572 1.50366 3.4659 1.50366 3.99634V17.9963C1.50366 18.5268 1.71438 19.0355 2.08945 19.4106C2.46452 19.7856 2.97323 19.9963 3.50366 19.9963H17.5037C18.0341 19.9963 18.5428 19.7856 18.9179 19.4106C19.2929 19.0355 19.5037 18.5268 19.5037 17.9963V10.9963" stroke="#0075F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16.8786 1.62132C17.2765 1.2235 17.816 1 18.3786 1C18.9412 1 19.4808 1.2235 19.8786 1.62132C20.2765 2.01914 20.5 2.55871 20.5 3.12132C20.5 3.68393 20.2765 4.2235 19.8786 4.62132L10.8656 13.6353C10.6282 13.8726 10.3348 14.0462 10.0126 14.1403L7.13963 14.9803C7.05359 15.0054 6.96237 15.0069 6.87554 14.9847C6.78871 14.9624 6.70946 14.9173 6.64608 14.8539C6.5827 14.7905 6.53752 14.7112 6.51528 14.6244C6.49303 14.5376 6.49454 14.4464 6.51963 14.3603L7.35963 11.4873C7.45416 11.1654 7.62817 10.8724 7.86563 10.6353L16.8786 1.62132Z" stroke="#0075F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
             </div>
             <div class="div-2">
               <div class="text-wrapper-4">Nome completo</div>
@@ -71,8 +84,8 @@
               </div>
             </div>
             <div class="botoes">
-              <div class="botao-login"><div class="text-wrapper-7">Salvar alterações</div></div>
-              <div id="userCancelar" style="cursor: pointer;" class="botao-cancelar"><div class="text-wrapper-8">Cancelar</div></div>
+              <button class="botao-login"><div class="text-wrapper-7">Salvar alterações</div></button>
+              <button id="userCancelar"  style="cursor: pointer;" class="botao-cancelar"><div class="text-wrapper-8">Cancelar</div></button>
             </div>
           </div>
         </div>
@@ -80,7 +93,12 @@
         <div id="userSenha" class="form-principal">
           <div class="name-data">
             <div class="text-wrapper-3">Alterar senha</div>
-            <img class="img" src="{% static 'img/key-icon.png' %}" />
+            <button class="key-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                <path d="M8.92308 19.3809C11.642 19.3809 13.8462 17.1768 13.8462 14.4579C13.8462 11.7389 11.642 9.53479 8.92308 9.53479C6.20414 9.53479 4 11.7389 4 14.4579C4 17.1768 6.20414 19.3809 8.92308 19.3809Z" stroke="#0075F6" stroke-width="2.46154"/>
+                <path d="M12.6154 10.7655L16.923 6.45785M16.923 6.45785L18.7692 4.61169M16.923 6.45785L20 9.53477" stroke="#0075F6" stroke-width="2.46154" stroke-linecap="round"/>
+              </svg>
+            </button>
           </div>
           <div class="div-2">
             <div class="text-wrapper-4">Senha atual</div>
@@ -98,10 +116,33 @@
           <p id="Message" style="color: green; display: none;" class="text-wrapper-9">Deu Certo!</p>
           <div class="botoes">
             <button id="submitButton" disabled="true" style="cursor: pointer;" class="botao-login"><div class="text-wrapper-7" >Alterar senha</div></button >
-            <div  id="cancelButton" class="botao-cancelar"><div class="text-wrapper-8" style="cursor: pointer;">Cancelar</div></div>
+            <button  id="cancelButton" class="botao-cancelar" style="cursor: pointer;"><div class="text-wrapper-8" >Cancelar</div></button>
           </div>
         </div>
       </div>
     </div>
   </body>
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const profileImage = document.getElementById("profileImage");
+
+
+
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files[0]; // Obter o arquivo selecionado
+      if (file.size > 2 * 1024 * 1024) { // Limite de 2MB
+        alert("A imagem deve ter no máximo 2MB!");
+        return;
+      }
+      
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          profileImage.src = reader.result; // Atualiza a imagem de perfil com a imagem carregada
+        };
+        reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
+      }
+    });
+  </script>
 </html>
