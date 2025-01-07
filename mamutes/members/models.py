@@ -53,6 +53,10 @@ class Task(models.Model):
         Retorna uma lista com os nomes de todos os responsáveis.
         """
         return [responsible.fullname for responsible in self.responsible.all()]
+    
+    def get_responsiblesPhotos(self):
+       
+        return [responsible.photo for responsible in self.responsible.all()]
 
     def get_responsibles_as_string(self):
         """

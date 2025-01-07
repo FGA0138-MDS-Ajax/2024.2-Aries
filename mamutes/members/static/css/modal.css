@@ -159,3 +159,20 @@
     line-height: 150%; /* 18px */
     letter-spacing: -0.132px;
   }
+
+  .plus-people{
+    display: flex;
+    width: 32px;
+    height: 32px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1422.222px;
+    border: 1.778px solid #FEFEFE;
+    background-color: #0075F6;
+    margin-block: 10px;
+    cursor: pointer;
+  }
+
+  /* Estilo do botão */
+

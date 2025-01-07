@@ -1,7 +1,6 @@
 const modal = document.getElementById("modal");
 const openModalBtn = document.querySelector(".text-wrapper-8");
 const closeModalBtn = document.getElementById("close-modal");
-
 // Função para abrir o modal
 openModalBtn.addEventListener("click", function() {
   modal.style.display = "flex"; // Exibe o modal
@@ -11,7 +10,6 @@ openModalBtn.addEventListener("click", function() {
 closeModalBtn.addEventListener("click", function() {
   modal.style.display = "none"; // Esconde o modal
 });
-
 // Fechar o modal se clicar fora do conteúdo
 window.addEventListener("click", function(event) {
   if (event.target === modal) {
@@ -19,3 +17,25 @@ window.addEventListener("click", function(event) {
   }
 });
 
+const openMiniModalBtn = document.getElementById("plus-people");
+const miniModal = document.getElementById("miniModal");
+const closeMiniModalBtn = document.getElementById("closeMiniModalBtn");
+
+openMiniModalBtn.addEventListener("click", function() {
+        miniModal.style.display = "block";
+    });
+
+    // Fechamento do modal
+    closeMiniModalBtn.addEventListener("click", function() {
+        miniModal.style.display = "none";
+    });
+
+    // Fechar o modal se clicar fora da área do modal
+    window.addEventListener("click", function(event) {
+        if (event.target === miniModal) {
+            miniModal.style.display = "none";
+        }
+    });
+
+
+    

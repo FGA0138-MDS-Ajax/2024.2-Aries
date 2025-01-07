@@ -283,3 +283,77 @@
   line-height: normal;
   white-space: nowrap;
 }
+.responsible-photo{
+  
+  width: 20px; 
+  height: 20px; 
+  align-items: center; 
+  justify-content: center; 
+  position: absolute; 
+  object-fit: cover;
+  margin-top: -1.00px; 
+  margin-bottom: -1.00px; 
+  margin-left: -1.00px; 
+  border-radius: 250px; 
+  overflow: hidden; 
+  border: 1px solid; 
+  border-color: #fdfdfd;
+}
+
+.responsible-photo:nth-child(1) {
+  left: 0;
+  z-index: 1;
+}
+
+.responsible-photo:nth-child(2) {
+  left: 10px; /* Sobreposição de 20px */
+  z-index: 2; /* Aumenta um pouco a escala */
+}
+
+.responsible-photo:nth-child(3) {
+  left: 20px; /* Sobreposição de 20px */
+  z-index: 3;
+  /* Aumenta mais a escala */
+}
+
+/* Adiciona estilo para mais imagens, se necessário */
+.responsible-photo:nth-child(n+4) {
+  display: none;
+}
+
+.responsible-photo:hover {
+  transform: scale(1.3) translateY(-5px); /* Efeito de hover */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.more-photos {
+  position: absolute;
+  left: 30px; /* Posiciona o "+3" após as três primeiras imagens */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* Cor de fundo */
+  color: #8A8A8A; /* Cor do texto */
+  font-weight: bold;
+  z-index: 4; /* Garante que fique acima das outras imagens */
+  border: 1px solid #FEFEFE;
+  background: #DDD;
+
+  color: #8A8A8A;
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.088px;
+}
+
+.more-photos:hover {
+  transform: scale(1.1);
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}

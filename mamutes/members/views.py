@@ -14,6 +14,8 @@ from datetime import date, datetime
 
 import locale
 
+import base64
+
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
 def sidebar(request):
@@ -26,15 +28,11 @@ def Top(request):
 def create_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('sidebar')   
-        else:
-            members = MembroEquipe.objects.all()
-            return render(request, "partials/_sidebar.html", {'members':members})
-
+        if form.is_valid(): 
+         task = form.save()  # Salva a tarefa
+                 # Salva os relacionamentos ManyToMany
     else:
-        return redirect('sidebar')
+            form = TaskForm()
 
 class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
@@ -52,12 +50,16 @@ class TaskViewSet(viewsets.ModelViewSet):
 
 
 def kanban_view(request):
-    tasks = Task.objects.all()  # Ou aplique filtros conforme necessário
+    tasks = Task.objects.all()  
     items = []
-   
+    profiles = MembroEquipe.objects.all()
+    
+    for profile in profiles:
+        # Converte o blob em uma string Base64
+        if profile.photo:
+            profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
 
     for task in tasks:
-        responsible_count = task.responsible.count() 
         prazo = task.Prazo
         today = datetime.now().date() 
         
@@ -68,6 +70,15 @@ def kanban_view(request):
                 formatted_date = prazo.strftime("%d de %B")
         else:
             formatted_date = "Sem prazo definido"
+
+        responsible_profiles = task.responsible.all()  # Pegando os responsáveis da tarefa
+        responsible_photos = []
+        
+        for resp in responsible_profiles:
+            if resp.photo:
+                responsible_photos.append(base64.b64encode(resp.photo).decode('utf-8'))
+            else:
+                responsible_photos.append(None)
         
         items.append({
             'id': task.id,
@@ -75,13 +86,37 @@ def kanban_view(request):
             'title': task.title,
             'description': task.description,
             'creation_date': task.creation_date,
-            'prazo': formatted_date,
+            'prazo': formatted_date,  # Agora com o prazo correto para cada task
             'completion_date': task.completion_date,
-            # Passando responsáveis como string formatada
             'responsible': task.get_responsibles_as_string(),
-            'responsible_count': responsible_count 
-        }) # Lista de responsáveis # Exibindo no console
-    return render(request, 'kanbam.html',{'items': items})
+            'responsible_photos': responsible_photos,
+            'responsible_count': task.responsible.count(),
+        })
+    
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        status = request.POST.get('status')
+        prazo = request.POST.get('Prazo') or None
+        responsible = request.POST.get('responsibles') 
+        
+        responsible = list(map(int, responsible.split(',')))
+
+        # Cria a instância de Task
+        task = Task.objects.create(
+            title=title,
+            description=description,
+            status=status,
+            Prazo=prazo,  # Atribuindo o prazo da nova tarefa
+        )
+
+        responsible_members = MembroEquipe.objects.filter(id__in=responsible)
+        task.responsible.set(responsible_members)
+        
+        return redirect('kanban')
+       
+    return render(request, 'kanbam.html', {'items': items, 'profiles': profiles})
+
 
 
 @api_view(['PATCH'])
@@ -104,3 +139,27 @@ def update_task_status(request, task_id):
 
     serializer = TaskSerializer(task)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+    
+def upload_photo(request):
+    if request.method == "POST":
+        fullname = request.POST['fullname']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        photo = request.FILES['photo']  # Obtém o arquivo enviado
+        photo_data = photo.read()  # Lê os dados binários do arquivo
+
+        # Salva no banco
+        profile = MembroEquipe(fullname=fullname, photo=photo_data,email=email,phone=phone,username=fullname)
+        profile.save()
+
+        return redirect('profile_list')  # Redireciona para outra página
+    return render(request, 'upload_photo.html')
+
+def profile_list(request):
+    profiles = MembroEquipe.objects.all()
+    for profile in profiles:
+        # Converte o blob em uma string Base64
+        if profile.photo:
+            profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
+    return render(request, 'profile_list.html', {'profiles': profiles})

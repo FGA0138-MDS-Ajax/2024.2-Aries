@@ -15,7 +15,7 @@ body{
     height: 100%;
     margin-left: 24px;
     padding-top: 16px;
-    position: fixed;
+    position:relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

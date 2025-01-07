@@ -1,20 +1,23 @@
 <!-- Div da nova tarefa -->
 {% load static %}
-<link rel="stylesheet" href="{%static 'css/modal.css'%}">
-<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-<div class="text-wrapper-8">Nova tarefa</div>
 
+<link rel="stylesheet" href="{%static 'css/modal.css'%}">
+<script src="{% static 'scripts/modal.js' %}" defer></script>
+<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 <!-- Modal (inicialmente oculto) -->
 <div id="modal" class="modal">
   <div class="modal-content">
     <span class="close-btn" id="close-modal">&times;</span>
     <div class="modal-form">
       <h2 class="head-label">Criar nova tarefa</h2>
-      <form class="form">
+      <form method="POST" class="form">
+        {% csrf_token %}
         <label class="title-form">Titulo</label>
-        <input type="text" class="Titulo-input" placeholder="Entitule a tarefa" required><br>
+        <input id='title' type="text" class="Titulo-input" name="title" placeholder="Entitule a tarefa" required><br>
+
         <label class="title-form">Descrição</label>
-        <input  type="text"class="Descrição-input" placeholder="Descreva a tarefa" required><br>
+        <input id="description" type="text"class="Descrição-input" name="description" placeholder="Descreva a tarefa" required><br>
+
         <div style=" display:flex; flex-direction:column; margin-bottom: 10px;">
             <label class="title-form">Subtarefas</label>
             <div style="display:flex; flex-direction:row;">
@@ -27,24 +30,33 @@
         <div class="status-data" style="display: flex; flex-direction: row;">
             <div style="display: flex; flex-direction:column;width: 100%;">
                 <label class="title-form">Status</label>
-                <select class="option_field" name="option_field" id="option_field" aria-placeholder="Andamento da tarefa">
-                    <option value="opcao1">Andamento da tarefa</option>
-                    <option value="opcao2">Opção 2</option>
-                    <option value="opcao3">Opção 3</option>
+                <select class="option_field" name="status" id="status" aria-placeholder="Andamento da tarefa">
+                    <option value="Pendente">A Começar</option>
+                    <option value="Em Progresso">Em andamento</option>
+                    <option value="Concluída">Concluído</option>
                   </select>
             </div >
             <div style="display: flex; flex-direction: column;width: 100%;">
                 <label class="title-form">Data</label>
-                <input type="date" class="data-input" required><br>
+                <input type="date" id="Prazo" name="Prazo" class="data-input" required><br>
             </div>
         </div>
         <div style="display: flex; flex-direction:column">
             <label class="title-form">Designar membros</label>
-            <input type="text" class="Membros-input" required><br>
+            <!--<img src="data:image/jpeg;base64,{{photo}}" alt="Profile photo" style="max-width: 20px;"> -->
+            <div class="plus-people" id="plus-people">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
+                <path d="M12.095 6.42923H7.01566V11.5086C7.01566 11.778 6.90863 12.0364 6.71811 12.2269C6.5276 12.4174 6.26921 12.5245 5.99978 12.5245C5.73036 12.5245 5.47197 12.4174 5.28145 12.2269C5.09094 12.0364 4.98391 11.778 4.98391 11.5086V6.42923H-0.0954551C-0.364881 6.42923 -0.623272 6.3222 -0.813786 6.13169C-1.0043 5.94117 -1.11133 5.68278 -1.11133 5.41336C-1.11133 5.14393 -1.0043 4.88554 -0.813786 4.69503C-0.623272 4.50451 -0.364881 4.39748 -0.0954551 4.39748H4.98391V-0.681881C4.98391 -0.951307 5.09094 -1.2097 5.28145 -1.40021C5.47197 -1.59073 5.73036 -1.69775 5.99978 -1.69775C6.26921 -1.69775 6.5276 -1.59073 6.71811 -1.40021C6.90863 -1.2097 7.01566 -0.951307 7.01566 -0.681881V4.39748H12.095C12.3644 4.39748 12.6228 4.50451 12.8134 4.69503C13.0039 4.88554 13.1109 5.14393 13.1109 5.41336C13.1109 5.68278 13.0039 5.94117 12.8134 6.13169C12.6228 6.3222 12.3644 6.42923 12.095 6.42923Z" fill="#D7EAFF"/>
+              </svg>
+            </div>
         </div>
-        
+        <input type="hidden" id="responsibles" name="responsibles" value="">
+        <div style='position: relative;'>
+          {% include 'add_members.html'%}
+        </div>
         <button class="button-form" type="submit">Criar Tarefa</button>
       </form>
   </div>
+</div>
 </div>
 </div>
