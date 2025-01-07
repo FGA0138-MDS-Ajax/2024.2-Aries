@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'guest',
     'report',
     'members',
-    'stock',
     'django.contrib.staticfiles',
+    'stock',
+    
 ]
 
 MIDDLEWARE = [

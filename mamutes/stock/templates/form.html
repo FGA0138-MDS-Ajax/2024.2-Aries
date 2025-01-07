@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" value="{{ ferramenta.name|default_if_none:'' }}" required><br>
+        
+        <label for="type">Tipo:</label>
+        <input type="text" id="type" name="type" value="{{ ferramenta.type|default_if_none:'' }}" required><br>
+        
+        <label for="code">Codigo:</label>
+        <input type="text" id="code" name="code" value="{{ ferramenta.code|default_if_none:'' }}" required><br>
+
+        <label for="brand">Marca:</label>
+        <input type="text" id="brand" name="brand" value="{{ ferramenta.brand|default_if_none:'' }}" required><br>
+        
+        <label for="quantity">Quantidade:</label>
+        <input type="number" id="quantity" name="quantity" value="{{ ferramenta.quantity|default_if_none:'' }}" required><br>
+        
+        <label for="observation">Observação:</label>
+        <textarea id="observation" name="observation">{{ ferramenta.observation|default_if_none:'' }}</textarea><br>
+        
+        <label for="location">Localização:</label>
+        <input type="text" id="location" name="location" value="{{ ferramenta.location|default_if_none:'' }}" required><br>
+        
+        <label for="being_used">Em uso:</label>
+        <input type="checkbox" id="being_used" name="being_used" {% if ferramenta.being_used %}checked{% endif %}><br>
+        
+
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'stock' %}">Cancelar</a>
+</body>
+</html>

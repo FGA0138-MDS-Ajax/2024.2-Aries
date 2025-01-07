@@ -30,5 +30,6 @@ urlpatterns = [
     path('Top/', Top, name='top'),
 
     # stock
-    path('stock/', stock, name='stock')
+    path('stock/', stock, name='stock'),
+    path('', include('stock.urls')),
 ]
