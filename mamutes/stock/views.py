@@ -30,7 +30,7 @@ def adicionar_ferramenta(request):
             being_used=being_used
         )
         return redirect('stock')
-    return render(request, 'form.html', {'title': 'Adicionar Ferramenta'})
+    return render(request, 'additem.html', {'title': 'Adicionar Ferramenta'})
 
 # Editar ferramenta
 def editar_ferramenta(request, pk):
@@ -46,7 +46,7 @@ def editar_ferramenta(request, pk):
         ferramenta.being_used = request.POST.get('being_used') == 'on'
         ferramenta.save()
         return redirect('stock')
-    return render(request, 'form.html', {'ferramenta': ferramenta, 'title': 'Editar Ferramenta'})
+    return render(request, 'partials/editaItem.html', {'ferramenta': ferramenta, 'title': 'Editar Ferramenta'})
 
 # Deletar ferramenta
 def deletar_ferramenta(request, pk):
