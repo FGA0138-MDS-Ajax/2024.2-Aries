@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
 from .forms import TaskForm
-from .models import MembroEquipe
+from .models import MembroEquipe, Task
 
 from rest_framework import viewsets
 from .models import Column, Task
@@ -34,6 +34,19 @@ def create_task(request):
     else:
             form = TaskForm()
 
+
+def delete_task(request):
+    if request.method == 'POST':
+        task_id = request.POST.get('id_task')
+                
+        if task_id:
+            task = get_object_or_404(Task, id=task_id)
+            task.delete()  # Deleta a task
+        return redirect('kanban')
+
+    return redirect('kanban')
+
+
 class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
     serializer_class = ColumnSerializer
@@ -62,12 +75,11 @@ def kanban_view(request):
     for task in tasks:
         prazo = task.Prazo
         today = datetime.now().date() 
-        
         if prazo:
             if prazo == today:
                 formatted_date = "HOJE"
             else:
-                formatted_date = prazo.strftime("%d de %B")
+                formatted_date = prazo.strftime("%d / %m / %Y") # Aparece a data no formato dd/mm/aaaa
         else:
             formatted_date = "Sem prazo definido"
 

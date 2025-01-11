@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="{%static 'css/kanban.css'%}">
     <script src="{% static 'scripts/drag.js' %}" defer></script>
     <script src="{% static 'scripts/kanban.js' %}" defer></script>
-    
+    <title> Kanban | Mamutes do Cerrado </title>
+    <link rel="stylesheet" href="{% static 'css/viewCard.css' %}">
+
   </head>
   <body>
     
@@ -139,6 +141,6 @@
     
   </div>
   {% include 'modal.html'%}
-    </div>
+  {% include 'partials/viewCard.html'%}
   </body>
 </html>

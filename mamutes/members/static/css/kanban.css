@@ -6,7 +6,9 @@
 html,
 body {
   margin: 0px;
+  
   height: 100%;
+
 }
 /* a blue color as a generic focus style */
 button:focus-visible {
@@ -16,7 +18,9 @@ button:focus-visible {
 a {
   text-decoration: none;
 }
-
+input{
+  cursor: pointer;
+}
 .tasks-page-main{
   display: flex;
   height: 100%;
