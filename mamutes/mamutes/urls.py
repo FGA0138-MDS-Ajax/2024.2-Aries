@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 from Users.views import login, register, recoverAccount, redefinePassword
 from guest.views import index, competition, admission, control_admission
-from members.views import sidebar, create_task, Top,upload_photo, delete_task
+from members.views import sidebar, create_task, Top,upload_photo, delete_task, home
+
 
 urlpatterns = [
 
@@ -30,6 +31,7 @@ urlpatterns = [
     path('Top/', Top, name='top'),
     path('members/', include('members.urls')),
      path('foto/', upload_photo, name='upload_photo'),
+    path('home/', home, name="home"),
     # stock
     
 ]

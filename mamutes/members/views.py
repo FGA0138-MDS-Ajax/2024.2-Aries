@@ -1,3 +1,5 @@
+
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
 from .forms import TaskForm
@@ -18,7 +20,10 @@ import base64
 
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
+
+
 def sidebar(request):
+
     members = MembroEquipe.objects.all()
     return render(request,"partials/_sidebar.html", {'members':members})
 
@@ -186,3 +191,8 @@ def profile_list(request):
         if profile.photo:
             profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
     return render(request, 'profile_list.html', {'profiles': profiles})
+
+@login_required
+def home(request):
+    return render(request, "home.html")
+
