@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Minha Página{% endblock %} | Área do membro</title>
+    <link rel="stylesheet" href="{% static 'css/baseMembers.css' %}">
     <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'css/top.css' %}">
     <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
@@ -15,18 +16,31 @@
     <style>
         .org{
             display: flex;
-            height: calc(100% - 80px);
+            height: calc(100% - 64px);
             flex-direction: row;
-            padding: 24px;
+            padding: 16px;
             align-items: flex-start;
             gap: 24px;
             flex: 1 0 0;
             align-self: stretch;
         }
+
+        @media (max-width: 768px) {
+            .org{   
+                padding: 0;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .org{   
+                height: calc(100% - 48px);
+            }
+        }
     </style>
     {% block css %}{% endblock %}
 </head>
-<body >
+<body style="background: #f2f2f2;">
     {% include 'partials/_top.html' %}
     <div class="org">
         {% include 'partials/_sidebar.html' %}
