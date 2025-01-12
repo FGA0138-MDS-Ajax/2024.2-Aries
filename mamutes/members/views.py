@@ -22,11 +22,11 @@ locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
 
 def sidebar(request):
-    members = MembroEquipe.objects.all()
-    return render(request,"partials/_sidebar.html", {'members':members})
+     members = MembroEquipe.objects.all()
+     return render(request,"partials/_sidebar.html", {'members':members})
 
 def Top(request):
-    return render(request, 'partials/Top.html')
+     return render(request, 'partials/Top.html')
 
 def create_task(request):
     if request.method == 'POST':

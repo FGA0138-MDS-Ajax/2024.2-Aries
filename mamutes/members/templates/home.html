@@ -4,6 +4,7 @@
 {% block title %}Área do Membro{% endblock %} 
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 <link rel="stylesheet" href="{% static 'css/newPost.css' %}">
 {% endblock %}
 
@@ -80,5 +81,6 @@
         {% include 'newPost.html' %}
 
     </div>
+    <script src="{% static 'scripts/scriptMembers.js' %}"></script>
     <script src="{% static 'scripts/openModalhome.js' %}"></script>
 {% endblock %}
