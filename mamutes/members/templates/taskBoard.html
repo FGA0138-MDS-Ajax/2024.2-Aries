@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{%static 'css/taskBoard.css'%}">
+    <link href="{% static 'css/criarTarefa.css' %}" rel="stylesheet">
+    <script src="{% static 'scripts/openModal.js' %}" defer></script>
+   
+  </head>
+  <body>
+    
+    <div class="tasks-page-main">
+      <div class="header-tasks-page">
+        <div class="title-people">
+          <div class="team-star">
+            <div class="team-pin">
+              <div class="div">
+                <div class="color-team"><div class="text-wrapper">E</div></div>
+                <div class="text-wrapper-2">Estabilidade</div>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                <path d="M1.66659 1.33341L4.99992 4.66675L8.33325 1.33341" stroke="#1E1E1E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
+              <path d="M8.2053 1.39522C8.50876 0.701595 9.49284 0.701595 9.79543 1.39522L11.3145 4.8824C11.3774 5.02666 11.4785 5.15106 11.6068 5.24224C11.7351 5.33343 11.8858 5.38797 12.0428 5.40001L15.9123 5.69653C16.6926 5.75636 17.0004 6.73696 16.3944 7.23204L13.5072 9.59295C13.38 9.697 13.285 9.83505 13.2333 9.99101C13.1816 10.147 13.1752 10.3144 13.215 10.4738L14.108 14.0451C14.2936 14.789 13.4924 15.3908 12.83 15.0041L9.43735 13.0264C9.30472 12.949 9.15392 12.9082 9.00037 12.9082C8.84681 12.9082 8.69601 12.949 8.56339 13.0264L5.17071 15.0041C4.5083 15.3908 3.70717 14.789 3.89272 14.0451L4.78575 10.4738C4.82515 10.3144 4.81845 10.147 4.76641 9.99121C4.71437 9.83541 4.61915 9.6976 4.49183 9.59382L1.60463 7.2329C0.999448 6.73783 1.30811 5.75722 2.08757 5.6974L5.95624 5.40088C6.11319 5.38884 6.2639 5.3343 6.3922 5.24311C6.52051 5.15192 6.62157 5.02752 6.68454 4.88326L8.2053 1.39522Z" stroke="#1E1E1E" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="people-meeting">
+            <div class="foto-perfil"><div class="tag-img"></div></div>
+            <div class="tag-img-wrapper"><div class="tag-img-2"></div></div>
+            <div class="tag-img-wrapper"><div class="tag-img-3"></div></div>
+            <div class="tag-img-wrapper"><div class="tag-img-4"></div></div>
+            <div class="plus-people"><div class="text-wrapper-3">+8</div></div>
+          </div>
+        </div>
+        <div class="abas-tasks">
+          <div class="abas-tarefas">
+            <div class="div-frame"><div class="text-wrapper-5">Quadros</div></div>
+            <div class="frame"><div class="text-wrapper-4">Tarefas</div></div>
+            <div class="div-wrapper"><div class="text-wrapper-5">Calendário</div></div>
+          </div>
+          <div class="actions">
+            <div class="my-tasks-button"><div class="text-wrapper-6">Minhas tarefas</div></div>
+            <div class="my-tasks-button"><div class="text-wrapper-6"> Filtrar </div></div>
+            <div class="action">
+              <img class="box-icon" src="img/box-icon.svg" />
+              <div class="text-wrapper-8" id="btnModal">Nova tarefa</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título      <button class="orderBtn"> v </button></th>  <!-- arrumarrrrrrrrrrrrrrrrrr -->
+                        <th>Status   <button class="orderBtn"> v </button> </th> <!-- arrumarrrrrrrrrrrrrrrrrr -->
+                        <th>Designados      <button class="orderBtn"> v </button></th> <!-- arrumarrrrrrrrrrrrrrrrrr -->
+                        <th>Progresso    <button class="orderBtn"> v </button></th>
+                        <th>Check   </th>
+                        <th>Entrega     <button class="orderBtn"> v </button></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in tasks %}
+                        <tr>
+                            <td>{{ task.title }}</td>
+
+                            <td>
+                                <span class="status 
+                                            {% if task.status == 'Pendente' %}low-priority
+                                            {% elif task.status == 'Em Progresso' %}medium-priority
+                                            {% else %}high-priority
+                                            {% endif %}">
+                                            {{ task.status }}
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="avatars">
+                                    {% if task.responsible.count == 0 %}
+                                    <span>Nenhum membro designado</span>
+                                    {% else %}
+                                        {% for membro in task.responsible.all %}
+                                            <img src="{{ membro.avatar.url }}" alt="{{ membro.nome }}" />
+                                        {% endfor %}
+                                        {% if task.responsible.count == 1 %}
+                                            <span>{{ task.responsible.all.first.fullname }}</span>
+                                        {% elif task.responsible.count > 1 %}
+                                            <span class="membroCount">+{{ task.responsible.count|add:"-1" }}</span>
+                                        {% endif %}
+                                    {% endif %}
+                                
+
+                                </div>
+                            </td>
+
+                            <td>{{ task.status }}</td>  <!-- arrumarrrrrrrrrrrrrrrrrr -->
+
+                            <td>check???</td>   <!-- arrumarrrrrrrrrrrrrrrrrr -->
+                            <td>{{ task.creation_date }}</td>  <!-- arrumarrrrrrrrrrrrrrrrrr -->
+                            <td class="editBtn">
+                                <button class="btnEditTask">...</button>
+                            </td>
+                        </tr>
+
+                    {% empty %}
+                        <tr>
+                            <td colspan="6">Não há tarefas no momento.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>        
+      
+        {% include 'create_task.html'%}
+    </div>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .forms import TaskForm
-from .models import MembroEquipe
+from .models import MembroEquipe, Task
 
 def sidebar(request):
     members = MembroEquipe.objects.all()
@@ -22,3 +22,8 @@ def create_task(request):
 
     else:
         return redirect('sidebar')
+
+
+def taskBoard(request):
+    tasks = Task.objects.all()  
+    return render(request, 'taskBoard.html', {'tasks': tasks})
