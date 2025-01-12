@@ -67,10 +67,19 @@ def kanban_view(request):
     items = []
     profiles = MembroEquipe.objects.all()
     
+    members = []
+    
     for profile in profiles:
         # Converte o blob em uma string Base64
         if profile.photo:
             profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
+
+        members.append({
+        'email': profile.email,
+        'fullname': profile.fullname,
+        'username': profile.username,
+        'photo':  profile.photo,
+        })
 
     for task in tasks:
         prazo = task.Prazo
@@ -93,8 +102,6 @@ def kanban_view(request):
                 responsible_photos.append(None)
         
         pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
-
-        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         items.append({
             'id': task.id,
             'status': task.status,
@@ -131,7 +138,7 @@ def kanban_view(request):
         
         return redirect('kanban')
        
-    return render(request, 'kanbam.html', {'items': items, 'profiles': profiles})
+    return render(request, 'kanbam.html', {'items': items, 'profiles': profiles, 'members': members,})
 
 
 

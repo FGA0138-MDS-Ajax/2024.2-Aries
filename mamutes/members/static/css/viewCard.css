@@ -403,7 +403,7 @@ align-self: stretch;
 
 }
 
-dialog::backdrop{
+.modalViewCard::backdrop{
     background: rgba(0, 0, 0, 0.550);
     backdrop-filter: blur(1.5px);
     display: flex;
@@ -411,7 +411,7 @@ dialog::backdrop{
     align-items: center;
     padding: 24px;
 }
-dialog{
+.modalViewCard{
     border: none;
     padding: 0;
     margin: 0;
@@ -424,6 +424,6 @@ dialog{
     width: 80%;
     max-width: 400px;
 }
-dialog[open]{
+.modalViewCard[open]{
     display: flex;
 }

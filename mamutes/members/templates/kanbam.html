@@ -44,7 +44,7 @@
           </div>
           <div class="actions">
             <div class="my-tasks-button"><div class="text-wrapper-6">Minhas tarefas</div></div>
-            <div class="my-tasks-button-2"><div class="text-wrapper-7">Ver todas as tarefas</div></div>
+            <div class="my-tasks-button-2"><div style="pointer-events: none;" class="text-wrapper-7">Ver todas as tarefas</div></div>
             <div class="action">
               <img class="box-icon" src="img/box-icon.svg" />
               <div class="text-wrapper-8">Nova tarefa</div>
@@ -141,5 +141,6 @@
     
   </div>
   {% include 'modal.html'%}
+  {% include 'partials/viewMembers.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo%}
   </body>
 </html>
