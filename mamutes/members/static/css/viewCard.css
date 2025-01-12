@@ -533,10 +533,6 @@ path{
     align-items: center;
     padding: 24px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> ea6806128a736b69aff3f84280720ecd4b547621
 .modalViewCard{
     border: none;
     padding: 0;
@@ -550,10 +546,6 @@ path{
     width: 100%;
     max-width: 600px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> ea6806128a736b69aff3f84280720ecd4b547621
 .modalViewCard[open]{
     display: flex;
 }
