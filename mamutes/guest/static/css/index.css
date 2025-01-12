@@ -20,10 +20,6 @@ body {
     background: #F9F9F9;
 }
 
-ul, ol {
-    list-style: none; /* Remove as bolinhas e números de listas */
-}
-
 a {
     text-decoration: none; /* Remove sublinhado de links */
     color: inherit; /* Faz os links herdarem a cor do texto ao invés de ter uma cor padrão */
@@ -668,7 +664,7 @@ path{
     font-family: Inter;
     font-size: clamp(12px, 1vw, 16px);
     font-style: normal;
-    font-weight: 100;
+    font-weight: 400;
     line-height: 150%; /* 24px */
     letter-spacing: -0.176px;
     z-index: 1;
@@ -1087,34 +1083,52 @@ path{
     line-height: 150%; /* 24px */
     letter-spacing: -0.176px;
 }
-
-.carrossel-apoiadores{
+.carrossel-apoiadores {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
     align-self: stretch;
+    overflow: hidden;
 }
 
-.apoiadores-tracker{
+.apoiadores-tracker {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Ajustar para a esquerda */
     align-items: center;
     gap: 16px;
-    align-self: stretch;
+    transition: transform 0.5s ease; /* Transição suave */
+    width: 100%;
 }
 
-.logo-apoiador{
+.logo-apoiador {
+    flex-shrink: 0;
+    width: calc(100% / 4 - 16px); /* Ajustando para garantir 4 logos visíveis */
+    height: 184px;
+    padding: 0 16px;
     display: flex;
-    width: 300px;
-    height: 185px;
-    padding: 0px 40px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 16px;
-    box-shadow: 0px 4px 46px 0px rgba(30, 30, 30, 0.08);
+    box-shadow: 0px 4px 32px 0px rgba(30, 30, 30, 0.20);
+    overflow: hidden;
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .logo-apoiador {
+        width: calc(100% / 2 - 16px); /* Exibe 2 logos em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-apoiador {
+        width: 100%; /* Exibe 1 logo por vez em telas muito pequenas */
+    }
+}
+
+
 
 .inferior-carrossel-apoi{
     display: flex;
@@ -1683,6 +1697,10 @@ path{
 
     .imgs-quemsomos{
         height: unset;
+    }
+
+    .knowmore-quemsomos{
+        padding: 12px 16px;
     }
 
 }

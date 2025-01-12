@@ -1,0 +1,69 @@
+<dialog id="modal">
+    <div class="recuperarConta">
+        <div class="recuperarContaCentral">
+            <div style="gap: 8px; display: flex; align-items: center; justify-content: center; width: 100%; flex-direction: column;">
+                <div style="width: 100%; display: flex; align-items: flex-end; flex-direction:column;">
+                    <button id="btnClose">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M0.797162 0.797223C1.07037 0.524099 1.44087 0.370667 1.82718 0.370667C2.21349 0.370667 2.58399 0.524099 2.8572 0.797223L8.00874 5.94877L13.1603 0.797223C13.4351 0.531839 13.8031 0.384993 14.1851 0.388313C14.5671 0.391632 14.9325 0.544851 15.2026 0.81497C15.4727 1.08509 15.6259 1.45049 15.6292 1.83248C15.6326 2.21447 15.4857 2.58249 15.2203 2.85726L10.0688 8.00881L15.2203 13.1604C15.4857 13.4351 15.6326 13.8031 15.6292 14.1851C15.6259 14.5671 15.4727 14.9325 15.2026 15.2026C14.9325 15.4728 14.5671 15.626 14.1851 15.6293C13.8031 15.6326 13.4351 15.4858 13.1603 15.2204L8.00874 10.0688L2.8572 15.2204C2.58243 15.4858 2.21441 15.6326 1.83242 15.6293C1.45043 15.626 1.08503 15.4728 0.814909 15.2026C0.54479 14.9325 0.391571 14.5671 0.388252 14.1851C0.384932 13.8031 0.531778 13.4351 0.797162 13.1604L5.94871 8.00881L0.797162 2.85726C0.524038 2.58405 0.370605 2.21355 0.370605 1.82724C0.370605 1.44093 0.524038 1.07043 0.797162 0.797223Z" fill="#808080"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="tituloModal">
+                    <h1 class="titulo">Criar nova tarefa</h1>
+                </div>
+            </div>
+
+            <form id="create_task" action="{% url 'create_task' %}" method="POST" class="formLogin">
+                {% csrf_token %}
+                {% csrf_token %}
+
+                    
+                <div class="divsFields">
+                    <p class="tituloInputs">Título</p>
+                    <input type="text" name="title" id="title" placeholder="Entitule a tarefa" class="inputForm">
+                
+                    <p class="tituloInputs">Descrição</p>
+                    <textarea name="description" id="description" placeholder="Descreva a tarefa" class="inputForm desc"></textarea>
+
+                     <!-- 
+                    <p class="tituloInputs">Subtarefas</p>
+                    <input type="checkbox" id="subtarefa" name="subtasks">
+                    <input type="text" id="textInput" name="textInput">
+                    -->
+                    
+                    <div class="statusDataContainer">
+                        <div class="statusContainer">
+                            <p class="tituloInputs">Status</p>
+                            <select id="status" name="status" class="inputForm">
+                                <option value="Pendente">Pendente</option>
+                                <option value="Em Progresso">Em progresso</option>
+                                <option value="Concluída">Concluída</option>
+                            </select>
+                        </div>
+                
+                        <div class="dateContainer">
+                            <p class="tituloInputs">Data</p>
+                            <input type="date" name="creation_date" id="date" placeholder="Definir data" class="inputForm">
+                        </div>
+                    </div>
+                
+                    <p class="tituloInputs">Designar Membros</p>
+                    <select name="responsible" id="responsible" class="inputForm" multiple="multiple">
+                        {% for member in members %}
+                            <option value="{{ member.id }}">{{ member.username }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div id="mensagemContainer" class="mensagemContainer"></div>
+                <div class="botoesRecuperar">
+                    <button type="submit" class="submitBotao" value="adicionar" style="border-radius: 8px; background: #1F1A99;">
+                        <span class="addLabel">Concluir tarefa</span>
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</dialog>
