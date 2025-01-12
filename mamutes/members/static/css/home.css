@@ -51,6 +51,7 @@ path{
 .org{
     display: flex;
     height: calc(100% - 80px);
+    background-color: #F2F2F2;
     padding: 24px;
     align-items: flex-start;
     gap: 24px;

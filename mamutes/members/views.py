@@ -21,9 +21,7 @@ import base64
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
 
-
 def sidebar(request):
-
     members = MembroEquipe.objects.all()
     return render(request,"partials/_sidebar.html", {'members':members})
 
