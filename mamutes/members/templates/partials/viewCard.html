@@ -1,24 +1,24 @@
 {% load static %}
 
-<dialog  class="modalViewCard">
-    <form action="{% url 'delete_task' %}" method="POST" id="delete_task">
+<dialog  class="modalViewCard" style="cursor: auto;">
+    <form class="form-card-task" action="{% url 'delete_task' %}" method="POST" id="delete_task">
         {% csrf_token %}
         <div class="modalNewTask">
         
                     <div class="newMainNewTask">
                         <div class="close-newTask">
-                            <div class="actions">
-                                <div class="edit-icon">
-                                    <svg style="pointer-events: none;" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                            <div class="actions-card-task">
+                                <div class="edit-icon" title="Editar tarefa">
+                                    <svg style="pointer-events: none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 18 19" fill="none">
                                         <path d="M8.58042 2.33936H2.68454C2.23777 2.33936 1.8093 2.51683 1.49339 2.83274C1.17748 3.14866 1 3.57713 1 4.02389V15.8156C1 16.2624 1.17748 16.6909 1.49339 17.0068C1.8093 17.3227 2.23777 17.5002 2.68454 17.5002H14.4763C14.9231 17.5002 15.3515 17.3227 15.6674 17.0068C15.9834 16.6909 16.1608 16.2624 16.1608 15.8156V9.91977" stroke="#0075F6" stroke-width="1.68454" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M13.9502 2.02332C14.2852 1.68824 14.7397 1.5 15.2136 1.5C15.6874 1.5 16.1419 1.68824 16.477 2.02332C16.812 2.35839 17.0003 2.81285 17.0003 3.28672C17.0003 3.76059 16.812 4.21505 16.477 4.55012L8.8856 12.1423C8.6856 12.3422 8.43852 12.4884 8.16714 12.5677L5.7473 13.2752C5.67483 13.2963 5.598 13.2976 5.52487 13.2789C5.45173 13.2601 5.38498 13.2221 5.3316 13.1687C5.27822 13.1153 5.24016 13.0485 5.22143 12.9754C5.20269 12.9023 5.20396 12.8255 5.2251 12.753L5.9326 10.3331C6.01222 10.062 6.15878 9.81519 6.35879 9.61553L13.9502 2.02332Z" stroke="#0075F6" stroke-width="1.68454" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                     <p style="pointer-events: none;">Editar tarefa</p>
                                 </div>
-                                <button class="delete-icon" type="submit">
+                                <button class="delete-icon" type="submit" title="Excluir tarefa">
                                     <input type="text" value="{{id}}" style="display: none;" name="id_task" id="id-task">
                                     <div class="trash-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
+                                        <svg style="pointer-events: none;" xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                                             <path d="M12.3333 3.16667H9.66667V2.5C9.66667 1.96957 9.45595 1.46086 9.08088 1.08579C8.70581 0.710714 8.1971 0.5 7.66667 0.5H6.33333C5.8029 0.5 5.29419 0.710714 4.91912 1.08579C4.54405 1.46086 4.33333 1.96957 4.33333 2.5V3.16667H1.66667C1.48986 3.16667 1.32029 3.2369 1.19526 3.36193C1.07024 3.48695 1 3.65652 1 3.83333C1 4.01014 1.07024 4.17971 1.19526 4.30474C1.32029 4.42976 1.48986 4.5 1.66667 4.5H2.33333V11.8333C2.33333 12.3638 2.54405 12.8725 2.91912 13.2475C3.29419 13.6226 3.8029 13.8333 4.33333 13.8333H9.66667C10.1971 13.8333 10.7058 13.6226 11.0809 13.2475C11.456 12.8725 11.6667 12.3638 11.6667 11.8333V4.5H12.3333C12.5101 4.5 12.6797 4.42976 12.8047 4.30474C12.9298 4.17971 13 4.01014 13 3.83333C13 3.65652 12.9298 3.48695 12.8047 3.36193C12.6797 3.2369 12.5101 3.16667 12.3333 3.16667ZM5.66667 2.5C5.66667 2.32319 5.7369 2.15362 5.86193 2.0286C5.98695 1.90357 6.15652 1.83333 6.33333 1.83333H7.66667C7.84348 1.83333 8.01305 1.90357 8.13807 2.0286C8.2631 2.15362 8.33333 2.32319 8.33333 2.5V3.16667H5.66667V2.5ZM10.3333 11.8333C10.3333 12.0101 10.2631 12.1797 10.1381 12.3047C10.013 12.4298 9.84348 12.5 9.66667 12.5H4.33333C4.15652 12.5 3.98695 12.4298 3.86193 12.3047C3.7369 12.1797 3.66667 12.0101 3.66667 11.8333V4.5H10.3333V11.8333Z" fill="#D70000"/>
                                         </svg>
                                     </div>
@@ -40,14 +40,21 @@
                             <div class="subtask-newTask">
                                 <h2>Subtarefas</h2>
                                 <div>
-                                    <div class="subtask-item">
-                                        <input type="checkbox" name="subtask1">
-                                        <p>Ensinar catia</p>
-                                    </div>
-                                    <div class="subtask-item">
-                                        <input type="checkbox" name="subtask1">
-                                        <p>Comer cu de curioso</p>
-                                    </div>
+                                    <label class="subtask-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        <p>Sim</p>
+                                    </label>
+                                    <label class="subtask-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        <p>Ensinar Catia</p>
+                                    </label>
+                                    <label class="subtask-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        <p>Alinhar div</p>
+                                    </label>
                                 </div>
                             </div>
                             <div class="statusData">
@@ -77,12 +84,12 @@
                             </div>
                             <div class="setMembers">
                                 <h2>Membros designados</h2>
-                                <div class="people-meeting">
+                                <div class="people-meeting-card">
                                 {% for name, photo in pair_responsible_photo %}
                                     {% if photo %}
-                                        <img title="{{name}}" src="data:image/jpeg;base64,{{ photo }}" alt="Responsável" class="responsible-photo">
+                                        <div class="pic-responsible"><img title="{{name}}" src="data:image/jpeg;base64,{{ photo }}" alt="Responsável" class="photo-view-task"></div>
                                     {% else %}
-                                        <img title="{{name}}" src="path/to/default-photo.jpg" alt="Responsável" class="responsible-photo">
+                                        <div><img title="{{name}}" src="path/to/default-photo.jpg" alt="Responsável" class="responsible-photo"></div>
                                     {% endif%}
                                 {% endfor %}
                                 </div>
@@ -92,13 +99,31 @@
         </div>
     </form>
     <script>
+        const modalPrime = {
+            modalHTML: ''
+        };
+
         (function () {
+            function formatDate(date) {
+                date = date.replace(/\s+/g, '');
+                const [d, m, y] = date.split("/");
+                return `${y}-${m}-${d}`;
+            }
+
+            // Função para restaurar o modal ao estado original após cancelar edição
+            function resetModal(modalViewCard){
+                    modalViewCard.innerHTML = modalPrime.modalHTML;
+            }
+
             document.addEventListener("click", (e) => {
                 const target = e.target;
-    
+
                 // Abrir o modal correspondente ao card clicado
                 if (target.classList.contains("btnModalViewCard")) {
-                    const modal = target.querySelector(".modalViewCard");
+                    const modal = target.querySelector(".modalViewCard");                        
+                    if (!modalPrime.modalHTML) {
+                        modalPrime.modalHTML = modal.innerHTML;
+                    }      
                     if (modal) {
                         modal.showModal();
                     }
@@ -107,10 +132,80 @@
                 // Fechar o modal correspondente
                 if (target.classList.contains("btnCloseViewCard")) {
                     const modal = target.closest(".modalViewCard");
-                    if (modal) {
-                        modal.close();
-                    } 
+                    resetModal(modal);
+                    modal.close();
                 }
+                if (target.classList.contains("edit-icon")) {
+                    
+            console.log("Entrando no modo de edição."); // Debug
+            const modalViewCard = target.closest(".modalViewCard");
+            console.log(modalViewCard)
+            const title = modalViewCard.querySelector('#title-data').textContent.trim();
+            console.log(title)
+            const description = modalViewCard.querySelector('#description-data').textContent.trim();
+            const date = formatDate(modalViewCard.querySelector('#date-data').textContent.trim());
+            const dataStatus = modalViewCard.querySelector('#status-data').textContent.trim();
+
+            modalViewCard.innerHTML = 
+            `
+                    <link rel="stylesheet" href="{%static 'css/modal.css'%}">
+                    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+                    
+                        <span class="close-btn btnCloseViewCard" id="close-modal">&times;</span>
+                        <div class="modal-form">
+                        <h2 class="head-label"> Editar tarefa</h2>
+                        <form method="POST" class="form">
+                    {% csrf_token %}
+                            <label class="title-form">Titulo</label>
+                            <input id='title' type="text" class="Titulo-input" name="title" placeholder="Entitule a tarefa" required value="${title}"><br>
+
+                            <label class="title-form">Descrição</label>
+                            <input id="description" type="text"class="Descrição-input" name="description" placeholder="Descreva a tarefa" required value="${description}"><br>
+
+                            <div style=" display:flex; flex-direction:column; margin-bottom: 10px;">
+                                <label class="title-form">Subtarefas</label>
+                                <div style="display:flex; flex-direction:row;">
+                                    <input type="checkbox" name="Subtarefas-check" id="Subtarefas-check" style="border-radius: 4px; border: 1px solid #555; padding: 0px; margin-right: 5px;">
+                                    <label class="checkbox-label">Estilo de subtarefa adicionada</label>
+                                </div>
+                            </div>
+                        
+                        
+                            <div class="status-data" style="display: flex; flex-direction: row;">
+                                <div style="display: flex; flex-direction:column;width: 100%;">
+                                    <label class="title-form">Status</label>
+                                    <select class="option_field" name="status" id="status" aria-placeholder="Andamento da tarefa">
+                                        <option value="Pendente">A Começar</option>
+                                        <option value="Em Progresso">Em andamento</option>
+                                        <option value="Concluída">Concluído</option>
+                                    </select>
+                                </div >
+                                <div style="display: flex; flex-direction: column;width: 100%;">
+                                    <label class="title-form">Data</label>
+                                    <input type="date" id="Prazo" name="Prazo" class="data-input" required value="${date}"><br>
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-direction:column">
+                                <label class="title-form">Designar membros</label>
+                                <!--<img src="data:image/jpeg;base64,{{photo}}" alt="Profile photo" style="max-width: 20px;"> -->
+                                <div class="plus-people" id="plus-people">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
+                                    <path d="M12.095 6.42923H7.01566V11.5086C7.01566 11.778 6.90863 12.0364 6.71811 12.2269C6.5276 12.4174 6.26921 12.5245 5.99978 12.5245C5.73036 12.5245 5.47197 12.4174 5.28145 12.2269C5.09094 12.0364 4.98391 11.778 4.98391 11.5086V6.42923H-0.0954551C-0.364881 6.42923 -0.623272 6.3222 -0.813786 6.13169C-1.0043 5.94117 -1.11133 5.68278 -1.11133 5.41336C-1.11133 5.14393 -1.0043 4.88554 -0.813786 4.69503C-0.623272 4.50451 -0.364881 4.39748 -0.0954551 4.39748H4.98391V-0.681881C4.98391 -0.951307 5.09094 -1.2097 5.28145 -1.40021C5.47197 -1.59073 5.73036 -1.69775 5.99978 -1.69775C6.26921 -1.69775 6.5276 -1.59073 6.71811 -1.40021C6.90863 -1.2097 7.01566 -0.951307 7.01566 -0.681881V4.39748H12.095C12.3644 4.39748 12.6228 4.50451 12.8134 4.69503C13.0039 4.88554 13.1109 5.14393 13.1109 5.41336C13.1109 5.68278 13.0039 5.94117 12.8134 6.13169C12.6228 6.3222 12.3644 6.42923 12.095 6.42923Z" fill="#D7EAFF"/>
+                                </svg>
+                                </div>
+                            </div>
+                            <input type="hidden" id="responsibles" name="responsibles" value="">
+                            <div style='position: relative;'>
+                            {% include 'add_members.html'%}
+                            </div>
+                            <button class="button-form" type="submit">Editar Tarefa</button>
+                        </form>
+                    </div>
+                    </div>
+            `
+            modalViewCard.querySelector('.option_field').value = dataStatus;
+        }
+
             });
         })();
     </script>

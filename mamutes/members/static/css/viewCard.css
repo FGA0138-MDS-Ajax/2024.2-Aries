@@ -53,14 +53,14 @@ path{
 
 .modalNewTask{
     display: flex;
-max-width: 600px;
-padding: 32px;
-flex-direction: column;
-align-items: flex-start;
-gap: 8px;
-flex: 1 0 0;
-border-radius: 16px;
-background: #FEFEFE;
+    /* max-width: 600px; */
+    padding: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+    border-radius: 16px;
+    background: #FEFEFE;
 }
 .newMainNewTask{
     display: flex;
@@ -69,46 +69,53 @@ background: #FEFEFE;
     gap: 24px;
     align-self: stretch;
 }
+
 .close-newTask{
     display: flex;
-justify-content: space-between;
-align-items: center;
-align-self: stretch;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
 }
 
 .edit-icon, .delete-icon, .close-icon{
     cursor: pointer;
 }
-.actions{
-    display: flex;
-width: 324.414px;
-align-items: center;
-gap: 8px;
 
+.actions-card-task{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 8px;
 }
+
 .edit-icon{
     display: flex;
-padding: 8px;
-align-items: center;
-gap: 8px;
-border-radius: 8px;
-background: #D7EAFF;
-cursor: pointer;
+    padding-inline: 8px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: #D7EAFF;
+    cursor: pointer;
+    height: 32px;
 }
+
 .edit-icon p{
     color: #0075F6;
-leading-trim: both;
-text-edge: cap;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: -0.132px;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.132px;
 }
+
 .delete-icon{
     display: flex;
-    padding: 8px;
+    /* padding: 8px; */
+    width: 32px;
+    height: 32px;
     align-items: center;
     gap: 8px;
     border-radius: 8px;
@@ -118,19 +125,23 @@ letter-spacing: -0.132px;
 
 .trash-icon{
     display: flex;
+    width: 100%;
+    height: 100%;
     /* width: 16px;
     height: 16px; */
     padding: 8px;
     justify-content: center;
     align-items: center;
 }
+
 .close-icon{
     display: flex;
-padding: 8px;
-align-items: center;
-gap: 9.713px;
-border-radius: 8px;
+    padding: 8px;
+    align-items: center;
+    gap: 9.713px;
+    border-radius: 8px;
 }
+
 .mainNewTask{
     display: flex;
     flex-direction: column;
@@ -138,13 +149,15 @@ border-radius: 8px;
     gap: 24px;
     align-self: stretch;
 }
+
 .title-newTask{
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 8px;
-align-self: stretch;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
 }
+
 .title-newTask h1{
     color: #1E1E1E;
     leading-trim: both;
@@ -157,13 +170,15 @@ align-self: stretch;
     letter-spacing: -0.22px;
     flex: 1 0 0;
 }
+
 .description-newTask{
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 8px;
-align-self: stretch;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
 }
+
 .description-newTask p{
     color: #717171;
     leading-trim: both;
@@ -176,57 +191,125 @@ align-self: stretch;
     letter-spacing: -0.154px;
     flex: 1 0 0;
 }
+
 .subtask-newTask{
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 8px;
-align-self: stretch;
-}
-.subtask-newTask h2{
-    color: #1E1E1E;
-leading-trim: both;
-text-edge: cap;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 600;
-line-height: 150%; /* 18px */
-letter-spacing: -0.132px;
-align-self: stretch;
-}
-.subtask-item{
-    display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
     align-self: stretch;
-    justify-content: center;
 }
-.subtask-item p{
+
+.subtask-newTask h2{
     color: #1E1E1E;
-leading-trim: both;
-text-edge: cap;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: 150%; /* 18px */
-letter-spacing: -0.132px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-flex: 1 0 0;
-align-self: stretch;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+    align-self: stretch;
 }
+
+.subtask-item {
+    display: flex;
+    position: relative;
+    padding-left: 24px;
+    /* margin-bottom: 12px; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #1E1E1E;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+}
+
+/* Hide the browser's default checkbox */
+.subtask-item input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    align-items: center;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    height: 16px;
+    width: 16px;
+    background-color: #fefefe;
+    border-radius: 4px;
+    border: 1px solid #555;
+    cursor: pointer;
+}
+
+/* On mouse-over, add a grey background color */
+.subtask-item:hover input ~ .checkmark {
+    border-color: #959595;
+}
+
+/* When the checkbox is checked, add a blue background */
+.subtask-item input:checked ~ .checkmark {
+    background-color: #0075F6;
+    border-color: #0075F6;
+}
+
+.subtask-item input[type="checkbox"]:checked ~ p {
+    text-decoration: line-through;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.subtask-item input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.subtask-item .checkmark:after {
+    width: 3px;
+    height: 6px;
+    border: solid #fefefe;
+    border-width: 0 3px 3px 0;
+    border-radius: 2px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 2px;
+    left: 4px;
+    /* transform: translate(-50%, -50%); */
+}
+
 .statusData{
     display: flex;
-justify-content: center;
-align-items: flex-start;
-align-content: flex-start;
-gap: 16px 8px;
-align-self: stretch;
-flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 16px 8px;
+    align-self: stretch;
+    flex-wrap: wrap;
 }
+
 .status{
     display: flex;
     min-width: 200px;
@@ -235,18 +318,20 @@ flex-wrap: wrap;
     gap: 8px;
     flex: 1 0 0;
 }
+
 .status h2{
     color: #1E1E1E;
-leading-trim: both;
-text-edge: cap;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 600;
-line-height: 150%; /* 18px */
-letter-spacing: -0.132px;
-align-self: stretch;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+    align-self: stretch;
 }
+
 .status-inProgress{
     display: flex;
     height: 40px;
@@ -257,16 +342,17 @@ align-self: stretch;
     border-radius: 8px;
     background: rgba(255, 192, 57, 0.20);
 }
+
 .status-inProgress p{
     color: #CF8E00;
-leading-trim: both;
-text-edge: cap;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 500;
-line-height: 150%; /* 18px */
-letter-spacing: -0.132px;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
 }
 
 .status-finished{
@@ -277,19 +363,21 @@ letter-spacing: -0.132px;
     align-items: center;
     align-self: stretch;
     border-radius: 8px;
-background: rgba(0, 117, 246, 0.20);
+    background: rgba(0, 117, 246, 0.20);
 }
+
 .status-finished p{
     color: #0075F6;
-leading-trim: both;
-text-edge: cap;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 500;
-line-height: 150%; /* 18px */
-letter-spacing: -0.132px;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
 }
+
 .status-do{
     display: flex;
     height: 40px;
@@ -300,17 +388,19 @@ letter-spacing: -0.132px;
     border-radius: 8px;
     background: rgba(215, 0, 0, 0.20);
 }
+
 .status-do p{
     color: #D70000;
-leading-trim: both;
-text-edge: cap;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 500;
-line-height: 150%; /* 18px */
-letter-spacing: -0.132px;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
 }
+
 .date{
     display: flex;
     min-width: 200px;
@@ -319,39 +409,43 @@ letter-spacing: -0.132px;
     gap: 8px;
     flex: 1 0 0;
 }
+
 .date h2{
     color: #1E1E1E;
-leading-trim: both;
-text-edge: cap;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 600;
-line-height: 150%; /* 18px */
-letter-spacing: -0.132px;
-align-self: stretch;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+    align-self: stretch;
 }
+
 .date-view-container{
     display: flex;
-height: 40px;
-padding: 8px 16px;
-align-items: center;
-gap: 8px;
-align-self: stretch;
-border-radius: 8px;
-background: rgba(0, 117, 246, 0.20);
+    height: 40px;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 8px;
+    background: rgba(0, 117, 246, 0.20);
 }
+
 .date-view-container p{
     color: #1E1E1E;
-leading-trim: both;
-text-edge: cap;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: 150%; /* 18px */
-letter-spacing: -0.132px;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
 }
+
 .date-view-icon{
     display: flex;
     width: 16px;
@@ -359,6 +453,7 @@ letter-spacing: -0.132px;
     justify-content: center;
     align-items: center;
 }
+
 .setMembers{
     display: flex;
     flex-direction: column;
@@ -366,24 +461,30 @@ letter-spacing: -0.132px;
     gap: 8px;
     align-self: stretch;
 }
+
 .setMembers h2{
     color: #1E1E1E;
-leading-trim: both;
-text-edge: cap;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 600;
-line-height: 150%; /* 18px */
-letter-spacing: -0.132px;
-align-self: stretch;
-}
-.people-meeting{
-    display: flex;
-    align-items: center;
-    gap: -8px;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
     align-self: stretch;
 }
+
+.people-meeting-card{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding-left: 8px;
+    gap: 8px -8px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
 .people-img{
     display: flex;
     width: 32px;
@@ -391,15 +492,36 @@ align-self: stretch;
     justify-content: center;
     align-items: center;
 }
-.people-img img{
-    border-radius: 53.333px;
-    border: 1.333px solid #FEFEFE;
+
+.pic-responsible{
     display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-flex: 1 0 0;
-align-self: stretch;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    outline: 2px solid #FEFEFE;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    overflow: hidden;
+    margin-left: -6px;
+    border-radius: 500px;
+    /* border: 2px solid #F2F2F2; */
+    background: #DDD;
+    color: #8A8A8A;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.132px;
+}
+
+.photo-view-task{
+    object-fit: cover;
 
 }
 
@@ -411,19 +533,31 @@ align-self: stretch;
     align-items: center;
     padding: 24px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ea6806128a736b69aff3f84280720ecd4b547621
 .modalViewCard{
     border: none;
     padding: 0;
     margin: 0;
     border-radius: 16px;
-    position: fixed;
+    /* position: fixed; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000; 
-    width: 80%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 600px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ea6806128a736b69aff3f84280720ecd4b547621
 .modalViewCard[open]{
     display: flex;
+}
+
+.form-card-task{
+    width: 100%;
 }
