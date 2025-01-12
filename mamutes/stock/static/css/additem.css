@@ -199,6 +199,7 @@ dialog::backdrop{
     align-items: center;
     padding: 24px;
 }
+
 dialog{
     border: none;
     padding: 0;

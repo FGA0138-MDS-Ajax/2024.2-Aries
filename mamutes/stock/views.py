@@ -45,6 +45,8 @@ def editar_ferramenta(request, pk):
         ferramenta.location = request.POST.get('location')
         ferramenta.being_used = request.POST.get('being_used') == 'on'
         ferramenta.save()
+        print(ferramenta.code)
+        print("ISAQUE CAMARGOS NASCIMENTO")
         return redirect('stock')
     return render(request, 'partials/editaItem.html', {'ferramenta': ferramenta, 'title': 'Editar Ferramenta'})
 
