@@ -1,8 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .forms import TaskForm
-from .models import MembroEquipe
+from .models import MembroEquipe, Event, Task, Meeting
 from django.contrib.auth.decorators import login_required
+import calendar
+from datetime import datetime
+import locale
+
+locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
 def sidebar(request):
     members = MembroEquipe.objects.all()
@@ -26,4 +31,69 @@ def create_task(request):
 
 @login_required
 def home(request):
-    return render(request, "home.html")
+    selected_date = request.GET.get('date')
+    if selected_date:
+        now = datetime.strptime(selected_date, '%Y-%m-%d')
+    else:
+        now = datetime.now()
+    
+    year = now.year
+    month = now.month
+
+    cal = calendar.Calendar(firstweekday=6) 
+    days = cal.itermonthdays4(year, month) 
+
+    weeks = []
+    week = []
+    for day in days:
+        if day[1] == month:  
+            is_today = (day[2] == now.day)
+            week.append({"day": day[2], "in_month": True, "is_today": is_today})
+        else:
+            week.append({"day": day[2], "in_month": False, "is_today": False})
+        
+        if len(week) == 7:  # Semana completa
+            weeks.append(week)
+            week = []
+
+    if week:  
+        weeks.append(week)
+
+    events = Event.objects.filter(event_date__year=year, event_date__month=month, event_date__day=now.day)
+    tasks = Task.objects.filter(creation_date__year=year, creation_date__month=month, responsible=request.user)
+    meetings = Meeting.objects.filter(meeting_date__year=year, meeting_date__month=month, meeting_date__day=now.day).filter(areas__membros=request.user).distinct()
+
+    task_days = tasks.values_list('creation_date__day', flat=True).distinct()
+
+    context = {
+        "now": now,
+        "year": year,
+        "month": month,
+        "month_name": calendar.month_name[month].capitalize(),
+        "weeks": weeks,
+        "events": events,
+        "tasks": tasks,
+        "meetings": meetings,
+        "task_days": task_days,
+    }
+    return render(request, "home.html", context)
+
+def get_events_tasks(request):
+    date_str = request.GET.get('date')
+    if date_str:
+        selected_date = datetime.strptime(date_str, '%Y-%m-%d')
+        year = selected_date.year
+        month = selected_date.month
+        day = selected_date.day
+
+        events = Event.objects.filter(event_date__year=year, event_date__month=month, event_date__day=day)
+        tasks = Task.objects.filter(creation_date__year=year, creation_date__month=month, creation_date__day=day, responsible=request.user)
+        meetings = Meeting.objects.filter(meeting_date__year=year, meeting_date__month=month, meeting_date__day=day).filter(areas__membros=request.user).distinct()
+
+        events_data = [{"title": event.title, "time": event.event_date.strftime('%H:%M')} for event in events]
+        tasks_data = [{"title": task.title} for task in tasks]
+        meetings_data = [{"title": meeting.title, "time": meeting.meeting_date.strftime('%H:%M')} for meeting in meetings]
+
+        return JsonResponse({"events": events_data, "tasks": tasks_data, "meetings": meetings_data})
+    else:
+        return JsonResponse({"error": "Invalid date"}, status=400)

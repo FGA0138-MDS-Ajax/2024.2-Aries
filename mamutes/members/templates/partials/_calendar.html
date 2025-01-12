@@ -12,7 +12,7 @@
         <div class="centerMyAgenda">
             <div class="calendarVisualizer">
                 <div class="monthControler">
-                    <p class="textmonthYear">Janeiro 2025</p>
+                    <p class="textmonthYear">{{ month_name }} {{ year }}</p>
                 </div>
                 <div class="calendar">
                     <div class="weekDays">
@@ -39,393 +39,99 @@
                         </div>
                     </div>
                     <div class="dateOfMonth">
+                        {% for week in weeks %}
                         <div class="everyWeek">
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">28</p>
+                            {% for day in week %}
+                            <div class="dateWeek{% if not day.in_month %}LastMonth{% endif %}" data-date="{{ year }}-{{ month }}-{{ day.day }}">
+                                <div class="day{% if day.is_today %} daySelected{% endif %}">
+                                    <p class="textDate{% if day.day == 0 %} Empty {% elif day.is_today%} textDateSelected {% endif %}"> {{ day.day|default:'' }}</p>
                                 </div>
                                 <div class="markers">
-                                    <div class="taskMarkerTarefa"></div>
-                                    <div class="taskMarkerEvent"></div>
-                                    <div class="taskMarkerLemon"></div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
-                                        <path d="M5.28561 6.14286V4.85714H6.57132C6.79865 4.85714 7.01667 4.76684 7.17742 4.60609L6.82386 4.25254L7.17742 4.60609C7.33816 4.44534 7.42847 4.22733 7.42847 4C7.42847 3.77267 7.33816 3.55465 7.17742 3.39391L6.82386 3.74746L7.17742 3.39391C7.01667 3.23316 6.79865 3.14286 6.57132 3.14286H5.28561V1.85714C5.28561 1.62981 5.1953 1.4118 5.03456 1.25105C4.87381 1.09031 4.65579 1 4.42847 1C4.20114 1 3.98312 1.09031 3.82238 1.25105C3.66163 1.4118 3.57132 1.62981 3.57132 1.85714V3.14286H2.28561C2.05828 3.14286 1.84026 3.23316 1.67952 3.39391C1.51877 3.55465 1.42847 3.77267 1.42847 4C1.42847 4.22733 1.51877 4.44535 1.67952 4.60609C1.84026 4.76684 2.05828 4.85714 2.28561 4.85714H3.57132V6.14286C3.57132 6.37018 3.66163 6.5882 3.82237 6.74895C3.98312 6.90969 4.20114 7 4.42847 7C4.65579 7 4.87381 6.90969 5.03456 6.74895C5.1953 6.5882 5.28561 6.37018 5.28561 6.14286Z" fill="#1E1E1E" stroke="#FEFEFE"/>
-                                    </svg>
-                                    <div class="boxIcon"></div>
+                                    {% if day.day in task_days %}
+                                        <div class="taskMarkerTarefa"></div>
+                                    {% endif %}
                                 </div>
                             </div>
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">29</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">30</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">31</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">1</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">2</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">3</p>
-                                </div>
-                                <div class="markers">
-                                    <div class="taskMarkerBabyBlue"></div>
-                                    <div class="boxIcon"></div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
-                        <div class="everyWeek">
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">4</p>
-                                </div>
-                                <div class="markers">
-                                    
-                                </div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">5</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">6</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">7</p>
-                                </div>
-                                <div class="markers">
-                                    <div class="taskMarkerGreen"></div>
-                                    <div class="taskMarkerYellow"></div>
-                                </div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="daySemiSelected">
-                                    <p class="textDateSemiSelected">8</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">9</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">10</p>
-                                </div>
-                                <div class="markers">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="everyWeek">
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">11</p>
-                                </div>
-                                <div class="markers">
-                                    
-                                </div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="daySelected">
-                                    <p class="textDateSelected">12</p>
-                                </div>
-                                <div class="markers">
-                                    <div class="taskMarkerNavyBlue"></div>
-                                </div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">13</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">14</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">15</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">16</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">17</p>
-                                </div>
-                                <div class="markers">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="everyWeek">
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">18</p>
-                                </div>
-                                <div class="markers">
-
-                                </div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">19</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">20</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">21</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">22</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">23</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">24</p>
-                                </div>
-                                <div class="markers">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="everyWeek">
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">25</p>
-                                </div>
-                                <div class="markers">
-
-                                </div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">26</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">27</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">28</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">29</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">30</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeek">
-                                <div class="day">
-                                    <p class="textDate">31</p>
-                                </div>
-                                <div class="markers">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="everyWeek">
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">1</p>
-                                </div>
-                                <div class="markers">
-
-                                </div>
-                            </div>
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">2</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">3</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">4</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">5</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">6</p>
-                                </div>
-                                <div class="markers"></div>
-                            </div>
-                            <div class="dateWeekLastMonth">
-                                <div class="day">
-                                    <p class="textDate">7</p>
-                                </div>
-                                <div class="markers">
-
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
+                    
                 </div>
             </div>
             <div class="agendaList">
-                <p id="todayDate">12 de janeiro</p>
+                <p id="todayDate">{{ now.day }} de {{ now|date:"F" }}</p>
                 <div class="todayEvents">
-                    <div class="taskCalendar">
-                        <p>Nenhuma tarefa atribuída a você para este dia.</p>
-                    </div>
-                    <div class="taskCalendar">
-                        <div class="colorTeamBlue"></div>
-                        <p>Elaborar relatório de análise sobre coeficientes de sustentação.</p>
-                    </div>
-                    <div class="taskCalendar">
-                        <div class="colorTeamYellow"></div>
-                        <p>Avaliar o desempenho do motor em condições de vento forte.</p>
-                    </div>
-                    <div class="importantEvent">
-                        <div class="borderImportantEvent"></div>
-                        <div class="contentImportantEvent">
-                            <h4>Atualizar o modelo 3D da fuselagem com base nas alterações sugeridas.</h4>
-                            <div class="moreInfoEvent">
-                                <p class="hourEvent">18:00 - 20:00</p>
-                                <div class="peopleMeeting">
-                                    <div class="profilePic">
-                                        <img class="profileImg" src="{% static 'img/tag-img.png' %}" alt="Erro ao carregar imagem">
-                                    </div>
-                                    <div class="profilePic">
-                                        <img class="profileImg" src="{% static 'img/tag-img (1).png' %}" alt="Erro ao carregar imagem">
-                                    </div>
-                                    <div class="profilePic">
-                                        <img class="profileImg" src="{% static 'img/tag-img (2).png' %}" alt="Erro ao carregar imagem">
-                                    </div>
-                                    <div class="profilePic" style="background-color: #DDD;">
-                                        <p class="textPlusPeople">+2</p>
+                    {% if tasks %}
+                        {% for task in tasks %}
+                            <div class="taskCalendar">
+                                <div class="colorTeamBlue"></div>
+                                <p>{{ task.title }}</p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="taskCalendar">
+                            <p>Nenhuma tarefa atribuída a você para este dia.</p>
+                        </div>
+                    {% endif %}
+                    
+                    {% if events %}
+                        {% for event in events %}
+                            <div class="importantEvent">
+                                <div class="borderImportantEvent"></div>
+                                <div class="contentImportantEvent">
+                                    <h4>{{ event.title }}</h4>
+                                    <div class="moreInfoEvent">
+                                        <p class="hourEvent">{{ event.event_date|date:"H:i" }} - {{ event.event_date|date:"H:i" }}</p>
+                                        {% comment %} ESSE É PARA REUNIOES APENAS
+                                        <div class="peopleMeeting">
+                                            <div class="profilePic">
+                                                <img class="profileImg" src="{% static 'img/tag-img.png' %}" alt="Erro ao carregar imagem">
+                                            </div>
+                                            <div class="profilePic">
+                                                <img class="profileImg" src="{% static 'img/tag-img (1).png' %}" alt="Erro ao carregar imagem">
+                                            </div>
+                                            <div class="profilePic">
+                                                <img class="profileImg" src="{% static 'img/tag-img (2).png' %}" alt="Erro ao carregar imagem">
+                                            </div>
+                                            <div class="profilePic" style="background-color: #DDD;">
+                                                <p class="textPlusPeople">+2</p>
+                                            </div>                                        </div> {% endcomment %}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="importantEvent">
-                        <div class="borderImportantEvent"></div>
-                        <div class="contentImportantEvent">
-                            <h4>Atualizar o modelo 3D da fuselagem com base nas alterações sugeridas.</h4>
-                            <div class="moreInfoEvent">
-                                <p class="hourEvent">18:00 - 20:00</p>
-                                <div class="peopleMeeting">
-                                    <div class="profilePic">
-                                        <img class="profileImg" src="{% static 'img/tag-img.png' %}" alt="Erro ao carregar imagem">
-                                    </div>
-                                    <div class="profilePic">
-                                        <img class="profileImg" src="{% static 'img/tag-img (1).png' %}" alt="Erro ao carregar imagem">
-                                    </div>
-                                    <div class="profilePic">
-                                        <img class="profileImg" src="{% static 'img/tag-img (2).png' %}" alt="Erro ao carregar imagem">
-                                    </div>
-                                    <div class="profilePic" style="background-color: #DDD;">
-                                        <p class="textPlusPeople">+2</p>
-                                    </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if meetings %}
+                        {% for meeting in meetings %}
+                            <div class="importantEvent">
+                                <div class="borderImportantEvent" style="background: #0075F6;"></div>
+                                <div class="contentImportantEvent">
+                                    <h4>{{ meeting.title }}</h4>
+                                    <div class="moreInfoEvent">
+                                        <p class="hourEvent">{{ meeting.meeting_date|date:"H:i" }}</p>
+                                        <div class="peopleMeeting">
+                                            <div class="profilePic">
+                                                <img class="profileImg" src="{% static 'img/tag-img.png' %}" alt="Erro ao carregar imagem">
+                                            </div>
+                                            <div class="profilePic">
+                                                <img class="profileImg" src="{% static 'img/tag-img (1).png' %}" alt="Erro ao carregar imagem">
+                                            </div>
+                                            <div class="profilePic">
+                                                <img class="profileImg" src="{% static 'img/tag-img (2).png' %}" alt="Erro ao carregar imagem">
+                                            </div>
+                                            <div class="profilePic" style="background-color: #DDD;">
+                                                <p class="textPlusPeople">+2</p>
+                                            </div> 
+                                        </div>                                        
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="importantEvent">
-                        <div class="borderImportantEvent"></div>
-                        <div class="contentImportantEvent">
-                            <h4>Atualizar o modelo 3D da fuselagem com base nas alterações sugeridas.</h4>
-                            <div class="moreInfoEvent">
-                                <p class="hourEvent">18:00 - 20:00</p>
-                                <div class="peopleMeeting">
-                                    <div class="profilePic">
-                                        <img class="profileImg" src="{% static 'img/tag-img.png' %}" alt="Erro ao carregar imagem">
-                                    </div>
-                                    <div class="profilePic">
-                                        <img class="profileImg" src="{% static 'img/tag-img (1).png' %}" alt="Erro ao carregar imagem">
-                                    </div>
-                                    <div class="profilePic">
-                                        <img class="profileImg" src="{% static 'img/tag-img (2).png' %}" alt="Erro ao carregar imagem">
-                                    </div>
-                                    <div class="profilePic" style="background-color: #DDD;">
-                                        <p class="textPlusPeople">+2</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
+
+<script src="{% static 'scripts/calendar.js' %}"></script>
