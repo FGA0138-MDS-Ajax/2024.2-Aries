@@ -92,6 +92,9 @@ def kanban_view(request):
             else:
                 responsible_photos.append(None)
         
+        pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
+
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         items.append({
             'id': task.id,
             'status': task.status,
@@ -103,6 +106,7 @@ def kanban_view(request):
             'responsible': task.get_responsibles_as_string(),
             'responsible_photos': responsible_photos,
             'responsible_count': task.responsible.count(),
+            'pair_responsible_photo': pair_r_p,
         })
     
     if request.method == 'POST':

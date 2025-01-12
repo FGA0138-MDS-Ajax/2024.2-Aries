@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./viewMembers.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+{% load static %}
 
-    <title>Mamutes do Cerrado</title>
-</head>
-<body>
-    <div class="container-modal-members">
+    <dialog class="container-modal-members">
         <div class="modalMembers">
             <div class="close">
                 <div class="close-icon">
@@ -339,6 +327,13 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
+        <script>
+            document.addEventListener("click", (e) => {
+                const clickedElement = e.target;
+
+                if(clickedElement.classList.contains('my-tasks-button-2')){
+                    modalViewMembers.showModal()
+                } 
+            });
+        </script>
+    </dialog>
