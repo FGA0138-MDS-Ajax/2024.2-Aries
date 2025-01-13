@@ -16,9 +16,12 @@ buttonNotification.addEventListener("click", (e) => {
         buttonNotification.style.background = "#fefefe";
         modalNotificatin.style.display = "none";
     } else {
-        buttonNotification.style.background = "#f2f2f2";
         newNotif.style.display = "none";
+
+        buttonNotification.style.background = "#f2f2f2";
         modalNotificatin.style.display = "flex";
+
+        buttonProfile.style.background = "#fefefe";
         modalProfile.style.display = "none";
     }
 });
@@ -34,6 +37,8 @@ buttonProfile.addEventListener("click", (e) => {
     } else { //se o modal estiver fechado, quando clicado ele abre
         buttonProfile.style.background = "#f2f2f2";
         modalProfile.style.display = "flex";
+        
+        buttonNotification.style.background = "#fefefe";
         modalNotificatin.style.display = "none";
     }
 });
