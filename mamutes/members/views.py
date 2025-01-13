@@ -2,8 +2,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
-from .forms import TaskForm
-from .models import MembroEquipe, Task
+from .forms import TaskForm, EventForm, BaseEventForm
+from .models import MembroEquipe, Task, Event, BaseEvent
 
 from rest_framework import viewsets
 from .models import Column, Task
@@ -28,6 +28,45 @@ def sidebar(request):
 def Top(request):
      return render(request, 'partials/Top.html')
 
+@login_required
+def create_event(request):
+    if request.method == 'POST':
+        base_event_form = BaseEventForm(request.POST)
+        
+        if base_event_form.is_valid():
+            base_event = base_event_form.save(commit=False)
+            base_event.member = request.user  
+            base_event.save()
+
+            print(f"Base event saved: {base_event}")  
+
+            if base_event.is_event:     
+                event_form = EventForm(request.POST)
+                event = event_form.save(commit=False)
+                event.base_event = base_event
+
+                if event_form.is_valid():
+                    
+                    event.save()
+
+                    print(f"Event saved: {event}")  
+
+                else:
+                    print(f"Event form errors: {event_form.errors}")  
+            else:
+                event_form = None  
+        else:
+            
+            event_form = None  
+
+    else:
+        base_event_form = BaseEventForm()
+        event_form = None  
+    
+    events = Event.objects.all()
+    base_events = BaseEvent.objects.all()    
+
+    return redirect('home')
 def create_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
@@ -192,5 +231,6 @@ def profile_list(request):
 
 @login_required
 def home(request):
-    return render(request, "home.html")
+    announcements = BaseEvent.objects.filter(is_event=False).order_by('-posted_at')  
+    return render(request, 'home.html', {'announcements': announcements})
 

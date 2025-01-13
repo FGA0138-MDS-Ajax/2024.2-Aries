@@ -1,5 +1,7 @@
 from django.db import models
 from Users.models import MembroEquipe, Area
+from django.utils import timezone
+from datetime import datetime
 
 class Subtask(models.Model):
     description = models.TextField()
@@ -13,19 +15,36 @@ class BaseEvent(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     is_event = models.BooleanField(default=False)  
+    posted_at = models.DateTimeField(default=timezone.now)
+
+    member = models.ForeignKey(MembroEquipe, on_delete=models.CASCADE)
+
+    def time_since_posted(self):
+        now = datetime.now(timezone.utc)
+        delta = now - self.posted_at
+
+        if delta.days > 0:
+            return f"Postado há {delta.days} dia(s)"
+        hours = delta.seconds // 3600
+        if hours > 0:
+            return f"Postado há {hours} hora(s)"
+        minutes = delta.seconds // 60
+        return f"Postado há {minutes} minuto(s)"
 
     class Meta:
-        abstract = True
+        abstract = False
 
 
-class Event(BaseEvent):
-    event_date = models.DateTimeField(null=True, blank=True)
+class Event(models.Model):
+    base_event = models.ForeignKey(BaseEvent, on_delete=models.CASCADE, blank=True, null=True)
+    event_date = models.CharField(max_length=255, null=True, blank=True)
+    event_time = models.CharField(max_length=255, null=True, blank=True)
     location = models.CharField(max_length=255, null=True, blank=True)
     is_online = models.BooleanField(default=False) 
 
 
     def __str__(self):
-        return f"{self.title} - {'Online' if not self.location else self.location}"
+        return f"{self.base_event.title} - {'Online' if not self.location else self.location}"
 
 
 class Task(models.Model):
