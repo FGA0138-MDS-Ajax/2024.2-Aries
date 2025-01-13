@@ -1,18 +1,17 @@
-<!DOCTYPE html>
+{% extends 'baseMembers.html' %}
 {% load static %}
-{% csrf_token %}
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="{%static 'css/kanban.css'%}">
+
+{% block title %}Tarefas{% endblock %}
+
+    {% block css %}
     <script src="{% static 'scripts/drag.js' %}" defer></script>
     <script src="{% static 'scripts/kanban.js' %}" defer></script>
-    <title> Kanban | Mamutes do Cerrado </title>
+    <link rel="stylesheet" href="{%static 'css/kanban.css'%}">
     <link rel="stylesheet" href="{% static 'css/viewCard.css' %}">
     <link rel="stylesheet" href="{% static 'css/viewMembers.css' %}">
-  </head>
-  <body>
-    
+    {% endblock %}
+  
+    {% block content %}
     <div class="tasks-page-main" >
       <div style="flex-direction: row; display:flex;overflow: hidden; height: 100%; width :100%" >
       <div class="board-conteiner" style="flex-direction: column; display:flex; height: 95%; width: 100%; margin-inline: 10px; overflow: hidden;">
@@ -145,5 +144,6 @@
   </div>
   {% include 'modal.html'%}
   {% include 'partials/viewMembers.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo%}
-  </body>
-</html>
+
+{% endblock%}
+

@@ -158,7 +158,8 @@
 }
 
 .Notifications {
-    display: flex;
+    display: none;
+    z-index: 1;
     width: 356px;
     max-height: 480px;
     padding-inline: 16px;
@@ -174,15 +175,14 @@
     background: #FEFEFE;
     box-shadow: 0px 4px 32px 0px rgba(30, 30, 30, 0.20);
     overflow-y: auto;
-    visibility: hidden; /* Inicialmente invisível */
+    /* visibility: hidden; */
 }
 
 
-.Notifications.is-visible {
-    visibility: visible; /* Torna a notificação visível */
+.Notifications .show {
+    display: flex;
     z-index: 1;
 }
-
 
 .Notifications .DailyNotif{
     display: flex;
@@ -281,7 +281,7 @@
     align-items: center;
     gap: 8px;
     border-radius: 8px;
-    /* background: #F3F3F3; */
+    background: #fefefe;
     cursor: pointer;
     position: relative;  
     border: none;
