@@ -2,7 +2,7 @@
 
 ## 1. Introdução
 
-O objetivo deste documento é descrever o plano de testes a ser executado para o projeto **[Nome do Projeto]**. Este plano define a estratégia, a abordagem, os recursos necessários e o cronograma de testes para garantir que todos os requisitos do sistema sejam atendidos.
+O objetivo deste documento é descrever o plano de testes a ser executado para o projeto **Mamute do cerrado**. Este plano define a estratégia, a abordagem, os recursos necessários e o cronograma de testes para garantir que todos os requisitos do sistema sejam atendidos.
 
 ## 2. Objetivos do Teste
 
@@ -54,8 +54,8 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
   - Equipamentos: [Informações]
   
 - **Software:**
-  - Sistema Operacional: [Informações]
-  - Ferramentas de Teste: [Ferramentas como Selenium, JUnit, etc.]
+  - Sistema Operacional: Windows
+  - Ferramentas de Teste: baseado em unittest
 
 ## 8. Cronograma de Testes
 
