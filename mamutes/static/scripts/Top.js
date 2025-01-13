@@ -10,7 +10,6 @@ function isClickOutside(element, target) {
     return !element.contains(target);
 }
 
-
 buttonNotification.addEventListener("click", (e) => {
     e.stopPropagation(); 
     if (modalNotificatin.style.display === "flex") {
