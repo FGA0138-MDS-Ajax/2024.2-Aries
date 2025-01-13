@@ -173,6 +173,38 @@ body {
     min-width: 200px;
 }
 
+.botoesExlcude{
+    display: flex;
+    flex-direction: row;
+}
+
+.btnSim{
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border: none;
+    min-width: 200px;
+}
+
+.btnClose{
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border: none;
+    min-width: 200px;
+}
+
+.titleExclude{
+    text-align: center;
+    font-weight: 400;
+}
+
 .addLabel{
     color: #F2F2F2;
     text-align: center;

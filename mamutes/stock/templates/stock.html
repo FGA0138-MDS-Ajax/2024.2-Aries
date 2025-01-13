@@ -132,7 +132,7 @@
 
                         <td>
 
-                            <div class="toOpen">
+                            <div class="toOpen" style="cursor: pointer;">
                                 <svg xmlns="http://www.w3.org/2000/svg" style="z-index: 0; pointer-events: none;" width="14" height="4"
                                     viewBox="0 0 14 4" fill="none">
                                     <path
@@ -156,17 +156,16 @@
                                         <span style="pointer-events: none;" >Editar item</span>
                                     </button>
 
-                                    <button type="button" class="editExcludeButton"
-                                        onclick="window.location.href='{% url 'deletar_ferramenta' ferramenta.id %}'">
-                                        <div class="iconEditExclude">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14"
+                                    <button type="button" class="editExcludeButton">
+                                        <div style="pointer-events: none;" class="iconEditExclude">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" style="pointer-events: none;"
                                                 viewBox="0 0 12 14" fill="none">
                                                 <path
                                                     d="M11.3333 2.99998H8.66667V2.33331C8.66667 1.80288 8.45595 1.29417 8.08088 0.919099C7.70581 0.544027 7.1971 0.333313 6.66667 0.333313H5.33333C4.8029 0.333313 4.29419 0.544027 3.91912 0.919099C3.54405 1.29417 3.33333 1.80288 3.33333 2.33331V2.99998H0.666667C0.489856 2.99998 0.320286 3.07022 0.195262 3.19524C0.0702379 3.32027 0 3.48984 0 3.66665C0 3.84346 0.0702379 4.01303 0.195262 4.13805C0.320286 4.26307 0.489856 4.33331 0.666667 4.33331H1.33333V11.6666C1.33333 12.1971 1.54405 12.7058 1.91912 13.0809C2.29419 13.4559 2.8029 13.6666 3.33333 13.6666H8.66667C9.1971 13.6666 9.70581 13.4559 10.0809 13.0809C10.456 12.7058 10.6667 12.1971 10.6667 11.6666V4.33331H11.3333C11.5101 4.33331 11.6797 4.26307 11.8047 4.13805C11.9298 4.01303 12 3.84346 12 3.66665C12 3.48984 11.9298 3.32027 11.8047 3.19524C11.6797 3.07022 11.5101 2.99998 11.3333 2.99998ZM4.66667 2.33331C4.66667 2.1565 4.7369 1.98693 4.86193 1.86191C4.98695 1.73688 5.15652 1.66665 5.33333 1.66665H6.66667C6.84348 1.66665 7.01305 1.73688 7.13807 1.86191C7.2631 1.98693 7.33333 2.1565 7.33333 2.33331V2.99998H4.66667V2.33331ZM9.33333 11.6666C9.33333 11.8435 9.2631 12.013 9.13807 12.1381C9.01305 12.2631 8.84348 12.3333 8.66667 12.3333H3.33333C3.15652 12.3333 2.98695 12.2631 2.86193 12.1381C2.7369 12.013 2.66667 11.8435 2.66667 11.6666V4.33331H9.33333V11.6666Z"
                                                     fill="#D70000" />
                                             </svg>
                                         </div>
-                                        <span>Excluir item</span>
+                                        <span style="pointer-events: none;" >Excluir item</span>
                                     </button>
                                 </div>
                             </div>
@@ -178,6 +177,7 @@
 
                         </td>
                         <td >{%include 'partials/editaItem.html'%}</td>
+                        <td >{%include 'partials/confirm_delete.html'%}</td>
                     </tr>
                     {% empty %}
                     <tr>
@@ -296,6 +296,44 @@
                 }
             }
             const modal = target.querySelector(".modalEditItem");
+            // alert('oi')
+            if (modal) {
+                modal.close();
+            }
+        }
+    });
+})();
+
+</script>
+
+<script>
+    (function () {
+    document.addEventListener("click", (e) => {
+        let target = e.target;
+
+        if (target.classList.contains("editExcludeButton")) {
+            
+            for (let i = 0; i < 4; i++) {
+                if (target.parentElement) {
+                    target = target.parentElement;
+                }
+            }
+            const modal = target.querySelector(".excludeModal");
+        
+
+            if (modal) {
+                modal.showModal();
+            }
+        }
+
+
+        if (target.classList.contains("btnClose")) {
+            for (let i = 0; i < 3; i++) {
+                if (target.parentElement) {
+                    target = target.parentElement;
+                }
+            }
+            const modal = target.querySelector(".excludeModal");
             // alert('oi')
             if (modal) {
                 modal.close();
