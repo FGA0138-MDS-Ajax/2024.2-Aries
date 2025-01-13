@@ -69,7 +69,6 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
 ## 9. Critérios de Aceitação
 
 - Todos os casos de teste devem ser executados com sucesso.
-- O sistema deve atender a 95% dos requisitos de desempenho.
 - Não devem ser encontrados erros críticos durante os testes de segurança.
 
 ## 10. Riscos e Mitigações
