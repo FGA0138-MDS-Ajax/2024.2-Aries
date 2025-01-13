@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="{%static 'css/kanban.css'%}">
     <link rel="stylesheet" href="{% static 'css/viewCard.css' %}">
     <link rel="stylesheet" href="{% static 'css/viewMembers.css' %}">
+    <link rel="stylesheet" href="{%static 'css/modal.css'%}">
+    <script src="{% static 'scripts/modal.js' %}" defer></script>
     {% endblock %}
   
     {% block content %}
     <div class="tasks-page-main" >
-      <div style="flex-direction: row; display:flex;overflow: hidden; height: 100%; width :100%" >
-      <div class="board-conteiner" style="flex-direction: column; display:flex; height: 95%; width: 100%; margin-inline: 10px; overflow: hidden;">
       <div class="header-tasks-page">
         <div class="title-people">
           <div class="team-star">
@@ -45,11 +45,15 @@
             <div class="div-wrapper"><div class="text-wrapper-5">Calendário</div></div>
           </div>
           <div class="actions">
-            <div class="my-tasks-button"><div class="text-wrapper-6">Minhas tarefas</div></div>
-            <div class="my-tasks-button-2"><div style="pointer-events: none;" class="text-wrapper-7">Ver todas as tarefas</div></div>
-            <div class="action">
-              <img class="box-icon" src="img/box-icon.svg" />
-              <div class="text-wrapper-8">Nova tarefa</div>
+            <button class="my-tasks-button" id="my-tasks">Minhas tarefas</button>
+            <button class="my-tasks-button active" id="all-tasks">Ver todas as tarefas</button>
+            <div class="action-new-task" id="buttonNewTask">
+              <div class="box-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M11.1429 6.85714H6.85714V11.1429C6.85714 11.3702 6.76684 11.5882 6.60609 11.7489C6.44535 11.9097 6.22733 12 6 12C5.77267 12 5.55465 11.9097 5.39391 11.7489C5.23316 11.5882 5.14286 11.3702 5.14286 11.1429V6.85714H0.857143C0.629814 6.85714 0.411797 6.76684 0.251051 6.60609C0.090306 6.44535 0 6.22733 0 6C0 5.77267 0.090306 5.55465 0.251051 5.39391C0.411797 5.23316 0.629814 5.14286 0.857143 5.14286H5.14286V0.857143C5.14286 0.629814 5.23316 0.411797 5.39391 0.251051C5.55465 0.0903056 5.77267 0 6 0C6.22733 0 6.44535 0.0903056 6.60609 0.251051C6.76684 0.411797 6.85714 0.629814 6.85714 0.857143V5.14286H11.1429C11.3702 5.14286 11.5882 5.23316 11.7489 5.39391C11.9097 5.55465 12 5.77267 12 6C12 6.22733 11.9097 6.44535 11.7489 6.60609C11.5882 6.76684 11.3702 6.85714 11.1429 6.85714Z" fill="#FEFEFE"/>
+                </svg>
+              </div>
+              Nova tarefa
             </div>
           </div>
         </div>
@@ -63,15 +67,13 @@
                   <div class="text-wrapper-9">A começar</div>
                   <div class="quantity-tasks"><div class="text-wrapper-10">6</div></div>
                 </div>
-              <div class="space-button">
-              <div class="plus-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none" style="width: 15px; height: 15px; flex-shrink: 0;">
-                  <path d="M9.28571 5.71428H5.71429V9.28571C5.71429 9.47515 5.63903 9.65683 5.50508 9.79079C5.37112 9.92474 5.18944 10 5 10C4.81056 10 4.62888 9.92474 4.49492 9.79079C4.36097 9.65683 4.28571 9.47515 4.28571 9.28571V5.71428H0.714286C0.524845 5.71428 0.343164 5.63903 0.20921 5.50508C0.075255 5.37112 0 5.18944 0 5C0 4.81056 0.075255 4.62888 0.20921 4.49492C0.343164 4.36097 0.524845 4.28571 0.714286 4.28571H4.28571V0.714286C4.28571 0.524845 4.36097 0.343164 4.49492 0.209209C4.62888 0.0752547 4.81056 0 5 0C5.18944 0 5.37112 0.0752547 5.50508 0.209209C5.63903 0.343164 5.71429 0.524845 5.71429 0.714286V4.28571H9.28571C9.47515 4.28571 9.65684 4.36097 9.79079 4.49492C9.92475 4.62888 10 4.81056 10 5C10 5.18944 9.92475 5.37112 9.79079 5.50508C9.65684 5.63903 9.47515 5.71428 9.28571 5.71428Z" fill="#FEFEFE"/>
-                </svg>
+                <button class="space-button" id="buttonNewTask">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M11 6H6V11C6 11.2652 5.89464 11.5196 5.70711 11.7071C5.51957 11.8946 5.26522 12 5 12C4.73478 12 4.48043 11.8946 4.29289 11.7071C4.10536 11.5196 4 11.2652 4 11V6H-1C-1.26522 6 -1.51957 5.89464 -1.70711 5.70711C-1.89464 5.51957 -2 5.26522 -2 5C-2 4.73478 -1.89464 4.48043 -1.70711 4.29289C-1.51957 4.10536 -1.26522 4 -1 4H4V-1C4 -1.26522 4.10536 -1.51957 4.29289 -1.70711C4.48043 -1.89464 4.73478 -2 5 -2C5.26522 -2 5.51957 -1.89464 5.70711 -1.70711C5.89464 -1.51957 6 -1.26522 6 -1V4H11C11.2652 4 11.5196 4.10536 11.7071 4.29289C11.8946 4.48043 12 4.73478 12 5C12 5.26522 11.8946 5.51957 11.7071 5.70711C11.5196 5.89464 11.2652 6 11 6Z" fill="#FEFEFE"/>
+                  </svg>
+                </button>
               </div>
-              </div>
-              </div>
-              <div class="progress-bar"></div>
+              <div class="progress-bar" style="width: 60%; background: #D70000;"></div>
             </div>
             <div class="board-main">
               <div class="cards-scroll" data-status="Pendente"> 
@@ -90,15 +92,13 @@
                   <div class="text-wrapper-9">Em andamento</div>
                   <div class="quantity-tasks-2"><div class="text-wrapper-20">4</div></div>
                 </div>
-                <div class="space-button">
-                  <div class="plus-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none" style="width: 15px; height: 15px; flex-shrink: 0;">
-                      <path d="M9.28571 5.71428H5.71429V9.28571C5.71429 9.47515 5.63903 9.65683 5.50508 9.79079C5.37112 9.92474 5.18944 10 5 10C4.81056 10 4.62888 9.92474 4.49492 9.79079C4.36097 9.65683 4.28571 9.47515 4.28571 9.28571V5.71428H0.714286C0.524845 5.71428 0.343164 5.63903 0.20921 5.50508C0.075255 5.37112 0 5.18944 0 5C0 4.81056 0.075255 4.62888 0.20921 4.49492C0.343164 4.36097 0.524845 4.28571 0.714286 4.28571H4.28571V0.714286C4.28571 0.524845 4.36097 0.343164 4.49492 0.209209C4.62888 0.0752547 4.81056 0 5 0C5.18944 0 5.37112 0.0752547 5.50508 0.209209C5.63903 0.343164 5.71429 0.524845 5.71429 0.714286V4.28571H9.28571C9.47515 4.28571 9.65684 4.36097 9.79079 4.49492C9.92475 4.62888 10 4.81056 10 5C10 5.18944 9.92475 5.37112 9.79079 5.50508C9.65684 5.63903 9.47515 5.71428 9.28571 5.71428Z" fill="#FEFEFE"/>
-                    </svg>
-                  </div>
-                  </div>
+                <button class="space-button" id="buttonNewTask">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M11 6H6V11C6 11.2652 5.89464 11.5196 5.70711 11.7071C5.51957 11.8946 5.26522 12 5 12C4.73478 12 4.48043 11.8946 4.29289 11.7071C4.10536 11.5196 4 11.2652 4 11V6H-1C-1.26522 6 -1.51957 5.89464 -1.70711 5.70711C-1.89464 5.51957 -2 5.26522 -2 5C-2 4.73478 -1.89464 4.48043 -1.70711 4.29289C-1.51957 4.10536 -1.26522 4 -1 4H4V-1C4 -1.26522 4.10536 -1.51957 4.29289 -1.70711C4.48043 -1.89464 4.73478 -2 5 -2C5.26522 -2 5.51957 -1.89464 5.70711 -1.70711C5.89464 -1.51957 6 -1.26522 6 -1V4H11C11.2652 4 11.5196 4.10536 11.7071 4.29289C11.8946 4.48043 12 4.73478 12 5C12 5.26522 11.8946 5.51957 11.7071 5.70711C11.5196 5.89464 11.2652 6 11 6Z" fill="#FEFEFE"/>
+                  </svg>
+                </button>
               </div>
-              <div class="progress-bar-2"></div>
+              <div class="progress-bar" style="width: 25%; background: #FFC039;"></div>
             </div>
             <div class="board-main">
               <div class="cards-scroll" data-status="Em Progresso">
@@ -117,13 +117,13 @@
                   <div class="text-wrapper-9">Concluído</div>
                   <div class="quantity-tasks-3"><div class="text-wrapper-23">2</div></div>
                 </div>
-                <div class="space-button">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none" style="width: 15px; height: 15px; flex-shrink: 0;">
-                    <path d="M9.28571 5.71428H5.71429V9.28571C5.71429 9.47515 5.63903 9.65683 5.50508 9.79079C5.37112 9.92474 5.18944 10 5 10C4.81056 10 4.62888 9.92474 4.49492 9.79079C4.36097 9.65683 4.28571 9.47515 4.28571 9.28571V5.71428H0.714286C0.524845 5.71428 0.343164 5.63903 0.20921 5.50508C0.075255 5.37112 0 5.18944 0 5C0 4.81056 0.075255 4.62888 0.20921 4.49492C0.343164 4.36097 0.524845 4.28571 0.714286 4.28571H4.28571V0.714286C4.28571 0.524845 4.36097 0.343164 4.49492 0.209209C4.62888 0.0752547 4.81056 0 5 0C5.18944 0 5.37112 0.0752547 5.50508 0.209209C5.63903 0.343164 5.71429 0.524845 5.71429 0.714286V4.28571H9.28571C9.47515 4.28571 9.65684 4.36097 9.79079 4.49492C9.92475 4.62888 10 4.81056 10 5C10 5.18944 9.92475 5.37112 9.79079 5.50508C9.65684 5.63903 9.47515 5.71428 9.28571 5.71428Z" fill="#FEFEFE"/>
+                <button class="space-button" id="buttonNewTask">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M11 6H6V11C6 11.2652 5.89464 11.5196 5.70711 11.7071C5.51957 11.8946 5.26522 12 5 12C4.73478 12 4.48043 11.8946 4.29289 11.7071C4.10536 11.5196 4 11.2652 4 11V6H-1C-1.26522 6 -1.51957 5.89464 -1.70711 5.70711C-1.89464 5.51957 -2 5.26522 -2 5C-2 4.73478 -1.89464 4.48043 -1.70711 4.29289C-1.51957 4.10536 -1.26522 4 -1 4H4V-1C4 -1.26522 4.10536 -1.51957 4.29289 -1.70711C4.48043 -1.89464 4.73478 -2 5 -2C5.26522 -2 5.51957 -1.89464 5.70711 -1.70711C5.89464 -1.51957 6 -1.26522 6 -1V4H11C11.2652 4 11.5196 4.10536 11.7071 4.29289C11.8946 4.48043 12 4.73478 12 5C12 5.26522 11.8946 5.51957 11.7071 5.70711C11.5196 5.89464 11.2652 6 11 6Z" fill="#FEFEFE"/>
                   </svg>
+                </button>
               </div>
-              </div>
-              <div class="progress-bar-3"></div>
+              <div class="progress-bar" style="width: 15%; background: #0075F6;"></div>
             </div>
             <div class="board-main">
               <div class="cards-scroll" data-status="Concluída">
@@ -137,10 +137,6 @@
           </div>
         </div>
       </div>
-       
-      </div>
-    </div>
-    
   </div>
   {% include 'modal.html'%}
   {% include 'partials/viewMembers.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo%}

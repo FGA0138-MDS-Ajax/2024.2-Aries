@@ -27,8 +27,20 @@ input{
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
-  position: relative;
-  background-color: #f2f2f2;
+  /* position: relative; */
+  /* background-color: #f2f2f2; */
+  width: 100%;
+  flex: 1 0 0;
+  overflow: hidden;
+}
+
+.board-conteiner{
+  flex-direction: column;
+  display:flex;
+  height: 100%;
+  width: 100%;
+  margin-inline: 10px;
+  overflow: hidden;
 }
 
 .header-tasks-page {
@@ -308,29 +320,22 @@ input{
   -webkit-box-orient: vertical;
 }
 
+.box-icon{
+  display: flex;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
  .actions {
   display: flex;
   min-width: 192px;
   align-items: center;
   justify-content: flex-end;
-  gap: 8px;
-  position: relative;
-  flex: 1;
-  flex-grow: 1;
+  gap: 8px 8px;
+  flex-wrap: wrap;
 }
 
- .my-tasks-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px;
-  position: relative;
-  flex: 0 0 auto;
-  border-radius: 8px;
-  border: 1px solid;
-  border-color: #717171;
-}
 
  .text-wrapper-6 {
   position: relative;
@@ -346,19 +351,33 @@ input{
   white-space: nowrap;
 }
 
- .my-tasks-button-2 {
+.my-tasks-button {
   display: inline-flex;
-  align-items: center;
+  padding-inline: 12px;
+  height: 36px;
   justify-content: center;
+  align-items: center;
   gap: 10px;
-  padding: 12px;
-  position: relative;
-  flex: 0 0 auto;
-  background-color: #1e1e1e;
   border-radius: 8px;
-  border: 1px solid;
-  border-color: #717171;
+  border: 1px solid #717171;
+  overflow: hidden;
+  color: #717171;
+  text-align: center;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.132px;
+  pointer-events: all;
+  background: transparent;
 }
+
+.my-tasks-button.active {
+  color: #FEFEFE;
+  background: #1E1E1E;
+}
+
 
  .text-wrapper-7 {
   position: relative;
@@ -374,22 +393,34 @@ input{
   white-space: nowrap;
 }
 
- .action {
+ .action-new-task {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px;
+  padding-inline: 12px;
+  height: 36px;
   background-color: #1f1a99;
   border-radius: 8px;
   position: relative;
   flex: 0 0 auto;
+  cursor: pointer;
+
+  color: #FEFEFE;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 14.4px */
+  letter-spacing: -0.132px;
 }
 
- .box-icon {
+ /* .box-icon {
   position: relative;
   width: 12px;
   height: 12px;
-}
+} */
 
  .text-wrapper-8 {
   position: relative;
@@ -412,6 +443,7 @@ input{
   align-self: stretch;
   width: 100%;
   flex-grow: 1;
+  overflow-x: auto;
   
 }
 
@@ -426,11 +458,9 @@ input{
   align-items: center;
   gap: 16px;
   position: relative;
-  flex: 1;
   align-self: stretch;
   width: 100%;
   flex-grow: 1;
-  margin-top: 15px;
 }
 
  .board {
@@ -445,32 +475,25 @@ input{
 }
 
  .board-title {
-  width: 100%;
-  flex: 0 0 auto;
-  border-radius: 8px;
-  overflow: hidden;
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
-  position: relative;
   align-self: stretch;
-  border-radius: 18px;
+  border-radius: 8px;
+  background: #FEFEFE;
+  overflow: hidden;
 }
 
  .title {
-  background-color: #fefefe;
-  gap: 8px 206px;
-  padding: 16px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  padding: 16px;
   justify-content: space-between;
-  position: relative;
+  align-items: center;
+  align-content: center;
+  row-gap: 8px;
   align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
-  border-radius: 18px;
+  flex-wrap: wrap;
 }
 
  .text-wrapper-9 {
@@ -516,14 +539,12 @@ input{
 }
 
  .progress-bar {
-  position: relative;
-  padding: 0%;
-  margin: 0%;
+  display: flex;
   width: 144px;
-  height:4px;
-  margin-left: 10px;
-  background-color: #d70000;
+  height: 4px;
+  align-items: center;
   border-radius: 0px 16px 16px 0px;
+  background: #D70000;
 }
 
  .board-main {
@@ -540,6 +561,9 @@ input{
   align-items: flex-start;
   position: relative;
   align-self: stretch;
+  overflow-y: auto;
+  flex: 1 0 0;
+  height: 100%;
 }
 
  .cards-scroll {
@@ -1090,14 +1114,6 @@ input{
   line-height: 15px;
 }
 
- .progress-bar-2 {
-  width: 96px;
-  background-color: #ffc038;
-  position: relative;
-  height: 4px;
-  border-radius: 0px 16px 16px 0px;
-}
-
  .cards-scroll-2 {
   display: flex;
   flex-direction: column;
@@ -1253,14 +1269,6 @@ input{
   line-height: 15px;
 }
 
- .progress-bar-3 {
-  width: 48px;
-  background-color: #0075f6;
-  position: relative;
-  height: 4px;
-  border-radius: 0px 16px 16px 0px;
-}
-
  .label-5 {
   display: inline-flex;
   align-items: center;
@@ -1389,15 +1397,44 @@ input{
   color: white;
 }
 .space-button{
-  width: 35px; 
-  height: 35px; 
+  all: unset;
+  display: flex;
+  align-items: center;
+  width: 32px; 
+  height: 32px; 
   background: #36B5FF; 
-  border-radius: 800px; 
+  border-radius: 50%; 
   justify-content: center; 
-  align-items: center; 
-  gap: 8px; 
-  display: inline-flex
+  align-items: center;
+  display: inline-flex;
+  cursor: pointer;
 }
 .text-wrapper-8 {
   cursor: pointer;
+}
+
+.placeholder {
+  background-color: rgba(0, 117, 246, 0.2); /* Cor sutil para o placeholder */
+  border-radius: 8px;
+  height: 36px; /* Ajuste para o tamanho do card */
+  margin-bottom: 10px;
+  width: 100%; /* Para ocupar toda a largura */
+}
+
+
+@media (max-width: 768px) {
+  .tasks-page-main{
+    padding: 24px;
+  }
+
+  .boards{
+    height: 100vh;
+  }
+}
+
+@media (max-width: 480px){
+  .actions{
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 }

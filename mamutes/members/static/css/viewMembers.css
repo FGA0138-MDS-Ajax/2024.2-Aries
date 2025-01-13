@@ -32,7 +32,7 @@ html, body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000; 
-    max-width: 400px;
+    max-width: 600px;
 }
 .container-modal-members[open]{
     display: flex;
@@ -70,7 +70,7 @@ path{
     height: 100%;
     max-width: 600px;
     width: 100%;
-    padding: 24px 32px;
+    padding-block: 24px;
     flex-direction: column;
     align-items: center;
     gap: 16 px;
@@ -86,6 +86,7 @@ path{
     align-items: center;
     gap: 10px;
     align-self: stretch;
+    padding-inline: 32px;
 }
 .close-icon{
     display: flex;
@@ -100,6 +101,7 @@ path{
     align-items: flex-start;
     gap: 24px;
     align-self: stretch;
+    padding-inline: 32px;
 }
 .presentSearch h1{
     color: #1E1E1E;
@@ -156,7 +158,9 @@ path{
     flex: 1 0 0;
     align-self: stretch;
     overflow-y: auto;
-    padding-right: 8px;
+    /* padding-right: 8px; */
+    padding-top: 8px;
+    padding-inline:  32px;
 }
 .person-item{
     display: flex;

@@ -136,21 +136,21 @@
 }
 
 .card .text-wrapper-2 {
-  position: relative;
-  flex: 1;
-  margin-top: -0.51px;
-  font-family: "Inter-Medium", Helvetica;
-  font-weight: 500;
-  color: #0075f6;
-  font-size: 12px;
-  letter-spacing: -0.13px;
-  line-height: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+  overflow: hidden;
+  color: #0075F6;
+  leading-trim: both;
+  text-edge: cap;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.5px;
 }
 
 .card .pepople-tasks {
@@ -301,7 +301,6 @@
   white-space: nowrap;
 }
 .responsible-photo{
-  
   width: 20px; 
   height: 20px; 
   align-items: center; 

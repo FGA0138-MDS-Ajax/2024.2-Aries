@@ -27,11 +27,19 @@
             align-self: stretch;
             overflow: hidden;
         }
+        
+        input:focus, 
+        textarea:focus, 
+        button:focus {
+        outline: none;
+        }
+
 
         @media (max-width: 768px) {
             .org{   
                 padding: 0;
                 flex-direction: column;
+                gap: 0;
             }
         }
 

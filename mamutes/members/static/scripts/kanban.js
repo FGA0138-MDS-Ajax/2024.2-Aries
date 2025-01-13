@@ -1,9 +1,12 @@
 const modal = document.getElementById("modal");
-const openModalBtn = document.querySelector(".text-wrapper-8");
+const openModalBtn = document.querySelectorAll("#buttonNewTask");
 const closeModalBtn = document.getElementById("close-modal");
 // Função para abrir o modal
-openModalBtn.addEventListener("click", function() {
-  modal.style.display = "flex"; // Exibe o modal
+
+openModalBtn.forEach((btn) => {
+  btn.addEventListener("click", function() {
+    modal.style.display = "flex"; // Exibe o modal
+  });
 });
 
 // Função para fechar o modal
