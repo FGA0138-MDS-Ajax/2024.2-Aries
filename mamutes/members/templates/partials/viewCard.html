@@ -41,19 +41,14 @@
                                 <h2>Subtarefas</h2>
                                 <div>
                                     <label class="subtask-item">
-                                        <input type="checkbox">
+                                        <input type="checkbox" class="checkbox-subtask">
                                         <span class="checkmark"></span>
                                         <p>Sim</p>
                                     </label>
                                     <label class="subtask-item">
-                                        <input type="checkbox">
+                                        <input type="checkbox" class="checkbox-subtask">
                                         <span class="checkmark"></span>
-                                        <p>Ensinar Catia</p>
-                                    </label>
-                                    <label class="subtask-item">
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                        <p>Alinhar div</p>
+                                        <p>Não</p>
                                     </label>
                                 </div>
                             </div>
@@ -151,11 +146,13 @@
                     <link rel="stylesheet" href="{%static 'css/modal.css'%}">
                     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
                     
-                        <span class="close-btn btnCloseViewCard" id="close-modal">&times;</span>
                         <div class="modal-form">
+                        <div style="display: flex; justify-content: flex-end;">
+                        <span class="close-btn btnCloseViewCard" id="close-modal">&times;</span>
+                        </div>
                         <h2 class="head-label"> Editar tarefa</h2>
                         <form method="POST" class="form">
-                    {% csrf_token %}
+                        {% csrf_token %}
                             <label class="title-form">Titulo</label>
                             <input id='title' type="text" class="Titulo-input" name="title" placeholder="Entitule a tarefa" required value="${title}"><br>
 

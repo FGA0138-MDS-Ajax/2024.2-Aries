@@ -234,7 +234,7 @@ path{
 }
 
 /* Hide the browser's default checkbox */
-.subtask-item input {
+.subtask-item .checkbox-subtask {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -242,6 +242,47 @@ path{
     width: 0;
     cursor: pointer;
 }
+
+.label-subtask{
+    all: unset;
+    display: flex;
+    opacity: 100%;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 0;
+    align-self: stretch;
+    color: #1E1E1E;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+    outline: none;
+    cursor: text;
+}
+
+.label-subtask:focus{
+    outline: none;
+    border: none;
+}
+
+.label-subtask::placeholder{
+    color: #C5C5C5;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+}
+
+
 
 /* Create a custom checkbox */
 .checkmark {
@@ -259,17 +300,21 @@ path{
 }
 
 /* On mouse-over, add a grey background color */
-.subtask-item:hover input ~ .checkmark {
+.subtask-item:hover .checkbox-subtaskt ~ .checkmark {
     border-color: #959595;
 }
 
 /* When the checkbox is checked, add a blue background */
-.subtask-item input:checked ~ .checkmark {
+.subtask-item .checkbox-subtask:checked ~ .checkmark {
     background-color: #0075F6;
     border-color: #0075F6;
 }
 
-.subtask-item input[type="checkbox"]:checked ~ p {
+.subtask-item .checkbox-subtask[type="checkbox"]:checked ~ p {
+    text-decoration: line-through;
+}
+
+.subtask-item .checkbox-subtask[type="checkbox"]:checked ~ .label-subtask {
     text-decoration: line-through;
 }
 
@@ -281,10 +326,13 @@ path{
 }
 
 /* Show the checkmark when checked */
-.subtask-item input:checked ~ .checkmark:after {
+.subtask-item .checkbox-subtask:checked ~ .checkmark:after {
     display: block;
 }
 
+.subtask-item p {
+    pointer-events: none; /* Impede que o clique no texto acione o checkbox */
+}
 /* Style the checkmark/indicator */
 .subtask-item .checkmark:after {
     width: 3px;
@@ -498,7 +546,7 @@ path{
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    outline: 2px solid #FEFEFE;
+    outline: 2px solid #f2f2f2;
     flex-direction: column;
     justify-content: center;
     align-items: center;
