@@ -5,17 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
         element.addEventListener("click", function () {
             const selectedDate = this.dataset.date;
 
-            // Limpar seleção anterior
             dateElements.forEach(el => {
                 el.querySelector('.day').classList.remove("daySemiSelected");
                 el.querySelector('.textDate').classList.remove("textDateSemiSelected");
             });
 
-            // Adicionar seleção à data clicada
             this.querySelector('.day').classList.add("daySemiSelected");
             this.querySelector('.textDate').classList.add("textDateSemiSelected");
 
-            // Enviar requisição AJAX para obter tarefas, eventos e reuniões
             fetch(`/get-events-tasks/?date=${selectedDate}`)
                 .then(response => response.json())
                 .then(data => {
@@ -24,7 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         return;
                     }
 
-                    // Atualizar lista de tarefas
+                    const dateTitle = document.querySelector("#todayDate");
+                    const [year, month, day] = selectedDate.split("-");
+                    const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+                    dateTitle.innerHTML = `${day} de ${monthNames[parseInt(month) - 1]}`;
+
                     const taskContainer = document.querySelector(".todayEvents");
                     taskContainer.innerHTML = "";
 
@@ -39,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         taskContainer.innerHTML = "<div class='taskCalendar'><p>Nenhuma tarefa atribuída a você para este dia.</p></div>";
                     }
 
-                    // Atualizar lista de eventos
                     if (data.events.length > 0) {
                         data.events.forEach(event => {
                             const eventDiv = document.createElement("div");
@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     }
 
-                    // Atualizar lista de reuniões
                     if (data.meetings.length > 0) {
                         data.meetings.forEach(meeting => {
                             const meetingDiv = document.createElement("div");
@@ -65,23 +64,21 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <h4>${meeting.title}</h4>
                                     <div class="moreInfoEvent">
                                         <p class="hourEvent">${meeting.time}</p>
-                                
                                         <div class="peopleMeeting">
-                                        <div class="profilePic">
-                                            <img class="profileImg" src="/static/img/tag-img.png" alt="Erro ao carregar imagem">
-                                        </div>
-                                        <div class="profilePic">
-                                            <img class="profileImg" src="/static/img/tag-img (1).png" alt="Erro ao carregar imagem">
-                                        </div>
-                                        <div class="profilePic">
-                                            <img class="profileImg" src="/static/img/tag-img (2).png" alt="Erro ao carregar imagem">
-                                        </div>
-                                        <div class="profilePic" style="background-color: #DDD;">
-                                            <p class="textPlusPeople">+2</p>
-                                        </div> 
-                                    </div>                                      
-                                </div>`;
-                                
+                                            <div class="profilePic">
+                                                <img class="profileImg" src="/static/img/tag-img.png" alt="Erro ao carregar imagem">
+                                            </div>
+                                            <div class="profilePic">
+                                                <img class="profileImg" src="/static/img/tag-img (1).png" alt="Erro ao carregar imagem">
+                                            </div>
+                                            <div class="profilePic">
+                                                <img class="profileImg" src="/static/img/tag-img (2).png" alt="Erro ao carregar imagem">
+                                            </div>
+                                            <div class="profilePic" style="background-color: #DDD;">
+                                                <p class="textPlusPeople">+2</p>
+                                            </div> 
+                                        </div>                                      
+                                    </div>`;
                             taskContainer.appendChild(meetingDiv);
                         });
                     }

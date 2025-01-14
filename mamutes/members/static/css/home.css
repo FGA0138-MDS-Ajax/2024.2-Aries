@@ -754,7 +754,7 @@ path{
     border: 1px solid #FEFEFE;
     background: #1F1A99;
 }
-.taskMarkerEvent{
+/* .taskMarkerEvent{
     display: flex;
     width: 5px;
     height: 5px;
@@ -813,7 +813,7 @@ path{
     border-radius: 16px;
     border: 1px solid #FEFEFE;
     background: #1F1A99;
-}
+} */
 .boxIcon{
     display: flex;
     width: 4px;

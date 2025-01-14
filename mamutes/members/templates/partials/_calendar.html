@@ -47,7 +47,13 @@
                                     <p class="textDate{% if day.day == 0 %} Empty {% elif day.is_today%} textDateSelected {% endif %}"> {{ day.day|default:'' }}</p>
                                 </div>
                                 <div class="markers">
-                                    {% if day.day in task_days %}
+                                    {% if day.tasks %}
+                                        <div class="taskMarkerTarefa"></div>
+                                    {% endif %}
+                                    {% if day.events %}
+                                        <div class="taskMarkerEvent"></div>
+                                    {% endif %}
+                                    {% if day.meetings %}
                                         <div class="taskMarkerTarefa"></div>
                                     {% endif %}
                                 </div>

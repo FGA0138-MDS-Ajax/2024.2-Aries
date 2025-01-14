@@ -40,30 +40,11 @@ def home(request):
     year = now.year
     month = now.month
 
-    cal = calendar.Calendar(firstweekday=6) 
-    days = cal.itermonthdays4(year, month) 
-
-    weeks = []
-    week = []
-    for day in days:
-        if day[1] == month:  
-            is_today = (day[2] == now.day)
-            week.append({"day": day[2], "in_month": True, "is_today": is_today})
-        else:
-            week.append({"day": day[2], "in_month": False, "is_today": False})
-        
-        if len(week) == 7:  # Semana completa
-            weeks.append(week)
-            week = []
-
-    if week:  
-        weeks.append(week)
+    weeks = get_calendar_data(year, month, now, request.user)
 
     events = Event.objects.filter(event_date__year=year, event_date__month=month, event_date__day=now.day)
-    tasks = Task.objects.filter(creation_date__year=year, creation_date__month=month, responsible=request.user)
+    tasks = Task.objects.filter(creation_date__year=year, creation_date__month=month, creation_date__day=now.day, responsible=request.user)
     meetings = Meeting.objects.filter(meeting_date__year=year, meeting_date__month=month, meeting_date__day=now.day).filter(areas__membros=request.user).distinct()
-
-    task_days = tasks.values_list('creation_date__day', flat=True).distinct()
 
     context = {
         "now": now,
@@ -74,9 +55,48 @@ def home(request):
         "events": events,
         "tasks": tasks,
         "meetings": meetings,
-        "task_days": task_days,
     }
     return render(request, "home.html", context)
+
+def get_calendar_data(year, month, now, user):
+    cal = calendar.Calendar(firstweekday=6) 
+    days = cal.itermonthdays4(year, month) 
+
+    weeks = []
+    week = []
+    for day in days:
+        day_tasks = Task.objects.filter(creation_date__year=day[0], creation_date__month=day[1], creation_date__day=day[2], responsible=user)
+        day_events = Event.objects.filter(event_date__year=day[0], event_date__month=day[1], event_date__day=day[2])
+        day_meetings = Meeting.objects.filter(meeting_date__year=day[0], meeting_date__month=day[1], meeting_date__day=day[2]).filter(areas__membros=user).distinct()
+        
+        if day[1] == month:  
+            is_today = (day[2] == now.day)
+            week.append({
+                "day": day[2], 
+                "in_month": True, 
+                "is_today": is_today,
+                "tasks": day_tasks.exists(),
+                "events": day_events.exists(),
+                "meetings": day_meetings.exists()
+            })
+        else:
+            week.append({
+                "day": day[2], 
+                "in_month": False, 
+                "is_today": False,
+                "tasks": day_tasks.exists(),
+                "events": day_events.exists(),
+                "meetings": day_meetings.exists()
+            })
+        
+        if len(week) == 7:  
+            weeks.append(week)
+            week = []
+
+    if week:  
+        weeks.append(week)
+
+    return weeks
 
 def get_events_tasks(request):
     date_str = request.GET.get('date')
