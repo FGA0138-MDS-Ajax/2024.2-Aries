@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
+
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
-from .forms import TaskForm
-from .models import MembroEquipe
+from .forms import TaskForm, EventForm, BaseEventForm
+from .models import MembroEquipe, Task, Event, BaseEvent
 
 from rest_framework import viewsets
 from .models import Column, Task
@@ -18,13 +20,53 @@ import base64
 
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
+
 def sidebar(request):
-    members = MembroEquipe.objects.all()
-    return render(request,"partials/_sidebar.html", {'members':members})
+     members = MembroEquipe.objects.all()
+     return render(request,"partials/_sidebar.html", {'members':members})
 
 def Top(request):
-    return render(request, 'partials/Top.html')
+     return render(request, 'partials/Top.html')
 
+@login_required
+def create_event(request):
+    if request.method == 'POST':
+        base_event_form = BaseEventForm(request.POST)
+        
+        if base_event_form.is_valid():
+            base_event = base_event_form.save(commit=False)
+            base_event.member = request.user  
+            base_event.save()
+
+            print(f"Base event saved: {base_event}")  
+
+            if base_event.is_event:     
+                event_form = EventForm(request.POST)
+                event = event_form.save(commit=False)
+                event.base_event = base_event
+
+                if event_form.is_valid():
+                    
+                    event.save()
+
+                    print(f"Event saved: {event}")  
+
+                else:
+                    print(f"Event form errors: {event_form.errors}")  
+            else:
+                event_form = None  
+        else:
+            
+            event_form = None  
+
+    else:
+        base_event_form = BaseEventForm()
+        event_form = None  
+    
+    events = Event.objects.all()
+    base_events = BaseEvent.objects.all()    
+
+    return redirect('home')
 def create_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
@@ -33,6 +75,19 @@ def create_task(request):
                  # Salva os relacionamentos ManyToMany
     else:
             form = TaskForm()
+
+
+def delete_task(request):
+    if request.method == 'POST':
+        task_id = request.POST.get('id_task')
+                
+        if task_id:
+            task = get_object_or_404(Task, id=task_id)
+            task.delete()  # Deleta a task
+        return redirect('kanban')
+
+    return redirect('kanban')
+
 
 class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
@@ -54,20 +109,28 @@ def kanban_view(request):
     items = []
     profiles = MembroEquipe.objects.all()
     
+    members = []
+    
     for profile in profiles:
         # Converte o blob em uma string Base64
         if profile.photo:
             profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
 
+        members.append({
+        'email': profile.email,
+        'fullname': profile.fullname,
+        'username': profile.username,
+        'photo':  profile.photo,
+        })
+
     for task in tasks:
         prazo = task.Prazo
         today = datetime.now().date() 
-        
         if prazo:
             if prazo == today:
                 formatted_date = "HOJE"
             else:
-                formatted_date = prazo.strftime("%d de %B")
+                formatted_date = prazo.strftime("%d / %m / %Y") # Aparece a data no formato dd/mm/aaaa
         else:
             formatted_date = "Sem prazo definido"
 
@@ -80,6 +143,7 @@ def kanban_view(request):
             else:
                 responsible_photos.append(None)
         
+        pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
         items.append({
             'id': task.id,
             'status': task.status,
@@ -91,6 +155,7 @@ def kanban_view(request):
             'responsible': task.get_responsibles_as_string(),
             'responsible_photos': responsible_photos,
             'responsible_count': task.responsible.count(),
+            'pair_responsible_photo': pair_r_p,
         })
     
     if request.method == 'POST':
@@ -115,7 +180,7 @@ def kanban_view(request):
         
         return redirect('kanban')
        
-    return render(request, 'kanbam.html', {'items': items, 'profiles': profiles})
+    return render(request, 'kanbam.html', {'items': items, 'profiles': profiles, 'members': members,})
 
 
 
@@ -163,3 +228,9 @@ def profile_list(request):
         if profile.photo:
             profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
     return render(request, 'profile_list.html', {'profiles': profiles})
+
+@login_required
+def home(request):
+    announcements = BaseEvent.objects.filter(is_event=False).order_by('-posted_at')  
+    return render(request, 'home.html', {'announcements': announcements})
+

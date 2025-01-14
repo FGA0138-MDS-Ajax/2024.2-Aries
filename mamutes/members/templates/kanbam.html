@@ -1,22 +1,19 @@
-<!DOCTYPE html>
+{% extends 'baseMembers.html' %}
 {% load static %}
-{% csrf_token %}
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="{%static 'css/kanban.css'%}">
+
+{% block title %}Tarefas{% endblock %}
+
+    {% block css %}
     <script src="{% static 'scripts/drag.js' %}" defer></script>
     <script src="{% static 'scripts/kanban.js' %}" defer></script>
-    
-  </head>
-  <body>
-    
-    <div class="tasks-page-main" style="">
-      <div style="margin-bottom: 10vh;overflow: hidden;">{% include 'partials/top.html'%}</div>
+    <link rel="stylesheet" href="{%static 'css/kanban.css'%}">
+    <link rel="stylesheet" href="{% static 'css/viewCard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/viewMembers.css' %}">
+    {% endblock %}
+  
+    {% block content %}
+    <div class="tasks-page-main" >
       <div style="flex-direction: row; display:flex;overflow: hidden; height: 100%; width :100%" >
-      <div style="flex-direction:column; display:flex;overflow: hidden; height: 100%;">
-        <div style="padding-right: 2vw; height: 95%;overflow: hidden;">{% include 'partials/_sidebar.html'%} </div>
-      </div >
       <div class="board-conteiner" style="flex-direction: column; display:flex; height: 95%; width: 100%; margin-inline: 10px; overflow: hidden;">
       <div class="header-tasks-page">
         <div class="title-people">
@@ -34,6 +31,13 @@
               <path d="M8.2053 1.39522C8.50876 0.701595 9.49284 0.701595 9.79543 1.39522L11.3145 4.8824C11.3774 5.02666 11.4785 5.15106 11.6068 5.24224C11.7351 5.33343 11.8858 5.38797 12.0428 5.40001L15.9123 5.69653C16.6926 5.75636 17.0004 6.73696 16.3944 7.23204L13.5072 9.59295C13.38 9.697 13.285 9.83505 13.2333 9.99101C13.1816 10.147 13.1752 10.3144 13.215 10.4738L14.108 14.0451C14.2936 14.789 13.4924 15.3908 12.83 15.0041L9.43735 13.0264C9.30472 12.949 9.15392 12.9082 9.00037 12.9082C8.84681 12.9082 8.69601 12.949 8.56339 13.0264L5.17071 15.0041C4.5083 15.3908 3.70717 14.789 3.89272 14.0451L4.78575 10.4738C4.82515 10.3144 4.81845 10.147 4.76641 9.99121C4.71437 9.83541 4.61915 9.6976 4.49183 9.59382L1.60463 7.2329C0.999448 6.73783 1.30811 5.75722 2.08757 5.6974L5.95624 5.40088C6.11319 5.38884 6.2639 5.3343 6.3922 5.24311C6.52051 5.15192 6.62157 5.02752 6.68454 4.88326L8.2053 1.39522Z" stroke="#1E1E1E" stroke-width="1.5"/>
             </svg>
           </div>
+          <div class="people-meeting btnModalViewMembers" style="padding: 8px; cursor: pointer;">
+            <div style="pointer-events: none;" class="pic-responsible" style="outline-color: #f2f2f2;"><img title="Nome Membro" src="https://i.pinimg.com/736x/a5/7d/fc/a57dfc1c1b3757de7f8b302d99fa4e8a.jpg" alt="Responsável" class="photo-view-task"></div>
+            <div style="pointer-events: none;" class="pic-responsible" style="outline-color: #f2f2f2;"><img title="Nome Membro" src="https://i.pinimg.com/736x/a5/7d/fc/a57dfc1c1b3757de7f8b302d99fa4e8a.jpg" alt="Responsável" class="photo-view-task"></div>
+            <div style="pointer-events: none;" class="pic-responsible" style="outline-color: #f2f2f2;"><img title="Nome Membro" src="https://i.pinimg.com/736x/a5/7d/fc/a57dfc1c1b3757de7f8b302d99fa4e8a.jpg" alt="Responsável" class="photo-view-task"></div>
+            <div style="pointer-events: none;" class="pic-responsible" style="outline-color: #f2f2f2;"><img title="Nome Membro" src="https://i.pinimg.com/736x/a5/7d/fc/a57dfc1c1b3757de7f8b302d99fa4e8a.jpg" alt="Responsável" class="photo-view-task"></div>
+            <div style="pointer-events: none;" class="pic-responsible" style="outline-color: #f2f2f2; cursor: pointer;">+8</div>
+          </div>
         </div>
         <div class="abas-tasks">
           <div class="abas-tarefas">
@@ -42,7 +46,7 @@
           </div>
           <div class="actions">
             <div class="my-tasks-button"><div class="text-wrapper-6">Minhas tarefas</div></div>
-            <div class="my-tasks-button-2"><div class="text-wrapper-7">Ver todas as tarefas</div></div>
+            <div class="my-tasks-button-2"><div style="pointer-events: none;" class="text-wrapper-7">Ver todas as tarefas</div></div>
             <div class="action">
               <img class="box-icon" src="img/box-icon.svg" />
               <div class="text-wrapper-8">Nova tarefa</div>
@@ -73,7 +77,7 @@
               <div class="cards-scroll" data-status="Pendente"> 
                 {% for item in items %}
                 {% if item.status == "Pendente" %}    
-                  {% include 'card.html' with responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+                {% include 'card.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
                 {% endif %}
               {% endfor %}
             </div>
@@ -100,7 +104,7 @@
               <div class="cards-scroll" data-status="Em Progresso">
                 {% for item in items %}
                 {% if item.status == "Em Progresso" %}    
-                  {% include 'card.html' with responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+                  {% include 'card.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
                 {% endif %}
               {% endfor %}
               </div>
@@ -125,7 +129,7 @@
               <div class="cards-scroll" data-status="Concluída">
                 {% for item in items %}
                 {% if item.status == "Concluída" %}    
-                  {% include 'card.html' with id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo responsible_photos=item.responsible_photos%}
+                {% include 'card.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
                 {% endif %}
               {% endfor %}
               </div>
@@ -139,6 +143,7 @@
     
   </div>
   {% include 'modal.html'%}
-    </div>
-  </body>
-</html>
+  {% include 'partials/viewMembers.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo%}
+
+{% endblock%}
+

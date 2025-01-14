@@ -21,7 +21,7 @@ def login (request):
 
         if user is not None:
             login_django (request, user)
-            return HttpResponse("boa paizao deu certo")
+            return redirect ('home')
         else:
             return render (request, 'login.html')
 

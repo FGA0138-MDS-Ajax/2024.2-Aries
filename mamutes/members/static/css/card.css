@@ -1,4 +1,7 @@
-
+/* cancela eventos javascripts nas seguintes classes: */
+.main, .label, .div-wrapper, .text-wrapper,.dots-button,.card-title{
+    pointer-events: none;
+}
 
 .card {
   display: flex;
@@ -7,6 +10,8 @@
   position: relative;
   background-color: #fdfdfd;
   border-radius: 4px;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .card .main {
@@ -19,8 +24,8 @@
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
+  
 }
-
 .card .label {
   display: flex;
   justify-content: space-between;
@@ -29,6 +34,7 @@
   align-items: center;
   position: relative;
   flex: 0 0 auto;
+  
 }
 
 .card .div-wrapper {
@@ -41,6 +47,7 @@
   align-items: center;
   position: relative;
   flex: 0 0 auto;
+  
 }
 
 .card .text-wrapper {
@@ -54,12 +61,14 @@
   letter-spacing: -0.09px;
   line-height: normal;
   white-space: nowrap;
+  
 }
 
 .card .dots-button {
   position: relative;
   width: 20px;
   height: 20px;
+  
 }
 
 .card .card-title {
@@ -71,6 +80,7 @@
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
+  
 }
 
 .card .div {
@@ -88,6 +98,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  
 }
 
 .card .p {
@@ -104,6 +115,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  
 }
 
 .card .due-date {
@@ -114,11 +126,13 @@
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
+  
 }
 
 .card .flag-icon {
   position: relative;
   flex: 0 0 auto;
+  
 }
 
 .card .text-wrapper-2 {
@@ -136,6 +150,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  
 }
 
 .card .pepople-tasks {
@@ -150,6 +165,7 @@
   border-top-width: 1px;
   border-top-style: solid;
   border-color: #eeeeee;
+  
 }
 
 .card .people-meeting {
@@ -160,6 +176,7 @@
   flex-grow: 1;
   margin-top: -4.00px;
   margin-bottom: -4.00px;
+  
 }
 
 .card .foto-perfil {
