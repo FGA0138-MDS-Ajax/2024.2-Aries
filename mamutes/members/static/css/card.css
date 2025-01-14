@@ -57,7 +57,7 @@
   font-family: "Inter-SemiBold", Helvetica;
   font-weight: 600;
   color: #d70000;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: -0.09px;
   line-height: normal;
   white-space: nowrap;
@@ -241,23 +241,7 @@
   background-position: 50% 50%;
 }
 
-.card .plus-people {
-  display: flex;
-  flex-direction: column;
-  width: 18px;
-  height: 18px;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-top: -1.00px;
-  margin-bottom: -1.00px;
-  margin-left: -4px;
-  background-color: #dddddd;
-  border-radius: 250px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #fdfdfd;
-}
+
 
 .card .text-wrapper-3 {
   font-family: "Inter-SemiBold", Helvetica;

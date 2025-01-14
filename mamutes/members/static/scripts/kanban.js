@@ -41,4 +41,7 @@ openMiniModalBtn.addEventListener("click", function() {
     });
 
 
-    
+    $(document).ready(function() {
+      // Simulando um progresso de 3 segundos
+      $('.progress-bar').addClass('active');
+  });

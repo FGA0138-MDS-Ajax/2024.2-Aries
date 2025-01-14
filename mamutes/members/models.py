@@ -41,10 +41,19 @@ class Task(models.Model):
     creation_date = models.DateField(auto_now_add=True)
     completion_date = models.DateField(null=True, blank=True)
     Prazo = models.DateField(null=True, blank=True)
+    area = models.ManyToManyField(Area, related_name='areatask', blank=True)
     responsible = models.ManyToManyField(MembroEquipe)
     has_subtasks = models.BooleanField(default=False)  
     subtasks = models.ManyToManyField(Subtask, related_name='tasks', blank=True)  # Relacionamento de muitos para muitos com Subtask
+    class PriorityChoices(models.IntegerChoices):
+        LOW = 1, 'Baixa Prioridade'
+        MEDIUM = 2, 'Média Prioridade'
+        HIGH = 3, 'Alta Prioridade'
 
+    priority = models.IntegerField(
+        choices=PriorityChoices.choices,
+        default=PriorityChoices.LOW,
+    )
     def is_complete(self):
         return all(subtask.done for subtask in self.subtasks.all())
     

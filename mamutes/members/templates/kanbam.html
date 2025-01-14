@@ -21,7 +21,17 @@
             <div class="team-pin">
               <div class="div">
                 <div class="color-team"><div class="text-wrapper">E</div></div>
-                <div class="text-wrapper-2">Estabilidade</div>
+                <form method="get" action="{% url 'kanban' %}">
+                  <label for="area">Filtrar por Área:</label>
+                  <select name="area" id="area" onchange="this.form.submit()">
+                    <option value="" {% if not selected_area %}selected{% endif %}>Todas</option>
+                    {% for area in all_areas %}
+                    <option value="{{ area.id }}" {% if selected_area == area.id|stringformat:"s" %}selected{% endif %}>
+                        {{ area.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+              </form>
               </div>
               <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
                 <path d="M1.66659 1.33341L4.99992 4.66675L8.33325 1.33341" stroke="#1E1E1E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
@@ -65,7 +75,7 @@
               <div class="title">
                 <div class="div">
                   <div class="text-wrapper-9">A começar</div>
-                  <div class="quantity-tasks"><div class="text-wrapper-10">6</div></div>
+                  <div class="quantity-tasks"><div class="text-wrapper-10">{{ Pendente_count }}</div></div>
                 </div>
                 <button class="space-button" id="buttonNewTask">
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -73,13 +83,13 @@
                   </svg>
                 </button>
               </div>
-              <div class="progress-bar" style="width: 60%; background: #D70000;"></div>
+              <div class="progress-bar" style="width: {{ pending_percentage }}%; background: #D70000;"></div>
             </div>
             <div class="board-main">
               <div class="cards-scroll" data-status="Pendente"> 
                 {% for item in items %}
                 {% if item.status == "Pendente" %}    
-                {% include 'card.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+                {% include 'card.html' with priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
                 {% endif %}
               {% endfor %}
             </div>
@@ -90,7 +100,7 @@
               <div class="title">
                 <div class="div">
                   <div class="text-wrapper-9">Em andamento</div>
-                  <div class="quantity-tasks-2"><div class="text-wrapper-20">4</div></div>
+                  <div class="quantity-tasks-2"><div class="text-wrapper-20">{{ Em_Progresso_task_count }}</div></div>
                 </div>
                 <button class="space-button" id="buttonNewTask">
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -98,13 +108,13 @@
                   </svg>
                 </button>
               </div>
-              <div class="progress-bar" style="width: 25%; background: #FFC039;"></div>
+              <div class="progress-bar" style="width: {{ in_progress_percentage }}%; background: #FFC039;"></div>
             </div>
             <div class="board-main">
               <div class="cards-scroll" data-status="Em Progresso">
                 {% for item in items %}
                 {% if item.status == "Em Progresso" %}    
-                  {% include 'card.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+                  {% include 'card.html' with priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
                 {% endif %}
               {% endfor %}
               </div>
@@ -115,7 +125,7 @@
               <div class="title">
                 <div class="label-quantity">
                   <div class="text-wrapper-9">Concluído</div>
-                  <div class="quantity-tasks-3"><div class="text-wrapper-23">2</div></div>
+                  <div class="quantity-tasks-3"><div class="text-wrapper-23">{{completed_task_count }}</div></div>
                 </div>
                 <button class="space-button" id="buttonNewTask">
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -123,13 +133,13 @@
                   </svg>
                 </button>
               </div>
-              <div class="progress-bar" style="width: 15%; background: #0075F6;"></div>
+              <div class="progress-bar" style="width: {{ completed_percentage}}%; background: #0075F6;"></div>
             </div>
             <div class="board-main">
               <div class="cards-scroll" data-status="Concluída">
                 {% for item in items %}
                 {% if item.status == "Concluída" %}    
-                {% include 'card.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+                {% include 'card.html' with priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
                 {% endif %}
               {% endfor %}
               </div>

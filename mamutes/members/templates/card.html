@@ -7,14 +7,14 @@
     <div id="photos-card" style="display: none;">{{responsible_photos|safe}}</div>
     <div class="main">
       <div class="label" >
-        {% if status == "Concluída" %}  
-          <div class="div-wrapper" style="background-color: rgba(0, 117, 246, 0.20);"><div class="text-wrapper" style="color: #0075F6;">Concluída</div></div>
+        {% if priority == 1 %}  
+          <div class="div-wrapper" style="background-color: rgba(0, 135, 7, 0.20);"><div class="text-wrapper" style="color: #008707;">Baixa Prioridade</div></div>
         {% endif %}
-        {% if status == "Pendente" %}
-        <div class="div-wrapper" style="background-color: rgba(215, 0, 0, 0.20);"><div class="text-wrapper" style="color: #D70000;">A Começar</div></div>
+        {% if priority == 2 %}
+        <div class="div-wrapper" style="background-color: rgba(255, 192, 57, 0.20);"><div class="text-wrapper" style="color: #CF8E00;">Média Prioridade</div></div>
         {% endif %}
-        {% if status == "Em Progresso" %}
-        <div class="div-wrapper" style="background-color: rgba(255, 192, 57, 0.20);"><div class="text-wrapper" style="color: #CF8E00;">Em Progresso</div></div>
+        {% if priority == 3 %}
+        <div class="div-wrapper" style="background-color:rgba(215, 0, 0, 0.20);"><div class="text-wrapper" style="color: #D70000;">Alta Prioridade</div></div>
       {% endif %}
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="3" viewBox="0 0 13 3" fill="none" style="width: 20px; height: 20px; flex-shrink: 0;">

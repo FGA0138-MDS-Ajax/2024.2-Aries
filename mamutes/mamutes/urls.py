@@ -30,6 +30,7 @@ urlpatterns = [
     path('delete_task/', delete_task, name= "delete_task"),
     path('Top/', Top, name='top'),
     path('members/', kanban_view, name='members'),
+    path('members/', include('members.urls')),
      path('foto/', upload_photo, name='upload_photo'),
     path('home/', home, name="home"),
     # stock

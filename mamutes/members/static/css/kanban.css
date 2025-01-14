@@ -540,11 +540,15 @@ input{
 
  .progress-bar {
   display: flex;
-  width: 144px;
   height: 4px;
   align-items: center;
   border-radius: 0px 16px 16px 0px;
   background: #D70000;
+  width: 0;
+  transition: width 1s ease-out;
+}
+.progress-bar.active {
+  width: 100%;
 }
 
  .board-main {

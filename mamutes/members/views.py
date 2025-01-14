@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
 from .forms import TaskForm
-from .models import MembroEquipe, Task
+from .models import MembroEquipe, Task,Area
 
 from rest_framework import viewsets
 from .models import Column, Task
@@ -66,36 +66,57 @@ class TaskViewSet(viewsets.ModelViewSet):
 
 
 def kanban_view(request):
-    tasks = Task.objects.all()  
+    # Obtém a área a partir dos parâmetros da URL (GET)
+    area_id = request.GET.get('area')  # Exemplo: ?area=SE
+    
+    # Filtra as tarefas pela área, se especificada
+    if area_id:
+        # Filtra as tarefas pela área especificada na URL
+        tasks = Task.objects.filter(area__id=area_id)
+    else:
+        # Caso nenhuma área seja especificada, exibe todas as tarefas
+        tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
+    
     items = []
     profiles = MembroEquipe.objects.all()
-    
     members = []
     
+    all_areas = Area.objects.all()
+    # Processa os membros da equipe
     for profile in profiles:
-        # Converte o blob em uma string Base64
         if profile.photo:
             profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
-
+        
         members.append({
-        'email': profile.email,
-        'fullname': profile.fullname,
-        'username': profile.username,
-        'photo':  profile.photo,
+            'email': profile.email,
+            'fullname': profile.fullname,
+            'username': profile.username,
+            'photo': profile.photo,
         })
-
+    total_tasks = tasks.count()
+    completed_task_count = tasks.filter(status='Concluída').count()
+    Em_Progresso_task_count = tasks.filter(status='Em Progresso').count()
+    Pendente_count = tasks.filter(status='Pendente').count()
+    
+    if total_tasks > 0:
+        pending_percentage = round((Pendente_count / total_tasks) * 100)
+        in_progress_percentage = round((Em_Progresso_task_count / total_tasks) * 100)
+        completed_percentage = round((completed_task_count / total_tasks) * 100)
+    else:
+        pending_percentage = in_progress_percentage = completed_percentage = 0
+    # Processa as tarefas
     for task in tasks:
         prazo = task.Prazo
-        today = datetime.now().date() 
+        today = datetime.now().date()
         if prazo:
             if prazo == today:
                 formatted_date = "HOJE"
             else:
-                formatted_date = prazo.strftime("%d / %m / %Y") # Aparece a data no formato dd/mm/aaaa
+                formatted_date = prazo.strftime("%d / %m / %Y")
         else:
             formatted_date = "Sem prazo definido"
 
-        responsible_profiles = task.responsible.all()  # Pegando os responsáveis da tarefa
+        responsible_profiles = task.responsible.all()
         responsible_photos = []
         
         for resp in responsible_profiles:
@@ -111,7 +132,8 @@ def kanban_view(request):
             'title': task.title,
             'description': task.description,
             'creation_date': task.creation_date,
-            'prazo': formatted_date,  # Agora com o prazo correto para cada task
+            'priority': task.priority,
+            'prazo': formatted_date,
             'completion_date': task.completion_date,
             'responsible': task.get_responsibles_as_string(),
             'responsible_photos': responsible_photos,
@@ -119,12 +141,13 @@ def kanban_view(request):
             'pair_responsible_photo': pair_r_p,
         })
     
+    # Adicionar nova tarefa via POST
     if request.method == 'POST':
         title = request.POST.get('title')
         description = request.POST.get('description')
         status = request.POST.get('status')
         prazo = request.POST.get('Prazo') or None
-        responsible = request.POST.get('responsibles') 
+        responsible = request.POST.get('responsibles')
         
         responsible = list(map(int, responsible.split(',')))
 
@@ -133,15 +156,27 @@ def kanban_view(request):
             title=title,
             description=description,
             status=status,
-            Prazo=prazo,  # Atribuindo o prazo da nova tarefa
+            Prazo=prazo,
         )
 
         responsible_members = MembroEquipe.objects.filter(id__in=responsible)
         task.responsible.set(responsible_members)
         
         return redirect('kanban')
-       
-    return render(request, 'kanbam.html', {'items': items, 'profiles': profiles, 'members': members,})
+    
+    return render(request, 'kanbam.html', {
+        'items': items,
+        'profiles': profiles,
+        'members': members,
+        'selected_area': area_id,
+        'all_areas': all_areas,
+        'completed_task_count': completed_task_count,
+        'Em_Progresso_task_count': Em_Progresso_task_count,
+        'Pendente_count':  Pendente_count,
+        'pending_percentage': pending_percentage,
+        'in_progress_percentage': in_progress_percentage,
+        'completed_percentage': completed_percentage,
+    })
 
 
 
