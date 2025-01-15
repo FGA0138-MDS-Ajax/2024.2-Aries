@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     const dateElements = document.querySelectorAll(".dateWeek");
-
+    const currentDate = new URLSearchParams(window.location.search).get('date') || new Date().toISOString().split('T')[0];
+            const [year, month] = currentDate.split("-");
+            const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            document.querySelector(".textmonthYear").innerHTML = `${monthNames[parseInt(month) - 1]} ${year}`;
+            
     dateElements.forEach(element => {
         element.addEventListener("click", function () {
+
             const selectedDate = this.dataset.date;
 
             dateElements.forEach(el => {
@@ -25,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     const [year, month, day] = selectedDate.split("-");
                     const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
                     dateTitle.innerHTML = `${day} de ${monthNames[parseInt(month) - 1]}`;
+                    document.querySelector(".textmonthYear").innerHTML = `${monthNames[parseInt(month) - 1]} ${year}`;
+
 
                     const taskContainer = document.querySelector(".todayEvents");
                     taskContainer.innerHTML = "";
@@ -33,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         data.tasks.forEach(task => {
                             const taskDiv = document.createElement("div");
                             taskDiv.className = "taskCalendar";
-                            taskDiv.innerHTML = `<div class="colorTeamBlue"></div><p>${task.title}</p>`;
+                            taskDiv.innerHTML = `<div class="colorTeamBlue" style="background-color: ${userAreaColor};"></div><p>${task.title}</p>`;
                             taskContainer.appendChild(taskDiv);
                         });
                     } else {
@@ -58,8 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         data.meetings.forEach(meeting => {
                             const meetingDiv = document.createElement("div");
                             meetingDiv.className = "importantEvent";
+                            const borderColor = meeting.multiple_teams ? '#0075F6' : userAreaColor;
                             meetingDiv.innerHTML = `
-                                <div class="borderImportantEvent" style="background: #0075F6;"></div>
+                                <div class="borderImportantEvent" style="background: ${borderColor};"></div>
                                 <div class="contentImportantEvent">
                                     <h4>${meeting.title}</h4>
                                     <div class="moreInfoEvent">
@@ -85,4 +93,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
         });
     });
+
+    const previousMonthButton = document.querySelector(".arrows-date .arrow-icon:first-child");
+    const nextMonthButton = document.querySelector(".arrows-date .arrow-icon:last-child");
+
+    previousMonthButton.addEventListener("click", function () {
+        const currentDate = this.dataset.date;
+        window.location.href = `/previous-month/?date=${currentDate}`;
+    });
+
+    nextMonthButton.addEventListener("click", function () {
+        const currentDate = this.dataset.date;
+        window.location.href = `/next-month/?date=${currentDate}`;
+    });
+
 });

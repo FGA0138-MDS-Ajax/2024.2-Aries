@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 class Area(models.Model):
     name = models.CharField(max_length=100)
+    color = models.CharField(max_length=7, default='#FFFFFF')
     
     def __str__(self):
         return self.name

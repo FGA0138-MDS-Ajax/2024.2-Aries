@@ -4,8 +4,9 @@ from .forms import TaskForm
 from .models import MembroEquipe, Event, Task, Meeting
 from django.contrib.auth.decorators import login_required
 import calendar
-from datetime import datetime
+from datetime import datetime, timedelta
 import locale
+from django.utils.dateparse import parse_date
 
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
@@ -46,15 +47,26 @@ def home(request):
     tasks = Task.objects.filter(creation_date__year=year, creation_date__month=month, creation_date__day=now.day, responsible=request.user)
     meetings = Meeting.objects.filter(meeting_date__year=year, meeting_date__month=month, meeting_date__day=now.day).filter(areas__membros=request.user).distinct()
 
+    user_area = request.user.areas.first() 
+    meetings_data = []
+    for meeting in meetings:
+        multiple_teams = meeting.areas.count() > 1
+        meetings_data.append({
+            "title": meeting.title,
+            "meeting_date": meeting.meeting_date,
+            "multiple_teams": multiple_teams,
+        })
+
     context = {
         "now": now,
         "year": year,
         "month": month,
-        "month_name": calendar.month_name[month].capitalize(),
+        "month_name": calendar.month_name[month],  # Remova a capitalização aqui
         "weeks": weeks,
         "events": events,
         "tasks": tasks,
-        "meetings": meetings,
+        "meetings": meetings_data,
+        "user_area_color": user_area.color if user_area else '#0075F6',
     }
     return render(request, "home.html", context)
 
@@ -112,8 +124,37 @@ def get_events_tasks(request):
 
         events_data = [{"title": event.title, "time": event.event_date.strftime('%H:%M')} for event in events]
         tasks_data = [{"title": task.title} for task in tasks]
-        meetings_data = [{"title": meeting.title, "time": meeting.meeting_date.strftime('%H:%M')} for meeting in meetings]
+        
+        meetings_data = []
+        for meeting in meetings:
+            areas = meeting.areas.all()
+            multiple_teams = areas.count() > 1
+            meetings_data.append({
+                "title": meeting.title,
+                "time": meeting.meeting_date.strftime('%H:%M'),
+                "multiple_teams": multiple_teams
+            })
+            
 
         return JsonResponse({"events": events_data, "tasks": tasks_data, "meetings": meetings_data})
     else:
         return JsonResponse({"error": "Invalid date"}, status=400)
+
+def previous_month(request):
+    current_date = parse_date(request.GET.get('date'))
+    if current_date:
+        first_day_of_current_month = current_date.replace(day=1)
+        previous_month_date = first_day_of_current_month - timedelta(days=1)
+        new_date = previous_month_date.replace(day=min(current_date.day, calendar.monthrange(previous_month_date.year, previous_month_date.month)[1]))
+        return redirect(f'/home/?date={new_date.strftime("%Y-%m-%d")}')
+    return redirect('home')
+
+def next_month(request):
+    current_date = parse_date(request.GET.get('date'))
+    if current_date:
+        last_day_of_current_month = current_date.replace(day=calendar.monthrange(current_date.year, current_date.month)[1])
+        next_month_date = last_day_of_current_month + timedelta(days=1)
+        new_date = next_month_date.replace(day=min(current_date.day, calendar.monthrange(next_month_date.year, next_month_date.month)[1]))
+        return redirect(f'/home/?date={new_date.strftime("%Y-%m-%d")}')
+    return redirect('home')
+

@@ -3,7 +3,7 @@ from django.conf.urls import handler404
 from django.urls import path, include
 from Users.views import login, register, recoverAccount, redefinePassword
 from guest.views import index, competition, admission, control_admission
-from members.views import sidebar, create_task, Top, home, get_events_tasks
+from members.views import sidebar, create_task, Top, home, get_events_tasks, previous_month, next_month
 
 urlpatterns = [
 
@@ -30,7 +30,9 @@ urlpatterns = [
     path('Top/', Top, name='top'),
     path('home/', home, name="home"),
     path('get-events-tasks/', get_events_tasks, name='get_events_tasks'),
-
+    path('previous-month/', previous_month, name='previous_month'),
+    path('next-month/', next_month, name='next_month'),
+    
     # stock
     
 ]

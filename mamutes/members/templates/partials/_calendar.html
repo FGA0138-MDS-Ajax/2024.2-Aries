@@ -12,7 +12,19 @@
         <div class="centerMyAgenda">
             <div class="calendarVisualizer">
                 <div class="monthControler">
-                    <p class="textmonthYear">{{ month_name }} {{ year }}</p>
+                    <p class="textmonthYear">{{ month_name|capfirst }} {{ year }}</p>
+                    <div class="arrows-date">
+                        <button class="arrow-icon" data-date="{{ now|date:'Y-m-d' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                                <path d="M4.66659 1.66671L1.33325 5.00004L4.66659 8.33337" stroke="#1F1A99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="arrow-icon" data-date="{{ now|date:'Y-m-d' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                                <path d="M1.33341 1.66671L4.66675 5.00004L1.33341 8.33337" stroke="#1F1A99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="calendar">
                     <div class="weekDays">
@@ -48,13 +60,13 @@
                                 </div>
                                 <div class="markers">
                                     {% if day.tasks %}
-                                        <div class="taskMarkerTarefa"></div>
+                                        <div class="taskMarkerTarefa" style="background-color: {{ user_area_color }};"></div>
                                     {% endif %}
                                     {% if day.events %}
-                                        <div class="taskMarkerEvent"></div>
+                                        <div class="taskMarkerTarefa"></div>
                                     {% endif %}
                                     {% if day.meetings %}
-                                        <div class="taskMarkerTarefa"></div>
+                                        <div class="taskMarkerTarefa" style="background-color: {{ user_area_color }};"></div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -71,7 +83,7 @@
                     {% if tasks %}
                         {% for task in tasks %}
                             <div class="taskCalendar">
-                                <div class="colorTeamBlue"></div>
+                                <div class="colorTeamBlue" style="background-color: {{ user_area_color }};"></div>
                                 <p>{{ task.title }}</p>
                             </div>
                         {% endfor %}
@@ -112,7 +124,8 @@
                     {% if meetings %}
                         {% for meeting in meetings %}
                             <div class="importantEvent">
-                                <div class="borderImportantEvent" style="background: #0075F6;"></div>
+                                <div class="borderImportantEvent" style="background: {% if meeting.multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};">
+                        </div>
                                 <div class="contentImportantEvent">
                                     <h4>{{ meeting.title }}</h4>
                                     <div class="moreInfoEvent">
@@ -130,7 +143,8 @@
                                             <div class="profilePic" style="background-color: #DDD;">
                                                 <p class="textPlusPeople">+2</p>
                                             </div> 
-                                        </div>                                        
+                                        </div>
+                                    </div>                                        
                                 </div>
                             </div>
                         {% endfor %}
@@ -139,5 +153,8 @@
             </div>
         </div>
     </div>
-
+    
+<script>
+    const userAreaColor = "{{ user_area_color }}";
+</script>
 <script src="{% static 'scripts/calendar.js' %}"></script>
