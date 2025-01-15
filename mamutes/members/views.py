@@ -67,6 +67,7 @@ def create_event(request):
     base_events = BaseEvent.objects.all()    
 
     return redirect('home')
+
 def create_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
@@ -231,6 +232,38 @@ def profile_list(request):
 
 @login_required
 def home(request):
-    announcements = BaseEvent.objects.filter(is_event=False).order_by('-posted_at')  
-    return render(request, 'home.html', {'announcements': announcements})
+    announcements = BaseEvent.objects.filter(is_event=False).order_by('-posted_at')
+    events = Event.objects.all()
+
+    for event in events:
+        try:
+            # Converte a string de data para um objeto datetime
+            event_date = datetime.strptime(event.event_date, "%Y-%m-%d").date()
+            event.day = event_date.day  # Salva o dia do evento
+            event.month = event_date.month  # Salva o mês do evento
+        
+        except ValueError:
+            # Se a data não for válida, define valores padrões
+            event.day = None
+            event.month = None
+
+
+def home(request):
+    announcements = BaseEvent.objects.filter(is_event=False).order_by('-posted_at')
+    events = Event.objects.all()
+
+    for event in events:
+        try:
+            # Converte a string de data para um objeto datetime
+            event_date = datetime.strptime(event.event_date, "%Y-%m-%d").date()
+            event.day = event_date.day  # Salva o dia do evento
+            event.month = event_date.month  # Salva o mês do evento
+        
+        except ValueError:
+            # Se a data não for válida, define valores padrões
+            event.day = None
+            event.month = None
+
+
+    return render(request, 'home.html', {'announcements': announcements, 'events': events})
 

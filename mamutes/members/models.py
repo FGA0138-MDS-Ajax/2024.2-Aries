@@ -12,8 +12,8 @@ class Subtask(models.Model):
 
 
 class BaseEvent(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField()
+    title = models.CharField(max_length=255, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     is_event = models.BooleanField(default=False)  
     posted_at = models.DateTimeField(default=timezone.now)
 
