@@ -13,50 +13,42 @@
             <h1 class="titulo">Adicionar novo membro</h1>
             <h2 class="subtitulo">Preencha o formulário</h2>
         </div>
-        <form action="{%url 'register'%}" method="post" class="formLogin">{% csrf_token %}
+        <form action="{% url 'register' %}" method="post" class="formLogin">
+            {% csrf_token %}
             <div class="formPrincipal">
                 <div class="divsFields">
                     <p class="tituloInputs">Nome completo</p>
-                    <input type="text" placeholder="Ex.: João Victor Marques de Oliveira" class="inputForm" required>
+                    <input type="text" name="fullname" placeholder="Ex.: João Victor Marques de Oliveira" class="inputForm" required>
                 </div>
                 <div class="divsFields">
                     <p class="tituloInputs">Email</p>
-                    <input type="email" placeholder="Ex.: joao@gmail.com" class="inputForm" required> 
+                    <input type="email" name="email" placeholder="Ex.: joao@gmail.com" class="inputForm" required> 
                 </div>
                 <div class="divsFieldsRow">
                     <div class="rowDiv">
                         <p class="tituloInputs">Nome de Usuário</p>
-                        <input type="text" placeholder="Ex.: joao.marques" class="inputForm" required>
+                        <input type="text" name="username" placeholder="Ex.: joao.marques" class="inputForm" required>
                     </div>
                     <div class="rowDiv">
                         <p class="tituloInputs">Contato</p>
-                        <input type="tel" placeholder="(00) 00000-0000" class="inputForm" required>   
+                        <input type="tel" name="phone" placeholder="(00) 00000-0000" class="inputForm" required>   
                     </div>
                 </div>
                 <div class="divsFieldsRow">
                     <div class="rowDiv">
                         <p class="tituloInputs">Área</p>
-                        <select name="Selecionar" class="inputForm" required>
-                            <option value="Administracao">Administração</option>
-                            <option value="Marketing">Marketing</option>
-                            <option value="Financeiro">Financeiro</option>
-                            <option value="Aerodinamica">Aerodinâmica</option>
-                            <option value="Cad">Cad</option>
-                            <option value="Cargas">Cargas</option>
-                            <option value="Avionica">Aviônica</option>
-                            <option value="Desempenho">Desempenho</option>
-                            <option value="Estabilidade e Controle">Estabilidade e Controle</option>
-                            <option value="Estruturas">Estruturas</option>
+                        <select name="areas" class="inputForm" multiple required>
+                            {% for area in areas %}
+                                <option value="{{ area.id }}">{{ area.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="rowDiv">
                         <p class="tituloInputs">Função</p>
-                        <select name="Selecionar" class="inputForm" required>
-                            <option value="Capitao">Capitão</option>
-                            <option value="Lider">Líder</option>
-                            <option value="Gerente">Gerente</option>
-                            <option value="Membro">Membro</option>
-                            <option value="Trainees">Trainees</option>
+                        <select name="functions" class="inputForm" multiple required>
+                            {% for function in functions %}
+                                <option value="{{ function.id }}">{{ function.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>  
@@ -68,9 +60,11 @@
                     </svg>
                     <span class="addLabel">Adicionar membro</span>
                 </button>
+                <!-- 
                 <button type="submit" class="submitCancelBotao" value="cancelar" style="border-radius: 8px; border: 1px solid #717171;">
                     <span class="cancelLabel">Cancelar</span>
                 </button>
+                -->
             </div>
         </form>
     </div>

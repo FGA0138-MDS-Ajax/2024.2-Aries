@@ -8,7 +8,7 @@ from .models import MembroEquipe
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.core.mail import send_mail
 from mamutes import settings
-
+from django.contrib import messages
 
 def login (request):
     if request.method ==  'GET':
@@ -32,7 +32,39 @@ def isSuperUser(user):
     
 @user_passes_test(isSuperUser) 
 def register(request):
-     return render(request, 'register.html')
+    areas = Area.objects.all() 
+    functions = Function.objects.all() 
+    if request.method == 'POST':
+        fullname = request.POST.get ('fullname')
+        email = request.POST.get ('email')
+        username = request.POST.get ('username')
+        phone = request.POST.get ('phone')
+        selected_areas = request.POST.getlist('areas')
+        selected_functions = request.POST.getlist('functions')
+
+        
+        if fullname and email and username and phone:
+            try:
+                membro = MembroEquipe.objects.create_user(
+                    username=username,
+                    fullname=fullname,
+                    email=email,
+                    phone=phone
+                )
+
+                membro.areas.set(Area.objects.filter(id__in=selected_areas))
+                membro.functions.set(Function.objects.filter(id__in=selected_functions))
+            
+                
+                membro.save()
+                return HttpResponse("vc criou o membro seu bosta")
+
+            except Exception as e:
+                #messages.error(request, f"Erro ao criar o membro: {e}")
+                return HttpResponse("deu alguma bosta ai")
+    
+       
+    return render(request, 'register.html', {'areas': areas, 'functions': functions})
 
 def recoverAccount(request):
     if request.method == 'POST':
