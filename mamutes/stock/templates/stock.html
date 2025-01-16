@@ -46,7 +46,7 @@
                 </svg>
                 <span class="cancelLabel">Download CSV</span>
             </a>
-
+<!--
             <a href="{% url 'download_pdf' %}" class="submitCancelBotao" style="border: 1px solid #0075F6; text-decoration: none;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path
@@ -55,8 +55,7 @@
                 </svg>
                 <span class="cancelLabel">Download PDF</span>
             </a>
-            
-
+-->            
             <button id="btnModal" type="submit" class="submitCancelBotao" value="adicionar"
                 style="background: #1F1A99;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -192,7 +191,7 @@
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="7">Nenhuma ferramenta cadastrada.</td>
+                        <td colspan="7">Nenhum item cadastrado com esses parâmetros</td>
                     </tr>
                     {% endfor %}
                 </tbody>
