@@ -8,5 +8,5 @@ urlpatterns = [
     path('deletar/<int:pk>/', views.deletar_ferramenta, name='deletar_ferramenta'), 
     path('download-pdf/', views.download_pdf, name='download_pdf'),
     path('download-csv/', views.download_csv, name='download_csv'),
-    
+    path('stock/', views.stock, name='stock'),
 ]

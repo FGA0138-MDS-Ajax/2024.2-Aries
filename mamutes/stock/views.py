@@ -6,7 +6,7 @@ from django.http import HttpResponse
 import csv
 from reportlab.lib import colors
 from reportlab.platypus import Table, TableStyle
-
+from django.db.models import Q
 
 # Create your views here.
 
@@ -149,3 +149,17 @@ def download_csv(request):
         ])
 
     return response
+
+# Buscador
+def stock(request):
+    query = request.GET.get('search', '').strip()  # Obter e limpar o termo de busca
+    ferramentas = Tool.objects.all()  # Recuperar todas as ferramentas por padrão
+
+    if query:  # Filtrar apenas se a busca não estiver vazia
+        ferramentas = ferramentas.filter(
+            Q(name__icontains=query) |
+            Q(type__icontains=query) |
+            Q(code__icontains=query)
+        )
+
+    return render(request, 'stock.html', {'ferramentas': ferramentas, 'query': query})

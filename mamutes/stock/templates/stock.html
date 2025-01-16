@@ -22,17 +22,21 @@
             </div>
             <h1 class="stock">Estoque</h1>
         </div>
+
         <div class="actions">
-            <div class="searchFieldBox">
+
+            <form method="get" action="{% url 'stock' %}" class="searchFieldBox">
                 <div class="searchIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path
-                            d="M13.0001 13.0001L10.1048 10.1047M10.1048 10.1047C10.6001 9.60948 10.9929 9.02153 11.261 8.37444C11.529 7.72735 11.6669 7.03381 11.6669 6.33341C11.6669 5.63301 11.529 4.93947 11.261 4.29238C10.9929 3.64529 10.6001 3.05734 10.1048 2.56208C9.60955 2.06682 9.02159 1.67396 8.3745 1.40593C7.72742 1.13789 7.03387 0.999939 6.33347 0.999939C5.63307 0.999939 4.93953 1.13789 4.29244 1.40593C3.64535 1.67396 3.0574 2.06682 2.56214 2.56208C1.56192 3.5623 1 4.91889 1 6.33341C1 7.74793 1.56192 9.10452 2.56214 10.1047C3.56236 11.105 4.91895 11.6669 6.33347 11.6669C7.748 11.6669 9.10458 11.105 10.1048 10.1047Z"
-                            stroke="#1F1A99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                    <button type="submit" style="background: none; border: none; padding: 0; margin: 0;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path
+                                d="M13.0001 13.0001L10.1048 10.1047M10.1048 10.1047C10.6001 9.60948 10.9929 9.02153 11.261 8.37444C11.529 7.72735 11.6669 7.03381 11.6669 6.33341C11.6669 5.63301 11.529 4.93947 11.261 4.29238C10.9929 3.64529 10.6001 3.05734 10.1048 2.56208C9.60955 2.06682 9.02159 1.67396 8.3745 1.40593C7.72742 1.13789 7.03387 0.999939 6.33347 0.999939C5.63307 0.999939 4.93953 1.13789 4.29244 1.40593C3.64535 1.67396 3.0574 2.06682 2.56214 2.56208C1.56192 3.5623 1 4.91889 1 6.33341C1 7.74793 1.56192 9.10452 2.56214 10.1047C3.56236 11.105 4.91895 11.6669 6.33347 11.6669C7.748 11.6669 9.10458 11.105 10.1048 10.1047Z"
+                                stroke="#1F1A99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
                 </div>
-                <input type="text" id="search" placeholder="Buscar item" class="searchField" required>
-            </div>
+                <input type="text" id="search" name="search" value="{{ query }}" placeholder="Buscar item" class="searchField">
+            </form>
 
             <a href="{% url 'download_csv' %}" class="submitCancelBotao" style="border: 1px solid #0075F6; text-decoration: none;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
