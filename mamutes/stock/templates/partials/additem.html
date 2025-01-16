@@ -7,9 +7,9 @@
         </button>
     </div>
     <div class="tituloModal">
-        <h1 class="titulo">Adicionar novo item</h1>
+        <h1 class="titulo">Adicionar Novo Item</h1>
     </div>
-    <form method="post" action="{% url 'adicionar_ferramenta' %}" class="formLogin">
+    <form method="post" action="{% url 'adicionar_ferramenta' %}" class="formLogin"> <!-- ajuste aqui -->
         {% csrf_token %}
         <div class="formPrincipal">
             <div class="divsFields">

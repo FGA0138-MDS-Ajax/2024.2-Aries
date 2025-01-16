@@ -10,9 +10,9 @@
         </button>
     </div>
     <div class="tituloModal">
-        <h1 class="titulo">{{ title }}</h1>
+        <h1 class="titulo">Editar Item</h1>
     </div>
-    <form method="post"  class="formLogin">
+    <form method="post"  class="formLogin" action="{% url 'editar_ferramenta' ferramenta.id %}">
         {% csrf_token %}
 
         <div class="formPrincipal">
@@ -83,7 +83,7 @@
         <input type="checkbox" id="being_used" name="being_used" {% if ferramenta.being_used %}checked{% endif %}><br> -->
         
         <div class="botoesCadastro">
-            <button type="submit" class="saveButton"style="border-radius: 8px; background: #1F1A99;" onclick="window.location.href='{% url 'editar_ferramenta' ferramenta.id %}'">
+            <button type="submit" class="saveButton"style="border-radius: 8px; background: #1F1A99;">
                 <span class="addLabel">Concluido</span>
             </button>
         </div>    
