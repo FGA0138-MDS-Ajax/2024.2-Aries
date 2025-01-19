@@ -172,6 +172,7 @@ def kanban_view(request):
         title = request.POST.get('title')
         description = request.POST.get('description')
         status = request.POST.get('status')
+        priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo') or None
         responsible = request.POST.get('responsibles')
         
@@ -182,6 +183,7 @@ def kanban_view(request):
             title=title,
             description=description,
             status=status,
+            priority=priority,
             Prazo=prazo,
         )
 

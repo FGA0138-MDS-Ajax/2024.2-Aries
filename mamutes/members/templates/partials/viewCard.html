@@ -84,7 +84,7 @@
                     {% if photo %}
                         <div class="pic-responsible"><img title="{{name}}" src="data:image/jpeg;base64,{{ photo }}" alt="Responsável" class="photo-view-task"></div>
                     {% else %}
-                        <div><img title="{{name}}" src="path/to/default-photo.jpg" alt="Responsável" class="responsible-photo"></div>
+                        <div class="pic-responsible"><img title="{{name}}" src="path/to/default-photo.jpg" alt="Responsável" class="photo-view-task"></div>
                     {% endif%}
                 {% endfor %}
                 </div>
