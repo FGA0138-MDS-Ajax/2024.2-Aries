@@ -49,6 +49,32 @@ def delete_task(request):
 
     return redirect('kanban')
 
+def edit_task(request):
+    if request.method == 'POST':
+        task_id = request.POST.get('id_task')
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        priority = request.POST.get('priority')
+        prazo = request.POST.get('Prazo')
+        print('CAIO FERREIRA DUARTE')
+        print(task_id,title,description,status,prazo)
+
+        print('AAAAAAAAAAAAAAAAAAAAAAAA')
+        if task_id:
+            task = get_object_or_404(Task, id=task_id)
+            if title:
+                task.title = title
+            if description:
+                task.description = description
+            if status:
+                task.priority = priority
+            if prazo:
+                task.Prazo = prazo
+            task.save()
+
+        return redirect('kanban')
+
+    return redirect('kanban')
 
 class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()

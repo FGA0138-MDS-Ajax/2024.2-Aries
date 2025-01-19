@@ -2,9 +2,6 @@
 {% load static %}
 <link rel="stylesheet" href="{%static 'css/card.css'%}">
 <div class="card btnModalViewCard" draggable="true" data-id="{{id}}">
-    <div id="id-card" style="display: none;">{{id}}</div>
-    <div id="status-card" style="display: none;">{{status}}</div>
-    <div id="photos-card" style="display: none;">{{responsible_photos|safe}}</div>
     <div class="main">
       <div class="label" >
         {% if priority == 1 %}  

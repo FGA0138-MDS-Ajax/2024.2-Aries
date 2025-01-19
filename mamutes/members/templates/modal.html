@@ -35,7 +35,7 @@
        
         <div class="status-data" style="display: flex; flex-direction: row;">
           <div class="description-task">
-              <label class="title-form">Status</label>
+              <label class="title-form">Progresso</label>
               <select class="option_field" name="status" id="status" aria-placeholder="Andamento da tarefa">
                   <option value="Pendente">A Começar</option>
                   <option value="Em Progresso">Em andamento</option>
@@ -43,10 +43,18 @@
                 </select>
           </div >
           <div class="description-task">
-              <label class="title-form">Data</label>
+            <label class="title-form">Data</label>
               <input type="date" id="Prazo" name="Prazo" class="data-input" required>
           </div>
         </div>
+        <div class="description-task">
+          <label class="title-form">Prioridade</label>
+          <select class="option_field" name="priority" id="priority" aria-placeholder="Prioridade da tarefa">
+              <option value="Pendente">Baixa prioridade</option>
+              <option value="Em Progresso">Média prioridade</option>
+              <option value="Concluída">Alta prioridade</option>
+            </select>
+        </div >
         <div class="description-task">
             <label class="title-form">Designar membros</label>
             <!--<img src="data:image/jpeg;base64,{{photo}}" alt="Profile photo" style="max-width: 20px;"> -->
