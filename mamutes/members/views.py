@@ -7,6 +7,7 @@ import calendar
 from datetime import datetime, timedelta
 import locale
 from django.utils.dateparse import parse_date
+from django.utils.timezone import localtime
 
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
@@ -43,9 +44,19 @@ def home(request):
 
     weeks = get_calendar_data(year, month, now, request.user)
 
-    events = Event.objects.filter(event_date__year=year, event_date__month=month, event_date__day=now.day)
-    tasks = Task.objects.filter(creation_date__year=year, creation_date__month=month, creation_date__day=now.day, responsible=request.user)
-    meetings = Meeting.objects.filter(meeting_date__year=year, meeting_date__month=month, meeting_date__day=now.day).filter(areas__membros=request.user).distinct()
+    events = Event.objects.filter(
+        event_date__year=year, 
+        event_date__month=month,
+        event_date__day=now.day)
+    tasks = Task.objects.filter(
+        creation_date__year=year, 
+        creation_date__month=month, 
+        creation_date__day=now.day,
+        responsible=request.user)
+    meetings = Meeting.objects.filter(
+        meeting_date__year=year, 
+        meeting_date__month=month, 
+        meeting_date__day=now.day).filter(areas__membros=request.user).distinct()
 
     user_area = request.user.areas.first() 
     meetings_data = []
@@ -61,7 +72,7 @@ def home(request):
         "now": now,
         "year": year,
         "month": month,
-        "month_name": calendar.month_name[month],  # Remova a capitalização aqui
+        "month_name": calendar.month_name[month],
         "weeks": weeks,
         "events": events,
         "tasks": tasks,
@@ -112,18 +123,31 @@ def get_calendar_data(year, month, now, user):
 
 def get_events_tasks(request):
     date_str = request.GET.get('date')
+    
     if date_str:
         selected_date = datetime.strptime(date_str, '%Y-%m-%d')
         year = selected_date.year
         month = selected_date.month
         day = selected_date.day
 
-        events = Event.objects.filter(event_date__year=year, event_date__month=month, event_date__day=day)
-        tasks = Task.objects.filter(creation_date__year=year, creation_date__month=month, creation_date__day=day, responsible=request.user)
-        meetings = Meeting.objects.filter(meeting_date__year=year, meeting_date__month=month, meeting_date__day=day).filter(areas__membros=request.user).distinct()
+        events = Event.objects.filter(
+            event_date__year=year, 
+            event_date__month=month, 
+            event_date__day=day)
+        tasks = Task.objects.filter(
+            creation_date__year=year, 
+            creation_date__month=month, 
+            creation_date__day=day, 
+            responsible=request.user
+        )
+        meetings = Meeting.objects.filter(
+            meeting_date__year=year, 
+            meeting_date__month=month, 
+            meeting_date__day=day
+        ).filter(areas__membros=request.user).distinct()
 
-        events_data = [{"title": event.title, "time": event.event_date.strftime('%H:%M')} for event in events]
-        tasks_data = [{"title": task.title} for task in tasks]
+        events_data = [{"title": event.title, "time": localtime(event.event_date).strftime('%H:%M')} for event in events]
+        tasks_data = [{"title": task.title, "time": localtime(task.creation_date).strftime('%H:%M')} for task in tasks]
         
         meetings_data = []
         for meeting in meetings:
@@ -131,15 +155,13 @@ def get_events_tasks(request):
             multiple_teams = areas.count() > 1
             meetings_data.append({
                 "title": meeting.title,
-                "time": meeting.meeting_date.strftime('%H:%M'),
+                "time": localtime(meeting.meeting_date).strftime('%H:%M'),
                 "multiple_teams": multiple_teams
             })
-            
-
         return JsonResponse({"events": events_data, "tasks": tasks_data, "meetings": meetings_data})
     else:
         return JsonResponse({"error": "Invalid date"}, status=400)
-
+    
 def previous_month(request):
     current_date = parse_date(request.GET.get('date'))
     if current_date:
