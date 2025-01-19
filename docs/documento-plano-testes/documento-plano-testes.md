@@ -173,9 +173,9 @@ Critérios de Aceitação Não Funcional:
 - **Risco 2:** Atraso na execução dos testes de integração.
   - *Mitigação:* Definir uma comunicação clara e planos de contingência.
 
-## 11. Aprovação
+## 11. Tabela de Versionamento
 
-| Nome               | Cargo         | Assinatura      | Data       |
-|--------------------|---------------|-----------------|------------|
-| [Nome do Responsável] | [Cargo]      | [Assinatura]    | [Data]     |
+| Nome               | Cargo         |  Data       |
+|--------------------|---------------|------------|
+| Felipe Duarte | Leader Squad - Testes   | 19/01/25     |
 
