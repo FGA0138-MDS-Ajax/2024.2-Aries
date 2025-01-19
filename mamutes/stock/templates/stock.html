@@ -4,6 +4,7 @@
 {% block title %}Estoque{% endblock %}
 
 {% block css %}
+<!-- <meta name="csrf-token" content="{{ csrf_token }}"> -->
 <link rel="stylesheet" href="{% static 'css/stock.css' %}">
 <link rel="stylesheet" href="{% static 'css/additem.css' %}">
 {% endblock %}
@@ -145,7 +146,7 @@
                     </tr>
                 </thead>
                 <!-- <tbody> -->
-                <form class="tableItens" method="post">
+                <div class="tableItens">
                     <!-- <tr class="line"> -->
                 
                     <!-- <div class="nda"> -->
@@ -223,7 +224,7 @@
 
                 <!-- </tr> -->
 
-                </form>
+                </div>
 
                 <!-- <tr id="no_results">
                     <td>vasco da gama</td>
@@ -267,36 +268,47 @@
 
 {%include 'partials/additem.html'%}
 <script src="{% static 'scripts/stock.js'%}"></script>
-<script src="{% static 'scripts/openModalStock.js'%}"></script>
+<script src="{% static 'scripts/openModalAddItem.js'%}"></script>
 <script>
-    // const formulario = document.querySelector(".tableItens");
+// const formulario = document.querySelector(".searchFieldBox");
 
-    // formulario.addEventListener("submit", (event) => {
-    //     event.preventDefault();
+// formulario.addEventListener("submit", (event) => {
+//     event.preventDefault(); // Impede o envio padrão do formulário
 
-    //     const formData = new FormData(formulario);
-    //     fetch(formulario.action, {
-    //         method: 'POST',
-    //         body: formData,
-    //         headers: {
-    //             'X-Requested-With': 'XMLHttpRequest',
-    //         },
-    //     })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data.success) {
-    //                 //para teste, após os testes substituir por consoles
-    //                 //para iniciar testes no django.
-    //                 alert("Formulário enviado com sucesso!");
+//     // Serializa os dados do formulário em uma query string
+//     const formData = new FormData(formulario);
+//     const queryString = new URLSearchParams(formData).toString();
 
-    //             } else {
-    //                 alert("Erro ao enviar o formulário.");
-    //             }
-    //         })
-    //         .catch(error => {
-    //             alert("Ocorreu um erro ao enviar o formulário.");
-    //         });
-    // });
+//     // Adiciona a query string à URL do formulário
+//     const url = `${formulario.action}?${queryString}`;
+
+//     // Faz a requisição GET sem usar o corpo
+//     fetch(url, {
+//         method: 'GET',
+//         headers: {
+//             'X-Requested-With': 'XMLHttpRequest',
+//         },
+//     })
+//         .then(response => {
+//             console.log("Resposta recebida:", response);
+//             if (!response.ok) {
+//                 throw new Error(`Erro HTTP: ${response.status}`);
+//             }
+//             return response.json(); // Converte a resposta para JSON
+//         })
+//         .then(data => {
+//             console.log("Dados recebidos:", data);
+//             if (data.success) {
+//                 alert("Formulário enviado com sucesso!");
+//             } else {
+//                 alert("Erro ao processar a requisição.");
+//             }
+//         })
+//         .catch(error => {
+//             console.error("Erro no fetch:", error);
+//             alert(`Ocorreu um erro(${error}) ao enviar o formulário.`);
+//         });
+// });
 
     (function () {
     document.addEventListener("click", (e) => {
@@ -317,6 +329,21 @@
             }
         }
 
+        if (target.classList.contains("editExcludeButton")) {
+            
+            for (let i = 0; i < 4; i++) {
+                if (target.parentElement) {
+                    target = target.parentElement;
+                }
+            }
+            const modal = target.querySelector(".excludeModal");
+    
+
+            if (modal) {
+                modal.showModal();
+            }
+        }
+
 
         if (target.classList.contains("btnClose")) {
             for (let i = 0; i < 3; i++) {
@@ -334,60 +361,5 @@
 })();
 
 </script>
-
-<script>
-    (function () {
-    document.addEventListener("click", (e) => {
-        let target = e.target;
-
-        if (target.classList.contains("editExcludeButton")) {
-            
-            for (let i = 0; i < 4; i++) {
-                if (target.parentElement) {
-                    target = target.parentElement;
-                }
-            }
-            const modal = target.querySelector(".excludeModal");
-        
-
-            if (modal) {
-                modal.showModal();
-            }
-        }
-
-
-        if (target.classList.contains("btnClose")) {
-            for (let i = 0; i < 3; i++) {
-                if (target.parentElement) {
-                    target = target.parentElement;
-                }
-            }
-            const modal = target.querySelector(".excludeModal");
-            // alert('oi')
-            if (modal) {
-                modal.close();
-            }
-        }
-    });
-})();
-</script>
-
-<!-- <script>
-    $(window).on("scroll load", function(){
-    
-    var tabela_top = $(".tableAllItens").offset().top;
-    var window_top = $(this).scrollTop();
-
-    $(".tableAllItens table thead th").css({
-        'top': tabela_top-window_top <= 0 ? window_top-tabela_top+'px' : '0',
-        'z-index':'9',
-        // 'padding':'10px 0'
-    });
-    });
-</script> -->
-
-
-
-
 
 {% endblock %}

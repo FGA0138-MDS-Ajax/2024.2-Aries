@@ -12,7 +12,7 @@
     <div class="tituloModal">
         <h1 class="titulo">Editar Item</h1>
     </div>
-    <form method="post"  class="formLogin" action="{% url 'editar_ferramenta' ferramenta.id %}">
+    <form method="post" class="formLogin" action="{% url 'editar_ferramenta' ferramenta.id %}">
         {% csrf_token %}
 
         <div class="formPrincipal">
