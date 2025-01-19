@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from Users.views import login, register, recoverAccount, redefinePassword
+from Users.views import login, register, recoverAccount, redefinePassword, pagConfig
 from guest.views import index, competition, admission, control_admission
 from members.views import sidebar, create_task, Top,upload_photo, delete_task, home, kanban_view, create_event
 
@@ -14,6 +14,7 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('account_recovery/', recoverAccount, name='recoverAccount'),
     path('redefine_password/<str:username>/<str:token>', redefinePassword, name="redefinePassword"),
+    path ('pagConfig/', pagConfig, name = 'pagConfig'),
 
     # guest
     path('', index, name="index"),
@@ -36,4 +37,5 @@ urlpatterns = [
     path('create_event/', create_event, name='create_event'),
     # stock
     
+
 ]
