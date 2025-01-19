@@ -7,6 +7,7 @@ import csv
 from reportlab.lib import colors
 from reportlab.platypus import Table, TableStyle
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -155,11 +156,16 @@ def stock(request):
     query = request.GET.get('search', '').strip()  # Obter e limpar o termo de busca
     ferramentas = Tool.objects.all()  # Recuperar todas as ferramentas por padrão
 
+    ferramentasPaginator = Paginator(ferramentas, 20)
+    pageNum = request.GET.get('page')
+    page = ferramentasPaginator.get_page(pageNum)
+
+    
     if query:  # Filtrar apenas se a busca não estiver vazia
-        ferramentas = ferramentas.filter(
+        page = ferramentas.filter(
             Q(name__icontains=query) |
             Q(type__icontains=query) |
             Q(code__icontains=query)
         )
 
-    return render(request, 'stock.html', {'ferramentas': ferramentas, 'query': query})
+    return render(request, 'stock.html', {'page': page, 'query': query})
