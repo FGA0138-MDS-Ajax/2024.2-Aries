@@ -20,10 +20,9 @@
           <div class="team-star">
             <div class="team-pin">
               <div class="div">
-                <div class="color-team"><div class="text-wrapper">E</div></div>
                 <form method="get" action="{% url 'kanban' %}">
                   <label for="area">Filtrar por Área:</label>
-                  <select name="area" id="area" onchange="this.form.submit()">
+                  <select class="select-areas" name="area" id="area" onchange="this.form.submit()">
                     <option value="" {% if not selected_area %}selected{% endif %}>Todas</option>
                     {% for area in all_areas %}
                     <option value="{{ area.id }}" {% if selected_area == area.id|stringformat:"s" %}selected{% endif %}>
@@ -31,11 +30,31 @@
                     </option>
                     {% endfor %}
                 </select>
+
+
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" style="display: flex; flex-direction: row; align-items: center; gap: 8px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="team-identifier" style="width: 32px; height: 32px; background: #7FDA00; color: #fefefe; font-size: 16px;">E</span>
+                    Estabilidade
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                      <path d="M1.66671 1.33341L5.00004 4.66675L8.33337 1.33341" stroke="#1E1E1E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">
+                      <div class="team-item">
+                        <span class="team-identifier" style="background: #7FDA00; color: #fefefe;">E</span>
+                        Estabilidade
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M4.58797 1.57541C4.74532 1.21575 5.25558 1.21575 5.41248 1.57541L6.20013 3.38357C6.23278 3.45838 6.28518 3.52288 6.35171 3.57016C6.41824 3.61744 6.49638 3.64572 6.57776 3.65197L8.58419 3.80572C8.9888 3.83674 9.1484 4.3452 8.83415 4.60191L7.33709 5.82608C7.27115 5.88004 7.2219 5.95162 7.19507 6.03249C7.16825 6.11335 7.16496 6.20018 7.18558 6.28284L7.64864 8.13462C7.74485 8.52035 7.32944 8.83235 6.98597 8.63184L5.22681 7.60638C5.15804 7.56625 5.07985 7.5451 5.00023 7.5451C4.92061 7.5451 4.84241 7.56625 4.77364 7.60638L3.01448 8.63184C2.67101 8.83235 2.25561 8.52035 2.35181 8.13462L2.81487 6.28284C2.8353 6.20016 2.83182 6.11337 2.80484 6.03259C2.77786 5.9518 2.72849 5.88034 2.66247 5.82653L1.1654 4.60235C0.851602 4.34565 1.01165 3.83719 1.41581 3.80617L3.42179 3.65242C3.50317 3.64617 3.58131 3.61789 3.64784 3.57061C3.71437 3.52333 3.76677 3.45883 3.79943 3.38402L4.58797 1.57541Z" fill="#0075F6" stroke="#0075F6" stroke-width="0.777778"/>
+                      </svg>
+                    </a></li>
+                  </ul>
+                </div>
+
               </form>
               </div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                <path d="M1.66659 1.33341L4.99992 4.66675L8.33325 1.33341" stroke="#1E1E1E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
               <path d="M8.2053 1.39522C8.50876 0.701595 9.49284 0.701595 9.79543 1.39522L11.3145 4.8824C11.3774 5.02666 11.4785 5.15106 11.6068 5.24224C11.7351 5.33343 11.8858 5.38797 12.0428 5.40001L15.9123 5.69653C16.6926 5.75636 17.0004 6.73696 16.3944 7.23204L13.5072 9.59295C13.38 9.697 13.285 9.83505 13.2333 9.99101C13.1816 10.147 13.1752 10.3144 13.215 10.4738L14.108 14.0451C14.2936 14.789 13.4924 15.3908 12.83 15.0041L9.43735 13.0264C9.30472 12.949 9.15392 12.9082 9.00037 12.9082C8.84681 12.9082 8.69601 12.949 8.56339 13.0264L5.17071 15.0041C4.5083 15.3908 3.70717 14.789 3.89272 14.0451L4.78575 10.4738C4.82515 10.3144 4.81845 10.147 4.76641 9.99121C4.71437 9.83541 4.61915 9.6976 4.49183 9.59382L1.60463 7.2329C0.999448 6.73783 1.30811 5.75722 2.08757 5.6974L5.95624 5.40088C6.11319 5.38884 6.2639 5.3343 6.3922 5.24311C6.52051 5.15192 6.62157 5.02752 6.68454 4.88326L8.2053 1.39522Z" stroke="#1E1E1E" stroke-width="1.5"/>

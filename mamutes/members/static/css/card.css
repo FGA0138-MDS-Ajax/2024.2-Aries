@@ -12,6 +12,8 @@
   border-radius: 4px;
   cursor: pointer;
   pointer-events: auto;
+  outline: none;
+  border: none;
 }
 
 .card .main {
@@ -54,7 +56,7 @@
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #d70000;
   font-size: 10px;
@@ -87,7 +89,7 @@
   position: relative;
   align-self: stretch;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #1e1e1e;
   font-size: 12px;
@@ -244,7 +246,7 @@
 
 
 .card .text-wrapper-3 {
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #8a8a8a;
   font-size: 8px;
