@@ -24,9 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+# DEBUG:
+# Pode ser False para testar a página erro 404 customizável, 
+# Porém, se utilizar nesse modo, rodar o servidor usando --insecure.
+# De preferência, deixe no True, para carregar os arquivos de tag static.
+DEBUG = True  
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -134,6 +138,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOM = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

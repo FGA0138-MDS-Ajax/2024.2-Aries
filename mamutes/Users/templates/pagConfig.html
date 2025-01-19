@@ -18,7 +18,7 @@
             <!-- Input para escolher a foto -->
             <!-- <input type="file" class="foto-perfil" style="cursor: pointer;" id="fileInput" accept="image/*"> -->
             
-            <div class="div-tag-img" title="Alterar foto de perfil"><img class="tag-img" src="{% static 'img/tagimg.png' %}" id="profileImage"></div>
+            <div class="div-tag-img" title="Alterar foto de perfil"><img class="tag-img" src="{{ user.photo.url }}" id="profileImage"></div>
             
             <button class="change-pic-bar">
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
@@ -46,8 +46,8 @@
             </div>
           </div>
           <div class="infos-membro">
-            <div class="text-wrapper">@josevictor</div>
-            <div class="div">José Victor Camargos Nunes</div>
+            <div class="text-wrapper">{{ user.username }}</div>
+            <div class="div">{{ user.fullname }}</div>
             <div class="infos-cargo-area">
               <p class="p">Gerente de operações | Capitão | Piloto</p>
               <div class="text-wrapper-2">Marketing | Estruturas</div>
@@ -67,49 +67,60 @@
             </div>
             <div class="div-2">
               <div class="text-wrapper-4">Nome completo</div>
-              <div class="div-wrapper"><div class="text-wrapper-5">José Victor Camargos Nunes</div></div>
+              <div class="div-wrapper"><div class="text-wrapper-5">{{user.fullname}}</div></div>
             </div>
             <div class="div-2">
               <div class="text-wrapper-4">E-mail</div>
-              <div class="div-wrapper"><div class="text-wrapper-5">jose@gmail.com</div></div>
+              <div class="div-wrapper"><div class="text-wrapper-5">{{user.email}}</div></div>
             </div>
             <div class="user-contato">
               <div class="div-3">
                 <div class="text-wrapper-4">Nome de usuário</div>
-                <div class="div-wrapper"><div class="text-wrapper-5">@josevictor</div></div>
+                <div class="div-wrapper"><div class="text-wrapper-5">{{user.username}}</div></div>
               </div>
               <div class="div-3">
                 <div class="text-wrapper-4">Contato</div>
-                <div class="div-wrapper"><div class="text-wrapper-5">(61) 99999-9999</div></div>
+                <div class="div-wrapper"><div class="text-wrapper-5">{{user.phone}}</div></div>
               </div>
             </div>
           </div>
-          <div id="userEdit" class="form-principal-input"style="display: none;" >
+          
+         <div id="userEdit" class="form-principal-input" style="display: none;">
             <div class="name-data-2"><div class="text-wrapper-3">Meus dados</div></div>
-            <div class="div-2">
-              <div class="text-wrapper-4">Nome completo</div>
-              <div class="div-wrapper-2"><div class="text-wrapper-6">José Victor Camargos Nunes</div></div>
-            </div>
-            <div class="div-2">
-              <div class="text-wrapper-4">E-mail</div>
-              <div class="div-wrapper-2"><div class="text-wrapper-6">jose@gmail.com</div></div>
-            </div>
-            <div class="user-contato">
-              <div class="div-3">
-                <div class="text-wrapper-4">Nome de usuário</div>
-                <div class="div-wrapper-2"><div class="text-wrapper-6">@josevictor</div></div>
+            <form method="POST" action="{% url 'editar_usuario' %}">
+              {% csrf_token %}
+              <div class="div-2">
+                <div class="text-wrapper-4">Nome completo</div>
+                <div class="div-wrapper-2">
+                  <input type="text" name="fullname" value="{{ user.fullname }}" class="text-wrapper-6">
+                </div>
               </div>
-              <div class="div-3">
-                <div class="text-wrapper-4">Contato</div>
-                <div class="div-wrapper-2"><div class="text-wrapper-6">(61) 99999-9999</div></div>
+              <div class="div-2">
+                <div class="text-wrapper-4">E-mail</div>
+                <div class="div-wrapper-2">
+                  <input type="email" name="email" value="{{ user.email }}" class="text-wrapper-6">
+                </div>
               </div>
-            </div>
-            <div class="botoes">
-              <button class="botao-login"><div class="text-wrapper-7">Salvar alterações</div></button>
-              <button id="userCancelar"  style="cursor: pointer;" class="botao-cancelar"><div class="text-wrapper-8">Cancelar</div></button>
-            </div>
+              <div class="user-contato">
+                <div class="div-3">
+                  <div class="text-wrapper-4">Nome de usuário</div>
+                  <div class="div-wrapper-2">
+                    <input type="text" name="username" value="{{ user.username }}" class="text-wrapper-6">
+                  </div>
+                </div>
+                <div class="div-3">
+                  <div class="text-wrapper-4">Contato</div>
+                  <div class="div-wrapper-2">
+                    <input type="text" name="phone" value="{{ user.phone }}" class="text-wrapper-6">
+                  </div>
+                </div>
+              </div>
+              <div class="botoes">
+                <button type="submit" class="botao-login"><div class="text-wrapper-7">Salvar alterações</div></button>
+                <button id="userCancelar" type="button" style="cursor: pointer;" class="botao-cancelar"><div class="text-wrapper-8">Cancelar</div></button>
+              </div>
+            </form>
           </div>
-        </div>
         
         <div id="userSenha" class="form-principal">
           <div class="name-data">

@@ -132,9 +132,9 @@
 
         <button class="ImgName">
             <div class="ProfilePicture">
-                <img src="https://i.pinimg.com/736x/a5/7d/fc/a57dfc1c1b3757de7f8b302d99fa4e8a.jpg" width="32" height="32">
+                <img src="{{ user.photo.url }}" width="32" height="32">
             </div>
-            <p>José</p>
+            <p>{{ user.first_name_display }}</p>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M4.66659 6.66667L7.99992 10L11.3333 6.66667" stroke="#1E1E1E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>

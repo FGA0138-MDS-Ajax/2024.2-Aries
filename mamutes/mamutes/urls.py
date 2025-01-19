@@ -1,8 +1,11 @@
 from django.contrib import admin
+from django.conf.urls import handler404
 from django.urls import path, include
-from Users.views import login, register, recoverAccount, redefinePassword, pagConfig
+from Users.views import login, register, recoverAccount, redefinePassword, pagConfig, editar_usuario
 from guest.views import index, competition, admission, control_admission
 from members.views import sidebar, create_task, Top,upload_photo, delete_task, home, kanban_view, create_event
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -15,6 +18,7 @@ urlpatterns = [
     path('account_recovery/', recoverAccount, name='recoverAccount'),
     path('redefine_password/<str:username>/<str:token>', redefinePassword, name="redefinePassword"),
     path ('pagConfig/', pagConfig, name = 'pagConfig'),
+    path('editar/', editar_usuario, name='editar_usuario'),
 
     # guest
     path('', index, name="index"),
@@ -37,5 +41,4 @@ urlpatterns = [
     path('create_event/', create_event, name='create_event'),
     # stock
     
-
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

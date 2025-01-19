@@ -4,7 +4,7 @@
     <div class="headerAnnouncement">
         <div class="profileAnnouncement">
             <div class="profilePicture">
-                <img class="profileImage" src="{% static 'img/example_profile.png' %}" alt="Erro ao carregar imagem">
+                <img class="profileImage" src="{{ announcement.member.photo.url }}" alt="Erro ao carregar imagem">
             </div>
             <div class="nameHour">
                 <p id="name">{{ announcement.member.fullname }}</p> <!-- Nome do membro associado -->
