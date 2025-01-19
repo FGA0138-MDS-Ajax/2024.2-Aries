@@ -73,23 +73,31 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <div class="moreInfoEvent">
                                         <p class="hourEvent">${meeting.time}</p>
                                         <div class="peopleMeeting">
-                                            <div class="profilePic">
-                                                <img class="profileImg" src="/static/img/tag-img.png" alt="Erro ao carregar imagem">
-                                            </div>
-                                            <div class="profilePic">
-                                                <img class="profileImg" src="/static/img/tag-img (1).png" alt="Erro ao carregar imagem">
-                                            </div>
-                                            <div class="profilePic">
-                                                <img class="profileImg" src="/static/img/tag-img (2).png" alt="Erro ao carregar imagem">
-                                            </div>
-                                            <div class="profilePic" style="background-color: #DDD;">
-                                                <p class="textPlusPeople">+2</p>
-                                            </div> 
-                                        </div>                                      
-                                    </div>`;
+                                            ${meeting.areas.length === 1 && meeting.areas[0].name === "Estabilidade" ? `
+                                                <div class="profilePic" style="background-color: ${meeting.areas[0].color};">
+                                                    <p class="textPlusPeople">E</p>
+                                                </div>
+                                            ` : meeting.areas.length > 3 ? `
+                                                ${meeting.areas.slice(0, 3).map(area => `
+                                                    <div class="profilePic" style="background-color: ${area.color};">
+                                                        <p class="textPlusPeople">${area.name.charAt(0)}</p>
+                                                    </div>
+                                                `).join('')}
+                                                <div class="profilePic" style="background-color: #DDD;">
+                                                    <p class="textPlusPeople">+${meeting.areas.length - 3}</p>
+                                                </div>
+                                            ` : meeting.areas.map(area => `
+                                                <div class="profilePic" style="background-color: ${area.color};">
+                                                    <p class="textPlusPeople">${area.name.charAt(0)}</p>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                </div>`;
                             taskContainer.appendChild(meetingDiv);
                         });
                     }
+
                 });
         });
     });

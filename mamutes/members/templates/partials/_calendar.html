@@ -66,7 +66,7 @@
                                         <div class="taskMarkerTarefa"></div>
                                     {% endif %}
                                     {% if day.meetings %}
-                                        <div class="taskMarkerTarefa" style="background-color: {{ user_area_color }};"></div>
+                                        <div class="taskMarkerTarefa" style="color: {% if meeting.multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};"></div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -125,24 +125,28 @@
                         {% for meeting in meetings %}
                             <div class="importantEvent">
                                 <div class="borderImportantEvent" style="background: {% if meeting.multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};">
-                        </div>
+                                </div>
                                 <div class="contentImportantEvent">
                                     <h4>{{ meeting.title }}</h4>
                                     <div class="moreInfoEvent">
-                                        <p class="hourEvent">{{ meeting.meeting_date|date:"H:i" }}</p>
+                                        <p class="hourEvent">{{ meeting.time }}</p>
                                         <div class="peopleMeeting">
-                                            <div class="profilePic">
-                                                <img class="profileImg" src="{% static 'img/tag-img.png' %}" alt="Erro ao carregar imagem">
-                                            </div>
-                                            <div class="profilePic">
-                                                <img class="profileImg" src="{% static 'img/tag-img (1).png' %}" alt="Erro ao carregar imagem">
-                                            </div>
-                                            <div class="profilePic">
-                                                <img class="profileImg" src="{% static 'img/tag-img (2).png' %}" alt="Erro ao carregar imagem">
-                                            </div>
-                                            <div class="profilePic" style="background-color: #DDD;">
-                                                <p class="textPlusPeople">+2</p>
-                                            </div> 
+                                            {% if meeting.areas|length > 3 %}
+                                                {% for area in meeting.areas|slice:":3" %}
+                                                    <div class="profilePic" style="background-color: {{ area.color }};">
+                                                        <p class="textPlusPeople">{{ area.name|slice:":1" }}</p>
+                                                    </div>
+                                                {% endfor %}
+                                                <div class="profilePic" style="background-color: #DDD;">
+                                                    <p class="textPlusPeople">+{{ meeting.areas|length|add:"-3" }}</p>
+                                                </div>
+                                            {% else %}
+                                                {% for area in meeting.areas %}
+                                                    <div class="profilePic" style="background-color: {{ area.color }};">
+                                                        <p class="textPlusPeople">{{ area.name|slice:":1" }}</p>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
                                         </div>
                                     </div>                                        
                                 </div>

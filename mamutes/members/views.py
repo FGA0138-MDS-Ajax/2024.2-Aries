@@ -31,43 +31,22 @@ def create_task(request):
     else:
         return redirect('sidebar')
 
+
 @login_required
 def home(request):
     selected_date = request.GET.get('date')
-    if selected_date:
-        now = datetime.strptime(selected_date, '%Y-%m-%d')
-    else:
-        now = datetime.now()
+    now = datetime.strptime(selected_date, '%Y-%m-%d') if selected_date else datetime.now()
     
-    year = now.year
-    month = now.month
+    year, month, day = now.year, now.month, now.day
 
     weeks = get_calendar_data(year, month, now, request.user)
 
-    events = Event.objects.filter(
-        event_date__year=year, 
-        event_date__month=month,
-        event_date__day=now.day)
-    tasks = Task.objects.filter(
-        creation_date__year=year, 
-        creation_date__month=month, 
-        creation_date__day=now.day,
-        responsible=request.user)
-    meetings = Meeting.objects.filter(
-        meeting_date__year=year, 
-        meeting_date__month=month, 
-        meeting_date__day=now.day).filter(areas__membros=request.user).distinct()
+    events = filters(Event, 'event_date', year, month, day)
+    tasks = filters(Task, 'creation_date', year, month, day, request.user)
+    meetings = filters(Meeting, 'meeting_date', year, month, day).filter(areas__membros=request.user).distinct()
 
-    user_area = request.user.areas.first() 
-    meetings_data = []
-    for meeting in meetings:
-        multiple_teams = meeting.areas.count() > 1
-        meetings_data.append({
-            "title": meeting.title,
-            "meeting_date": meeting.meeting_date,
-            "multiple_teams": multiple_teams,
-        })
-
+    user_area = request.user.areas.first()
+    meetings_data = get_meeting(meetings)
     context = {
         "now": now,
         "year": year,
@@ -121,43 +100,44 @@ def get_calendar_data(year, month, now, user):
 
     return weeks
 
+def get_meeting(meetings):
+    meetings_data = []
+    for meeting in meetings:
+        multiple_teams = meeting.areas.count() > 1
+        areas_data = [{"name": area.name, "color": area.color} for area in meeting.areas.all()]
+        meetings_data.append({
+            "title": meeting.title,
+            "time": localtime(meeting.meeting_date).strftime('%H:%M'),
+            "multiple_teams": multiple_teams,
+            "areas": areas_data,
+        })
+    return meetings_data
+
+def filters(model, date_field, year, month, day, user=None):
+    filters = {
+        f"{date_field}__year": year,
+        f"{date_field}__month": month,
+        f"{date_field}__day": day,
+    }
+    if user:
+        filters["responsible"] = user
+    return model.objects.filter(**filters)
+
 def get_events_tasks(request):
     date_str = request.GET.get('date')
     
     if date_str:
         selected_date = datetime.strptime(date_str, '%Y-%m-%d')
-        year = selected_date.year
-        month = selected_date.month
-        day = selected_date.day
+        year, month, day = selected_date.year, selected_date.month, selected_date.day
 
-        events = Event.objects.filter(
-            event_date__year=year, 
-            event_date__month=month, 
-            event_date__day=day)
-        tasks = Task.objects.filter(
-            creation_date__year=year, 
-            creation_date__month=month, 
-            creation_date__day=day, 
-            responsible=request.user
-        )
-        meetings = Meeting.objects.filter(
-            meeting_date__year=year, 
-            meeting_date__month=month, 
-            meeting_date__day=day
-        ).filter(areas__membros=request.user).distinct()
+        events = filters(Event, 'event_date', year, month, day)
+        tasks = filters(Task, 'creation_date', year, month, day, request.user)
+        meetings = filters(Meeting, 'meeting_date', year, month, day).filter(areas__membros=request.user).distinct()
 
         events_data = [{"title": event.title, "time": localtime(event.event_date).strftime('%H:%M')} for event in events]
         tasks_data = [{"title": task.title, "time": localtime(task.creation_date).strftime('%H:%M')} for task in tasks]
-        
-        meetings_data = []
-        for meeting in meetings:
-            areas = meeting.areas.all()
-            multiple_teams = areas.count() > 1
-            meetings_data.append({
-                "title": meeting.title,
-                "time": localtime(meeting.meeting_date).strftime('%H:%M'),
-                "multiple_teams": multiple_teams
-            })
+        meetings_data = get_meeting(meetings)
+
         return JsonResponse({"events": events_data, "tasks": tasks_data, "meetings": meetings_data})
     else:
         return JsonResponse({"error": "Invalid date"}, status=400)
