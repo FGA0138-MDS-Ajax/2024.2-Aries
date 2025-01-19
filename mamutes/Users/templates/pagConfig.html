@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/pagConfig.css' %}">
-    <script src="{% static 'scripts/showDados.js' %}" defer></script>
-    <title>Mamutes do Cerrado | Configuração</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet" />
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static 'css/pagConfig.css' %}">
+      <script src="{% static 'scripts/showDados.js' %}" defer></script>
+      <title>Mamutes do Cerrado | Configuração</title>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet" />
 
-</head>
-<body>
-    <div  class="minhaconta-page">
+  </head>
+
+  <body>
+    <div class="minhaconta-page">
       <div class="central-minha-conta">
         <div class="inicio-perfil-user">
           <div class="div-profile-pic">
@@ -87,7 +88,7 @@
           
          <div id="userEdit" class="form-principal-input" style="display: none;">
             <div class="name-data-2"><div class="text-wrapper-3">Meus dados</div></div>
-            <form method="POST" action="{% url 'editar_usuario' %}">
+            <form method="POST" class="form-2" action="{% url 'editar_usuario' %}">
               {% csrf_token %}
               <div class="div-2">
                 <div class="text-wrapper-4">Nome completo</div>
