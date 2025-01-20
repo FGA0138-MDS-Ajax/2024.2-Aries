@@ -1,9 +1,9 @@
-{% for event in events %}
+{% for event in events_objects %}
     <div class="event">
         <div class="headerEvent">
             <div class="dateIcon">
-                <p class="dateDay">{{ event.day }}</p>
-                <p class="dateMonth">{{ event.month }}</p>
+                <p class="dateDay">{{ event.dayObj }}</p>
+                <p class="dateMonth">{{ event.monthObj }}</p>
             </div>
             <div class="titleEvent">
                 <p class="textTitleEvent">{{ event.base_event.title }}</p>
