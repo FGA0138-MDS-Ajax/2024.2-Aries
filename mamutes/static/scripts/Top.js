@@ -1,56 +1,65 @@
-const buttonNotification = document.querySelector('.ButtonNotif');
-const buttonProfile = document.querySelector('.ImgName');
+const button = document.querySelector('.ImgName');
+const popup = document.querySelector('.Popup');
+const notificationButton = document.querySelector('.ButtonNotif');
+const notificationPopup = document.querySelector('.Notifications');
 
-const modalNotificatin = document.querySelector('.Notifications');
-const modalProfile = document.querySelector('.Popup');
+button.addEventListener('click', (event) => {
+    // Evita que o clique na imagem feche o popup imediatamente
+    event.stopPropagation();
 
-const newNotif =  document.querySelector('.DotNotif');
+    if (notificationPopup.classList.contains('is-visible')) {
+        notificationPopup.classList.remove('is-visible');
+        notificationButton.classList.remove('active');
+    }
 
-function isClickOutside(element, target) {
-    return !element.contains(target);
-}
+    // Alterna a classe 'active' para mudar o estilo da imagem
+    button.classList.toggle('active');
 
-buttonNotification.addEventListener("click", (e) => {
-    e.stopPropagation(); 
-    if (modalNotificatin.style.display === "flex") {
-        buttonNotification.style.background = "#fefefe";
-        modalNotificatin.style.display = "none";
-    } else {
-        newNotif.style.display = "none";
+    // // Alterna a classe 'show' para mostrar/ocultar o popup
+    popup.classList.toggle('show');
+});
 
-        buttonNotification.style.background = "#f2f2f2";
-        modalNotificatin.style.display = "flex";
+notificationButton.addEventListener('click', (event) => {
+    // Evita que o clique na imagem feche o popup imediatamente
+    event.stopPropagation();
 
-        buttonProfile.style.background = "#fefefe";
-        modalProfile.style.display = "none";
+    if (popup.classList.contains('show')) {
+        popup.classList.remove('show');
+        button.classList.remove('active');
+    }
+
+    // Alterna a classe 'active' para mudar o estilo da imagem
+    // button.classList.toggle('active');
+
+    // // Alterna a classe 'show' para mostrar/ocultar o popup
+    popup.classList.toggle('show');
+});
+
+// Adiciona um evento de clique no documento para esconder o popup quando clicar fora
+document.addEventListener('click', (event) => {
+    // Verifica se o clique foi fora da imagem e do popup
+    if (!button.contains(event.target) && !popup.contains(event.target)) {
+        popup.classList.remove('show'); // Esconde o popup
+        button.classList.remove('active'); // Remove a classe 'active' da imagem
     }
 });
 
+// Adiciona evento de clique no botão para alternar a visibilidade das notificações
+notificationButton.addEventListener('click', (event) => {
+    event.stopPropagation(); // Evita que o clique no botão feche a notificação
 
-buttonProfile.addEventListener("click", (e) => {
-    e.stopPropagation(); 
+    // Alterna a classe 'is-visible' para mostrar/ocultar as notificações
+    notificationPopup.classList.toggle('is-visible');
 
-    // se o modal estiver aberto, quando clicado ele fecha
-    if (modalProfile.style.display === "flex") {
-        buttonProfile.style.background = "#fefefe";
-        modalProfile.style.display = "none";
-    } else { //se o modal estiver fechado, quando clicado ele abre
-        buttonProfile.style.background = "#f2f2f2";
-        modalProfile.style.display = "flex";
-        
-        buttonNotification.style.background = "#fefefe";
-        modalNotificatin.style.display = "none";
-    }
+    // Alterna a classe 'active' para mudar o estilo do botão de notificação
+    notificationButton.classList.toggle('active');
 });
 
-document.addEventListener("click", (e) => {
-    //se os modais estiverem abertos e o clique não foi em algum deles, é porque clicou fora, logo fecha
-    if (modalNotificatin.style.display === "flex" && isClickOutside(modalNotificatin, e.target)) {
-        buttonNotification.style.background = "#fefefe";
-        modalNotificatin.style.display = "none";
-    }
-    if (modalProfile.style.display === "flex" && isClickOutside(modalProfile, e.target)) {
-        buttonProfile.style.background = "#fefefe";
-        modalProfile.style.display = "none";
+// Adiciona evento de clique no documento para esconder as notificações quando clicar fora
+document.addEventListener('click', (event) => {
+    // Verifica se o clique foi fora do botão de notificação e do popup
+    if (!notificationButton.contains(event.target) && !notificationPopup.contains(event.target)) {
+        notificationPopup.classList.remove('is-visible'); // Esconde o popup
+        notificationButton.classList.remove('active'); // Remove a classe 'active' do botão
     }
 });

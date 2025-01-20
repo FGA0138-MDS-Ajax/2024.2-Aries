@@ -45,10 +45,10 @@ INSTALLED_APPS = [
     'guest',
     'report',
     'members',
-    'stock',
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'stock',
 ]
 
 MIDDLEWARE = [
@@ -144,6 +144,7 @@ import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOM = os.path.join(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

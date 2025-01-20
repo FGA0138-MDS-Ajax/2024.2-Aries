@@ -1,0 +1,33 @@
+{% load static %}
+
+<dialog class="excludeModal" style="background: #fefefe;">
+
+    <h1 class="titleExclude">Tem certeza que deseja deletar <b>"{{ ferramenta.name }}</b>"?</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="botoesCadastro">
+                    
+                        <div class="botoesCadastro" style="align-items: center;">
+                            <button class="btnClose" style="border-radius: 8px; background-color: #fefefe; border: 1px solid #717171;"> 
+                                <span class="addLabel" style=" color: #1e1e1e;" >Não, cancelar</span>   
+                            </button>
+                        </div>
+
+        </div> 
+    </form>
+
+    <form method="post" action="{% url 'deletar_ferramenta' ferramenta.id %}">
+        {% csrf_token %}
+        <div class="botoesCadastro">
+            <div class="btnSim">
+                
+                <button class="saveButton" style="border-radius: 8px; background: #D70000;" type="submit"> 
+                 <span type="submit" >Sim, excluir</span>   
+                </button>
+            
+            </div>
+        </div> 
+    </form>
+
+</dialog>

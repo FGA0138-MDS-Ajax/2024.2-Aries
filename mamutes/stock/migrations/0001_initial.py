@@ -16,6 +16,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=100)),
+                ('type', models.CharField(max_length=100)),
+                ('code', models.CharField(max_length=10)),
                 ('brand', models.CharField(max_length=100)),
                 ('quantity', models.IntegerField()),
                 ('observation', models.TextField(blank=True, max_length=300, null=True)),
