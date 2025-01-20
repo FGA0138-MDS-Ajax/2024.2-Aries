@@ -115,7 +115,14 @@ def kanban_view(request):
     for profile in profiles:
         # Converte o blob em uma string Base64
         if profile.photo:
-            profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
+            if hasattr(profile.photo, 'open'):  # Caso seja um arquivo (ImageFieldFile)
+                with profile.photo.open('rb') as photo_file:
+                    photo_data = photo_file.read()
+            else:  # Caso já seja um objeto de bytes
+                photo_data = profile.photo
+
+            # Codifica os dados da imagem em Base64
+            profile.photo_base64 = base64.b64encode(photo_data).decode('utf-8')
 
         members.append({
         'email': profile.email,
