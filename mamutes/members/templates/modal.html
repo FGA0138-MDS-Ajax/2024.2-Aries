@@ -11,7 +11,7 @@
       <h2 class="head-label">Criar nova tarefa</h2>
       <form method="POST" class="form">
         {% csrf_token %}
-        <input type="text" style="display: none;" value="">
+        <input type="text" name="area_id" style="display: none;" value="{{request.GET.area}}">
         <div class="description-task">
           <label class="title-form">Titulo</label>
           <input id='title' type="text" class="Titulo-input" name="title" placeholder="Entitule a tarefa" required>

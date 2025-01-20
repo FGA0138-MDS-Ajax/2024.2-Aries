@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
 from .forms import TaskForm
 from .models import MembroEquipe, Task,Area
+from django.http import HttpResponseRedirect
 
 from rest_framework import viewsets
 from .models import Column, Task
@@ -56,10 +57,7 @@ def edit_task(request):
         description = request.POST.get('description')
         priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo')
-        print('CAIO FERREIRA DUARTE')
-        print(task_id,title,description,status,prazo)
 
-        print('AAAAAAAAAAAAAAAAAAAAAAAA')
         if task_id:
             task = get_object_or_404(Task, id=task_id)
             if title:
@@ -155,6 +153,7 @@ def kanban_view(request):
         items.append({
             'id': task.id,
             'status': task.status,
+            # 'area': task.area.all,
             'title': task.title,
             'description': task.description,
             'creation_date': task.creation_date,
@@ -175,7 +174,7 @@ def kanban_view(request):
         priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo') or None
         responsible = request.POST.get('responsibles')
-        
+        area_id = request.POST.get('area_id')
         responsible = list(map(int, responsible.split(',')))
 
         # Cria a instância de Task
@@ -185,12 +184,14 @@ def kanban_view(request):
             status=status,
             priority=priority,
             Prazo=prazo,
+            
         )
+        task.area.set(area_id)
 
         responsible_members = MembroEquipe.objects.filter(id__in=responsible)
         task.responsible.set(responsible_members)
         
-        return redirect('kanban')
+        return redirect(request.get_full_path())
     
     return render(request, 'kanbam.html', {
         'items': items,
