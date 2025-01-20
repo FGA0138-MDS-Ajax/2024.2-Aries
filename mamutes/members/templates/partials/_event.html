@@ -6,7 +6,7 @@
                 <p class="dateMonth">{{ event.month }}</p>
             </div>
             <div class="titleEvent">
-                <p class="textTitleEvent">{{ event.base_event.title }}</p>
+                <p class="textTitleEvent">{{ event.title }}</p>
                 <p class="subtextTitleEvent">Publicado por {{ event.base_event.member.fullname}}</p>
             </div>
             <div class="trashIcon">
@@ -61,7 +61,7 @@
                </div> 
             </div>
         </div>
-        <p class="textEvent">{{ event.base_event.description }}
+        <p class="textEvent">{{ event.description }}
         </p>
     </div>
 {% endfor %}

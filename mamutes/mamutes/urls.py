@@ -3,7 +3,7 @@ from django.conf.urls import handler404
 from django.urls import path, include
 from Users.views import login, register, recoverAccount, redefinePassword, pagConfig, editar_usuario
 from guest.views import index, competition, admission, control_admission
-from members.views import sidebar, create_task, Top,upload_photo, delete_task, home, kanban_view, create_event
+from members.views import sidebar, create_task, Top,upload_photo, delete_task, home, kanban_view, create_post_or_event
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -38,7 +38,7 @@ urlpatterns = [
     path('members/', include('members.urls')),
      path('foto/', upload_photo, name='upload_photo'),
     path('home/', home, name="home"),
-    path('create_event/', create_event, name='create_event'),
+    path('create_event/', create_post_or_event, name='create_post_or_event'),
     # stock
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

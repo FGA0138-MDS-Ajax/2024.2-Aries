@@ -2,8 +2,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
-from .forms import TaskForm, EventForm, BaseEventForm
-from .models import MembroEquipe, Task, Event, BaseEvent
+from .forms import TaskForm, EventForm, PostForm
+from .models import MembroEquipe, Task, Event, Post
 
 from rest_framework import viewsets
 from .models import Column, Task
@@ -29,42 +29,37 @@ def Top(request):
      return render(request, 'partials/Top.html')
 
 @login_required
-def create_event(request):
-    if request.method == 'POST':
-        base_event_form = BaseEventForm(request.POST)
-        
-        if base_event_form.is_valid():
-            base_event = base_event_form.save(commit=False)
-            base_event.member = request.user  
-            base_event.save()
-
-            print(f"Base event saved: {base_event}")  
-
-            if base_event.is_event:     
-                event_form = EventForm(request.POST)
-                event = event_form.save(commit=False)
-                event.base_event = base_event
-
-                if event_form.is_valid():
-                    
-                    event.save()
-
-                    print(f"Event saved: {event}")  
-
-                else:
-                    print(f"Event form errors: {event_form.errors}")  
-            else:
-                event_form = None  
-        else:
-            
-            event_form = None  
-
-    else:
-        base_event_form = BaseEventForm()
-        event_form = None  
+def create_post_or_event(request):
     
-    events = Event.objects.all()
-    base_events = BaseEvent.objects.all()    
+    if request.user.is_authenticated:
+        member = request.user
+    
+    if request.method == "POST":
+        # Verifica se é um evento
+        is_event = request.POST.get('is_event', False)
+
+        if is_event:  # Se for um evento
+            # Criação do evento
+            event_form = EventForm(request.POST)
+            if event_form.is_valid():
+                event = event_form.save(commit=False)
+                event.member = member
+                event.save()   # Salva o evento
+                
+        else:  # Se for apenas um post
+            # Criação do post
+            post_form = PostForm(request.POST)
+            if post_form.is_valid():
+                post = post_form.save(commit=False)
+                post.member = member
+                post.save()
+                return redirect('home')  # Redireciona para a lista de posts
+            else:
+                return redirect('home')
+    else:
+        post_form = PostForm()
+        event_form = EventForm()
+   
 
     return redirect('home')
 
@@ -222,6 +217,7 @@ def upload_photo(request):
         return redirect('profile_list')  # Redireciona para outra página
     return render(request, 'upload_photo.html')
 
+
 def profile_list(request):
     profiles = MembroEquipe.objects.all()
     for profile in profiles:
@@ -230,37 +226,18 @@ def profile_list(request):
             profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
     return render(request, 'profile_list.html', {'profiles': profiles})
 
-@login_required
-def home(request):
-    announcements = BaseEvent.objects.filter(is_event=False).order_by('-posted_at')
-    events = Event.objects.all()
-
-    for event in events:
-        try:
-            # Converte a string de data para um objeto datetime
-            event_date = datetime.strptime(event.event_date, "%Y-%m-%d").date()
-            event.day = event_date.day  # Salva o dia do evento
-            event.month = event_date.month  # Salva o mês do evento
-        
-        except ValueError:
-            # Se a data não for válida, define valores padrões
-            event.day = None
-            event.month = None
 
 
 def home(request):
-    announcements = BaseEvent.objects.filter(is_event=False).order_by('-posted_at')
+    announcements = Post.objects.all().order_by('-posted_at')
     events = Event.objects.all()
 
     for event in events:
-        try:
-            # Converte a string de data para um objeto datetime
-            event_date = datetime.strptime(event.event_date, "%Y-%m-%d").date()
-            event.day = event_date.day  # Salva o dia do evento
-            event.month = event_date.month  # Salva o mês do evento
-        
-        except ValueError:
-            # Se a data não for válida, define valores padrões
+        if event.event_date:
+            event.day = event.event_date.day  # Acessa diretamente o dia
+            event.month = event.event_date.month  # Acessa diretamente o mês
+        else:
+            # Se a data do evento não estiver presente, pode atribuir valores padrões
             event.day = None
             event.month = None
 

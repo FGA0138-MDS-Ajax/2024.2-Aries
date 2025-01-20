@@ -1,7 +1,7 @@
 {% load static %}
 
 <dialog id="modal">
-    <form class="newPost" method="POST" action="{% url 'create_event' %}">
+    <form class="newPost" method="POST" action="{% url 'create_post_or_event' %}">
         {% csrf_token %}
         <div class="close">
             <div id="btnClose" class="closeIcon">

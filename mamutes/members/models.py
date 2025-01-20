@@ -11,7 +11,7 @@ class Subtask(models.Model):
         return self.description
 
 
-class BaseEvent(models.Model):
+class Post(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     is_event = models.BooleanField(default=False)  
@@ -35,10 +35,15 @@ class BaseEvent(models.Model):
         abstract = False
 
 
+
 class Event(models.Model):
-    base_event = models.ForeignKey(BaseEvent, on_delete=models.CASCADE, blank=True, null=True)
-    event_date = models.CharField(max_length=255, null=True, blank=True)
-    event_time = models.CharField(max_length=255, null=True, blank=True)
+
+    member = models.ForeignKey(MembroEquipe, on_delete=models.CASCADE)
+
+    title = models.CharField(max_length=255, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    event_date = models.DateTimeField(max_length=255, null=True, blank=True)
+    event_time = models.TimeField(max_length=255, null=True, blank=True)
     location = models.CharField(max_length=255, null=True, blank=True)
     is_online = models.BooleanField(default=False) 
 

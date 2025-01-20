@@ -1,17 +1,19 @@
 from django import forms
-from .models import Task, Event, Meeting, Subtask, MembroEquipe, BaseEvent
+from .models import Task, Event, Meeting, Subtask, MembroEquipe, Post
 from django.forms.models import inlineformset_factory
 from datetime import datetime
 class SubtaskForm(forms.ModelForm):
     class Meta:
         model = Subtask
         fields = ['description', 'done']
-class BaseEventForm(forms.ModelForm):
-    class Meta:
-        model = BaseEvent
-        fields = ['title', 'description', 'is_event']
 
-    posted_at = forms.DateTimeField(widget=forms.TextInput(attrs={'readonly': 'readonly'}), required=False)    
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'description']
+
+        posted_at = forms.DateTimeField(widget=forms.TextInput(attrs={'readonly': 'readonly'}), required=False)
 
 class TaskForm(forms.ModelForm):
     class Meta:
@@ -32,11 +34,12 @@ class EventForm(forms.ModelForm):
     class Meta:
         model = Event
         fields = [
-            'base_event',
+            'title',
+            'description',
             'event_date',
             'location',
             'is_online',
-            'event_time'
+            'event_time',
         ]
 
 class MeetingForm(forms.ModelForm):
