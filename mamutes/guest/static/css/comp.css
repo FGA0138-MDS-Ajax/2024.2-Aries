@@ -215,8 +215,8 @@
 }
 
 .image7{
-    height: 100%;
-    width: auto;
+    /* height: 100%;
+    width: auto; */
     object-fit: cover;
 }
 
@@ -505,7 +505,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 16px;
     align-self: stretch;
 }
 
@@ -522,7 +522,7 @@
     color: #02004E;
     text-align: center;
     font-family: Inter;
-    font-size: 24px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -547,16 +547,17 @@
     display: flex;
     overflow: hidden;
     width: 100%;
+    padding: 16px;
 
 }
 
 .carrosselAirPlaneCards{
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
     transition: transform 0.5s ease-in-out;
     transform: translateX(0);
-    padding: 2px;
+    /* padding: 2px; */
     box-shadow: none;
 }
 
@@ -572,7 +573,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    min-width: 32%;
+    min-width: 30%;
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease;
 }
 
@@ -692,6 +693,17 @@
     letter-spacing: -0.154px;
     transition: all 0.3s ease;
 }
+
+.title-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    margin-bottom: 16px;
+    /* align-self: center; */
+}
+
 
 @media (max-width: 768px) {
     .icons{
