@@ -3,7 +3,7 @@
         <div class="headerEvent">
             <div class="dateIcon">
                 <p class="dateDay">{{ event.dayObj }}</p>
-                <p class="dateMonth">{{ event.monthObj }}</p>
+                <p class="dateMonth">{{ event.dateObj|date:"F"|slice:":3" }}</p>
             </div>
             <div class="titleEvent">
                 <p class="textTitleEvent">{{ event.base_event.title }}</p>
@@ -25,7 +25,8 @@
                     </div>
                     <p class="textLabel">Data</p>
                 </div>
-                <p class="subtextInfo">{{ event.event_date }}</p>
+                <p class="subtextInfo">{{ event.event_date|date:"d/m/Y" }}</p>
+                
             </div>
             <div class="infoEvent">
                 <div class="label">
@@ -36,7 +37,7 @@
                     </div>
                     <p class="textLabel">Hora</p>
                 </div>
-                <p class="subtextInfo">{{ event.event_time }}h</p>
+                <p class="subtextInfo">{{ event.event_time }}</p>
             </div>
             <div class="infoEvent">
                 <div class="label">

@@ -259,10 +259,14 @@ def home(request):
     for event in events_objects:
         try:
             event_date = datetime.strptime(event.event_date, "%Y-%m-%d").date()  # Converte a data do evento
+            event.event_date = datetime.strptime(event.event_date, "%Y-%m-%d").date()
+
             event.dayObj = event_date.day  # Salva o dia do evento
+            event.dateObj = event_date  # Salva o mês do evento
             event.monthObj = event_date.month  # Salva o mês do evento
         except ValueError:
             event.dayObj = None
+            event.dateObj = None
             event.monthObj = None
     
     # Converte as datas dos base_events para obter o dia e mês
