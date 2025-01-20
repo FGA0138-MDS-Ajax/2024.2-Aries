@@ -1,4 +1,4 @@
-{% for event in events %}
+{% for event in events_obj %}
     <div class="event">
         <div class="headerEvent">
             <div class="dateIcon">
@@ -7,7 +7,7 @@
             </div>
             <div class="titleEvent">
                 <p class="textTitleEvent">{{ event.title }}</p>
-                <p class="subtextTitleEvent">Publicado por {{ event.base_event.member.fullname}}</p>
+                <p class="subtextTitleEvent">Publicado por {{ event.member.fullname}}</p>
             </div>
             <div class="trashIcon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">

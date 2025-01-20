@@ -25,6 +25,10 @@ body{
     transition: width 1s ease;
 }
 
+<<<<<<<<< Temporary merge branch 1
+=========
+
+>>>>>>>>> Temporary merge branch 2
 .sidebar-central .arrow-icon {
     all: unset;
     display: flex;
