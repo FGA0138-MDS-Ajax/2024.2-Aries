@@ -232,16 +232,28 @@ def home(request):
     
     announcements = Post.objects.all().order_by('-posted_at')
     events_obj = Event.objects.all()
+    current_year = datetime.now().year
 
     
     for event in events_obj:
         if event.event_date:
             event.day = event.event_date.day  # Acessa diretamente o dia
             event.month = event.event_date.month  # Acessa diretamente o mês
+            
+            if event.event_date.year == current_year:
+                # Formato sem o ano
+                event.formatted_date = event.event_date.strftime("%d de %B")
+            else:
+            # Formato com o ano
+                event.formatted_date = event.event_date.strftime("%d de %B de %Y")
         else:
             # Se a data do evento não estiver presente, atribui valores padrão
             event.day = None
             event.month = None
+    
+    for event in events_obj:
+        if event.event_time:
+            event.formatted_time = event.event_time.strftime("%Hh%M")
 
     # Segunda parte - Calendário e Filtros
     selected_date = request.GET.get('date')

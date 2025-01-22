@@ -48,7 +48,7 @@ path{
     height: auto;
 }
 
-.org{
+/* .org{
     display: flex;
     height: calc(100% - 80px);
     background-color: #F2F2F2;
@@ -57,7 +57,7 @@ path{
     gap: 24px;
     flex: 1 0 0;
     align-self: stretch;
-}
+} */
 
 .mainHome{
     display: flex;
@@ -70,11 +70,11 @@ path{
     display: flex;
     padding-right: 8px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 16px;
     flex: 1 0 0;
     align-self: stretch;
-    overflow: hidden;
+    /* overflow: hidden; */
     overflow-y: auto;
 }
 .centerPanel{
@@ -315,7 +315,7 @@ path{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 4px;
     flex: 1 0 0;
 }
 #name{
@@ -411,8 +411,8 @@ path{
     padding: 10px;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    border-radius: 10px;
+    /* gap: 8px; */
+    border-radius: 8px;
     background: linear-gradient(143deg, #1F1A99 0%, #0075F6 89.85%);
 }
 .dateDay{
@@ -446,7 +446,7 @@ path{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 4px;
     flex: 1 0 0;
 }
 .textTitleEvent{
@@ -467,7 +467,7 @@ path{
     leading-trim: both;
     text-edge: cap;
     font-family: Inter;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%; /* 12px */
@@ -602,7 +602,7 @@ path{
     gap: 8px;
 }
 
-.arrow-icon{
+.arrows-date .arrow-icon{
     all: unset;
     display: flex;
     width: 16px;
@@ -614,7 +614,7 @@ path{
     cursor: pointer;
 }
 
-.arrow-icon:hover{
+.arrows-date .arrow-icon:hover{
     background: #f2f2f2;
 }
 
@@ -698,6 +698,7 @@ path{
     align-items: center;
     gap: 10px;
     border-radius: 24px;
+    cursor: pointer;
 }
 .daySemiSelected{
     display: flex;
@@ -732,6 +733,7 @@ path{
     letter-spacing: -0.132px;
     text-transform: uppercase;
 }
+
 .textDateSemiSelected{
     flex: 1 0 0;
     color: #0075F6;
@@ -775,7 +777,7 @@ path{
     flex-direction: column;
     align-items: flex-start;
     border-radius: 16px;
-    border: 1px solid #FEFEFE;
+    outline: 1px solid #FEFEFE;
     background: #1F1A99;
 }
 /* .taskMarkerEvent{
@@ -869,7 +871,7 @@ path{
 }
 .todayEvents{
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
     overflow-y: auto;
     padding-right: 8px;
     padding-bottom: 16px;
