@@ -70,7 +70,9 @@
               <img title="Nome Membro" src="{{ member.photo }}" alt="Responsável" class="photo-view-task">
             </div>
           {% endfor %}
+          {% if members_count > 0 %}
             <div style="pointer-events: none;" class="pic-responsible" style="outline-color: #f2f2f2; cursor: pointer;">+{{members_count}}</div>
+          {% endif %}
           </div>
         </div>
         <div class="abas-tasks">
