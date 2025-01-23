@@ -112,6 +112,7 @@ input[type="file"] {
   border-radius: 50%;
   cursor: pointer;
   background: #0075F6;
+  justify-content: center;
 }
 
 .minhaconta-page .popUpChangePic{
@@ -238,6 +239,7 @@ input[type="file"] {
 .minhaconta-page .meus-dados {
   display: flex;
   flex-direction: column;
+  gap: 24px;
   min-width: 200px;
   align-items: flex-start;
   position: relative;
@@ -270,6 +272,14 @@ input[type="file"] {
   flex: 0 0 auto;
   position: relative;
   align-self: stretch;
+}
+
+.minhaconta-page .form-edit-infos {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  width: 100%;
+  gap: 32px;
 }
 
 .minhaconta-page .text-wrapper-3 {
@@ -436,6 +446,7 @@ input[type="file"] {
   min-width: 200px;
   border-radius: 8px;
   flex: 1 0 0;
+  cursor: pointer;
 }
 
 .minhaconta-page .text-wrapper-7 {
@@ -464,6 +475,7 @@ input[type="file"] {
   min-width: 200px;
   border-radius: 8px;
   flex: 1 0 0;
+  cursor: pointer;
 }
 
 .minhaconta-page .text-wrapper-8 {

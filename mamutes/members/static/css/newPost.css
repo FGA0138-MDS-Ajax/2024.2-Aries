@@ -74,17 +74,18 @@ dialog[open]{
     display: flex;
     width: 32px;
     height: 32px;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    /* flex: 1 0 0; */
+    /* align-self: stretch; */
+    border-radius: 8px;
+    outline: solid 1px #e5e5e5;
 }
 .prfPicture{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1 0 0;
-    align-self: stretch;
-    border-radius: 8px;
+    /* display: flex; */
+    object-fit: cover;
 }
 .principalModal{
     display: flex;
@@ -269,6 +270,7 @@ input::placeholder{
     align-items: flex-start;
     gap: 8px;
     flex: 1 0 0;
+    min-width: 160px;
 }
 .inputLocEvent{
     display: flex;
@@ -323,4 +325,26 @@ input::placeholder{
     font-weight: 600;
     line-height: 150%; /* 18px */
     letter-spacing: -0.132px;
+}
+
+@media (max-width: 768px) {
+    .centerPost{
+        flex-direction: column;
+    }
+
+    dialog{
+        min-width: 0;
+    }
+
+    .bodyModal{
+        padding-right: 0;
+    }
+
+    .newPost{
+        padding: 16px;
+    }
+
+    .profileP{
+        display: none;
+    }
 }

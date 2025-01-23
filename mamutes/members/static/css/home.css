@@ -66,16 +66,27 @@ path{
     flex: 1 0 0;
     align-self: stretch;
 }
+.centralCentralHome{
+    display: flex;
+    flex: 1 0 0;
+    align-self: stretch;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+
+}
+
 .centralHome{
     display: flex;
     /* padding-right: 8px; */
     flex-direction: column;
     align-items: center;
     gap: 24px;
-    flex: 1 0 0;
-    align-self: stretch;
+    /* flex: 1 0 0;
+    align-self: stretch; */
     /* overflow: hidden; */
-    overflow-y: auto;
+
+    max-width: 900px;
 }
 .centerPanel{
     display: flex;
@@ -249,7 +260,7 @@ path{
     letter-spacing: -0.132px;
 }
 .nothingToShow{
-    display: flex;
+    display: none;
     align-items: center;
     gap: 8px;
     align-self: stretch;
@@ -563,7 +574,7 @@ path{
     background: #FEFEFE;
 }
 
-.myAgendaButton{
+.show-modal{
     display: none;
     padding: 24px;
     flex-direction: row;
@@ -988,6 +999,7 @@ path{
     align-items: flex-start;
     align-self: stretch;
     background: #0075F6;
+    border-radius: 8px 0px 0px 8px;
 }
 .contentImportantEvent{
     display: flex;
@@ -1136,8 +1148,19 @@ path{
         min-width: 0;
     }
 
-    .myAgendaButton{
+    .show-modal{
         display: flex;
+    }
+
+    .actions{
+        gap: 8px;
+        display: flex;
+
+    }
+
+    .textContent{
+        font-size: 12px;
+        min-width: 40px;
     }
 }
 
@@ -1157,17 +1180,9 @@ path{
         gap: 8px;
     } */
 
-    /* .actions{
-        gap: 8px;
-    } */
-
-    .textContent{
-        font-size: 12px;
-    }
-
     .centralHome{
-        padding: 16px;
-        padding-inline: 24px;
+        padding-inline: 16px;
+        padding-block: 0;
     }
 
     .announcement{

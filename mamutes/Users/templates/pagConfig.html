@@ -1,4 +1,30 @@
-<!DOCTYPE html>
+{% extends 'baseMembers.html' %} 
+{% load static %}
+
+{% block content %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/pagConfig.css' %}">
+  <script src="{% static 'scripts/showDados.js' %}" defer></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet" />
+  <style>
+    .org{
+      overflow: hidden;
+      overflow-y: auto;
+    }
+
+    .sidebar-central{
+      display: none;
+    }
+
+    .minhaconta-page{
+      width: 100%;
+      padding: 0px 12%;
+    }
+  </style>
+{% endblock %}
+
+<!-- <!DOCTYPE html>
 {% load static %}
 <html lang="pt-br">
 <head>
@@ -6,11 +32,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/pagConfig.css' %}">
     <script src="{% static 'scripts/showDados.js' %}" defer></script>
-    <title>Mamutes do Cerrado | Configuração</title>
+    <title>Configurações | Mamutes do Cerrado</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet" />
 
 </head>
-<body>
+<body> -->
     <div  class="minhaconta-page">
       <div class="central-minha-conta">
         <div class="inicio-perfil-user">
@@ -46,7 +72,7 @@
             </div>
           </div>
           <div class="infos-membro">
-            <div class="text-wrapper">{{ user.username }}</div>
+            <div class="text-wrapper">@{{ user.username }}</div>
             <div class="div">{{ user.fullname }}</div>
             <div class="infos-cargo-area">
               <p class="p">Gerente de operações | Capitão | Piloto</p>
@@ -87,32 +113,32 @@
           
          <div id="userEdit" class="form-principal-input" style="display: none;">
             <div class="name-data-2"><div class="text-wrapper-3">Meus dados</div></div>
-            <form method="POST" action="{% url 'editar_usuario' %}">
+            <form class="form-edit-infos" method="POST" action="{% url 'editar_usuario' %}">
               {% csrf_token %}
               <div class="div-2">
                 <div class="text-wrapper-4">Nome completo</div>
-                <div class="div-wrapper-2">
-                  <input type="text" name="fullname" value="{{ user.fullname }}" class="text-wrapper-6">
-                </div>
+                <input type="text" name="fullname" value="{{ user.fullname }}" class="div-wrapper-2">
+                <!-- <div class="div-wrapper-2">
+                </div> -->
               </div>
               <div class="div-2">
                 <div class="text-wrapper-4">E-mail</div>
-                <div class="div-wrapper-2">
-                  <input type="email" name="email" value="{{ user.email }}" class="text-wrapper-6">
-                </div>
+                <input type="email" name="email" value="{{ user.email }}" class="div-wrapper-2"">
+                <!-- <div class="div-wrapper-2">
+                </div> -->
               </div>
               <div class="user-contato">
                 <div class="div-3">
                   <div class="text-wrapper-4">Nome de usuário</div>
-                  <div class="div-wrapper-2">
-                    <input type="text" name="username" value="{{ user.username }}" class="text-wrapper-6">
-                  </div>
+                  <input type="text" name="username" value="{{ user.username }}" class="div-wrapper-2"">
+                  <!-- <div class="div-wrapper-2">
+                  </div> -->
                 </div>
                 <div class="div-3">
                   <div class="text-wrapper-4">Contato</div>
-                  <div class="div-wrapper-2">
-                    <input type="text" name="phone" value="{{ user.phone }}" class="text-wrapper-6">
-                  </div>
+                  <input type="text" name="phone" value="{{ user.phone }}" class="div-wrapper-2"">
+                  <!-- <div class="div-wrapper-2">
+                  </div> -->
                 </div>
               </div>
               <div class="botoes">
@@ -153,7 +179,7 @@
         </div>
       </div>
     </div>
-  </body>
+  <!-- </body> -->
 
   <script>
     const fileInput = document.getElementById("fileInput");
@@ -195,4 +221,6 @@
 
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
-</html>
+<!-- </html> -->
+
+{% endblock %}

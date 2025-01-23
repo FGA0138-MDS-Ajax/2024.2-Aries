@@ -13,7 +13,7 @@
         <div class="bodyModal">
             <div class="centerPost">
                 <div class="profileP">
-                    <img class="prfPicture" src="{% static 'img/example_profile.png' %}" alt="Erro ao carregar imagem">
+                    <img class="prfPicture" src="{{ user.photo.url }}" alt="Erro ao carregar imagem">
                 </div>
                 <div class="principalModal">
                     <div class="inputNewPost">
@@ -61,3 +61,26 @@
         </div>
     </form>
 </dialog>
+
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const eventCheckbox = document.getElementById("eventcheckbox");
+        const dateInput = document.getElementById("dateEvent");
+
+        // Função para alternar o atributo 'required' no input de data
+        function toggleRequired() {
+            if (eventCheckbox.checked) {
+                dateInput.setAttribute("required", "required");
+            } else {
+                dateInput.removeAttribute("required");
+            }
+        }
+
+        // Atualiza ao carregar a página
+        toggleRequired();
+
+        // Atualiza ao mudar o estado do checkbox
+        eventCheckbox.addEventListener("change", toggleRequired);
+    });
+</script>
+ -->
