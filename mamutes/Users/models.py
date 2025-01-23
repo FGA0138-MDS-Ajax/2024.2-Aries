@@ -34,3 +34,5 @@ class MembroEquipe(AbstractUser):
 
     def __str__(self):
         return self.username
+    def get_area_member(self):
+        return self.testearea

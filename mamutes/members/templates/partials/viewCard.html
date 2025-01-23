@@ -150,7 +150,7 @@
                         <h2 class="head-label">Editar tarefa</h2>
                         <form method="POST" action="{% url 'edit_task' %}" class="form">
                         {% csrf_token %}
-                            <input type="text"  name="id_task" value="${dataID}">
+                            <input type="text" style="display:none;" name="id_task" value="${dataID}">
                             <div class="description-task">
                                 <label class="title-form">Titulo</label>
                                 <input id='title' type="text" class="Titulo-input" name="title" placeholder="Entitule a tarefa" required value="${title}">
@@ -175,8 +175,8 @@
                         
                             <div class="status-data" style="display: flex; flex-direction: row;">
                                 <div class="description-task">
-                                    <label class="title-form">Status</label>
-                                    <select class="option_field" name="status" id="status" aria-placeholder="Andamento da tarefa">
+                                    <label class="title-form">Prioridade</label>
+                                    <select class="option_field" name="priority" id="status" aria-placeholder="Andamento da tarefa">
                                         <option value="1">Baixa prioridade</option>
                                         <option value="2">Média prioridade</option>
                                         <option value="3">Alta prioridade</option>

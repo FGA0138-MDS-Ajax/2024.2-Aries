@@ -57,7 +57,8 @@ def edit_task(request):
         description = request.POST.get('description')
         priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo')
-
+        print(priority)
+        print("AAAAAAAAAAA")
         if task_id:
             task = get_object_or_404(Task, id=task_id)
             if title:
@@ -102,21 +103,31 @@ def kanban_view(request):
         tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
     
     items = []
-    profiles = MembroEquipe.objects.all()
     members = []
-    
     all_areas = Area.objects.all()
-    # Processa os membros da equipe
-    for profile in profiles:
-        if profile.photo:
-            profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
+    profiles = MembroEquipe.objects.all()
+
+    if area_id:
+        profileFiltered = MembroEquipe.objects.filter(testearea=area_id);
+    else:
+        profileFiltered = MembroEquipe.objects.all();
+
+    for profile in profileFiltered:
         
+        areas = [area.name for area in profile.testearea.all()]
         members.append({
             'email': profile.email,
             'fullname': profile.fullname,
             'username': profile.username,
             'photo': profile.photo,
+            'area': ", ".join(areas),
         })
+    members_count = len(members)-5
+    # Processa os membros da equipe
+    for profile in profiles:
+        if profile.photo:
+            profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
+
     total_tasks = tasks.count()
     completed_task_count = tasks.filter(status='Concluída').count()
     Em_Progresso_task_count = tasks.filter(status='Em Progresso').count()
@@ -205,6 +216,7 @@ def kanban_view(request):
         'pending_percentage': pending_percentage,
         'in_progress_percentage': in_progress_percentage,
         'completed_percentage': completed_percentage,
+        'members_count': members_count
     })
 
 
