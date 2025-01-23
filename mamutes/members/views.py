@@ -254,6 +254,8 @@ def home(request):
     for event in events_obj:
         if event.event_time:
             event.formatted_time = event.event_time.strftime("%Hh%M")
+        else:
+            event.formatted_time = None
 
     # Segunda parte - Calendário e Filtros
     selected_date = request.GET.get('date')
@@ -264,7 +266,7 @@ def home(request):
     weeks = get_calendar_data(year, month, now, request.user)
 
     # Aplica os filtros de eventos, tarefas e reuniões
-    events_filtered = filters(Event, 'event_date', year, month, day)
+    
     tasks = filters(Task, 'creation_date', year, month, day, request.user)
     meetings = filters(Meeting, 'meeting_date', year, month, day).filter(areas__membros=request.user).distinct()
 
@@ -278,7 +280,6 @@ def home(request):
         "month": month,
         "month_name": calendar.month_name[month],
         "weeks": weeks,
-        "events": events_filtered,
         "events_obj": events_obj,
         "announcements": announcements,
         "tasks": tasks,
@@ -364,14 +365,14 @@ def get_events_tasks(request):
         tasks = filters(Task, 'creation_date', year, month, day, request.user)
         meetings = filters(Meeting, 'meeting_date', year, month, day).filter(areas__membros=request.user).distinct()
 
-        events_data = [{"title": event.title, "time": localtime(event.event_date).strftime('%H:%M')} for event in events]
-        tasks_data = [{"title": task.title, "time": localtime(task.creation_date).strftime('%H:%M')} for task in tasks]
+        events_data = [{"title": event.title, "time": event.event_time.strftime('%Hh%M') if event.event_time else None} for event in events]
+        tasks_data = [{"title": task.title, "time": localtime(task.creation_date).strftime('%Hh%M')} for task in tasks]
         meetings_data = get_meeting(meetings)
 
         return JsonResponse({"events": events_data, "tasks": tasks_data, "meetings": meetings_data})
     else:
         return JsonResponse({"error": "Invalid date"}, status=400)
-    
+
 def previous_month(request):
     current_date = parse_date(request.GET.get('date'))
     if current_date:
@@ -390,4 +391,13 @@ def next_month(request):
         return redirect(f'/home/?date={new_date.strftime("%Y-%m-%d")}')
     return redirect('home')
 
+def delete_announcement(request, announcement_id):
+    announcement = get_object_or_404(Post, id=announcement_id)
+    announcement.delete()
+    return redirect('home')
+
+def delete_event(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    event.delete()
+    return redirect('home')
 

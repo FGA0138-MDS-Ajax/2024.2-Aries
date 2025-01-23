@@ -93,28 +93,14 @@
                         </div>
                     {% endif %}
                     
-                    {% if events %}
-                        {% for event in events %}
+                    {% if events_obj %}
+                        {% for event in events_obj %}
                             <div class="importantEvent">
                                 <div class="borderImportantEvent"></div>
                                 <div class="contentImportantEvent">
                                     <h4>{{ event.title }}</h4>
                                     <div class="moreInfoEvent">
-                                        <p class="hourEvent">{{ event.event_date|date:"H:i" }} - {{ event.event_date|date:"H:i" }}</p>
-                                        {% comment %} ESSE É PARA REUNIOES APENAS
-                                        <div class="peopleMeeting">
-                                            <div class="profilePic">
-                                                <img class="profileImg" src="{% static 'img/tag-img.png' %}" alt="Erro ao carregar imagem">
-                                            </div>
-                                            <div class="profilePic">
-                                                <img class="profileImg" src="{% static 'img/tag-img (1).png' %}" alt="Erro ao carregar imagem">
-                                            </div>
-                                            <div class="profilePic">
-                                                <img class="profileImg" src="{% static 'img/tag-img (2).png' %}" alt="Erro ao carregar imagem">
-                                            </div>
-                                            <div class="profilePic" style="background-color: #DDD;">
-                                                <p class="textPlusPeople">+2</p>
-                                            </div>                                        </div> {% endcomment %}
+                                        <p class="hourEvent">{{ event.formatted_time }}</p>
                                     </div>
                                 </div>
                             </div>
