@@ -270,3 +270,6 @@ def profile_list(request):
 def home(request):
     return render(request, "home.html")
 
+def taskBoard(request):
+    tasks = Task.objects.all()  
+    return render(request, 'taskBoard.html', {'tasks': tasks})
