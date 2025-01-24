@@ -2,7 +2,7 @@
     width: 100%; /* Ocupa toda a largura */
     max-width: 1500px; /* Define um limite máximo */
     font-family: Inter;
-    max-height: 600px; /* Altura máxima para o contêiner */
+    max-height: 500px; /* Altura máxima para o contêiner */
     overflow-y: auto; /* Adiciona a rolagem vertical */
     margin-right: 20px;
     text-align: center;
@@ -14,7 +14,6 @@
     width: 100%;
     max-width: 1500px;
     font-family: Inter;
-    max-height: 600px;
     overflow-y: auto;
     border-collapse: separate !important;
     border-spacing: 0 10px !important;
@@ -200,3 +199,18 @@
     position: relative;
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    .table-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td, th {
+        padding: 10px;
+    }
+}
