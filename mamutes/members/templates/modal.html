@@ -32,7 +32,7 @@
             </label>
           </div>
         </div>
-       
+        <input style="display: none;" type="text" value="" name="inputTask" class="inputTask">
        
         <div class="status-data" style="display: flex; flex-direction: row;">
           <div class="description-task">
@@ -89,11 +89,13 @@
 <script>
 document.getElementById('subtask-container').addEventListener('keydown', function (e) {
   const currentInput = e.target;
-
+  
   // Verifica se a tecla pressionada foi Enter e o campo atual é o de subtarefa
   if (e.key === 'Enter' && currentInput.classList.contains('label-subtask')) {
     e.preventDefault(); // Impede a quebra de linha no campo de texto
-
+    // inputTask.value += currentInput.value;
+    // inputTask.value += ',';
+    
     // Verifica se o campo de subtarefa está vazio
     if (currentInput.value.trim() === '') {
       // Sai do campo (move o foco para o próximo campo de subtarefa, se houver)
@@ -101,6 +103,7 @@ document.getElementById('subtask-container').addEventListener('keydown', functio
       if (nextInput) {
         nextInput.focus(); // Move o foco para o próximo campo de subtarefa
       }
+
       return; // Não cria o novo subtask-item
     }
 
@@ -119,6 +122,21 @@ document.getElementById('subtask-container').addEventListener('keydown', functio
     // Foca automaticamente no novo input
     newSubtask.querySelector('.label-subtask').focus();
   }
+});
+const inputTask = document.querySelector(".inputTask");
+const form = document.querySelector(".form");
+
+form.addEventListener("submit", (event) => {
+
+  const inputsItem = form.querySelectorAll(".label-subtask");
+
+  inputsItem.forEach((element) => {
+    if(element.value.trim() !== ""){
+      inputTask.value += element.value;
+      inputTask.value += ',';
+    }
+  });
+
 });
 
 </script>

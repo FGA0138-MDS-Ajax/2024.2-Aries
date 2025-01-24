@@ -187,6 +187,10 @@ def kanban_view(request):
         responsible = request.POST.get('responsibles')
         area_id = request.POST.get('area_id')
         responsible = list(map(int, responsible.split(',')))
+        subtask = request.POST.get('inputTask')
+        
+        subtask = subtask.split(',')
+        subtask.pop()
 
         # Cria a instância de Task
         task = Task.objects.create(
