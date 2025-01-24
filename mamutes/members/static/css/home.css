@@ -61,7 +61,7 @@ path{
 
 .mainHome{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 24px;
     flex: 1 0 0;
     align-self: stretch;
@@ -73,7 +73,8 @@ path{
     align-items: flex-start;
     justify-content: center;
     overflow-y: auto;
-
+    padding: 0;
+    
 }
 
 .centralHome{
@@ -82,6 +83,7 @@ path{
     flex-direction: column;
     align-items: center;
     gap: 24px;
+    width: 100%;
     /* flex: 1 0 0;
     align-self: stretch; */
     /* overflow: hidden; */
@@ -1113,16 +1115,21 @@ path{
     .calendarHome{
         display: none;
     }
+
+    .todayEvents{
+        overflow-y: unset;
+    }
     
 
 
     .centralHome{
-        padding: 16px;
+        /* padding: 16px; */
         height: 100%;
         overflow: hidden;
         overflow-y: auto;
         /* max-width: 600px; */
         padding-inline: 8%;
+        padding-block: 16px;
     }
 
     .mainHome{
@@ -1162,6 +1169,15 @@ path{
         font-size: 12px;
         min-width: 40px;
     }
+
+    .org{
+        padding-top: 64px;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -1182,7 +1198,7 @@ path{
 
     .centralHome{
         padding-inline: 16px;
-        padding-block: 0;
+        /* padding-block: 0; */
     }
 
     .announcement{
@@ -1199,5 +1215,9 @@ path{
 
     .label{
         gap: 4px;
+    }
+
+    .org{
+        padding-top: 48px
     }
 }

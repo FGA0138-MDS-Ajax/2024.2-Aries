@@ -92,7 +92,9 @@
             </div>
         </div>
         <div class="calendarDiv">
-            {% include 'partials/_calendar.html' %}
+            <div class="calendarHome">
+                {% include 'partials/_calendar.html' %}
+            </div>
         </div>
         {% include 'newPost.html' %}
         
@@ -103,7 +105,9 @@
                     <div class="drag-icon"><span></span></div>
                 </div>
                 <div class="body">
-                    <!-- {% include 'partials/_calendar.html' %} -->
+                    <div style="display: flex; flex-direction: column; width: 100%; max-width: 600px; gap: 16px;">
+                        {% include 'partials/_calendar.html' %}
+                    </div>
                 </div>
             </div>
         </div>

@@ -69,7 +69,8 @@ a {
   align-items: center;
   justify-content: center;
   position: relative;
-  /* border-radius: 50%; */
+  border-radius: 50%;
+  outline: solid 1px #bbbbbb;
 }
 
 .minhaconta-page .div-tag-img:hover {
@@ -142,6 +143,7 @@ input[type="file"] {
 
 .minhaconta-page .popUpChangePic.open{
   display: flex;
+  z-index: 2000;
 }
 
 .optionProfilePic{
@@ -548,12 +550,40 @@ input[type="file"] {
   .minhaconta-page{
     padding: 40px 48px;
   }
+
+  .minhaconta-page{
+    overflow: hidden;
+    overflow-y: auto;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .org{
+    padding-top: 64px;
+  }
+
+  .minhaconta-page{
+    padding-block: 16px;
+  }
+
+  .minhaconta-page .central-minha-conta{
+    margin-block: 16px;
+  }
 }
 
 @media (max-width: 480px) {
-  .minhaconta-page{
-    padding: 24px 0 0 0;
+  .org{
+    padding-top: 48px;
   }
+
+  .minhaconta-page{
+    padding-block: 16px;
+  }
+
+  /* .minhaconta-page{
+    padding: 24px 0 0 0;
+  } */
 
   .minhaconta-page .central-minha-conta{
     padding: 32px 16px;
