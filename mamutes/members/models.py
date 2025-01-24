@@ -1,14 +1,6 @@
 from django.db import models
 from Users.models import MembroEquipe, Area
 
-class Subtask(models.Model):
-    description = models.TextField()
-    done = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.description
-
-
 class BaseEvent(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -43,8 +35,8 @@ class Task(models.Model):
     Prazo = models.DateField(null=True, blank=True)
     area = models.ManyToManyField(Area, related_name='areatask', blank=True)
     responsible = models.ManyToManyField(MembroEquipe)
-    has_subtasks = models.BooleanField(default=False)  
-    subtasks = models.ManyToManyField(Subtask, related_name='tasks', blank=True)  # Relacionamento de muitos para muitos com Subtask
+    has_subtasks = models.BooleanField(default=False)
+    vetor_subtasks = models.CharField(max_length=500, null=True, blank=True)  
     class PriorityChoices(models.IntegerChoices):
         LOW = 1, 'Baixa Prioridade'
         MEDIUM = 2, 'Média Prioridade'
@@ -75,6 +67,16 @@ class Task(models.Model):
 
     def __str__(self):
         return f"{self.description} - {self.status}"
+
+
+class Subtask(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name="subtasks")
+    description = models.TextField()
+    done = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.description
+
 
 
 class Meeting(models.Model):

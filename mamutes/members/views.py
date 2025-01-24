@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
 from .forms import TaskForm
-from .models import MembroEquipe, Task,Area
+from .models import MembroEquipe, Task, Area, Subtask
 from django.http import HttpResponseRedirect
 
 from rest_framework import viewsets
@@ -122,6 +122,7 @@ def kanban_view(request):
             'photo': profile.photo,
             'area': ", ".join(areas),
         })
+
     members_count = len(members)-5
     # Processa os membros da equipe
     for profile in profiles:
@@ -139,7 +140,9 @@ def kanban_view(request):
         completed_percentage = round((completed_task_count / total_tasks) * 100)
     else:
         pending_percentage = in_progress_percentage = completed_percentage = 0
+    
     # Processa as tarefas
+    
     for task in tasks:
         prazo = task.Prazo
         today = datetime.now().date()
@@ -160,6 +163,11 @@ def kanban_view(request):
             else:
                 responsible_photos.append(None)
         
+        
+
+        subtasks = Subtask.objects.filter(task=task)
+        print(f"Subtarefas para a tarefa {task.id}: {[subtask.description for subtask in subtasks]}")
+
         pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
         items.append({
             'id': task.id,
@@ -175,6 +183,7 @@ def kanban_view(request):
             'responsible_photos': responsible_photos,
             'responsible_count': task.responsible.count(),
             'pair_responsible_photo': pair_r_p,
+            'subtasks': subtasks,
         })
     
     # Adicionar nova tarefa via POST
@@ -187,10 +196,10 @@ def kanban_view(request):
         responsible = request.POST.get('responsibles')
         area_id = request.POST.get('area_id')
         responsible = list(map(int, responsible.split(',')))
-        subtask = request.POST.get('inputTask')
+        subtasks_input = request.POST.get('inputTask')
         
-        subtask = subtask.split(',')
-        subtask.pop()
+        subtasks_list = subtasks_input.split(',')
+        subtasks_list.pop() 
 
         # Cria a instância de Task
         task = Task.objects.create(
@@ -202,6 +211,13 @@ def kanban_view(request):
             
         )
         task.area.set(area_id)
+
+        for subtask_title in subtasks_list:
+            subtask = Subtask.objects.create(
+                description=subtask_title,  # Aqui você pode atribuir mais campos, se necessário
+                task=task,  # Associando a subtask à task recém-criada
+                done = False
+            )
 
         responsible_members = MembroEquipe.objects.filter(id__in=responsible)
         task.responsible.set(responsible_members)

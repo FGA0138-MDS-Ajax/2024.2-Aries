@@ -40,16 +40,15 @@
             <div class="subtask-newTask">
                 <h2>Subtarefas</h2>
                 <div>
-                    <label class="subtask-item">
-                        <input type="checkbox" class="checkbox-subtask">
-                        <span class="checkmark"></span>
-                        <p>Sim</p>
-                    </label>
-                    <label class="subtask-item">
-                        <input type="checkbox" class="checkbox-subtask">
-                        <span class="checkmark"></span>
-                        <p>Não</p>
-                    </label>
+                    {% for subtask in subtasks %}
+                        <label class="subtask-item">
+                            <input type="checkbox" class="checkbox-subtask" {% if subtask.done %}checked{% endif %}>
+                            <span class="checkmark"></span>
+                            <p>{{ subtask.description }}</p> <!-- Exibe a descrição da subtask -->
+                        </label>
+                    {% empty %}
+                        <p>Não há subtarefas para esta task.</p>
+                    {% endfor %}
                 </div>
             </div>
             <div class="statusData">
