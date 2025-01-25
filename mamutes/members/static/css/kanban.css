@@ -28,8 +28,20 @@ input{
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
-  position: relative;
-  background-color: #f2f2f2;
+  /* position: relative; */
+  /* background-color: #f2f2f2; */
+  width: 100%;
+  flex: 1 0 0;
+  overflow: hidden;
+}
+
+.board-conteiner{
+  flex-direction: column;
+  display:flex;
+  height: 100%;
+  width: 100%;
+  margin-inline: 10px;
+  overflow: hidden;
 }
 
 .header-tasks-page {
@@ -97,7 +109,7 @@ input{
  .text-wrapper {
   position: relative;
   width: fit-content;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #fdfdfd;
   font-size: 16px;
@@ -109,7 +121,7 @@ input{
  .text-wrapper-2 {
   position: relative;
   width: fit-content;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #1e1e1e;
   font-size: 20px;
@@ -219,7 +231,7 @@ input{
  .text-wrapper-3 {
   position: relative;
   width: fit-content;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #8a8a8a;
   font-size: 12px;
@@ -266,7 +278,7 @@ input{
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #0075f6;
   font-size: 14px;
@@ -295,7 +307,7 @@ input{
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #808080;
   font-size: 14px;
@@ -309,29 +321,22 @@ input{
   -webkit-box-orient: vertical;
 }
 
+.box-icon{
+  display: flex;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
  .actions {
   display: flex;
   min-width: 192px;
   align-items: center;
   justify-content: flex-end;
-  gap: 8px;
-  position: relative;
-  flex: 1;
-  flex-grow: 1;
+  gap: 8px 8px;
+  flex-wrap: wrap;
 }
 
- .my-tasks-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px;
-  position: relative;
-  flex: 0 0 auto;
-  border-radius: 8px;
-  border: 1px solid;
-  border-color: #717171;
-}
 
  .text-wrapper-6 {
   position: relative;
@@ -347,25 +352,39 @@ input{
   white-space: nowrap;
 }
 
- .my-tasks-button-2 {
+.my-tasks-button {
   display: inline-flex;
-  align-items: center;
+  padding-inline: 12px;
+  height: 36px;
   justify-content: center;
+  align-items: center;
   gap: 10px;
-  padding: 12px;
-  position: relative;
-  flex: 0 0 auto;
-  background-color: #1e1e1e;
   border-radius: 8px;
-  border: 1px solid;
-  border-color: #717171;
+  border: 1px solid #717171;
+  overflow: hidden;
+  color: #717171;
+  text-align: center;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.132px;
+  pointer-events: all;
+  background: transparent;
 }
+
+.my-tasks-button.active {
+  color: #FEFEFE;
+  background: #1E1E1E;
+}
+
 
  .text-wrapper-7 {
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #fdfdfd;
   font-size: 12px;
@@ -375,22 +394,34 @@ input{
   white-space: nowrap;
 }
 
- .action {
+ .action-new-task {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px;
+  padding-inline: 12px;
+  height: 36px;
   background-color: #1f1a99;
   border-radius: 8px;
   position: relative;
   flex: 0 0 auto;
+  cursor: pointer;
+
+  color: #FEFEFE;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 14.4px */
+  letter-spacing: -0.132px;
 }
 
- .box-icon {
+ /* .box-icon {
   position: relative;
   width: 12px;
   height: 12px;
-}
+} */
 
  .text-wrapper-8 {
   position: relative;
@@ -406,15 +437,18 @@ input{
 
  .boards {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  flex: 1;
+  min-width: 600px;
+  align-items: center;
+  gap: 16px;
+  flex: 1 0 0;
   align-self: stretch;
+<<<<<<< HEAD
   width: 100%;
   flex-grow: 1;
   overflow-y: auto;
   
+=======
+>>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
 }
 
  .boards::-webkit-scrollbar {
@@ -427,53 +461,64 @@ input{
   min-width: 600px;
   align-items: center;
   gap: 16px;
-  position: relative;
-  flex: 1;
+  flex: 1 0 0;
   align-self: stretch;
+<<<<<<< HEAD
   width: 100%;
   flex-grow: 1;
   margin-top: 15px;
   overflow-y: auto;
+=======
+  overflow-x: auto;
+>>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
 }
 
  .board {
-  gap: 8px;
-  flex: 1;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  position: relative;
+  gap: 8px;
+  flex: 1 0 0;
   align-self: stretch;
+<<<<<<< HEAD
   overflow-y: auto;
+=======
+  min-width: 152px;
+>>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
 }
 
  .board-title {
-  width: 100%;
-  flex: 0 0 auto;
-  border-radius: 8px;
-  overflow: hidden;
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
-  position: relative;
   align-self: stretch;
-  border-radius: 18px;
+  border-radius: 8px;
+  background: #FEFEFE;
+  overflow: hidden;
 }
 
  .title {
+<<<<<<< HEAD
   background-color: #fefefe;
   gap: 8px 10px;
   padding: 16px;
+=======
+>>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  padding: 16px;
   justify-content: space-between;
-  position: relative;
+  align-items: center;
+  align-content: center;
+  row-gap: 8px;
   align-self: stretch;
+<<<<<<< HEAD
   width: 100%;
   flex: 0 0 auto;
   border-radius: 18px;
+=======
+  flex-wrap: wrap;
+>>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
 }
 
  .text-wrapper-9 {
@@ -483,7 +528,7 @@ input{
   line-height: 21px;
   position: relative;
   width: fit-content;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -506,7 +551,7 @@ input{
   position: relative;
   align-self: stretch;
   margin-top: -1.00px;
-  font-family: "Inter-Medium", Helvetica;
+  font-family: Inter;
   font-weight: 500;
   font-size: 10px;
   letter-spacing: -0.11px;
@@ -519,13 +564,25 @@ input{
 }
 
  .progress-bar {
+<<<<<<< HEAD
   position: relative;
   padding: 0%;
   margin: 0%;
   width: 144px;
   height:4px;
   background-color: #d70000;
+=======
+  display: flex;
+  height: 4px;
+  align-items: center;
+>>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
   border-radius: 0px 16px 16px 0px;
+  background: #D70000;
+  width: 0;
+  transition: width 1s ease-out;
+}
+.progress-bar.active {
+  width: 100%;
 }
 
  .board-main {
@@ -543,6 +600,11 @@ input{
   position: relative;
   align-self: stretch;
   overflow-y: auto;
+<<<<<<< HEAD
+=======
+  flex: 1 0 0;
+  height: 100%;
+>>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
 }
 
  .cards-scroll {
@@ -613,7 +675,7 @@ input{
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #d70000;
   font-size: 8px;
@@ -643,7 +705,7 @@ input{
   position: relative;
   align-self: stretch;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #1e1e1e;
   font-size: 12px;
@@ -804,7 +866,7 @@ input{
 }
 
  .text-wrapper-14 {
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #8a8a8a;
   font-size: 8px;
@@ -987,7 +1049,7 @@ input{
   position: relative;
   align-self: stretch;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #1e1e1e;
   font-size: 14px;
@@ -1093,14 +1155,6 @@ input{
   line-height: 15px;
 }
 
- .progress-bar-2 {
-  width: 96px;
-  background-color: #ffc038;
-  position: relative;
-  height: 4px;
-  border-radius: 0px 16px 16px 0px;
-}
-
  .cards-scroll-2 {
   display: flex;
   flex-direction: column;
@@ -1141,7 +1195,7 @@ input{
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #cf8d00;
   font-size: 8px;
@@ -1256,14 +1310,6 @@ input{
   line-height: 15px;
 }
 
- .progress-bar-3 {
-  width: 48px;
-  background-color: #0075f6;
-  position: relative;
-  height: 4px;
-  border-radius: 0px 16px 16px 0px;
-}
-
  .label-5 {
   display: inline-flex;
   align-items: center;
@@ -1284,7 +1330,7 @@ input{
   line-height: normal;
   position: relative;
   width: fit-content;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -1352,6 +1398,7 @@ input{
   left: 20px;
   background-color: #fdfdfd;
   border-radius: 4px;
+
   box-shadow: 0px 4px 32px #1e1e1e40;
 }
 
@@ -1392,15 +1439,194 @@ input{
   color: white;
 }
 .space-button{
-  width: 35px; 
-  height: 35px; 
+  all: unset;
+  display: flex;
+  align-items: center;
+  width: 32px; 
+  height: 32px; 
   background: #36B5FF; 
-  border-radius: 800px; 
+  border-radius: 50%; 
   justify-content: center; 
-  align-items: center; 
-  gap: 8px; 
-  display: inline-flex
+  align-items: center;
+  display: inline-flex;
+  cursor: pointer;
 }
 .text-wrapper-8 {
   cursor: pointer;
+}
+
+.placeholder {
+  background-color: rgba(0, 117, 246, 0.2); /* Cor sutil para o placeholder */
+  border-radius: 8px;
+  height: 36px; /* Ajuste para o tamanho do card */
+  margin-bottom: 10px;
+  width: 100%; /* Para ocupar toda a largura */
+}
+
+
+/* Estilizando o botão */
+.dropdown-toggle {
+  display: flex;
+  flex-direction: row;
+  background-color: #f2f2f2; /* Cor de fundo */
+  color: #1e1e1e; /* Cor do texto */
+  border: none; /* Sem borda */
+  font-weight: bold; /* Texto em negrito */
+  padding: 10px 20px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  transition: background-color 0.3s ease;
+  font-family: Inter;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  color: #1E1E1E;
+  leading-trim: both;
+  text-edge: cap;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 30px */
+  letter-spacing: -0.22px;
+  box-shadow: none
+}
+
+.dropdown-toggle:hover {
+  background-color: #f2f2f2; /* Cor ao passar o mouse */
+  color: #1E1E1E;
+  box-shadow: none;
+}
+.dropdown-toggle:focus {
+  background-color: #fefefe; /* Cor ao passar o mouse */
+  color: #1E1E1E;
+  box-shadow: none;
+}
+
+.dropdown-toggle:active {
+  background-color: #fefefe; /* Cor ao passar o mouse */
+  color: #1E1E1E;
+  box-shadow: none;
+}
+
+.btn:focus, 
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Estilizando o menu do dropdown */
+.dropdown-menu {
+  /* display: flex; */
+  width: 205px;
+  /* height: 356px; */
+  max-height: 356px;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 8px;
+  outline: 1px solid #eee;
+  font-family: Inter;
+  border: none;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.dropdown-menu show{
+  display: flex;
+}
+
+.dropdown-menu li{
+  display: flex;
+  /* padding: 12px; */
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.team-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  overflow: hidden;
+  color: #1E1E1E;
+  leading-trim: both;
+  text-edge: cap;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+  letter-spacing: -0.132px;
+}
+
+/* Estilizando os itens do dropdown */
+.dropdown-item {
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  align-self: stretch;
+  border-top: 1px solid #EEE;
+  background: #FEFEFE;
+  width: 100%;
+  gap: 8px;
+  flex: 1 0 0;
+}
+
+.dropdown-item:hover {
+  background-color: #f2f2f275; /* Fundo ao passar o mouse */
+}
+
+/* Estilizando o separador (se houver) */
+.dropdown-divider {
+  border-color: #575757; /* Cor do separador */
+}
+
+.dropdown-toggle::after{
+  display: none;
+}
+
+.dropdown-toggle{
+  padding: 8px;
+}
+
+.team-identifier{
+  display: flex;
+  width: 20px;
+  height: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  color: #FEFEFE;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 15px */
+  letter-spacing: -0.11px;
+
+}
+
+
+@media (max-width: 768px) {
+  .tasks-page-main{
+    padding: 24px;
+  }
+
+  .boards{
+    height: 100vh;
+  }
+}
+
+@media (max-width: 480px){
+  .actions{
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 }

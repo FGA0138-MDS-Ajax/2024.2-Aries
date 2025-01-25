@@ -3,10 +3,11 @@ from django.conf.urls import handler404
 from django.urls import path, include
 from Users.views import login, register, recoverAccount, redefinePassword, pagConfig, editar_usuario
 from guest.views import index, competition, admission, control_admission
-from members.views import sidebar, create_task, upload_photo, delete_task, home, kanban_view, create_post_or_event, Top, home, get_events_tasks, previous_month, next_month
+from members.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 from stock.views import stock
+
 
 
 urlpatterns = [
@@ -33,8 +34,7 @@ urlpatterns = [
     # members
     path('sidebar/', sidebar , name="sidebar"),
     path('create_task/', create_task, name= "create_task"),
-
-
+    path('edit_task/', edit_task, name= "edit_task"),
     path('delete_task/', delete_task, name= "delete_task"),
     path('Top/', Top, name='top'),
     path('members/', kanban_view, name='members'),

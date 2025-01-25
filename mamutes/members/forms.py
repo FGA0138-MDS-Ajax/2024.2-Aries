@@ -18,7 +18,7 @@ class PostForm(forms.ModelForm):
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'description', 'status', 'completion_date', 'Prazo', 'responsible', 'has_subtasks', 'subtasks']
+        fields = ['title', 'description', 'status', 'completion_date', 'Prazo', 'responsible', 'has_subtasks', 'vetor_subtasks']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'Titulo-input', 'placeholder': 'Título da tarefa'}),
             'description': forms.Textarea(attrs={'class': 'Descrição-input', 'rows': 5, 'placeholder': 'Descrição detalhada'}),
@@ -26,7 +26,7 @@ class TaskForm(forms.ModelForm):
             'completion_date': forms.DateInput(attrs={'class': 'data-input', 'type': 'date'}),
             'Prazo': forms.DateInput(attrs={'class': 'data-input', 'type': 'date'}),
             'responsible': forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}),
-            'subtasks': forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}),
+            'vetor_subtasks': forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}),
         }
 
 

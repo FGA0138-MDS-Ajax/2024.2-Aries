@@ -51,23 +51,6 @@ droppables.forEach((zone) => {
       // Obter os dados atualizados do backend
       const updatedTask = await response.json();
 
-      // Atualizar a label do status no HTML
-      const labelDiv = task.querySelector(".label .div-wrapper");
-      const textDiv = task.querySelector(".label .text-wrapper");
-
-      if (updatedTask.status === "Concluída") {
-        labelDiv.style.backgroundColor = "rgba(0, 117, 246, 0.20)";
-        textDiv.style.color = "#0075F6";
-        textDiv.textContent = "Concluída";
-      } else if (updatedTask.status === "Pendente") {
-        labelDiv.style.backgroundColor = "rgba(215, 0, 0, 0.20)";
-        textDiv.style.color = "#D70000";
-        textDiv.textContent = "A Começar";
-      } else if (updatedTask.status === "Em Progresso") {
-        labelDiv.style.backgroundColor = "rgba(255, 192, 57, 0.20)";
-        textDiv.style.color = "#CF8E00";
-        textDiv.textContent = "Em Progresso";
-      }
     } catch (error) {
       console.error("Erro ao atualizar tarefa:", error);
     

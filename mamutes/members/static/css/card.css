@@ -12,6 +12,8 @@
   border-radius: 4px;
   cursor: pointer;
   pointer-events: auto;
+  outline: none;
+  border: none;
 }
 
 .card .main {
@@ -54,10 +56,10 @@
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #d70000;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: -0.09px;
   line-height: normal;
   white-space: nowrap;
@@ -87,7 +89,7 @@
   position: relative;
   align-self: stretch;
   margin-top: -1.00px;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #1e1e1e;
   font-size: 12px;
@@ -136,21 +138,21 @@
 }
 
 .card .text-wrapper-2 {
-  position: relative;
-  flex: 1;
-  margin-top: -0.51px;
-  font-family: "Inter-Medium", Helvetica;
-  font-weight: 500;
-  color: #0075f6;
-  font-size: 12px;
-  letter-spacing: -0.13px;
-  line-height: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+  overflow: hidden;
+  color: #0075F6;
+  leading-trim: both;
+  text-edge: cap;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.5px;
 }
 
 .card .pepople-tasks {
@@ -241,26 +243,10 @@
   background-position: 50% 50%;
 }
 
-.card .plus-people {
-  display: flex;
-  flex-direction: column;
-  width: 18px;
-  height: 18px;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-top: -1.00px;
-  margin-bottom: -1.00px;
-  margin-left: -4px;
-  background-color: #dddddd;
-  border-radius: 250px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #fdfdfd;
-}
+
 
 .card .text-wrapper-3 {
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: Inter;
   font-weight: 600;
   color: #8a8a8a;
   font-size: 8px;
@@ -301,7 +287,6 @@
   white-space: nowrap;
 }
 .responsible-photo{
-  
   width: 20px; 
   height: 20px; 
   align-items: center; 

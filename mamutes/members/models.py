@@ -3,14 +3,6 @@ from Users.models import MembroEquipe, Area
 from django.utils import timezone
 from datetime import datetime
 
-class Subtask(models.Model):
-    description = models.TextField()
-    done = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.description
-
-
 class Post(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
@@ -65,10 +57,19 @@ class Task(models.Model):
     creation_date = models.DateField(auto_now_add=True)
     completion_date = models.DateField(null=True, blank=True)
     Prazo = models.DateField(null=True, blank=True)
+    area = models.ManyToManyField(Area, related_name='areatask', blank=True)
     responsible = models.ManyToManyField(MembroEquipe)
-    has_subtasks = models.BooleanField(default=False)  
-    subtasks = models.ManyToManyField(Subtask, related_name='tasks', blank=True)  # Relacionamento de muitos para muitos com Subtask
+    has_subtasks = models.BooleanField(default=False)
+    vetor_subtasks = models.CharField(max_length=500, null=True, blank=True)  
+    class PriorityChoices(models.IntegerChoices):
+        LOW = 1, 'Baixa Prioridade'
+        MEDIUM = 2, 'Média Prioridade'
+        HIGH = 3, 'Alta Prioridade'
 
+    priority = models.IntegerField(
+        choices=PriorityChoices.choices,
+        default=PriorityChoices.LOW,
+    )
     def is_complete(self):
         return all(subtask.done for subtask in self.subtasks.all())
     
@@ -90,6 +91,16 @@ class Task(models.Model):
 
     def __str__(self):
         return f"{self.description} - {self.status}"
+
+
+class Subtask(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name="subtasks")
+    description = models.TextField()
+    done = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.description
+
 
 
 class Meeting(models.Model):

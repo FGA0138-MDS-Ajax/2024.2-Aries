@@ -380,7 +380,7 @@ path{
     align-self: stretch;
 }
 
-.status-inProgress{
+.priorityHigh{
     display: flex;
     height: 40px;
     padding: 8px 16px;
@@ -388,57 +388,57 @@ path{
     align-items: center;
     align-self: stretch;
     border-radius: 8px;
-    background: rgba(255, 192, 57, 0.20);
+    background-color:rgba(215, 0, 0, 0.20);
 }
 
-.status-inProgress p{
-    color: #CF8E00;
-    leading-trim: both;
-    text-edge: cap;
-    font-family: Inter;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%; /* 18px */
-    letter-spacing: -0.132px;
-}
-
-.status-finished{
-    display: flex;
-    height: 40px;
-    padding: 8px 16px;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-    border-radius: 8px;
-    background: rgba(0, 117, 246, 0.20);
-}
-
-.status-finished p{
-    color: #0075F6;
-    leading-trim: both;
-    text-edge: cap;
-    font-family: Inter;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%; /* 18px */
-    letter-spacing: -0.132px;
-}
-
-.status-do{
-    display: flex;
-    height: 40px;
-    padding: 8px 16px;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-    border-radius: 8px;
-    background: rgba(215, 0, 0, 0.20);
-}
-
-.status-do p{
+.priorityHigh p{
     color: #D70000;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+}
+
+.priorityLow{
+    display: flex;
+    height: 40px;
+    padding: 8px 16px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: rgba(0, 135, 7, 0.20);
+}
+
+.priorityLow p{
+    color: #008707;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+}
+
+.priorityMid{
+    display: flex;
+    height: 40px;
+    padding: 8px 16px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: rgba(255, 192, 57, 0.20);
+}
+
+.priorityMid p{
+    color: #CF8E00;
     leading-trim: both;
     text-edge: cap;
     font-family: Inter;
@@ -566,7 +566,11 @@ path{
     font-weight: 600;
     line-height: normal;
     letter-spacing: -0.132px;
+    position: relative;
+    cursor: pointer;
 }
+
+
 
 .photo-view-task{
     object-fit: cover;
@@ -599,5 +603,22 @@ path{
 }
 
 .form-card-task{
+    display: flex;
+    background: #FEFEFE;;
+    border-radius: 16px;
+    /* height: 75vh; */
+    /* width: 32vw; */
+    /* max-width: 32vw; */
     width: 100%;
+    max-height: 90%;
+    max-width: 600px;
+    padding: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    flex: 1 0 0;
+    overflow: hidden;
+    overflow-y: auto;
+    clip-path: border-box;
+    gap: 16px;
 }

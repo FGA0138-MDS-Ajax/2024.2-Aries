@@ -417,6 +417,16 @@
     .ImgName > p{
         display: none;
     }
+
+    .PrincipalHeader .ImgName{
+        height: 32px;
+        padding: 4px;
+    }
+
+    .ProfilePicture{
+        height: 24px;
+        width: 24px;
+    }
     
     #notifPopup{
         display: flex;
