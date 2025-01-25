@@ -113,9 +113,9 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
 
 
 ###  fluxos de execução dos teste
-- Os testes unitários são realizados primeiro e serão executados em todos os módulos.
-- Após a conclusão dos testes unitários, os testes de integração começam, seguidos pelos testes de sistema.
-- A execução de testes de aceitação ocorre depois que os testes funcionais forem validados.
+- Testes unitários são realizados primeiro e serão executados em todos os módulos. Esses testes são fundamentais para garantir que cada unidade de código (função, classe ou método) esteja funcionando de forma independente e correta.
+- Após a conclusão dos testes unitários, testes de integração começam, seguidos pelos testes de sistema. Os testes de integração verificam a interação entre diferentes módulos ou componentes do sistema, enquanto os testes de sistema garantem que o sistema como um todo esteja funcionando corretamente.
+- A execução de testes de aceitação ocorre depois que os testes funcionais forem validados. Os testes de aceitação validam se o sistema atende aos requisitos de negócios e é adequado para uso do cliente ou usuário final.
 
 ### Registros e Relatórios:
 
@@ -148,10 +148,10 @@ obs: O planejamento ínicial é fazer os testes na branch teste para mitigar o r
 
 | Data       | Atividade                           | Responsável |
 |------------|-------------------------------------|-------------|
-| 2025-01-10 | Testes Unitários                    | [Nome]      |
+| 2024-12-23 | Testes Unitários                    | [Nome]      |
 | 2025-01-15 | Testes de Integração                | [Nome]      |
-| 2025-01-2 | Testes de Sistema                    | [Nome]      |
-| 2025-01-25 | Testes de Aceitação                 | [Nome]      |
+| 2025-01-29 | Testes de Sistema                   | [Nome]      |
+| 2025-01    | Testes de Aceitação                 | [Nome]      |
 
 ## 9. Critérios de Aceitação
 
@@ -175,7 +175,7 @@ Critérios de Aceitação Não Funcional:
 
 ## 11. Aprovação
 
-| Nome               | Cargo         | Assinatura      | Data       |
-|--------------------|---------------|-----------------|------------|
-| [Nome do Responsável] | [Cargo]      | [Assinatura]    | [Data]     |
+| Nome               | Cargo                 |  Data             |
+|--------------------|-----------------------|-------------------|
+| Felipe Duarte      | Leader Squad - Testes | 19/01/25          |
 
