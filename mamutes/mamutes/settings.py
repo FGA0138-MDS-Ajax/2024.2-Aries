@@ -45,10 +45,11 @@ INSTALLED_APPS = [
     'guest',
     'report',
     'members',
-    'stock',
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'stock',
+    
 ]
 
 MIDDLEWARE = [
