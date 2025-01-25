@@ -27,7 +27,7 @@
           <div id="subtask-container" style="align-self: stretch;">
             <label class="subtask-item">
           
-              <!-- <input type="hidden" class="checkbox-subtask" name="checkbox-subtask" value="off"> -->
+
               <input type="checkbox" class="checkbox-subtask" name="checkbox-subtask" value="on">
 
               <span class="checkmark"></span>
@@ -114,7 +114,7 @@ document.getElementById('subtask-container').addEventListener('keydown', functio
     const newSubtask = document.createElement('label');
     newSubtask.className = 'subtask-item';
     newSubtask.innerHTML = `
-              <input type="hidden" class="checkbox-subtask" name="checkbox-subtask" value="off">
+            
               <input type="checkbox" class="checkbox-subtask" name="checkbox-subtask" value="on">
               <span class="checkmark"></span>
               <input class="label-subtask" type="text" placeholder="Adicionar subtarefa..." value="" name="inputTask">
