@@ -57,8 +57,18 @@ def edit_task(request):
         description = request.POST.get('description')
         priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo')
-        print(priority)
-        print("AAAAAAAAAAA")
+        checkbox = request.POST.get('checkbox-subtask')
+
+        subtasks = Subtask.objects.filter(task=task)
+
+        for subtask in subtasks:
+            checkbox = request.POST.get('checkbox-subtask')
+            subtask.done = checkbox
+            subtask.save()
+
+
+        #print(priority)
+
         if task_id:
             task = get_object_or_404(Task, id=task_id)
             if title:
@@ -166,8 +176,21 @@ def kanban_view(request):
         
 
         subtasks = Subtask.objects.filter(task=task)
-        print(f"Subtarefas para a tarefa {task.id}: {[subtask.description for subtask in subtasks]}")
 
+        for subtask in subtasks:
+            checkbox = request.POST.get('checkbox-subtask')
+            if checkbox == None:
+                subtask.done = False
+            else: 
+                subtask.done = True
+            #print('caio feirasda')
+            #print(subtask.done)
+            subtask.save()
+
+        
+        #print(f"Subtarefas para a tarefa {task.id}: {[subtask.description for subtask in subtasks]}")
+        #print(subtasks)
+        #print('CAIO FERREIRA DUARTE')
         pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
         items.append({
             'id': task.id,
@@ -196,10 +219,15 @@ def kanban_view(request):
         responsible = request.POST.get('responsibles')
         area_id = request.POST.get('area_id')
         responsible = list(map(int, responsible.split(',')))
-        subtasks_input = request.POST.get('inputTask')
-        
-        subtasks_list = subtasks_input.split(',')
-        subtasks_list.pop() 
+        subtasks_list = request.POST.getlist('inputTask')
+        checkbox_input = request.POST.getlist('checkbox-subtask')
+        subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
+        # subtasks_list = subtasks_input.split(',')
+        # subtasks_list.pop() 
+        print("=-=-=-=-==-==-=-=--=-=-=-=-==")
+        print(subtasks_list)
+        print(checkbox_input)
+        print("=-=-=-=-==-==-=-=--=-=-=-=-==")
 
         # Cria a instância de Task
         task = Task.objects.create(
@@ -250,7 +278,7 @@ def update_task_status(request, task_id):
         return Response({"error": "Task not found"}, status=status.HTTP_404_NOT_FOUND)
     
     # Log os dados recebidos
-    print("Dados recebidos:", request.data)
+    #print("Dados recebidos:", request.data)
 
     new_status = request.data.get('status')
     if not new_status:

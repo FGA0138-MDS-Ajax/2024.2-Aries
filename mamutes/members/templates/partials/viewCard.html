@@ -39,17 +39,17 @@
             </div>
             <div class="subtask-newTask">
                 <h2>Subtarefas</h2>
-                <div>
+                <form id="formCheckbox">
                     {% for subtask in subtasks %}
                         <label class="subtask-item">
-                            <input type="checkbox" class="checkbox-subtask" {% if subtask.done %}checked{% endif %}>
+                            <input type="checkbox" name="checkbox-subtask" class="checkbox-subtask" {% if subtask.done %}checked{% endif %}>
                             <span class="checkmark"></span>
-                            <p>{{ subtask.description }}</p> <!-- Exibe a descrição da subtask -->
+                            <p>{{ subtask.description }}</p> 
                         </label>
                     {% empty %}
                         <p>Não há subtarefas para esta task.</p>
                     {% endfor %}
-                </div>
+                    </form>
             </div>
             <div class="statusData">
                 <div class="status">
@@ -91,14 +91,15 @@
         </div>
     </form>
     <script>
-        const modalPrime = {
+        let modalPrime = {
             modalHTML: ''
         };
+
 
         (function () {
             function formatDate(date) {
                 date = date.replace(/\s+/g, '');
-                const [d, m, y] = date.split("/");
+                let [d, m, y] = date.split("/");
                 return `${y}-${m}-${d}`;
             }
 
@@ -108,33 +109,41 @@
             }
 
             document.addEventListener("click", (e) => {
-                const target = e.target;
+                let target = e.target;
 
                 // Abrir o modal correspondente ao card clicado
                 if (target.classList.contains("btnModalViewCard")) {
-                    const modal = target.querySelector(".modalViewCard");                        
+                    let modal = target.querySelector(".modalViewCard");                        
                     if (!modalPrime.modalHTML) {
                         modalPrime.modalHTML = modal.innerHTML;
                     }      
                     if (modal) {
                         modal.showModal();
+
+                        //lógica para submeter as subtarefas
+                        // const checkbox = modal.querySelector(".checkbox-subtask");
+                        // checkbox.addEventListener("change", ()=>{
+                        //     const formViewCard = modal.getElementById("formCheckbox")
+                        //     const formData = new FormData(formViewCard);
+
+                        // })
                     }
                 }
     
                 // Fechar o modal correspondente
                 if (target.classList.contains("btnCloseViewCard")) {
-                    const modal = target.closest(".modalViewCard");
+                    let modal = target.closest(".modalViewCard");
                     resetModal(modal);
                     modal.close();
                 }
                 if (target.classList.contains("edit-icon")) {
                     
-            const modalViewCard = target.closest(".modalViewCard");
-            const title = modalViewCard.querySelector('#title-data').textContent.trim();
-            const description = modalViewCard.querySelector('#description-data').textContent.trim();
-            const date = formatDate(modalViewCard.querySelector('#date-data').textContent.trim());
-            const dataPriority = modalViewCard.querySelector('#priority-card').textContent.trim();
-            const dataID = modalViewCard.querySelector('#id-card').textContent.trim();
+            let modalViewCard = target.closest(".modalViewCard");
+            let title = modalViewCard.querySelector('#title-data').textContent.trim();
+            let description = modalViewCard.querySelector('#description-data').textContent.trim();
+            let date = formatDate(modalViewCard.querySelector('#date-data').textContent.trim());
+            let dataPriority = modalViewCard.querySelector('#priority-card').textContent.trim();
+            let dataID = modalViewCard.querySelector('#id-card').textContent.trim();
             
             modalViewCard.innerHTML = 
             `

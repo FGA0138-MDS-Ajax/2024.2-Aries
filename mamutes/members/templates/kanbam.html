@@ -21,7 +21,7 @@
         <div class="cards-scroll" data-status="Pendente"> 
           {% for item in items %}
           {% if item.status == "Pendente" %}    
-          {% include 'card.html' with priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+          {% include 'card.html' with subtasks=item.subtasks priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
           {% endif %}
         {% endfor %}
       </div>
@@ -46,7 +46,7 @@
         <div class="cards-scroll" data-status="Em Progresso">
           {% for item in items %}
           {% if item.status == "Em Progresso" %}    
-            {% include 'card.html' with priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+            {% include 'card.html' with subtasks=item.subtasks priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
           {% endif %}
         {% endfor %}
         </div>
@@ -71,7 +71,7 @@
         <div class="cards-scroll" data-status="Concluída">
           {% for item in items %}
           {% if item.status == "Concluída" %}    
-          {% include 'card.html' with area=item.area priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+          {% include 'card.html' with subtasks=item.subtasks area=item.area priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
           {% endif %}
         {% endfor %}
         </div>

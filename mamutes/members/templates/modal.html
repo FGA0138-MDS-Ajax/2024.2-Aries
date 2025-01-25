@@ -26,9 +26,12 @@
           <label class="title-form">Subtarefas</label>
           <div id="subtask-container" style="align-self: stretch;">
             <label class="subtask-item">
-              <input type="checkbox" class="checkbox-subtask">
+          
+              <!-- <input type="hidden" class="checkbox-subtask" name="checkbox-subtask" value="off"> -->
+              <input type="checkbox" class="checkbox-subtask" name="checkbox-subtask" value="on">
+
               <span class="checkmark"></span>
-              <input class="label-subtask" type="text" placeholder="Adicionar subtarefa..." value="">
+              <input class="label-subtask" type="text" placeholder="Adicionar subtarefa..." value="" name="inputTask">
             </label>
           </div>
         </div>
@@ -111,9 +114,10 @@ document.getElementById('subtask-container').addEventListener('keydown', functio
     const newSubtask = document.createElement('label');
     newSubtask.className = 'subtask-item';
     newSubtask.innerHTML = `
-      <input type="checkbox" class="checkbox-subtask">
-      <span class="checkmark"></span>
-      <input class="label-subtask" type="text" placeholder="Adicione subtarefa..." value="">
+              <input type="hidden" class="checkbox-subtask" name="checkbox-subtask" value="off">
+              <input type="checkbox" class="checkbox-subtask" name="checkbox-subtask" value="on">
+              <span class="checkmark"></span>
+              <input class="label-subtask" type="text" placeholder="Adicionar subtarefa..." value="" name="inputTask">
     `;
 
     // Adiciona o novo subtask-item ao container
@@ -123,20 +127,20 @@ document.getElementById('subtask-container').addEventListener('keydown', functio
     newSubtask.querySelector('.label-subtask').focus();
   }
 });
-const inputTask = document.querySelector(".inputTask");
-const form = document.querySelector(".form");
+// const inputTask = document.querySelector(".inputTask");
+// const form = document.querySelector(".form");
 
-form.addEventListener("submit", (event) => {
+// form.addEventListener("submit", (event) => {
 
-  const inputsItem = form.querySelectorAll(".label-subtask");
+//   const inputsItem = form.querySelectorAll(".label-subtask");
 
-  inputsItem.forEach((element) => {
-    if(element.value.trim() !== ""){
-      inputTask.value += element.value;
-      inputTask.value += ',';
-    }
-  });
+//   inputsItem.forEach((element) => {
+//     if(element.value.trim() !== ""){
+//       inputTask.value += element.value;
+//       inputTask.value += ',';
+//     }
+//   });
 
-});
+// });
 
 </script>
