@@ -32,16 +32,18 @@
                     <form method="get" action="{% url 'kanban' %}">
     
                     <div class="dropdown">
+                        
                         <button class="btn btn-secondary dropdown-toggle" style="display: flex; flex-direction: row; align-items: center; gap: 8px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="team-identifier" style="width: 32px; height: 32px; background: #7FDA00; color: #fefefe; font-size: 16px;">E</span>
                             {% for area in all_areas %}
-                            {% if request.GET.area|default:'' == area.id|stringformat:"s" %}
-                            {{ area.name }}
-                            {% endif %}
-                        {% endfor %}
-                        {% if request.GET.area|default:'' == '' %}
-                            Todos
-                        {% endif %}
+                                {% if request.GET.area|default:'' == area.id|stringformat:"s" %}
+                                <span class="team-identifier" style="width: 32px; height: 32px; background: {{area.color}}; {% if area.color == '#FEFEFE' %} color: #1e1e1e; border: 0.833px solid #BBBBBB; {%else%}  color: #fefefe;   {% endif %} font-size: 16px;">{{ area.name|slice:":1" }}</span>
+                                        {{ area.name }}
+                                {% endif %}
+                            {% endfor %}
+                            {% if request.GET.area|default:'' == '' %}
+                                <span class="team-identifier" style="width: 32px; height: 32px; background: #1e1e1e ; color: #fefefe; font-size: 16px;">T</span>
+                                Todos
+                            {% endif %} 
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
                             <path d="M1.66671 1.33341L5.00004 4.66675L8.33337 1.33341" stroke="#1E1E1E" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -51,7 +53,7 @@
                             <li>
                             <a class="dropdown-item" href="?area={{area.id}}">
                                 <div class="team-item">
-                                <span class="team-identifier" style="background: #7FDA00; color: #fefefe;">E</span>
+                                <span class="team-identifier" style="background: {{area.color}}; {% if area.color == '#FEFEFE' %} color: #1e1e1e; border: 0.833px solid #BBBBBB; {%else%}  color: #fefefe;   {% endif %} ">{{ area.name|slice:":1" }}</span>
                                 {{area.name}}
                                 </div>
                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">

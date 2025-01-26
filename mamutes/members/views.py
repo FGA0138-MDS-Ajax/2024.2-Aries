@@ -164,7 +164,7 @@ def kanban_view(request):
     
     items = []
     members = []
-    all_areas = Area.objects.all()
+    all_areas = Area.objects.all().order_by('name')
     profiles = MembroEquipe.objects.all()
 
     for profile in profiles:
@@ -545,7 +545,8 @@ def delete_event(request, event_id):
 def taskBoard(request):
     tasks = Task.objects.all()
 
-    all_areas = Area.objects.all()
+    all_areas = Area.objects.all().order_by('name')
+
 
     # Obtém a área a partir dos parâmetros da URL (GET)
     area_id = request.GET.get('area')  # Exemplo: ?area=SE
@@ -559,7 +560,6 @@ def taskBoard(request):
         tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
     
     members = []
-    all_areas = Area.objects.all()
     profiles = MembroEquipe.objects.all()
 
     for profile in profiles:
