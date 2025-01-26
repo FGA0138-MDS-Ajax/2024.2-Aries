@@ -13,7 +13,6 @@
   
   html, body {
     overflow: hidden;
-    height: 100%; /* Garante que o body ocupe toda a altura da janela /
   }
   
   body {
@@ -301,7 +300,7 @@
 }
 
 .editBtnModal{
-    /* white-space: nowrap; */
+    white-space: nowrap;
     display: flex;
     padding: 8px;
     align-items: center;
@@ -312,7 +311,7 @@
 }
 
 .editExcludeButton{
-    /* white-space: nowrap; */
+    white-space: nowrap;
     display: flex;
     padding: 8px;
     align-items: center;
@@ -351,16 +350,25 @@
     }
     
     .tableAllItens{
-        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        overflow-x: auto;
         /* overflow-y: auto; */
         clip-path: fill-box;
         border-radius: 16px;
         /* border: 1px solid #EEE; */
-        /* background: #FEFEFE; */
+        background: #FEFEFE;
         width: 100%;
-        /* height: 100%; */
-        /* overflow: hidden; */
-    } 
+        /* min-height: calc(100% - 0px); */
+        height: 100%;
+    }
+
+    .centralTable{
+        overflow-x: auto;
+        width: 100%;
+        /* min-height: 70%; */
+        flex-grow: 1;
+    }
     
     .headerTable{
         text-align: start;
@@ -404,31 +412,50 @@
     tr{
         border: 1px solid #EEE;
     }
-
+    
     thead th{
         padding: 8px 16px;
         position: sticky;
     }
-
+    
     tbody td {
         padding: 8px 16px;
+        font-size: 14px !important;
     }
-    
-    /* .itens:disabled{
-        text-align: start;
-        background-color: transparent;
-        border: none;
-        color: #1E1E1E;
-        leading-trim: both;
-        text-edge: cap;
-        font-family: Inter;
-        font-size: 12px;
-        font-style: normal;
+
+    tbody tr td:first-child {
+        font-weight: 600 !important;
+    }
+
+    .titleExclude{
+        font-size: 24px;
         font-weight: 400;
-        line-height: 150%;
-        letter-spacing: -0.132px;
-        
-    } */
+    }
+
+    .formExclude .botoesCadastro{
+        width: 100%;
+        color: #fefefe;
+        align-items: flex-end;
+    }
+
+    .excludeModal{
+        align-items: flex-end;
+        padding: 40px;
+    }
+
+    .excludeModal .btnClose{
+        min-width: 0;
+        padding: 0;
+    }
+
+    .excludeModal .saveButton{
+        padding: 12px;
+    }
+
+    .formExclude .btnSim{
+        margin: 0;
+        padding: 0;
+    }
     
     .firtsItens:disabled{
         text-align: start;
@@ -443,7 +470,6 @@
         font-weight: 600;
         line-height: 150%; /* 18px */
         letter-spacing: -0.132px;
-        
     }
     .itens{
         outline: none;
@@ -528,14 +554,11 @@
 
 .paginatorControls{
     display: flex;
-    /* width: Fill (720px)px;
-    height: Hug (48px)px; */
     padding: 12px 24px 12px 24px;
     gap: 0px;
     border: 2px 0px 0px 0px;
-    /* justify-content: space-between; */
     opacity: 0px;
-    /* background: #fefefe; */
+    outline: 2px solid #EEE;
 
 }
 
@@ -673,9 +696,5 @@
 
     .headerStock{
         gap: 16px
-    }
-
-    .org{
-        gap: 0;
     }
 }

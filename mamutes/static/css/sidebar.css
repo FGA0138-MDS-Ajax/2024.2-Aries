@@ -23,6 +23,7 @@ body{
     background-color: #FEFEFE;
     border-radius: 16px;
     transition: width 1s ease;
+    gap: 8px;
 }
 
 .sidebar-central .arrow-icon {
@@ -42,7 +43,7 @@ body{
     background-color: #FEFEFE;
     height: 100%;
     width: 100%;
-    padding: 8px 16px 8px 0px;
+    /* padding: 8px 16px 8px 0px; */
     display: column;
     align-items: flex-start;
     flex-direction:column;

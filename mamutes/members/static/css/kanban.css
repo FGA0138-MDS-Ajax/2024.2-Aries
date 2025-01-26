@@ -27,7 +27,7 @@ input{
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
+  gap: 16px;
   /* position: relative; */
   /* background-color: #f2f2f2; */
   width: 100%;
@@ -262,34 +262,35 @@ input{
   position: relative;
 }
 
- .frame {
-  background-color: #daebff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+
+.tabTasks {
+  display: flex;
   padding: 10px;
-  position: relative;
-  flex: 0 0 auto;
   border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  font-family: Inter;
+  overflow: hidden;
+  color: #808080;
+  leading-trim: both;
+  text-edge: cap;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 21px */
+  letter-spacing: -0.154px;
 }
 
- .text-wrapper-4 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1.00px;
-  font-family: Inter;
-  font-weight: 600;
-  color: #0075f6;
-  font-size: 14px;
-  letter-spacing: -0.15px;
-  line-height: 21px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+.tabTasks.active {
+  background-color: #DAECFF;
+  color: #0075F6;
+}
+
+.tabTasks:hover{
+  background: #eee;
 }
 
  .div-wrapper {
@@ -438,7 +439,7 @@ input{
  .boards {
   display: flex;
   min-width: 600px;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
   flex: 1 0 0;
   align-self: stretch;
@@ -463,14 +464,8 @@ input{
   gap: 16px;
   flex: 1 0 0;
   align-self: stretch;
-<<<<<<< HEAD
   width: 100%;
-  flex-grow: 1;
-  margin-top: 15px;
   overflow-y: auto;
-=======
-  overflow-x: auto;
->>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
 }
 
  .board {
@@ -499,26 +494,18 @@ input{
 }
 
  .title {
-<<<<<<< HEAD
+  display: flex;
   background-color: #fefefe;
   gap: 8px 10px;
-  padding: 16px;
-=======
->>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
-  display: flex;
   padding: 16px;
   justify-content: space-between;
   align-items: center;
   align-content: center;
   row-gap: 8px;
   align-self: stretch;
-<<<<<<< HEAD
   width: 100%;
-  flex: 0 0 auto;
+  /* flex: 0 0 auto; */
   border-radius: 18px;
-=======
-  flex-wrap: wrap;
->>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
 }
 
  .text-wrapper-9 {
@@ -1398,7 +1385,6 @@ input{
   left: 20px;
   background-color: #fdfdfd;
   border-radius: 4px;
-
   box-shadow: 0px 4px 32px #1e1e1e40;
 }
 
@@ -1628,5 +1614,13 @@ input{
   .actions{
     align-items: flex-start;
     justify-content: flex-start;
+  }
+
+  .scroll-boards{
+    height: 100%;
+  }
+
+  .tasks-page-main{
+    overflow-y: auto;
   }
 }

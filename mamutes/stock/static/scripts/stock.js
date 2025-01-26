@@ -2,19 +2,29 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", (e) => {
         const event = e.target;
 
-        // lógica com os modais
+        // Verifica se o clique foi fora do "toOpen" ou do "twoButton"
+        if (!event.closest('.toOpen') && !event.closest('.twoButton')) {
+            // Fecha todos os "twoButton"
+            const editAndRemoveAll = document.querySelectorAll(".twoButton");
+            editAndRemoveAll.forEach(other => {
+                other.style.display = "none";
+            });
+        }
+
+        // Lógica para abrir/fechar o modal dentro de "toOpen"
         if (event.classList.contains("toOpen")) {
             const editAndRemove = event.querySelector(".twoButton");
-            const editAndRemoveAll = document.querySelectorAll(".twoButton");
-            
-            //fecha todos os modais que podem estar abertos
+
             if (editAndRemove) {
+                // Fecha todos os "twoButton"
+                const editAndRemoveAll = document.querySelectorAll(".twoButton");
                 editAndRemoveAll.forEach(other => {
                     if (other !== editAndRemove) {
                         other.style.display = "none";
                     }
                 });
-                //abre somente o modal clicado
+
+                // Alterna a visibilidade do "twoButton" clicado
                 if (editAndRemove.style.display === "none" || editAndRemove.style.display === "") {
                     editAndRemove.style.display = "flex";
                 } else {

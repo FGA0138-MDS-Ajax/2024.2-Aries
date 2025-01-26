@@ -23,7 +23,7 @@
         </div>
     </a>
 
-    <a href="{%url 'members'%}" class="aba {% if request.path == '/members/' %}active{% endif %}">
+    <a href="{% url 'members'%}" class="aba {% if '/members/' in request.path %}active{% endif %}">
         <div class="marker"></div>
         <div class="idAba">
             <div class="dashboard">
@@ -59,7 +59,7 @@
         </div>
     </a>
     
-    <a href="{%url 'stock'%}" class="aba {% if request.path == '/' %}active{% endif %}">
+    <a href="{%url 'stock'%}" class="aba {% if request.path == '/stock/' %}active{% endif %}">
         <div class="marker"></div>
         <div class="idAba">
             <div class="dashboard">

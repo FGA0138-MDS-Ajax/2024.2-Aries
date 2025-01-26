@@ -10,7 +10,7 @@
         </button>
     </div>
     <div class="tituloModal">
-        <h1 class="titulo">Editar Item</h1>
+        <h1 class="titulo">Editar item</h1>
     </div>
     <form method="post" class="formLogin" action="{% url 'editar_ferramenta' ferramenta.id %}">
         {% csrf_token %}
@@ -47,13 +47,13 @@
                 </div>
                 <div class="rowDiv">
                     <p class="tituloInputs">Observação</p>
-                    <textarea class="inputForm" id="observation" name="observation">{{ ferramenta.observation|default_if_none:'' }}</textarea>
+                    <input class="inputForm" id="observation" name="observation" value="{{ ferramenta.observation|default_if_none:'' }}">
                 </div>
             </div>
             <div class="divsFieldsRow">
-                <div class="rowDiv checkboxField">
-                    <p class="tituloInputs">Em uso</p>
-                    <input type="checkbox" id="being_used" name="being_used" {% if ferramenta.being_used %}checked{% endif %}>
+                <div class="rowDiv checkboxField" style="display: flex; flex-direction: row; align-items: center;">
+                    <input type="checkbox" id="being_used" name="being_used" class="myCheckbox" {% if ferramenta.being_used %}checked{% endif %}>
+                    <label for="being_used" class="tituloInputs">Em uso</label>
                 </div>
             </div> 
         </div>

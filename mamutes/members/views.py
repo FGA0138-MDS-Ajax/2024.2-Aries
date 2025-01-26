@@ -541,5 +541,50 @@ def delete_event(request, event_id):
     return redirect('home')
 
 def taskBoard(request):
-    tasks = Task.objects.all()  
-    return render(request, 'taskBoard.html', {'tasks': tasks})
+    tasks = Task.objects.all()
+
+    all_areas = Area.objects.all()
+
+    # Obtém a área a partir dos parâmetros da URL (GET)
+    area_id = request.GET.get('area')  # Exemplo: ?area=SE
+    
+    # Filtra as tarefas pela área, se especificada
+    if area_id:
+        # Filtra as tarefas pela área especificada na URL
+        tasks = Task.objects.filter(area__id=area_id)
+    else:
+        # Caso nenhuma área seja especificada, exibe todas as tarefas
+        tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
+    
+    members = []
+    all_areas = Area.objects.all()
+    profiles = MembroEquipe.objects.all()
+
+    for profile in profiles:
+        if profile.photo:
+            profile.photo_base64 = image_to_base64(profile.photo)
+        else:  
+            profile.photo_base64 = None
+            
+
+    if area_id:
+        profileFiltered = MembroEquipe.objects.filter(testearea=area_id);
+    else:
+        profileFiltered = MembroEquipe.objects.all();
+
+    for profile in profileFiltered:
+        
+        areas = [area.name for area in profile.testearea.all()]
+        members.append({
+            'email': profile.email,
+            'fullname': profile.fullname,
+            'username': profile.username,
+            'photo': profile.photo,
+            'area': ", ".join(areas),
+        })
+
+    return render(request, 'taskBoard.html', {
+        'all_areas': all_areas,
+        'tasks': tasks,
+        'members': members,
+    })
