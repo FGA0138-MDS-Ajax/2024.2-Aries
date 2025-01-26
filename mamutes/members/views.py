@@ -13,7 +13,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from datetime import date, datetime, timedelta
-from django.utils.timezone import localtime
+from django.utils.timezone import localtime, make_aware
 from django.utils.dateparse import parse_date
 import locale
 import base64
@@ -394,65 +394,59 @@ def profile_list(request):
 
 @login_required
 def home(request):
-    
     announcements = Post.objects.all().order_by('-posted_at')
-    events_obj = Event.objects.all()
+    all_events = Event.objects.all().distinct()
+    selected_date = request.GET.get('date')
+    now = datetime.strptime(selected_date, '%Y-%m-%d') if selected_date else datetime.now()
+
+    year, month, day = now.year, now.month, now.day
     current_year = datetime.now().year
 
-    
-    for event in events_obj:
+    for event in all_events:
         if event.event_date:
-            event.day = event.event_date.day  # Acessa diretamente o dia
-            event.month = event.event_date.month  # Acessa diretamente o mês
-            
+            event.day = event.event_date.day
+            event.month = event.event_date.month
             if event.event_date.year == current_year:
-                # Formato sem o ano
                 event.formatted_date = event.event_date.strftime("%d de %B")
             else:
-            # Formato com o ano
                 event.formatted_date = event.event_date.strftime("%d de %B de %Y")
         else:
-            # Se a data do evento não estiver presente, atribui valores padrão
             event.day = None
             event.month = None
-    
-    for event in events_obj:
+        
         if event.event_time:
             event.formatted_time = event.event_time.strftime("%Hh%M")
         else:
             event.formatted_time = None
 
-    # Segunda parte - Calendário e Filtros
-    selected_date = request.GET.get('date')
-    now = datetime.strptime(selected_date, '%Y-%m-%d') if selected_date else datetime.now()
-    
-    year, month, day = now.year, now.month, now.day
+    filtered_events = Event.objects.filter(
+        event_date__year=year,
+        event_date__month=month,
+        event_date__day=day
+    )
 
     weeks = get_calendar_data(year, month, now, request.user)
 
-    # Aplica os filtros de eventos, tarefas e reuniões
-    
-    tasks = filters(Task, 'creation_date', year, month, day, request.user)
+    tasks = filters(Task, 'Prazo', year, month, day, request.user)
     meetings = filters(Meeting, 'meeting_date', year, month, day).filter(areas__membros=request.user).distinct()
 
     user_area = request.user.areas.first()
     meetings_data = get_meeting(meetings)
 
-    # Criação do contexto final com todos os dados
     context = {
         "now": now,
         "year": year,
         "month": month,
         "month_name": calendar.month_name[month],
         "weeks": weeks,
-        "events_obj": events_obj,
+        "events_obj": filtered_events,  # para o calendário
+        "all_events": all_events,  # para o feed
         "announcements": announcements,
         "tasks": tasks,
         "meetings": meetings_data,
         "user_area_color": user_area.color if user_area else '#0075F6',
     }
 
-    # Retorna a renderização com o contexto
     return render(request, 'home.html', context)
 
 
@@ -463,7 +457,7 @@ def get_calendar_data(year, month, now, user):
     weeks = []
     week = []
     for day in days:
-        day_tasks = Task.objects.filter(creation_date__year=day[0], creation_date__month=day[1], creation_date__day=day[2], responsible=user)
+        day_tasks = Task.objects.filter(Prazo__year=day[0], Prazo__month=day[1], Prazo__day=day[2], responsible=user)
         day_events = Event.objects.filter(event_date__year=day[0], event_date__month=day[1], event_date__day=day[2])
         day_meetings = Meeting.objects.filter(meeting_date__year=day[0], meeting_date__month=day[1], meeting_date__day=day[2]).filter(areas__membros=user).distinct()
         
@@ -475,7 +469,8 @@ def get_calendar_data(year, month, now, user):
                 "is_today": is_today,
                 "tasks": day_tasks.exists(),
                 "events": day_events.exists(),
-                "meetings": day_meetings.exists()
+                "meetings": day_meetings.exists(),
+                "meetings_multiple_teams": any(meeting.areas.count() > 1 for meeting in day_meetings)
             })
         else:
             week.append({
@@ -484,7 +479,8 @@ def get_calendar_data(year, month, now, user):
                 "is_today": False,
                 "tasks": day_tasks.exists(),
                 "events": day_events.exists(),
-                "meetings": day_meetings.exists()
+                "meetings": day_meetings.exists(),
+                "meetings_multiple_teams": any(meeting.areas.count() > 1 for meeting in day_meetings)
             })
         
         if len(week) == 7:  
@@ -503,7 +499,7 @@ def get_meeting(meetings):
         areas_data = [{"name": area.name, "color": area.color} for area in meeting.areas.all()]
         meetings_data.append({
             "title": meeting.title,
-            "time": localtime(meeting.meeting_date).strftime('%H:%M'),
+            "time": localtime(meeting.meeting_date).strftime('%Hh%M'),
             "multiple_teams": multiple_teams,
             "areas": areas_data,
         })
@@ -524,14 +520,15 @@ def get_events_tasks(request):
     
     if date_str:
         selected_date = datetime.strptime(date_str, '%Y-%m-%d')
+        selected_date = make_aware(selected_date)
         year, month, day = selected_date.year, selected_date.month, selected_date.day
 
         events = filters(Event, 'event_date', year, month, day)
-        tasks = filters(Task, 'creation_date', year, month, day, request.user)
+        tasks = filters(Task, 'Prazo', year, month, day, request.user)
         meetings = filters(Meeting, 'meeting_date', year, month, day).filter(areas__membros=request.user).distinct()
 
         events_data = [{"title": event.title, "time": event.event_time.strftime('%Hh%M') if event.event_time else None} for event in events]
-        tasks_data = [{"title": task.title, "time": localtime(task.creation_date).strftime('%Hh%M')} for task in tasks]
+        tasks_data = [{"title": task.title, "time": localtime(make_aware(datetime.combine(task.Prazo, datetime.min.time()))).strftime('%Hh%M')} for task in tasks]
         meetings_data = get_meeting(meetings)
 
         return JsonResponse({"events": events_data, "tasks": tasks_data, "meetings": meetings_data})
@@ -570,7 +567,6 @@ def taskBoard(request):
     tasks = Task.objects.all()
 
     all_areas = Area.objects.all().order_by('name')
-
 
     # Obtém a área a partir dos parâmetros da URL (GET)
     area_id = request.GET.get('area')  # Exemplo: ?area=SE

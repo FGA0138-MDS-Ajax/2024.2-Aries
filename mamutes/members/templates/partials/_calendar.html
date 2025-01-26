@@ -66,7 +66,7 @@
                                         <div class="taskMarkerTarefa"></div>
                                     {% endif %}
                                     {% if day.meetings %}
-                                        <div class="taskMarkerTarefa" style="color: {% if meeting.multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};"></div>
+                                        <div class="taskMarkerTarefa" style="background-color: {% if day.meetings_multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};"></div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                         {% endfor %}
                     {% else %}
                         <div class="taskCalendar">
-                            <p>Nenhuma tarefa ou evento atribuída a você para este dia.</p>
+                            <p>Nenhuma tarefa atribuída a você para este dia.</p>
                         </div>
                     {% endif %}
                     
@@ -110,7 +110,7 @@
                     {% if meetings %}
                         {% for meeting in meetings %}
                             <div class="importantEvent">
-                                <div class="borderImportantEvent" style="background: {% if meeting.multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};">
+                                <div class="borderImportantEvent" style="background: {% if day.meetings_multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};">
                                 </div>
                                 <div class="contentImportantEvent">
                                     <h4>{{ meeting.title }}</h4>
