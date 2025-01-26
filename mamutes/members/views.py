@@ -85,49 +85,49 @@ def delete_task(request):
 
     return redirect('kanban')
 
+from django.shortcuts import get_object_or_404, redirect
+from .models import Task, Subtask
+
 def edit_task(request):
     if request.method == 'POST':
+        # Captura dos dados do formulário
         task_id = request.POST.get('id_task')
         title = request.POST.get('title')
         description = request.POST.get('description')
         priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo')
-        checkbox = request.POST.get('checkbox-subtask')
 
-        # checkbox_input = request.POST.getlist('checkbox-subtask')
-        # print("DESGRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA")
-        # print(checkbox_input)
-        # print("DESGRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA")
+        # Captura do status dos checkboxes, agora com o nome específico para cada subtask
+        subtasks_status = {}
 
-        subtasks = Subtask.objects.filter(task=task_id)
+        # Itera sobre os checkboxes de subtasks
+        for key, value in request.POST.items():
+            if key.startswith('checkbox-subtask-'):
+                subtask_id = key.split('-')[-1]  # Extrai o ID da subtask do nome do campo
+                status = 'on' if value == 'on' else 'off'  # Determina se o checkbox foi marcado
+                subtasks_status[subtask_id] = status
 
-        for subtask in subtasks:
-            checkbox = request.POST.get('checkbox-subtask')
-            if checkbox == None:
-                subtask.done = False
-            else: 
-                subtask.done = True
-            subtask.save()
-
-        # for subtask in subtasks:
-        #     checkbox = request.POST.get('checkbox-subtask')
-        #     subtask.done = checkbox
-        #     subtask.save()
-
-
-        #print(priority)
-
+        # Processa os dados da task, se o task_id for fornecido
         if task_id:
             task = get_object_or_404(Task, id=task_id)
+            
+            # Atualiza os dados da tarefa
             if title:
                 task.title = title
             if description:
                 task.description = description
-            if status:
+            if priority:
                 task.priority = priority
             if prazo:
                 task.Prazo = prazo
+
             task.save()
+
+            # Atualiza o status das subtasks associadas
+            for subtask_id, status in subtasks_status.items():
+                subtask = Subtask.objects.get(id=subtask_id)
+                subtask.done = True if status == 'on' else False
+                subtask.save()
 
         return redirect('kanban')
 
@@ -243,18 +243,6 @@ def kanban_view(request):
                 
         subtasks = Subtask.objects.filter(task=task)
 
-        # for subtask in subtasks:
-        #     checkbox = request.POST.get('checkbox-subtask')
-        #     if checkbox == None:
-        #         subtask.done = False
-        #     else: 
-        #         subtask.done = True
-        #     subtask.save()
-
-        
-        #print(f"Subtarefas para a tarefa {task.id}: {[subtask.description for subtask in subtasks]}")
-        #print(subtasks)
-        #print('CAIO FERREIRA DUARTE')
         pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
         items.append({
             'id': task.id,
@@ -306,21 +294,12 @@ def kanban_view(request):
 
         task.area.set(area_id)
 
-        # subtasks = []  # Lista para armazenar as instâncias de Subtask
-
         for subtask_title, done_status in zip(subtasks_list, checkbox_input):
             subtask = Subtask.objects.create(
                 description=subtask_title,  # Associa o título da subtarefa
                 task=task,                   # Associando à task recém-criada
                 done=done_status             # Define o estado do checkbox
             )
-            # subtasks.append(subtask)  # Armazenando as instâncias criadas
-
-            
-        # print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-        # for subtask in subtasks:
-        #     print(subtask.done)
-
 
         responsible_members = MembroEquipe.objects.filter(id__in=responsible)
 
@@ -353,8 +332,6 @@ def update_task_status(request, task_id):
     except Task.DoesNotExist:
         return Response({"error": "Task not found"}, status=status.HTTP_404_NOT_FOUND)
     
-    # Log os dados recebidos
-    #print("Dados recebidos:", request.data)
 
     new_status = request.data.get('status')
     if not new_status:

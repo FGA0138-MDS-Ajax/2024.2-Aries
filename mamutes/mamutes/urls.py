@@ -39,7 +39,7 @@ urlpatterns = [
     path('Top/', Top, name='top'),
     path('members/', kanban_view, name='members'),
     path('members/', include('members.urls')),
-     path('foto/', upload_photo, name='upload_photo'),
+    path('foto/', upload_photo, name='upload_photo'),
     path('home/', home, name="home"),
     path('create_post_or_event/', create_post_or_event, name='create_post_or_event'),
     path('get-events-tasks/', get_events_tasks, name='get_events_tasks'),

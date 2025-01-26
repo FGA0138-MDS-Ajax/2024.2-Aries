@@ -602,7 +602,7 @@ path{
     display: flex;
 }
 
-.form-card-task{
+.container-card-task{
     display: flex;
     background: #FEFEFE;;
     border-radius: 16px;
