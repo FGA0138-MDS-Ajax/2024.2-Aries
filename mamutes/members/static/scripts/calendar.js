@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     const dateElements = document.querySelectorAll(".dateWeek");
     const currentDate = new URLSearchParams(window.location.search).get('date') || new Date().toISOString().split('T')[0];
-            const [year, month] = currentDate.split("-");
-            const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-            document.querySelector(".textmonthYear").innerHTML = `${monthNames[parseInt(month) - 1]} ${year}`;
-            
+    const [year, month] = currentDate.split("-");
+    const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    document.querySelector(".textmonthYear").innerHTML = `${monthNames[parseInt(month) - 1]} ${year}`;
+    
     dateElements.forEach(element => {
         element.addEventListener("click", function () {
-
             const selectedDate = this.dataset.date;
 
             dateElements.forEach(el => {
@@ -31,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
                     dateTitle.innerHTML = `${day} de ${monthNames[parseInt(month) - 1]}`;
                     document.querySelector(".textmonthYear").innerHTML = `${monthNames[parseInt(month) - 1]} ${year}`;
-
 
                     const taskContainer = document.querySelector(".todayEvents");
                     taskContainer.innerHTML = "";
