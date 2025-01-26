@@ -148,6 +148,8 @@ def image_to_base64(image):
     
     return None
 
+
+@login_required
 def kanban_view(request):
     # Obtém a área a partir dos parâmetros da URL (GET)
     area_id = request.GET.get('area')  # Exemplo: ?area=SE
