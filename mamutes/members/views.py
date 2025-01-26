@@ -7,6 +7,7 @@ from rest_framework import viewsets
 from .models import Column, Task
 from .serializers import ColumnSerializer, TaskSerializer
 import calendar
+from django.db.models import Count, Q
 from io import BytesIO
 from django.core.files.images import ImageFile
 from rest_framework.decorators import api_view
@@ -243,6 +244,17 @@ def kanban_view(request):
                 
         subtasks = Subtask.objects.filter(task=task)
 
+        subtask_completed_count = 0
+        subtask_total_count = 0
+        
+        for subtask in subtasks:
+            checkbox = request.POST.get('checkbox-subtask')
+            if subtask.done == True:
+                subtask_completed_count += 1
+                subtask_total_count += 1
+            else: 
+                subtask_total_count += 1
+
         pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
         items.append({
             'id': task.id,
@@ -257,6 +269,8 @@ def kanban_view(request):
             'responsible': task.get_responsibles_as_string(),
             'responsible_photos': responsible_photos,
             'responsible_count': task.responsible.count(),
+            'subtask_completed_count': subtask_completed_count,
+            'subtask_total_count': subtask_total_count,
             'pair_responsible_photo': pair_r_p,
             'subtasks': subtasks,
         })
@@ -556,6 +570,12 @@ def taskBoard(request):
         # Caso nenhuma área seja especificada, exibe todas as tarefas
         tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
     
+
+    tasks = tasks.annotate(
+        subtask_total_count=Count('subtasks'),
+        subtask_completed_count=Count('subtasks', filter=Q(subtasks__done=True))
+    )
+
     members = []
     profiles = MembroEquipe.objects.all()
 
