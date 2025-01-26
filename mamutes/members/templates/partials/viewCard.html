@@ -110,6 +110,8 @@
 
             document.addEventListener("click", (e) => {
                 let target = e.target;
+                // alert(target.outerHTML);
+                // target.stopPropagation(); 
 
                 // Abrir o modal correspondente ao card clicado
                 if (target.classList.contains("btnModalViewCard")) {

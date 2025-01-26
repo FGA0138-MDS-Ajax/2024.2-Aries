@@ -94,12 +94,25 @@ def edit_task(request):
         prazo = request.POST.get('Prazo')
         checkbox = request.POST.get('checkbox-subtask')
 
-        subtasks = Subtask.objects.filter(task=task)
+        # checkbox_input = request.POST.getlist('checkbox-subtask')
+        # print("DESGRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA")
+        # print(checkbox_input)
+        # print("DESGRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA")
+
+        subtasks = Subtask.objects.filter(task=task_id)
 
         for subtask in subtasks:
             checkbox = request.POST.get('checkbox-subtask')
-            subtask.done = checkbox
+            if checkbox == None:
+                subtask.done = False
+            else: 
+                subtask.done = True
             subtask.save()
+
+        # for subtask in subtasks:
+        #     checkbox = request.POST.get('checkbox-subtask')
+        #     subtask.done = checkbox
+        #     subtask.save()
 
 
         #print(priority)
@@ -119,6 +132,8 @@ def edit_task(request):
         return redirect('kanban')
 
     return redirect('kanban')
+
+
 
 class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
@@ -228,15 +243,13 @@ def kanban_view(request):
                 
         subtasks = Subtask.objects.filter(task=task)
 
-        for subtask in subtasks:
-            checkbox = request.POST.get('checkbox-subtask')
-            if checkbox == None:
-                subtask.done = False
-            else: 
-                subtask.done = True
-            #print('caio feirasda')
-            #print(subtask.done)
-            subtask.save()
+        # for subtask in subtasks:
+        #     checkbox = request.POST.get('checkbox-subtask')
+        #     if checkbox == None:
+        #         subtask.done = False
+        #     else: 
+        #         subtask.done = True
+        #     subtask.save()
 
         
         #print(f"Subtarefas para a tarefa {task.id}: {[subtask.description for subtask in subtasks]}")
@@ -271,32 +284,43 @@ def kanban_view(request):
         area_id = request.POST.get('area_id')
         responsible = list(map(int, responsible.split(',')))
         subtasks_list = request.POST.getlist('inputTask')
-        checkbox_input = request.POST.getlist('checkbox-subtask')
-        subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
-        # subtasks_list = subtasks_input.split(',')
-        # subtasks_list.pop() 
-        print("=-=-=-=-==-==-=-=--=-=-=-=-==")
-        print(subtasks_list)
-        print(checkbox_input)
-        print("=-=-=-=-==-==-=-=--=-=-=-=-==")
+        checkbox_input = request.POST.get('inputSubTask')
 
-        # Cria a instância de Task
+        subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
+        checkbox_input= checkbox_input.split(',')
+        
+        for i in range(len(checkbox_input)):
+            if checkbox_input[i] == 'true':
+                checkbox_input[i] = True
+            else:
+                checkbox_input[i] = False
+
+    
         task = Task.objects.create(
             title=title,
             description=description,
             status=status,
             priority=priority,
             Prazo=prazo,
-            
         )
+
         task.area.set(area_id)
 
-        for subtask_title in subtasks_list:
+        # subtasks = []  # Lista para armazenar as instâncias de Subtask
+
+        for subtask_title, done_status in zip(subtasks_list, checkbox_input):
             subtask = Subtask.objects.create(
-                description=subtask_title,  # Aqui você pode atribuir mais campos, se necessário
-                task=task,  # Associando a subtask à task recém-criada
-                done = False
+                description=subtask_title,  # Associa o título da subtarefa
+                task=task,                   # Associando à task recém-criada
+                done=done_status             # Define o estado do checkbox
             )
+            # subtasks.append(subtask)  # Armazenando as instâncias criadas
+
+            
+        # print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+        # for subtask in subtasks:
+        #     print(subtask.done)
+
 
         responsible_members = MembroEquipe.objects.filter(id__in=responsible)
 
