@@ -145,3 +145,15 @@ def editar_usuario(request):
     else:
         # Se o método for GET, apenas exibe o formulário com os dados atuais
         return render(request, 'pagConfig.html', {'user': request.user})
+
+
+
+@login_required
+def update_photo(request):
+    if request.method == 'POST' and request.FILES.get('photo'):
+        user = request.user
+        photo = request.FILES['photo']
+        
+        # Atualiza a foto do perfil
+        user.photo = photo
+        user.save()
