@@ -37,3 +37,6 @@ def flight_delete(request, id):
         flight.delete()
         return redirect('flight_list')
     return render(request, 'report/flight_confirm_delete.html', {'flight': FlightLog})
+
+def meetings(request):
+    return render(request, 'meetings.html')
