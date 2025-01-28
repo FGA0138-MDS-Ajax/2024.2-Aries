@@ -5,6 +5,9 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/meetings.css' %}">
+<link rel="stylesheet" href="{% static 'css/newMeeting.css' %}">
+<link rel="stylesheet" href="{% static 'css/editMeeting.css' %}">
+<link rel="stylesheet" href="{% static 'css/filterMeeting.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -29,7 +32,7 @@
                 </div>
                 <input type="text" id="search" name="search" placeholder="Buscar" class="searchField">
             </form>
-            <button id="btnModal" type="submit" class="actionNew">
+            <button id="openModalBtn" type="submit" class="actionNew">
                 <div class="boxIcon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                         <path d="M11.1429 6.85714H6.85714V11.1429C6.85714 11.3702 6.76684 11.5882 6.60609 11.7489C6.44535 11.9097 6.22733 12 6 12C5.77267 12 5.55465 11.9097 5.39391 11.7489C5.23316 11.5882 5.14286 11.3702 5.14286 11.1429V6.85714H0.857143C0.629814 6.85714 0.411797 6.76684 0.251051 6.60609C0.090306 6.44535 0 6.22733 0 6C0 5.77267 0.090306 5.55465 0.251051 5.39391C0.411797 5.23316 0.629814 5.14286 0.857143 5.14286H5.14286V0.857143C5.14286 0.629814 5.23316 0.411797 5.39391 0.251051C5.55465 0.0903056 5.77267 0 6 0C6.22733 0 6.44535 0.0903056 6.60609 0.251051C6.76684 0.411797 6.85714 0.629814 6.85714 0.857143V5.14286H11.1429C11.3702 5.14286 11.5882 5.23316 11.7489 5.39391C11.9097 5.55465 12 5.77267 12 6C12 6.22733 11.9097 6.44535 11.7489 6.60609C11.5882 6.76684 11.3702 6.85714 11.1429 6.85714Z" fill="#D7EAFF"/>
@@ -46,7 +49,11 @@
             </a>
         </div>
         <div class="btns">
+            
             <a id="downloadButton" href="############" class="submitCancelBotao">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M4.00033 1.33478C3.82351 1.33478 3.65395 1.40502 3.52892 1.53005C3.4039 1.65507 3.33366 1.82464 3.33366 2.00145C3.33366 2.17826 3.4039 2.34783 3.52892 2.47286C3.65395 2.59788 3.82351 2.66812 4.00033 2.66812C4.17714 2.66812 4.34671 2.59788 4.47173 2.47286C4.59675 2.34783 4.66699 2.17826 4.66699 2.00145C4.66699 1.82464 4.59675 1.65507 4.47173 1.53005C4.34671 1.40502 4.17714 1.33478 4.00033 1.33478ZM2.11366 1.33478C2.25139 0.944429 2.50682 0.606406 2.84473 0.36731C3.18263 0.128214 3.58638 -0.000183105 4.00033 -0.000183105C4.41427 -0.000183105 4.81802 0.128214 5.15593 0.36731C5.49383 0.606406 5.74926 0.944429 5.88699 1.33478H10.667C10.8438 1.33478 11.0134 1.40502 11.1384 1.53005C11.2634 1.65507 11.3337 1.82464 11.3337 2.00145C11.3337 2.17826 11.2634 2.34783 11.1384 2.47286C11.0134 2.59788 10.8438 2.66812 10.667 2.66812H5.88699C5.74926 3.05847 5.49383 3.3965 5.15593 3.63559C4.81802 3.87469 4.41427 4.00308 4.00033 4.00308C3.58638 4.00308 3.18263 3.87469 2.84473 3.63559C2.50682 3.3965 2.25139 3.05847 2.11366 2.66812H1.33366C1.15685 2.66812 0.987279 2.59788 0.862254 2.47286C0.73723 2.34783 0.666992 2.17826 0.666992 2.00145C0.666992 1.82464 0.73723 1.65507 0.862254 1.53005C0.987279 1.40502 1.15685 1.33478 1.33366 1.33478H2.11366ZM8.00033 5.33478C7.82351 5.33478 7.65395 5.40502 7.52892 5.53005C7.4039 5.65507 7.33366 5.82464 7.33366 6.00145C7.33366 6.17826 7.4039 6.34783 7.52892 6.47285C7.65395 6.59788 7.82351 6.66812 8.00033 6.66812C8.17714 6.66812 8.34671 6.59788 8.47173 6.47285C8.59675 6.34783 8.66699 6.17826 8.66699 6.00145C8.66699 5.82464 8.59675 5.65507 8.47173 5.53005C8.34671 5.40502 8.17714 5.33478 8.00033 5.33478ZM6.11366 5.33478C6.25139 4.94443 6.50682 4.60641 6.84473 4.36731C7.18263 4.12821 7.58638 3.99982 8.00033 3.99982C8.41427 3.99982 8.81802 4.12821 9.15593 4.36731C9.49383 4.60641 9.74926 4.94443 9.88699 5.33478H10.667C10.8438 5.33478 11.0134 5.40502 11.1384 5.53005C11.2634 5.65507 11.3337 5.82464 11.3337 6.00145C11.3337 6.17826 11.2634 6.34783 11.1384 6.47285C11.0134 6.59788 10.8438 6.66812 10.667 6.66812H9.88699C9.74926 7.05847 9.49383 7.39649 9.15593 7.63559C8.81802 7.87469 8.41427 8.00309 8.00033 8.00309C7.58638 8.00309 7.18263 7.87469 6.84473 7.63559C6.50682 7.39649 6.25139 7.05847 6.11366 6.66812H1.33366C1.15685 6.66812 0.987279 6.59788 0.862254 6.47285C0.73723 6.34783 0.666992 6.17826 0.666992 6.00145C0.666992 5.82464 0.73723 5.65507 0.862254 5.53005C0.987279 5.40502 1.15685 5.33478 1.33366 5.33478H6.11366ZM4.00033 9.33478C3.82351 9.33478 3.65395 9.40502 3.52892 9.53005C3.4039 9.65507 3.33366 9.82464 3.33366 10.0015C3.33366 10.1783 3.4039 10.3478 3.52892 10.4729C3.65395 10.5979 3.82351 10.6681 4.00033 10.6681C4.17714 10.6681 4.34671 10.5979 4.47173 10.4729C4.59675 10.3478 4.66699 10.1783 4.66699 10.0015C4.66699 9.82464 4.59675 9.65507 4.47173 9.53005C4.34671 9.40502 4.17714 9.33478 4.00033 9.33478ZM2.11366 9.33478C2.25139 8.94443 2.50682 8.60641 2.84473 8.36731C3.18263 8.12821 3.58638 7.99982 4.00033 7.99982C4.41427 7.99982 4.81802 8.12821 5.15593 8.36731C5.49383 8.60641 5.74926 8.94443 5.88699 9.33478H10.667C10.8438 9.33478 11.0134 9.40502 11.1384 9.53005C11.2634 9.65507 11.3337 9.82464 11.3337 10.0015C11.3337 10.1783 11.2634 10.3478 11.1384 10.4729C11.0134 10.5979 10.8438 10.6681 10.667 10.6681H5.88699C5.74926 11.0585 5.49383 11.3965 5.15593 11.6356C4.81802 11.8747 4.41427 12.0031 4.00033 12.0031C3.58638 12.0031 3.18263 11.8747 2.84473 11.6356C2.50682 11.3965 2.25139 11.0585 2.11366 10.6681H1.33366C1.15685 10.6681 0.987279 10.5979 0.862254 10.4729C0.73723 10.3478 0.666992 10.1783 0.666992 10.0015C0.666992 9.82464 0.73723 9.65507 0.862254 9.53005C0.987279 9.40502 1.15685 9.33478 1.33366 9.33478H2.11366Z" fill="#717171"/>
+                </svg>
                 <span class="cancelLabel">Filtrar</span>
             </a>
         </div>
@@ -213,4 +220,346 @@
         </div>
     </div>
 </div>
+
+<!-- modal add reuniao -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <div style="display: flex; justify-content: flex-end;">
+        <span class="close-btn" id="closeModalBtn">&times;</span>
+        </div>
+        <div class="modal-form">
+        <h2 class="head-label">Adicionar nova reunião</h2>
+        <form method="POST" class="form">
+            {% csrf_token %}
+            
+            <div class="description-task">
+                <label class="title-form">Titulo</label>
+                <input id='title' type="text" class="Titulo-input" name="title" placeholder="Informe o título da nova reunião" required>
+            </div>
+    
+            <div class="description-task">
+                <label class="title-form">Objetivo</label>
+                <textarea id="description" class="objetivo-input" name="description" placeholder="Informe o objetivo da reunião" required></textarea>
+            </div>
+            
+            <div class="status-data" style="display: flex; flex-direction: row;">
+                <div class="description-task">
+                    <label class="title-form">Data</label>
+                    <input type="date" id="Prazo" name="Prazo" class="data-input" required>
+                </div>
+                <div class="description-task">
+                    <label class="title-form">Horário de início </label>
+                    <input type="time" id="Prazo" name="Prazo" class="data-input" required>
+                </div >
+                <div class="description-task">
+                    <label class="title-form">Horário de término </label>
+                    <input type="time" id="Prazo" name="Prazo" class="data-input" required>
+                </div >
+            </div>      
+
+            <div class="status-data" style="display: flex; flex-direction: row;">
+                <div class="description-task">
+                    <label class="title-form">Local</label>
+                    <div style="display:flex; flex-direction: row; align-items: center; width: 100%; gap: 8px">
+                        <div class="Titulo-input">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="input-icon">
+                                <path d="M9.5 7C9.5 6.60218 9.34196 6.22064 9.06066 5.93934C8.77936 5.65804 8.39782 5.5 8 5.5C7.60218 5.5 7.22064 5.65804 6.93934 5.93934C6.65804 6.22064 6.5 6.60218 6.5 7C6.5 7.39782 6.65804 7.77936 6.93934 8.06066C7.22064 8.34196 7.60218 8.5 8 8.5C8.39782 8.5 8.77936 8.34196 9.06066 8.06066C9.34196 7.77936 9.5 7.39782 9.5 7ZM14 7C14 9.874 10.903 13.016 9.159 14.558C8.84011 14.8428 8.42754 15.0002 8 15.0002C7.57246 15.0002 7.15989 14.8428 6.841 14.558C5.097 13.016 2 9.874 2 7C2 6.21207 2.15519 5.43185 2.45672 4.7039C2.75825 3.97595 3.20021 3.31451 3.75736 2.75736C4.31451 2.20021 4.97595 1.75825 5.7039 1.45672C6.43185 1.15519 7.21207 1 8 1C8.78793 1 9.56815 1.15519 10.2961 1.45672C11.0241 1.75825 11.6855 2.20021 12.2426 2.75736C12.7998 3.31451 13.2417 3.97595 13.5433 4.7039C13.8448 5.43185 14 6.21207 14 7ZM13 7C13 5.67392 12.4732 4.40215 11.5355 3.46447C10.5979 2.52678 9.32608 2 8 2C6.67392 2 5.40215 2.52678 4.46447 3.46447C3.52678 4.40215 3 5.67392 3 7C3 8.108 3.615 9.395 4.57 10.683C5.504 11.941 6.657 13.06 7.503 13.809C7.63912 13.9324 7.81628 14.0007 8 14.0007C8.18372 14.0007 8.36088 13.9324 8.497 13.809C9.343 13.06 10.497 11.942 11.43 10.683C12.385 9.395 13 8.108 13 7Z" fill="#808080" stroke="#808080" stroke-width="0.5"/>
+                            </svg>
+                            <input id='title' type="text" class="local-input" name="title" placeholder="Local em que ocorrerá a reunião" required>
+                        </div>
+                        <label class="reuniao-online" style="gap: 4px;">
+                            <input type="checkbox" class="checkbox-subtask">
+                            <span class="checkmark">Reunião online</span>
+                        </label>
+                    </div>
+                </div>
+                    
+            </div>
+        
+            <div class="description-task">
+                <label class="title-form">Convidar times</label>
+                <div class="people-meeting-card"> 
+                    <div class="plus-people" id="plus-people" style="z-index: 101;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
+                        <path d="M12.095 6.42923H7.01566V11.5086C7.01566 11.778 6.90863 12.0364 6.71811 12.2269C6.5276 12.4174 6.26921 12.5245 5.99978 12.5245C5.73036 12.5245 5.47197 12.4174 5.28145 12.2269C5.09094 12.0364 4.98391 11.778 4.98391 11.5086V6.42923H-0.0954551C-0.364881 6.42923 -0.623272 6.3222 -0.813786 6.13169C-1.0043 5.94117 -1.11133 5.68278 -1.11133 5.41336C-1.11133 5.14393 -1.0043 4.88554 -0.813786 4.69503C-0.623272 4.50451 -0.364881 4.39748 -0.0954551 4.39748H4.98391V-0.681881C4.98391 -0.951307 5.09094 -1.2097 5.28145 -1.40021C5.47197 -1.59073 5.73036 -1.69775 5.99978 -1.69775C6.26921 -1.69775 6.5276 -1.59073 6.71811 -1.40021C6.90863 -1.2097 7.01566 -0.951307 7.01566 -0.681881V4.39748H12.095C12.3644 4.39748 12.6228 4.50451 12.8134 4.69503C13.0039 4.88554 13.1109 5.14393 13.1109 5.41336C13.1109 5.68278 13.0039 5.94117 12.8134 6.13169C12.6228 6.3222 12.3644 6.42923 12.095 6.42923Z" fill="#D7EAFF"/>
+                    </svg>
+                    </div>
+                    <div class="pic-responsible" style="--index: 0; outline-color: #fefefe;">
+                    <div class="remove-selected">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M12.3333 2.66667H9.66667V2C9.66667 1.46957 9.45595 0.960859 9.08088 0.585786C8.70581 0.210714 8.1971 0 7.66667 0H6.33333C5.8029 0 5.29419 0.210714 4.91912 0.585786C4.54405 0.960859 4.33333 1.46957 4.33333 2V2.66667H1.66667C1.48986 2.66667 1.32029 2.7369 1.19526 2.86193C1.07024 2.98695 1 3.15652 1 3.33333C1 3.51014 1.07024 3.67971 1.19526 3.80474C1.32029 3.92976 1.48986 4 1.66667 4H2.33333V11.3333C2.33333 11.8638 2.54405 12.3725 2.91912 12.7475C3.29419 13.1226 3.8029 13.3333 4.33333 13.3333H9.66667C10.1971 13.3333 10.7058 13.1226 11.0809 12.7475C11.456 12.3725 11.6667 11.8638 11.6667 11.3333V4H12.3333C12.5101 4 12.6797 3.92976 12.8047 3.80474C12.9298 3.67971 13 3.51014 13 3.33333C13 3.15652 12.9298 2.98695 12.8047 2.86193C12.6797 2.7369 12.5101 2.66667 12.3333 2.66667ZM5.66667 2C5.66667 1.82319 5.7369 1.65362 5.86193 1.5286C5.98695 1.40357 6.15652 1.33333 6.33333 1.33333H7.66667C7.84348 1.33333 8.01305 1.40357 8.13807 1.5286C8.2631 1.65362 8.33333 1.82319 8.33333 2V2.66667H5.66667V2ZM10.3333 11.3333C10.3333 11.5101 10.2631 11.6797 10.1381 11.8047C10.013 11.9298 9.84348 12 9.66667 12H4.33333C4.15652 12 3.98695 11.9298 3.86193 11.8047C3.7369 11.6797 3.66667 11.5101 3.66667 11.3333V4H10.3333V11.3333Z" fill="#FEFEFE"/>
+                        </svg>
+                    </div>
+                    <img title=""  src="https://i.pinimg.com/736x/78/06/c3/7806c3a025ca5dc66cbdd62109760cc8.jpg" alt="" class="photo-view-task">
+                    </div> 
+                </div>
+            </div>
+            
+
+            <div class="description-task">
+                <label class="title-form">Link</label>
+                <div class="Titulo-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" viewBox="0 0 12 6" fill="none">
+                        <path d="M3 6C2.17 6 1.4626 5.7074 0.8778 5.1222C0.293 4.537 0.00040041 3.8296 4.09556e-07 3C-0.00039959 2.1704 0.2922 1.463 0.8778 0.8778C1.4634 0.2926 2.1708 0 3 0H4.8C4.97 0 5.1126 0.0576001 5.2278 0.1728C5.343 0.288 5.4004 0.4304 5.4 0.6C5.3996 0.7696 5.342 0.9122 5.2272 1.0278C5.1124 1.1434 4.97 1.2008 4.8 1.2H3C2.5 1.2 2.075 1.375 1.725 1.725C1.375 2.075 1.2 2.5 1.2 3C1.2 3.5 1.375 3.925 1.725 4.275C2.075 4.625 2.5 4.8 3 4.8H4.8C4.97 4.8 5.1126 4.8576 5.2278 4.9728C5.343 5.088 5.4004 5.2304 5.4 5.4C5.3996 5.5696 5.342 5.7122 5.2272 5.8278C5.1124 5.9434 4.97 6.0008 4.8 6H3ZM4.2 3.6C4.03 3.6 3.8876 3.5424 3.7728 3.4272C3.658 3.312 3.6004 3.1696 3.6 3C3.5996 2.8304 3.6572 2.688 3.7728 2.5728C3.8884 2.4576 4.0308 2.4 4.2 2.4H7.8C7.97 2.4 8.1126 2.4576 8.2278 2.5728C8.343 2.688 8.4004 2.8304 8.4 3C8.3996 3.1696 8.342 3.3122 8.2272 3.4278C8.1124 3.5434 7.97 3.6008 7.8 3.6H4.2ZM7.2 6C7.03 6 6.8876 5.9424 6.7728 5.8272C6.658 5.712 6.6004 5.5696 6.6 5.4C6.5996 5.2304 6.6572 5.088 6.7728 4.9728C6.8884 4.8576 7.0308 4.8 7.2 4.8H9C9.5 4.8 9.925 4.625 10.275 4.275C10.625 3.925 10.8 3.5 10.8 3C10.8 2.5 10.625 2.075 10.275 1.725C9.925 1.375 9.5 1.2 9 1.2H7.2C7.03 1.2 6.8876 1.1424 6.7728 1.0272C6.658 0.912 6.6004 0.7696 6.6 0.6C6.5996 0.4304 6.6572 0.288 6.7728 0.1728C6.8884 0.0576001 7.0308 0 7.2 0H9C9.83 0 10.5376 0.2926 11.1228 0.8778C11.708 1.463 12.0004 2.1704 12 3C11.9996 3.8296 11.707 4.5372 11.1222 5.1228C10.5374 5.7084 9.83 6.0008 9 6H7.2Z" fill="#0075F6"/>
+                    </svg>
+                    <input id='title' type="text" class="local-input" name="title" placeholder="Link para a sala de reunião ou gravação" required>
+                </div>
+            </div> 
+
+            <div class="description-task">
+                <h3 class="ataLabel">Registrar ata</h3>
+            </div> 
+
+            <div class="description-task">
+                <label class="title-form">Membros presentes</label>
+                <!--<img src="data:image/jpeg;base64,{{photo}}" alt="Profile photo" style="max-width: 20px;"> -->
+                <div class="people-meeting-card"> 
+                    <div class="plus-people" id="plus-people" style="z-index: 101;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
+                        <path d="M12.095 6.42923H7.01566V11.5086C7.01566 11.778 6.90863 12.0364 6.71811 12.2269C6.5276 12.4174 6.26921 12.5245 5.99978 12.5245C5.73036 12.5245 5.47197 12.4174 5.28145 12.2269C5.09094 12.0364 4.98391 11.778 4.98391 11.5086V6.42923H-0.0954551C-0.364881 6.42923 -0.623272 6.3222 -0.813786 6.13169C-1.0043 5.94117 -1.11133 5.68278 -1.11133 5.41336C-1.11133 5.14393 -1.0043 4.88554 -0.813786 4.69503C-0.623272 4.50451 -0.364881 4.39748 -0.0954551 4.39748H4.98391V-0.681881C4.98391 -0.951307 5.09094 -1.2097 5.28145 -1.40021C5.47197 -1.59073 5.73036 -1.69775 5.99978 -1.69775C6.26921 -1.69775 6.5276 -1.59073 6.71811 -1.40021C6.90863 -1.2097 7.01566 -0.951307 7.01566 -0.681881V4.39748H12.095C12.3644 4.39748 12.6228 4.50451 12.8134 4.69503C13.0039 4.88554 13.1109 5.14393 13.1109 5.41336C13.1109 5.68278 13.0039 5.94117 12.8134 6.13169C12.6228 6.3222 12.3644 6.42923 12.095 6.42923Z" fill="#D7EAFF"/>
+                    </svg>
+                    </div>
+                    <div class="pic-responsible" style="--index: 0; outline-color: #fefefe;">
+                    <div class="remove-selected">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M12.3333 2.66667H9.66667V2C9.66667 1.46957 9.45595 0.960859 9.08088 0.585786C8.70581 0.210714 8.1971 0 7.66667 0H6.33333C5.8029 0 5.29419 0.210714 4.91912 0.585786C4.54405 0.960859 4.33333 1.46957 4.33333 2V2.66667H1.66667C1.48986 2.66667 1.32029 2.7369 1.19526 2.86193C1.07024 2.98695 1 3.15652 1 3.33333C1 3.51014 1.07024 3.67971 1.19526 3.80474C1.32029 3.92976 1.48986 4 1.66667 4H2.33333V11.3333C2.33333 11.8638 2.54405 12.3725 2.91912 12.7475C3.29419 13.1226 3.8029 13.3333 4.33333 13.3333H9.66667C10.1971 13.3333 10.7058 13.1226 11.0809 12.7475C11.456 12.3725 11.6667 11.8638 11.6667 11.3333V4H12.3333C12.5101 4 12.6797 3.92976 12.8047 3.80474C12.9298 3.67971 13 3.51014 13 3.33333C13 3.15652 12.9298 2.98695 12.8047 2.86193C12.6797 2.7369 12.5101 2.66667 12.3333 2.66667ZM5.66667 2C5.66667 1.82319 5.7369 1.65362 5.86193 1.5286C5.98695 1.40357 6.15652 1.33333 6.33333 1.33333H7.66667C7.84348 1.33333 8.01305 1.40357 8.13807 1.5286C8.2631 1.65362 8.33333 1.82319 8.33333 2V2.66667H5.66667V2ZM10.3333 11.3333C10.3333 11.5101 10.2631 11.6797 10.1381 11.8047C10.013 11.9298 9.84348 12 9.66667 12H4.33333C4.15652 12 3.98695 11.9298 3.86193 11.8047C3.7369 11.6797 3.66667 11.5101 3.66667 11.3333V4H10.3333V11.3333Z" fill="#FEFEFE"/>
+                        </svg>
+                    </div>
+                    <img title=""  src="https://i.pinimg.com/736x/78/06/c3/7806c3a025ca5dc66cbdd62109760cc8.jpg" alt="" class="photo-view-task">
+                    </div> 
+                </div>
+            </div>
+
+            <div class="description-task">
+                <label class="title-form">Outros presentes</label>
+                <input id='title' type="text" class="Titulo-input" name="title" placeholder="Informe aqueles presentes que não são membros" required>
+            </div>
+
+            <div class="description-task">
+                <label class="title-form">Pauta e registros da reunião</label>
+                <textarea id="description" class="objetivo-input" name="description" placeholder="Detalhe a reunião" required></textarea>
+            </div>
+
+            <div style='position: relative;'>
+                {% include 'add_members.html'%}
+            </div><br>
+
+            <button class="button-form" type="submit">Concluido</button>
+        </form>
+        </div>
+    </div>
+    </div>
+<div>
+
+<!-- editar reuniao modal -->
+<div id="modal" class="modal" style="display: flex;">
+    <div class="modal-content">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+            <div style="display: flex; justify-content: flex-start; gap: 8px;">
+                <div class="editBtn">
+                    <svg class="editImg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <path d="M8.58042 1.83929H2.68454C2.23777 1.83929 1.8093 2.01677 1.49339 2.33268C1.17748 2.6486 1 3.07706 1 3.52383V15.3156C1 15.7624 1.17748 16.1908 1.49339 16.5067C1.8093 16.8226 2.23777 17.0001 2.68454 17.0001H14.4763C14.9231 17.0001 15.3515 16.8226 15.6674 16.5067C15.9834 16.1908 16.1608 15.7624 16.1608 15.3156V9.41971" stroke="#0075F6" stroke-width="1.68454" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.9499 1.52344C14.285 1.18837 14.7394 1.00012 15.2133 1.00012C15.6872 1.00012 16.1416 1.18837 16.4767 1.52344C16.8118 1.85852 17 2.31298 17 2.78684C17 3.26071 16.8118 3.71517 16.4767 4.05025L8.88535 11.6425C8.68535 11.8423 8.43828 11.9886 8.1669 12.0678L5.74706 12.7753C5.67458 12.7964 5.59776 12.7977 5.52462 12.779C5.45149 12.7602 5.38474 12.7222 5.33136 12.6688C5.27797 12.6154 5.23992 12.5487 5.22118 12.4755C5.20245 12.4024 5.20371 12.3256 5.22485 12.2531L5.93236 9.83326C6.01198 9.56209 6.15854 9.31531 6.35855 9.11565L13.9499 1.52344Z" stroke="#0075F6" stroke-width="1.68454" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    <span>Editar reunião</span>
+                </div>
+                <div class="thrashBtn">
+                    <svg class="thrashImg" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M12.3333 2.66667H9.66667V2C9.66667 1.46957 9.45595 0.960859 9.08088 0.585786C8.70581 0.210714 8.1971 0 7.66667 0H6.33333C5.8029 0 5.29419 0.210714 4.91912 0.585786C4.54405 0.960859 4.33333 1.46957 4.33333 2V2.66667H1.66667C1.48986 2.66667 1.32029 2.7369 1.19526 2.86193C1.07024 2.98695 1 3.15652 1 3.33333C1 3.51014 1.07024 3.67971 1.19526 3.80474C1.32029 3.92976 1.48986 4 1.66667 4H2.33333V11.3333C2.33333 11.8638 2.54405 12.3725 2.91912 12.7475C3.29419 13.1226 3.8029 13.3333 4.33333 13.3333H9.66667C10.1971 13.3333 10.7058 13.1226 11.0809 12.7475C11.456 12.3725 11.6667 11.8638 11.6667 11.3333V4H12.3333C12.5101 4 12.6797 3.92976 12.8047 3.80474C12.9298 3.67971 13 3.51014 13 3.33333C13 3.15652 12.9298 2.98695 12.8047 2.86193C12.6797 2.7369 12.5101 2.66667 12.3333 2.66667ZM5.66667 2C5.66667 1.82319 5.7369 1.65362 5.86193 1.5286C5.98695 1.40357 6.15652 1.33333 6.33333 1.33333H7.66667C7.84348 1.33333 8.01305 1.40357 8.13807 1.5286C8.2631 1.65362 8.33333 1.82319 8.33333 2V2.66667H5.66667V2ZM10.3333 11.3333C10.3333 11.5101 10.2631 11.6797 10.1381 11.8047C10.013 11.9298 9.84348 12 9.66667 12H4.33333C4.15652 12 3.98695 11.9298 3.86193 11.8047C3.7369 11.6797 3.66667 11.5101 3.66667 11.3333V4H10.3333V11.3333Z" fill="#D70000"/>
+                      </svg>
+                </div>
+            </div>
+            <div>
+                <span class="close-btn" id="closeModalBtn">&times;</span>
+            </div>
+        </div><br>
+        
+      <div class="modal-form">
+            <h2 class="head-label-edit">Reunião de alinhamento</h2>
+            <form method="POST" class="form">
+            {% csrf_token %}
+            
+                <div class="description-task">
+                    <div style="display: flex; justify-content: flex-end; gap: 4px; margin-top: -10x;">
+                        <label class="objective">Objetivo: </label>
+                        <span class="objective-s">Atualizar o modelo 3D da fuselagem com base nas alterações sugeridas.</span>
+                    </div>
+                </div>
+
+                <div class="status-data" style="display: flex; flex-direction: row; width: 100%;">
+                    <div class="description-task">
+                        <label class="titles">Data</label>
+                        <div class="rows-sections">
+                            <svg class="images" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M1.16699 5.16665H12.8337M3.90766 2.16665V0.833313M10.0743 2.16665V0.833313M10.5003 2.16665H3.50033C2.88149 2.16665 2.28799 2.41248 1.85041 2.85006C1.41282 3.28765 1.16699 3.88114 1.16699 4.49998V10.8333C1.16699 11.4522 1.41282 12.0456 1.85041 12.4832C2.28799 12.9208 2.88149 13.1666 3.50033 13.1666H10.5003C11.1192 13.1666 11.7127 12.9208 12.1502 12.4832C12.5878 12.0456 12.8337 11.4522 12.8337 10.8333V4.49998C12.8337 3.88114 12.5878 3.28765 12.1502 2.85006C11.7127 2.41248 11.1192 2.16665 10.5003 2.16665Z" stroke="#1F1A99" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="data">20/12/2024</span>
+                        </div>
+                    </div>
+
+                    <div class="description-task">
+                        <label class="titles">Início</label>
+                        <div class="rows-sections">
+                            <svg class="images" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M9.13301 9.4L7.68461 7.9516C7.45955 7.72661 7.33308 7.42143 7.33301 7.1032V3.4M13.333 7C13.333 10.3137 10.6467 13 7.33301 13C4.0193 13 1.33301 10.3137 1.33301 7C1.33301 3.68629 4.0193 1 7.33301 1C10.6467 1 13.333 3.68629 13.333 7Z" stroke="#1F1A99" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="data">69h</span>
+                        </div>
+                    </div>
+
+                    <div class="description-task">
+                        <label class="titles">Término</label>
+                        <div class="rows-sections">
+                            <svg class="images" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M8.46699 9.4L7.01859 7.9516C6.79353 7.72661 6.66706 7.42143 6.66699 7.1032V3.4M12.667 7C12.667 10.3137 9.9807 13 6.66699 13C3.35328 13 0.666992 10.3137 0.666992 7C0.666992 3.68629 3.35328 1 6.66699 1C9.9807 1 12.667 3.68629 12.667 7Z" stroke="#1F1A99" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="data">69h</span>
+                        </div>
+                    </div>
+
+                    <div class="description-task">
+                        <label class="titles">Local</label>
+                        <div class="rows-sections">
+                            <svg class="images" xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
+                                <path d="M3 14.6666V4.99996C3 4.64634 3.14048 4.3072 3.39052 4.05715C3.64057 3.8071 3.97971 3.66663 4.33333 3.66663C4.68696 3.66663 5.02609 3.8071 5.27614 4.05715C5.52619 4.3072 5.66667 4.64634 5.66667 4.99996V11.6666L13.3333 13.3333V14.6666" stroke="#1F1A99" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3.00033 8.41665C1.63466 7.88331 0.666992 6.55465 0.666992 4.99998C0.666992 2.97498 2.30866 1.33331 4.33366 1.33331C6.35866 1.33331 8.00033 2.97498 8.00033 4.99998C8.00033 6.55465 7.03266 7.88331 5.66699 8.41665" stroke="#1F1A99" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            <span class="data">Reunião online</span>
+                        </div>
+                    </div>
+                </div>  
+                
+                <div class="description-task">
+                    <label class="title-form">Times Convidados</label>
+                    <div class="people-meeting-card"> 
+                    <div class="pic-responsible-edit" style="--index: 0; outline-color: #fefefe;">
+                        <img title=""  src="https://i.pinimg.com/736x/78/06/c3/7806c3a025ca5dc66cbdd62109760cc8.jpg" alt="" class="photo-view-task">
+                    </div> 
+                    </div>
+                </div>
+
+                <div class="description-task">
+                    <label class="title-form">Membros presentes</label>
+                    <div class="people-meeting-card"> 
+                    <div class="pic-responsible-edit" style="--index: 0; outline-color: #fefefe;">
+                        <img title=""  src="https://i.pinimg.com/736x/78/06/c3/7806c3a025ca5dc66cbdd62109760cc8.jpg" alt="" class="photo-view-task">
+                    </div> 
+                    </div>
+                </div>
+
+                <div class="description-task">
+                    <label class="title-form">Outros presentes</label>
+                    <span class="others">Reitora, Diretor e Professor João</span>
+                </div>
+
+                <div class="description-task">
+                    <label class="title-form">Pauta e registros da reunião</label>
+                    <span class="pauta">O sistema de controle apresentou estabilidade satisfatória em todas as altitudes testadas, com desvios mínimos. O sistema de propulsão atingiu 90% da eficiência esperada. O sistema de controle apresentou estabilidade satisfatória em todas as altitudes testadas, com desvios mínimos. O sistema de propulsão atingiu 90% da eficiência esperada. O sistema de controle apresentou estabilidade satisfatória em todas as altitudes testadas, com desvios mínimos. O sistema de propulsão atingiu 90% da eficiência esperada. O sistema de controle apresentou estabilidade satisfatória em todas as altitudes testadas, com desvios mínimos. O sistema de propulsão atingiu 90% da eficiência esperada. O sistema de controle apresentou estabilidade satisfatória em todas as altitudes testadas, com desvios mínimos. O sistema de propulsão atingiu 90% da eficiência esperada. O sistema de controle apresentou estabilidade satisfatória em todas as altitudes testadas, com desvios mínimos. O sistema de propulsão atingiu 90% da eficiência esperada.
+                    </span>
+                </div>
+
+                <div class="description-task">
+                    <label class="title-form">Link</label>
+                    <div class="Titulo-input-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" viewBox="0 0 12 6" fill="none">
+                            <path d="M3 6C2.17 6 1.4626 5.7074 0.8778 5.1222C0.293 4.537 0.00040041 3.8296 4.09556e-07 3C-0.00039959 2.1704 0.2922 1.463 0.8778 0.8778C1.4634 0.2926 2.1708 0 3 0H4.8C4.97 0 5.1126 0.0576001 5.2278 0.1728C5.343 0.288 5.4004 0.4304 5.4 0.6C5.3996 0.7696 5.342 0.9122 5.2272 1.0278C5.1124 1.1434 4.97 1.2008 4.8 1.2H3C2.5 1.2 2.075 1.375 1.725 1.725C1.375 2.075 1.2 2.5 1.2 3C1.2 3.5 1.375 3.925 1.725 4.275C2.075 4.625 2.5 4.8 3 4.8H4.8C4.97 4.8 5.1126 4.8576 5.2278 4.9728C5.343 5.088 5.4004 5.2304 5.4 5.4C5.3996 5.5696 5.342 5.7122 5.2272 5.8278C5.1124 5.9434 4.97 6.0008 4.8 6H3ZM4.2 3.6C4.03 3.6 3.8876 3.5424 3.7728 3.4272C3.658 3.312 3.6004 3.1696 3.6 3C3.5996 2.8304 3.6572 2.688 3.7728 2.5728C3.8884 2.4576 4.0308 2.4 4.2 2.4H7.8C7.97 2.4 8.1126 2.4576 8.2278 2.5728C8.343 2.688 8.4004 2.8304 8.4 3C8.3996 3.1696 8.342 3.3122 8.2272 3.4278C8.1124 3.5434 7.97 3.6008 7.8 3.6H4.2ZM7.2 6C7.03 6 6.8876 5.9424 6.7728 5.8272C6.658 5.712 6.6004 5.5696 6.6 5.4C6.5996 5.2304 6.6572 5.088 6.7728 4.9728C6.8884 4.8576 7.0308 4.8 7.2 4.8H9C9.5 4.8 9.925 4.625 10.275 4.275C10.625 3.925 10.8 3.5 10.8 3C10.8 2.5 10.625 2.075 10.275 1.725C9.925 1.375 9.5 1.2 9 1.2H7.2C7.03 1.2 6.8876 1.1424 6.7728 1.0272C6.658 0.912 6.6004 0.7696 6.6 0.6C6.5996 0.4304 6.6572 0.288 6.7728 0.1728C6.8884 0.0576001 7.0308 0 7.2 0H9C9.83 0 10.5376 0.2926 11.1228 0.8778C11.708 1.463 12.0004 2.1704 12 3C11.9996 3.8296 11.707 4.5372 11.1222 5.1228C10.5374 5.7084 9.83 6.0008 9 6H7.2Z" fill="#0075F6"/>
+                        </svg>
+                        <span class="link">Link para sala de reunião ou gravação</span>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+  </div>
+<div>
+
+
+<!-- modal de fitrar reunioes  -->
+<div id="modal" class="modal" style="display: none;">
+    <div class="modal-content-filter">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 16px 8px 16px; border-bottom: 1px solid #EEE;">
+            <h2 class="head-label-filter" style="margin: 0; justify-self: flex-start;">Filtrar Reunião</h2>
+            <div class="close-btn-2" id="closeModalBtn" style="justify-self: flex-end;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="2" viewBox="0 0 12 2" fill="none">
+                    <path d="M1 2C0.71667 2 0.479337 1.904 0.288004 1.712C0.0966702 1.52 0.000670115 1.28267 3.44827e-06 1C-0.000663218 0.717333 0.0953369 0.48 0.288004 0.288C0.48067 0.0960001 0.718003 0 1 0H11C11.2833 0 11.521 0.0960001 11.713 0.288C11.905 0.48 12.0007 0.717333 12 1C11.9993 1.28267 11.9033 1.52033 11.712 1.713C11.5207 1.90567 11.2833 2.00133 11 2H1Z" fill="#808080"/>
+                </svg>
+                <span></span>
+            </div>
+    </div>        
+        <form method="POST" class="form">
+            {% csrf_token %}
+            
+            <div class="modal-form-filter">
+                <div class="ata-box">
+                    <label class="ata-title">Ata</label>
+                    <div style="display: flex;flex-direction: column; justify-content: flex-end;">
+                        <label class="reuniao-online" style="gap: 4px;">
+                            <input type="checkbox" class="checkbox-subtask">
+                            <span class="ata-content">Ata disponível</span>
+                        </label>
+                        
+                        <label class="reuniao-online" style="gap: 4px;">
+                            <input type="checkbox" class="checkbox-subtask">
+                            <span class="ata-content">Ata não disponivel</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="ata-box">
+                    <label class="ata-title">Período</label>
+                    <div class="period-box">
+                        <label for="" class="period-content">Inserir input de calendário com período</label>
+                    </div>
+                </div>
+
+                <div class="ata-box">
+                    <label class="ata-title">Times participantes</label>
+                    <div style="display: flex;flex-direction: column; justify-content: flex-end;">
+                        <label class="reuniao-online" style="gap: 4px;">
+                            <input type="checkbox" class="checkbox-subtask">
+                            <span class="ata-content">Adm</span>
+                        </label>
+                        <label class="reuniao-online" style="gap: 4px;">
+                            <input type="checkbox" class="checkbox-subtask">
+                            <span class="ata-content">Adm</span>
+                        </label>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="botoes">
+                <div class="redefinirBtn">
+                    <span>Redefinir</span>
+                </div>
+                <div class="aplicarBtn">
+                    <span>Aplicar</span>
+                </div>
+            </div>
+        </form>     
+</div>
+<script>
+    // Seleciona os elementos
+    const modal = document.getElementById('modal');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // Abre o modal
+    openModalBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    // Fecha o modal
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Fecha o modal ao clicar fora do conteúdo
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
 {% endblock %}
