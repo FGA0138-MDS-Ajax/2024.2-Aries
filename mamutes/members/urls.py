@@ -16,6 +16,4 @@ urlpatterns = [
     path('api/tasks/<int:task_id>/update-status/', update_task_status, name='update_task_status'),
     path('profiles/', views.profile_list, name='profile_list'),
     path('taskBoard', views.taskBoard, name='taskBoard'),
-]
-
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
