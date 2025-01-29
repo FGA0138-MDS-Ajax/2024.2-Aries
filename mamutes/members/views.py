@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
 from .forms import TaskForm
-from .models import MembroEquipe, Task,Area
+from .models import MembroEquipe, Task, Area, Subtask
+from django.http import HttpResponseRedirect
 
 from rest_framework import viewsets
 from .models import Column, Task
@@ -51,6 +52,40 @@ def delete_task(request):
 
     return redirect('kanban')
 
+def edit_task(request):
+    if request.method == 'POST':
+        task_id = request.POST.get('id_task')
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        priority = request.POST.get('priority')
+        prazo = request.POST.get('Prazo')
+        checkbox = request.POST.get('checkbox-subtask')
+
+        subtasks = Subtask.objects.filter(task=task)
+
+        for subtask in subtasks:
+            checkbox = request.POST.get('checkbox-subtask')
+            subtask.done = checkbox
+            subtask.save()
+
+
+        #print(priority)
+
+        if task_id:
+            task = get_object_or_404(Task, id=task_id)
+            if title:
+                task.title = title
+            if description:
+                task.description = description
+            if status:
+                task.priority = priority
+            if prazo:
+                task.Prazo = prazo
+            task.save()
+
+        return redirect('kanban')
+
+    return redirect('kanban')
 
 class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
@@ -80,21 +115,32 @@ def kanban_view(request):
         tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
     
     items = []
-    profiles = MembroEquipe.objects.all()
     members = []
-    
     all_areas = Area.objects.all()
-    # Processa os membros da equipe
-    for profile in profiles:
-        if profile.photo:
-            profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
+    profiles = MembroEquipe.objects.all()
+
+    if area_id:
+        profileFiltered = MembroEquipe.objects.filter(testearea=area_id);
+    else:
+        profileFiltered = MembroEquipe.objects.all();
+
+    for profile in profileFiltered:
         
+        areas = [area.name for area in profile.testearea.all()]
         members.append({
             'email': profile.email,
             'fullname': profile.fullname,
             'username': profile.username,
             'photo': profile.photo,
+            'area': ", ".join(areas),
         })
+
+    members_count = len(members)-5
+    # Processa os membros da equipe
+    for profile in profiles:
+        if profile.photo:
+            profile.photo_base64 = base64.b64encode(profile.photo).decode('utf-8')
+
     total_tasks = tasks.count()
     completed_task_count = tasks.filter(status='Concluída').count()
     Em_Progresso_task_count = tasks.filter(status='Em Progresso').count()
@@ -106,7 +152,9 @@ def kanban_view(request):
         completed_percentage = round((completed_task_count / total_tasks) * 100)
     else:
         pending_percentage = in_progress_percentage = completed_percentage = 0
+    
     # Processa as tarefas
+    
     for task in tasks:
         prazo = task.Prazo
         today = datetime.now().date()
@@ -127,10 +175,29 @@ def kanban_view(request):
             else:
                 responsible_photos.append(None)
         
+        
+
+        subtasks = Subtask.objects.filter(task=task)
+
+        for subtask in subtasks:
+            checkbox = request.POST.get('checkbox-subtask')
+            if checkbox == None:
+                subtask.done = False
+            else: 
+                subtask.done = True
+            #print('caio feirasda')
+            #print(subtask.done)
+            subtask.save()
+
+        
+        #print(f"Subtarefas para a tarefa {task.id}: {[subtask.description for subtask in subtasks]}")
+        #print(subtasks)
+        #print('CAIO FERREIRA DUARTE')
         pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
         items.append({
             'id': task.id,
             'status': task.status,
+            # 'area': task.area.all,
             'title': task.title,
             'description': task.description,
             'creation_date': task.creation_date,
@@ -141,6 +208,7 @@ def kanban_view(request):
             'responsible_photos': responsible_photos,
             'responsible_count': task.responsible.count(),
             'pair_responsible_photo': pair_r_p,
+            'subtasks': subtasks,
         })
     
     # Adicionar nova tarefa via POST
@@ -148,23 +216,43 @@ def kanban_view(request):
         title = request.POST.get('title')
         description = request.POST.get('description')
         status = request.POST.get('status')
+        priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo') or None
         responsible = request.POST.get('responsibles')
-        
+        area_id = request.POST.get('area_id')
         responsible = list(map(int, responsible.split(',')))
+        subtasks_list = request.POST.getlist('inputTask')
+        checkbox_input = request.POST.getlist('checkbox-subtask')
+        subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
+        # subtasks_list = subtasks_input.split(',')
+        # subtasks_list.pop() 
+        print("=-=-=-=-==-==-=-=--=-=-=-=-==")
+        print(subtasks_list)
+        print(checkbox_input)
+        print("=-=-=-=-==-==-=-=--=-=-=-=-==")
 
         # Cria a instância de Task
         task = Task.objects.create(
             title=title,
             description=description,
             status=status,
+            priority=priority,
             Prazo=prazo,
+            
         )
+        task.area.set(area_id)
+
+        for subtask_title in subtasks_list:
+            subtask = Subtask.objects.create(
+                description=subtask_title,  # Aqui você pode atribuir mais campos, se necessário
+                task=task,  # Associando a subtask à task recém-criada
+                done = False
+            )
 
         responsible_members = MembroEquipe.objects.filter(id__in=responsible)
         task.responsible.set(responsible_members)
         
-        return redirect('kanban')
+        return redirect(request.get_full_path())
     
     return render(request, 'kanbam.html', {
         'items': items,
@@ -178,6 +266,7 @@ def kanban_view(request):
         'pending_percentage': pending_percentage,
         'in_progress_percentage': in_progress_percentage,
         'completed_percentage': completed_percentage,
+        'members_count': members_count
     })
 
 
@@ -191,7 +280,7 @@ def update_task_status(request, task_id):
         return Response({"error": "Task not found"}, status=status.HTTP_404_NOT_FOUND)
     
     # Log os dados recebidos
-    print("Dados recebidos:", request.data)
+    #print("Dados recebidos:", request.data)
 
     new_status = request.data.get('status')
     if not new_status:
@@ -240,3 +329,6 @@ def profile_list(request):
 def home(request):
     return render(request, "home.html")
 
+def taskBoard(request):
+    tasks = Task.objects.all()  
+    return render(request, 'taskBoard.html', {'tasks': tasks})
