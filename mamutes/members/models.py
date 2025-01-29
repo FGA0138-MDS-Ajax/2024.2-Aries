@@ -100,6 +100,7 @@ def __str__(self):
     return self.name
 
 class Task1(models.Model):
+    
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     column = models.ForeignKey(Column, on_delete=models.CASCADE, related_name='tasks')

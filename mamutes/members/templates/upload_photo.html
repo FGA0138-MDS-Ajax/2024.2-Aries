@@ -1,14 +1,95 @@
-<form method="POST" enctype="multipart/form-data">
+<form id="photoForm" method="POST" enctype="multipart/form-data" action="{% url 'upload_photo' %}">
     {% csrf_token %}
-    <label for="fullname">Name:</label>
-    <input type="text" name="fullname" id="fullname" required>
-    <label for="name">email:</label>
-    <input type="text" name="email" id="email" required>
-    <label for="name">phone:</label>
-    <input type="text" name="phone" id="phone" required>
-    
-    <label for="photo">Photo:</label>
-    <input type="file" name="photo" id="photo" required>
-    
-    <button type="submit">Upload</button>
-</form>
+    {% load static %}
+    <input type="file" id="uploadImage" accept="image/*" name="originalPhoto">
+    <input type="hidden" name="fullname" id="fullname" value="John1asasassasasasasasasa">
+    <input type="hidden" name="email" id="email" value="johndoe@example.com1asasasasasasas">
+    <input type="hidden" name="phone" id="phone" value="1234567891">
+    <div id="imageContainer">
+      <img id="imagePreview" style="max-width: 100%; display: none;">
+    </div>
+    <button type="button" id="saveButton" >Salvar</button>
+  </form>
+  
+  <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.css">
+  
+  <script>
+    const uploadImage = document.getElementById("uploadImage");
+    const imagePreview = document.getElementById("imagePreview");
+    const saveButton = document.getElementById("saveButton");
+    const photoForm = document.getElementById("photoForm");
+    let cropper;
+  
+    // Exibe a imagem no cropper ao selecionar um arquivo
+    uploadImage.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          imagePreview.src = reader.result;
+          imagePreview.style.display = "block"; // Exibir a imagem
+          saveButton.style.display = "block"; // Exibir o botão salvar
+  
+          // Inicializar o cropper ou destruir caso já exista
+          if (cropper) cropper.destroy();
+          cropper = new Cropper(imagePreview, {
+            aspectRatio: 1, // Para cortes quadrados
+            viewMode: 1,
+          });
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  
+    // Salva a imagem cortada e envia o formulário
+    saveButton.addEventListener("click", () => {
+      if (cropper) {
+        cropper.getCroppedCanvas().toBlob((blob) => {
+          // Cria um campo de input para o arquivo Blob cortado
+          const fileInput = document.createElement("input");
+          fileInput.type = "file";
+          fileInput.name = "croppedImage";
+  
+          // Cria um arquivo para o Blob e o adiciona ao formulário
+          const file = new File([blob], "cropped_image.png", { type: "image/png" });
+          const dataTransfer = new DataTransfer();
+          dataTransfer.items.add(file);
+          fileInput.files = dataTransfer.files;
+  
+          // Adiciona o input ao formulário e envia
+          photoForm.appendChild(fileInput);
+          photoForm.submit();
+        });
+      }
+      else {
+
+        const defaultImage = new Image();
+        defaultImage.src = '/static/img/profile.png';  // Caminho da imagem padrão
+
+        defaultImage.onload = () => {
+          // Cria um arquivo a partir da imagem padrão quando ela for carregada
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = defaultImage.width;
+          canvas.height = defaultImage.height;
+          ctx.drawImage(defaultImage, 0, 0);
+
+          canvas.toBlob((defaultBlob) => {
+            const file = new File([defaultBlob], "profile.png", { type: "image/png" });
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+
+            const fileInput = document.createElement("input");
+            fileInput.type = "file";
+            fileInput.name = "croppedImage";
+            fileInput.files = dataTransfer.files;
+
+            photoForm.appendChild(fileInput);
+            photoForm.submit();
+          });
+        };
+    }
+    });
+  </script>
+  

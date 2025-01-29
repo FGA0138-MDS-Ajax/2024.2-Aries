@@ -17,7 +17,9 @@ from datetime import date, datetime
 import locale
 
 import base64
-
+from django.views.decorators.csrf import csrf_exempt
+import os
+from django.conf import settings
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
 
@@ -201,21 +203,30 @@ def update_task_status(request, task_id):
     serializer = TaskSerializer(task)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-    
+@csrf_exempt
 def upload_photo(request):
     if request.method == "POST":
-        fullname = request.POST['fullname']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        photo = request.FILES['photo']  # Obtém o arquivo enviado
-        photo_data = photo.read()  # Lê os dados binários do arquivo
+        fullname = request.POST.get("fullname")
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        cropped_image = request.FILES.get("croppedImage")  # Obter o arquivo enviado
 
-        # Salva no banco
-        profile = MembroEquipe(fullname=fullname, photo=photo_data,email=email,phone=phone,username=fullname)
+        if cropped_image:
+            # Ler os dados do arquivo e salvar no banco
+            photo_data = cropped_image.read()
+            
+        profile = MembroEquipe(
+            fullname=fullname,
+            email=email,
+            phone=phone,
+            photo=photo_data,
+            username=fullname
+        )
         profile.save()
 
-        return redirect('profile_list')  # Redireciona para outra página
-    return render(request, 'upload_photo.html')
+        return redirect("profile_list")
+
+    return render(request, "upload_photo.html")
 
 def profile_list(request):
     profiles = MembroEquipe.objects.all()

@@ -15,6 +15,7 @@ class Function(models.Model):
         return self.name
     
 class MembroEquipe(AbstractUser):
+
     class AreaChoices(models.TextChoices):
         SOFTWARE_ENGINEERING = 'SE', 'Engenharia de Software'
         DATA_SCIENCE = 'DS', 'Ciência de Dados'
@@ -34,3 +35,4 @@ class MembroEquipe(AbstractUser):
 
     def __str__(self):
         return self.username
+
