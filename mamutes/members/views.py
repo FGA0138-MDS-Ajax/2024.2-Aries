@@ -282,22 +282,12 @@ def kanban_view(request):
         status = request.POST.get('status')
         priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo') or None
-        responsible = request.POST.get('responsibles')
         area_id = request.POST.get('area_id')
-        responsible = list(map(int, responsible.split(',')))
+        responsible = request.POST.get('responsibles')
         subtasks_list = request.POST.getlist('inputTask')
         checkbox_input = request.POST.get('inputSubTask')
 
-        subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
-        checkbox_input= checkbox_input.split(',')
         
-        for i in range(len(checkbox_input)):
-            if checkbox_input[i] == 'true':
-                checkbox_input[i] = True
-            else:
-                checkbox_input[i] = False
-
-    
         task = Task.objects.create(
             title=title,
             description=description,
@@ -308,16 +298,27 @@ def kanban_view(request):
 
         task.area.set(area_id)
 
-        for subtask_title, done_status in zip(subtasks_list, checkbox_input):
-            subtask = Subtask.objects.create(
-                description=subtask_title,  # Associa o título da subtarefa
-                task=task,                   # Associando à task recém-criada
-                done=done_status             # Define o estado do checkbox
-            )
+        if checkbox_input:
+            subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
+            checkbox_input= checkbox_input.split(',')
+            
+            for i in range(len(checkbox_input)):
+                if checkbox_input[i] == 'true':
+                    checkbox_input[i] = True
+                else:
+                    checkbox_input[i] = False
 
-        responsible_members = MembroEquipe.objects.filter(id__in=responsible)
-
-        task.responsible.set(responsible_members)
+            for subtask_title, done_status in zip(subtasks_list, checkbox_input):
+                subtask = Subtask.objects.create(
+                    description=subtask_title,  # Associa o título da subtarefa
+                    task=task,                   # Associando à task recém-criada
+                    done=done_status             # Define o estado do checkbox
+                )
+    
+        if responsible:
+            responsible = list(map(int, responsible.split(',')))
+            responsible_members = MembroEquipe.objects.filter(id__in=responsible)
+            task.responsible.set(responsible_members)
         
         return redirect(request.get_full_path())
     

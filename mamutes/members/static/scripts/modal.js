@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     plusMembers.forEach(member => {
         member.addEventListener('click', () => {
             const memberId = member.getAttribute('data-id');
+
             
             // Obtém o valor atual do campo
             let currentValues = responsiblesField.value ? responsiblesField.value.split(',') : [];
@@ -14,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!currentValues.includes(memberId)) {
                 currentValues.push(memberId);
             }
-
             // Atualiza o campo com os novos valores
             responsiblesField.value = currentValues.join(',');
 
