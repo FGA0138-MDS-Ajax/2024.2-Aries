@@ -1,0 +1,506 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+  }
+  
+  html{
+      scroll-behavior: smooth;
+  }
+  
+  html, body {
+      height: 100%;
+  }
+  
+  body {
+      line-height: 1.5;
+      text-size-adjust: 100%;
+      /* background: #F2f2f2; */
+  }
+  
+  a {
+      text-decoration: none;
+      color: inherit;
+  }
+  
+  img {
+      max-width: 100%;
+      height: auto;
+  }
+  
+  button {
+      all: unset;
+      cursor: pointer;
+  }
+  
+  svg{
+      overflow: hidden;
+  }
+  
+  path{
+      width: 100%;
+      height: auto;
+  }
+
+.Top{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 64px;
+    /* max-width: 1280px; */
+    padding: 8px 48px;
+    justify-content: space-between;
+    align-items: center;
+    background: #FEFEFE;
+    box-shadow: 0px 4px 32px 0px rgba(30, 30, 30, 0.06);
+    /* left: 50%;
+    transform: translateX(-50%); */
+    z-index: 1000;
+}
+
+.NomePag{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.NomePag .LogoMmts{
+    display: flex;
+    width: 48px;
+    justify-content: center;
+    align-items: center;
+}
+
+.LogoMmts .VectorMmts{
+    height: 48px;
+    /* flex: 1 0 0; */
+}
+
+.LogoMmts .VectorMmts path{
+    fill: #1F1A99;
+}
+
+.NomePag p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    color: #010032;
+    leading-trim: both;
+    text-edge: cap;
+    text-overflow: ellipsis;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 30px */
+    letter-spacing: -0.22px;
+}
+
+.NomePag p .Member{
+    color: #0075F6;
+
+}
+
+.PrincipalHeader{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    flex: 1 0 0;
+}
+
+
+.PrincipalHeader .ButtonNotif {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+    border-radius: 8px;
+    /* background: #F2F2F2; */
+    cursor: pointer;
+    transition: background-color 0.2s ease; 
+    position: relative; 
+    border: none;
+}
+
+.PrincipalHeader .ButtonNotif.active {
+    background: #f2f2f2;
+}
+
+
+/* .ButtonNotif:hover {
+    background-color: gray;
+} */
+
+.ButtonNotif .NotifiIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+}
+
+.NotifiIcon .Group {
+    width: 17.876px;
+    height: 21.814px;
+}
+
+.NotifiIcon .DotNotif {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: -0.124px; 
+    right: -0.124px;
+    border-radius: 16px;
+    outline: 2px solid #FEFEFE;
+    background: #36B5FF;
+}
+
+.Notifications {
+    display: none;
+    z-index: 1;
+    width: 356px;
+    max-height: 480px;
+    padding-inline: 16px;
+    padding-block: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    position: absolute;
+    top: 56px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 16px;
+    background: #FEFEFE;
+    box-shadow: 0px 4px 32px 0px rgba(30, 30, 30, 0.20);
+    overflow-y: auto;
+    /* visibility: hidden; */
+}
+
+
+.Notifications .show {
+    display: flex;
+    z-index: 1;
+}
+
+.Notifications .DailyNotif{
+    display: flex;
+    /* padding-bottom: 32px; */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.DailyNotif > p{
+    align-self: stretch;
+    color: #717171;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 16.8px */
+    letter-spacing: -0.154px;
+    text-align: left;
+    padding-inline: 8px;
+}
+
+.DailyNotif .ListNotif{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 24px; */
+    align-self: stretch;
+}
+
+.ListNotif .IndividualNotif{
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+    padding-inline: 8px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.ListNotif .IndividualNotif:hover{
+    background-color: #eeeeee60;
+    /* text-decoration: underline; */
+}
+
+.IndividualNotif .Icon{
+    display: flex;
+    width: 24px;
+    height: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80px;
+    background: rgba(0, 135, 7, 0.20);  
+}
+
+.IndividualNotif .Icon SVG{
+    width: 16px;
+    height: 15.986px;
+    flex-shrink: 0;
+}
+
+
+.IndividualNotif p {
+    color: #1E1E1E;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 14.4px */
+    letter-spacing: -0.132px;
+    flex: 1 0 0;
+    text-align: left;
+}
+
+
+.PrincipalHeader .divider{
+    display: flex;
+    width: 1px;
+    height: 32px;
+    flex-direction: column;
+    align-items: center;
+    /* align-self: stretch; */
+    background: #eee;
+}
+
+.PrincipalHeader .ImgName{
+    display: flex;
+    max-width: 232px;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: #fefefe;
+    cursor: pointer;
+    position: relative;  
+    border: none;
+}
+
+.PrincipalHeader .ImgName.active{
+    background: #f2f2f2;
+}
+
+.ProfilePicture{
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.ProfilePicture img {
+    /* display: flex; */
+    /* flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: stretch; */
+    /* position: relative; */
+    object-fit: cover;
+}
+
+.ImgName > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    flex: 1 0 0;
+    overflow: hidden;
+    color: #1E1E1E;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: -0.176px;
+}
+
+.ArrowIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.ImgName .Popup {
+    display: none;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 56px;
+    right: 0;
+    /* transform: translate(-50%, 0); */
+    /* margin-top: 100%; */
+    border-radius: 16px;
+    background: #FEFEFE;
+    box-shadow: 0px 0px 24px 0px rgba(30, 30, 30, 0.16);
+    z-index: 1;
+}
+
+.ImgName .Popup.show {
+    display: flex; /* Exibe quando a classe show é adicionada */
+
+}
+
+
+.Popup .Option {
+    display: flex;
+    padding: 12px 8px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 4px;
+    overflow: hidden;
+    /* flex: 1 0 0; */
+    width: 100%;
+}
+
+.Popup .OptionLink{
+    display: flex;
+    width: 100%;
+}
+
+.Popup .Option.notif {
+    display: flex;
+    padding: 12px 8px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.Popup .Option:hover {
+    background-color: #eeeeee60;
+}
+
+
+.Popup .Option .OptionIcon{
+    display: flex;
+    width: 16px;
+    height: 16px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.Option p {
+    color: #1E1E1E;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 14.4px */
+    letter-spacing: -0.132px;
+}
+
+#notifPopup{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .ImgName > p{
+        display: none;
+    }
+
+    .PrincipalHeader .ImgName{
+        height: 32px;
+        padding: 4px;
+    }
+
+    .ProfilePicture{
+        height: 24px;
+        width: 24px;
+    }
+    
+    #notifPopup{
+        display: flex;
+    }
+
+    .Top{
+        padding: 16px 16px;
+        height: 64px;
+    }
+
+    .PrincipalHeader{
+        gap: 8px;
+    }
+
+    .PrincipalHeader .ButtonNotif{
+        display: none;
+        pointer-events: none;
+    }
+
+    .PrincipalHeader .ButtonNotif.active{
+        display: none;
+        pointer-events: none;
+    }
+
+    .PrincipalHeader .ButtonNotif .NotifiIcon{
+        display: none;
+        pointer-events: none;
+    }
+
+    .PrincipalHeader .divider{
+        display: none;
+    }
+
+    .VectorMmts{
+        height: 40px;
+        width: 40px;
+    }
+
+    .LogoMmts{
+        height: 40px;
+        width: 40px;
+    }
+
+    .NomePag p{
+        font-size: 16px;
+    }
+
+    .NomePag{
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Top{
+        padding: 0px 8px;
+        height: 48px;
+    }
+
+    .VectorMmts{
+        height: 32px;
+        width: 32px;
+    }
+
+    .LogoMmts{
+        height: 32px;
+        width: 32px;
+    }
+
+    .NomePag p{
+        font-size: 14px;
+    }
+
+    .NomePag{
+        gap: 8px;
+    }
+}
+

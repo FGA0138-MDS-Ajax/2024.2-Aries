@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiles</title>
+</head>
+<body>
+    <h1>Profiles</h1>
+    <ul>
+        {% for profile in profiles %}
+        <li>
+            <p>Name: {{ profile.fullname }}</p>
+            <p>Name: {{ profile.email }}</p>
+            {% if profile.photo_base64 %}
+            <img src="data:image/jpeg;base64,{{ profile.photo_base64 }}" alt="Profile photo" style="max-width: 200px;">
+            {% else %}
+            <p>No photo available</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
