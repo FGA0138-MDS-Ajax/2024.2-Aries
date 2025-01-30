@@ -123,8 +123,8 @@ def edit_task(request):
         # Filtra as subtarefas vazias e processa os checkboxes
         subtasks_list = [subtask for subtask in subtasks_list if subtask.strip()]
 
+        task.subtasks.all().delete()
         if checkbox_input:
-            task.subtasks.all().delete()
             checkbox_input = checkbox_input.split(',')
             # Converte as strings 'true'/'false' para valores booleanos
             checkbox_input = [True if item == 'true' else False for item in checkbox_input]

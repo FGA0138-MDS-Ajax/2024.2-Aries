@@ -89,97 +89,67 @@
 </div>
 
 <script>
-// document.getElementById('subtask-container').addEventListener('keydown', function (e) {
-//   const currentInput = e.target;
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modal");
+    if (!modal) return;
 
-//   // Adiciona nova subtarefa ao pressionar Enter
-//   if (e.key === 'Enter' && currentInput.classList.contains('label-subtask')) {
-//     e.preventDefault(); // Impede a quebra de linha no campo de texto
-    
-//     // Verifica se o campo está vazio
-//     if (currentInput.value.trim() === '') {
-//       const nextInput = currentInput.nextElementSibling && currentInput.nextElementSibling.querySelector('.label-subtask');
-//       if (nextInput) {
-//         nextInput.focus();
-//       }
-//       return; // Não cria o novo subtask-item
-//     }
+    const subtaskContainer = modal.querySelector("#subtask-container");
+    const form = modal.querySelector(".form");
+    const inputSubtask = modal.querySelector(".inputSubTask");
 
-//     // Cria um novo subtask-item
-//     const newSubtask = document.createElement('label');
-//     newSubtask.className = 'subtask-item';
-//     newSubtask.innerHTML = `
-//       <input type="checkbox" class="checkbox-subtask" name="checkbox-subtask" value="on">
-//       <span class="checkmark"></span>
-//       <input class="label-subtask" type="text" placeholder="Adicionar subtarefa..." value="" name="inputTask">
-//     `;
+    // Evento para adicionar/remover subtarefas
+    subtaskContainer.addEventListener("keydown", function (e) {
+        const currentInput = e.target;
 
-//     // Adiciona o novo subtask-item ao container
-//     document.getElementById('subtask-container').appendChild(newSubtask);
+        // Adicionar nova subtarefa ao pressionar Enter
+        if (e.key === "Enter" && currentInput.classList.contains("label-subtask")) {
+            e.preventDefault();
 
-//     // Foca automaticamente no novo input
-//     newSubtask.querySelector('.label-subtask').focus();
-//   }
+            if (currentInput.value.trim() === "") return;
 
-//   // Remove subtarefa ao pressionar Backspace, mas garante que sempre sobre pelo menos um input
-//   if (e.key === 'Backspace' && currentInput.classList.contains('label-subtask')) {
-//     if (currentInput.value.length === 0) {
-//       e.preventDefault(); // Evita comportamento padrão do Backspace
+            const newSubtask = document.createElement("label");
+            newSubtask.className = "subtask-item";
+            newSubtask.innerHTML = `
+                <input type="checkbox" class="checkbox-subtask" name="checkbox-subtask" value="on">
+                <span class="checkmark"></span>
+                <input class="label-subtask" type="text" placeholder="Adicionar subtarefa..." value="" name="inputTask">
+            `;
+            subtaskContainer.appendChild(newSubtask);
+            newSubtask.querySelector(".label-subtask").focus();
+        }
 
-//       const subtaskItem = currentInput.closest('.subtask-item'); // Encontra o container do item atual
-//       const subtaskContainer = document.getElementById('subtask-container'); // Obtém o container de subtarefas
+        // Remover subtarefa ao pressionar Backspace
+        if (e.key === "Backspace" && currentInput.classList.contains("label-subtask") && currentInput.value.length === 0) {
+            e.preventDefault();
+            const subtaskItem = currentInput.closest(".subtask-item");
+            const allSubtasks = subtaskContainer.querySelectorAll(".subtask-item");
+            if (allSubtasks.length > 1) {
+                const previousSubtask = subtaskItem.previousElementSibling;
+                subtaskItem.remove();
+                if (previousSubtask) {
+                    previousSubtask.querySelector(".label-subtask").focus();
+                }
+            }
+        }
+    });
 
-//       // Verifica se há mais de um input antes de remover
-//       const allSubtasks = subtaskContainer.querySelectorAll('.subtask-item');
-//       if (allSubtasks.length > 1) {
-//         const previousSubtask = subtaskItem.previousElementSibling; // Obtém o item anterior
-//         subtaskItem.remove(); // Remove o item atual
+    // Evento de submissão do formulário
+    form.addEventListener("submit", (event) => {
+        inputSubtask.value = "";
+        const labelSubtaskList = form.querySelectorAll(".label-subtask");
 
-//         // Move o foco para o campo do item anterior, se existir
-//         if (previousSubtask) {
-//           const previousInput = previousSubtask.querySelector('.label-subtask');
-//           if (previousInput) {
-//             previousInput.focus();
-//           }
-//         }
-//       }
-//     }
-//   }
-// });
+        labelSubtaskList.forEach((element) => {
+            if (element.value.trim() === "") {
+                element.closest(".subtask-item").remove();
+            }
+        });
 
-
-// const inputSubtask = document.querySelector(".inputSubTask"); // input de texto
-// const form = document.querySelector(".form"); // formulário
-
-// // Evento de submissão do formulário
-// form.addEventListener("submit", (event) => {
-//   // Limpa o valor do inputSubtask antes de adicionar novos valores
-//   inputSubtask.value = "";
-
-//   // Seleciona todos os inputs com a classe label-subtask
-//   const labelSubtaskList = form.querySelectorAll(".label-subtask");
-
-//   labelSubtaskList.forEach((element) => {
-//     // Remove os inputs com tamanho = 0
-//     if (element.value.trim() === "") {
-//       const subtaskItem = element.closest(".subtask-item"); // Seleciona o container do input
-//       if (subtaskItem) {
-//         subtaskItem.remove(); // Remove o container do input vazio
-//       }
-//     }
-//   });
-
-//   // Seleciona todos os checkboxes dentro do formulário
-//   const checkBoxList = form.querySelectorAll(".checkbox-subtask");
-//   checkBoxList.forEach((element) => {
-//     // Adiciona 'true' ou 'false' conforme o estado do checkbox
-//     inputSubtask.value += element.checked ? "true," : "false,";
-//   });
-
-//   // Remove a última vírgula, se necessário
-//   inputSubtask.value = inputSubtask.value.replace(/,$/, "");
-
-//   console.log("Valores adicionados ao inputSubtask:", inputSubtask.value);
-// });
+        const checkBoxList = form.querySelectorAll(".checkbox-subtask");
+        checkBoxList.forEach((element) => {
+            inputSubtask.value += element.checked ? "true," : "false,";
+        });
+        inputSubtask.value = inputSubtask.value.replace(/,$/, "");
+    });
+});
 
 </script>
