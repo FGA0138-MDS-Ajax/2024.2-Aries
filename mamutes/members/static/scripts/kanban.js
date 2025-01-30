@@ -20,28 +20,24 @@ window.addEventListener("click", function(event) {
   }
 });
 
+
 const openMiniModalBtn = document.getElementById("plus-people");
 const miniModal = document.getElementById("miniModal");
-const closeMiniModalBtn = document.getElementById("closeMiniModalBtn");
 
-openMiniModalBtn.addEventListener("click", function() {
-        miniModal.style.display = "block";
-    });
+// Abre/fecha o modal de adicionar membros
+openMiniModalBtn.addEventListener("click", function(event) {
+    event.stopPropagation();
+    miniModal.style.display = (miniModal.style.display === "block") ? "none" : "block";
+});
 
-    // Fechamento do modal
-    closeMiniModalBtn.addEventListener("click", function() {
+// Fechar o mini modal ao clicar fora dele
+document.addEventListener("click", function(event) {
+    if (!miniModal.contains(event.target) && event.target !== openMiniModalBtn) {
         miniModal.style.display = "none";
-    });
+    }
+});
 
-    // Fechar o modal se clicar fora da área do modal
-    window.addEventListener("click", function(event) {
-        if (event.target === miniModal) {
-            miniModal.style.display = "none";
-        }
-    });
-
-
-    $(document).ready(function() {
-      // Simulando um progresso de 3 segundos
-      $('.progress-bar').addClass('active');
-  });
+// Simulando um progresso de 3 segundos
+$(document).ready(function() {
+    $('.progress-bar').addClass('active');
+});

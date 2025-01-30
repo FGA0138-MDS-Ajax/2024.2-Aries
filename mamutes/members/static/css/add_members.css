@@ -21,8 +21,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     overflow-y: auto; /* Permite rolagem vertical */
-    
   }
+
+  
   
   /* Conteúdo do mini modal */
   .mini-modal-content {

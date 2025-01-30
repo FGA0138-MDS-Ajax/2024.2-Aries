@@ -87,54 +87,74 @@ def delete_task(request):
     return redirect('kanban')
 
 from django.shortcuts import get_object_or_404, redirect
+from django.http import HttpResponseBadRequest
 from .models import Task, Subtask
 
 def edit_task(request):
     if request.method == 'POST':
-        # Captura dos dados do formulário
+        # Captura os dados do formulário
         task_id = request.POST.get('id_task')
         title = request.POST.get('title')
         description = request.POST.get('description')
         priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo')
 
-        # Captura do status dos checkboxes, agora com o nome específico para cada subtask
+        if not task_id:
+            return HttpResponseBadRequest("ID da tarefa não fornecido")
+
+        task = get_object_or_404(Task, id=task_id)
+
+        # Atualiza os dados da tarefa
+        task.title = title if title else task.title
+        task.description = description if description else task.description
+        task.priority = priority if priority else task.priority
+        task.Prazo = prazo if prazo else task.Prazo
+        task.save()
+
+        # Captura os campos 'inputTask' para as descrições das subtarefas
+        subtasks_list = request.POST.getlist('inputTask')  # Captura todos os valores de 'inputTask'
+        checkbox_input = request.POST.get('inputSubTask')  # Lista dos estados dos checkboxes
+        print('-0-0-00--0-')
+        print(subtasks_list)
+        print('-0-0-00--0-')
+        print(checkbox_input)
+        print('-0-0-00--0-')
+
+        # Filtra as subtarefas vazias e processa os checkboxes
+        subtasks_list = [subtask for subtask in subtasks_list if subtask.strip()]
+
+        if checkbox_input:
+            task.subtasks.all().delete()
+            checkbox_input = checkbox_input.split(',')
+            # Converte as strings 'true'/'false' para valores booleanos
+            checkbox_input = [True if item == 'true' else False for item in checkbox_input]
+            
+            # Cria ou atualiza as subtarefas
+            for subtask_title, done_status in zip(subtasks_list, checkbox_input):
+                Subtask.objects.create(
+                    description=subtask_title,  # Associa o título da subtarefa
+                    task=task,                   # Associando à task
+                    done=done_status             # Define o estado do checkbox
+                )
+
+        # Atualiza ou cria as subtarefas
         subtasks_status = {}
 
-        # Itera sobre os checkboxes de subtasks
         for key, value in request.POST.items():
             if key.startswith('checkbox-subtask-'):
-                subtask_id = key.split('-')[-1]  # Extrai o ID da subtask do nome do campo
-                status = 'on' if value == 'on' else 'off'  # Determina se o checkbox foi marcado
+                subtask_id = key.split('-')[-1]  # Extrai o ID da subtask
+                status = value == 'on'  # Marca como 'True' se estiver marcado, caso contrário 'False'
                 subtasks_status[subtask_id] = status
 
-        # Processa os dados da task, se o task_id for fornecido
-        if task_id:
-            task = get_object_or_404(Task, id=task_id)
-            
-            # Atualiza os dados da tarefa
-            if title:
-                task.title = title
-            if description:
-                task.description = description
-            if priority:
-                task.priority = priority
-            if prazo:
-                task.Prazo = prazo
-
-            task.save()
-
-            # Atualiza o status das subtasks associadas
-            for subtask_id, status in subtasks_status.items():
-                subtask = Subtask.objects.get(id=subtask_id)
-                subtask.done = True if status == 'on' else False
-                subtask.save()
+        # Atualiza o status das subtarefas associadas à tarefa
+        for subtask_id, done in subtasks_status.items():
+            subtask = get_object_or_404(Subtask, id=subtask_id)
+            subtask.done = done
+            subtask.save()
 
         return redirect('kanban')
 
-    return redirect('kanban')
-
-
+    return HttpResponseBadRequest("Método inválido")
 
 class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
@@ -161,9 +181,7 @@ def image_to_base64(image):
     if image:
         with open(image.path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode('utf-8')
-    
-    return None
-
+        
 
 @login_required
 def kanban_view(request):
@@ -225,6 +243,7 @@ def kanban_view(request):
     for task in tasks:
         prazo = task.Prazo
         today = datetime.now().date()
+        dateTask = prazo.strftime("%d / %m / %Y")
         if prazo:
             if prazo == today:
                 formatted_date = "HOJE"
@@ -256,6 +275,8 @@ def kanban_view(request):
                 subtask_total_count += 1
 
         pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
+
+
         items.append({
             'id': task.id,
             'status': task.status,
@@ -265,6 +286,7 @@ def kanban_view(request):
             'creation_date': task.creation_date,
             'priority': task.priority,
             'prazo': formatted_date,
+            'date': dateTask,
             'completion_date': task.completion_date,
             'responsible': task.get_responsibles_as_string(),
             'responsible_photos': responsible_photos,
@@ -274,6 +296,7 @@ def kanban_view(request):
             'pair_responsible_photo': pair_r_p,
             'subtasks': subtasks,
         })
+    
     
     # Adicionar nova tarefa via POST
     if request.method == 'POST':
