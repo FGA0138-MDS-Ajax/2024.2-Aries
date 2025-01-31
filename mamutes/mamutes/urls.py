@@ -7,7 +7,7 @@ from members.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 from stock.views import stock
-from report.views import meetings
+from report.views import meetings, flights
 
 
 
@@ -32,6 +32,7 @@ urlpatterns = [
     # report
     path('report/', include('report.urls')),
     path('meetings/', meetings, name='meetings'),
+    path('flights/', flights, name='flights'),
 
     # members
     path('sidebar/', sidebar , name="sidebar"),
