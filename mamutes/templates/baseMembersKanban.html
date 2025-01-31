@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="{% static 'css/kanban.css'%}">
 
     <link rel="stylesheet" href="{% static 'css/viewCard.css' %}">
+    <script src="{% static 'scripts/viewCard.js' %}" defer></script>
+    <script src="{% static 'scripts/editCard.js' %}" defer></script>
+    <script src="{% static 'scripts/createTask.js' %}" defer></script>
 
     <!-- <link rel="stylesheet" href="{%static 'css/modal.css'%}">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'> -->
@@ -21,7 +24,7 @@
     <link rel="stylesheet" href="{% static 'css/viewMembers.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css'%}">
 
-    <script src="{% static 'scripts/modal.js' %}" defer></script>
+    <script src="{% static 'scripts/setResponsibles.js' %}" defer></script>
     <link rel="stylesheet" href="{% static 'css/taskBoard.css'%}">
     <script src="{% static 'scripts/taskBoard.js' %}" defer></script>
     <!-- <script src="{% static 'scripts/drag.js' %}" defer></script>
@@ -114,7 +117,7 @@
             {% block tabs %}{% endblock %}
         </div>
     </div>
-    {% include 'modal.html'%}
-    {% include 'partials/viewMembers.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo%}
+    {% include 'partials/_createTask.html'%}
+    {% include 'partials/_viewMembers.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo%}
 {% endblock %}
     
