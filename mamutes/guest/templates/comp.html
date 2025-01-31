@@ -5,7 +5,9 @@
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/comp.css' %}">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+	<link rel="stylesheet" href="{% static 'css/component.css'%}">
+	
 {% endblock %}
 
 {% block content %}
@@ -31,11 +33,11 @@
                         <p class="paragrafo">A <b>SAE</b> (Society of Automotive Engineers), fundada em <b>1905</b> em Nova York, é <b>referência global</b> em normas e padrões para os setores automotivo e aeroespacial. Sua afiliada brasileira, a <b>SAE BRASIL</b>, promove mais de 100 eventos anuais, incluindo simpósios, fóruns e treinamentos, com foco em inovação e mobilidade. <br> <br> Entre suas iniciativas, destaca-se a <b class="textColorido">Competição SAE BRASIL AeroDesign</b>, que <b>desafia estudantes de engenharia</b> a projetar, construir e testar aeronaves, incentivando o <b>intercâmbio</b> de técnicas e conhecimentos práticos em cenários reais da engenharia aeronáutica.</p>
                     </div>
                     <div class="picture">
-                        <img class="image7" src="{% static 'img/image 7.png' %}" alt="Erro ao carregar imagem">
+                        <img class="image7" src="{% static 'img/3.jpg' %}" alt="Erro ao carregar imagem">
                     </div>
                 </div>
                 <div class="unicaSection">
-                    <p class="titleUnica">O que torna a competição <b style="font-weight: 900;">única</b><b style="color: #36B5FF;">?</b></p>
+                    <h2 class="titleAirPlane">O que torna a competição <b style="font-weight: 900;">única</b><b style="color: #36B5FF;">?</b></h2>
                     <div class="differences">
                         <div class="bloco">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -281,63 +283,67 @@
                         <div class="carrosselAirPlaneCards">
                             <div class="cardAirPlane">
                                 <div class="imagem">
-                                    <div class="arrows">
-                                        <button class="arrowIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" fill="none">
-                                                <path d="M7.20687 1.19542C7.114 1.10178 7.00351 1.02745 6.88176 0.976735C6.76002 0.926016 6.62944 0.899902 6.49756 0.899902C6.36567 0.899902 6.2351 0.926016 6.11335 0.976735C5.99161 1.02745 5.88112 1.10178 5.78824 1.19542L0.793071 6.19059C0.699433 6.28346 0.625111 6.39396 0.574391 6.5157C0.523672 6.63744 0.497559 6.76802 0.497559 6.8999C0.497559 7.03179 0.523672 7.16237 0.574391 7.28411C0.625111 7.40585 0.699433 7.51634 0.793071 7.60922L5.78824 12.6044C5.88112 12.698 5.99161 12.7724 6.11335 12.8231C6.2351 12.8738 6.36567 12.8999 6.49756 12.8999C6.62944 12.8999 6.76002 12.8738 6.88176 12.8231C7.00351 12.7724 7.114 12.698 7.20687 12.6044C7.30051 12.5115 7.37483 12.401 7.42555 12.2793C7.47627 12.1575 7.50239 12.027 7.50239 11.8951C7.50239 11.7632 7.47627 11.6326 7.42555 11.5109C7.37483 11.3891 7.30051 11.2786 7.20687 11.1858L2.91102 6.8999L7.20687 2.61404C7.30051 2.52117 7.37483 2.41068 7.42555 2.28894C7.47627 2.16719 7.50239 2.03661 7.50239 1.90473C7.50239 1.77285 7.47627 1.64227 7.42555 1.52052C7.37483 1.39878 7.30051 1.28829 7.20687 1.19542Z" fill="#FEFEFE"/>
-                                            </svg>
-                                        </button>
-                                        <button class="arrowIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" fill="none">
-                                                <path d="M0.793127 1.19542C0.886 1.10178 0.996494 1.02745 1.11824 0.976735C1.23998 0.926016 1.37056 0.899902 1.50244 0.899902C1.63433 0.899902 1.7649 0.926016 1.88665 0.976735C2.00839 1.02745 2.11888 1.10178 2.21176 1.19542L7.20693 6.19059C7.30057 6.28346 7.37489 6.39396 7.42561 6.5157C7.47633 6.63744 7.50244 6.76802 7.50244 6.8999C7.50244 7.03179 7.47633 7.16237 7.42561 7.28411C7.37489 7.40585 7.30057 7.51634 7.20693 7.60922L2.21176 12.6044C2.11888 12.698 2.00839 12.7724 1.88665 12.8231C1.7649 12.8738 1.63433 12.8999 1.50244 12.8999C1.37056 12.8999 1.23998 12.8738 1.11824 12.8231C0.996494 12.7724 0.886 12.698 0.793127 12.6044C0.699489 12.5115 0.625166 12.401 0.574447 12.2793C0.523727 12.1575 0.497614 12.027 0.497614 11.8951C0.497614 11.7632 0.523727 11.6326 0.574447 11.5109C0.625166 11.3891 0.699489 11.2786 0.793127 11.1858L5.08898 6.8999L0.793127 2.61404C0.699489 2.52117 0.625166 2.41068 0.574447 2.28894C0.523727 2.16719 0.497614 2.03661 0.497614 1.90473C0.497614 1.77285 0.523727 1.64227 0.574447 1.52052C0.625166 1.39878 0.699489 1.28829 0.793127 1.19542Z" fill="#FEFEFE"/>
-                                            </svg>
-                                        </button>
-                                    </div>
+                                    <img class="imgAirPlane" src="{% static 'img/Coringa.jpg' %}" alt="Erro ao carregar a imagem">
+                                </div>
+                                <div class="descritionAirplane">
+                                    <p class="yearAirPlane">2024</p>
+                                    <p class="nameAirPlane">Coringa</p>
+                                    <p class="textAirPlane">Equipe em 6<sup>a</sup> posição, melhor colocação da Mamutes</p>
+                                </div>
+                            </div>
+                            <div class="cardAirPlane">
+                                <div class="imagem">
                                     <img class="imgAirPlane" src="{% static 'img/imagem.png' %}" alt="Erro ao carregar a imagem">
                                 </div>
                                 <div class="descritionAirplane">
                                     <p class="yearAirPlane">2023</p>
                                     <p class="nameAirPlane">Barbie</p>
-                                    <p class="textAirPlane">Equipe atingiu a 7a posição</p>
+                                    <p class="textAirPlane">Equipe atingiu a 7<sup>a</sup> posição</p>
                                 </div>
                             </div>
                             <div class="cardAirPlane">
                                 <div class="imagem">
-                                    <div class="arrows">
-                                        <button class="arrowIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" fill="none">
-                                                <path d="M7.20687 1.19542C7.114 1.10178 7.00351 1.02745 6.88176 0.976735C6.76002 0.926016 6.62944 0.899902 6.49756 0.899902C6.36567 0.899902 6.2351 0.926016 6.11335 0.976735C5.99161 1.02745 5.88112 1.10178 5.78824 1.19542L0.793071 6.19059C0.699433 6.28346 0.625111 6.39396 0.574391 6.5157C0.523672 6.63744 0.497559 6.76802 0.497559 6.8999C0.497559 7.03179 0.523672 7.16237 0.574391 7.28411C0.625111 7.40585 0.699433 7.51634 0.793071 7.60922L5.78824 12.6044C5.88112 12.698 5.99161 12.7724 6.11335 12.8231C6.2351 12.8738 6.36567 12.8999 6.49756 12.8999C6.62944 12.8999 6.76002 12.8738 6.88176 12.8231C7.00351 12.7724 7.114 12.698 7.20687 12.6044C7.30051 12.5115 7.37483 12.401 7.42555 12.2793C7.47627 12.1575 7.50239 12.027 7.50239 11.8951C7.50239 11.7632 7.47627 11.6326 7.42555 11.5109C7.37483 11.3891 7.30051 11.2786 7.20687 11.1858L2.91102 6.8999L7.20687 2.61404C7.30051 2.52117 7.37483 2.41068 7.42555 2.28894C7.47627 2.16719 7.50239 2.03661 7.50239 1.90473C7.50239 1.77285 7.47627 1.64227 7.42555 1.52052C7.37483 1.39878 7.30051 1.28829 7.20687 1.19542Z" fill="#FEFEFE"/>
-                                            </svg>
-                                        </button>
-                                        <button class="arrowIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" fill="none">
-                                                <path d="M0.793127 1.19542C0.886 1.10178 0.996494 1.02745 1.11824 0.976735C1.23998 0.926016 1.37056 0.899902 1.50244 0.899902C1.63433 0.899902 1.7649 0.926016 1.88665 0.976735C2.00839 1.02745 2.11888 1.10178 2.21176 1.19542L7.20693 6.19059C7.30057 6.28346 7.37489 6.39396 7.42561 6.5157C7.47633 6.63744 7.50244 6.76802 7.50244 6.8999C7.50244 7.03179 7.47633 7.16237 7.42561 7.28411C7.37489 7.40585 7.30057 7.51634 7.20693 7.60922L2.21176 12.6044C2.11888 12.698 2.00839 12.7724 1.88665 12.8231C1.7649 12.8738 1.63433 12.8999 1.50244 12.8999C1.37056 12.8999 1.23998 12.8738 1.11824 12.8231C0.996494 12.7724 0.886 12.698 0.793127 12.6044C0.699489 12.5115 0.625166 12.401 0.574447 12.2793C0.523727 12.1575 0.497614 12.027 0.497614 11.8951C0.497614 11.7632 0.523727 11.6326 0.574447 11.5109C0.625166 11.3891 0.699489 11.2786 0.793127 11.1858L5.08898 6.8999L0.793127 2.61404C0.699489 2.52117 0.625166 2.41068 0.574447 2.28894C0.523727 2.16719 0.497614 2.03661 0.497614 1.90473C0.497614 1.77285 0.523727 1.64227 0.574447 1.52052C0.625166 1.39878 0.699489 1.28829 0.793127 1.19542Z" fill="#FEFEFE"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <img class="imgAirPlane" src="{% static 'img/coringa.png' %}" alt="Erro ao carregar a imagem">
+                                    <img class="imgAirPlane" src="{% static 'img/mmtc2022.jpg' %}" alt="Erro ao carregar a imagem">
                                 </div>
                                 <div class="descritionAirplane">
-                                    <p class="yearAirPlane">2023</p>
-                                    <p class="nameAirPlane">Coringa</p>
-                                    <p class="textAirPlane">Equipe em 6° posição, melhor colocação da Mamutes</p>
+                                    <p class="yearAirPlane">2022</p>
+                                    <p class="nameAirPlane">MMTC2022</p>
+                                    <p class="textAirPlane">Projeto de retomada da competição presencial</p>
                                 </div>
                             </div>
                             <div class="cardAirPlane">
                                 <div class="imagem">
-                                    <div class="arrows">
-                                        <button class="arrowIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" fill="none">
-                                                <path d="M7.20687 1.19542C7.114 1.10178 7.00351 1.02745 6.88176 0.976735C6.76002 0.926016 6.62944 0.899902 6.49756 0.899902C6.36567 0.899902 6.2351 0.926016 6.11335 0.976735C5.99161 1.02745 5.88112 1.10178 5.78824 1.19542L0.793071 6.19059C0.699433 6.28346 0.625111 6.39396 0.574391 6.5157C0.523672 6.63744 0.497559 6.76802 0.497559 6.8999C0.497559 7.03179 0.523672 7.16237 0.574391 7.28411C0.625111 7.40585 0.699433 7.51634 0.793071 7.60922L5.78824 12.6044C5.88112 12.698 5.99161 12.7724 6.11335 12.8231C6.2351 12.8738 6.36567 12.8999 6.49756 12.8999C6.62944 12.8999 6.76002 12.8738 6.88176 12.8231C7.00351 12.7724 7.114 12.698 7.20687 12.6044C7.30051 12.5115 7.37483 12.401 7.42555 12.2793C7.47627 12.1575 7.50239 12.027 7.50239 11.8951C7.50239 11.7632 7.47627 11.6326 7.42555 11.5109C7.37483 11.3891 7.30051 11.2786 7.20687 11.1858L2.91102 6.8999L7.20687 2.61404C7.30051 2.52117 7.37483 2.41068 7.42555 2.28894C7.47627 2.16719 7.50239 2.03661 7.50239 1.90473C7.50239 1.77285 7.47627 1.64227 7.42555 1.52052C7.37483 1.39878 7.30051 1.28829 7.20687 1.19542Z" fill="#FEFEFE"/>
-                                            </svg>
-                                        </button>
-                                        <button class="arrowIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" fill="none">
-                                                <path d="M0.793127 1.19542C0.886 1.10178 0.996494 1.02745 1.11824 0.976735C1.23998 0.926016 1.37056 0.899902 1.50244 0.899902C1.63433 0.899902 1.7649 0.926016 1.88665 0.976735C2.00839 1.02745 2.11888 1.10178 2.21176 1.19542L7.20693 6.19059C7.30057 6.28346 7.37489 6.39396 7.42561 6.5157C7.47633 6.63744 7.50244 6.76802 7.50244 6.8999C7.50244 7.03179 7.47633 7.16237 7.42561 7.28411C7.37489 7.40585 7.30057 7.51634 7.20693 7.60922L2.21176 12.6044C2.11888 12.698 2.00839 12.7724 1.88665 12.8231C1.7649 12.8738 1.63433 12.8999 1.50244 12.8999C1.37056 12.8999 1.23998 12.8738 1.11824 12.8231C0.996494 12.7724 0.886 12.698 0.793127 12.6044C0.699489 12.5115 0.625166 12.401 0.574447 12.2793C0.523727 12.1575 0.497614 12.027 0.497614 11.8951C0.497614 11.7632 0.523727 11.6326 0.574447 11.5109C0.625166 11.3891 0.699489 11.2786 0.793127 11.1858L5.08898 6.8999L0.793127 2.61404C0.699489 2.52117 0.625166 2.41068 0.574447 2.28894C0.523727 2.16719 0.497614 2.03661 0.497614 1.90473C0.497614 1.77285 0.523727 1.64227 0.574447 1.52052C0.625166 1.39878 0.699489 1.28829 0.793127 1.19542Z" fill="#FEFEFE"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <img class="imgAirPlane" src="{% static 'img/mmtc2016.png' %}" alt="Erro ao carregar a imagem">
+                                    <img class="imgAirPlane" src="{% static 'img/MMT-1KF.png' %}" alt="Erro ao carregar a imagem">
+                                </div>
+                                <div class="descritionAirplane">
+                                    <p class="yearAirPlane">2019</p>
+                                    <p class="nameAirPlane">MMT-1KF</p>
+                                    <p class="textAirPlane">Aeronave com a maior carga LAPES da competição</p>
+                                </div>
+                            </div>
+                            <div class="cardAirPlane">
+                                <div class="imagem">
+                                    <img class="imgAirPlane" src="{% static 'img/MMTC2018.jpg' %}" alt="Erro ao carregar a imagem">
+                                </div>
+                                <div class="descritionAirplane">
+                                    <p class="yearAirPlane">2018</p>
+                                    <p class="nameAirPlane">MMTC2018</p>
+                                    <p class="textAirPlane">Projeto inovador com a carga maior que o próprio peso da aeronave</p>
+                                </div>
+                            </div>
+                            <div class="cardAirPlane">
+                                <div class="imagem">
+                                    <img class="imgAirPlane" src="{% static 'img/MMTC2017.png' %}" alt="Erro ao carregar a imagem">
+                                </div>
+                                <div class="descritionAirplane">
+                                    <p class="yearAirPlane">2017</p>
+                                    <p class="nameAirPlane">MMTC2017</p>
+                                    <p class="textAirPlane">11° lugar na competição</p>
+                                </div>
+                            </div>
+                            <div class="cardAirPlane">
+                                <div class="imagem">
+                                    <img class="imgAirPlane" src="{% static 'img/MMTC2016.jpg' %}" alt="Erro ao carregar a imagem">
                                 </div>
                                 <div class="descritionAirplane">
                                     <p class="yearAirPlane">2016</p>
@@ -345,12 +351,59 @@
                                     <p class="textAirPlane">Estreia na competição com prêmio de inovação do ano com um avião feito de palitos de churrasco e bandejas de isopor</p>
                                 </div>
                             </div>
+                
                         </div>
                     </div>
-
+                    
+                    <div class="carousel-indicators">
+                        <span class="indicator active" data-index="0"></span>
+                        <span class="indicator" data-index="1"></span>
+                        </div>
                 </div>
+                
+                <div class="container" style="margin: 0; max-width: 100%;">
+                    <div class="title-gallery">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <path d="M18 8.66667H18.0133M2 6C2 4.93913 2.42143 3.92172 3.17157 3.17157C3.92172 2.42143 4.93913 2 6 2H22C23.0609 2 24.0783 2.42143 24.8284 3.17157C25.5786 3.92172 26 4.93913 26 6V22C26 23.0609 25.5786 24.0783 24.8284 24.8284C24.0783 25.5786 23.0609 26 22 26H6C4.93913 26 3.92172 25.5786 3.17157 24.8284C2.42143 24.0783 2 23.0609 2 22V6Z" stroke="#0075F6" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 19.3333L8.66667 12.6667C9.904 11.476 11.4293 11.476 12.6667 12.6667L19.3333 19.3333" stroke="#0075F6" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.6666 16.6668L18 15.3334C19.2373 14.1428 20.7626 14.1428 22 15.3334L26 19.3334" stroke="#0075F6" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h2 class="titleGalery" style="font-size: 32px; margin: 0; padding: 0;">Galeria de <b>fotos</b></h2>
+                    </div>
+                    
+                    
+                    <div class="image-container">
+                        <img src=" {% static 'img/1.jpg' %} ">
+                        <img src=" {% static 'img/16.jpeg' %} ">
+                        <img src=" {% static 'img/3.jpg' %} ">
+                        <img src=" {% static 'img/19.jpeg' %} ">
+                        <img src=" {% static 'img/20.jpg' %} ">
+                        <img src=" {% static 'img/7.png' %} ">
+                        <img src=" {% static 'img/9.jpg' %} ">
+                        <img src=" {% static 'img/13.jpg' %} ">
+                        <img src=" {% static 'img/5.jpg' %} ">
+                        <img src=" {% static 'img/14.jpeg' %} ">
+                        <img src=" {% static 'img/11.webp' %}">
+                        <img src=" {% static 'img/11.1.jpg' %}">
+                        <img src=" {% static 'img/6.jpg' %} ">
+                        <img src=" {% static 'img/12.jpeg' %} ">
+                        <img src=" {% static 'img/10.1.jpg' %} ">
+                        <img src=" {% static 'img/2.jpg' %} ">
+                        <img src=" {% static 'img/15.jpg' %} ">
+                        <img src=" {% static 'img/22.jpg' %}">
+                        <img src=" {% static 'img/17.jpg' %} ">
+                        <img src=" {% static 'img/10.webp' %}">
+                        <img src=" {% static 'img/4.jpg' %} ">
+                        <img src=" {% static 'img/21.jpg' %}">
+                        <img src=" {% static 'img/8.jpg' %} ">
+                    </div>
+                </div>
+                
             </div>
+
             
         </div>
     </div>
+    <script src="{% static 'scripts/comp.js' %}"></script>
+
 {% endblock %}

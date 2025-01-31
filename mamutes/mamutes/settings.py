@@ -162,3 +162,5 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST =  config('EMAIL_HOST')
 AUTH_USER_MODEL = 'Users.MembroEquipe'
+
+LOGIN_URL = '/login/'

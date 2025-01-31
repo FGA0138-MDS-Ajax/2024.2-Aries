@@ -10,11 +10,11 @@
   }
 
   html, body {
-      height: 100%; /* Garante que o body ocupe toda a altura da janela /
+      height: 100%; /* Garante que o body ocupe toda a altura da janela / 
   }
 
   body {
-      line-height: 1.5; / Ajusta o espaçamento entre linhas /
+      line-height: 1.5; / Ajusta o espaçamento entre linhas / 
       text-size-adjust: 100%; / Previne redimensionamento de texto automático em dispositivos móveis */
       background: #F9F9F9;
   }
@@ -215,8 +215,8 @@
 }
 
 .image7{
-    height: 100%;
-    width: auto;
+    /* height: 100%;
+    width: auto; */
     object-fit: cover;
 }
 
@@ -505,7 +505,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 16px;
     align-self: stretch;
 }
 
@@ -522,7 +522,7 @@
     color: #02004E;
     text-align: center;
     font-family: Inter;
-    font-size: 24px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -545,18 +545,20 @@
 
 .carrosselAirPlaneCardPosition{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    align-self: stretch;
+    overflow: hidden;
+    width: 100%;
+    padding: 16px;
+
 }
 
 .carrosselAirPlaneCards{
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 24px;
-    align-self: stretch;
+    gap: 16px;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0);
+    /* padding: 2px; */
+    box-shadow: none;
 }
 
 .cardAirPlane{
@@ -571,7 +573,17 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    min-width: 320px;
+    min-width: 30%;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease;
+}
+
+.cardAirPlane.expanded .textAirPlane {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+
+.cardAirPlane:not(.expanded) {
+    transform: scale(0.9);
 }
 
 .imagem{
@@ -580,7 +592,6 @@
     align-items: center;
     flex-shrink: 0;
     align-self: stretch;
-    position: relative;
 }
 
 .imgAirPlane{
@@ -589,7 +600,27 @@
     object-fit: cover;
 }
 
-.arrowIcon{
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 0;
+}
+  
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.indicator.active {
+    background-color: #36B5FF;
+}
+
+/* .arrowIcon{
     all: unset;
     border-radius: 50%;
     cursor: pointer;
@@ -609,7 +640,7 @@
     justify-content: space-between;
     align-items: center;
     position: absolute
-}
+} */
 
 .descritionAirplane{
     display: flex;
@@ -660,7 +691,19 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.154px;
+    transition: all 0.3s ease;
 }
+
+.title-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    margin-bottom: 16px;
+    /* align-self: center; */
+}
+
 
 @media (max-width: 768px) {
     .icons{
