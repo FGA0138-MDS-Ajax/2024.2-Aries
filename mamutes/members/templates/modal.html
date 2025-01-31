@@ -78,7 +78,7 @@
               </div> 
             </div>
           </div>
-          <input type="hidden" id="responsibles" name="responsibles" value="">
+          <input type="text" id="responsibles" name="responsibles" value="">
           <div style='position: relative;'>
             {% include 'add_members.html'%}
           </div>
@@ -193,28 +193,6 @@ document.addEventListener("click", (e) => {
             miniModal.style.display = miniModal.style.display === "block" ? "none" : "block";
         }
     }
-
-    // ! Lógica para adicionar membros apenas no modal selecionado
-    // if (eve.classList.contains("plus-members")) {
-    //     let modal = eve.closest(".modal-form");
-    //     let responsiblesField = modal.querySelector("#responsibles");
-
-    //     if (!responsiblesField) return; // Evita erro se não houver o campo no modal
-
-    //     let memberId = eve.getAttribute("data-id");
-    //     let currentValues = responsiblesField.value ? responsiblesField.value.split(",") : [];
-
-    //     if (!currentValues.includes(memberId)) {
-    //         currentValues.push(memberId);
-    //     }
-
-    //     responsiblesField.value = currentValues.join(",");
-
-    //     let personTeam = eve.closest(".person-team");
-    //     if (personTeam) {
-    //         personTeam.classList.toggle("selected-person-team");
-    //     }
-    // }
 });
 
 
