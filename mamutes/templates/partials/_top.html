@@ -157,8 +157,8 @@
                     </div>
                     <p>Notificações</p>
                 </div>
-                <a href="/" class="OptionLink">
-                    <div class="Option">
+                <form action=" {% url 'logoutUser' %}"  class="OptionLink">
+                    <div class="Option" type="submit"  onclick="this.closest('form').submit();">
                         <div class="OptionIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                                 <path d="M6 7.96875L7.96875 6M7.96875 6L6 4.03125M7.96875 6H0.75M0.75 2.8815V2.85C0.75 2.115 0.75 1.7475 0.893062 1.46663C1.01906 1.21922 1.21922 1.01906 1.46663 0.893062C1.7475 0.75 2.115 0.75 2.85 0.75H9.15C9.885 0.75 10.2525 0.75 10.5327 0.893062C10.7801 1.01906 10.9809 1.21922 11.1069 1.46663C11.25 1.74684 11.25 2.11434 11.25 2.84803V9.15263C11.25 9.88631 11.25 10.2532 11.1069 10.5334C10.9809 10.7804 10.7799 10.9812 10.5327 11.1069C10.2525 11.25 9.88566 11.25 9.15197 11.25H2.84803C2.11434 11.25 1.74684 11.25 1.46663 11.1069C1.21967 10.9811 1.01889 10.7803 0.893062 10.5334C0.75 10.2525 0.75 9.885 0.75 9.15V9.11719" stroke="#808080" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
@@ -166,7 +166,7 @@
                         </div>
                         <p>Sair</p>
                     </div>
-                </a>
+                </form>
             </div>
         </div>
     </button >

@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import user_passes_test, login_required
-from django.contrib.auth import authenticate, login as login_django
+from django.contrib.auth import authenticate,logout, login as login_django
 from .models import * 
 from .forms import *
 from .models import MembroEquipe
@@ -24,6 +24,14 @@ def login (request):
             return redirect ('home')
         else:
             return render (request, 'login.html')
+
+@login_required
+def logoutUser(request):
+    authenticated = request.user.is_authenticated
+    if authenticated == True:
+        logout(request)
+        return redirect('index')
+    return redirect('home')
 
         
 def isSuperUser(user):

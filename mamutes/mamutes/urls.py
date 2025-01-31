@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.conf.urls import handler404
 from django.urls import path, include
-from Users.views import login, register, recoverAccount, redefinePassword, pagConfig, editar_usuario
+from Users.views import login,logoutUser, register, recoverAccount, redefinePassword, pagConfig, editar_usuario
 from guest.views import index, competition, admission, control_admission
 from members.views import *
 from django.conf import settings
@@ -16,6 +16,7 @@ urlpatterns = [
 
     # Users
     path('login/', login, name='login'),
+    path('logoutUser/', logoutUser, name='logoutUser'),
     path('register/', register, name='register'),
     path('account_recovery/', recoverAccount, name='recoverAccount'),
     path('redefine_password/<str:username>/<str:token>', redefinePassword, name="redefinePassword"),
