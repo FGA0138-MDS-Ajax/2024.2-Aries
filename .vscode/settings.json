@@ -1,3 +1,4 @@
 {
+    "html-to-css-autocompletion.autocompletionFilesScope": "multi-root",
     "python.analysis.autoImportCompletions": true
 }

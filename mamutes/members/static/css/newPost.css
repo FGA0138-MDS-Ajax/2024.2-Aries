@@ -1,0 +1,351 @@
+dialog::backdrop{
+    background: rgba(0, 0, 0, 0.550);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+dialog{
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 16px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; 
+    width: 80%;
+    max-width: 600px;
+    max-height: calc(100% - 48px);
+    min-width: 400px;
+}
+dialog[open]{
+    display: flex;
+}
+#modal{
+    max-height: 80%;
+}
+
+.newPost{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 16px 16px 32px 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 16px;
+    background: #FEFEFE;
+}
+.close{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+}
+.closeIcon{
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.bodyModal{
+    display: flex;
+    padding-right: 48px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+}
+.centerPost{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+.profileP {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 64px;
+    outline: solid 1px #e5e5e5;
+}
+
+.prfPicture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.principalModal{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+.inputNewPost{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+.textInputNewPost{
+    align-self: stretch;
+    color: #1E1E1E;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+}
+.inputTitlePost{
+    display: flex;
+    height: 40px;
+    padding: 12px 16px;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 8px;
+    background: #F2F2F2;
+    border: none;
+}
+.inputTitlePost:focus{
+    border: none;
+    outline: none;
+}
+.inputDescriptionPost{
+    display: flex;
+    height: auto;
+    min-height: 112px;
+    max-height: 240px;
+    padding: 16px;
+    min-width: 100px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    vertical-align: text-top;
+    gap: 10px;
+    margin: 0;
+    align-self: stretch;
+    border-radius: 8px;
+    background: #F2F2F2;
+    border: none;
+    resize: none;
+}
+.inputDescriptionPost:focus{
+    border: none;
+    outline: none;
+}
+textarea::placeholder{
+    color: #717171;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+}
+input::placeholder{
+    color: #717171;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.eventCheckbox{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 8px;
+}
+.myCheckbox{
+    display: flex;
+    width: 16px;
+    height: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #AEAEAE;
+    background: #0075F6;
+}
+.textCheckbox{
+    flex: 1 0 0;
+    align-items: flex-start;
+    color: #1E1E1E;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+}
+.eventBox{
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+.dateAndHour{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 8px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.dateBox{
+    display: flex;
+    width: 100%;
+    min-width: 200px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+}
+.inputEvent{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 8px;
+    background: #F2F2F2;
+    border: none;
+}
+.dateOfEvent:focus{
+    border: none;
+    outline: none;
+}
+
+.orgDate{
+    display: flex;
+    height: 16px;
+    justify-content: center;
+    align-items: center;
+}
+.HourBox{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+}
+.location{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 8px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+.locCenter{
+    display: flex;
+    /* height: 60px;
+    min-width: 200px; */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+    min-width: 160px;
+}
+.inputLocEvent{
+    display: flex;
+    height: 40px;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 8px;
+    background: #F2F2F2;
+    border: none;
+}
+#locationEvent:focus{
+    border: none;
+    outline: none;
+}
+.vectorIcon{
+    display: flex;
+    width: 16px;
+    padding: 1px 2px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#locationEvent{
+    background: none;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+.onlineEvent{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.publishButton{
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 8px;
+    background: #1F1A99;
+    color: #FEFEFE;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+}
+
+@media (max-width: 768px) {
+    .centerPost{
+        flex-direction: column;
+    }
+
+    dialog{
+        min-width: 0;
+    }
+
+    .bodyModal{
+        padding-right: 0;
+    }
+
+    .newPost{
+        padding: 16px;
+    }
+
+    .profileP{
+        display: none;
+    }
+}

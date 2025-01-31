@@ -13,12 +13,12 @@ class MembroEquipeAdmin(UserAdmin):
     ordering = ('username',)
 
     fieldsets = (
-        (None, {'fields': ('username', 'fullname', 'phone', 'email', 'areas', 'functions')}),
+        (None, {'fields': ('username', 'fullname', 'phone', 'email', 'areas','testearea', 'functions')}),
     )
 
     add_fieldsets = (
         (None, {
-            'fields': ('username', 'fullname', 'phone', 'email', 'password1', 'password2', 'areas', 'functions')
+            'fields': ('username', 'fullname', 'phone', 'email', 'password1', 'password2','testearea', 'areas', 'functions')
         }),
     )
 
@@ -27,7 +27,7 @@ class AreaAdmin(admin.ModelAdmin):
     readonly_fields = ('listar_membros',)
 
     def listar_membros(self, obj):
-        return ", ".join([membro.username for membro in obj.membros.all()])
+        return ", ".join([membro.id for membro in obj.membros.all()])
     listar_membros.short_description = 'Membros da Área'
 
 class FunctionAdmin(admin.ModelAdmin):

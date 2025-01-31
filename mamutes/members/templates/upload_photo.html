@@ -1,0 +1,14 @@
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="fullname">Name:</label>
+    <input type="text" name="fullname" id="fullname" required>
+    <label for="name">email:</label>
+    <input type="text" name="email" id="email" required>
+    <label for="name">phone:</label>
+    <input type="text" name="phone" id="phone" required>
+    
+    <label for="photo">Photo:</label>
+    <input type="file" name="photo" id="photo" required>
+    
+    <button type="submit">Upload</button>
+</form>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletar Ferramenta</title>
+</head>
+<body>
+    <h1>Tem certeza que deseja deletar "{{ ferramenta.name }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sim</button>
+        <a href="{% url 'stock' %}">Não</a>
+    </form>
+</body>
+</html>
