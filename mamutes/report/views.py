@@ -40,3 +40,6 @@ def flight_delete(request, id):
 
 def meetings(request):
     return render(request, 'meetings.html')
+
+def flights(request):
+    return render(request, 'flights.html')
