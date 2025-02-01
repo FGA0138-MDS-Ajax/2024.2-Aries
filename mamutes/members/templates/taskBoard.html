@@ -10,7 +10,7 @@
             <col style="width: 150px;">
             <col style="width: 300px; text-align: center;">
             <col style="width: 300px;">
-            <col style="width: 48px;">
+            <!-- <col style="width: 48px;"> -->
         </colgroup>
         <thead>
             <tr>
@@ -40,7 +40,7 @@
                         <path d="M7.125 1.4375L4 4.5625L0.875 1.4375" stroke="#FEFEFE" stroke-width="1.5625" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </th>
-                <th></th>
+                <!-- <th></th> -->
             </tr>
         </thead>
         <tbody>
@@ -86,7 +86,7 @@
                         </div>
                     </td> 
                     <td>{{ task.completion_date }}</td> 
-                    <td class="editBtn">
+                    <!-- <td class="editBtn">
                         <div class="toOpen" style="cursor: pointer;">
                             <svg xmlns="http://www.w3.org/2000/svg" style="z-index: 0; pointer-events: none;" width="14" height="4"
                                 viewBox="0 0 14 4" fill="none">
@@ -122,11 +122,13 @@
                                 </button>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
                 </tr>
             {% empty %}
                 <tr>
-                    <td colspan="6">Não há tarefas no momento.</td>
+                    <td colspan="6">
+                        Nenhuma tarefa a ser exibida
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
