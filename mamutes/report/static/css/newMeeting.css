@@ -11,7 +11,7 @@
   }
 
   /* Conteúdo do modal */
-  .modal-content{
+  /* .modal-content{
     background: white;
     padding: 20px;
     border-radius: 8px;
@@ -19,7 +19,7 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     max-width: 400px;
     width: 100%;
-  }
+  } */
 
 .modal {
   /* display: none; */
@@ -47,7 +47,7 @@
   padding: 32px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
+  gap: 16px;
   flex: 1 0 0;
   overflow: hidden;
   overflow-y: auto;
@@ -127,6 +127,8 @@
   border-radius: 8px;
   background: #F2F2F2;
   border: none;
+  font-size: 14px;
+  min-width: 240px;
 }
 
 .objetivo-input{
@@ -142,12 +144,13 @@
   align-self: stretch;
   border-radius: 8px;
   background: #F2F2F2;
+  font-size: 14px;
 }
 .status-data{
   display: flex;
   /* justify-content: space-evenly; */
   align-items: self-end;
-  gap: 24px 8px;
+  gap: 16px 8px;
   align-self: stretch;
   flex-wrap: wrap;
 }
@@ -232,13 +235,14 @@
   gap: 8px;
   align-self: stretch;
   flex: 1 0 0;
-  min-width: 100px;
+  min-width: 120px;
 }
 
 @media (max-width: 480px) {
   .modal-content{
     padding: 16px;
     max-height: 98%;
+    max-width: 95%;
   }
   
 }

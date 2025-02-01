@@ -89,7 +89,7 @@
 .actionsHeader{
     display: flex;
     width: 100%;
-    min-width: 400px;
+    /* min-width: 400px; */
     justify-content: flex-end;
     align-items: center;
     align-content: center;
@@ -99,12 +99,13 @@
 }
 .searchFieldBox{
     display: flex;
-    padding: 14px 16px;
+    padding-inline: 16px;
     align-items: center;
     gap: 8px;
     flex: 1 0 0;
     border-radius: 8px;
     background: #FEFEFE;
+    height: 48px;
 }
 .searchIcon{
     display: flex;
@@ -123,22 +124,24 @@
     /* leading-trim: both;
     text-edge: cap; */
     font-family: Inter;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 15px */
     letter-spacing: -0.11px;
+    padding-block: 16px;
 }
 .searchField:focus{
     outline: none;
 }
 .actionNew{
     display: flex;
-    padding: 16px 24px;
+    padding-inline: 16px;
     align-items: center;
     gap: 8px;
     border-radius: 8px;
     background: #1F1A99;
+    height: 48px;
 }
 .boxIcon{
     display: flex;
@@ -168,6 +171,7 @@
     align-items: center;
     gap: 8px;
     align-self: stretch;
+    padding-inline: 8px;
 }
 
 .teamsMeeting{
@@ -183,18 +187,31 @@
 
 .personImg {
     display: flex;
-    justify-content: flex-end;
+    width: 20px;
+    height: 20px;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-left: -6px;
-  }
-  
-.personImg img {
-    width: 35px;
-    height: 35px;
     border-radius: 50%;
-    border: 1px solid #dddddd;
-    /* margin-left: -6px; */
+    outline: 2px solid #FEFEFE;
+
+    color: #FEFEFE;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 15px */
+    letter-spacing: -0.11px;
+    background: #DDD;
+    margin-left: -4px;
+  }
+
+.personImg.plusTwo{
+    color: #808080;
 }
+  
 
 .btnSim{
     display: flex;
@@ -207,6 +224,10 @@
     border: none;
     width: 100%;
     min-width: 200px;
+}
+
+.dotsButtons{
+    display: none;
 }
 
 .ataYesNo{
@@ -246,18 +267,45 @@
 }
 
 .saveButton{
+    display: flex;
     border-radius: 8px;
     opacity: 0.88;
     background: #36B5FF;
-
-    display: flex;
-    padding: 16px;
+    padding: 8px;
     justify-content: center;
     align-items: center;
     gap: 8px;
     flex: 1 0 0;
+    align-self: stretch;
     border: none;
-    min-width: 200px;
+
+    color: #FEFEFE;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.saveButton:hover{
+    opacity: 1;
+}
+
+.saveButton.available{
+    background: none;
+    color: #0075F6;
+}
+
+.saveButton.available:hover{
+    background: #f7f7f7;
+}
+
+.saveButton.nonavailable{
+    background: none;
+    color: #808080;
 }
 
 .textRegAta{
@@ -274,7 +322,7 @@
 
 .meetingCards{
     display: flex;
-    min-width: 432px;
+    /* min-width: 432px; */
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
@@ -283,7 +331,7 @@
 
 .monthlyCards{
     display: flex;
-    min-width: 432px;
+    /* min-width: 432px; */
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
@@ -302,40 +350,45 @@
     leading-trim: both;
     text-edge: cap;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
 
 .cards{
-    display: flex;
-    align-items: flex-start;
-    align-content: flex-start;
-    gap: 8px;
-    align-self: stretch;
-    flex-wrap: wrap;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* align-items: flex-start;
+    align-content: flex-start; */
+    gap: 16px;
+    /* align-self: stretch; */
+    /* flex-wrap: wrap; */
 }
 
 .cardMeet{
     display: flex;
     height: auto;
-    min-width: 240px;
-    max-width: 400px;
+    /* min-width: 200px;
+    max-width: 400px; */
+    align-self: stretch;
     align-items: flex-start;
     flex: 1 0 0;
-    border-radius: 0 8px 8px 0;
+    border-radius: 8px;
+    overflow: hidden;
     background: #FEFEFE;
     box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
 }
 
 .tremDeCor{
     display: flex;
-    width: 4px;
-    padding: 2px;
+    width: 5px;
+    /* padding: 3px; */
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    /* gap: 10px; */
     align-self: stretch;
     background: #0075F6;
     border-radius: 8px 0 0 8px;
@@ -344,7 +397,7 @@
 
 .mainCard{
     display: flex;
-    min-width: 240px;
+    /* min-width: 240px; */
     padding: 16px;
     flex-direction: column;
     align-items: flex-start;
@@ -420,6 +473,7 @@
     text-overflow: ellipsis;
     font-family: Inter;
     font-size: 14px;
+    text-align: left;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -433,6 +487,16 @@
     display: flex;
     width: 36px;
     align-items: center;
+
+    flex: 1 0 0;
+    color: #717171;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .partFilterOrder{
@@ -440,15 +504,130 @@
     justify-content: flex-end;
     align-items: center;
     align-content: center;
-    row-gap: 8px;
+    gap: 8px;
+    width: 100%;
+    flex-wrap: wrap;
     /* align-self: stretch;
     flex-wrap: wrap; */
 }
 
 .btns{
     display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tabsViews{
+    display: flex;
+    min-width: 200px;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+}
+
+.viewMode{
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.viewMode:hover{
+    background: #eee;
+}
+
+.viewMode.active{
+    background: #DAECFF;
+}
+
+.viewMode svg .listMode{
+    fill: #808080;
+    stroke: #808080;
+}
+
+.viewMode.active svg .listMode{
+    fill: #0075F6;
+    stroke: #0075F6;
+}
+
+.viewMode svg path{
+    fill: #808080;
+    /* stroke: #808080; */
+}
+
+.viewMode.active svg path{
+    fill: #0075F6;
+    /* stroke: #0075F6; */
+}
+
+
+.btn.btn-secondary.dropdown-toggle{
+    all: unset;
+    display: flex;
     padding: 8px;
     align-items: center;
+    gap: 4px;
+    border-radius: 8px;
+    border: 1px solid #717171;
+
+    color: #717171;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+    cursor: pointer;
+}
+
+.btn.btn-secondary.dropdown-toggle.show{
+    /* all: unset; */
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 8px;
+    border: 1px solid #0075F6;
+    background: #0075F6;
+
+    color: #fefefe;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+}
+
+.btn.btn-secondary.dropdown-toggle.show svg path{
+    stroke: #fefefe;
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+
+.dropdown-menu{
+    --bs-dropdown-border-color: none;
+    box-shadow: 0px 4px 32px 0px rgba(30, 30, 30, 0.16);
+}
+
+.dropdown-menu.show{
+    margin-top: 4px;
+}
+
+.dropdown-item{
+    padding-block: 8px;
+    padding-inline: 16px;
+    font-size: 14px;
+    font-family: Inter;
 }
 
 
@@ -505,8 +684,17 @@
     height: 100%;
 }
 
+.centerBase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    overflow-y: auto;
+}
+
 @media (max-width: 768px){
-    .centralHome{
+    .centerBase{
         /* padding: 16px; */
         height: 100%;
         overflow: hidden;
@@ -526,5 +714,8 @@
 }
 
 @media (max-width: 480px){
-
+    .centerBase{
+        padding-inline: 16px;
+        /* padding-block: 0; */
+    }
 }
