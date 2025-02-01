@@ -35,7 +35,7 @@
         </div>
     </a>
     
-    <a href="#" class="aba {% if request.path == '/' %}active{% endif %}">
+    <a href="{% url 'meetings' %}" class="aba {% if request.path == '/meetings/' %}active{% endif %}">
         <div class="marker"></div>
         <div class="idAba">
             <div class="dashboard">
