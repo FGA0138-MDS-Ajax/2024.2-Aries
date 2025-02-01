@@ -137,10 +137,9 @@ path{
 .searchField:focus{
     outline: none;
 }
-.action{
+.actionBtn{
     display: flex;
     height: auto;
-    /* width: 50px; */
     padding: 16px 24px;
     align-items: center;
     gap: 8px;
@@ -251,11 +250,12 @@ path{
 .partFilterOrder{
     display: flex;
     row-gap: 8px;
-    align-self: stretch;
+    align-self: flex-end;
     flex-wrap: wrap;
 }
 .btns{
     display: flex;
+    z-index: 2;
     justify-content: flex-end;
     align-items: flex-end;
     align-content: center;
@@ -275,14 +275,16 @@ path{
 }
 .submitCancelBotao{
     display: flex;
+    position: relative;
     width: fit-content;
     height: 36px;
     padding: 8px;
+    z-index: 2;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     border-radius: 8px;
-    overflow: hidden;
+    /* overflow: hidden; */
     border: 1px solid #717171; 
     gap: 8px;
     text-decoration: none;  
@@ -294,6 +296,27 @@ path{
     font-weight: 600;
     line-height: 150%; /* 24px */
     letter-spacing: -0.176px;
+}
+.submitCancelBotao.active{
+    background: #0075F6;
+    border: none;
+    color: #FEFEFE;
+}
+.submitCancelBotao.active svg path{
+    fill: #fefefe; 
+}
+.dot{
+    display: flex;
+    width: 12px;
+    height: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: -2px;
+    right: -6px;
+    border-radius: 50%;
+    border: 1px solid #F2F2F2;
+    background: #0075F6;
 }
 .flightsList{
     display: flex;
