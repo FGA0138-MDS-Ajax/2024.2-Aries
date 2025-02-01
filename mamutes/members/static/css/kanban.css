@@ -33,6 +33,7 @@ input{
   width: 100%;
   flex: 1 0 0;
   overflow: hidden;
+  overflow-y: auto;
 }
 
 .board-conteiner{
@@ -53,6 +54,7 @@ input{
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
+  z-index: 3;
 }
 
 .title-people {
@@ -441,15 +443,12 @@ input{
   min-width: 600px;
   align-items: flex-start;
   gap: 16px;
-  flex: 1 0 0;
+  /* flex: 1 0 0; */
   align-self: stretch;
-<<<<<<< HEAD
   width: 100%;
   flex-grow: 1;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   
-=======
->>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
 }
 
  .boards::-webkit-scrollbar {
@@ -475,11 +474,8 @@ input{
   gap: 8px;
   flex: 1 0 0;
   align-self: stretch;
-<<<<<<< HEAD
   overflow-y: auto;
-=======
   min-width: 152px;
->>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
 }
 
  .board-title {
@@ -551,18 +547,9 @@ input{
 }
 
  .progress-bar {
-<<<<<<< HEAD
-  position: relative;
-  padding: 0%;
-  margin: 0%;
-  width: 144px;
-  height:4px;
-  background-color: #d70000;
-=======
   display: flex;
   height: 4px;
   align-items: center;
->>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
   border-radius: 0px 16px 16px 0px;
   background: #D70000;
   width: 0;
@@ -587,11 +574,6 @@ input{
   position: relative;
   align-self: stretch;
   overflow-y: auto;
-<<<<<<< HEAD
-=======
-  flex: 1 0 0;
-  height: 100%;
->>>>>>> 7697229a690e2b813b87080f310a83c8f82ed02b
 }
 
  .cards-scroll {
@@ -1599,15 +1581,118 @@ input{
 
 }
 
+@media (min-width: 769px) {
+  .header-tasks-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    z-index: 3;
+  }
+  
+  .boards {
+    display: flex;
+    min-width: 600px;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
+    align-self: stretch;
+    width: 100%;
+    flex-grow: 1;
+    /* overflow-y: auto; */
+    max-height: calc(100vh - 96px);
+    position: sticky;
+    top: 0;
+  }
+  
+   .scroll-boards {
+    display: flex;
+    min-width: 600px;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+    align-self: stretch;
+    width: 100%;
+    /* overflow-y: auto; */
+  }
+  
+   .board {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    overflow-y: auto;
+    min-width: 152px;
+  }
+  
+  .board-title {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    border-radius: 8px;
+    background: #FEFEFE;
+    overflow: hidden;
+  }
+  
+}
+
 
 @media (max-width: 768px) {
   .tasks-page-main{
     padding: 24px;
+    overflow-x: auto;
   }
 
   .boards{
-    height: 100vh;
+    min-width: 0;
+    overflow-y: unset;
+    white-space: nowrap;
   }
+
+  .scroll-boards{
+    overflow-y: unset;
+  }
+
+  .board{
+    overflow-y: unset;
+  }
+
+  .board-title{
+    overflow: unset;
+  }
+
+  .board-main {
+    flex: 1 0 0;
+    flex-grow: inherit;
+    overflow: unset;
+    overflow-y: unset;
+  }
+
+  .header-tasks-page{
+    position: sticky;
+    left: 0;
+  }
+
+  /* .cards-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    flex: 1;
+    align-self: stretch;
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+  } */
 }
 
 @media (max-width: 480px){
@@ -1616,11 +1701,11 @@ input{
     justify-content: flex-start;
   }
 
-  .scroll-boards{
-    height: 100%;
+  .tasks-page-main{
+    padding: 16px;
   }
 
-  .tasks-page-main{
+  /* .tasks-page-main{
     overflow-y: auto;
-  }
+  } */
 }

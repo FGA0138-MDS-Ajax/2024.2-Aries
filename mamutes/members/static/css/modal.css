@@ -33,6 +33,7 @@
   overflow-y: auto;
   clip-path: border-box;
 }
+
 .form{
   display: flex;
   flex-direction: column;
@@ -189,6 +190,7 @@
   background-color: #0075F6;
   cursor: pointer;
   z-index: 5;
+  position: relative;
 }
 
 .people-form-task{

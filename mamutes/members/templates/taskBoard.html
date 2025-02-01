@@ -10,7 +10,7 @@
             <col style="width: 150px;">
             <col style="width: 300px; text-align: center;">
             <col style="width: 300px;">
-            <col style="width: 48px;">
+            <!-- <col style="width: 48px;"> -->
         </colgroup>
         <thead>
             <tr>
@@ -76,9 +76,12 @@
                                     <div  class="personImg">
                                         <img src="data:image/jpeg;base64,{{ photo }}" />
                                     </div>
+                                    {% if item.responsible_count == 1 %}
+                                        <span class="singleName"> {{ name }}</span>
+                                    {% endif %}
                                 {% endfor %}
                                 {% if item.responsible.all|slice:":5"|length == 1 %}
-                                    <span class="singleName">{{ item.responsible_names}}</span>
+                                    <span class="singleName">{{ name}}</span>
                                 {% elif item.responsible.all|slice:":5"|length > 1 %}
                                     <span class="membroCount">+{{ item.responsible.all|slice:":5"|length|add:"-1" }}</span>
                                 {% endif %}
@@ -110,7 +113,9 @@
                 </tr>
             {% empty %}
                 <tr>
-                    <td colspan="6">Não há tarefas no momento.</td>
+                    <td colspan="6">
+                        Nenhuma tarefa a ser exibida
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

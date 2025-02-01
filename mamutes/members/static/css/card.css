@@ -183,18 +183,19 @@
 
 .card .foto-perfil {
   display: flex;
-  width: 18px;
-  height: 18px;
+  /* width: 18px;
+  height: 18px; */
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-top: -1.00px;
+  /* margin-top: -1.00px;
   margin-bottom: -1.00px;
-  margin-left: -1.00px;
+  margin-left: -1.00px; */
   border-radius: 250px;
   overflow: hidden;
   border: 1px solid;
-  border-color: #fdfdfd;
+  border-color: #fefefe;
+  object-fit: cover;
 }
 
 .card .tag-img {

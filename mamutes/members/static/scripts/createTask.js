@@ -91,17 +91,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// document.addEventListener("click", (e) => {
+//     let eve = e.target;
+
+//     // Lógica para exibir/esconder o mini modal do modal selecionado
+//     if (eve.classList.contains("plus-people")) {
+//         let modal = eve.closest(".modal-form");
+//         let miniModal = modal.querySelector(".mini-modal");
+
+//         if (miniModal) {
+//             miniModal.style.display = miniModal.style.display === "flex" ? "none" : "flex";
+//         }
+//     }
+// });
+
 document.addEventListener("click", (e) => {
     let eve = e.target;
 
-    // Lógica para exibir/esconder o mini modal do modal selecionado
+    // Verifica se o clique foi no botão que abre o mini modal
     if (eve.classList.contains("plus-people")) {
         let modal = eve.closest(".modal-form");
         let miniModal = modal.querySelector(".mini-modal");
 
         if (miniModal) {
-            miniModal.style.display = miniModal.style.display === "block" ? "none" : "block";
+            miniModal.style.display = miniModal.style.display === "flex" ? "none" : "flex";
         }
+    } 
+    // Fecha o mini modal se clicar fora dele ou no botão "okButton"
+    else {
+        document.querySelectorAll(".mini-modal").forEach(miniModal => {
+            if (!miniModal.contains(eve) || eve.classList.contains("okButton")) {
+                miniModal.style.display = "none";
+            }
+        });
     }
 });
+
+
 
