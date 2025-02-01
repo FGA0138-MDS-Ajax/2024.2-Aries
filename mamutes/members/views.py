@@ -587,11 +587,59 @@ def delete_event(request, event_id):
     return redirect('home')
 
 def taskBoard(request):
-    tasks = Task.objects.all()
+    # tasks = Task.objects.all()
 
-    all_areas = Area.objects.all().order_by('name')
+    # all_areas = Area.objects.all().order_by('name')
 
-    # Obtém a área a partir dos parâmetros da URL (GET)
+    # # Obtém a área a partir dos parâmetros da URL (GET)
+    # area_id = request.GET.get('area')  # Exemplo: ?area=SE
+    
+    # # Filtra as tarefas pela área, se especificada
+    # if area_id:
+    #     # Filtra as tarefas pela área especificada na URL
+    #     tasks = Task.objects.filter(area__id=area_id)
+    # else:
+    #     # Caso nenhuma área seja especificada, exibe todas as tarefas
+    #     tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
+    
+
+    # tasks = tasks.annotate(
+    #     subtask_total_count=Count('subtasks'),
+    #     subtask_completed_count=Count('subtasks', filter=Q(subtasks__done=True))
+    # )
+
+    # members = []
+    # profiles = MembroEquipe.objects.all()
+
+    # for profile in profiles:
+    #     if profile.photo:
+    #         profile.photo_base64 = image_to_base64(profile.photo)
+    #     else:  
+    #         profile.photo_base64 = None
+            
+
+    # if area_id:
+    #     profileFiltered = MembroEquipe.objects.filter(testearea=area_id);
+    # else:
+    #     profileFiltered = MembroEquipe.objects.all();
+
+    # for profile in profileFiltered:
+        
+    #     areas = [area.name for area in profile.testearea.all()]
+    #     members.append({
+    #         'email': profile.email,
+    #         'fullname': profile.fullname,
+    #         'username': profile.username,
+    #         'photo': profile.photo,
+    #         'area': ", ".join(areas),
+    #     })
+
+    # return render(request, 'taskBoard.html', {
+    #     'all_areas': all_areas,
+    #     'tasks': tasks,
+    #     'members': members,
+    # })
+   # Obtém a área a partir dos parâmetros da URL (GET)
     area_id = request.GET.get('area')  # Exemplo: ?area=SE
     
     # Filtra as tarefas pela área, se especificada
@@ -602,13 +650,9 @@ def taskBoard(request):
         # Caso nenhuma área seja especificada, exibe todas as tarefas
         tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
     
-
-    tasks = tasks.annotate(
-        subtask_total_count=Count('subtasks'),
-        subtask_completed_count=Count('subtasks', filter=Q(subtasks__done=True))
-    )
-
+    items = []
     members = []
+    all_areas = Area.objects.all().order_by('name')
     profiles = MembroEquipe.objects.all()
 
     for profile in profiles:
@@ -634,8 +678,139 @@ def taskBoard(request):
             'area': ", ".join(areas),
         })
 
+    members_count = len(members)-5
+
+    total_tasks = tasks.count()
+    completed_task_count = tasks.filter(status='Concluída').count()
+    Em_Progresso_task_count = tasks.filter(status='Em Progresso').count()
+    Pendente_count = tasks.filter(status='Pendente').count()
+    
+    if total_tasks > 0:
+        pending_percentage = round((Pendente_count / total_tasks) * 100)
+        in_progress_percentage = round((Em_Progresso_task_count / total_tasks) * 100)
+        completed_percentage = round((completed_task_count / total_tasks) * 100)
+    else:
+        pending_percentage = in_progress_percentage = completed_percentage = 0
+    
+    # Processa as tarefas
+    
+    for task in tasks:
+        prazo = task.Prazo
+        today = datetime.now().date()
+        dateTask = prazo.strftime("%d / %m / %Y")
+        if prazo:
+            if prazo == today:
+                formatted_date = "HOJE"
+            else:
+                formatted_date = prazo.strftime("%d / %m / %Y")
+        else:
+            formatted_date = "Sem prazo definido"
+
+        responsible_profiles = task.responsible.all()
+        responsible_photos = []
+        
+        for resp in responsible_profiles:
+            if resp.photo:
+                responsible_photos.append(image_to_base64(resp.photo))
+            else:
+                responsible_photos.append(None)
+                
+        subtasks = Subtask.objects.filter(task=task)
+
+        subtask_completed_count = 0
+        subtask_total_count = 0
+        
+        for subtask in subtasks:
+            checkbox = request.POST.get('checkbox-subtask')
+            if subtask.done == True:
+                subtask_completed_count += 1
+                subtask_total_count += 1
+            else: 
+                subtask_total_count += 1
+
+        pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
+
+
+        items.append({
+            'id': task.id,
+            'status': task.status,
+            # 'area': task.area.all,
+            'title': task.title,
+            'description': task.description,
+            'creation_date': task.creation_date,
+            'priority': task.priority,
+            'prazo': formatted_date,
+            'date': dateTask,
+            'completion_date': task.completion_date,
+            'responsible': task.get_responsibles_as_string(),
+            'responsible_photos': responsible_photos,
+            'responsible_count': task.responsible.count(),
+            'responsible_name': task.responsible.count(),
+            'subtask_completed_count': subtask_completed_count,
+            'subtask_total_count': subtask_total_count,
+            'pair_responsible_photo': pair_r_p,
+            'subtasks': subtasks,
+        })
+    
+    
+    # Adicionar nova tarefa via POST
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        status = request.POST.get('status')
+        priority = request.POST.get('priority')
+        prazo = request.POST.get('Prazo') or None
+        area_id = request.POST.get('area_id')
+        responsible = request.POST.get('responsibles')
+        subtasks_list = request.POST.getlist('inputTask')
+        checkbox_input = request.POST.get('inputSubTask')
+
+        
+        task = Task.objects.create(
+            title=title,
+            description=description,
+            status=status,
+            priority=priority,
+            Prazo=prazo,
+        )
+
+        task.area.set(area_id)
+
+        if checkbox_input:
+            subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
+            checkbox_input= checkbox_input.split(',')
+            
+            for i in range(len(checkbox_input)):
+                if checkbox_input[i] == 'true':
+                    checkbox_input[i] = True
+                else:
+                    checkbox_input[i] = False
+
+            for subtask_title, done_status in zip(subtasks_list, checkbox_input):
+                subtask = Subtask.objects.create(
+                    description=subtask_title,  # Associa o título da subtarefa
+                    task=task,                   # Associando à task recém-criada
+                    done=done_status             # Define o estado do checkbox
+                )
+    
+        if responsible:
+            responsible = list(map(int, responsible.split(',')))
+            responsible_members = MembroEquipe.objects.filter(id__in=responsible)
+            task.responsible.set(responsible_members)
+        
+        return redirect(request.get_full_path())
+    
     return render(request, 'taskBoard.html', {
-        'all_areas': all_areas,
-        'tasks': tasks,
+        'items': items,
+        'profiles': profiles,
         'members': members,
+        'selected_area': area_id,
+        'all_areas': all_areas,
+        'completed_task_count': completed_task_count,
+        'Em_Progresso_task_count': Em_Progresso_task_count,
+        'Pendente_count':  Pendente_count,
+        'pending_percentage': pending_percentage,
+        'in_progress_percentage': in_progress_percentage,
+        'completed_percentage': completed_percentage,
+        'members_count': members_count
     })

@@ -6,9 +6,9 @@
     
     document.addEventListener("click", (e) => {
         let target = e.target;
-
         // Quando um botão de visualização de cartão é clicado
-        if (target.classList.contains("btnModalViewCard")) {
+        if (target.classList.contains("btnModalViewCard")||target.classList.contains("btnTask")) {
+            
             let modal = target.querySelector(".modalViewCard");
             if (!modalPrime.modalHTML) {
                 modalPrime.modalHTML = modal.innerHTML;
@@ -16,6 +16,7 @@
             if (modal) {
                 modalPrime.card = target.closest('.card');
                 modal.showModal();
+                
             }
         }
 
@@ -61,3 +62,4 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 });
+

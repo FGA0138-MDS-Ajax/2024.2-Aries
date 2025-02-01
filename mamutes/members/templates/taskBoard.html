@@ -40,89 +40,73 @@
                         <path d="M7.125 1.4375L4 4.5625L0.875 1.4375" stroke="#FEFEFE" stroke-width="1.5625" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
-            {% for task in tasks %}
+            {% for item in items %}
                 <tr class="btnModalViewCard">
-                    <td>{{ task.title }}</td>
-                    <td>
-                        <div class="status 
-                        {% if task.priority == task.PriorityChoices.LOW %} low-priority
-                        {% elif task.priority == task.PriorityChoices.MEDIUM %} medium-priority
-                        {% elif task.priority == task.PriorityChoices.HIGH %} high-priority
+                    <td class="btnTask" >
+                        {% include 'partials/_viewCard.html' with date=item.date subtasks=item.subtasks priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %} 
+                            {{item.title}}
+                    </td> 
+                        <td>
+                        <!-- <div class="status 
+                        {% if item.priority == itme.PriorityChoices.LOW %} low-priority
+                        {% elif item.priority == itme.PriorityChoices.MEDIUM %} medium-priority
+                        {% elif item.priority == item.PriorityChoices.HIGH %} high-priority
                         {% endif %}">
-                        <span>{{ task.get_priority_display }}</span>
-                    </div>
-                    </td>
-                    <td>
-                        <div class="avatars">
-                        {% if task.responsible.count == 0 %}
-                            <span>Nenhum membro designado</span>
-                        {% else %}
-                            {% for member in task.responsible.all|slice:":5" %}
-                                <div class="personImg">
-                                    <img src="{{ member.photo }}" alt="{{ member.nome }}" />
-                                </div>
-                            {% endfor %}
-                            {% if task.responsible.all|slice:":5"|length == 1 %}
-                                <span class="singleName">{{ task.responsible.all.first.fullname }}</span>
-                            {% elif task.responsible.all|slice:":5"|length > 1 %}
-                                <span class="membroCount">+{{ task.responsible.all|slice:":5"|length|add:"-1" }}</span>
-                            {% endif %}
+                        <span>{{ item.priority}}</span>
+                        </div> -->
+                        {% if item.priority == 1 %} 
+                        <div class="status low-priority"><p id="item.priority">Baixa prioridade</p></div>
                         {% endif %}
-                        
-                        
+                        {% if item.priority == 2 %}
+                        <div class="status medium-priority"><p id="item.priority">Média prioridade</p></div>
+                        {% endif %}
+                        {% if item.priority == 3 %}
+                        <div class="status high-priority"><p id="item.priority">Alta prioridade</p></div>
+                        {% endif %}
+                    </td>
+                    <td class="btnTask" >
+                        <div class="avatars">
+                            {% if item.responsible_count == 0 %}
+                            <span >Nenhum membro designado</span>
+                            {% else %}
+                                {% for name, photo in item.pair_responsible_photo|slice:":5" %}
+                                    <div  class="personImg">
+                                        <img src="data:image/jpeg;base64,{{ photo }}" />
+                                    </div>
+                                {% endfor %}
+                                {% if item.responsible.all|slice:":5"|length == 1 %}
+                                    <span class="singleName">{{ item.responsible_names}}</span>
+                                {% elif item.responsible.all|slice:":5"|length > 1 %}
+                                    <span class="membroCount">+{{ item.responsible.all|slice:":5"|length|add:"-1" }}</span>
+                                {% endif %}
+                            {% endif %} 
+                            
+                            <!-- {% for name, photo in item.pair_responsible_photo %}
+                            {% if photo %}
+                                <img title="{{name}}" src="data:image/jpeg;base64,{{ photo }}" alt="Responsável" class="personImg">
+                            {% else %}
+                                <img title="{{name}}" src="path/to/default-photo.jpg" alt="Responsável" class="responsible-photo">
+                            {% endif%}
+                            {% endfor %} -->
+
                         </div>
                     </td>
-                    <td>{{ task.status }}</td> 
-                    <td>
-                        <div class="progress-td">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <td class="btnTask">{{ item.status }}</td> 
+
+                    <td class="btnTask">
+                        <div  class="progress-td" style="margin-left: 25px;" >
+                            <svg  xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                                 <path d="M12 1.908L5.154 8.76L2.61 6.216L3.456 5.37L5.154 7.068L11.154 1.06801L12 1.908ZM10.674 4.932C10.752 5.274 10.8 5.634 10.8 6C10.8 8.652 8.652 10.8 6 10.8C3.348 10.8 1.2 8.652 1.2 6C1.2 3.348 3.348 1.20001 6 1.20001C6.948 1.20001 7.824 1.47601 8.568 1.95L9.432 1.08601C8.42787 0.377735 7.22879 -0.00169267 6 5.67662e-06C2.688 5.67662e-06 0 2.688 0 6C0 9.312 2.688 12 6 12C9.312 12 12 9.312 12 6C12 5.286 11.868 4.602 11.64 3.966L10.674 4.932Z" fill="#717171"/>
                             </svg>
-                            {{ task.subtask_completed_count }}/{{ task.subtask_total_count }}
+                            {{ item.subtask_completed_count }}/{{ item.subtask_total_count }}
                         </div>
                     </td> 
-                    <td>{{ task.completion_date }}</td> 
-                    <td class="editBtn">
-                        <div class="toOpen" style="cursor: pointer;">
-                            <svg xmlns="http://www.w3.org/2000/svg" style="z-index: 0; pointer-events: none;" width="14" height="4"
-                                viewBox="0 0 14 4" fill="none">
-                                <path
-                                    d="M10.75 2C10.75 1.66848 10.8817 1.35054 11.1161 1.11612C11.3505 0.881696 11.6685 0.75 12 0.75C12.3315 0.75 12.6495 0.881696 12.8839 1.11612C13.1183 1.35054 13.25 1.66848 13.25 2C13.25 2.33152 13.1183 2.64946 12.8839 2.88388C12.6495 3.1183 12.3315 3.25 12 3.25C11.6685 3.25 11.3505 3.1183 11.1161 2.88388C10.8817 2.64946 10.75 2.33152 10.75 2ZM5.75 2C5.75 1.66848 5.8817 1.35054 6.11612 1.11612C6.35054 0.881696 6.66848 0.75 7 0.75C7.33152 0.75 7.64946 0.881696 7.88388 1.11612C8.1183 1.35054 8.25 1.66848 8.25 2C8.25 2.33152 8.1183 2.64946 7.88388 2.88388C7.64946 3.1183 7.33152 3.25 7 3.25C6.66848 3.25 6.35054 3.1183 6.11612 2.88388C5.8817 2.64946 5.75 2.33152 5.75 2ZM0.75 2C0.75 1.66848 0.881696 1.35054 1.11612 1.11612C1.35054 0.881696 1.66848 0.75 2 0.75C2.33152 0.75 2.64946 0.881696 2.88388 1.11612C3.1183 1.35054 3.25 1.66848 3.25 2C3.25 2.33152 3.1183 2.64946 2.88388 2.88388C2.64946 3.1183 2.33152 3.25 2 3.25C1.66848 3.25 1.35054 3.1183 1.11612 2.88388C0.881696 2.64946 0.75 2.33152 0.75 2Z"
-                                    fill="#808080" />
-                            </svg>
-
-                            <div  class="twoButton" style="display: none;">
-                                <button type="button" class="editBtnModal">
-                                    <div style="pointer-events: none;" class="iconEditExclude">
-                                        <svg xmlns="http://www.w3.org/2000/svg" style="pointer-events: none;" width="14"
-                                            height="14" viewBox="0 0 14 14" fill="none">
-                                            <path
-                                                d="M6.68531 1.62943H2.2634C1.92833 1.62943 1.60698 1.76253 1.37004 1.99947C1.13311 2.2364 1 2.55775 1 2.89283V11.7366C1 12.0717 1.13311 12.3931 1.37004 12.63C1.60698 12.8669 1.92833 13 2.2634 13H11.1072C11.4423 13 11.7636 12.8669 12.0006 12.63C12.2375 12.3931 12.3706 12.0717 12.3706 11.7366V7.31474M10.7124 1.39249C10.9637 1.14118 11.3046 1 11.66 1C12.0154 1 12.3562 1.14118 12.6075 1.39249C12.8588 1.6438 13 1.98464 13 2.34004C13 2.69544 12.8588 3.03629 12.6075 3.28759L6.91401 8.98175C6.76402 9.13162 6.57871 9.24132 6.37517 9.30076L4.56029 9.83139C4.50594 9.84724 4.44832 9.84819 4.39347 9.83414C4.33862 9.82009 4.28855 9.79155 4.24852 9.75151C4.20848 9.71147 4.17994 9.66141 4.16589 9.60656C4.15184 9.55171 4.15279 9.49409 4.16864 9.43973L4.69927 7.62485C4.75898 7.42148 4.8689 7.23639 5.01891 7.08664L10.7124 1.39249Z"
-                                                stroke="#0075F6" stroke-width="1.2634" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </div>
-                                    <span style="pointer-events: none;" >Editar item</span>
-                                </button>
-
-                                <button type="button" class="editExcludeButton">
-                                    <div style="pointer-events: none;" class="iconEditExclude">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" style="pointer-events: none;"
-                                            viewBox="0 0 12 14" fill="none">
-                                            <path
-                                                d="M11.3333 2.99998H8.66667V2.33331C8.66667 1.80288 8.45595 1.29417 8.08088 0.919099C7.70581 0.544027 7.1971 0.333313 6.66667 0.333313H5.33333C4.8029 0.333313 4.29419 0.544027 3.91912 0.919099C3.54405 1.29417 3.33333 1.80288 3.33333 2.33331V2.99998H0.666667C0.489856 2.99998 0.320286 3.07022 0.195262 3.19524C0.0702379 3.32027 0 3.48984 0 3.66665C0 3.84346 0.0702379 4.01303 0.195262 4.13805C0.320286 4.26307 0.489856 4.33331 0.666667 4.33331H1.33333V11.6666C1.33333 12.1971 1.54405 12.7058 1.91912 13.0809C2.29419 13.4559 2.8029 13.6666 3.33333 13.6666H8.66667C9.1971 13.6666 9.70581 13.4559 10.0809 13.0809C10.456 12.7058 10.6667 12.1971 10.6667 11.6666V4.33331H11.3333C11.5101 4.33331 11.6797 4.26307 11.8047 4.13805C11.9298 4.01303 12 3.84346 12 3.66665C12 3.48984 11.9298 3.32027 11.8047 3.19524C11.6797 3.07022 11.5101 2.99998 11.3333 2.99998ZM4.66667 2.33331C4.66667 2.1565 4.7369 1.98693 4.86193 1.86191C4.98695 1.73688 5.15652 1.66665 5.33333 1.66665H6.66667C6.84348 1.66665 7.01305 1.73688 7.13807 1.86191C7.2631 1.98693 7.33333 2.1565 7.33333 2.33331V2.99998H4.66667V2.33331ZM9.33333 11.6666C9.33333 11.8435 9.2631 12.013 9.13807 12.1381C9.01305 12.2631 8.84348 12.3333 8.66667 12.3333H3.33333C3.15652 12.3333 2.98695 12.2631 2.86193 12.1381C2.7369 12.013 2.66667 11.8435 2.66667 11.6666V4.33331H9.33333V11.6666Z"
-                                                fill="#D70000" />
-                                        </svg>
-                                    </div>
-                                    <span style="pointer-events: none;" >Excluir item</span>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
+                    <td class="btnTask">{{ item.prazo }}</td> 
+          
+                    
                 </tr>
             {% empty %}
                 <tr>
@@ -131,8 +115,50 @@
             {% endfor %}
         </tbody>
     </table>
+
+    
+    <!-- <script>   
+    document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("taskModal");
+        const closeBtn = modal.querySelector(".btnCloseViewCard");
+        const modalTitle = modal.querySelector("#title-data");
+        const modalDescription = modal.querySelector("#description-data");
+        const modalDate = modal.querySelector("#date-data");
         
-    <script>
+        // Seleciona todas as células da tabela
+        const cells = document.querySelectorAll("tbody td");
+    
+        cells.forEach(cell => {
+            cell.addEventListener("click", () => {
+                // Obtém os dados da linha clicada
+                const row = cell.closest("tr");
+                const title = row.querySelector("td:first-child").textContent;
+                const description = ("td:nth-child()").textContent;// Substitua pelo campo correto
+                const date = row.querySelector("td:nth-child(6)").textContent;
+                // Preenche o modal com os dados
+                modalTitle.textContent = title;
+                modalDescription.textContent = description;
+                modalDate.textContent = date;
+                // Exibe o modal
+                modal.showModal();
+            });
+        });
+    
+        // Fecha o modal ao clicar no botão de fechar
+        closeBtn.addEventListener("click", () => {
+            modal.close();
+        });
+    
+        // Fecha o modal ao clicar fora da área do modal
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.close();
+            }
+        });
+    });
+    </script>    -->
+
+    <!-- <script>
     document.addEventListener("DOMContentLoaded", () => {
         document.body.addEventListener("click", (e) => {
             const event = e.target;
@@ -169,8 +195,7 @@
             }
         });
     });
-
 </script>
-        
+         -->
 {% endblock %}
 
