@@ -52,6 +52,11 @@ modal {
   overflow-y: auto;
   clip-path: border-box;
 }
+.mainNewFlight{
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+}
 .form{
   display: flex;
   flex-direction: column;
@@ -364,8 +369,8 @@ input:focus{
 }
 .trashIcon{
   display: flex;
-  width: 14px;
-  height: 14px;
+  /* width: 14px;
+  height: 14px; */
   padding: 7px;
   justify-content: center;
   align-items: center;
@@ -381,6 +386,7 @@ input:focus{
 }
 .description{
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
@@ -388,6 +394,7 @@ input:focus{
 }
 .inputText{
   display: flex;
+  width: 100%;
   /* height: 114px; */
   padding: 16px;
   align-items: flex-start;
@@ -430,4 +437,246 @@ input:focus{
   font-weight: 500;
   line-height: 150%; /* 21px */
   letter-spacing: -0.154px;
+}
+textarea{
+  resize: none;
+}
+.star{
+  stroke: #808080; 
+}
+.star.selected{
+  fill: #0075F6;
+  stroke: #0075F6; 
+}
+#ratingText{
+  color: #0075F6;
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: -0.132px;
+}
+.orgSuccess{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.accidentSelector{
+  display: flex;
+  min-width: 200px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+.myCheckbox{
+  display: flex;
+  width: 16px;
+  height: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #AEAEAE;
+  background: #0075F6;
+}
+.textAccident{
+  /* flex: 1 0 0; */
+  color: #1E1E1E;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+  letter-spacing: -0.132px;
+}
+.accidentBox{
+  display: none;
+}
+.orgInputs{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+#descriptionAccident{
+  display: flex;
+  height: 114px;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #F2F2F2;
+  outline: none;
+  border: none;
+  resize: none;
+}
+textarea:focus{
+  outline: none;
+  border: none;
+}
+textarea::placeholder{
+  color: #717171;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+  letter-spacing: -0.132px;
+}
+.dataFlight{
+  display: flex;
+  position: relative;
+  min-width: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+#additionalInputs{
+  width: 100%;
+}
+.dropdownFlight{
+  display: flex;
+  width: 100%;
+  /* height: auto; */
+  padding: 8px 16px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #F2F2F2;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.dropdownMenu{
+    display: none;
+    position: absolute;
+    width: 100%;
+    padding: 8px 16px;
+    justify-content: space-between;
+    align-items: left;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 8px;
+    background: #F2F2F2;
+    border: none;
+    outline: none;
+}
+.dropdownMenu label{
+  display: block;
+  cursor: pointer;
+}
+select.placeholder{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+  overflow: hidden;
+  color: #717171;
+  leading-trim: both;
+  text-edge: cap;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+  letter-spacing: -0.132px;
+}
+.dropdownFlight:focus{
+  border: none;
+  outline: none;
+}
+
+.container {
+  width: 350px;
+  margin: 250px auto;
+}
+.custom-combobox-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: #F2F2F2;
+  border-radius: 8px;
+}
+.custom-combobox {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  padding: 8px 16px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+.arrowSvg{
+  display: flex;
+  width: 16px;
+  height: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.custom-combobox input[type="text"] {
+  width: 95%;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.options-container {
+  display: none;
+  width: 100%;
+  height: auto;
+  padding: 8px 16px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  max-height: 240px;
+  overflow-y: auto;
+}
+.options-container label {
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  /* margin-top: 5px; */
+  user-select: none;
+  gap: 8px;
+  border-top: solid 1px #eee;
+  font-family: Inter;
+  font-size: 14px;
+}
+
+.options-container label:hover{
+  background: #ededed;
+}
+
+.options-container::-webkit-scrollbar {
+  width: 3px;
+}
+.options-container::-webkit-scrollbar-thumb {
+  background-color: rgb(100, 100, 100);
 }
