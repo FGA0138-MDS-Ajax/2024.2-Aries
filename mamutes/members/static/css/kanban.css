@@ -1408,7 +1408,6 @@ input{
 }
 .space-button{
   all: unset;
-  display: flex;
   align-items: center;
   width: 32px; 
   height: 32px; 
@@ -1418,6 +1417,7 @@ input{
   align-items: center;
   display: inline-flex;
   cursor: pointer;
+  display: none;
 }
 .text-wrapper-8 {
   cursor: pointer;

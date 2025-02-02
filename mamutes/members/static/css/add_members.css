@@ -19,7 +19,7 @@
   z-index: 1000;
   width: 80vw;
   max-width: 276px;
-  max-height: 320px;
+  height: 320px;
   padding: 8px;
   flex-direction: column;
   align-items: center;
