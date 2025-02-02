@@ -1,0 +1,30 @@
+{% load static %}
+{% for announcement in announcements %}
+<div class="announcement">
+    <div class="headerAnnouncement">
+        <div class="profileAnnouncement">
+            <div class="profilePicture">
+                <img class="profileImage" src="{{ announcement.member.photo.url }}" alt="Erro ao carregar imagem">
+            </div>
+            <div class="nameHour">
+                <p id="name">{{ announcement.member.fullname }}</p> <!-- Nome do membro associado -->
+                <p id="hour">Há {{ announcement.posted_at|timesince }}</p> <!-- Tempo desde a postagem -->
+            </div>
+        </div>
+        <div class="trashIcon">
+            <form method="post" action="{% url 'delete_announcement' announcement.id %}">
+            {% csrf_token %}
+                <button type="submit" style="background: none; border: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+                        <path d="M11.3333 2.66667H8.66667V2C8.66667 1.46957 8.45595 0.960859 8.08088 0.585786C7.70581 0.210714 7.1971 0 6.66667 0H5.33333C4.8029 0 4.29419 0.210714 3.91912 0.585786C3.54405 0.960859 3.33333 1.46957 3.33333 2V2.66667H0.666667C0.489856 2.66667 0.320286 2.7369 0.195262 2.86193C0.0702379 2.98695 0 3.15652 0 3.33333C0 3.51014 0.0702379 3.67971 0.195262 3.80474C0.320286 3.92976 0.489856 4 0.666667 4H1.33333V11.3333C1.33333 11.8638 1.54405 12.3725 1.91912 12.7475C2.29419 13.1226 2.8029 13.3333 3.33333 13.3333H8.66667C9.1971 13.3333 9.70581 13.1226 10.0809 12.7475C10.456 12.3725 10.6667 11.8638 10.6667 11.3333V4H11.3333C11.5101 4 11.6797 3.92976 11.8047 3.80474C11.9298 3.67971 12 3.51014 12 3.33333C12 3.15652 11.9298 2.98695 11.8047 2.86193C11.6797 2.7369 11.5101 2.66667 11.3333 2.66667ZM4.66667 2C4.66667 1.82319 4.7369 1.65362 4.86193 1.5286C4.98695 1.40357 5.15652 1.33333 5.33333 1.33333H6.66667C6.84348 1.33333 7.01305 1.40357 7.13807 1.5286C7.2631 1.65362 7.33333 1.82319 7.33333 2V2.66667H4.66667V2ZM9.33333 11.3333C9.33333 11.5101 9.2631 11.6797 9.13807 11.8047C9.01305 11.9298 8.84348 12 8.66667 12H3.33333C3.15652 12 2.98695 11.9298 2.86193 11.8047C2.7369 11.6797 2.66667 11.5101 2.66667 11.3333V4H9.33333V11.3333Z" fill="#D70000"/>
+                    </svg>   
+                </button>
+            </form>                
+        </div>
+    </div>
+    <div class="bodyAnnouncement">
+        <p class="titleBodyAnnouncement">{{ announcement.title }}</p> <!-- Título do anúncio -->
+        <p class="textBodyAnnouncement">{{ announcement.description }}</p> <!-- Texto do anúncio -->
+    </div>
+</div>
+{% endfor %}

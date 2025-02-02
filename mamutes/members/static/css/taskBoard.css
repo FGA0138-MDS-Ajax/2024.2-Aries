@@ -1,0 +1,409 @@
+.boards{
+  min-width: 0;
+}
+
+.table-container {
+  width: 100%; /* Ocupa toda a largura */
+  max-width: 1500px; /* Define um limite máximo */
+  font-family: Inter;
+  max-height: 500px; /* Altura máxima para o contêiner */
+  overflow-y: auto; /* Adiciona a rolagem vertical */
+  margin-right: 20px;
+  text-align: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.responsible-photo{
+  width: 20px; 
+  height: 20px; 
+  align-items: center; 
+  justify-content: center; 
+  position: absolute; 
+  object-fit: cover;
+  margin-top: -1.00px; 
+  margin-bottom: -1.00px; 
+  margin-left: -1.00px; 
+  border-radius: 250px; 
+  overflow: hidden; 
+  border: 1px solid; 
+  border-color: #fdfdfd;
+}
+
+table {
+  width: 100%;
+  max-width: 1500px;
+  font-family: Inter;
+  overflow-y: auto;
+  border-collapse: separate !important;
+  /* border-spacing: 0 10px !important; */
+  text-align: left !important;
+  border-spacing: 0 8px !important;
+  font-family: Inter !important;
+  min-width: 720px;
+  
+}
+
+/* Cabeçalho com bordas arredondadas */
+thead tr {
+  background-color: #0075f6;
+  color: #fefefe;
+  text-align: left;
+  border-radius: 8px; /* Bordas arredondadas no cabeçalho */
+  overflow: hidden; /* Garante que o arredondamento seja visível */
+  margin-bottom: 8px;
+  /* cursor: pointer; */
+}
+
+/* Aplicando bordas arredondadas nas células do cabeçalho */
+thead th:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+thead th:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Linhas arredondadas no corpo */
+tbody tr {
+  
+  margin-bottom: 8px;
+  background-color: #fefefe;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+/* Remove borda duplicada entre células */
+
+tbody tr:hover {
+  background-color: #f9f9f9; /* Altere o fundo da linha */
+}
+
+tbody tr:hover .btnEditTask {
+  background-color: #f9f9f9; /* Cor do botão quando a linha é hoverada */
+  cursor: pointer; /* Certifica-se de que o cursor mude sobre o botão */
+}
+
+/* Espaçamento interno das células */
+td, th {
+  padding: 0px !important;
+  /* font-weight: bold; */
+  margin: 0;
+  vertical-align: center;
+}
+
+td{
+  font-size: 12px !important;
+  vertical-align: middle !important;
+  text-align: left;
+  padding-inline: 8px !important;
+  padding-block: 16px !important;
+  
+  color: #1E1E1E;
+  leading-trim: both;
+  text-edge: cap;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: normal;
+  letter-spacing: -0.132px;
+}
+
+th{
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding: 16px !important;
+  cursor: pointer;
+  gap: 16px !important;
+}
+
+td:nth-last-child(3), th:nth-last-child(3) {
+  text-align: center; 
+}
+td:nth-last-child(3){
+  color: #717171;
+}
+
+td:nth-last-child(2), th:nth-last-child(2) {
+  font-weight: 500 !important;
+}
+
+th:first-child{
+  padding-left: 16px !important;
+}
+
+th:last-child{
+  padding-right: 16px !important;
+}
+
+tbody tr td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding-left: 16px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+tbody tr td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding-right: 16px !important;
+}
+/* Classes de status */
+tr td .status {
+  /* padding: 10px;
+  font-size: 12px;
+  border-radius: 12px;
+  color: #fff;
+  display: inline-block;
+  width: 130px;
+  text-align: center;
+  margin-bottom: 15px; */
+
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  border-radius: 200px;
+  align-items: center;
+  leading-trim: both;
+  text-edge: cap;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.088px;
+  overflow: hidden;
+  min-width: 80px;
+  width: fit-content;
+}
+
+.status.high-priority {
+  background: rgba(215, 0, 0, 0.20);
+  color: #de2e2e;
+  /* font-weight: bold; */
+}
+
+.status.medium-priority {
+  background: rgba(255, 192, 57, 0.20);
+  color: #d2950f;
+  /* font-weight: bold; */
+}
+
+.status.low-priority {
+  background: rgba(0, 135, 7, 0.20);
+  color: #008707;;
+  /* font-weight: bold; */
+}
+
+/* Designados (avatares) */
+.avatars {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  padding-inline: 8px;
+}
+
+.avatars .personImg {
+  display: flex;
+  width: 24px;
+  /* height: 24px; */
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  outline: 2px solid #FEFEFE;
+  margin-left: -4px;
+  overflow: hidden;
+}
+
+.avatars .personImg img{
+  object-fit: cover;
+}
+
+.btnEditTask {
+  border: none;
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+.editBtn{
+  font-weight: bold;
+  color: black;
+}
+
+.orderBtn img {
+  width: 15px;  
+  height: auto;
+  border-radius: 2px;
+}
+
+.singleName{
+  padding-left: 5px;
+}
+
+.orderBtn:hover{
+  cursor: pointer;
+}
+
+.membroCount  {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  outline: 2px solid #f2f2f2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  overflow: hidden;
+  margin-left: -6px;
+  border-radius: 500px;
+  /* border: 2px solid #F2F2F2; */
+  background: #DDD;
+  color: #8A8A8A;
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.132px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toOpen{
+  display: flex;
+  width: 32px;
+  height: 32px;
+  /* padding: 9px 4px; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 4px;
+}
+
+.toOpen:hover{
+  background: #f2f2f2;
+}
+
+.twoButton{
+  display: flex;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  border-radius: 8px;
+  background: #FEFEFE;
+  box-shadow: 0px 4px 32px 0px rgba(30, 30, 30, 0.20);
+  z-index: 3;
+}
+
+.editBtnModal{
+  white-space: nowrap;
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.editBtnModal span{
+  color: #1E1E1E;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.132px;
+}
+
+.editExcludeButton span{
+  color: #1E1E1E;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.132px;
+}
+
+.iconEditExclude{
+  display: flex;
+  width: 16px;
+  height: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.editExcludeButton{
+  white-space: nowrap;
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.editBtnModal:hover{
+  background: #f7f7f7;
+}
+
+.editExcludeButton:hover{
+  background: #f7f7f7;
+}
+
+.iconEditExclude{
+  display: flex;
+  width: 16px;
+  height: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+
+@media (max-width: 768px) {
+  .table-container {
+      width: 100%;
+      max-width: 100%;
+  }
+
+  table {
+      width: 100%;
+  }
+
+  td, th {
+      padding: 10px;
+  }
+}

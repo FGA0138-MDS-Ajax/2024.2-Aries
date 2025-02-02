@@ -1,0 +1,226 @@
+{% extends 'baseMembers.html' %} 
+{% load static %}
+
+{% block content %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/pagConfig.css' %}">
+  <script src="{% static 'scripts/showDados.js' %}" defer></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet" />
+  <style>
+    .org{
+      overflow: hidden;
+      overflow-y: auto;
+    }
+
+    .sidebar-central{
+      display: none;
+    }
+
+    .minhaconta-page{
+      width: 100%;
+      padding: 0px 12%;
+    }
+  </style>
+{% endblock %}
+
+<!-- <!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/pagConfig.css' %}">
+    <script src="{% static 'scripts/showDados.js' %}" defer></script>
+    <title>Configurações | Mamutes do Cerrado</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet" />
+
+</head>
+<body> -->
+    <div  class="minhaconta-page">
+      <div class="central-minha-conta">
+        <div class="inicio-perfil-user">
+          <div class="div-profile-pic">
+            <!-- Input para escolher a foto -->
+            <!-- <input type="file" class="foto-perfil" style="cursor: pointer;" id="fileInput" accept="image/*"> -->
+            
+            <div class="div-tag-img" title="Alterar foto de perfil"><img class="tag-img" src="{{ user.photo.url }}" id="profileImage"></div>
+            
+            <button class="change-pic-bar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.08599 11.7273H7.91399C9.90008 11.7273 10.8934 11.7273 11.6068 11.2596C11.9147 11.0579 12.1798 10.7976 12.387 10.4934C12.8636 9.79337 12.8636 8.81783 12.8636 6.86801C12.8636 4.91819 12.8636 3.94264 12.387 3.24264C12.1798 2.93846 11.9147 2.6781 11.6068 2.47646C11.1486 2.17546 10.5746 2.06792 9.69581 2.02973C9.27644 2.02973 8.91563 1.71792 8.83354 1.31383C8.7708 1.01783 8.6078 0.752576 8.37208 0.562885C8.13635 0.373195 7.84237 0.270704 7.53981 0.272735H5.46017C4.83144 0.272735 4.2899 0.708644 4.16644 1.31383C4.08435 1.71792 3.72353 2.02973 3.30417 2.02973C2.42599 2.06792 1.85199 2.1761 1.39317 2.47646C1.08551 2.67816 0.820618 2.93852 0.613625 3.24264C0.136353 3.94264 0.136353 4.91755 0.136353 6.86801C0.136353 8.81846 0.136353 9.79273 0.612989 10.4934C0.819171 10.7963 1.0839 11.0566 1.39317 11.2596C2.10653 11.7273 3.0999 11.7273 5.08599 11.7273ZM6.49999 4.26464C5.03572 4.26464 3.84826 5.42983 3.84826 6.86737C3.84826 8.30492 5.03635 9.47201 6.49999 9.47201C7.96363 9.47201 9.15172 8.30619 9.15172 6.86864C9.15172 5.4311 7.96363 4.26464 6.49999 4.26464ZM6.49999 5.30574C5.62181 5.30574 4.90908 6.0051 4.90908 6.86801C4.90908 7.73028 5.62181 8.42964 6.49999 8.42964C7.37817 8.42964 8.0909 7.73028 8.0909 6.86801C8.0909 6.00573 7.37817 5.30574 6.49999 5.30574ZM9.5049 4.78519C9.5049 4.49755 9.74226 4.26464 10.0356 4.26464H10.742C11.0347 4.26464 11.2727 4.49755 11.2727 4.78519C11.2714 4.92449 11.2148 5.05756 11.1154 5.15516C11.016 5.25276 10.8819 5.30692 10.7426 5.30574H10.0356C9.9666 5.30641 9.89811 5.29347 9.83408 5.26768C9.77005 5.24188 9.71173 5.20372 9.66245 5.15539C9.61316 5.10705 9.57388 5.04948 9.54685 4.98596C9.51982 4.92244 9.50556 4.85422 9.5049 4.78519Z" fill="#FEFEFE"/>
+              </svg>
+            </button>
+            <div class="popUpChangePic"> <!--popoup não desaparece ao clicar dentro dele, mas desaparece ao recarregar a página (formulários de edição/deleção de fotos enviados)-->
+              <button class="optionProfilePic" onclick="document.getElementById('fileInput').click();">
+                <input type="file" class="foto-perfil" style="cursor: pointer;" id="fileInput" accept="image/*">
+                <div class="iconProfilePic">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M6.68531 1.62943H2.2634C1.92833 1.62943 1.60698 1.76253 1.37004 1.99947C1.13311 2.2364 1 2.55775 1 2.89283V11.7366C1 12.0717 1.13311 12.3931 1.37004 12.63C1.60698 12.8669 1.92833 13 2.2634 13H11.1072C11.4423 13 11.7636 12.8669 12.0006 12.63C12.2375 12.3931 12.3706 12.0717 12.3706 11.7366V7.31474M10.7124 1.39249C10.9637 1.14118 11.3046 1 11.66 1C12.0154 1 12.3562 1.14118 12.6075 1.39249C12.8588 1.6438 13 1.98464 13 2.34004C13 2.69544 12.8588 3.03629 12.6075 3.28759L6.91401 8.98175C6.76402 9.13162 6.57871 9.24132 6.37517 9.30076L4.56029 9.83139C4.50594 9.84724 4.44832 9.84819 4.39347 9.83414C4.33862 9.82009 4.28855 9.79155 4.24852 9.75151C4.20848 9.71147 4.17994 9.66141 4.16589 9.60656C4.15184 9.55171 4.15279 9.49409 4.16864 9.43973L4.69927 7.62485C4.75898 7.42148 4.8689 7.23639 5.01891 7.08664L10.7124 1.39249Z" stroke="#0075F6" stroke-width="1.2634" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                Editar foto
+              </button>
+              <button class="optionProfilePic">
+                <div class="iconProfilePic">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+                    <path d="M11.3333 2.99998H8.66667V2.33331C8.66667 1.80288 8.45595 1.29417 8.08088 0.919099C7.70581 0.544027 7.1971 0.333313 6.66667 0.333313H5.33333C4.8029 0.333313 4.29419 0.544027 3.91912 0.919099C3.54405 1.29417 3.33333 1.80288 3.33333 2.33331V2.99998H0.666667C0.489856 2.99998 0.320286 3.07022 0.195262 3.19524C0.0702379 3.32027 0 3.48984 0 3.66665C0 3.84346 0.0702379 4.01303 0.195262 4.13805C0.320286 4.26307 0.489856 4.33331 0.666667 4.33331H1.33333V11.6666C1.33333 12.1971 1.54405 12.7058 1.91912 13.0809C2.29419 13.4559 2.8029 13.6666 3.33333 13.6666H8.66667C9.1971 13.6666 9.70581 13.4559 10.0809 13.0809C10.456 12.7058 10.6667 12.1971 10.6667 11.6666V4.33331H11.3333C11.5101 4.33331 11.6797 4.26307 11.8047 4.13805C11.9298 4.01303 12 3.84346 12 3.66665C12 3.48984 11.9298 3.32027 11.8047 3.19524C11.6797 3.07022 11.5101 2.99998 11.3333 2.99998ZM4.66667 2.33331C4.66667 2.1565 4.7369 1.98693 4.86193 1.86191C4.98695 1.73688 5.15652 1.66665 5.33333 1.66665H6.66667C6.84348 1.66665 7.01305 1.73688 7.13807 1.86191C7.2631 1.98693 7.33333 2.1565 7.33333 2.33331V2.99998H4.66667V2.33331ZM9.33333 11.6666C9.33333 11.8435 9.2631 12.013 9.13807 12.1381C9.01305 12.2631 8.84348 12.3333 8.66667 12.3333H3.33333C3.15652 12.3333 2.98695 12.2631 2.86193 12.1381C2.7369 12.013 2.66667 11.8435 2.66667 11.6666V4.33331H9.33333V11.6666Z" fill="#D70000"/>
+                  </svg>
+                </div>
+                Excluir foto
+              </button>
+            </div>
+          </div>
+          <div class="infos-membro">
+            <div class="text-wrapper">@{{ user.username }}</div>
+            <div class="div">{{ user.fullname }}</div>
+            <div class="infos-cargo-area">
+              <p class="p">Gerente de operações | Capitão | Piloto</p>
+              <div class="text-wrapper-2">Marketing | Estruturas</div>
+            </div>
+          </div>
+        </div>
+        <div  class="meus-dados">
+          <div id="userDetails" class="form-principal-input">
+            <div class="name-data">
+              <div class="text-wrapper-3">Meus dados</div>
+              <button id="toggleButton" class="edit-button" style="cursor: pointer;" title="Editar dados">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                  <path d="M10.5037 1.99634H3.50366C2.97323 1.99634 2.46452 2.20705 2.08945 2.58212C1.71438 2.9572 1.50366 3.4659 1.50366 3.99634V17.9963C1.50366 18.5268 1.71438 19.0355 2.08945 19.4106C2.46452 19.7856 2.97323 19.9963 3.50366 19.9963H17.5037C18.0341 19.9963 18.5428 19.7856 18.9179 19.4106C19.2929 19.0355 19.5037 18.5268 19.5037 17.9963V10.9963" stroke="#0075F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16.8786 1.62132C17.2765 1.2235 17.816 1 18.3786 1C18.9412 1 19.4808 1.2235 19.8786 1.62132C20.2765 2.01914 20.5 2.55871 20.5 3.12132C20.5 3.68393 20.2765 4.2235 19.8786 4.62132L10.8656 13.6353C10.6282 13.8726 10.3348 14.0462 10.0126 14.1403L7.13963 14.9803C7.05359 15.0054 6.96237 15.0069 6.87554 14.9847C6.78871 14.9624 6.70946 14.9173 6.64608 14.8539C6.5827 14.7905 6.53752 14.7112 6.51528 14.6244C6.49303 14.5376 6.49454 14.4464 6.51963 14.3603L7.35963 11.4873C7.45416 11.1654 7.62817 10.8724 7.86563 10.6353L16.8786 1.62132Z" stroke="#0075F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="div-2">
+              <div class="text-wrapper-4">Nome completo</div>
+              <div class="div-wrapper"><div class="text-wrapper-5">{{user.fullname}}</div></div>
+            </div>
+            <div class="div-2">
+              <div class="text-wrapper-4">E-mail</div>
+              <div class="div-wrapper"><div class="text-wrapper-5">{{user.email}}</div></div>
+            </div>
+            <div class="user-contato">
+              <div class="div-3">
+                <div class="text-wrapper-4">Nome de usuário</div>
+                <div class="div-wrapper"><div class="text-wrapper-5">{{user.username}}</div></div>
+              </div>
+              <div class="div-3">
+                <div class="text-wrapper-4">Contato</div>
+                <div class="div-wrapper"><div class="text-wrapper-5">{{user.phone}}</div></div>
+              </div>
+            </div>
+          </div>
+          
+         <div id="userEdit" class="form-principal-input" style="display: none;">
+            <div class="name-data-2"><div class="text-wrapper-3">Meus dados</div></div>
+            <form class="form-edit-infos" method="POST" action="{% url 'editar_usuario' %}">
+              {% csrf_token %}
+              <div class="div-2">
+                <div class="text-wrapper-4">Nome completo</div>
+                <input type="text" name="fullname" value="{{ user.fullname }}" class="div-wrapper-2">
+                <!-- <div class="div-wrapper-2">
+                </div> -->
+              </div>
+              <div class="div-2">
+                <div class="text-wrapper-4">E-mail</div>
+                <input type="email" name="email" value="{{ user.email }}" class="div-wrapper-2"">
+                <!-- <div class="div-wrapper-2">
+                </div> -->
+              </div>
+              <div class="user-contato">
+                <div class="div-3">
+                  <div class="text-wrapper-4">Nome de usuário</div>
+                  <input type="text" name="username" value="{{ user.username }}" class="div-wrapper-2"">
+                  <!-- <div class="div-wrapper-2">
+                  </div> -->
+                </div>
+                <div class="div-3">
+                  <div class="text-wrapper-4">Contato</div>
+                  <input type="text" name="phone" value="{{ user.phone }}" class="div-wrapper-2"">
+                  <!-- <div class="div-wrapper-2">
+                  </div> -->
+                </div>
+              </div>
+              <div class="botoes">
+                <button type="submit" class="botao-login"><div class="text-wrapper-7">Salvar alterações</div></button>
+                <button id="userCancelar" type="button" style="cursor: pointer;" class="botao-cancelar"><div class="text-wrapper-8">Cancelar</div></button>
+              </div>
+            </form>
+          </div>
+        
+        <div id="userSenha" class="form-principal">
+          <div class="name-data">
+            <div class="text-wrapper-3">Alterar senha</div>
+            <button class="key-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                <path d="M8.92308 19.3809C11.642 19.3809 13.8462 17.1768 13.8462 14.4579C13.8462 11.7389 11.642 9.53479 8.92308 9.53479C6.20414 9.53479 4 11.7389 4 14.4579C4 17.1768 6.20414 19.3809 8.92308 19.3809Z" stroke="#0075F6" stroke-width="2.46154"/>
+                <path d="M12.6154 10.7655L16.923 6.45785M16.923 6.45785L18.7692 4.61169M16.923 6.45785L20 9.53477" stroke="#0075F6" stroke-width="2.46154" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="div-2">
+            <div class="text-wrapper-4">Senha atual</div>
+            <input type="password" id="currentPassword" class="password-field"></input>
+          </div>
+          <div class="div-2">
+            <div class="text-wrapper-4">Nova senha</div>
+            <input type="password" id="newPassword" class="password-field"></input>
+          </div>
+          <div class="div-2">
+            <div class="text-wrapper-4">Confirmar senha</div>
+            <input type="password" id="confirmPassword" class="password-field"></input>
+          </div>
+          <p id="errorMessage" style="color: red; display: none;" class="text-wrapper-9">As senhas não coincidem</p>
+          <p id="Message" style="color: green; display: none;" class="text-wrapper-9">Deu Certo!</p>
+          <div class="botoes">
+            <button id="submitButton" disabled="true" style="cursor: pointer;" class="botao-login"><div class="text-wrapper-7" >Alterar senha</div></button >
+            <button  id="cancelButton" class="botao-cancelar" style="cursor: pointer;"><div class="text-wrapper-8" >Cancelar</div></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </body> -->
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const profileImage = document.getElementById("profileImage");
+
+
+
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files[0]; // Obter o arquivo selecionado
+      if (file.size > 2 * 1024 * 1024) { // Limite de 2MB
+        alert("A imagem deve ter no máximo 2MB!");
+        return;
+      }
+      
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          profileImage.src = reader.result; // Atualiza a imagem de perfil com a imagem carregada
+        };
+        reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const profilePicDiv = document.querySelector(".div-profile-pic");
+      const popup = document.querySelector(".popUpChangePic");
+
+      // Alterna a classe 'open' ao clicar na div-profile-pic
+      profilePicDiv.addEventListener("click", (e) => {
+        e.stopPropagation(); // Impede que o evento de clique se propague
+        popup.classList.toggle("open");
+      });
+
+      // Fecha o popup ao clicar fora ou dentro dele
+      document.addEventListener("click", () => {
+        popup.classList.remove("open");
+      });
+    });
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<!-- </html> -->
+
+{% endblock %}

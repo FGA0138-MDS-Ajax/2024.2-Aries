@@ -1,0 +1,150 @@
+{% load static %}
+
+    <!-- <div class="calendarHome"> -->
+        <div class="titleMyAgenda">
+            <div class="calendarIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
+                    <path d="M1.25 8.25H18.75M5.361 3.75V1.75M14.611 3.75V1.75M15.25 3.75H4.75C3.82174 3.75 2.9315 4.11875 2.27513 4.77513C1.61875 5.4315 1.25 6.32174 1.25 7.25V16.75C1.25 17.6783 1.61875 18.5685 2.27513 19.2249C2.9315 19.8813 3.82174 20.25 4.75 20.25H15.25C16.1783 20.25 17.0685 19.8813 17.7249 19.2249C18.3813 18.5685 18.75 17.6783 18.75 16.75V7.25C18.75 6.32174 18.3813 5.4315 17.7249 4.77513C17.0685 4.11875 16.1783 3.75 15.25 3.75Z" stroke="#0075F6" stroke-width="2.0625" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <p class="textMyAgenda">Minha agenda</p>
+        </div>
+        <div class="centerMyAgenda">
+            <div class="calendarVisualizer">
+                <div class="monthControler">
+                    <p class="textmonthYear">{{ month_name|capfirst }} {{ year }}</p>
+                    <div class="arrows-date">
+                        <button class="arrow-icon" data-date="{{ now|date:'Y-m-d' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                                <path d="M4.66659 1.66671L1.33325 5.00004L4.66659 8.33337" stroke="#1F1A99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="arrow-icon" data-date="{{ now|date:'Y-m-d' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                                <path d="M1.33341 1.66671L4.66675 5.00004L1.33341 8.33337" stroke="#1F1A99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="calendar">
+                    <div class="weekDays">
+                        <div class="dayOfWeek">
+                            <p class="textDay">D</p>
+                        </div>
+                        <div class="dayOfWeek">
+                            <p class="textDay">S</p>
+                        </div>
+                        <div class="dayOfWeek">
+                            <p class="textDay">T</p>
+                        </div>
+                        <div class="dayOfWeek">
+                            <p class="textDay">Q</p>
+                        </div>
+                        <div class="dayOfWeek">
+                            <p class="textDay">Q</p>
+                        </div>
+                        <div class="dayOfWeek">
+                            <p class="textDay">S</p>
+                        </div>
+                        <div class="dayOfWeek">
+                            <p class="textDay">S</p>
+                        </div>
+                    </div>
+                    <div class="dateOfMonth">
+                        {% for week in weeks %}
+                        <div class="everyWeek">
+                            {% for day in week %}
+                            <div class="dateWeek{% if not day.in_month %}LastMonth{% endif %}" data-date="{{ year }}-{{ month }}-{{ day.day }}">
+                                <div class="day{% if day.is_today %} daySelected{% endif %}">
+                                    <p class="textDate{% if day.day == 0 %} Empty {% elif day.is_today%} textDateSelected {% endif %}"> {{ day.day|default:'' }}</p>
+                                </div>
+                                <div class="markers">
+                                    {% if day.tasks %}
+                                        <div class="taskMarkerTarefa" style="background-color: {{ user_area_color }};"></div>
+                                    {% endif %}
+                                    {% if day.events %}
+                                        <div class="taskMarkerTarefa"></div>
+                                    {% endif %}
+                                    {% if day.meetings %}
+                                        <div class="taskMarkerTarefa" style="background-color: {% if day.meetings_multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};"></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="agendaList">
+                <p id="todayDate">{{ now.day }} de {{ now|date:"F" }}</p>
+                <div class="todayEvents">
+                    {% if tasks %}
+                        {% for task in tasks %}
+                            <div class="taskCalendar">
+                                <div class="colorTeamBlue" style="background-color: {{ user_area_color }};"></div>
+                                <p>{{ task.title }}</p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="taskCalendar">
+                            <p>Nenhuma tarefa atribuída a você para este dia.</p>
+                        </div>
+                    {% endif %}
+                    
+                    {% if events_obj %}
+                        {% for event in events_obj %}
+                            <div class="importantEvent">
+                                <div class="borderImportantEvent"></div>
+                                <div class="contentImportantEvent">
+                                    <h4>{{ event.title }}</h4>
+                                    <div class="moreInfoEvent">
+                                        <p class="hourEvent">{{ event.formatted_time }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if meetings %}
+                        {% for meeting in meetings %}
+                            <div class="importantEvent">
+                                <div class="borderImportantEvent" style="background: {% if day.meetings_multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};">
+                                </div>
+                                <div class="contentImportantEvent">
+                                    <h4>{{ meeting.title }}</h4>
+                                    <div class="moreInfoEvent">
+                                        <p class="hourEvent">{{ meeting.time }}</p>
+                                        <div class="peopleMeeting">
+                                            {% if meeting.areas|length > 3 %}
+                                                {% for area in meeting.areas|slice:":3" %}
+                                                    <div class="profilePic" style="background-color: {{ area.color }};">
+                                                        <p class="textPlusPeople">{{ area.name|slice:":1" }}</p>
+                                                    </div>
+                                                {% endfor %}
+                                                <div class="profilePic" style="background-color: #DDD;">
+                                                    <p class="textPlusPeople">+{{ meeting.areas|length|add:"-3" }}</p>
+                                                </div>
+                                            {% else %}
+                                                {% for area in meeting.areas %}
+                                                    <div class="profilePic" style="background-color: {{ area.color }};">
+                                                        <p class="textPlusPeople">{{ area.name|slice:":1" }}</p>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>                                        
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    <!-- </div> -->
+    
+<script>
+    const userAreaColor = "{{ user_area_color }}";
+</script>
+<script src="{% static 'scripts/calendar.js' %}"></script>

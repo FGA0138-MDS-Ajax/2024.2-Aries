@@ -1,0 +1,613 @@
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  /* overflow: hidden; */
+ 
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+
+.minhaconta-page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 12%;
+  position: relative;
+  background-color: #f2f2f2;
+  /* width: 100%; */
+  overflow: hidden;
+}
+
+.minhaconta-page .central-minha-conta {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 320px;
+  align-items: center;
+  gap: 32px;
+  padding: 40px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 53.6px #1e1e1e17;
+}
+
+.minhaconta-page .inicio-perfil-user {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 200px;
+  align-items: center;
+  justify-content: center;
+  gap: 24px 24px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  z-index: 1;
+}
+
+.minhaconta-page .div-profile-pic {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  aspect-ratio: 1/1;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 50%;
+  outline: solid 1px #bbbbbb;
+}
+
+.minhaconta-page .div-tag-img:hover {
+  opacity: 0.8;
+}
+
+input[type="file"] {
+  display: none; /* Esconde o input de arquivo */
+}
+
+.minhaconta-page .div-tag-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.minhaconta-page .tag-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.minhaconta-page .change-pic-bar {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  border: none;
+  outline: 2px solid #FFF;;
+  height: 24px;
+  width: 24px;
+  align-items: center;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #0075F6;
+  justify-content: center;
+}
+
+.minhaconta-page .popUpChangePic{
+  display: none;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 8px;
+  background: #FEFEFE;
+  box-shadow: 0px 4px 32px 0px rgba(30, 30, 30, 0.20);
+  position: absolute;
+  top: 104px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #1E1E1E;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.132px;
+  white-space: nowrap;
+}
+
+.minhaconta-page .popUpChangePic.open{
+  display: flex;
+  z-index: 2000;
+}
+
+.optionProfilePic{
+  all: unset;
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.optionProfilePic:hover{
+  background: #F2F2F2;
+}
+
+.iconProfilePic{
+  display: flex;
+  width: 16px;
+  height: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.minhaconta-page .infos-membro {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  align-items: flex-start;
+  gap: 4px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.minhaconta-page .text-wrapper {
+  font-family: Inter;
+  font-weight: 400;
+  color: #36b5ff;
+  position: relative;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-size: 14px;
+  letter-spacing: -0.15px;
+  line-height: 21px;
+}
+
+.minhaconta-page .div {
+  position: relative;
+  align-self: stretch;
+  font-family: Inter;
+  font-weight: 700;
+  color: #1e1e1e;
+  font-size: 18px;
+  letter-spacing: -0.20px;
+  line-height: 27px;
+}
+
+.minhaconta-page .infos-cargo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.minhaconta-page .p {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family: Inter;
+  font-weight: 500;
+  color: #686868;
+  font-size: 12px;
+  letter-spacing: -0.13px;
+  line-height: 18px;
+}
+
+.minhaconta-page .text-wrapper-2 {
+  position: relative;
+  align-self: stretch;
+  font-family: Inter;
+  font-weight: 400;
+  color: #808080;
+  font-size: 12px;
+  letter-spacing: -0.13px;
+  line-height: 18px;
+}
+
+.minhaconta-page .meus-dados {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 200px;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.minhaconta-page .form-principal-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 32px;
+  position: relative;
+  align-self: stretch;
+  /* width: 100%; */
+  flex: 0 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #dadada;
+}
+
+.minhaconta-page .name-data {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  flex: 0 0 auto;
+  position: relative;
+  align-self: stretch;
+}
+
+.minhaconta-page .form-edit-infos {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  width: 100%;
+  gap: 32px;
+}
+
+.minhaconta-page .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: Inter;
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: -0.22px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.minhaconta-page .edit-button {
+  display: flex;
+  all: unset;
+  padding: 4px;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.minhaconta-page .key-button {
+  display: flex;
+  all: unset;
+  padding: 4px;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.minhaconta-page .edit-button:hover {
+  background: #D7EAFF;
+}
+
+.minhaconta-page .div-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.minhaconta-page .text-wrapper-4 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family: Inter;
+  font-weight: 500;
+  color: #808080;
+  font-size: 16px;
+  letter-spacing: -0.18px;
+  line-height: 24px;
+}
+
+.minhaconta-page .div-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 16px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  border-radius: 8px;
+}
+
+.minhaconta-page .text-wrapper-5 {
+  font-family: Inter;
+  font-weight: 600;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  margin-top: -1.00px;
+  color: #1e1e1e;
+  font-size: 14px;
+  letter-spacing: -0.15px;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+.minhaconta-page .user-contato {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px 16px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.minhaconta-page .div-3 {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.minhaconta-page .name-data-2 {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.minhaconta-page .div-wrapper-2 {
+  padding: 12px 16px;
+  background-color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 16px;
+  position: relative;
+  align-self: stretch;
+  /* width: 100%; */
+  /* flex: 0 0 auto; */
+  border-radius: 8px;
+}
+
+.minhaconta-page .text-wrapper-6 {
+  font-family: Inter;
+  font-weight: 400;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  margin-top: -1.00px;
+  color: #1e1e1e;
+  font-size: 14px;
+  letter-spacing: -0.15px;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+.minhaconta-page .botoes {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+
+.minhaconta-page .botao-login {
+  all: unset;
+  gap: 8px;
+  background-color: #1f1a99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  min-width: 200px;
+  border-radius: 8px;
+  flex: 1 0 0;
+  cursor: pointer;
+}
+
+.minhaconta-page .text-wrapper-7 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: Inter;
+  font-weight: 600;
+  color: #f2f2f2;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: -0.18px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.minhaconta-page .botao-cancelar {
+  all: unset;
+  display: flex;
+  border: 1px solid;
+  border-color: #717171;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  min-width: 200px;
+  border-radius: 8px;
+  flex: 1 0 0;
+  cursor: pointer;
+}
+
+.minhaconta-page .text-wrapper-8 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: Inter;
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: -0.18px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.minhaconta-page .form-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 32px;
+  position: relative;
+  align-self: stretch;
+  /* width: 100%; */
+  flex: 0 0 auto;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #dadada;
+}
+
+.minhaconta-page .text-wrapper-9 {
+  position: relative;
+  align-self: stretch;
+  font-family: Inter;
+  font-weight: 400;
+  color: #fe0000;
+  font-size: 16px;
+  letter-spacing: -0.18px;
+  line-height: 24px;
+}
+
+.password-field:invalid {
+  border-color: red;
+}
+
+.password-field:valid {
+  border-color: green;
+}
+
+.botao[disabled] {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.div-2 .password-field {
+  display: flex;
+  padding: 12px 16px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #F6F6F6;
+  border: none;
+  }
+
+@media (max-width: 768px) {
+  .minhaconta-page{
+    padding: 40px 48px;
+  }
+
+  .minhaconta-page{
+    overflow: hidden;
+    overflow-y: auto;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .org{
+    padding-top: 64px;
+  }
+
+  .minhaconta-page{
+    padding-block: 16px;
+  }
+
+  .minhaconta-page .central-minha-conta{
+    margin-block: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .org{
+    padding-top: 48px;
+  }
+
+  .minhaconta-page{
+    padding-block: 16px;
+  }
+
+  /* .minhaconta-page{
+    padding: 24px 0 0 0;
+  } */
+
+  .minhaconta-page .central-minha-conta{
+    padding: 32px 16px;
+  }
+
+  .minhaconta-page .inicio-perfil-user{
+    flex-direction: column;
+  }
+
+  .minhaconta-page .infos-membro{
+    align-items: center;
+    text-align: center;
+  }
+
+  .minhaconta-page .text-wrapper-4{
+    font-size: 14px;
+  }
+
+  .minhaconta-page .text-wrapper-7{
+    font-size: 14px;
+  }
+
+  .minhaconta-page .text-wrapper-8{
+    font-size: 14px;
+  }
+}
+  

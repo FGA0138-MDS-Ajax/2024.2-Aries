@@ -1,0 +1,362 @@
+/* cancela eventos javascripts nas seguintes classes: */
+.main, .label, .div-wrapper, .text-wrapper,.dots-button,.card-title{
+    pointer-events: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  background-color: #fdfdfd;
+  border-radius: 4px;
+  cursor: pointer;
+  pointer-events: auto;
+  outline: none;
+  border: none;
+}
+
+.card .main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  
+}
+.card .label {
+  display: flex;
+  justify-content: space-between;
+  align-self: stretch;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  flex: 0 0 auto;
+  
+}
+
+.card .div-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px;
+  background-color: #d7000033;
+  border-radius: 200px;
+  align-items: center;
+  position: relative;
+  flex: 0 0 auto;
+  
+}
+
+.card .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: Inter;
+  font-weight: 600;
+  color: #d70000;
+  font-size: 10px;
+  letter-spacing: -0.09px;
+  line-height: normal;
+  white-space: nowrap;
+  
+}
+
+.card .dots-button {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  
+}
+
+.card .card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  
+}
+
+.card .div {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family: Inter;
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 14px;
+  letter-spacing: -0.13px;
+  line-height: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  
+}
+
+.card .p {
+  position: relative;
+  align-self: stretch;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #717171;
+  font-size: 12px;
+  letter-spacing: -0.11px;
+  line-height: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  
+}
+
+.card .due-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  
+}
+
+.card .flag-icon {
+  position: relative;
+  flex: 0 0 auto;
+  
+}
+
+.card .text-wrapper-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+  overflow: hidden;
+  color: #0075F6;
+  leading-trim: both;
+  text-edge: cap;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.5px;
+}
+
+.card .pepople-tasks {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #eeeeee;
+  
+}
+
+.card .people-meeting {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  margin-top: -4.00px;
+  margin-bottom: -4.00px;
+  
+}
+
+.card .foto-perfil {
+  display: flex;
+  /* width: 18px;
+  height: 18px; */
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* margin-top: -1.00px;
+  margin-bottom: -1.00px;
+  margin-left: -1.00px; */
+  border-radius: 250px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #fefefe;
+  object-fit: cover;
+}
+
+.card .tag-img {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  flex-grow: 1;
+  background-image: url(./img/image.svg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.card .tag-img-wrapper {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: -1.00px;
+  margin-bottom: -1.00px;
+  margin-left: -4px;
+  border-radius: 250px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #fdfdfd;
+}
+
+.card .tag-img-2 {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  flex-grow: 1;
+  background-image: url(./img/tag-img.svg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.card .tag-img-3 {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  flex-grow: 1;
+  background-image: url(./img/tag-img-2.svg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+
+
+.card .text-wrapper-3 {
+  font-family: Inter;
+  font-weight: 600;
+  color: #8a8a8a;
+  font-size: 8px;
+  text-align: center;
+  letter-spacing: -0.09px;
+  position: relative;
+  width: fit-content;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.card .tasks-task {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  margin-top: -2.00px;
+  margin-bottom: -2.00px;
+}
+
+.card .task-icon {
+  position: relative;
+  width: 12px;
+}
+
+.card .text-wrapper-4 {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #717171;
+  font-size: 10px;
+  letter-spacing: -0.11px;
+  position: relative;
+  width: fit-content;
+  line-height: normal;
+  white-space: nowrap;
+}
+.responsible-photo{
+  width: 20px; 
+  height: 20px; 
+  align-items: center; 
+  justify-content: center; 
+  position: absolute; 
+  object-fit: cover;
+  margin-top: -1.00px; 
+  margin-bottom: -1.00px; 
+  margin-left: -1.00px; 
+  border-radius: 250px; 
+  overflow: hidden; 
+  border: 1px solid; 
+  border-color: #fdfdfd;
+}
+
+.responsible-photo:nth-child(1) {
+  left: 0;
+  z-index: 1;
+}
+
+.responsible-photo:nth-child(2) {
+  left: 10px; /* Sobreposição de 20px */
+  z-index: 2; /* Aumenta um pouco a escala */
+}
+
+.responsible-photo:nth-child(3) {
+  left: 20px; /* Sobreposição de 20px */
+  z-index: 3;
+  /* Aumenta mais a escala */
+}
+
+/* Adiciona estilo para mais imagens, se necessário */
+.responsible-photo:nth-child(n+4) {
+  display: none;
+}
+
+.responsible-photo:hover {
+  transform: scale(1.3) translateY(-5px); /* Efeito de hover */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.more-photos {
+  position: absolute;
+  left: 30px; /* Posiciona o "+3" após as três primeiras imagens */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* Cor de fundo */
+  color: #8A8A8A; /* Cor do texto */
+  font-weight: bold;
+  z-index: 4; /* Garante que fique acima das outras imagens */
+  border: 1px solid #FEFEFE;
+  background: #DDD;
+
+  color: #8A8A8A;
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.088px;
+}
+
+.more-photos:hover {
+  transform: scale(1.1);
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
