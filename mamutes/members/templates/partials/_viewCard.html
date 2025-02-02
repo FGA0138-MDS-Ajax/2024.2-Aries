@@ -29,7 +29,7 @@
             </div>
             <div type="button" class="close-icon btnCloseViewCard">
                 <svg style="pointer-events: none;" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
-                    <path d="M0.964854 0.706065C1.17971 0.49127 1.47109 0.370605 1.7749 0.370605C2.07871 0.370605 2.37008 0.49127 2.58494 0.706065L6.63631 4.75743L10.6877 0.706065C10.9038 0.497358 11.1932 0.381873 11.4936 0.384483C11.794 0.387094 12.0814 0.507591 12.2938 0.720022C12.5062 0.932453 12.6267 1.21982 12.6294 1.52023C12.632 1.82064 12.5165 2.11006 12.3078 2.32615L8.2564 6.37752L12.3078 10.4289C12.5165 10.645 12.632 10.9344 12.6294 11.2348C12.6267 11.5352 12.5062 11.8226 12.2938 12.035C12.0814 12.2475 11.794 12.368 11.4936 12.3706C11.1932 12.3732 10.9038 12.2577 10.6877 12.049L6.63631 7.99761L2.58494 12.049C2.36885 12.2577 2.07943 12.3732 1.77902 12.3706C1.47861 12.368 1.19124 12.2475 0.978811 12.035C0.76638 11.8226 0.645883 11.5352 0.643272 11.2348C0.640662 10.9344 0.756147 10.645 0.964854 10.4289L5.01622 6.37752L0.964854 2.32615C0.750059 2.11129 0.629395 1.81992 0.629395 1.51611C0.629395 1.2123 0.750059 0.920925 0.964854 0.706065Z" fill="#808080"/>
+                    <path d="M0.964854 0.706065C1.17971 0.49127 1.47109 0.370605 1.7749 0.370605C2.07871 0.370605 2.37008 0.49127 2.58494 0.706065L6.63631 4.75743L10.6877 0.706065C10.9038 0.497358 11.1932 0.381873 11.4936 0.384483C11.794 0.387094 12.0814 0.507591 12.2938 0.720022C12.5062 0.932453 12.6267 1.21982 12.6294 1.52023C12.632 1.82064 12.5165 2.11006 12.3078 2.32615L8.2564 6.37752L12.3078 10.4289C12.5165 10.645 12.632 10.9344 12.6294 11.2348C12.6267 11.5352 12.5062 11.8226 12.2938 12.035C12.0814 12.2475 11.794 12.368 11.4936 12.3706C11.1932 12.3732 10.9038 12.2577 10.6877 12.049L6.63631 7.99761L2.58494 12.049C2.36885 12.2577 2.07943 12.3732 1.77902 12.3706C1.47861 12.368 1.19124 12.2475 0.978811 12.035C0.76638 11.8226 0.645883 11.5352 0.643272 11.2348C0.640662 10.9344 0.756147 10.645 0.964854 10.4289L5.01622 6.37752L0.964854 2.32615C0.750059 2.11129 0.629395 1.81992 0.629395 1.51611C0.629395 1.2123 0.750059 0.920925 0.964854 0.706065Z" fill="#333333"/>
                 </svg>
             </div>
         </div>
@@ -40,28 +40,26 @@
             <div class="description-newTask">
                 <p id="description-data">{{description}}</p>
             </div>
-            <div class="subtask-newTask">
-                <h2>Subtarefas</h2>
-                <!-- !  CHECKBOX -->
-                <form class="formCheckbox" action="{% url 'edit_task' %}" method="post">
-                    {% csrf_token %}
-                    {% for subtask in subtasks %}
-                    <label class="subtask-item">
-                        <!-- Campo oculto para "off" -->
-                        <input type="hidden" name="checkbox-subtask-{{ subtask.id }}" value="off">
-                        <!-- Checkbox real -->
-                        <input type="checkbox" name="checkbox-subtask-{{ subtask.id }}" class="checkbox-subtask" {% if subtask.done %}checked{% endif %}>
-                            <span class="checkmark"></span>
-                            <p>{{ subtask.description }}</p> 
-                        
-                        </label>
-                    {% empty %}
-                        <p>Não há subtarefas para esta task.</p>
-                    {% endfor %}
-                    <input type="text" style="display:none;" name="id_task" value="{{id}}">
-                </form>
-                <!-- !  CHECKBOX -->
-            </div>
+            {%if subtasks %}
+                <div class="subtask-newTask">
+                    <h2>Subtarefas</h2>
+                    <form class="formCheckbox" action="{% url 'edit_task' %}" method="post">
+                        {% csrf_token %}
+                        {% for subtask in subtasks %}
+                        <label class="subtask-item">
+                            <!-- Campo oculto para "off" -->
+                            <input type="hidden" name="checkbox-subtask-{{ subtask.id }}" value="off">
+                            <!-- Checkbox real -->
+                            <input type="checkbox" name="checkbox-subtask-{{ subtask.id }}" class="checkbox-subtask" {% if subtask.done %}checked{% endif %}>
+                                <span class="checkmark"></span>
+                                <p>{{ subtask.description }}</p> 
+                            
+                            </label>
+                        {% endfor %}
+                        <input type="text" style="display:none;" name="id_task" value="{{id}}">
+                    </form>
+                </div>
+            {% endif %}
             <div class="statusData">
                 <div class="date">
                     <h2>Prioridade</h2>

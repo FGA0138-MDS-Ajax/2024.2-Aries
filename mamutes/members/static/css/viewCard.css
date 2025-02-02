@@ -88,7 +88,7 @@ path{
     gap: 8px;
 }
 
-.edit-icon{
+.edit-icon {
     display: flex;
     padding-inline: 8px;
     align-items: center;
@@ -97,7 +97,13 @@ path{
     background: #D7EAFF;
     cursor: pointer;
     height: 32px;
+    opacity: 0.8;
 }
+
+.edit-icon:hover {
+    opacity: 1;
+}
+
 
 .edit-icon p{
     color: #0075F6;
@@ -121,6 +127,11 @@ path{
     border-radius: 8px;
     background: rgba(215, 0, 0, 0.20);
     cursor: pointer;
+    opacity: 0.8;
+}
+
+.delete-icon:hover {
+    opacity: 1;
 }
 
 .trash-icon{
@@ -140,8 +151,11 @@ path{
     align-items: center;
     gap: 9.713px;
     border-radius: 8px;
+    opacity: 0.7;
 }
-
+.close-icon:hover{
+    opacity: 1;
+}
 .mainNewTask{
     display: flex;
     flex-direction: column;

@@ -1,6 +1,6 @@
 {% extends 'baseMembersKanban.html' %}
 {% load static %}
- 
+
 {% block tabs %}
     <table>
         <colgroup>
@@ -100,9 +100,11 @@
                             {{ item.subtask_completed_count }}/{{ item.subtask_total_count }}
                         </div>
                     </td> 
-                    <td >{{ item.prazo }}</td> 
-          
+                    <td {% if item.prazo == 'HOJE' %}
+                    style="color: #D70000;"
+                    {% endif %} >{{ item.prazo }}</td> 
                     
+
                 </tr>
             {% empty %}
                 <tr>
