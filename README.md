@@ -40,24 +40,24 @@ Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-m
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/91512745?v=4" width=100><br>
       <b><a href="https://github.com/ludmilaaysha">Ludmila Aysha</a></b><br>
-      Leader Squad - Front End
+      Ponto Focal - Front End
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/179030119?" width=100><br>
       <b>Rafael Welz</b><br>
-      Leader Squad - Back End
+      Ponto Focal - Back End
     </td>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100><br>
       <b><a href="https://github.com/FelipeFreire-gf">Felipe Freire</a></b><br>
-      Leader Squad - Banco de Dados
+      Ponto Focal - Banco de Dados
     </td>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/173021374?v=4" width=100><br>
       <b>Felipe Duarte</b><br>
-      Leader Squad - Testes
+      Ponto Focal - Testes
     </td>
   </tr>
   <tr>
