@@ -710,6 +710,7 @@
 
         <section id="advices" class="advice-section">
             <!--aparece quando ps está aberto-->
+            {% if state.is_open %}
             <div class="aviso">
                 <div class="texto-principal-advice">
                     <div class="recado-advice">
@@ -720,7 +721,7 @@
                             Se inscreva e faça parte da história da Mamutes
                         </p>
                     </div>
-                    <a href="{% url 'admission' %}" class="botao-ps-advice">
+                    <a href="{{ state.link_admission }}" target="_blank" class="botao-ps-advice">
                         Clique aqui e participe
                     </a>
                 </div>
@@ -753,7 +754,7 @@
                     </svg>
                 </div>
             </div>
-
+            {% endif %}
             <!--aparece quando ps não está aberto-->
             <div class="aviso" style="background: linear-gradient(90deg, #6ECAFF 0%, #0075F6 100%); display: none;">
                 <div class="texto-principal-advice">
