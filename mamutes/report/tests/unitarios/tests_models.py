@@ -7,9 +7,6 @@ from Users.models import MembroEquipe
 from django.db import IntegrityError
 from decimal import Decimal
 
-
-
-
 class MinutesModelTest(TestCase):
 
     def setUp(self):

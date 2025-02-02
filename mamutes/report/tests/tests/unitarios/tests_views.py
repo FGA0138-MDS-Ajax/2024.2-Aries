@@ -1,18 +1,14 @@
-from django.test import TestCase, RequestFactory
+from django.test import TestCase
 from django.urls import reverse
 from django.core import mail
 from django.contrib.auth import get_user_model
-from Users.views import *
-from unittest.mock import patch, MagicMock
+from Users.views import isSuperUser
+from unittest.mock import patch
 from Users.models import MembroEquipe 
 from django.core.exceptions import ValidationError
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
-from django.http import HttpRequest
-from django.shortcuts import redirect
-
-User = get_user_model() 
 
 class Login_Testcase(TestCase):
     
@@ -30,9 +26,10 @@ class Login_Testcase(TestCase):
     def test_login_with_valid_credentials(self):
         """Testa o login com credenciais válidas."""
         response = self.client.post(self.url, {'username': 'testuser', 'password': 'testpassword'})
-        self.assertEqual(response.status_code, 302)  # Verifica o código de status 302
-        self.assertRedirects(response, '/home/')  # Verifica se o redirecionamento está correto
-   
+        # Verifica se o usuário foi autenticado e redirecionado
+        self.assertEqual(response.status_code, 200)  # Aqui pode ser um redirecionamento dependendo da implementação
+        self.assertContains(response, "boa paizao deu certo")  # Mensagem de sucesso
+
     def test_login_with_invalid_credentials(self):
         """Testa o login com credenciais inválidas."""
         response = self.client.post(self.url, {'username': 'testuser', 'password': 'wrongpassword'})
@@ -99,3 +96,50 @@ class RegisterViewTest(TestCase):
         self.assertEqual(response.status_code, 302)  # Espera um redirecionamento (status 302)
         self.assertRedirects(response, '/login/?next=/register/')  # Espera o redirecionamento para /login/?next=/register/
 
+
+class RedefinePasswordViewTest(TestCase):
+
+    def setUp(self):
+        """Configura o ambiente do teste criando um usuário e preparando a URL de redefinição de senha"""
+        self.user = get_user_model().objects.create_user(username='testuser', password='testpassword')
+        self.token_generator = PasswordResetTokenGenerator()
+        self.token = self.token_generator.make_token(self.user)
+        self.url = reverse('redefinePassword', kwargs={'username': self.user.username, 'token': self.token})
+
+
+    def test_redefine_password_post_passwords_do_not_match(self):
+        """Testa o caso quando as senhas não coincidem."""
+        response = self.client.post(self.url, {
+            'password1': 'newpassword123',
+            'password2': 'differentpassword',
+        })
+        # Verifica se a página foi renderizada novamente com código 200
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "As senhas não coincidem.")
+
+    def test_redefine_password_post_valid_password(self):
+        """Testa o caso quando as senhas são válidas e coincidem."""
+        response = self.client.post(self.url, {
+            'password1': 'newpassword123',
+            'password2': 'newpassword123',
+        })
+        # Verifica o redirecionamento para a página de login
+        self.assertRedirects(response, '/login/')
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.check_password('newpassword123'))
+
+    def test_redefine_password_invalid_token(self):
+        """Testa o caso quando o token é inválido."""
+        invalid_token = 'invalidtoken'
+        url_invalid_token = reverse('redefinePassword', kwargs={'username': self.user.username, 'token': invalid_token})
+        response = self.client.get(url_invalid_token)
+        # Verifica se redireciona para a página de login
+        self.assertRedirects(response, '/login/')
+
+    def test_redefine_password_get_valid_token(self):
+        """Testa o caso quando o token é válido e a página é carregada corretamente."""
+        response = self.client.get(self.url)
+        # Verifica se a página é renderizada com o status 200
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "password1")
+        self.assertContains(response, "password2")

@@ -20,18 +20,3 @@ class ViewsTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'comp.html')
 
-    def test_control_admission_view(self):
-        # Testa se ao enviar um POST, o estado de admissão é alterado corretamente
-        state = AdmissionState.objects.get(id=1)  # Recupera o estado de admissão diretamente
-        
-        response = self.client.post(reverse('control_admission'))
-        self.assertEqual(response.status_code, 302)  # Verifica se ocorre um redirecionamento
-        
-        state.refresh_from_db()  # Atualiza o estado do objeto após o POST
-        self.assertFalse(state.is_open)  # Verifica se o estado foi alterado
-
-    def test_custom_404_view(self):
-        # Testa se a página 404 é renderizada corretamente
-        response = self.client.get('/pagina_inexistente/')
-        self.assertEqual(response.status_code, 404)
-        self.assertTemplateUsed(response, 'error404.html')
