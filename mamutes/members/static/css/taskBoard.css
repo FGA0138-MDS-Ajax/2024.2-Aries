@@ -53,6 +53,12 @@ thead tr {
   overflow: hidden; /* Garante que o arredondamento seja visível */
   margin-bottom: 8px;
   /* cursor: pointer; */
+  position: sticky;
+  top: 0;
+}
+
+.boards{
+  position: unset;
 }
 
 /* Aplicando bordas arredondadas nas células do cabeçalho */
