@@ -18,7 +18,7 @@ Uma página inicial que apresente a identidade visual dos Mamutes do Cerrado, se
 
 Oferecer ferramentas dedicadas para a organização eficiente das atividades da equipe, distribuídas em módulos específicos:
 
-- Gerência de Gestão de equipe: Uma interface com quadro Kanban para organização de tarefas e um calendário que consolida os compromissos da equipe.
+- Gerência de Tarefas, eventos: Uma interface com quadro Kanban para organização de tarefas e um calendário que consolida os compromissos da equipe.
 - Gerência de Estoque: Controle detalhado de peças e materiais, incluindo quantidades disponíveis e status atualizado.
 - Gerência de Reuniões: Registro de atas e controle de presença nas reuniões, promovendo transparência e acompanhamento das decisões.
 - Gerência de Documentos: Administração centralizada de arquivos relacionados à equipe, como documentos de voo e outros correlatos.
