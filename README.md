@@ -46,7 +46,7 @@ Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-m
   <tr>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/179030119?" width=100><br>
-      <b>Rafael Welz</b><br>
+      <b><a href="https://github.com/RafaelSchadt">Rafael Schadt</a></b><br>
       Ponto Focal - Back End
     </td>
     <td align="center">
@@ -56,14 +56,14 @@ Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-m
     </td>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/173021374?v=4" width=100><br>
-      <b>Felipe Duarte</b><br>
+      <b><a href="https://github.com/Felipej3ds">Felipe Duarte</a></b><br>
       Ponto Focal - Testes
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/128251768?v=4" width=100><br>
-      <b>Amanda Cruz</b><br>
+      <b><a href="https://github.com/mandicrz">Amanda Cruz</a></b><br>
       DEV
     </td>
     <td align="center">
@@ -73,19 +73,19 @@ Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-m
     </td>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/149620306?v=4" width=100><br>
-      <b>Othavio Araujo</b><br>
+      <b><a href="https://github.com/bolzanMGB">Othavio Bolzan</a></b><br>
       DEV
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/69173517?v=4" width=100><br>
-      <b>Vinicíus Alves</b><br>
+      <b><a href="https://github.com/vinialves2020">Vinicíus Alves</a></b><br>
       DEV
     </td>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/145882190?v=4" width=100><br>
-      <b>Izaque Camargos</b><br>
+            <b><a href="https://github.com/isaqzin">Isaque Camargos</a></b><br>
       DEV
     </td>
   </tr>
