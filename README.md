@@ -91,3 +91,57 @@ Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-m
   </tr>
 </table>
 
+## Pré-requisitos 
+Para rodar o projeto, é necessário que essas dependências estejam instaladas na sua máquina: 
+- Python 3.10.0 (ou superior)
+- SQLite 3.45.1
+- Virtualenv
+
+## Como rodar o projeto?
+### 1. Clone o repositório
+Para clonar o repositório, você pode rodar esse comando pelo terminal:
+
+```
+git clone https://github.com/FGA0138-MDS-Ajax/2024.2-Aries.git
+```
+### 2. Ative o ambiente virtual
+Crie/ative o ambiente virtual com esses comandos:
+
+```
+# Para criar o ambiente virtual caso não tenha:
+python3 -m venv venv
+
+# Ative-o:
+# No Windows:
+venv/Scripts/activate
+
+# No Mac/Linux:
+source venv/bin/activate
+```
+### 3. Instale dependências
+Acesse o repositório do projeto com o comando:
+
+```
+cd 2024.2-Aries
+```
+
+Após ativar/criar o ambiente virtual, instale as dependências do projeto executando:
+
+```
+pip install -r requirements.txt
+```
+### 4. Inicie o servidor:
+Caminhe até a aplicação do projeto com o comando:
+
+```
+cd mamutes
+```
+Após acessar o app mamutes, execute:
+
+```
+python manage.py runserver
+```
+Acesse a aplicação em <http://127.0.0.1:8000/>.
+
+
+
