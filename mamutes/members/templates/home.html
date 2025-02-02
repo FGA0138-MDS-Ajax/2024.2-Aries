@@ -120,7 +120,7 @@
     
             if (titleMyAgenda) {
                 // Se a tela for menor que 768px, move a div.titleMyAgenda para o novo lugar
-                if (larguraTela < 768) {
+                if (larguraTela <= 768) {
                     if (novoLugar && !novoLugar.contains(titleMyAgenda)) {
                         novoLugar.appendChild(titleMyAgenda);
                     }
