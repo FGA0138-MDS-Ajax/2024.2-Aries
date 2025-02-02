@@ -32,7 +32,7 @@ Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-m
 Conheça a contribuição dos membros em cada uma das nossas áreas abaixo:
 
 
-| **📸**    | [<img src="./docs/view/img/marinaMello.jpg" width=100>]() |
+| **📸**    | [<img src="./docs/view/img/marinaMello.jpeg" width=100>]() |
 |:---------:|:------------------------------------------------------------------------------: |
 | **Nome**  | [Marina Mello](https://www.linkedin.com/in/marina-mello-1a679a312/)                                |  
 | **Cargo** | Product Owner                                                                   |
