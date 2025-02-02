@@ -18,7 +18,7 @@ Uma página inicial que apresente a identidade visual dos Mamutes do Cerrado, se
 
 Oferecer ferramentas dedicadas para a organização eficiente das atividades da equipe, distribuídas em módulos específicos:
 
-- Gerência de Calendário: Uma interface com quadro Kanban para organização de tarefas e um calendário que consolida os compromissos da equipe.
+- Gerência de Gestão de equipe: Uma interface com quadro Kanban para organização de tarefas e um calendário que consolida os compromissos da equipe.
 - Gerência de Estoque: Controle detalhado de peças e materiais, incluindo quantidades disponíveis e status atualizado.
 - Gerência de Reuniões: Registro de atas e controle de presença nas reuniões, promovendo transparência e acompanhamento das decisões.
 - Gerência de Documentos: Administração centralizada de arquivos relacionados à equipe, como documentos de voo e outros correlatos.
@@ -27,31 +27,14 @@ Oferecer ferramentas dedicadas para a organização eficiente das atividades da 
 
 Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-mds-ajax.github.io/2024.2-Aries/) <br><br>
 
-<!--
-
-- Montar os tópicos com a equipe de deploy e testes 
-
-# Instruções para iniciar o site localmente (em ambientes X)
-
-### Dependências
-
-- Node.js v20.13.1
-- NPM (Node Package Manager)
-- PostgreSQL
-- Ruby
-- Rails
-- Docker
-
--->
-
 # Equipe
 
 Conheça a contribuição dos membros em cada uma das nossas áreas abaixo:
 
 
-| **📸**    | [<img src="./docs/view/img/klei.jpg" width=100>]() |
+| **📸**    | [<img src="./docs/view/img/marinaMello.jpg" width=100>]() |
 |:---------:|:------------------------------------------------------------------------------: |
-| **Nome**  | [Kleyson Nacarat](https://github.com/caioduart3)                                |  
+| **Nome**  | [Marina Mello](https://www.linkedin.com/in/marina-mello-1a679a312/)                                |  
 | **Cargo** | Product Owner                                                                   |
 
 <br></br>
