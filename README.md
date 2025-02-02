@@ -25,33 +25,69 @@ Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-m
 
 # Equipe
 
-<p align="center">
-  <img src="./docs/view/img/marinaMello.jpeg" width=100>
-  <img src="https://avatars.githubusercontent.com/u/134105981?v=4" width=100>
-  <img src="https://avatars.githubusercontent.com/u/91512745?v=4" width=100>
-  <img src="https://avatars.githubusercontent.com/u/179030119?" width=100>
-  <img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100>
-  <img src="https://avatars.githubusercontent.com/u/173021374?v=4" width=100>
-  <img src="https://avatars.githubusercontent.com/u/128251768?v=4" width=100>
-  <img src="https://avatars.githubusercontent.com/u/144369305?v=4" width=100>
-  <img src="https://avatars.githubusercontent.com/u/149620306?v=4" width=100>
-  <img src="https://avatars.githubusercontent.com/u/69173517?v=4" width=100>
-  <img src="https://avatars.githubusercontent.com/u/145882190?v=4" width=100>
-</p>
-
-### Funções e Contribuições
-
-| Nome  | Cargo |
-|:------|:------|
-| [Marina Mello](https://www.linkedin.com/in/marina-mello-1a679a312/) | Product Owner |
-| [Caio Duarte](https://github.com/caioduart3) | Scrum Master |
-| [Ludmila Aysha](https://github.com/ludmilaaysha) | Leader Squad - Front End |
-| [Rafael Welz](https://github.com/) | Leader Squad - Back End |
-| [Felipe Freire](https://github.com/FelipeFreire-gf) | Leader Squad - Banco de Dados |
-| [Felipe Duarte](https://github.com/) | Leader Squad - Testes |
-| [Amanda Cruz](https://github.com/) | DEV |
-| [Mayara Marques](https://github.com/maymarquee) | DEV |
-| [Othavio Araujo](https://github.com/) | DEV |
-| [Vinicíus Alves](https://github.com/) | DEV |
-| [Izaque Camargos](https://github.com/) | DEV |
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="./docs/view/img/marinaMello.jpeg" width=100><br>
+      <b><a href="https://www.linkedin.com/in/marina-mello-1a679a312/">Marina Mello</a></b><br>
+      Product Owner
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/134105981?v=4" width=100><br>
+      <b><a href="https://github.com/caioduart3">Caio Duarte</a></b><br>
+      Scrum Master
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/91512745?v=4" width=100><br>
+      <b><a href="https://github.com/ludmilaaysha">Ludmila Aysha</a></b><br>
+      Leader Squad - Front End
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/179030119?" width=100><br>
+      <b>Rafael Welz</b><br>
+      Leader Squad - Back End
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100><br>
+      <b><a href="https://github.com/FelipeFreire-gf">Felipe Freire</a></b><br>
+      Leader Squad - Banco de Dados
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/173021374?v=4" width=100><br>
+      <b>Felipe Duarte</b><br>
+      Leader Squad - Testes
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/128251768?v=4" width=100><br>
+      <b>Amanda Cruz</b><br>
+      DEV
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/144369305?v=4" width=100><br>
+      <b><a href="https://github.com/maymarquee">Mayara Marques</a></b><br>
+      DEV
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/149620306?v=4" width=100><br>
+      <b>Othavio Araujo</b><br>
+      DEV
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/69173517?v=4" width=100><br>
+      <b>Vinicíus Alves</b><br>
+      DEV
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/145882190?v=4" width=100><br>
+      <b>Izaque Camargos</b><br>
+      DEV
+    </td>
+  </tr>
+</table>
 
