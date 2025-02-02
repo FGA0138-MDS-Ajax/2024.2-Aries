@@ -223,6 +223,7 @@ tr td .status {
   border-radius: 50%;
   outline: 2px solid #FEFEFE;
   margin-left: -4px;
+  overflow: hidden;
 }
 
 .avatars .personImg img{

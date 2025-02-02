@@ -7,7 +7,7 @@
     document.addEventListener("click", (e) => {
         let target = e.target;
         // Quando um botão de visualização de cartão é clicado
-        if (target.classList.contains("btnModalViewCard")||target.classList.contains("btnTask")) {
+        if (target.classList.contains("btnModalViewCard")) {
             
             let modal = target.querySelector(".modalViewCard");
             if (!modalPrime.modalHTML) {
@@ -26,6 +26,40 @@
             modal.close();
         }
     });
+
+
+
+        //Script para abrir na taskBoard
+        const tbViewCard = document.querySelectorAll('.modalViewCard');
+const editCard = document.querySelectorAll('.editCardModal');
+const taskRows = document.querySelectorAll('.btnModalViewCard');
+
+taskRows.forEach((row) => {
+    row.addEventListener("click", () => {
+        // Verifica se algum modal de edição está aberto
+        const isEditCardOpen = Array.from(editCard).some(modal => modal.open);
+        
+        if (!isEditCardOpen) {
+            const modal = row.querySelector('.modalViewCard');
+            if (modal) {
+                modal.showModal(); // Abre o modal específico
+            }
+        }
+    });
+});
+
+const tbBtnEditCard = document.querySelectorAll('.close-btn');
+tbBtnEditCard.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        event.stopPropagation(); // Evita que o clique no botão feche e reabra o modal
+        tbViewCard.forEach((modal) => {
+            modal.close(); // Fecha todos os modais
+        });
+    });
+});
+
+
+
 })();
 
 

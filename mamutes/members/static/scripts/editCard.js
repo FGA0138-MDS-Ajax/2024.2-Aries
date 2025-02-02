@@ -53,7 +53,7 @@
                     modalViewCard.close(); // Fecha o modal de visualização
                 }
     
-                const card = modalPrime.card = target.closest(".card"); // Define o card atual
+                const card = modalPrime.card = target.closest(".btnModalViewCard"); // Define o card atual
                 if (!card) return;
     
                 const editCard = card.querySelector(".editCardModal");
@@ -149,5 +149,18 @@
                 }
             }
         });
+
+        const editCard = document.querySelectorAll('.editCardModal');
+        const btnEditCard = document.querySelectorAll('.close-btn');
+        
+        btnEditCard.forEach((button) => {
+            button.addEventListener("click", () => {
+                editCard.forEach((modal) => {
+                    modal.close(); // Fecha todos os modais
+                });
+            });
+        });
     })();
     
+
+

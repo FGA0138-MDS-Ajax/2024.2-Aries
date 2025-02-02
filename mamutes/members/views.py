@@ -1,23 +1,27 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, render, redirect
-from django.http import JsonResponse
-from .forms import TaskForm, EventForm, PostForm
-from .models import MembroEquipe, Task, Event, Post, Meeting, Subtask, Area
-from rest_framework import viewsets
-from .models import Column, Task
-from .serializers import ColumnSerializer, TaskSerializer
+import base64
 import calendar
-from django.db.models import Count, Q
+import locale
+from datetime import date, datetime, timedelta
 from io import BytesIO
+
+from django.contrib.auth.decorators import login_required
 from django.core.files.images import ImageFile
+from django.db.models import Count, Q
+from django.http import HttpResponseBadRequest, JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.utils.dateparse import parse_date
+from django.utils.timezone import localtime, make_aware
+
+from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
-from datetime import date, datetime, timedelta
-from django.utils.timezone import localtime, make_aware
-from django.utils.dateparse import parse_date
-import locale
-import base64
+
+from .forms import EventForm, PostForm, TaskForm
+from .models import (
+    Area, Column, Event, MembroEquipe, Meeting, Post, Subtask, Task
+)
+from .serializers import ColumnSerializer, TaskSerializer
+
 
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
@@ -82,26 +86,20 @@ def delete_task(request):
         if task_id:
             task = get_object_or_404(Task, id=task_id)
             task.delete()  # Deleta a task
-        return redirect('kanban')
+        return redirect(request.META.get('HTTP_REFERER', '/'))
 
-    return redirect('kanban')
-
-from django.shortcuts import get_object_or_404, redirect
-from django.http import HttpResponseBadRequest
-from .models import Task, Subtask
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 def edit_task(request):
     if request.method == 'POST':
-        # Captura os dados do formulário
         task_id = request.POST.get('id_task')
         title = request.POST.get('title')
         description = request.POST.get('description')
         priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo')
         responsible = request.POST.get('responsibles')
-        print(responsible)
-        print("responsaveeeeeeeeeeeeeeis")
 
+        # se não for enviada o id da task, não é possivel fazer a edição.
         if not task_id:
             return HttpResponseBadRequest("ID da tarefa não fornecido")
         task = get_object_or_404(Task, id=task_id)
@@ -112,22 +110,23 @@ def edit_task(request):
             task.responsible.set(responsible_members)
             
 
-        # Atualiza os dados da tarefa
+        # atualiza os dados da tarefa se eles forem solicitados a edição
         task.title = title if title else task.title
         task.description = description if description else task.description
         task.priority = priority if priority else task.priority
         task.Prazo = prazo if prazo else task.Prazo
         task.save()
 
-        # Captura os campos 'inputTask' para as descrições das subtarefas
-        subtasks_list = request.POST.getlist('inputTask')  # Captura todos os valores de 'inputTask'
-        checkbox_input = request.POST.get('inputSubTask')  # Lista dos estados dos checkboxes
+        # pegar um vetor dos nomes/labels da checkbox e um vetor de true e false como string referente as checkbox (essa parte de true ou false foi feita no js)
+        subtasks_list = request.POST.getlist('inputTask')  
+        checkbox_input = request.POST.get('inputSubTask')  
 
-        # Filtra as subtarefas vazias e processa os checkboxes
+        # filtra as subtarefas vazias e processa os checkboxes, evitando assim dados inconsistentes
         subtasks_list = [subtask for subtask in subtasks_list if subtask.strip()]
 
+
+        #se checkbox_input for none, significa que foi requisição via ajax para alterar somente as checkbox
         if checkbox_input is None:
-            # Atualiza ou cria as subtarefas
             subtasks_status = {}
 
             for key, value in request.POST.items():
@@ -142,27 +141,24 @@ def edit_task(request):
                 subtask.done = done
                 subtask.save()
 
-            return redirect('kanban')
+            return redirect(request.META.get('HTTP_REFERER', '/'))
 
-
+        #se checkbox not is none, significa que foi solicitada uma requisição de edição que sobrescreve os dados anteriores, por isso o delete para depois sobrescrever.
         task.subtasks.all().delete()
         if checkbox_input:
             checkbox_input = checkbox_input.split(',')
-            # Converte as strings 'true'/'false' para valores booleanos
+            # converte as strings 'true'/'false' para valores booleanos
             checkbox_input = [True if item == 'true' else False for item in checkbox_input]
             
-            # Cria ou atualiza as subtarefas
             for subtask_title, done_status in zip(subtasks_list, checkbox_input):
                 Subtask.objects.create(
-                    description=subtask_title,  # Associa o título da subtarefa
-                    task=task,                   # Associando à task
-                    done=done_status             # Define o estado do checkbox
+                    description=subtask_title,  
+                    task=task,                  
+                    done=done_status            
                 )
-            return redirect('kanban')
+            return redirect(request.META.get('HTTP_REFERER', '/'))
 
-
-
-    return redirect('kanban')
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
@@ -587,59 +583,7 @@ def delete_event(request, event_id):
     return redirect('home')
 
 def taskBoard(request):
-    # tasks = Task.objects.all()
-
-    # all_areas = Area.objects.all().order_by('name')
-
-    # # Obtém a área a partir dos parâmetros da URL (GET)
-    # area_id = request.GET.get('area')  # Exemplo: ?area=SE
-    
-    # # Filtra as tarefas pela área, se especificada
-    # if area_id:
-    #     # Filtra as tarefas pela área especificada na URL
-    #     tasks = Task.objects.filter(area__id=area_id)
-    # else:
-    #     # Caso nenhuma área seja especificada, exibe todas as tarefas
-    #     tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
-    
-
-    # tasks = tasks.annotate(
-    #     subtask_total_count=Count('subtasks'),
-    #     subtask_completed_count=Count('subtasks', filter=Q(subtasks__done=True))
-    # )
-
-    # members = []
-    # profiles = MembroEquipe.objects.all()
-
-    # for profile in profiles:
-    #     if profile.photo:
-    #         profile.photo_base64 = image_to_base64(profile.photo)
-    #     else:  
-    #         profile.photo_base64 = None
-            
-
-    # if area_id:
-    #     profileFiltered = MembroEquipe.objects.filter(testearea=area_id);
-    # else:
-    #     profileFiltered = MembroEquipe.objects.all();
-
-    # for profile in profileFiltered:
-        
-    #     areas = [area.name for area in profile.testearea.all()]
-    #     members.append({
-    #         'email': profile.email,
-    #         'fullname': profile.fullname,
-    #         'username': profile.username,
-    #         'photo': profile.photo,
-    #         'area': ", ".join(areas),
-    #     })
-
-    # return render(request, 'taskBoard.html', {
-    #     'all_areas': all_areas,
-    #     'tasks': tasks,
-    #     'members': members,
-    # })
-   # Obtém a área a partir dos parâmetros da URL (GET)
+    # Obtém a área a partir dos parâmetros da URL (GET)
     area_id = request.GET.get('area')  # Exemplo: ?area=SE
     
     # Filtra as tarefas pela área, se especificada
@@ -734,7 +678,6 @@ def taskBoard(request):
         items.append({
             'id': task.id,
             'status': task.status,
-            # 'area': task.area.all,
             'title': task.title,
             'description': task.description,
             'creation_date': task.creation_date,
