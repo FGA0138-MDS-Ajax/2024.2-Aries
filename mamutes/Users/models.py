@@ -16,22 +16,10 @@ class Function(models.Model):
         return self.name
     
 class MembroEquipe(AbstractUser):
-    class AreaChoices(models.TextChoices):
-        SOFTWARE_ENGINEERING = 'SE', 'Engenharia de Software'
-        DATA_SCIENCE = 'DS', 'Ciência de Dados'
-        DEVOPS = 'DO', 'DevOps'
-        UI_UX = 'UX', 'UI/UX Design'
-
-
+    
     fullname = models.CharField(max_length=100, blank=False, null=False)
     email = models.EmailField(max_length=200, blank=False, null=False)
     phone = models.CharField(max_length=20, blank=False, null=False)
-    
-    areaUsuario = models.CharField(
-        max_length=2,
-        choices=AreaChoices.choices,
-        default=AreaChoices.SOFTWARE_ENGINEERING,
-    )
     photo = models.ImageField(upload_to='fotos_membros/', null=True, blank=True, default='fotos_membros/media/fotos_membros/default.png')
     areas = models.ManyToManyField(Area, related_name='membros', blank=True)
     testearea = models.ManyToManyField(Area, related_name='area', blank=True)

@@ -1,3 +1,92 @@
+.modalcard {
+  display: none; /* Esconde o modal por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  justify-content: center;
+  align-items: center;
+}
+.modalcard {
+  /* display: none; */
+  padding-top: 20px;
+  position: fixed;
+  z-index: 999; /* Coloca o modal acima de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+  font-family: Inter;
+}
+.modal-content-card {
+  background: #FEFEFE;;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-height: 90%;
+  max-width: 600px;
+  padding: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  overflow: hidden;
+  overflow-y: auto;
+  clip-path: border-box;
+}
+
+#uniqueModalAreas {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+/* Estilos para as bolinhas dentro desse container */
+#uniqueModalAreas .personImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  /* A cor de fundo pode ser definida dinamicamente, mas se quiser um padrão, pode definir aqui: */
+  background: #0075F6;
+}
+
+.membros-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.membro-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80px;
+}
+
+.membro-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.membro-nome {
+  font-size: 12px;
+  margin-top: 5px;
+}
 .head-label-edit{
     color: #1E1E1E;
     text-align: left;

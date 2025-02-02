@@ -1,0 +1,53 @@
+
+<div class="cardMeet" id='cardMeet'
+    data-id="{{ meeting.id }}"
+    data-title="{{ meeting.title }}"
+    data-description="{{ meeting.description }}"
+    data-meeting-date="{{ meeting.meeting_date }}"
+    data-meeting-time-begin="{{ meeting.meeting_time_begin }}"
+    data-meeting-time-end="{{ meeting.meeting_time_end }}"
+    data-local="{{ meeting.local }}"
+    data-is-remote="{{ meeting.is_remote }}"
+    data-link="{{ meeting.link }}"
+    data-link-pauta="{{ meeting.link_pauta }}"
+    data-other-participants="{{ meeting.other_participants }}"
+    data-areas="{{ meeting.areas.all }}">
+    <div class="tremDeCor"></div>
+    <div class="mainCard">
+        <div class="headerCardMeeting">
+            <div class="idAction">
+                <div class="id">
+                    <p class="dateId">{{meeting.meeting_date}}</p>
+                </div>
+                <div class="actions">
+                    <div class="dotsButtons">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="4" viewBox="0 0 14 4" fill="none">
+                            <path d="M10.75 2.0033C10.75 1.67178 10.8817 1.35383 11.1161 1.11941C11.3505 0.884992 11.6685 0.753296 12 0.753296C12.3315 0.753296 12.6495 0.884992 12.8839 1.11941C13.1183 1.35383 13.25 1.67178 13.25 2.0033C13.25 2.33482 13.1183 2.65276 12.8839 2.88718C12.6495 3.1216 12.3315 3.2533 12 3.2533C11.6685 3.2533 11.3505 3.1216 11.1161 2.88718C10.8817 2.65276 10.75 2.33482 10.75 2.0033ZM5.75 2.0033C5.75 1.67178 5.8817 1.35383 6.11612 1.11941C6.35054 0.884992 6.66848 0.753296 7 0.753296C7.33152 0.753296 7.64946 0.884992 7.88388 1.11941C8.1183 1.35383 8.25 1.67178 8.25 2.0033C8.25 2.33482 8.1183 2.65276 7.88388 2.88718C7.64946 3.1216 7.33152 3.2533 7 3.2533C6.66848 3.2533 6.35054 3.1216 6.11612 2.88718C5.8817 2.65276 5.75 2.33482 5.75 2.0033ZM0.75 2.0033C0.75 1.67178 0.881696 1.35383 1.11612 1.11941C1.35054 0.884992 1.66848 0.753296 2 0.753296C2.33152 0.753296 2.64946 0.884992 2.88388 1.11941C3.1183 1.35383 3.25 1.67178 3.25 2.0033C3.25 2.33482 3.1183 2.65276 2.88388 2.88718C2.64946 3.1216 2.33152 3.2533 2 3.2533C1.66848 3.2533 1.35054 3.1216 1.11612 2.88718C0.881696 2.65276 0.75 2.33482 0.75 2.0033Z" fill="#717171"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="dateTimeLevel">
+                <div class="sateTime">
+                    <div class="date">
+                        <p class="textDate" >{{meeting.description}}</p>
+                    </div>
+                    <div class="time">
+                        <p>{{meeting.meeting_time_begin}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="teams"> <!--pegar classe avatars -->
+            <div class="teamsMeeting">
+                {% include 'area_badges.html' with areas=meeting.areas.all %}
+            </div>
+        </div>
+        <button class="saveButton" type="submit">
+            Registrar ata
+        </button>
+    </div>
+</div>
+
+
+

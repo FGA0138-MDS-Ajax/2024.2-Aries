@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
 from .forms import TaskForm, EventForm, PostForm
-from .models import MembroEquipe, Task, Event, Post, Meeting, Subtask, Area
+from .models import MembroEquipe, Task, Event, Post, Subtask, Area
 from rest_framework import viewsets
 from .models import Column, Task
 from .serializers import ColumnSerializer, TaskSerializer

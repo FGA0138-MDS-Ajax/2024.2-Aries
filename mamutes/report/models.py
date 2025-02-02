@@ -1,5 +1,5 @@
 from django.db import models
-from Users.models import MembroEquipe
+from Users.models import MembroEquipe, Area
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Minutes(models.Model):
@@ -50,7 +50,27 @@ class AccidentLog(models.Model):
     def __str__(self):
         return f"Accident Log {self.id} - Flight {self.flight_log.id}"
 
+class Meeting(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    meeting_date = models.DateField()
+    meeting_time_begin = models.TimeField()
+    meeting_time_end = models.TimeField()
+    local = models.CharField(max_length=255)
+    is_remote = models.BooleanField(default=False)
+    link = models.URLField(blank=True, null=False)
+    other_participants = models.TextField(blank=True, null=True)
+    link_pauta = models.URLField(blank=True, null=True)
+    areas = models.ManyToManyField(Area)  
 
+    def get_participants(self):
+        participants = MembroEquipe.objects.none()
+        for area in self.areas.all():
+            participants = participants | area.membroequipe_set.all()
+        return participants.distinct()
+
+    def __str__(self):
+        return f"Reunião: {self.title} - {self.meeting_date.strftime('%d/%m/%Y %H:%M')} - Áreas: {', '.join([area.name for area in self.areas.all()])}"
 
 
 

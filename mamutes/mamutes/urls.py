@@ -33,6 +33,7 @@ urlpatterns = [
     path('report/', include('report.urls')),
     path('meetings/', meetings, name='meetings'),
     path('flights/', flights, name='flights'),
+    path('', include('report.urls')),
 
     # members
     path('sidebar/', sidebar , name="sidebar"),
