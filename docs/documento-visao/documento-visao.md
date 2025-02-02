@@ -184,7 +184,7 @@ Podendo ser analisados com mais detalhes na tabela seguinte: <br>
 |------------------------|------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | **Linguagem**: Python 🐍 | Linguagem de programação de alto nível utilizada para desenvolvimento de aplicações web e scripts. | Utilizada para o desenvolvimento do backend do sistema, garantindo flexibilidade e escalabilidade. |
 | **Framework**: Django 🖥️ | Framework web de alto nível para construção de aplicações rápidas e seguras em Python.         | Facilita a criação de APIs e integração com banco de dados, além de proporcionar segurança ao sistema. |
-| **Banco de Dados**: PostgreSQL 🗄️ | Sistema de gerenciamento de banco de dados relacional que utiliza SQL para consultas.           | Utilizado para armazenar dados estruturados da aplicação, como informações de usuários e registros de atividades. |
+| **Banco de Dados**: SQLite 🗄️ | Sistema de gerenciamento de banco de dados relacional que utiliza SQL para consultas.           | Utilizado para armazenar dados estruturados da aplicação, como informações de usuários e registros de atividades. |
 | **Front-End**: HTML, CSS, Bootstrap 💻 | Tecnologias utilizadas para construir a interface de usuário do sistema, proporcionando um design responsivo e atraente. | Usadas para criar a estrutura, o estilo visual e tornar o sistema acessível em diversos dispositivos. |
 | **Ferramentas**: Visual Studio Code 🖱️, Astah 🌐, Figma, Git e GitHub 💼 | Ferramentas utilizadas na prototipação, processo de desenvolvimento e versionamento do código.                | Visual Studio Code é utilizado para programação, Astah para diagramas e Git/GitHub para controle de versões. |
 | **Metodologia**: Scrum e XP 📅 | Metodologias ágeis utilizadas para organização e execução do projeto, focando na entrega contínua de valor. | Usadas para garantir entregas rápidas e melhoria contínua no processo de desenvolvimento. |
@@ -226,8 +226,8 @@ O o seguinte quadro apresenta os principais papéis e responsabilidades dentro d
 |----------------------|------------------------------------------------------------|-----------------------------|
 | **Cliente**          | Fornecer feedback e acompanhar o progresso                 | Membro da Mamutes - Marina Mello             |
 | **Scrum Master**  | Atualizar escopo e validar entregas                        | Caio Duarte    |
-| **Líderes de Equipe**    | Fomentar os desenvolvedores, aliada ao squad que o compete, sendo eles: Front, Back e Testes, e atuar como reviwers quanto ao versionamento e afins. | Ludmila Aysha;	Rafael Welz e	Felipe Freire    |
-| **Desenvolvedores**    | Codificar e realizar implementações                      | Amanda Cruz, Felipe Duarte, Mayara Marques, Othavio Araujo, Vinicius Alves e Izaque camargos   |
+| **Líderes de Equipe**    | Fomentar os desenvolvedores, aliada ao squad que o compete, sendo eles: Front, Back, Banco de Dados e Testes, e atuar como reviwers quanto ao versionamento e afins. | Ludmila Aysha,	Rafael Welz,	Felipe Freire e Felipe Duarte    |
+| **Desenvolvedores**    | Codificar e realizar implementações                      | Amanda Cruz, Mayara Marques, Othavio Araujo, Vinicius Alves e Isaque Camargos   |
 | **Analistas de Qualidade** | Garantir qualidade e executar testes de software    | Felipe Freire e Felipe Duarte  |
 
 Acesse este link para saber com detalhes cada equipe: [Integrantes Equipe](https://github.com/FGA0138-MDS-Ajax/2024.2-Aries/tree/main)
@@ -253,15 +253,16 @@ As fases serão detalhadas e adaptadas em cada sprint, com priorização do back
 |--------|---------------------------------------------------------------------------|-------------|------------|-------------|
 | 0      | Definição do Produto                                                     | 02/11/24    | 10/11/24   | 100%        |
 | 1      | Página de Cadastro, Login, Index                                         | 10/11/24    | 18/11/24   | 100%        |
-| 2      | Documentação de arquitetura, Finalizar Documento da Visão, Página Quem Somos | 18/11/24    | 25/11/24   | 33%         |
-| 3      | Página de Participação em Competições, Página de Processo Seletivo, Página Configurações de Conta | 25/11/24    | 02/12/24   | 0%          |
-| 4      | Menu lateral, Aba home, Aviso, Configurações de SuperUser                | 02/12/24    | 09/12/24   | 0%          |
-| 5      | Criação de tarefas, Calendário                                           | 09/12/24    | 16/12/24   | 0%          |
-| 6      | Rastreio de tarefas, Kanban                                              | 30/12/24    | 06/01/25   | 0%          |
-| 7      | Página Estoque                                                          | 06/01/25    | 13/01/25   | 0%          |
-| 8      | Página Registro de Acidentes, Página registro de vôo                    | 13/01/25    | 20/01/25   | 0%          |
-| 9      | Página Registro de Acidentes                                            | 20/01/25    | 27/01/25   | 0%          |
-| 10     | Deploy                                                                  | 27/01/25    | 02/02/25   | 0%          |
+| 2      | Documentação de arquitetura, Finalizar Documento da Visão, Página Quem Somos | 18/11/24    | 25/11/24   | 100%         |
+| 3      | Página de Participação em Competições, Página de Processo Seletivo  | 25/11/24    | 02/12/24   | 100%          |
+| 4      | Página Configurações de Conta, Página Processo Seletivo                 | 02/12/24    | 09/12/24   | 100%          |
+| 5      | Página Home da parte Restrita, Back-end da parte de registro de voos, Modelagem de Dados                                          | 09/12/24    | 29/12/24   | 100%          |
+| 6      | Página de Tasks (KanBan), Página 404, Página de Estoque, Calendário, Testes de Integração                                              | 30/12/24    | 06/01/25   | 100%          |
+| 7      | Página Estoque, Página Home                                              | 07/01/25    | 13/01/25   | 100%          |
+| 8      | Página de Tarefas (KanBan), Back-end página Home, Calendário, Página Estoque                   | 14/01/25    | 20/01/25   | 60%          |
+| 9      | Página Registro de Acidentes, Página registro de voo, Página de Reuniões                    | 21/01/25    | 27/01/25   | 60%          |
+| 10     | Testes de Integração, Página registro de voos e acidentes, Página de Reuniões                                                            | 28/01/25    | 03/02/25   | 60%          |
+| 11     | Testes de Integração e Aceitação, Deploy                                                            | 04/02/25    | 10/02/25   | 20%          |
 
 
 
@@ -351,20 +352,21 @@ Complementando, a metodologia <strong>XP</strong> será implementada com a forma
 
 | Cenário       | Requisito                   | Sprint | Priorização | Tipo de Requisito | Descrição                                     |
 |---------------|-----------------------------|--------|-------------|--------------------|---------------------------------------------|
-| Gestão        | Calendário                  | 5      | Must        | Funcional          | Gerenciamento de tarefas                     |
 | Divulgação    | Página inicial              | 1      | Must        | Funcional          | Apresentar a equipe                          |
 | Divulgação    | Página de Competição        | 3      | Could       | Funcional          | Seção de notícias no site                    |
 | Divulgação    | Página de Processo Seletivo | 3      | Could       | Funcional          | Informações do processo seletivo             |
-| Gestão        | Página Configurações de Conta | 3    | Must        | Funcional          | Configuração de conta                        |
-| Navegação     | Menu lateral (área restrita)| 4      | Must        | Funcional          | Navegação e pesquisa                         |
-| Divulgação    | Aba home                    | 4      | Must        | Funcional          | Aba principal e de aviso                     |
-| Gestão        | Criação de tarefas          | 5      | Must        | Funcional          | Criar e atribuir tarefas                     |
-| Gestão        | Rastreio de tarefas         | 6      | Must        | Funcional          | Rastreamento do que ser feito, e do que foi  |
-| Gestão        | Times da equipe             | 6      | Must        | Funcional          | Destacando membros e a história da equipe    |
+| Gestão        | Página Configurações de Conta | 4    | Must        | Funcional          | Configuração de conta                        |
+| Navegação     | Menu lateral (área restrita)| 5      | Must        | Funcional          | Navegação e pesquisa                         |
+| Gestão    | Aba home                    | 5      | Must        | Funcional          | Aba principal e de aviso                     |
+| Gestão        | Calendário                  | 6      | Must        | Funcional          | Gerenciamento de tarefas                     |
+| Gestão        | Criação de tarefas          | 6      | Must        | Funcional          | Criar e atribuir tarefas                     |
+| Gestão        | Rastreio de tarefas         | 6      | Must        | Funcional          | Rastreamento do que deve ser feito e do que foi realizado  |
+| Gestão        | Times da equipe             | 6      | Must        | Funcional          | Destacando membros    |
 | Organização   | Kanban                      | 6      | Must        | Funcional          | Organizar, gerenciar e visualizar tarefas    |
-| Organização   | Página Estoque              | 7      | Should      | Funcional          | Apresentar a equipe                          |
-| Gestão        | Página Registro de Acidentes| 8      | Must        | Funcional          | Documentação de acidentes                    |
-| Gestão        | Página registro de voo      | 8      | Must        | Funcional          | Documentação de voos                         |
+| Organização   | Página Estoque              | 7      | Should      | Funcional          | Gerenciamento do estoque de peças                     |
+| Gestão        | Página Registro de Acidentes| 9      | Must        | Funcional          | Documentação de acidentes                    |
+| Gestão        | Página Registro de Voo      | 9      | Must        | Funcional          | Documentação de voos                         |
+| Gestão        | Página Reuniões      | 9      | Should        | Funcional          | Documentação de reuniões e atas                         |
 
 <div style="text-align: justify;">
 
@@ -504,20 +506,21 @@ Tabela : Backlog do produto
 | 006       | 3      | Página de Competição         | Funcional          | Could       | Página que mostra mais sobre a Mamutes do Cerrado                    | "Como um visitante, quero acessar a página de competição para ver as fotos e detalhes dos aviões competidores."     |
 | 007       | 3      | Página de Processo Seletivo  | Funcional          | Could       | Página dedicada a competição SAE, com uma galeria de fotos da equipe | "Como um candidato, quero acessar a página do Processo Seletivo para me inscrever na equipe."                       |
 | 008       | 3      | Página de Configurações de Conta | Funcional       | Must        | Página dedicada ao Processo Seletivo, com um formulário de inscrição | "Como um usuário autenticado, quero acessar a página de configurações para editar minhas informações."              |
-| 009       | 4      | Menu Lateral (área restrita) | Funcional          | Must        | Uma página com o objetivo de exibir informações da conta do usuário   | "Como um usuário autorizado, quero usar o menu lateral para acessar ferramentas de gerenciamento interno."          |
-| 010       | 4      | Aba Home                     | Funcional          | Must        | Menu com as outras opções do software, como estoque, registros de voo | "Como um membro da equipe, quero acessar a aba home para acompanhar os avisos gerais e o calendário."               |
+| 009       | 5      | Menu Lateral (área restrita) | Funcional          | Must        | Uma página com o objetivo de exibir informações da conta do usuário   | "Como um usuário autorizado, quero usar o menu lateral para acessar ferramentas de gerenciamento interno."          |
+| 010       | 5      | Aba Home                     | Funcional          | Must        | Menu com as outras opções do software, como estoque, registros de voo | "Como um membro da equipe, quero acessar a aba home para acompanhar os avisos gerais e o calendário."               |
 | 011       | 4      | Configurações de Administrador | Funcional         | Must        | Seção onde o administrador consegue total controle sobre o CRUD       | "Como um administrador, quero criar, visualizar, editar e deletar informações pelo site, desde avisos, tarefas etc."|
-| 012       | 5      | Calendário                   | Funcional          | Could       | Calendário que possibilita visibilidade de tarefas e eventos importantes | "Como um usuário, quero visualizar um calendário para acompanhar tarefas e eventos importantes da equipe."          |
-| 013       | 5      | Criação de Tarefas           | Funcional          | Could       | Criação de tarefas e eventos para serem registrados no calendário     | "Como um usuário autorizado, quero criar tarefas e eventos no calendário para organizar os compromissos da equipe." |
+| 012       | 6      | Calendário                   | Funcional          | Could       | Calendário que possibilita visibilidade de tarefas e eventos importantes | "Como um usuário, quero visualizar um calendário para acompanhar tarefas e eventos importantes da equipe."          |
+| 013       | 6      | Criação de Tarefas           | Funcional          | Could       | Criação de tarefas e eventos para serem registrados no calendário     | "Como um usuário autorizado, quero criar tarefas e eventos no calendário para organizar os compromissos da equipe." |
 | 014       | 6      | Rastreio de Tarefas          | Não Funcional      | Must        | Rastrear tarefas da equipe                                           | "Como líder, quero rastrear as tarefas da equipe para garantir que as atribuições sejam claras e prazos cumpridos." |
 | 015       | 6      | Kanban                       | Funcional          | Could       | Criação de quadro Kanban para organização de atividades               | "Como membro da equipe, quero usar um quadro Kanban para organizar e acompanhar atividades para melhorar a eficiência."|
 | 016       | 7      | Página de Estoque            | Funcional          | Should      | Usuário consegue visualizar e adicionar itens no estoque              | "Como usuário do sistema, quero visualizar os itens no estoque e adicionar novos itens, para manter o controle do inventário."|
-| 017       | 8      | Página de Registro de Acidentes | Funcional        | Must        | Página em que os membros registram acidentes de voo                  | "Como membro da equipe, quero registrar acidentes de voo, para garantir rastreabilidade e análise de incidentes."    |
+| 017       | 9      | Página de Registro de Acidentes | Funcional        | Must        | Página em que os membros registram acidentes de voo                  | "Como membro da equipe, quero registrar acidentes de voo, para garantir rastreabilidade e análise de incidentes."    |
 | 018       | 9      | Página de Registro de Voo    | Funcional          | Must        | Membros registram documentações de voo                                | "Como integrante da equipe, quero registrar as documentações de voo no sistema, para manter registros organizados."  |
+| 019       | 9      | Página de Reuniões    | Funcional          | Should        | Membros registram documentações de reuniões                                | "Como integrante da equipe, quero registrar as documentações de reuniões no sistema, para manter registros organizados e atualizados."  |
 
 ---
 
-## 5. Tabela de Contribuição da Equipe ( início da sprint 1 - fim da sprint 2)
+## 5. Tabela de Contribuição da Equipe (início da sprint 1 - fim da sprint 2)
 
 | Matrícula   | Nome da Equipe                          | Descrição das atividades realizadas                                    | % de contribuição ao trabalho |
 |-------------|-----------------------------------------|------------------------------------------------------------------------|-------------------------------|
@@ -537,19 +540,19 @@ Tabela : Backlog do produto
 
 No desenvolvimento deste documento, a equipe foi organizada em grupos distintos, cada um com responsabilidades específicas. A divisão das equipes visou otimizar o processo de coleta e organização das informações, garantindo uma estrutura sólida para a entrega do documento oficial em formato PDF e a implementação na plataforma GitHub Pages. Este último recurso foi destinado a análises e revisões por parte do monitor da disciplina. Abaixo detalhamos as equipes e as respectivas atividades realizadas: <br> <br>
 
-Equipes e Responsabilidades:<br> <br>
+<strong>Equipes e Responsabilidades:</strong> <br>
 
-1. Equipe de Documentação <br>
+<strong> 1. Equipe de Documentação</strong> <br>
 <strong>Responsáveis:</strong> Caio Ferreira, Felipe Freire, Amanda Cruz, Felipe Duarte, Mayara Marques e Rafael Schadt. <br>
 Descrição: Esta equipe focou na síntese das informações oriundas das discussões do grupo, estruturando-as para compor o documento final. Além disso, contribuíram na elaboração de atas e requisitos essenciais para o desenvolvimento do projeto, estruturação da github pages e sintetização das informações obtidas de todas as fontes do projeto. <br> <br>
 
-2. Equipe de Desenvolvimento Back-end <br>
-<strong>Responsáveis:</strong> Rafael Schadt, Felipe Duarte, Othavio Araujo, Amanda, Isaque Camargos e Felipe Freire. <br>
-Descrição: Atuaram na construção e manutenção das funcionalidades do sistema, integrando dados e desenvolvendo soluções de autenticação, além de contribuir com informações para o desenvolvimento de todo o tópico 1,2 e tabela de backlog do produto. <br> <br>
+<strong> 2. Equipe de Desenvolvimento Back-end</strong><br>
+<strong>Responsáveis:</strong> Rafael Schadt, Felipe Duarte, Othavio Araujo, Caio Ferreira, Amanda Cruz, Vinícius Alves e Felipe Freire. <br>
+Descrição: Atuaram na construção e manutenção das funcionalidades do sistema, integrando dados e desenvolvendo soluções de autenticação, além de contribuir com informações para o desenvolvimento de todo o tópico 1 e 2 e tabela de backlog do produto. <br> <br>
 
-3. Equipe de Implementação de Páginas <br>
-<strong>Responsáveis:</strong> Caio Ferreira, Ludmila Aysha, Vinícius Alves, Isaque Camargos e Othavio Araujo. <br>
-Descrição: Trabalharam na criação das páginas do projeto, integrando-as de forma eficiente com o back-end e garantindo uma interface coerente e funcional contribuindo com informações para o desenvolvimento de todo o tópico 1,2 e tabela de backlog do produto. <br>
+<strong> 3. Equipe de Implementação de Páginas</strong><br>
+<strong>Responsáveis:</strong> Caio Ferreira, Ludmila Aysha, Mayara Marques, Vinícius Alves, Isaque Camargos e Othavio Araujo. <br>
+Descrição: Trabalharam na criação das páginas do projeto, integrando-as de forma eficiente com o back-end e garantindo uma interface coerente e funcional contribuindo com informações para o desenvolvimento de todo o tópico 1 e 2 e tabela de backlog do produto. <br>
 
 </div>
 
@@ -586,4 +589,5 @@ Descrição: Trabalharam na criação das páginas do projeto, integrando-as de 
 | 1.7 | 02/12/2024 | Desenvolvimento dos artefatos **Tabela de Backlog do Produto** | Amanda Cruz, Caio Duarte e Rafael Schadt |
 | 1.8 | 02/12/2024 | Revisão final dos artefatos **"Doc"** | Caio Ferreira, Felipe Freire, Isaque Camargos e Amanda Cruz |
 | 1.9 | 10/12/2024 | Inserção na gitpages | Felipe Freire |
-| 1.10 | 19/12/2024 | Correções nos artefatos com base nas sujestões do professor  | Felipe Freire |
+| 1.10 | 19/12/2024 | Correções nos artefatos com base nas sugestões do professor  | Felipe Freire |
+| 2.0 | 02/02/2025 | Atualização do artefato de acordo com o desenvolvimento da aplicação  | Mayara Marques |

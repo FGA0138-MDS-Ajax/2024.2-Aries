@@ -1,0 +1,345 @@
+{% extends 'baseMembers.html' %}
+{% load static %}
+
+{% block title %}Estoque{% endblock %}
+
+{% block css %}
+<!-- <meta name="csrf-token" content="{{ csrf_token }}"> -->
+<link rel="stylesheet" href="{% static 'css/stock.css' %}">
+<link rel="stylesheet" href="{% static 'css/additem.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="stockPageMain">
+    <div class="headerStock">
+        <div class="titleStock">
+            <div class="boxIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                    <path
+                        d="M23.1998 7.90002L18.6665 10.1667M18.6665 10.1667L18.0998 10.45L12.9998 13M18.6665 10.1667V14.1334M18.6665 10.1667L7.89984 4.50002M12.9998 13L2.79984 7.90002M12.9998 13V23.7667M17.0549 3.23295L19.3216 4.42295C21.7594 5.70249 22.9788 6.34169 23.6566 7.49202C24.3332 8.64122 24.3332 10.0726 24.3332 12.9343V13.0669C24.3332 15.9274 24.3332 17.3588 23.6566 18.508C22.9788 19.6584 21.7594 20.2987 19.3216 21.5782L17.0549 22.7671C15.0648 23.8109 14.0697 24.3334 12.9998 24.3334C11.93 24.3334 10.9349 23.812 8.94477 22.7671L6.6781 21.5771C4.2403 20.2976 3.02084 19.6584 2.3431 18.508C1.6665 17.3588 1.6665 15.9274 1.6665 13.068V12.9354C1.6665 10.0738 1.6665 8.64235 2.3431 7.49315C3.02084 6.34282 4.2403 5.70249 6.6781 4.42409L8.94477 3.23409C10.9349 2.18915 11.93 1.66669 12.9998 1.66669C14.0697 1.66669 15.0648 2.18802 17.0549 3.23295Z"
+                        stroke="#0075F6" stroke-width="2.26667" stroke-linecap="round" />
+                </svg>
+            </div>
+            <h1 class="stock">Estoque</h1>
+        </div>
+
+        <div class="actions">
+
+            <form method="get" action="{% url 'stock' %}" class="searchFieldBox">
+                <div class="searchIcon">
+                    <button type="submit" style="background: none; border: none; padding: 0; margin: 0;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path
+                                d="M13.0001 13.0001L10.1048 10.1047M10.1048 10.1047C10.6001 9.60948 10.9929 9.02153 11.261 8.37444C11.529 7.72735 11.6669 7.03381 11.6669 6.33341C11.6669 5.63301 11.529 4.93947 11.261 4.29238C10.9929 3.64529 10.6001 3.05734 10.1048 2.56208C9.60955 2.06682 9.02159 1.67396 8.3745 1.40593C7.72742 1.13789 7.03387 0.999939 6.33347 0.999939C5.63307 0.999939 4.93953 1.13789 4.29244 1.40593C3.64535 1.67396 3.0574 2.06682 2.56214 2.56208C1.56192 3.5623 1 4.91889 1 6.33341C1 7.74793 1.56192 9.10452 2.56214 10.1047C3.56236 11.105 4.91895 11.6669 6.33347 11.6669C7.748 11.6669 9.10458 11.105 10.1048 10.1047Z"
+                                stroke="#1F1A99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <input type="text" id="search" name="search" value="{{ query }}" placeholder="Buscar item" class="searchField">
+            </form>
+
+            <a id="downloadButton" href="{% url 'download_csv' %}" class="submitCancelBotao" style="border: 1px solid #0075F6; text-decoration: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path
+                        d="M6 8.68125C5.9 8.68125 5.80625 8.66575 5.71875 8.63475C5.63125 8.60375 5.55 8.5505 5.475 8.475L2.775 5.775C2.625 5.625 2.553 5.45 2.559 5.25C2.565 5.05 2.637 4.875 2.775 4.725C2.925 4.575 3.10325 4.497 3.30975 4.491C3.51625 4.485 3.69425 4.55675 3.84375 4.70625L5.25 6.1125V0.750002C5.25 0.537502 5.322 0.359502 5.466 0.216002C5.61 0.0725026 5.788 0.000502586 6 2.5862e-06C6.212 -0.000497413 6.39024 0.0715026 6.53475 0.216002C6.67924 0.360502 6.75099 0.538502 6.74999 0.750002V6.1125L8.15624 4.70625C8.30624 4.55625 8.48449 4.48425 8.69099 4.49025C8.89749 4.49625 9.07549 4.5745 9.22499 4.725C9.36249 4.875 9.43449 5.05 9.44099 5.25C9.44749 5.45 9.37549 5.625 9.22499 5.775L6.52499 8.475C6.44999 8.55 6.36874 8.60325 6.28125 8.63475C6.19375 8.66625 6.1 8.68175 6 8.68125ZM1.5 12C1.0875 12 0.734499 11.8532 0.441 11.5597C0.1475 11.2662 0.0005 10.913 0 10.5V9C0 8.7875 0.072 8.6095 0.216 8.466C0.36 8.3225 0.538 8.2505 0.749999 8.25C0.961999 8.2495 1.14025 8.3215 1.28475 8.466C1.42925 8.6105 1.501 8.7885 1.5 9V10.5H10.5V9C10.5 8.7875 10.572 8.6095 10.716 8.466C10.86 8.3225 11.038 8.2505 11.25 8.25C11.462 8.2495 11.6402 8.3215 11.7847 8.466C11.9292 8.6105 12.001 8.7885 12 9V10.5C12 10.9125 11.8532 11.2657 11.5597 11.5597C11.2662 11.8537 10.913 12.0005 10.5 12H1.5Z"
+                        fill="#0075F6" />
+                </svg>
+                <span class="cancelLabel">Download CSV</span>
+            </a>
+<!--
+            <a href="{% url 'download_pdf' %}" class="submitCancelBotao" style="border: 1px solid #0075F6; text-decoration: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path
+                        d="M6 8.68125C5.9 8.68125 5.80625 8.66575 5.71875 8.63475C5.63125 8.60375 5.55 8.5505 5.475 8.475L2.775 5.775C2.625 5.625 2.553 5.45 2.559 5.25C2.565 5.05 2.637 4.875 2.775 4.725C2.925 4.575 3.10325 4.497 3.30975 4.491C3.51625 4.485 3.69425 4.55675 3.84375 4.70625L5.25 6.1125V0.750002C5.25 0.537502 5.322 0.359502 5.466 0.216002C5.61 0.0725026 5.788 0.000502586 6 2.5862e-06C6.212 -0.000497413 6.39024 0.0715026 6.53475 0.216002C6.67924 0.360502 6.75099 0.538502 6.74999 0.750002V6.1125L8.15624 4.70625C8.30624 4.55625 8.48449 4.48425 8.69099 4.49025C8.89749 4.49625 9.07549 4.5745 9.22499 4.725C9.36249 4.875 9.43449 5.05 9.44099 5.25C9.44749 5.45 9.37549 5.625 9.22499 5.775L6.52499 8.475C6.44999 8.55 6.36874 8.60325 6.28125 8.63475C6.19375 8.66625 6.1 8.68175 6 8.68125ZM1.5 12C1.0875 12 0.734499 11.8532 0.441 11.5597C0.1475 11.2662 0.0005 10.913 0 10.5V9C0 8.7875 0.072 8.6095 0.216 8.466C0.36 8.3225 0.538 8.2505 0.749999 8.25C0.961999 8.2495 1.14025 8.3215 1.28475 8.466C1.42925 8.6105 1.501 8.7885 1.5 9V10.5H10.5V9C10.5 8.7875 10.572 8.6095 10.716 8.466C10.86 8.3225 11.038 8.2505 11.25 8.25C11.462 8.2495 11.6402 8.3215 11.7847 8.466C11.9292 8.6105 12.001 8.7885 12 9V10.5C12 10.9125 11.8532 11.2657 11.5597 11.5597C11.2662 11.8537 10.913 12.0005 10.5 12H1.5Z"
+                        fill="#0075F6" />
+                </svg>
+                <span class="cancelLabel">Download PDF</span>
+            </a>
+-->            
+            <button id="btnModal" type="submit" class="submitCancelBotao" value="adicionar"
+                style="background: #1F1A99;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path
+                        d="M11.1429 6.85714H6.85714V11.1429C6.85714 11.3702 6.76684 11.5882 6.60609 11.7489C6.44535 11.9097 6.22733 12 6 12C5.77267 12 5.55465 11.9097 5.39391 11.7489C5.23316 11.5882 5.14286 11.3702 5.14286 11.1429V6.85714H0.857143C0.629814 6.85714 0.411797 6.76684 0.251051 6.60609C0.090306 6.44535 0 6.22733 0 6C0 5.77267 0.090306 5.55465 0.251051 5.39391C0.411797 5.23316 0.629814 5.14286 0.857143 5.14286H5.14286V0.857143C5.14286 0.629814 5.23316 0.411797 5.39391 0.251051C5.55465 0.0903056 5.77267 0 6 0C6.22733 0 6.44535 0.0903056 6.60609 0.251051C6.76684 0.411797 6.85714 0.629814 6.85714 0.857143V5.14286H11.1429C11.3702 5.14286 11.5882 5.23316 11.7489 5.39391C11.9097 5.55465 12 5.77267 12 6C12 6.22733 11.9097 6.44535 11.7489 6.60609C11.5882 6.76684 11.3702 6.85714 11.1429 6.85714Z"
+                        fill="#D7EAFF" />
+                </svg>
+                <span class="addLabel">Adicionar item</span>
+            </button>
+
+        </div>
+    </div>
+    <div class="tableAllItens">
+        <div class="centralTable">
+            <table class="styled-table" id="data-table" style="width: 100%; table-layout: fixed;">
+                <colgroup>
+                    <col style="width: 200px;">
+                    <col style="width: 100%;">
+                    <col style="width: 100%;">
+                    <col style="width: 100%;">
+                    <col style="width: 100%;">
+                    <col style="width: 100%;">
+                    <col style="width: 100%;">
+                    <col style="width: 100%;">
+                    <col style="width: 48px;">
+                    <!-- <col style="width: 1px;">
+                    <col style="width: 1px;">
+                    <col style="width: 1px;">
+                    <col style="width: 1px;">
+                    <col style="width: 1px;">
+                    <col style="width: 1px;">
+                    <col style="width: 1px;">
+                    <col style="width: 48px;"> -->
+                </colgroup>
+                <thead style="position: sticky; top: 0; z-index: 2;">
+                    <tr>
+                        <th class="headerTable" data-type="string">Nome do item <svg xmlns="http://www.w3.org/2000/svg"
+                                width="10" height="8" viewBox="0 0 8 4" fill="none">
+                                <path d="M6.5 0.75L4 3.25L1.5 0.75" stroke="#808080" stroke-width="1.25"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></th>
+                        <th class="headerTable" data-type="string">Código <svg xmlns="http://www.w3.org/2000/svg" width="10"
+                                height="8" viewBox="0 0 8 4" fill="none">
+                                <path d="M6.5 0.75L4 3.25L1.5 0.75" stroke="#808080" stroke-width="1.25"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></th>
+                        <th class="headerTable" data-type="string">Tipo<svg xmlns="http://www.w3.org/2000/svg" width="10"
+                                height="8" viewBox="0 0 8 4" fill="none">
+                                <path d="M6.5 0.75L4 3.25L1.5 0.75" stroke="#808080" stroke-width="1.25"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></th>
+                        <th class="headerTable" data-type="string">Marca<svg xmlns="http://www.w3.org/2000/svg" width="10"
+                                height="8" viewBox="0 0 8 4" fill="none">
+                                <path d="M6.5 0.75L4 3.25L1.5 0.75" stroke="#808080" stroke-width="1.25"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></th>
+                        <th class="headerTable" data-type="string">Qtd<svg xmlns="http://www.w3.org/2000/svg" width="10"
+                                height="8" viewBox="0 0 8 4" fill="none">
+                                <path d="M6.5 0.75L4 3.25L1.5 0.75" stroke="#808080" stroke-width="1.25"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></th>
+                        <th class="headerTable" data-type="string">Local<svg xmlns="http://www.w3.org/2000/svg" width="10"
+                                height="8" viewBox="0 0 8 4" fill="none">
+                                <path d="M6.5 0.75L4 3.25L1.5 0.75" stroke="#808080" stroke-width="1.25"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></th>
+                        <th class="headerTable" data-type="string">Observação<svg xmlns="http://www.w3.org/2000/svg"
+                                width="10" height="8" viewBox="0 0 8 4" fill="none">
+                                <path d="M6.5 0.75L4 3.25L1.5 0.75" stroke="#808080" stroke-width="1.25"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></th>
+                        <th class="headerTable" data-type="string">Em uso<svg xmlns="http://www.w3.org/2000/svg" width="10"
+                                height="8" viewBox="0 0 8 4" fill="none">
+                                <path d="M6.5 0.75L4 3.25L1.5 0.75" stroke="#808080" stroke-width="1.25"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></th>
+                        <th class="headerTable" data-type="string">
+                            <!-- Ação
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10"
+                                height="8" viewBox="0 0 8 4" fill="none">
+                                <path d="M6.5 0.75L4 3.25L1.5 0.75" stroke="#808080" stroke-width="1.25"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> -->
+                        </th>
+
+                        <th class="headerTable" data-type="string"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%  for ferramenta in page %}
+        
+                    <tr class="line">
+                        <td class="itens">{{ ferramenta.name }}</td>
+                        <td class="itens">{{ ferramenta.code }}</td>
+                        <td class="itens">{{ ferramenta.type }}</td>
+                        <td class="itens">{{ ferramenta.brand }}</td>
+                        <td class="itens">{{ ferramenta.quantity }}</td>
+                        <td class="itens">{{ ferramenta.location }}</td>
+                        <td class="itens">{{ ferramenta.observation }}</td>
+                        <td class="itens">{{ ferramenta.being_used|yesno:"Sim,Não" }}</td>
+
+                        <td>
+
+                            <div class="toOpen" style="cursor: pointer;">
+                                <svg xmlns="http://www.w3.org/2000/svg" style="z-index: 0; pointer-events: none;" width="14" height="4"
+                                    viewBox="0 0 14 4" fill="none">
+                                    <path
+                                        d="M10.75 2C10.75 1.66848 10.8817 1.35054 11.1161 1.11612C11.3505 0.881696 11.6685 0.75 12 0.75C12.3315 0.75 12.6495 0.881696 12.8839 1.11612C13.1183 1.35054 13.25 1.66848 13.25 2C13.25 2.33152 13.1183 2.64946 12.8839 2.88388C12.6495 3.1183 12.3315 3.25 12 3.25C11.6685 3.25 11.3505 3.1183 11.1161 2.88388C10.8817 2.64946 10.75 2.33152 10.75 2ZM5.75 2C5.75 1.66848 5.8817 1.35054 6.11612 1.11612C6.35054 0.881696 6.66848 0.75 7 0.75C7.33152 0.75 7.64946 0.881696 7.88388 1.11612C8.1183 1.35054 8.25 1.66848 8.25 2C8.25 2.33152 8.1183 2.64946 7.88388 2.88388C7.64946 3.1183 7.33152 3.25 7 3.25C6.66848 3.25 6.35054 3.1183 6.11612 2.88388C5.8817 2.64946 5.75 2.33152 5.75 2ZM0.75 2C0.75 1.66848 0.881696 1.35054 1.11612 1.11612C1.35054 0.881696 1.66848 0.75 2 0.75C2.33152 0.75 2.64946 0.881696 2.88388 1.11612C3.1183 1.35054 3.25 1.66848 3.25 2C3.25 2.33152 3.1183 2.64946 2.88388 2.88388C2.64946 3.1183 2.33152 3.25 2 3.25C1.66848 3.25 1.35054 3.1183 1.11612 2.88388C0.881696 2.64946 0.75 2.33152 0.75 2Z"
+                                        fill="#808080" />
+                                </svg>
+
+                                <div class="twoButton" style="display: none;">
+                                    <button type="button" class="editBtnModal">
+                                        <div style="pointer-events: none;" class="iconEditExclude">
+                                            <svg xmlns="http://www.w3.org/2000/svg" style="z-index: -1;pointer-events: none;" width="14"
+                                                height="14" viewBox="0 0 14 14" fill="none">
+                                                <path
+                                                    d="M6.68531 1.62943H2.2634C1.92833 1.62943 1.60698 1.76253 1.37004 1.99947C1.13311 2.2364 1 2.55775 1 2.89283V11.7366C1 12.0717 1.13311 12.3931 1.37004 12.63C1.60698 12.8669 1.92833 13 2.2634 13H11.1072C11.4423 13 11.7636 12.8669 12.0006 12.63C12.2375 12.3931 12.3706 12.0717 12.3706 11.7366V7.31474M10.7124 1.39249C10.9637 1.14118 11.3046 1 11.66 1C12.0154 1 12.3562 1.14118 12.6075 1.39249C12.8588 1.6438 13 1.98464 13 2.34004C13 2.69544 12.8588 3.03629 12.6075 3.28759L6.91401 8.98175C6.76402 9.13162 6.57871 9.24132 6.37517 9.30076L4.56029 9.83139C4.50594 9.84724 4.44832 9.84819 4.39347 9.83414C4.33862 9.82009 4.28855 9.79155 4.24852 9.75151C4.20848 9.71147 4.17994 9.66141 4.16589 9.60656C4.15184 9.55171 4.15279 9.49409 4.16864 9.43973L4.69927 7.62485C4.75898 7.42148 4.8689 7.23639 5.01891 7.08664L10.7124 1.39249Z"
+                                                    stroke="#0075F6" stroke-width="1.2634" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <span style="pointer-events: none;" >Editar item</span>
+                                    </button>
+
+                                    <button type="button" class="editExcludeButton">
+                                        <div style="pointer-events: none;" class="iconEditExclude">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" style="pointer-events: none;"
+                                                viewBox="0 0 12 14" fill="none">
+                                                <path
+                                                    d="M11.3333 2.99998H8.66667V2.33331C8.66667 1.80288 8.45595 1.29417 8.08088 0.919099C7.70581 0.544027 7.1971 0.333313 6.66667 0.333313H5.33333C4.8029 0.333313 4.29419 0.544027 3.91912 0.919099C3.54405 1.29417 3.33333 1.80288 3.33333 2.33331V2.99998H0.666667C0.489856 2.99998 0.320286 3.07022 0.195262 3.19524C0.0702379 3.32027 0 3.48984 0 3.66665C0 3.84346 0.0702379 4.01303 0.195262 4.13805C0.320286 4.26307 0.489856 4.33331 0.666667 4.33331H1.33333V11.6666C1.33333 12.1971 1.54405 12.7058 1.91912 13.0809C2.29419 13.4559 2.8029 13.6666 3.33333 13.6666H8.66667C9.1971 13.6666 9.70581 13.4559 10.0809 13.0809C10.456 12.7058 10.6667 12.1971 10.6667 11.6666V4.33331H11.3333C11.5101 4.33331 11.6797 4.26307 11.8047 4.13805C11.9298 4.01303 12 3.84346 12 3.66665C12 3.48984 11.9298 3.32027 11.8047 3.19524C11.6797 3.07022 11.5101 2.99998 11.3333 2.99998ZM4.66667 2.33331C4.66667 2.1565 4.7369 1.98693 4.86193 1.86191C4.98695 1.73688 5.15652 1.66665 5.33333 1.66665H6.66667C6.84348 1.66665 7.01305 1.73688 7.13807 1.86191C7.2631 1.98693 7.33333 2.1565 7.33333 2.33331V2.99998H4.66667V2.33331ZM9.33333 11.6666C9.33333 11.8435 9.2631 12.013 9.13807 12.1381C9.01305 12.2631 8.84348 12.3333 8.66667 12.3333H3.33333C3.15652 12.3333 2.98695 12.2631 2.86193 12.1381C2.7369 12.013 2.66667 11.8435 2.66667 11.6666V4.33331H9.33333V11.6666Z"
+                                                    fill="#D70000" />
+                                            </svg>
+                                        </div>
+                                        <span style="pointer-events: none;" >Excluir item</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!--
+                                            <a href="{% url 'editar_ferramenta' ferramenta.id %}">Editar</a>
+                                            <a href="{% url 'deletar_ferramenta' ferramenta.id %}">Deletar</a>
+                                        -->
+
+                        </td>
+                        <td >{%include 'partials/editaItem.html'%}</td>
+                        <td >{%include 'partials/confirm_delete.html'%}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7">Nenhum item cadastrado com esses parâmetros</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="paginatorControls">
+            <div style=" display: flex;width: 100%; align-items: flex-start; flex: 1 0 0; flex-direction: column;">
+                {%if page.has_previous %} 
+                    <a class="paginatorPreviousNext" href="{% url 'stock'%}?page={{page.previous_page_number}}">Anterior</a>
+                {% endif %}
+            </div>
+
+            <div style=" display: flex;width: 100%; align-items: center; flex: 1 0 0; flex-direction: column;">
+                <div class="paginatorNumber">
+                    {% for page_number in page.paginator.page_range %}
+                        {% if page.number == page_number %}
+                        <a  class="paginatorNumberActive" href="{% url 'stock'%}?page={{ page_number }}" class="btn btn-outline-primary">
+                            {{ page_number }}
+                        </a>
+                        {% else %}
+                            <a href="{% url 'stock'%}?page={{ page_number }}" class="btn btn-outline-primary">
+                                {{ page_number }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div style=" display: flex;width: 100%; align-items: flex-end; flex: 1 0 0; flex-direction: column;">
+                {%if page.has_next %} 
+                    <a class="paginatorPreviousNext" href="{% url 'stock'%}?page={{page.next_page_number}}">Próximo</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{%include 'partials/additem.html'%}
+<script src="{% static 'scripts/stock.js'%}"></script>
+<script src="{% static 'scripts/openModalAddItem.js'%}"></script>
+<script>
+// const formulario = document.querySelector(".searchFieldBox");
+
+// formulario.addEventListener("submit", (event) => {
+//     event.preventDefault(); // Impede o envio padrão do formulário
+
+//     // Serializa os dados do formulário em uma query string
+//     const formData = new FormData(formulario);
+//     const queryString = new URLSearchParams(formData).toString();
+
+//     // Adiciona a query string à URL do formulário
+//     const url = `${formulario.action}?${queryString}`;
+
+//     // Faz a requisição GET sem usar o corpo
+//     fetch(url, {
+//         method: 'GET',
+//         headers: {
+//             'X-Requested-With': 'XMLHttpRequest',
+//         },
+//     })
+//         .then(response => {
+//             console.log("Resposta recebida:", response);
+//             if (!response.ok) {
+//                 throw new Error(`Erro HTTP: ${response.status}`);
+//             }
+//             return response.json(); // Converte a resposta para JSON
+//         })
+//         .then(data => {
+//             console.log("Dados recebidos:", data);
+//             if (data.success) {
+//                 alert("Formulário enviado com sucesso!");
+//             } else {
+//                 alert("Erro ao processar a requisição.");
+//             }
+//         })
+//         .catch(error => {
+//             console.error("Erro no fetch:", error);
+//             alert(`Ocorreu um erro(${error}) ao enviar o formulário.`);
+//         });
+// });
+
+    (function () {
+    document.addEventListener("click", (e) => {
+        let target = e.target;
+
+        if (target.classList.contains("editBtnModal")) {
+            
+            for (let i = 0; i < 4; i++) {
+                if (target.parentElement) {
+                    target = target.parentElement;
+                }
+            }
+            const modal = target.querySelector(".modalEditItem");
+        
+
+            if (modal) {
+                modal.showModal();
+            }
+        }
+
+        if (target.classList.contains("editExcludeButton")) {
+            
+            for (let i = 0; i < 4; i++) {
+                if (target.parentElement) {
+                    target = target.parentElement;
+                }
+            }
+            const modal = target.querySelector(".excludeModal");
+    
+
+            if (modal) {
+                modal.showModal();
+            }
+        }
+
+
+        if (target.classList.contains("btnClose")) {
+            for (let i = 0; i < 3; i++) {
+                if (target.parentElement) {
+                    target = target.parentElement;
+                }
+            }
+            const modal = target.querySelector(".modalEditItem");
+            // alert('oi')
+            if (modal) {
+                modal.close();
+            }
+        }
+    });
+})();
+
+</script>
+
+{% endblock %}

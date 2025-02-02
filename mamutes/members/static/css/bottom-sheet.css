@@ -1,0 +1,94 @@
+.bottom-sheet {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: 0.1s linear;
+    z-index: 2000;
+  }
+  .bottom-sheet.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .bottom-sheet .sheet-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background: #000;
+  }
+  .bottom-sheet .content {
+    width: 100%;
+    position: relative;
+    background: #fff;
+    max-height: 100vh;
+    height: 50vh;
+    padding: 25px 30px;
+    transform: translateY(100%);
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+    transition: 0.3s ease;
+  }
+  .bottom-sheet.show .content{
+    transform: translateY(0%);
+  }
+  .bottom-sheet.dragging .content {
+    transition: none;
+  }
+  .bottom-sheet.fullscreen .content {
+    border-radius: 0;
+    overflow-y: hidden;
+  }
+  .bottom-sheet .header {
+    display: flex;
+    justify-content: center;
+  }
+  .header .drag-icon {
+    cursor: grab;
+    user-select: none;
+    padding: 15px;
+    margin-top: -15px;
+  }
+  .header .drag-icon span {
+    height: 4px;
+    width: 40px;
+    display: block;
+    background: #C7D0E1;
+    border-radius: 50px;
+  }
+  .bottom-sheet .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    overflow-y: auto;
+    padding: 15px 0 40px;
+    scrollbar-width: none;
+    gap: 16px;
+  }
+  .bottom-sheet .body::-webkit-scrollbar {
+    width: 0;
+  }
+
+  @media (max-width: 768px){
+    .bottom-sheet{
+      display: flex;
+    }
+
+  }
+  @media (min-width: 769px){
+    .bottom-sheet{
+      display: none;
+    }
+  }

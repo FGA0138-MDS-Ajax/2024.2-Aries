@@ -1,0 +1,66 @@
+{% load static %}
+
+<dialog id="modal">
+    <form class="newPost" method="POST" action="{% url 'create_post_or_event' %}">
+        {% csrf_token %}
+        <div class="close">
+            <div id="btnClose" class="closeIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
+                    <path d="M1.11201 1.19819C1.29415 1.01611 1.54114 0.913818 1.79869 0.913818C2.05623 0.913818 2.30323 1.01611 2.48537 1.19819L5.91973 4.63255L9.35409 1.19819C9.53728 1.02127 9.78262 0.92337 10.0373 0.925583C10.2919 0.927796 10.5355 1.02994 10.7156 1.21002C10.8957 1.3901 10.9978 1.6337 11.0001 1.88836C11.0023 2.14302 10.9044 2.38837 10.7275 2.57155L7.29309 6.00591L10.7275 9.44028C10.9044 9.62346 11.0023 9.8688 11.0001 10.1235C10.9978 10.3781 10.8957 10.6217 10.7156 10.8018C10.5355 10.9819 10.2919 11.084 10.0373 11.0862C9.78262 11.0885 9.53728 10.9906 9.35409 10.8136L5.91973 7.37927L2.48537 10.8136C2.30218 10.9906 2.05684 11.0885 1.80218 11.0862C1.54752 11.084 1.30392 10.9819 1.12384 10.8018C0.94376 10.6217 0.841614 10.3781 0.839401 10.1235C0.837188 9.8688 0.935085 9.62346 1.11201 9.44028L4.54637 6.00591L1.11201 2.57155C0.929925 2.38941 0.827637 2.14241 0.827637 1.88487C0.827637 1.62733 0.929925 1.38033 1.11201 1.19819Z" fill="#808080"/>
+                </svg>
+            </div>
+        </div>
+        <div class="bodyModal">
+            <div class="centerPost">
+                <div>
+                    <div class="profileP">
+                        <img class="prfPicture" src="{{ user.photo.url }}" alt="Erro ao carregar imagem">
+                    </div>
+                </div>
+                <div class="principalModal">
+                    <div class="inputNewPost">
+                        <label class="textInputNewPost">Título</label>
+                        <input type="text" name="title" minlength="1" maxlength="50" placeholder="Descreva brevemente a publicação" class="inputTitlePost">
+                    </div>
+                    <div class="inputNewPost">
+                        <label class="textInputNewPost">Descrição</label>
+                        <textarea name="description" rows="4" cols="50" placeholder="Adicione mais detalhes" id="description" class="inputDescriptionPost"></textarea>
+                    </div>
+                    <div class="eventCheckbox">
+                        <input type="checkbox" name="is_event" id="eventcheckbox" class="myCheckbox">
+                        <label class="textCheckbox">Marcar um evento</label>
+                    </div>
+                    <div id="additionalInputs" class="eventBox">
+                        <div class="dateAndHour">
+                            <div class="dateBox">
+                                <label class="textInputNewPost">Data</label>
+                                <input type="date" lang="pt-BR" name="event_date" id="dateEvent" class="inputEvent">
+                            </div>
+                            <div class="HourBox">
+                                <label class="textInputNewPost">Hora</label>
+                                <input type="time" name="event_time" id="hourEvent" class="inputEvent">
+                            </div>
+                        </div>
+                        <div class="location">
+                            <div class="locCenter">
+                                <label class="textInputNewPost">Localização</label>
+                                <div class="inputLocEvent">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                                            <path d="M9.5 7.0863C9.5 6.68848 9.34196 6.30695 9.06066 6.02564C8.77936 5.74434 8.39782 5.5863 8 5.5863C7.60218 5.5863 7.22064 5.74434 6.93934 6.02564C6.65804 6.30695 6.5 6.68848 6.5 7.0863C6.5 7.48413 6.65804 7.86566 6.93934 8.14696C7.22064 8.42827 7.60218 8.5863 8 8.5863C8.39782 8.5863 8.77936 8.42827 9.06066 8.14696C9.34196 7.86566 9.5 7.48413 9.5 7.0863ZM14 7.0863C14 9.9603 10.903 13.1023 9.159 14.6443C8.84011 14.9291 8.42754 15.0865 8 15.0865C7.57246 15.0865 7.15989 14.9291 6.841 14.6443C5.097 13.1023 2 9.9603 2 7.0863C2 6.29837 2.15519 5.51816 2.45672 4.7902C2.75825 4.06225 3.20021 3.40081 3.75736 2.84366C4.31451 2.28651 4.97595 1.84455 5.7039 1.54303C6.43185 1.2415 7.21207 1.0863 8 1.0863C8.78793 1.0863 9.56815 1.2415 10.2961 1.54303C11.0241 1.84455 11.6855 2.28651 12.2426 2.84366C12.7998 3.40081 13.2417 4.06225 13.5433 4.7902C13.8448 5.51816 14 6.29837 14 7.0863ZM13 7.0863C13 5.76022 12.4732 4.48845 11.5355 3.55077C10.5979 2.61309 9.32608 2.0863 8 2.0863C6.67392 2.0863 5.40215 2.61309 4.46447 3.55077C3.52678 4.48845 3 5.76022 3 7.0863C3 8.1943 3.615 9.4813 4.57 10.7693C5.504 12.0273 6.657 13.1463 7.503 13.8953C7.63912 14.0187 7.81628 14.087 8 14.087C8.18372 14.087 8.36088 14.0187 8.497 13.8953C9.343 13.1463 10.497 12.0283 11.43 10.7693C12.385 9.4813 13 8.1943 13 7.0863Z" fill="#0075F6" stroke="#0075F6" stroke-width="0.5"/>
+                                    </svg>
+                                    <input type="text" name="location" id="locationEvent" placeholder="Informe a localização do evento">
+                                </div>
+                            </div>
+                            <div class="onlineEvent">
+                                <input type="checkbox" name="is_online" id="onlineCheckbox" class="myCheckbox">
+                                <label class="textCheckbox">Evento online</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="publishButton">Publicar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</dialog>
+<script src="{% static 'scripts/_openModalhome.js' %}" defer></script>

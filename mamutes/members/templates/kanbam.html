@@ -1,0 +1,82 @@
+{% extends 'baseMembersKanban.html' %}
+{% load static %}
+
+{% block tabs %}
+  <div class="scroll-boards">
+    <div class="board"> 
+      <div class="board-title">
+        <div class="title">
+          <div class="div">
+            <div class="text-wrapper-9">A começar</div>
+            <div class="quantity-tasks"><div class="text-wrapper-10">{{ Pendente_count }}</div></div>
+          </div>
+          <button class="space-button" id="buttonNewTask">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M11 6H6V11C6 11.2652 5.89464 11.5196 5.70711 11.7071C5.51957 11.8946 5.26522 12 5 12C4.73478 12 4.48043 11.8946 4.29289 11.7071C4.10536 11.5196 4 11.2652 4 11V6H-1C-1.26522 6 -1.51957 5.89464 -1.70711 5.70711C-1.89464 5.51957 -2 5.26522 -2 5C-2 4.73478 -1.89464 4.48043 -1.70711 4.29289C-1.51957 4.10536 -1.26522 4 -1 4H4V-1C4 -1.26522 4.10536 -1.51957 4.29289 -1.70711C4.48043 -1.89464 4.73478 -2 5 -2C5.26522 -2 5.51957 -1.89464 5.70711 -1.70711C5.89464 -1.51957 6 -1.26522 6 -1V4H11C11.2652 4 11.5196 4.10536 11.7071 4.29289C11.8946 4.48043 12 4.73478 12 5C12 5.26522 11.8946 5.51957 11.7071 5.70711C11.5196 5.89464 11.2652 6 11 6Z" fill="#FEFEFE"/>
+            </svg>
+          </button>
+        </div> <!-- 
+        <div class="progress-bar" style="width: {{ pending_percentage }%; background: #D70000;"></div>-->
+      </div>
+      <div class="board-main">
+        <div class="cards-scroll" data-status="Pendente"> 
+          {% for item in items %}
+          {% if item.status == "Pendente" %}    
+          {% include 'card.html' with date=item.date subtasks=item.subtasks priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="board-title">
+        <div class="title">
+          <div class="div">
+            <div class="text-wrapper-9">Em andamento</div>
+            <div class="quantity-tasks-2"><div class="text-wrapper-20">{{ Em_Progresso_task_count }}</div></div>
+          </div>
+          <button class="space-button" id="buttonNewTask">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M11 6H6V11C6 11.2652 5.89464 11.5196 5.70711 11.7071C5.51957 11.8946 5.26522 12 5 12C4.73478 12 4.48043 11.8946 4.29289 11.7071C4.10536 11.5196 4 11.2652 4 11V6H-1C-1.26522 6 -1.51957 5.89464 -1.70711 5.70711C-1.89464 5.51957 -2 5.26522 -2 5C-2 4.73478 -1.89464 4.48043 -1.70711 4.29289C-1.51957 4.10536 -1.26522 4 -1 4H4V-1C4 -1.26522 4.10536 -1.51957 4.29289 -1.70711C4.48043 -1.89464 4.73478 -2 5 -2C5.26522 -2 5.51957 -1.89464 5.70711 -1.70711C5.89464 -1.51957 6 -1.26522 6 -1V4H11C11.2652 4 11.5196 4.10536 11.7071 4.29289C11.8946 4.48043 12 4.73478 12 5C12 5.26522 11.8946 5.51957 11.7071 5.70711C11.5196 5.89464 11.2652 6 11 6Z" fill="#FEFEFE"/>
+            </svg>
+          </button>
+        </div><!--
+        <div class="progress-bar" style="width: {{ in_progress_percentage }}%; background: #FFC039;"></div>-->
+      </div>
+      <div class="board-main">
+        <div class="cards-scroll" data-status="Em Progresso">
+          {% for item in items %}
+          {% if item.status == "Em Progresso" %}    
+            {% include 'card.html' with date=item.date subtasks=item.subtasks priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="board-title">
+        <div class="title">
+          <div class="label-quantity">
+            <div class="text-wrapper-9">Concluído</div>
+            <div class="quantity-tasks-3"><div class="text-wrapper-23">{{completed_task_count }}</div></div>
+          </div>
+          <button class="space-button" id="buttonNewTask">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M11 6H6V11C6 11.2652 5.89464 11.5196 5.70711 11.7071C5.51957 11.8946 5.26522 12 5 12C4.73478 12 4.48043 11.8946 4.29289 11.7071C4.10536 11.5196 4 11.2652 4 11V6H-1C-1.26522 6 -1.51957 5.89464 -1.70711 5.70711C-1.89464 5.51957 -2 5.26522 -2 5C-2 4.73478 -1.89464 4.48043 -1.70711 4.29289C-1.51957 4.10536 -1.26522 4 -1 4H4V-1C4 -1.26522 4.10536 -1.51957 4.29289 -1.70711C4.48043 -1.89464 4.73478 -2 5 -2C5.26522 -2 5.51957 -1.89464 5.70711 -1.70711C5.89464 -1.51957 6 -1.26522 6 -1V4H11C11.2652 4 11.5196 4.10536 11.7071 4.29289C11.8946 4.48043 12 4.73478 12 5C12 5.26522 11.8946 5.51957 11.7071 5.70711C11.5196 5.89464 11.2652 6 11 6Z" fill="#FEFEFE"/>
+            </svg>
+          </button>
+        </div><!--
+        <div class="progress-bar" style="width: {{ completed_percentage}}%; background: #0075F6;"></div>-->
+      </div>
+      <div class="board-main">
+        <div class="cards-scroll" data-status="Concluída">
+          {% for item in items %}
+          {% if item.status == "Concluída" %}    
+          {% include 'card.html' with date=item.date subtasks=item.subtasks area=item.area priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% load static %}
+
+    <dialog class="container-modal-members">
+        <div class="modalMembers">
+            <div class="close btnCloseViewMembers" style="cursor: pointer;">
+                <div style="pointer-events: none;" class="close-icon">
+                    <svg style="pointer-events: none;" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                        <path d="M0.964854 0.706065C1.17971 0.49127 1.47109 0.370605 1.7749 0.370605C2.07871 0.370605 2.37008 0.49127 2.58494 0.706065L6.63631 4.75743L10.6877 0.706065C10.9038 0.497358 11.1932 0.381873 11.4936 0.384483C11.794 0.387094 12.0814 0.507591 12.2938 0.720022C12.5062 0.932453 12.6267 1.21982 12.6294 1.52023C12.632 1.82064 12.5165 2.11006 12.3078 2.32615L8.2564 6.37752L12.3078 10.4289C12.5165 10.645 12.632 10.9344 12.6294 11.2348C12.6267 11.5352 12.5062 11.8226 12.2938 12.035C12.0814 12.2475 11.794 12.368 11.4936 12.3706C11.1932 12.3732 10.9038 12.2577 10.6877 12.049L6.63631 7.99761L2.58494 12.049C2.36885 12.2577 2.07943 12.3732 1.77902 12.3706C1.47861 12.368 1.19124 12.2475 0.978811 12.035C0.76638 11.8226 0.645883 11.5352 0.643272 11.2348C0.640662 10.9344 0.756147 10.645 0.964854 10.4289L5.01622 6.37752L0.964854 2.32615C0.750059 2.11129 0.629395 1.81992 0.629395 1.51611C0.629395 1.2123 0.750059 0.920925 0.964854 0.706065Z" fill="#808080"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="presentSearch">
+                <h1>Membros do time</h1>
+                <div class="searchField">
+                    <div class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+                            <path d="M10.0001 10.2413L7.8286 8.06981M7.8286 8.06981C8.20005 7.69837 8.49469 7.2574 8.69572 6.77209C8.89674 6.28677 9.00021 5.76661 9.00021 5.24131C9.00021 4.71601 8.89674 4.19586 8.69572 3.71054C8.49469 3.22523 8.20005 2.78426 7.8286 2.41281C7.45716 2.04137 7.01619 1.74672 6.53088 1.5457C6.04556 1.34468 5.5254 1.24121 5.0001 1.24121C4.4748 1.24121 3.95464 1.34468 3.46933 1.5457C2.98401 1.74672 2.54305 2.04137 2.1716 2.41281C1.42144 3.16298 1 4.18042 1 5.24131C1 6.30221 1.42144 7.31965 2.1716 8.06981C2.92177 8.81998 3.93921 9.24142 5.0001 9.24142C6.061 9.24142 7.07844 8.81998 7.8286 8.06981Z" stroke="#1F1A99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <input type="text" placeholder="Buscar membro" class="searchMember" id="searchMember">
+                </div>
+            </div>
+            <div class="peopleList">
+                <!-- inicio -->
+
+                {% for member in members %}
+                <div class="person-item">
+                    <div class="person-data">
+                        {% if member.photo %}
+                        <img class="photo-profile" title="{{member.fullname}}" src="data:image/jpeg;base64,{{ member.photo }}" alt="foto de {{member.fullname}}">
+                        {% else %}
+                        <img class="photo-profile" title="{{member.fullname}}" src="path/to/default-photo.jpg" alt="foto de {{member.fullname}}">
+                        {% endif %}
+                        <div class="person-data-names">
+                            <p>@{{member.username}}</p>
+                            <p>{{member.fullname}}</p>
+                            <p>{{member.area}}</p>
+                        </div>
+                    </div>
+                    <div class="person-contact">
+                        <a href="mailto:{{member.email}}?subject=Assunto%20do%20E-mail&body=Olá,%20tudo%20bem?">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
+                                <path d="M16 1.94131C16 1.06131 15.28 0.341309 14.4 0.341309H1.6C0.72 0.341309 0 1.06131 0 1.94131V11.5413C0 12.4213 0.72 13.1413 1.6 13.1413H14.4C15.28 13.1413 16 12.4213 16 11.5413V1.94131ZM14.4 1.94131L8 5.94131L1.6 1.94131H14.4ZM14.4 11.5413H1.6V3.54131L8 7.54131L14.4 3.54131V11.5413Z" fill="#0075F6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                {% empty %}
+                    <p >Não há membros cadastrados.</p>
+                {% endfor %}
+                <!-- fim -->
+                
+            </div>
+        </div>
+    </dialog>

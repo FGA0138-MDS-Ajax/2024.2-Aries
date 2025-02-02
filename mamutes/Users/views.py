@@ -1,14 +1,14 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
-from django.contrib.auth.decorators import user_passes_test
-from django.contrib.auth import authenticate, login as login_django
+from django.contrib.auth.decorators import user_passes_test, login_required
+from django.contrib.auth import authenticate,logout, login as login_django
 from .models import * 
 from .forms import *
 from .models import MembroEquipe
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.core.mail import send_mail
 from mamutes import settings
-
+from django.contrib import messages
 
 def login (request):
     if request.method ==  'GET':
@@ -21,9 +21,17 @@ def login (request):
 
         if user is not None:
             login_django (request, user)
-            return HttpResponse("boa paizao deu certo")
+            return redirect ('home')
         else:
             return render (request, 'login.html')
+
+@login_required
+def logoutUser(request):
+    authenticated = request.user.is_authenticated
+    if authenticated == True:
+        logout(request)
+        return redirect('index')
+    return redirect('home')
 
         
 def isSuperUser(user):
@@ -32,7 +40,39 @@ def isSuperUser(user):
     
 @user_passes_test(isSuperUser) 
 def register(request):
-     return render(request, 'register.html')
+    areas = Area.objects.all() 
+    functions = Function.objects.all() 
+    if request.method == 'POST':
+        fullname = request.POST.get ('fullname')
+        email = request.POST.get ('email')
+        username = request.POST.get ('username')
+        phone = request.POST.get ('phone')
+        selected_areas = request.POST.getlist('areas')
+        selected_functions = request.POST.getlist('functions')
+
+        
+        if fullname and email and username and phone:
+            try:
+                membro = MembroEquipe.objects.create_user(
+                    username=username,
+                    fullname=fullname,
+                    email=email,
+                    phone=phone
+                )
+
+                membro.areas.set(Area.objects.filter(id__in=selected_areas))
+                membro.functions.set(Function.objects.filter(id__in=selected_functions))
+            
+                
+                membro.save()
+                return HttpResponse("vc criou o membro seu bosta")
+
+            except Exception as e:
+                #messages.error(request, f"Erro ao criar o membro: {e}")
+                return HttpResponse("deu alguma bosta ai")
+    
+       
+    return render(request, 'register.html', {'areas': areas, 'functions': functions})
 
 def recoverAccount(request):
     if request.method == 'POST':
@@ -93,3 +133,35 @@ def redefinePassword(request, username, token):
         })
 
     return redirect("login")
+
+
+def pagConfig(response):
+     return render(response,'pagConfig.html')
+
+
+@login_required
+def editar_usuario(request):
+    if request.method == 'POST':
+        # Pega os dados do formulário e atualiza o usuário
+        user = request.user
+        user.fullname = request.POST.get('fullname')
+        user.email = request.POST.get('email')
+        user.username = request.POST.get('username')
+        user.phone = request.POST.get('phone')
+        user.save()
+        return redirect('pagConfig')  # Redireciona para a página de perfil ou outra página
+    else:
+        # Se o método for GET, apenas exibe o formulário com os dados atuais
+        return render(request, 'pagConfig.html', {'user': request.user})
+
+
+
+@login_required
+def update_photo(request):
+    if request.method == 'POST' and request.FILES.get('photo'):
+        user = request.user
+        photo = request.FILES['photo']
+        
+        # Atualiza a foto do perfil
+        user.photo = photo
+        user.save()

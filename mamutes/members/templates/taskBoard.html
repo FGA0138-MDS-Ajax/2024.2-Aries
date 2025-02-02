@@ -1,0 +1,120 @@
+{% extends 'baseMembersKanban.html' %}
+{% load static %}
+
+{% block tabs %}
+    <table>
+        <colgroup>
+            <col style="width: 500px;">
+            <col style="width: 150px;">
+            <col style="width: 300px;">
+            <col style="width: 150px;">
+            <col style="width: 300px; text-align: center;">
+            <col style="width: 300px;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Título
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6" fill="none">
+                        <path d="M7.125 1.4375L4 4.5625L0.875 1.4375" stroke="#FEFEFE" stroke-width="1.5625" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg> -->
+                </th>
+                <th>Status
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6" fill="none">
+                        <path d="M7.125 1.4375L4 4.5625L0.875 1.4375" stroke="#FEFEFE" stroke-width="1.5625" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg> -->
+                </th>
+                <th>Designados
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6" fill="none">
+                        <path d="M7.125 1.4375L4 4.5625L0.875 1.4375" stroke="#FEFEFE" stroke-width="1.5625" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg> -->
+                </th>
+                <th>Progresso
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6" fill="none">
+                        <path d="M7.125 1.4375L4 4.5625L0.875 1.4375" stroke="#FEFEFE" stroke-width="1.5625" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg> -->
+                </th>
+                <th>Subtarefas</th>
+                <th>Entrega
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6" fill="none">
+                        <path d="M7.125 1.4375L4 4.5625L0.875 1.4375" stroke="#FEFEFE" stroke-width="1.5625" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg> -->
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr class="btnModalViewCard">
+                    <td>
+                        {% include 'partials/_viewCard.html' with date=item.date subtasks=item.subtasks priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %} 
+                        {% include 'partials/_editCard.html'  with date=item.date subtasks=item.subtasks priority=item.priority pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo %}
+                            {{item.title}}
+                    </td> 
+                        <td>
+                        {% if item.priority == 1 %} 
+                        <div class="status low-priority"><p id="item.priority">Baixa prioridade</p></div>
+                        {% endif %}
+                        {% if item.priority == 2 %}
+                        <div class="status medium-priority"><p id="item.priority">Média prioridade</p></div>
+                        {% endif %}
+                        {% if item.priority == 3 %}
+                        <div class="status high-priority"><p id="item.priority">Alta prioridade</p></div>
+                        {% endif %}
+                    </td>
+                    <td  >
+                        <div class="avatars">
+                            {% if item.responsible_count == 0 %}
+                            <span >Nenhum membro designado</span>
+                            {% else %}
+                                {% for name, photo in item.pair_responsible_photo|slice:":5" %}
+                                    <div  class="personImg">
+                                        <img src="data:image/jpeg;base64,{{ photo }}" />
+                                    </div>
+                                    {% if item.responsible_count == 1 %}
+                                        <span class="singleName"> {{ name }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if item.responsible.all|slice:":5"|length == 1 %}
+                                    <span class="singleName">{{ name}}</span>
+                                {% elif item.responsible.all|slice:":5"|length > 1 %}
+                                    <span class="membroCount">+{{ item.responsible.all|slice:":5"|length|add:"-1" }}</span>
+                                {% endif %}
+                            {% endif %} 
+                            
+                            <!-- {% for name, photo in item.pair_responsible_photo %}
+                            {% if photo %}
+                                <img title="{{name}}" src="data:image/jpeg;base64,{{ photo }}" alt="Responsável" class="personImg">
+                            {% else %}
+                                <img title="{{name}}" src="path/to/default-photo.jpg" alt="Responsável" class="responsible-photo">
+                            {% endif%}
+                            {% endfor %} -->
+
+                        </div>
+                    </td>
+                    <td >{{ item.status }}</td> 
+
+                    <td >
+                        <div  class="progress-td" style="margin-left: 25px;" >
+                            <svg  xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M12 1.908L5.154 8.76L2.61 6.216L3.456 5.37L5.154 7.068L11.154 1.06801L12 1.908ZM10.674 4.932C10.752 5.274 10.8 5.634 10.8 6C10.8 8.652 8.652 10.8 6 10.8C3.348 10.8 1.2 8.652 1.2 6C1.2 3.348 3.348 1.20001 6 1.20001C6.948 1.20001 7.824 1.47601 8.568 1.95L9.432 1.08601C8.42787 0.377735 7.22879 -0.00169267 6 5.67662e-06C2.688 5.67662e-06 0 2.688 0 6C0 9.312 2.688 12 6 12C9.312 12 12 9.312 12 6C12 5.286 11.868 4.602 11.64 3.966L10.674 4.932Z" fill="#717171"/>
+                            </svg>
+                            {{ item.subtask_completed_count }}/{{ item.subtask_total_count }}
+                        </div>
+                    </td> 
+                    <td {% if item.prazo == 'HOJE' %}
+                    style="color: #D70000;"
+                    {% endif %} >{{ item.prazo }}</td> 
+                    
+
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6">
+                        Nenhuma tarefa a ser exibida
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+

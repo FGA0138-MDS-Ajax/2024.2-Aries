@@ -1,0 +1,99 @@
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/additem.css' %}">
+<dialog class="modalEditItem">
+    <div style="width: 100%; display: flex; align-items: flex-end; flex-direction: column;">
+        <button id="btnClose" class="btnClose">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" style="pointer-events: none;" fill="none">
+                <path d="M0.797162 0.797223C1.07037 0.524099 1.44087 0.370667 1.82718 0.370667C2.21349 0.370667 2.58399 0.524099 2.8572 0.797223L8.00874 5.94877L13.1603 0.797223C13.4351 0.531839 13.8031 0.384993 14.1851 0.388313C14.5671 0.391632 14.9325 0.544851 15.2026 0.81497C15.4727 1.08509 15.6259 1.45049 15.6292 1.83248C15.6326 2.21447 15.4857 2.58249 15.2203 2.85726L10.0688 8.00881L15.2203 13.1604C15.4857 13.4351 15.6326 13.8031 15.6292 14.1851C15.6259 14.5671 15.4727 14.9325 15.2026 15.2026C14.9325 15.4728 14.5671 15.626 14.1851 15.6293C13.8031 15.6326 13.4351 15.4858 13.1603 15.2204L8.00874 10.0688L2.8572 15.2204C2.58243 15.4858 2.21441 15.6326 1.83242 15.6293C1.45043 15.626 1.08503 15.4728 0.814909 15.2026C0.54479 14.9325 0.391571 14.5671 0.388252 14.1851C0.384932 13.8031 0.531778 13.4351 0.797162 13.1604L5.94871 8.00881L0.797162 2.85726C0.524038 2.58405 0.370605 2.21355 0.370605 1.82724C0.370605 1.44093 0.524038 1.07043 0.797162 0.797223Z" fill="#808080"/>
+            </svg>
+        </button>
+    </div>
+    <div class="tituloModal">
+        <h1 class="titulo">Editar item</h1>
+    </div>
+    <form method="post" class="formLogin" action="{% url 'editar_ferramenta' ferramenta.id %}">
+        {% csrf_token %}
+
+        <div class="formPrincipal">
+            <div class="divsFields">
+                <p class="tituloInputs">Nome do item</p>
+                <input class="inputForm" type="text" id="name" name="name" value="{{ ferramenta.name|default_if_none:'' }}" required>
+            </div>
+            <div class="divsFieldsRow">
+                <div class="rowDiv">
+                    <p class="tituloInputs">Código</p>
+                    <input class="inputForm" type="text" id="code" name="code" value="{{ ferramenta.code|default_if_none:'' }}" required>
+                </div>
+                <div class="rowDiv">
+                    <p class="tituloInputs">Tipo</p>
+                    <input class="inputForm" type="text" id="type" name="type" value="{{ ferramenta.type|default_if_none:'' }}" required>
+                </div>
+            </div> 
+            <div class="divsFieldsRow">
+                <div class="rowDiv">
+                    <p class="tituloInputs">Marca</p>
+                    <input class="inputForm" type="text" id="brand" name="brand" value="{{ ferramenta.brand|default_if_none:'' }}" required>
+                </div>
+                <div class="rowDiv">
+                    <p class="tituloInputs">Quantidade disponível</p>
+                    <input class="inputForm" type="number" id="quantity" name="quantity" value="{{ ferramenta.quantity|default_if_none:'' }}" required>
+                </div>
+            </div>
+            <div class="divsFieldsRow">
+                <div class="rowDiv">
+                    <p class="tituloInputs">Local</p>
+                    <input class="inputForm" type="text" id="location" name="location" value="{{ ferramenta.location|default_if_none:'' }}" required>
+                </div>
+                <div class="rowDiv">
+                    <p class="tituloInputs">Observação</p>
+                    <input class="inputForm" id="observation" name="observation" value="{{ ferramenta.observation|default_if_none:'' }}">
+                </div>
+            </div>
+            <div class="divsFieldsRow">
+                <div class="rowDiv checkboxField" style="display: flex; flex-direction: row; align-items: center;">
+                    <input type="checkbox" id="being_used" name="being_used" class="myCheckbox" {% if ferramenta.being_used %}checked{% endif %}>
+                    <label for="being_used" class="tituloInputs">Em uso</label>
+                </div>
+            </div> 
+        </div>
+
+        <!-- <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" value="{{ ferramenta.name|default_if_none:'' }}" required><br>
+        
+        <label for="type">Tipo:</label>
+        <input type="text" id="type" name="type" value="{{ ferramenta.type|default_if_none:'' }}" required><br>
+        
+        <label for="code">Codigo:</label>
+        <input type="text" id="code" name="code" value="{{ ferramenta.code|default_if_none:'' }}" required><br>
+
+        <label for="brand">Marca:</label>
+        <input type="text" id="brand" name="brand" value="{{ ferramenta.brand|default_if_none:'' }}" required><br>
+        
+        <label for="quantity">Quantidade:</label>
+        <input type="number" id="quantity" name="quantity" value="{{ ferramenta.quantity|default_if_none:'' }}" required><br>
+        
+        <label for="observation">Observação:</label>
+        <textarea id="observation" name="observation">{{ ferramenta.observation|default_if_none:'' }}</textarea><br>
+        
+        <label for="location">Localização:</label>
+        <input type="text" id="location" name="location" value="{{ ferramenta.location|default_if_none:'' }}" required><br>
+        
+        <label for="being_used">Em uso:</label>
+        <input type="checkbox" id="being_used" name="being_used" {% if ferramenta.being_used %}checked{% endif %}><br> -->
+        
+        <div class="botoesCadastro">
+            <button type="submit" class="saveButton"style="border-radius: 8px; background: #1F1A99;">
+                <span class="addLabel">Concluido</span>
+            </button>
+        </div>    
+    </form>
+    <!-- <a href="{% url 'stock' %}">Cancelar</a> -->
+</dialog>
+
+
+
+
+
+
+

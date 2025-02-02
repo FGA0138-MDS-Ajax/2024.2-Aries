@@ -5,7 +5,7 @@
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/admission.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 
 
@@ -20,7 +20,7 @@
                         <p id="title1">Faça parte</p>
                         <p id="title2">da MMTS<span id="subTitle2">!</span></p>
                     </div>
-                    <a href="{% url 'index' %}" class="buttonAdmission">
+                    <a href="{{state.link_admission}}" target="_blank" class="buttonAdmission">
                         <button>
                             <p class="textButton">Inscreva-se agora!</p>
                         </button>
@@ -150,7 +150,7 @@
                     <p id="centerTitle">Pronto para se juntar à <b>nossa equipe</b><span style="color: #36B5FF;">?</span></p>
                 </div>
                 <p id="lowercase">Não perca a chance de fazer parte dessa família.</p>
-                <a href="{% url 'index' %}" class="buttonAdmission">
+                <a href="{{state.link_admission}}" target="_blank" class="buttonAdmission">
                     <button>
                         <p class="textButton">Inscreva-se agora!</p>
                     </button>
