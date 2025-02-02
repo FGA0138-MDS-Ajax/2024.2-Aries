@@ -10,16 +10,7 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
 - Garantir a confiabilidade, performance e segurança do sistema.
 - Identificar e corrigir defeitos antes da entrega final.
 
-
-## 3. Requisitos do Sistema
-
-- **Requisitos Funcionais:** 
-
-  
-- **Requisitos Não Funcionais:** 
-
-
-## 4. Tipos de Testes
+## 3. Tipos de Testes
 
 - **Testes funcionais**
   - **Testes Unitários:** Testes de pequenas unidades do código.
@@ -32,11 +23,9 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
   - **Teste de Usabilidade**
   - **Teste de segurança**
 
+## 4 Escopo
 
-
-## 5. Escopo
-
-### 5.1 O que será testado
+### 4.1 O que será testado
 - **Funcionalidade principal do sistema** 
   - *Testes Unitários*
     - Testar os métodos dos Models
@@ -68,12 +57,12 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
   - Testar a autorização
   - Testar vulnerabilidades comuns de segurança web
 
-### 5.2 O que não será testado
+### 4.2 O que não será testado
 - Testes de sistemas de terceiros não integrados diretamente.
 - Testes de hardware ou ambiente de produção.
 
 
-## 6. Estratégia de Teste
+## 5. Estratégia de Teste
 
 ### Organização Dos testes:
 
@@ -94,11 +83,8 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
 
 | Componente/Funcionalidade              | Descrição do Teste                                                                 | Localização do Teste                              |
 |----------------------------------------|-------------------------------------------------------------------------------------|--------------------------------------------------|
-| **Integração entre Models e Views**    | Verificar se as views interagem corretamente com os models e retornam os dados esperados. | `testes/integracao/test_views_models.py`  |
+| **Integração entre Models, Views e forms**    | Verificar se as views interagem corretamente com os models e forms e retornam os dados esperados. | `testes/integracao/test_views_models.py`  |
 | **Integração com Banco de Dados**      | Testar se os dados inseridos através das views são corretamente persistidos no banco de dados.|`testes/integracao/test_database_integration.py`|
-| **Integração de Formularios com Views**| Testar se o envio de formulários via views resulta na criação ou atualização de dados no banco.|`testes/integracao/test_forms_views.py`|
-| **Autenticação e Autorização**         | Testar se os sistemas de login e permissões estão funcionando corretamente.        | `testes/integracao/test_authentication.py`       |
-| **Fluxo completo de requisição**       | Verificar o fluxo completo de uma requisição, desde a view até o banco de dados.     | `testes/integracao/test_full_request_flow.py`   |
 
 
 - Testes de Sistema
@@ -108,8 +94,6 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
 | **Funcionalidade principal**           | Verificar se o sistema como um todo está atendendo aos requisitos funcionais esperados. | `testes/sistema/test_system_functionality.py`|
 | **Fluxo completo do usuário**          | Simular o fluxo de ações de um usuário real, incluindo login, navegação e interações. | `testes/sistema/test_user_flow.py`             |
 | **Testes de UI e Usabilidade**         | Avaliar a interface do usuário para garantir que ela esteja acessível e fácil de usar. | `testes/sistema/test_ui_usability.py`        |
-| **Resiliência do Sistema**             | Testar como o sistema reage a falhas simuladas, como queda de serviço ou perda de dados. | `testes/sistema/test_system_resilience.py` |
-
 
 
 ###  fluxos de execução dos teste
@@ -150,8 +134,8 @@ obs: O planejamento ínicial é fazer os testes na branch teste para mitigar o r
 |------------|-------------------------------------|-------------|
 | 2025-01-10 | Testes Unitários                    | [Nome]      |
 | 2025-01-15 | Testes de Integração                | [Nome]      |
-| 2025-01-2 | Testes de Sistema                    | [Nome]      |
-| 2025-01-25 | Testes de Aceitação                 | [Nome]      |
+| 2025-02-04 | Testes de Sistema                   | [Nome]      |
+| 2025-02-08 | Testes de Aceitação                 | [Nome]      |
 
 ## 9. Critérios de Aceitação
 
