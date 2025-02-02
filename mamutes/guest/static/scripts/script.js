@@ -77,3 +77,4 @@ accordions.forEach(accordion => {
         accordion.classList.toggle("active");
     })
 })
+
