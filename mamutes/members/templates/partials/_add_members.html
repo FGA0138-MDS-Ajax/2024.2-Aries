@@ -1,0 +1,51 @@
+<!-- templates/tarefas.html -->
+
+{% load static %}
+{% csrf_token %}
+
+<body>
+<div class="mini-modal create" id="miniModal">
+
+    <div class="mini-modal-content">
+        <div class="searchField">
+            <div class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+                    <path d="M10.0001 10.2413L7.8286 8.06981M7.8286 8.06981C8.20005 7.69837 8.49469 7.2574 8.69572 6.77209C8.89674 6.28677 9.00021 5.76661 9.00021 5.24131C9.00021 4.71601 8.89674 4.19586 8.69572 3.71054C8.49469 3.22523 8.20005 2.78426 7.8286 2.41281C7.45716 2.04137 7.01619 1.74672 6.53088 1.5457C6.04556 1.34468 5.5254 1.24121 5.0001 1.24121C4.4748 1.24121 3.95464 1.34468 3.46933 1.5457C2.98401 1.74672 2.54305 2.04137 2.1716 2.41281C1.42144 3.16298 1 4.18042 1 5.24131C1 6.30221 1.42144 7.31965 2.1716 8.06981C2.92177 8.81998 3.93921 9.24142 5.0001 9.24142C6.061 9.24142 7.07844 8.81998 7.8286 8.06981Z" stroke="#1F1A99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <input type="text" placeholder="Buscar membro" class="searchToAddMember" id="searchMember">
+        </div>
+        <div class="center-people-list">
+            {% if profiles %}
+            {% for profile in profiles %}
+            <div class="person-team">
+                <div class="name-picture">
+                    <div class="profile-picture">
+                        <img src="data:image/jpeg;base64,{{ profile.photo_base64 }}" class="foto-perfil" alt="Profile photo">
+                    </div>
+                    <div class="name">
+                        <div class="text-email">{{profile.email}}</div>
+                        <div class="div">{{profile.fullname}}</div>
+                    </div>
+                </div>
+                <div class="plus-members" data-id="{{ profile.id }}" >
+                    <svg class="add-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M10.3331 5.88894H5.8887V10.3334C5.8887 10.5691 5.79505 10.7952 5.62835 10.9619C5.46165 11.1286 5.23556 11.2223 4.99981 11.2223C4.76406 11.2223 4.53797 11.1286 4.37127 10.9619C4.20457 10.7952 4.11092 10.5691 4.11092 10.3334V5.88894H-0.333523C-0.569271 5.88894 -0.795363 5.79529 -0.962062 5.62859C-1.12876 5.46189 -1.22241 5.2358 -1.22241 5.00005C-1.22241 4.76431 -1.12876 4.53821 -0.962062 4.37151C-0.795363 4.20482 -0.569271 4.11116 -0.333523 4.11116H4.11092V-0.333279C4.11092 -0.569027 4.20457 -0.79512 4.37127 -0.961819C4.53797 -1.12852 4.76406 -1.22217 4.99981 -1.22217C5.23556 -1.22217 5.46165 -1.12852 5.62835 -0.961819C5.79505 -0.79512 5.8887 -0.569027 5.8887 -0.333279V4.11116H10.3331C10.5689 4.11116 10.795 4.20482 10.9617 4.37151C11.1284 4.53821 11.222 4.76431 11.222 5.00005C11.222 5.2358 11.1284 5.46189 10.9617 5.62859C10.795 5.79529 10.5689 5.88894 10.3331 5.88894Z" fill="#808080"/>
+                    </svg>
+                    <svg class="selected-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                        <path d="M12.25 1.5L5.25 8.5L1.75 5" stroke="#008707" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p style="font-size: 12px; padding: 8px;">Nenhum membro pertencente ao time</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="okButton">
+        Ok
+    </div>
+</div>
+</body>
+

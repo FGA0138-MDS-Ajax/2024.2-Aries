@@ -79,7 +79,7 @@
                         <p id="textbtnModal">Novo</p>
                     </div>
                 </div>
-                {% if announcements or event %}
+                {% if announcements or all_events %}
                     {% include 'partials/_all.html' %}
                 {% else %}
                 <div class="nothingToShow" id="nothingToShow" style="display: flex;">
@@ -104,14 +104,41 @@
                     <div class="drag-icon"><span></span></div>
                 </div>
                 <div class="body">
-                    <div style="display: flex; flex-direction: column; width: 100%; max-width: 600px; gap: 16px;">
-                        {% include 'partials/_calendar.html' %}
+                    <div class="calendarOrigin" style="display: flex; flex-direction: column; width: 100%; max-width: 600px; gap: 16px;">
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function moverDiv() {
+            var titleMyAgenda = document.querySelector('.centerMyAgenda');
+            var calendarHome = document.querySelector('.calendarHome');
+            var novoLugar = document.querySelector('.bottom-sheet .body > div');
+            var larguraTela = window.innerWidth;
+    
+            if (titleMyAgenda) {
+                // Se a tela for menor que 768px, move a div.titleMyAgenda para o novo lugar
+                if (larguraTela < 768) {
+                    if (novoLugar && !novoLugar.contains(titleMyAgenda)) {
+                        novoLugar.appendChild(titleMyAgenda);
+                    }
+                } else {
+                    // Se a tela for maior ou igual a 768px, move de volta para a posição original
+                    if (calendarHome && !calendarHome.contains(titleMyAgenda)) {
+                        calendarHome.appendChild(titleMyAgenda);
+                    }
+                }
+            }
+        }
+    
+        // Chama a função ao carregar a página e sempre que a tela for redimensionada
+        window.addEventListener('load', moverDiv);
+        window.addEventListener('resize', moverDiv);
+    </script>
+      
+      
     <script src="{% static 'scripts/scriptMembers.js' %}"></script>
-    <script src="{% static 'scripts/openModalhome.js' %}"></script>
     <script src="{% static 'scripts/bottomSheet.js' %}"></script>
 {% endblock %}

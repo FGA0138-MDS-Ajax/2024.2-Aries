@@ -1,0 +1,105 @@
+{% load static %}
+
+<dialog  class="modalViewCard" style="cursor: auto;">
+    <div class="container-card-task">
+
+        <div class="close-newTask">
+            <div id="id-card" style="display: none;">{{id}}</div>
+            <div id="priority-card" style="display: none;">{{priority}}</div>
+            <div id="photos-card" style="display: none;">{{responsible_photos|safe}}</div>
+            <div class="actions-card-task">
+                <div class="edit-icon" title="Editar tarefa">
+                    <svg style="pointer-events: none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 18 19" fill="none">
+                        <path d="M8.58042 2.33936H2.68454C2.23777 2.33936 1.8093 2.51683 1.49339 2.83274C1.17748 3.14866 1 3.57713 1 4.02389V15.8156C1 16.2624 1.17748 16.6909 1.49339 17.0068C1.8093 17.3227 2.23777 17.5002 2.68454 17.5002H14.4763C14.9231 17.5002 15.3515 17.3227 15.6674 17.0068C15.9834 16.6909 16.1608 16.2624 16.1608 15.8156V9.91977" stroke="#0075F6" stroke-width="1.68454" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.9502 2.02332C14.2852 1.68824 14.7397 1.5 15.2136 1.5C15.6874 1.5 16.1419 1.68824 16.477 2.02332C16.812 2.35839 17.0003 2.81285 17.0003 3.28672C17.0003 3.76059 16.812 4.21505 16.477 4.55012L8.8856 12.1423C8.6856 12.3422 8.43852 12.4884 8.16714 12.5677L5.7473 13.2752C5.67483 13.2963 5.598 13.2976 5.52487 13.2789C5.45173 13.2601 5.38498 13.2221 5.3316 13.1687C5.27822 13.1153 5.24016 13.0485 5.22143 12.9754C5.20269 12.9023 5.20396 12.8255 5.2251 12.753L5.9326 10.3331C6.01222 10.062 6.15878 9.81519 6.35879 9.61553L13.9502 2.02332Z" stroke="#0075F6" stroke-width="1.68454" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p style="pointer-events: none;">Editar tarefa</p>
+                </div>
+                <form action="{% url 'delete_task' %}" method="POST" id="delete_task">
+                    {% csrf_token %}
+                    <button class="delete-icon" type="submit" title="Excluir tarefa">
+                        <input type="text" value="{{id}}" style="display: none;" name="id_task" id="id-task">
+                        <div class="trash-icon">
+                            <svg style="pointer-events: none;" xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
+                                <path d="M12.3333 3.16667H9.66667V2.5C9.66667 1.96957 9.45595 1.46086 9.08088 1.08579C8.70581 0.710714 8.1971 0.5 7.66667 0.5H6.33333C5.8029 0.5 5.29419 0.710714 4.91912 1.08579C4.54405 1.46086 4.33333 1.96957 4.33333 2.5V3.16667H1.66667C1.48986 3.16667 1.32029 3.2369 1.19526 3.36193C1.07024 3.48695 1 3.65652 1 3.83333C1 4.01014 1.07024 4.17971 1.19526 4.30474C1.32029 4.42976 1.48986 4.5 1.66667 4.5H2.33333V11.8333C2.33333 12.3638 2.54405 12.8725 2.91912 13.2475C3.29419 13.6226 3.8029 13.8333 4.33333 13.8333H9.66667C10.1971 13.8333 10.7058 13.6226 11.0809 13.2475C11.456 12.8725 11.6667 12.3638 11.6667 11.8333V4.5H12.3333C12.5101 4.5 12.6797 4.42976 12.8047 4.30474C12.9298 4.17971 13 4.01014 13 3.83333C13 3.65652 12.9298 3.48695 12.8047 3.36193C12.6797 3.2369 12.5101 3.16667 12.3333 3.16667ZM5.66667 2.5C5.66667 2.32319 5.7369 2.15362 5.86193 2.0286C5.98695 1.90357 6.15652 1.83333 6.33333 1.83333H7.66667C7.84348 1.83333 8.01305 1.90357 8.13807 2.0286C8.2631 2.15362 8.33333 2.32319 8.33333 2.5V3.16667H5.66667V2.5ZM10.3333 11.8333C10.3333 12.0101 10.2631 12.1797 10.1381 12.3047C10.013 12.4298 9.84348 12.5 9.66667 12.5H4.33333C4.15652 12.5 3.98695 12.4298 3.86193 12.3047C3.7369 12.1797 3.66667 12.0101 3.66667 11.8333V4.5H10.3333V11.8333Z" fill="#D70000"/>
+                            </svg>
+                        </div>
+                    </button>
+                </form>
+            </div>
+            <div type="button" class="close-icon btnCloseViewCard">
+                <svg style="pointer-events: none;" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M0.964854 0.706065C1.17971 0.49127 1.47109 0.370605 1.7749 0.370605C2.07871 0.370605 2.37008 0.49127 2.58494 0.706065L6.63631 4.75743L10.6877 0.706065C10.9038 0.497358 11.1932 0.381873 11.4936 0.384483C11.794 0.387094 12.0814 0.507591 12.2938 0.720022C12.5062 0.932453 12.6267 1.21982 12.6294 1.52023C12.632 1.82064 12.5165 2.11006 12.3078 2.32615L8.2564 6.37752L12.3078 10.4289C12.5165 10.645 12.632 10.9344 12.6294 11.2348C12.6267 11.5352 12.5062 11.8226 12.2938 12.035C12.0814 12.2475 11.794 12.368 11.4936 12.3706C11.1932 12.3732 10.9038 12.2577 10.6877 12.049L6.63631 7.99761L2.58494 12.049C2.36885 12.2577 2.07943 12.3732 1.77902 12.3706C1.47861 12.368 1.19124 12.2475 0.978811 12.035C0.76638 11.8226 0.645883 11.5352 0.643272 11.2348C0.640662 10.9344 0.756147 10.645 0.964854 10.4289L5.01622 6.37752L0.964854 2.32615C0.750059 2.11129 0.629395 1.81992 0.629395 1.51611C0.629395 1.2123 0.750059 0.920925 0.964854 0.706065Z" fill="#333333"/>
+                </svg>
+            </div>
+        </div>
+        <div class="mainNewTask">
+            <div class="title-newTask">
+                <h1 id="title-data">{{title}}</h1>
+            </div>
+            <div class="description-newTask">
+                <p id="description-data">{{description}}</p>
+            </div>
+            {%if subtasks %}
+                <div class="subtask-newTask">
+                    <h2>Subtarefas</h2>
+                    <form class="formCheckbox" action="{% url 'edit_task' %}" method="post">
+                        {% csrf_token %}
+                        {% for subtask in subtasks %}
+                        <label class="subtask-item">
+                            <!-- Campo oculto para "off" -->
+                            <input type="hidden" name="checkbox-subtask-{{ subtask.id }}" value="off">
+                            <!-- Checkbox real -->
+                            <input type="checkbox" name="checkbox-subtask-{{ subtask.id }}" class="checkbox-subtask" {% if subtask.done %}checked{% endif %}>
+                                <span class="checkmark"></span>
+                                <p>{{ subtask.description }}</p> 
+                            
+                            </label>
+                        {% endfor %}
+                        <input type="text" style="display:none;" name="id_task" value="{{id}}">
+                    </form>
+                </div>
+            {% endif %}
+            <div class="statusData">
+                <div class="date">
+                    <h2>Prioridade</h2>
+                    {% if priority == 1 %} 
+                        <div class="priorityLow"><p id="status-data">Baixa prioridade</p></div>
+                    {% endif %}
+                    {% if priority == 2 %}
+                        <div class="priorityMid"><p id="status-data">Média prioridade</p></div>
+                    {% endif %}
+                    {% if priority == 3 %}
+                        <div class="priorityHigh"><p id="status-data">Alta prioridade</p></div>
+                    {% endif %}
+                </div>
+                <div class="date">
+                    <h2>Data</h2>
+                    <div class="date-view-container">
+                        <div class="date-view-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
+                                <path d="M1.16675 5.66683H12.8334M3.90741 2.66683V1.3335M10.0741 2.66683V1.3335M10.5001 2.66683H3.50008C2.88124 2.66683 2.28775 2.91266 1.85017 3.35025C1.41258 3.78783 1.16675 4.38132 1.16675 5.00016V11.3335C1.16675 11.9523 1.41258 12.5458 1.85017 12.9834C2.28775 13.421 2.88124 13.6668 3.50008 13.6668H10.5001C11.1189 13.6668 11.7124 13.421 12.15 12.9834C12.5876 12.5458 12.8334 11.9523 12.8334 11.3335V5.00016C12.8334 4.38132 12.5876 3.78783 12.15 3.35025C11.7124 2.91266 11.1189 2.66683 10.5001 2.66683Z" stroke="#0075F6" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        </div>
+                        <p id="date-data">{{prazo}}</p>
+                    </div>
+                </div>
+            </div>
+            {%if pair_responsible_photo %}
+            <div class="setMembers">
+                <h2>Membros designados</h2>
+                <div class="people-meeting-card">
+                {% for name, photo in pair_responsible_photo %}
+                    {% if photo %}
+                        <div class="pic-responsible"><img title="{{name}}" src="data:image/jpeg;base64,{{ photo }}" alt="Responsável" class="photo-view-task"></div>
+                    {% else %}
+                        <div class="pic-responsible"><img title="{{name}}" src="path/to/default-photo.jpg" alt="Responsável" class="photo-view-task"></div>
+                    {% endif%}
+                {% endfor %}
+                </div>
+            </div>
+            {% endif%}
+        </div>
+    </div>
+
+</dialog>

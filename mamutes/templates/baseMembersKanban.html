@@ -13,16 +13,22 @@
     <script src="{% static 'scripts/kanban.js' %}" defer></script>
     <link rel="stylesheet" href="{% static 'css/kanban.css'%}">
 
+    <script src="{% static 'scripts/_viewCard.js' %}" defer></script>
+    <script src="{% static 'scripts/_viewMembers.js' %}" defer></script>
+    <script src="{% static 'scripts/_editCard.js' %}" defer></script>
+    <script src="{% static 'scripts/_createTask.js' %}" defer></script>
+    <script src="{% static 'scripts/_add_members.js' %}" defer></script>
+    
+    <!-- <link rel="stylesheet" href="{%static 'css/modal.css'%}">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'> -->
+    
     <link rel="stylesheet" href="{% static 'css/viewCard.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/viewMembers.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css'%}">
 
-    <script src="{% static 'scripts/modal.js' %}" defer></script>
     <link rel="stylesheet" href="{% static 'css/taskBoard.css'%}">
     <script src="{% static 'scripts/taskBoard.js' %}" defer></script>
-    <!-- <script src="{% static 'scripts/drag.js' %}" defer></script>
-    <script src="{% static 'scripts/kanban.js' %}" defer></script> -->
+    <!-- <script src="{% static 'scripts/drag.js' %}" defer></script> -->
     {% endblock %}
     
 {% block content %}
@@ -59,6 +65,7 @@
                                 <span class="team-identifier" style="background: {{area.color}}; {% if area.color == '#FEFEFE' %} color: #1e1e1e; border: 0.833px solid #BBBBBB; {%else%}  color: #fefefe;   {% endif %} ">{{ area.name|slice:":1" }}</span>
                                 {{area.name}}
                                 </div>
+                                <!-- ! svg do filtro -->
                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
                                     <path d="M4.58797 1.57541C4.74532 1.21575 5.25558 1.21575 5.41248 1.57541L6.20013 3.38357C6.23278 3.45838 6.28518 3.52288 6.35171 3.57016C6.41824 3.61744 6.49638 3.64572 6.57776 3.65197L8.58419 3.80572C8.9888 3.83674 9.1484 4.3452 8.83415 4.60191L7.33709 5.82608C7.27115 5.88004 7.2219 5.95162 7.19507 6.03249C7.16825 6.11335 7.16496 6.20018 7.18558 6.28284L7.64864 8.13462C7.74485 8.52035 7.32944 8.83235 6.98597 8.63184L5.22681 7.60638C5.15804 7.56625 5.07985 7.5451 5.00023 7.5451C4.92061 7.5451 4.84241 7.56625 4.77364 7.60638L3.01448 8.63184C2.67101 8.83235 2.25561 8.52035 2.35181 8.13462L2.81487 6.28284C2.8353 6.20016 2.83182 6.11337 2.80484 6.03259C2.77786 5.9518 2.72849 5.88034 2.66247 5.82653L1.1654 4.60235C0.851602 4.34565 1.01165 3.83719 1.41581 3.80617L3.42179 3.65242C3.50317 3.64617 3.58131 3.61789 3.64784 3.57061C3.71437 3.52333 3.76677 3.45883 3.79943 3.38402L4.58797 1.57541Z" fill="#0075F6" stroke="#0075F6" stroke-width="0.777778"/>
                                 </svg> -->
@@ -72,6 +79,7 @@
                 </form>
                 </div>
                 </div>
+                <!-- ! svg que filtra por time favoritado, não implementado por redução de escopo e redundancia -->
                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
                 <path d="M8.2053 1.39522C8.50876 0.701595 9.49284 0.701595 9.79543 1.39522L11.3145 4.8824C11.3774 5.02666 11.4785 5.15106 11.6068 5.24224C11.7351 5.33343 11.8858 5.38797 12.0428 5.40001L15.9123 5.69653C16.6926 5.75636 17.0004 6.73696 16.3944 7.23204L13.5072 9.59295C13.38 9.697 13.285 9.83505 13.2333 9.99101C13.1816 10.147 13.1752 10.3144 13.215 10.4738L14.108 14.0451C14.2936 14.789 13.4924 15.3908 12.83 15.0041L9.43735 13.0264C9.30472 12.949 9.15392 12.9082 9.00037 12.9082C8.84681 12.9082 8.69601 12.949 8.56339 13.0264L5.17071 15.0041C4.5083 15.3908 3.70717 14.789 3.89272 14.0451L4.78575 10.4738C4.82515 10.3144 4.81845 10.147 4.76641 9.99121C4.71437 9.83541 4.61915 9.6976 4.49183 9.59382L1.60463 7.2329C0.999448 6.73783 1.30811 5.75722 2.08757 5.6974L5.95624 5.40088C6.11319 5.38884 6.2639 5.3343 6.3922 5.24311C6.52051 5.15192 6.62157 5.02752 6.68454 4.88326L8.2053 1.39522Z" stroke="#1E1E1E" stroke-width="1.5"/>
                 </svg> -->
@@ -89,10 +97,12 @@
             </div>
             <div class="abas-tasks">
             <div class="abas-tarefas">
-                <a href="{% url 'kanban' %}" class="tabTasks {% if request.path == '/members/kanban' or request.path == '/members/' %}active{% endif %}">Quadros</a>
-                <a href="{% url 'taskBoard' %}" class="tabTasks {% if request.path == '/members/taskBoard' %}active{% endif %}">Tarefas</a>
+                <a href="{% url 'kanban' %}?area={{ request.GET.area }}" class="tabTasks {% if request.path == '/members/kanban' or request.path == '/members/' %}active{% endif %}">Quadros</a>
+                <a href="{% url 'taskBoard' %}?area={{ request.GET.area }}" class="tabTasks {% if request.path == '/members/taskBoard' %}active{% endif %}">Tarefas</a>
+
             </div>
             <div class="actions">
+                <!-- ! botão que filtra por tarefas pessoais, não implementado por redução de escopo -->
                 <!-- <button class="my-tasks-button" id="my-tasks">Minhas tarefas</button> -->
                 <a href="?area="><button class="my-tasks-button active" id="all-tasks">Ver todas as tarefas</button></a>
                 
@@ -111,7 +121,7 @@
             {% block tabs %}{% endblock %}
         </div>
     </div>
-    {% include 'modal.html'%}
-    {% include 'partials/viewMembers.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo%}
+    {% include 'partials/_createTask.html'%}
+    {% include 'partials/_viewMembers.html' with pair_responsible_photo=item.pair_responsible_photo responsible_photos=item.responsible_photos id=item.id status=item.status title=item.title description=item.description creation_date=item.creation_date completion_date=item.completion_date responsible=item.responsible responsible_count=item.responsible_count prazo=item.prazo%}
 {% endblock %}
     

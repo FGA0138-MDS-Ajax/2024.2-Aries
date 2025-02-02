@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import FlightLog,Meeting,Area
 from .forms import FlightForm,MeetingsForm
+from django.contrib.auth.decorators import login_required
 
 # Listar todos os voos
 def flight_list(request):
@@ -40,6 +41,7 @@ def flight_delete(request, id):
         return redirect('flight_list')
     return render(request, 'report/flight_confirm_delete.html', {'flight': FlightLog})
 
+@login_required
 def meetings(request):
     meetings = Meeting.objects.all() 
     if request.method == 'POST':
@@ -64,7 +66,8 @@ def membros_por_area(request, area_id):
     """Retorna os membros de uma determinada área."""
     area = get_object_or_404(Area, id=area_id)
     membros = area.membros.all()  # Pega todos os membros que pertencem a essa área
-    
+    print("membros:  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    print(membros)
     membros_data = [
         {
             "id": membro.id,

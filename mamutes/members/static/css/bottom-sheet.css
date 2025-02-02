@@ -85,4 +85,10 @@
     .bottom-sheet{
       display: flex;
     }
+
+  }
+  @media (min-width: 769px){
+    .bottom-sheet{
+      display: none;
+    }
   }

@@ -578,11 +578,16 @@ path{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .swiper-slide img {
-    border-radius: 16px;
+    /* border-radius: 16px; */
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.swiper{
+    border-radius: 16px;
+    overflow: hidden;
 }
 
 .passador-carrossel{
@@ -1038,7 +1043,7 @@ path{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 57px;
+    gap: 32px;
     align-self: stretch;
 }
 
@@ -1099,6 +1104,7 @@ path{
     gap: 16px;
     transition: transform 0.5s ease; /* Transição suave */
     width: 100%;
+    padding-top: 24px;
 }
 
 .logo-apoiador {

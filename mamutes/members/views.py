@@ -1,23 +1,28 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, render, redirect
-from django.http import JsonResponse
-from .forms import TaskForm, EventForm, PostForm
-from .models import MembroEquipe, Task, Event, Post, Subtask, Area
-from rest_framework import viewsets
-from .models import Column, Task
-from .serializers import ColumnSerializer, TaskSerializer
+import base64
 import calendar
-from django.db.models import Count, Q
+import locale
+from datetime import date, datetime, timedelta
 from io import BytesIO
+
+from django.contrib.auth.decorators import login_required
 from django.core.files.images import ImageFile
+from django.db.models import Count, Q
+from django.http import HttpResponseBadRequest, JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.utils.dateparse import parse_date
+from django.utils.timezone import localtime, make_aware
+
+from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
-from datetime import date, datetime, timedelta
-from django.utils.timezone import localtime, make_aware
-from django.utils.dateparse import parse_date
-import locale
-import base64
+
+from .forms import EventForm, PostForm, TaskForm
+from .models import (
+    Area, Column, Event, MembroEquipe, Post, Subtask, Task
+)
+from report.models import Meeting
+from .serializers import ColumnSerializer, TaskSerializer
+
 
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
@@ -82,59 +87,79 @@ def delete_task(request):
         if task_id:
             task = get_object_or_404(Task, id=task_id)
             task.delete()  # Deleta a task
-        return redirect('kanban')
+        return redirect(request.META.get('HTTP_REFERER', '/'))
 
-    return redirect('kanban')
-
-from django.shortcuts import get_object_or_404, redirect
-from .models import Task, Subtask
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 def edit_task(request):
     if request.method == 'POST':
-        # Captura dos dados do formulário
         task_id = request.POST.get('id_task')
         title = request.POST.get('title')
         description = request.POST.get('description')
         priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo')
+        responsible = request.POST.get('responsibles')
 
-        # Captura do status dos checkboxes, agora com o nome específico para cada subtask
-        subtasks_status = {}
+        # se não for enviada o id da task, não é possivel fazer a edição.
+        if not task_id:
+            return HttpResponseBadRequest("ID da tarefa não fornecido")
+        task = get_object_or_404(Task, id=task_id)
 
-        # Itera sobre os checkboxes de subtasks
-        for key, value in request.POST.items():
-            if key.startswith('checkbox-subtask-'):
-                subtask_id = key.split('-')[-1]  # Extrai o ID da subtask do nome do campo
-                status = 'on' if value == 'on' else 'off'  # Determina se o checkbox foi marcado
-                subtasks_status[subtask_id] = status
-
-        # Processa os dados da task, se o task_id for fornecido
-        if task_id:
-            task = get_object_or_404(Task, id=task_id)
+        if responsible:
+            responsible = list(map(int, responsible.split(',')))
+            responsible_members = MembroEquipe.objects.filter(id__in=responsible)
+            task.responsible.set(responsible_members)
             
-            # Atualiza os dados da tarefa
-            if title:
-                task.title = title
-            if description:
-                task.description = description
-            if priority:
-                task.priority = priority
-            if prazo:
-                task.Prazo = prazo
 
-            task.save()
+        # atualiza os dados da tarefa se eles forem solicitados a edição
+        task.title = title if title else task.title
+        task.description = description if description else task.description
+        task.priority = priority if priority else task.priority
+        task.Prazo = prazo if prazo else task.Prazo
+        task.save()
 
-            # Atualiza o status das subtasks associadas
-            for subtask_id, status in subtasks_status.items():
-                subtask = Subtask.objects.get(id=subtask_id)
-                subtask.done = True if status == 'on' else False
+        # pegar um vetor dos nomes/labels da checkbox e um vetor de true e false como string referente as checkbox (essa parte de true ou false foi feita no js)
+        subtasks_list = request.POST.getlist('inputTask')  
+        checkbox_input = request.POST.get('inputSubTask')  
+
+        # filtra as subtarefas vazias e processa os checkboxes, evitando assim dados inconsistentes
+        subtasks_list = [subtask for subtask in subtasks_list if subtask.strip()]
+
+
+        #se checkbox_input for none, significa que foi requisição via ajax para alterar somente as checkbox
+        if checkbox_input is None:
+            subtasks_status = {}
+
+            for key, value in request.POST.items():
+                if key.startswith('checkbox-subtask-'):
+                    subtask_id = key.split('-')[-1]  # Extrai o ID da subtask
+                    status = value == 'on'  # Marca como 'True' se estiver marcado, caso contrário 'False'
+                    subtasks_status[subtask_id] = status
+
+            # Atualiza o status das subtarefas associadas à tarefa
+            for subtask_id, done in subtasks_status.items():
+                subtask = get_object_or_404(Subtask, id=subtask_id)
+                subtask.done = done
                 subtask.save()
 
-        return redirect('kanban')
+            return redirect(request.META.get('HTTP_REFERER', '/'))
 
-    return redirect('kanban')
+        #se checkbox not is none, significa que foi solicitada uma requisição de edição que sobrescreve os dados anteriores, por isso o delete para depois sobrescrever.
+        task.subtasks.all().delete()
+        if checkbox_input:
+            checkbox_input = checkbox_input.split(',')
+            # converte as strings 'true'/'false' para valores booleanos
+            checkbox_input = [True if item == 'true' else False for item in checkbox_input]
+            
+            for subtask_title, done_status in zip(subtasks_list, checkbox_input):
+                Subtask.objects.create(
+                    description=subtask_title,  
+                    task=task,                  
+                    done=done_status            
+                )
+            return redirect(request.META.get('HTTP_REFERER', '/'))
 
-
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
@@ -161,9 +186,7 @@ def image_to_base64(image):
     if image:
         with open(image.path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode('utf-8')
-    
-    return None
-
+        
 
 @login_required
 def kanban_view(request):
@@ -225,6 +248,7 @@ def kanban_view(request):
     for task in tasks:
         prazo = task.Prazo
         today = datetime.now().date()
+        dateTask = prazo.strftime("%d / %m / %Y")
         if prazo:
             if prazo == today:
                 formatted_date = "HOJE"
@@ -256,6 +280,8 @@ def kanban_view(request):
                 subtask_total_count += 1
 
         pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
+
+
         items.append({
             'id': task.id,
             'status': task.status,
@@ -265,6 +291,7 @@ def kanban_view(request):
             'creation_date': task.creation_date,
             'priority': task.priority,
             'prazo': formatted_date,
+            'date': dateTask,
             'completion_date': task.completion_date,
             'responsible': task.get_responsibles_as_string(),
             'responsible_photos': responsible_photos,
@@ -275,6 +302,7 @@ def kanban_view(request):
             'subtasks': subtasks,
         })
     
+    
     # Adicionar nova tarefa via POST
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -282,22 +310,12 @@ def kanban_view(request):
         status = request.POST.get('status')
         priority = request.POST.get('priority')
         prazo = request.POST.get('Prazo') or None
-        responsible = request.POST.get('responsibles')
         area_id = request.POST.get('area_id')
-        responsible = list(map(int, responsible.split(',')))
+        responsible = request.POST.get('responsibles')
         subtasks_list = request.POST.getlist('inputTask')
         checkbox_input = request.POST.get('inputSubTask')
 
-        subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
-        checkbox_input= checkbox_input.split(',')
         
-        for i in range(len(checkbox_input)):
-            if checkbox_input[i] == 'true':
-                checkbox_input[i] = True
-            else:
-                checkbox_input[i] = False
-
-    
         task = Task.objects.create(
             title=title,
             description=description,
@@ -308,16 +326,27 @@ def kanban_view(request):
 
         task.area.set(area_id)
 
-        for subtask_title, done_status in zip(subtasks_list, checkbox_input):
-            subtask = Subtask.objects.create(
-                description=subtask_title,  # Associa o título da subtarefa
-                task=task,                   # Associando à task recém-criada
-                done=done_status             # Define o estado do checkbox
-            )
+        if checkbox_input:
+            subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
+            checkbox_input= checkbox_input.split(',')
+            
+            for i in range(len(checkbox_input)):
+                if checkbox_input[i] == 'true':
+                    checkbox_input[i] = True
+                else:
+                    checkbox_input[i] = False
 
-        responsible_members = MembroEquipe.objects.filter(id__in=responsible)
-
-        task.responsible.set(responsible_members)
+            for subtask_title, done_status in zip(subtasks_list, checkbox_input):
+                subtask = Subtask.objects.create(
+                    description=subtask_title,  # Associa o título da subtarefa
+                    task=task,                   # Associando à task recém-criada
+                    done=done_status             # Define o estado do checkbox
+                )
+    
+        if responsible:
+            responsible = list(map(int, responsible.split(',')))
+            responsible_members = MembroEquipe.objects.filter(id__in=responsible)
+            task.responsible.set(responsible_members)
         
         return redirect(request.get_full_path())
     
@@ -555,10 +584,6 @@ def delete_event(request, event_id):
     return redirect('home')
 
 def taskBoard(request):
-    tasks = Task.objects.all()
-
-    all_areas = Area.objects.all().order_by('name')
-
     # Obtém a área a partir dos parâmetros da URL (GET)
     area_id = request.GET.get('area')  # Exemplo: ?area=SE
     
@@ -570,13 +595,9 @@ def taskBoard(request):
         # Caso nenhuma área seja especificada, exibe todas as tarefas
         tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
     
-
-    tasks = tasks.annotate(
-        subtask_total_count=Count('subtasks'),
-        subtask_completed_count=Count('subtasks', filter=Q(subtasks__done=True))
-    )
-
+    items = []
     members = []
+    all_areas = Area.objects.all().order_by('name')
     profiles = MembroEquipe.objects.all()
 
     for profile in profiles:
@@ -602,8 +623,138 @@ def taskBoard(request):
             'area': ", ".join(areas),
         })
 
+    members_count = len(members)-5
+
+    total_tasks = tasks.count()
+    completed_task_count = tasks.filter(status='Concluída').count()
+    Em_Progresso_task_count = tasks.filter(status='Em Progresso').count()
+    Pendente_count = tasks.filter(status='Pendente').count()
+    
+    if total_tasks > 0:
+        pending_percentage = round((Pendente_count / total_tasks) * 100)
+        in_progress_percentage = round((Em_Progresso_task_count / total_tasks) * 100)
+        completed_percentage = round((completed_task_count / total_tasks) * 100)
+    else:
+        pending_percentage = in_progress_percentage = completed_percentage = 0
+    
+    # Processa as tarefas
+    
+    for task in tasks:
+        prazo = task.Prazo
+        today = datetime.now().date()
+        dateTask = prazo.strftime("%d / %m / %Y")
+        if prazo:
+            if prazo == today:
+                formatted_date = "HOJE"
+            else:
+                formatted_date = prazo.strftime("%d / %m / %Y")
+        else:
+            formatted_date = "Sem prazo definido"
+
+        responsible_profiles = task.responsible.all()
+        responsible_photos = []
+        
+        for resp in responsible_profiles:
+            if resp.photo:
+                responsible_photos.append(image_to_base64(resp.photo))
+            else:
+                responsible_photos.append(None)
+                
+        subtasks = Subtask.objects.filter(task=task)
+
+        subtask_completed_count = 0
+        subtask_total_count = 0
+        
+        for subtask in subtasks:
+            checkbox = request.POST.get('checkbox-subtask')
+            if subtask.done == True:
+                subtask_completed_count += 1
+                subtask_total_count += 1
+            else: 
+                subtask_total_count += 1
+
+        pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
+
+
+        items.append({
+            'id': task.id,
+            'status': task.status,
+            'title': task.title,
+            'description': task.description,
+            'creation_date': task.creation_date,
+            'priority': task.priority,
+            'prazo': formatted_date,
+            'date': dateTask,
+            'completion_date': task.completion_date,
+            'responsible': task.get_responsibles_as_string(),
+            'responsible_photos': responsible_photos,
+            'responsible_count': task.responsible.count(),
+            'responsible_name': task.responsible.count(),
+            'subtask_completed_count': subtask_completed_count,
+            'subtask_total_count': subtask_total_count,
+            'pair_responsible_photo': pair_r_p,
+            'subtasks': subtasks,
+        })
+    
+    
+    # Adicionar nova tarefa via POST
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        status = request.POST.get('status')
+        priority = request.POST.get('priority')
+        prazo = request.POST.get('Prazo') or None
+        area_id = request.POST.get('area_id')
+        responsible = request.POST.get('responsibles')
+        subtasks_list = request.POST.getlist('inputTask')
+        checkbox_input = request.POST.get('inputSubTask')
+
+        
+        task = Task.objects.create(
+            title=title,
+            description=description,
+            status=status,
+            priority=priority,
+            Prazo=prazo,
+        )
+
+        task.area.set(area_id)
+
+        if checkbox_input:
+            subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
+            checkbox_input= checkbox_input.split(',')
+            
+            for i in range(len(checkbox_input)):
+                if checkbox_input[i] == 'true':
+                    checkbox_input[i] = True
+                else:
+                    checkbox_input[i] = False
+
+            for subtask_title, done_status in zip(subtasks_list, checkbox_input):
+                subtask = Subtask.objects.create(
+                    description=subtask_title,  # Associa o título da subtarefa
+                    task=task,                   # Associando à task recém-criada
+                    done=done_status             # Define o estado do checkbox
+                )
+    
+        if responsible:
+            responsible = list(map(int, responsible.split(',')))
+            responsible_members = MembroEquipe.objects.filter(id__in=responsible)
+            task.responsible.set(responsible_members)
+        
+        return redirect(request.get_full_path())
+    
     return render(request, 'taskBoard.html', {
-        'all_areas': all_areas,
-        'tasks': tasks,
+        'items': items,
+        'profiles': profiles,
         'members': members,
+        'selected_area': area_id,
+        'all_areas': all_areas,
+        'completed_task_count': completed_task_count,
+        'Em_Progresso_task_count': Em_Progresso_task_count,
+        'Pendente_count':  Pendente_count,
+        'pending_percentage': pending_percentage,
+        'in_progress_percentage': in_progress_percentage,
+        'completed_percentage': completed_percentage,
+        'members_count': members_count
     })

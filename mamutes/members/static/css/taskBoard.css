@@ -14,6 +14,22 @@
   overflow-y: auto;
 }
 
+.responsible-photo{
+  width: 20px; 
+  height: 20px; 
+  align-items: center; 
+  justify-content: center; 
+  position: absolute; 
+  object-fit: cover;
+  margin-top: -1.00px; 
+  margin-bottom: -1.00px; 
+  margin-left: -1.00px; 
+  border-radius: 250px; 
+  overflow: hidden; 
+  border: 1px solid; 
+  border-color: #fdfdfd;
+}
+
 table {
   width: 100%;
   max-width: 1500px;
@@ -206,8 +222,8 @@ tr td .status {
   align-items: center;
   border-radius: 50%;
   outline: 2px solid #FEFEFE;
-  background: red;
   margin-left: -4px;
+  overflow: hidden;
 }
 
 .avatars .personImg img{
