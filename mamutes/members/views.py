@@ -213,13 +213,13 @@ def kanban_view(request):
             
 
     if area_id:
-        profileFiltered = MembroEquipe.objects.filter(testearea=area_id);
+        profileFiltered = MembroEquipe.objects.filter(area=area_id);
     else:
         profileFiltered = MembroEquipe.objects.all();
 
     for profile in profileFiltered:
         
-        areas = [area.name for area in profile.testearea.all()]
+        areas = [area.name for area in profile.area.all()]
         members.append({
             'email': profile.email,
             'fullname': profile.fullname,
@@ -607,13 +607,13 @@ def taskBoard(request):
             
 
     if area_id:
-        profileFiltered = MembroEquipe.objects.filter(testearea=area_id);
+        profileFiltered = MembroEquipe.objects.filter(area=area_id);
     else:
         profileFiltered = MembroEquipe.objects.all();
 
     for profile in profileFiltered:
         
-        areas = [area.name for area in profile.testearea.all()]
+        areas = [area.name for area in profile.area.all()]
         members.append({
             'email': profile.email,
             'fullname': profile.fullname,

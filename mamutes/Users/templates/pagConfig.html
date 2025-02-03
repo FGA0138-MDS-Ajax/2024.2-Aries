@@ -154,35 +154,36 @@
             </form>
           </div>
         
-        <div id="userSenha" class="form-principal">
+        <form id="userSenha" class="form-principal" method="POST" action="{% url 'configPassword' %}">
+          {% csrf_token %}
           <div class="name-data">
             <div class="text-wrapper-3">Alterar senha</div>
-            <button class="key-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                <path d="M8.92308 19.3809C11.642 19.3809 13.8462 17.1768 13.8462 14.4579C13.8462 11.7389 11.642 9.53479 8.92308 9.53479C6.20414 9.53479 4 11.7389 4 14.4579C4 17.1768 6.20414 19.3809 8.92308 19.3809Z" stroke="#0075F6" stroke-width="2.46154"/>
-                <path d="M12.6154 10.7655L16.923 6.45785M16.923 6.45785L18.7692 4.61169M16.923 6.45785L20 9.53477" stroke="#0075F6" stroke-width="2.46154" stroke-linecap="round"/>
+            <button type="button" class="key-button edit-button" style="cursor: pointer;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                <path d="M10.5037 1.99634H3.50366C2.97323 1.99634 2.46452 2.20705 2.08945 2.58212C1.71438 2.9572 1.50366 3.4659 1.50366 3.99634V17.9963C1.50366 18.5268 1.71438 19.0355 2.08945 19.4106C2.46452 19.7856 2.97323 19.9963 3.50366 19.9963H17.5037C18.0341 19.9963 18.5428 19.7856 18.9179 19.4106C19.2929 19.0355 19.5037 18.5268 19.5037 17.9963V10.9963" stroke="#0075F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16.8786 1.62132C17.2765 1.2235 17.816 1 18.3786 1C18.9412 1 19.4808 1.2235 19.8786 1.62132C20.2765 2.01914 20.5 2.55871 20.5 3.12132C20.5 3.68393 20.2765 4.2235 19.8786 4.62132L10.8656 13.6353C10.6282 13.8726 10.3348 14.0462 10.0126 14.1403L7.13963 14.9803C7.05359 15.0054 6.96237 15.0069 6.87554 14.9847C6.78871 14.9624 6.70946 14.9173 6.64608 14.8539C6.5827 14.7905 6.53752 14.7112 6.51528 14.6244C6.49303 14.5376 6.49454 14.4464 6.51963 14.3603L7.35963 11.4873C7.45416 11.1654 7.62817 10.8724 7.86563 10.6353L16.8786 1.62132Z" stroke="#0075F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
           </div>
           <div class="div-2">
             <div class="text-wrapper-4">Senha atual</div>
-            <input type="password" id="currentPassword" class="password-field"></input>
+            <input type="password" id="currentPassword" name="pw_actually" class="password-field"></input>
           </div>
           <div class="div-2">
             <div class="text-wrapper-4">Nova senha</div>
-            <input type="password" id="newPassword" class="password-field"></input>
+            <input type="password" id="newPassword" name="pw1_new" class="password-field"></input>
           </div>
           <div class="div-2">
             <div class="text-wrapper-4">Confirmar senha</div>
-            <input type="password" id="confirmPassword" class="password-field"></input>
+            <input type="password" id="confirmPassword" name="pw2_new" class="password-field"></input>
           </div>
           <p id="errorMessage" style="color: red; display: none;" class="text-wrapper-9">As senhas não coincidem</p>
-          <p id="Message" style="color: green; display: none;" class="text-wrapper-9">Deu Certo!</p>
+          <!-- <p id="Message" style="color: green; display: none;" class="text-wrapper-9">Deu Certo!</p> -->
           <div class="botoes">
-            <button id="submitButton" disabled="true" style="cursor: pointer;" class="botao-login"><div class="text-wrapper-7" >Alterar senha</div></button >
-            <button  id="cancelButton" class="botao-cancelar" style="cursor: pointer;"><div class="text-wrapper-8" >Cancelar</div></button>
+            <button id="submitButton" type="submit" disabled="true" style="cursor: pointer;" class="botao-login"><div class="text-wrapper-7" >Alterar senha</div></button >
+            <button  id="cancelButton" type="button" class="botao-cancelar" style="cursor: pointer;"><div class="text-wrapper-8" >Cancelar</div></button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   <!-- </body> -->
@@ -224,6 +225,38 @@
         popup.classList.remove("open");
       });
     });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const keyButton = document.querySelector(".key-button");
+    const cancelButton = document.getElementById("cancelButton");
+    const submitButton = document.getElementById("submitButton");
+    const passwordFields = document.querySelectorAll(".password-field");
+
+    // Oculta os botões inicialmente
+    cancelButton.style.display = "none";
+    submitButton.style.display = "none";
+
+    keyButton.addEventListener("click", function () {
+        cancelButton.style.display = "flex"; // Exibe o botão de cancelar
+        submitButton.style.display = "flex"; // Exibe o botão de alterar senha
+        
+        // Adiciona borda escura aos inputs
+        passwordFields.forEach(input => {
+            input.style.border = "2px solid black";
+        });
+    });
+
+    cancelButton.addEventListener("click", function () {
+        cancelButton.style.display = "none"; // Oculta novamente ao cancelar
+        submitButton.style.display = "none"; // Oculta o botão de alterar senha
+        
+        // Remove borda escura dos inputs
+        passwordFields.forEach(input => {
+            input.style.border = "";
+        });
+    });
+});
 
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>

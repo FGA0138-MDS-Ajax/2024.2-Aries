@@ -34,7 +34,7 @@ class MembroEquipe(AbstractUser):
     )
     photo = models.ImageField(upload_to='fotos_membros/', null=True, blank=True, default='fotos_membros/media/fotos_membros/default.png')
     areas = models.ManyToManyField(Area, related_name='membros', blank=True)
-    testearea = models.ManyToManyField(Area, related_name='area', blank=True)
+    area = models.ManyToManyField(Area, related_name='area', blank=True)
     functions = models.ManyToManyField(Function, related_name='membros', blank=True)
 
     @property

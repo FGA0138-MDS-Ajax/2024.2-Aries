@@ -3,7 +3,7 @@ from .models import *
 from .forms import * 
 from django.forms import CheckboxSelectMultiple
 
-
+@admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = ('description', 'status', 'get_responsible', 'completion_date')  
     list_filter = ('status', 'responsible')  
@@ -20,6 +20,7 @@ class TaskAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 
+@admin.register(Meeting)
 class MeetingAdmin(admin.ModelAdmin):
     list_display = ('title', 'meeting_date', 'get_areas')  
     list_filter = ('meeting_date',)  
@@ -29,9 +30,26 @@ class MeetingAdmin(admin.ModelAdmin):
         return ", ".join([area.name for area in obj.areas.all()])
     get_areas.short_description = 'Áreas'
 
+from django.contrib import admin
+from .models import Post, Event
 
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ("title", "member", "is_event", "posted_at", "time_since_posted")
+    list_filter = ("is_event", "posted_at")
+    search_fields = ("title", "description", "member__name")
+    ordering = ("-posted_at",)
 
-admin.site.register(Task, TaskAdmin)
-admin.site.register(Meeting, MeetingAdmin)
-admin.site.register(Task1)
-admin.site.register(Column)
+    def time_since_posted(self, obj):
+        return obj.time_since_posted()
+    time_since_posted.short_description = "Tempo desde postagem"
+
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    list_display = ("title", "member", "event_date", "event_time", "location", "is_online")
+    list_filter = ("event_date", "is_online")
+    search_fields = ("title", "description", "location", "member__name")
+    ordering = ("-event_date",)
+
+# admin.site.register(Task1)
+# admin.site.register(Column)
