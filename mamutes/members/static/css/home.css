@@ -645,8 +645,8 @@ path{
 .arrows-date .arrow-icon{
     all: unset;
     display: flex;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1107,20 +1107,10 @@ path{
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 480px) {
     ::-webkit-scrollbar {
         display: flex;
     }
-
-    .calendarHome{
-        display: none;
-    }
-
-    .todayEvents{
-        overflow-y: unset;
-    }
-    
-
 
     .centralHome{
         /* padding: 16px; */
@@ -1155,9 +1145,6 @@ path{
         min-width: 0;
     }
 
-    .show-modal{
-        display: flex;
-    }
 
     .actions{
         gap: 8px;
@@ -1178,6 +1165,36 @@ path{
         display: none;
     }
 
+    .todayEvents{
+        flex: unset;
+    }
+
+    .calendarHome{
+        overflow-y: auto;
+        margin-bottom: 16px;
+        margin-right: 16px;
+    }
+
+}
+
+@media (max-height: 480px){
+    .centralHome{
+        padding: 16px;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendarHome{
+        display: none;
+    }
+
+    .todayEvents{
+        overflow-y: unset;
+    }
+    .show-modal{
+        display: flex;
+    }
 }
 
 @media (max-width: 480px) {

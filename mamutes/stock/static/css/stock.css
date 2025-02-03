@@ -16,22 +16,22 @@
   }
   
   body {
-      line-height: 1.5; / Ajusta o espaçamento entre linhas /
-      text-size-adjust: 100%; / Previne redimensionamento de texto automático em dispositivos móveis /
+      line-height: 1.5;
+      text-size-adjust: 100%;
       background: #F9F9F9;
   }
   
   ul, ol {
-      list-style: none; / Remove as bolinhas e números de listas /
+      list-style: none;
   }
   
   a {
-      text-decoration: none; / Remove sublinhado de links /
-      color: inherit; / Faz os links herdarem a cor do texto ao invés de ter uma cor padrão /
+      text-decoration: none;
+      color: inherit;
   }
   
   img {
-      max-width: 100%; / Garante que imagens não extrapolem o tamanho do contêiner */
+      max-width: 100%;
       height: auto;
   }
   
@@ -643,7 +643,7 @@
     pointer-events: none;
 } */
 
-@media (max-width: 768px){
+@media (max-width: 768px), (max-height: 480px) {
     .headerStock{
         flex-direction: column;
         align-items: flex-start;
@@ -674,7 +674,7 @@
 }
 
 
-@media (max-width: 480px){
+@media (max-width: 480px), (max-height: 480px){
     .tableAllItens{
         height: auto;
     }

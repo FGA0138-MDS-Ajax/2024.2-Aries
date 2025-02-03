@@ -687,7 +687,7 @@ svg{
     }
 
     #paragraph{
-        font-size: 12px;
+        font-size: 14px;
     }
 
     #titleSteps{
@@ -699,7 +699,7 @@ svg{
     }
 
     #warningText{
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .warningIcon{
@@ -744,7 +744,7 @@ svg{
     }
 
     .subtitleBlock{
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .step{
@@ -766,5 +766,6 @@ svg{
 
     .principal{
         gap: 64px;
+        padding-inline: 10%;
     }
 }

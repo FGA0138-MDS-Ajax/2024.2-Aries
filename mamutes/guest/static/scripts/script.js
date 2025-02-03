@@ -3,21 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const balls = document.querySelectorAll('.moving-ball');
 
     balls.forEach((ball, index) => {
-        const group = groups[Math.floor(index / 2)]; // Cada grupo contém 2 bolas
+        const group = groups[Math.floor(index / 2)];
         const groupWidth = group.offsetWidth;
         const groupHeight = group.offsetHeight;
         const ballWidth = ball.offsetWidth;
         const ballHeight = ball.offsetHeight;
 
-        // Posições iniciais aleatórias
         let posX = Math.random() * (groupWidth - ballWidth);
         let posY = Math.random() * (groupHeight - ballHeight);
 
-        // Velocidades aleatórias para cada bola
-        let speedX = Math.random(); // Entre 2 e 8
-        let speedY = Math.random(); // Entre 2 e 8
+        let speedX = Math.random();
+        let speedY = Math.random();
 
-        // Direções aleatórias
         speedX *= Math.random() < 0.5 ? 1 : -1;
         speedY *= Math.random() < 0.5 ? 1 : -1;
 
@@ -25,21 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
             posX += speedX;
             posY += speedY;
 
-            // Refletir nas bordas
             if (posX <= 0 || posX + ballWidth >= groupWidth) {
-                speedX *= -1; // Inverte a direção horizontal
+                speedX *= -1;
             }
             if (posY <= 0 || posY + ballHeight >= groupHeight) {
-                speedY *= -1; // Inverte a direção vertical
+                speedY *= -1;
             }
 
-            // Atualiza a posição da bola
             ball.style.transform = `translate(${posX}px, ${posY}px)`;
 
             requestAnimationFrame(animateBall);
         }
 
-        animateBall(); // Inicia a animação
+        animateBall();
     });
 });
 

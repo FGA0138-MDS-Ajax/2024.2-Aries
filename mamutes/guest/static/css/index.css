@@ -698,7 +698,7 @@ path{
     color: #f9f9f9;
     text-align: center;
     font-family: Inter;
-    font-size: clamp(12px, 1vw, 16px);
+    font-size: clamp(14px, 1vw, 16px);
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 24px */
@@ -862,7 +862,7 @@ path{
     color: #36B5FF;
     text-align: center;
     font-family: Inter;
-    font-size: 9px;
+    font-size: 10px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -895,18 +895,18 @@ path{
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
-    font-weight: 200;
+    font-weight: 400;
     line-height: normal;
 }
 
 .depoimento {
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -1412,7 +1412,7 @@ path{
     leading-trim: both;
     text-edge: cap;
     font-family: Inter;
-    font-size: clamp(12px, 2vw, 14px);
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 150%; /* 21px */
@@ -1535,6 +1535,24 @@ path{
     flex: 1 0 0;
 }
 
+/* .swiperControls{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{
+    all: unset;
+    flex-wrap: nowrap;
+}
+
+.swiper-pagination{
+    position: relative;
+} */
+
+
 
 @media (max-width: 1100px) {
     .img-megafone-advice{
@@ -1543,6 +1561,10 @@ path{
 }
 
 @media (max-width: 768px) {
+    .frase-hero{
+        width: 100%;
+    }
+
     .central-menu{
         display: none;
     }

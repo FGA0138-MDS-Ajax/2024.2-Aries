@@ -545,8 +545,8 @@ input[type="file"] {
   background: #F6F6F6;
   border: none;
   }
-
-@media (max-width: 768px) {
+  
+@media (max-height: 480px){
   .minhaconta-page{
     padding: 40px 48px;
   }
@@ -556,9 +556,17 @@ input[type="file"] {
     overflow-y: auto;
   }
 }
-
-
+  
 @media (max-width: 768px) {
+  .minhaconta-page{
+    padding: 40px 48px;
+  }
+
+  .minhaconta-page{
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
   .org{
     padding-top: 64px;
   }
@@ -578,7 +586,7 @@ input[type="file"] {
   }
 
   .minhaconta-page{
-    padding-block: 16px;
+    padding: 16px;
   }
 
   /* .minhaconta-page{

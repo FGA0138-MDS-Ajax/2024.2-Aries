@@ -144,18 +144,20 @@
                         </p>
                     </div>
                 </div>
-                <div class="carrossel swiper mySwiper">
-                    <div class="imagens-carrossel swiper-wrapper">
-                        <div class="swiper-slide"><img src="{% static 'img/equipe 2024.jpg' %}" alt="Equipe 2024"></div>
-                        <div class="swiper-slide"><img src="{% static 'img/equipe 2022.jpg' %}" alt="Equipe 2022"></div>
-                        <div class="swiper-slide"><img src="{% static 'img/equipe 2019.jpg' %}" alt="Equipe 2019"></div>
-                        <div class="swiper-slide"><img src="{% static 'img/equipe 2018.jpg' %}" alt="Equipe 2018"></div>
-                        <div class="swiper-slide"><img src="{% static 'img/equipe 2017.jpg' %}" alt="Equipe 2017"></div>
-                        <div class="swiper-slide"><img src="{% static 'img/equipe 2016.jpg' %}" alt="Equipe 2016"></div>
-                        <div class="swiper-slide"><img src="{% static 'img/equipe 2015.jpg' %}" alt="Equipe 2015"></div>
-                        <div class="swiper-slide"><img src="{% static 'img/equipe1.jpg' %}" alt="Equipe"></div>
+                <div class="swiperControls">
+                    <div class="carrossel swiper mySwiper">
+                        <div class="imagens-carrossel swiper-wrapper">
+                            <div class="swiper-slide"><img src="{% static 'img/equipe 2024.jpg' %}" alt="Equipe 2024"></div>
+                            <div class="swiper-slide"><img src="{% static 'img/equipe 2022.jpg' %}" alt="Equipe 2022"></div>
+                            <div class="swiper-slide"><img src="{% static 'img/equipe 2019.jpg' %}" alt="Equipe 2019"></div>
+                            <div class="swiper-slide"><img src="{% static 'img/equipe 2018.jpg' %}" alt="Equipe 2018"></div>
+                            <div class="swiper-slide"><img src="{% static 'img/equipe 2017.jpg' %}" alt="Equipe 2017"></div>
+                            <div class="swiper-slide"><img src="{% static 'img/equipe 2016.jpg' %}" alt="Equipe 2016"></div>
+                            <div class="swiper-slide"><img src="{% static 'img/equipe 2015.jpg' %}" alt="Equipe 2015"></div>
+                            <div class="swiper-slide"><img src="{% static 'img/equipe1.jpg' %}" alt="Equipe"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
                     </div>
-                    <div class="swiper-pagination"></div>
                 </div>
 
 
@@ -931,18 +933,18 @@
 
                 <!-- Initialize Swiper -->
     <script>
-                  var swiper = new Swiper(".mySwiper", {
-                    pagination: {
-                      el: ".swiper-pagination",
-                      clickable: true,
-                      dynamicBullets: true,
-                    },
-                    autoplay: {
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    },
-                    loop: true
-                  });
+        var swiper = new Swiper(".mySwiper", {
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            dynamicBullets: true,
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        loop: true
+        });
     </script>
     <script src="{% static 'scripts/index.js' %}"></script>
 {% endblock %}

@@ -328,7 +328,7 @@ input::placeholder{
     letter-spacing: -0.132px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 768px) {
     .centerPost{
         flex-direction: column;
     }

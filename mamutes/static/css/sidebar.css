@@ -202,7 +202,7 @@ body{
     width: 40px;
     height: 40px;
 }
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 480px) {
     .VectorMmts{
         width: 32px;
         height: 32px;

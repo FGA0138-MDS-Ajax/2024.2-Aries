@@ -413,7 +413,7 @@
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 480px) {
     .ImgName > p{
         display: none;
     }
@@ -479,7 +479,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px), (max-height: 480px) {
     .Top{
         padding: 0px 8px;
         height: 48px;
@@ -496,7 +496,7 @@
     }
 
     .NomePag p{
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .NomePag{

@@ -410,7 +410,23 @@ border: none;
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-height: 480px) {
+    .central-login-inputs{
+        gap: 24px;
+        flex-direction: row;
+    }
+
+    .apresentation-texts{
+        justify-content: center;
+        flex: 1 0 0;
+    }
+
+    .form-login{
+        flex: 1 0 0;
+    }
+}
+
+@media (max-width: 768px), (max-height: 480px) {
     .container-ilustration{
         display: none;
     }

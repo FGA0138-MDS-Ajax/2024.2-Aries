@@ -1644,6 +1644,12 @@ input{
   
 }
 
+@media (max-height: 480px) {
+  .tasks-page-main{
+    padding-inline: 24px;
+  }
+}
+
 
 @media (max-width: 768px) {
   .tasks-page-main{

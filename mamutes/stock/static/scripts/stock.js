@@ -1,39 +1,95 @@
+// document.addEventListener("DOMContentLoaded", () => {
+//     document.body.addEventListener("click", (e) => {
+//         const event = e.target;
+
+//         // Verifica se o clique foi fora do "toOpen" ou do "twoButton"
+//         if (!event.closest('.toOpen') && !event.closest('.twoButton')) {
+//             // Fecha todos os "twoButton"
+//             const editAndRemoveAll = document.querySelectorAll(".twoButton");
+//             editAndRemoveAll.forEach(other => {
+//                 other.style.display = "none";
+//             });
+//         }
+
+//         // Lógica para abrir/fechar o modal dentro de "toOpen"
+//         if (event.classList.contains("toOpen")) {
+//             const editAndRemove = event.querySelector(".twoButton");
+
+//             if (editAndRemove) {
+//                 // Fecha todos os "twoButton"
+//                 const editAndRemoveAll = document.querySelectorAll(".twoButton");
+//                 editAndRemoveAll.forEach(other => {
+//                     if (other !== editAndRemove) {
+//                         other.style.display = "none";
+//                     }
+//                 });
+
+//                 // Alterna a visibilidade do "twoButton" clicado
+//                 if (editAndRemove.style.display === "none" || editAndRemove.style.display === "") {
+//                     editAndRemove.style.display = "flex";
+//                 } else {
+//                     editAndRemove.style.display = "none";
+//                 }
+//             }
+//         }
+//     });
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", (e) => {
         const event = e.target;
 
-        // Verifica se o clique foi fora do "toOpen" ou do "twoButton"
         if (!event.closest('.toOpen') && !event.closest('.twoButton')) {
-            // Fecha todos os "twoButton"
-            const editAndRemoveAll = document.querySelectorAll(".twoButton");
-            editAndRemoveAll.forEach(other => {
+            document.querySelectorAll(".twoButton").forEach(other => {
                 other.style.display = "none";
             });
         }
 
-        // Lógica para abrir/fechar o modal dentro de "toOpen"
         if (event.classList.contains("toOpen")) {
             const editAndRemove = event.querySelector(".twoButton");
+            if (!editAndRemove) return;
 
-            if (editAndRemove) {
-                // Fecha todos os "twoButton"
-                const editAndRemoveAll = document.querySelectorAll(".twoButton");
-                editAndRemoveAll.forEach(other => {
-                    if (other !== editAndRemove) {
-                        other.style.display = "none";
-                    }
-                });
-
-                // Alterna a visibilidade do "twoButton" clicado
-                if (editAndRemove.style.display === "none" || editAndRemove.style.display === "") {
-                    editAndRemove.style.display = "flex";
-                } else {
-                    editAndRemove.style.display = "none";
-                }
+            if (editAndRemove.style.display === "flex") {
+                editAndRemove.style.display = "none";
+                return;
             }
+
+            document.querySelectorAll(".twoButton").forEach(other => {
+                if (other !== editAndRemove) {
+                    other.style.display = "none";
+                }
+            });
+
+            editAndRemove.style.visibility = "hidden";
+            editAndRemove.style.display = "flex";
+
+            const centralTable = document.querySelector(".centralTable");
+            const headerStock = document.querySelector(".headerStock");
+            const toOpenRect = event.getBoundingClientRect();
+            const tableRect = centralTable.getBoundingClientRect();
+            const headerRect = headerStock.getBoundingClientRect();
+            const twoButtonHeight = editAndRemove.offsetHeight;
+
+            const spaceBelow = tableRect.bottom - toOpenRect.bottom;
+            const spaceAbove = toOpenRect.top - headerRect.bottom;
+
+            if (spaceBelow >= twoButtonHeight) {
+                editAndRemove.style.top = "100%";
+            } else if (spaceAbove >= twoButtonHeight) {
+                editAndRemove.style.top = `-${twoButtonHeight}px`;
+            } else {
+                editAndRemove.style.top = "0";
+            }
+
+            editAndRemove.style.visibility = "visible";
+        }
+
+        if (event.closest('.twoButton')) {
+            event.closest('.twoButton').style.display = "none";
         }
     });
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const table = document.getElementById("data-table");

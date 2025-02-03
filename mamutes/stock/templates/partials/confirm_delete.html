@@ -15,7 +15,7 @@
         </div> 
     </form>
 
-    <h1 class="titleExclude">Tem certeza que deseja deletar <b>"{{ ferramenta.name }}</b>"?</h1>
+    <h1 class="titleExclude">Tem certeza que deseja deletar <b style="font-weight: 700;">"{{ ferramenta.name }}"</b>?</h1>
 
 
     <form class="formExclude" method="post" action="{% url 'deletar_ferramenta' ferramenta.id %}" style="display: flex; width: 100%;">

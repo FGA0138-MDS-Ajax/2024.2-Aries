@@ -172,7 +172,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 150%;
     letter-spacing: -0.154px;
 }
 
@@ -181,7 +181,7 @@
     color: #1E1E1E;
     text-align: justify;
     font-family: Inter;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
@@ -267,10 +267,17 @@
     flex: 1 0 0;
     border-radius: 16px;
     background: #D6EEFD;
+    font-family: Inter;
+}
+
+.bloco ul{
+    list-style: disc;
 }
 
 .titleBloco{
     text-align: center;
+    font-family: Inter;
+    font-size: 18px;
     
 }
 
@@ -773,6 +780,10 @@
 
     .textBlocoTimeline{
         font-size: 14px;
+    }
+
+    .prinComp{
+        padding-inline: 10%;
     }
 }
 
