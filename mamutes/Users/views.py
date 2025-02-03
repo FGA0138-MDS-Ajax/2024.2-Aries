@@ -23,7 +23,7 @@ def login (request):
             login_django (request, user)
             return redirect ('home')
         else:
-            return render (request, 'login.html')
+            return render (request, 'login.html', {'message': 'Usuário ou senha incorretos. Tente novamente.'})
 
 @login_required
 def logoutUser(request):

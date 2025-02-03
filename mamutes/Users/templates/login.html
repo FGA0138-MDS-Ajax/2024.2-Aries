@@ -11,7 +11,7 @@
     <script src="{% static 'scripts/openModal.js' %}" defer></script>
     <title>Login | Mamutes do Cerrado</title>
 </head>
-<body>
+<body style="position: relative;">
     <section class="container">
         <section class="container-central-login">
                 <a href="{% url 'index' %}">
@@ -76,6 +76,12 @@
             </div>
         </section>
     </section>
+
+    {% if message %}
+        {% include 'partials/_danger-alert.html' %}
+    {% endif %}
+    
 {% include 'recoverAccount.html' %}
+{% block script %}{% endblock %}
 </body>
 </html>

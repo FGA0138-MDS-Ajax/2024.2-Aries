@@ -301,6 +301,7 @@
     align-items: center;
     border-radius: 50%;
     overflow: hidden;
+    outline: 1px solid #e3e3e3;
 }
 
 .ProfilePicture img {

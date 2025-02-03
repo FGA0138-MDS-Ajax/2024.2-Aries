@@ -1,0 +1,89 @@
+{% load static %}
+
+{% block css %}
+<style>
+    .alert-password{
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 0.5px solid rgba(15, 81, 50, 0.14);
+        background: #D1E7DD;
+
+        color: #0F5132;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        position: absolute;
+        z-index: 2;
+        top: 16px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .text-alert-login{
+        display: flex;
+        padding: 16px 24px;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .progress-bar-login{
+        display: flex;
+        width: 0%;
+        height: 4px;
+        align-items: flex-start;
+        border-radius: 16px;
+        background: #87CBAC;
+        animation: expand 5s linear;
+    }
+
+    @keyframes expand {
+    to {
+        width: 100%;
+    }
+    }
+    </style>
+{% endblock css %}
+
+<div class="alert-password" id="alertMessage" role="alert">
+    <div class="text-alert-login">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <g clip-path="url(#clip0_3406_61)">
+              <mask id="mask0_3406_61" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="22" height="22">
+                <path d="M10.9977 20.1678C12.2017 20.1693 13.3942 19.9329 14.5065 19.4721C15.6189 19.0113 16.6292 18.3353 17.4795 17.4829C18.3319 16.6326 19.0079 15.6223 19.4687 14.5099C19.9294 13.3976 20.1659 12.2051 20.1644 11.0011C20.1659 9.79715 19.9294 8.60472 19.4687 7.49237C19.0079 6.38002 18.3319 5.36968 17.4795 4.5194C16.6292 3.66697 15.6189 2.99095 14.5065 2.53019C13.3942 2.06943 12.2017 1.83299 10.9977 1.83448C9.79373 1.83299 8.6013 2.06943 7.48895 2.53019C6.37661 2.99095 5.36627 3.66697 4.51598 4.5194C3.66355 5.36968 2.98754 6.38002 2.52677 7.49237C2.06601 8.60472 1.82958 9.79715 1.83106 11.0011C1.82958 12.2051 2.06601 13.3976 2.52677 14.5099C2.98754 15.6223 3.66355 16.6326 4.51598 17.4829C5.36627 18.3353 6.37661 19.0113 7.48895 19.4721C8.6013 19.9329 9.79373 20.1693 10.9977 20.1678Z" fill="white" stroke="white" stroke-width="1.83333" stroke-linejoin="round"/>
+                <path d="M7.33203 11.001L10.082 13.751L15.582 8.25098" stroke="black" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+              </mask>
+              <g mask="url(#mask0_3406_61)">
+                <path d="M-0.000976562 0.000488281H21.999V22.0005H-0.000976562V0.000488281Z" fill="#0F5132"/>
+              </g>
+            </g>
+            <defs>
+              <clipPath id="clip0_3406_61">
+                <rect width="22" height="22" fill="white"/>
+              </clipPath>
+            </defs>
+        </svg>
+        {{message}}
+    </div>
+    <div class="progress-bar-login"></div>
+</div>
+
+{% block script %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                let alertBox = document.getElementById("alertMessage");
+                if (alertBox) {
+                    alertBox.style.transition = "opacity 0.3s ease";
+                    alertBox.style.opacity = "0";
+                    setTimeout(() => alertBox.remove(), 500);
+                }
+            }, 5000);
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% load static %}
+
+{% block css %}
+<style>
+    .alert-password{
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 0.5px solid rgba(132, 32, 41, 0.14);
+        background: #F8D7DA;
+
+        color: #842029;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        position: absolute;
+        z-index: 2;
+        top: 16px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .text-alert-login{
+        display: flex;
+        padding: 16px 24px;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .progress-bar-login{
+        display: flex;
+        width: 0%;
+        height: 4px;
+        align-items: flex-start;
+        border-radius: 16px;
+        background: #cc4a5743;
+        animation: expand 5s linear;
+    }
+
+    @keyframes expand {
+    to {
+        width: 100%;
+    }
+    }
+    </style>
+{% endblock css %}
+
+<div class="alert-password" id="alertMessage" role="alert">
+    <div class="text-alert-login">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
+            <path d="M12.2071 0.800781L21.4257 16.7673C21.5662 17.0108 21.6402 17.2869 21.6402 17.5681C21.6402 17.8492 21.5662 18.1254 21.4257 18.3688C21.2851 18.6123 21.0829 18.8145 20.8395 18.9551C20.596 19.0956 20.3198 19.1696 20.0387 19.1696H1.60152C1.32039 19.1696 1.04422 19.0956 0.800755 18.9551C0.557292 18.8145 0.35512 18.6123 0.214558 18.3688C0.0739968 18.1254 -1.78547e-06 17.8492 0 17.5681C1.78554e-06 17.2869 0.0740039 17.0108 0.214569 16.7673L9.43316 0.800781C10.0492 -0.266927 11.5899 -0.266927 12.2071 0.800781ZM10.8201 13.4553C10.5369 13.4553 10.2654 13.5678 10.0651 13.768C9.8649 13.9682 9.75241 14.2398 9.75241 14.523C9.75241 14.8061 9.8649 15.0777 10.0651 15.278C10.2654 15.4782 10.5369 15.5907 10.8201 15.5907C11.1033 15.5907 11.3749 15.4782 11.5751 15.278C11.7753 15.0777 11.8878 14.8061 11.8878 14.523C11.8878 14.2398 11.7753 13.9682 11.5751 13.768C11.3749 13.5678 11.1033 13.4553 10.8201 13.4553ZM10.8201 5.9813C10.5586 5.98134 10.3062 6.07735 10.1108 6.25113C9.91533 6.42491 9.79048 6.66437 9.75988 6.92409L9.75241 7.04901V11.3198C9.75271 11.592 9.85691 11.8537 10.0437 12.0516C10.2305 12.2495 10.4859 12.3686 10.7575 12.3845C11.0292 12.4005 11.2967 12.3121 11.5054 12.1374C11.7141 11.9628 11.8482 11.715 11.8804 11.4448L11.8878 11.3198V7.04901C11.8878 6.76584 11.7753 6.49426 11.5751 6.29403C11.3749 6.09379 11.1033 5.9813 10.8201 5.9813Z" fill="#842029"/>
+        </svg>
+        {{message}}
+    </div>
+    <div class="progress-bar-login"></div>
+</div>
+
+{% block script %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                let alertBox = document.getElementById("alertMessage");
+                if (alertBox) {
+                    alertBox.style.transition = "opacity 0.3s ease";
+                    alertBox.style.opacity = "0";
+                    setTimeout(() => alertBox.remove(), 500);
+                }
+            }, 5000);
+        });
+    </script>
+{% endblock %}

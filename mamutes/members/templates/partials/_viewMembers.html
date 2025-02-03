@@ -27,14 +27,13 @@
                 <div class="person-item">
                     <div class="person-data">
                         {% if member.photo %}
-                        <img class="photo-profile" title="{{member.fullname}}" src="data:image/jpeg;base64,{{ member.photo }}" alt="foto de {{member.fullname}}">
+                        <img class="photo-profile" title="{{member.fullname}}" src="{{ member.photo.url }}" alt="foto de {{member.fullname}}">
                         {% else %}
-                        <img class="photo-profile" title="{{member.fullname}}" src="path/to/default-photo.jpg" alt="foto de {{member.fullname}}">
+                        <img class="photo-profile" title="{{member.fullname}}" src="{% static 'img/defaultPicture.jpg' %}" alt="foto de {{member.fullname}}">
                         {% endif %}
                         <div class="person-data-names">
                             <p>@{{member.username}}</p>
                             <p>{{member.fullname}}</p>
-                            <p>{{member.area}}</p>
                         </div>
                     </div>
                     <div class="person-contact">

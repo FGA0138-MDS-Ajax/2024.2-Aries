@@ -133,7 +133,11 @@
 
         <button class="ImgName">
             <div class="ProfilePicture">
-                <img src="{{ user.photo.url }}" width="32" height="32">
+                {% if member.photo %}
+                <img class="photo-profile" src="{{ member.photo.url }}" alt="foto de {{member.fullname}}">
+                {% else %}
+                <img class="photo-profile" src="{% static 'img/defaultPicture.jpg' %}" alt="foto de {{member.fullname}}">
+                {% endif %}
             </div>
             <p>{{ user.first_name_display }}</p>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">

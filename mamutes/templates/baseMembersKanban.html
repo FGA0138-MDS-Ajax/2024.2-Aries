@@ -87,7 +87,11 @@
             <div class="people-meeting btnModalViewMembers" style="padding: 8px; cursor: pointer;">
                 {% for member in members|slice:":5" %}
                 <div style="pointer-events: none;" class="pic-responsible" style="outline-color: #f2f2f2;">
-                <img title="Nome Membro" src="{{ member.photo }}" alt="Responsável" class="photo-view-task">
+                    {% if member.photo %}
+                        <img title="{{ member.fullname }}" src="{{ member.photo.url }}" alt="Responsável" class="photo-view-task">
+                    {% else %}
+                        <img title="{{ member.fullname }}" src="{% static 'img/defaultPicture.jpg' %}" alt="Responsável" class="photo-view-task">
+                    {% endif %}
                 </div>
             {% endfor %}
             {% if members_count > 0 %}
