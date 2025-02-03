@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     if (data.meetings.length > 0) {
                         data.meetings.forEach(meeting => {
+                            console.log(meeting);
                             const meetingDiv = document.createElement("div");
                             meetingDiv.className = "importantEvent";
                             const borderColor = meeting.multiple_teams ? '#0075F6' : userAreaColor;
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="contentImportantEvent">
                                     <h4>${meeting.title}</h4>
                                     <div class="moreInfoEvent">
-                                        <p class="hourEvent">${meeting.time}</p>
+                                        <p class="hourEvent">${meeting.time_begin} - ${meeting.time_end}</p>
                                         <div class="peopleMeeting">
                                             ${meeting.areas.length === 1 && meeting.areas[0].name === "Estabilidade" ? `
                                                 <div class="profilePic" style="background-color: ${meeting.areas[0].color};">

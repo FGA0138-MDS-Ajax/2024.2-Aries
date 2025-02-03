@@ -214,13 +214,13 @@ def kanban_view(request):
             
 
     if area_id:
-        profileFiltered = MembroEquipe.objects.filter(testearea=area_id);
+        profileFiltered = MembroEquipe.objects.filter(areas=area_id);
     else:
         profileFiltered = MembroEquipe.objects.all();
 
     for profile in profileFiltered:
         
-        areas = [area.name for area in profile.testearea.all()]
+        areas = [area.name for area in profile.areas.all()]
         members.append({
             'email': profile.email,
             'fullname': profile.fullname,
@@ -435,7 +435,7 @@ def home(request):
             event.month = None
         
         if event.event_time:
-            event.formatted_time = event.event_time.strftime("%Hh%M")
+            event.formatted_time = event.event_time.strftime("%H:%M")
         else:
             event.formatted_time = None
 
@@ -468,7 +468,6 @@ def home(request):
     }
 
     return render(request, 'home.html', context)
-
 
 def get_calendar_data(year, month, now, user):
     cal = calendar.Calendar(firstweekday=6) 
@@ -519,7 +518,8 @@ def get_meeting(meetings):
         areas_data = [{"name": area.name, "color": area.color} for area in meeting.areas.all()]
         meetings_data.append({
             "title": meeting.title,
-            "time": localtime(meeting.meeting_date).strftime('%Hh%M'),
+            "time_begin": meeting.meeting_time_begin.strftime('%H:%M') if meeting.meeting_time_begin else None,
+            "time_end": meeting.meeting_time_end.strftime('%H:%M') if meeting.meeting_time_end else None,
             "multiple_teams": multiple_teams,
             "areas": areas_data,
         })
@@ -548,7 +548,7 @@ def get_events_tasks(request):
         meetings = filters(Meeting, 'meeting_date', year, month, day).filter(areas__membros=request.user).distinct()
 
         events_data = [{"title": event.title, "time": event.event_time.strftime('%Hh%M') if event.event_time else None} for event in events]
-        tasks_data = [{"title": task.title, "time": localtime(make_aware(datetime.combine(task.Prazo, datetime.min.time()))).strftime('%Hh%M')} for task in tasks]
+        tasks_data = [{"title": task.title, "time": localtime(make_aware(datetime.combine(task.Prazo, datetime.min.time()))).strftime('%Hh%M') if task.Prazo and isinstance(task.Prazo, datetime) else None} for task in tasks]
         meetings_data = get_meeting(meetings)
 
         return JsonResponse({"events": events_data, "tasks": tasks_data, "meetings": meetings_data})
@@ -608,13 +608,13 @@ def taskBoard(request):
             
 
     if area_id:
-        profileFiltered = MembroEquipe.objects.filter(testearea=area_id);
+        profileFiltered = MembroEquipe.objects.filter(areas=area_id);
     else:
         profileFiltered = MembroEquipe.objects.all();
 
     for profile in profileFiltered:
         
-        areas = [area.name for area in profile.testearea.all()]
+        areas = [area.name for area in profile.areas.all()]
         members.append({
             'email': profile.email,
             'fullname': profile.fullname,
