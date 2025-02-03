@@ -19,6 +19,7 @@ document.getElementById("toggleButton").addEventListener("click", function() {
         userEdit.style.display = "flex";
     }
   });
+
   
   // Selecionar os elementos
 const currentPassword = document.getElementById("currentPassword");

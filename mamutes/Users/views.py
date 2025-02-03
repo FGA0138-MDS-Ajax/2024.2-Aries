@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import user_passes_test, login_required
-from django.contrib.auth import authenticate,logout, login as login_django
+from django.contrib.auth import authenticate,  update_session_auth_hash, logout, login as login_django
 from .models import * 
 from .forms import *
 from .models import MembroEquipe
@@ -73,6 +73,33 @@ def register(request):
     
        
     return render(request, 'register.html', {'areas': areas, 'functions': functions})
+
+
+def configPassword(request):
+    if request.method == 'POST':
+        pw_actually = request.POST.get('pw_actually')
+        pw1_new = request.POST.get('pw1_new')
+        pw2_new = request.POST.get('pw2_new')
+
+        if pw_actually and pw1_new and pw2_new:
+            
+            user = MembroEquipe.objects.get(username=request.user.username)
+            if user.check_password(pw_actually):  
+                if pw1_new == pw2_new:
+                    
+                    user.set_password(pw1_new)
+                    user.save()
+                    update_session_auth_hash(request, user) 
+                    print('Senha alterada com sucesso!')
+                else:
+                    print( 'As novas senhas não coincidem!')
+            else:
+                print( 'A senha atual está incorreta!')
+        else:
+            print( 'Por favor, preencha todos os campos!')
+
+        return redirect('pagConfig')  # Redireciona para a página de configuração
+    return redirect('pagConfig')  # Redireciona caso o método não seja POST
 
 def recoverAccount(request):
     if request.method == 'POST':
