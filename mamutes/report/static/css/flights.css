@@ -464,6 +464,7 @@ path{
     border-radius: 8px;
     background: #FEFEFE;
     box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
 }
 .IdText{
     align-self: stretch;
