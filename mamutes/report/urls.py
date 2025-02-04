@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import membros_por_area
+from .views import membros_por_area,delete_meeting
 
 urlpatterns = [
     path('meetingsquadro/', views.meetings, name='meetingsquadro'), # Listar todas as reuniões
@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:id>/edit/', views.flight_edit, name='flight_edit'), # Editar um voo
     path('<int:id>/delete/', views.flight_delete, name='flight_delete'), # Deletar um voo
     path('api/membros/<int:area_id>/', membros_por_area, name='membros_por_area'),
+    path('delete_meeting/<int:meeting_id>/', delete_meeting, name='delete_meeting'),
 ]

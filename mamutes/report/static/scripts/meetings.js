@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Verifica e loga os dados do dataset
         console.log('Card Dataset:', card.dataset);
 
+        const id = card.dataset.id;
         const title = card.dataset.title;
         const description = card.dataset.description;
         const meetingDate = card.dataset.meetingDate;
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const other = card.dataset.otherParticipants;
 
         // Atualiza os elementos do modal
+        document.getElementById('modalId').innerText = id || 'Sem id';
         document.getElementById('modalTitle').innerText = title || 'Sem Título';
         document.getElementById('modalDescription').innerText = description|| 'Sem Descrição';
         document.getElementById('modalDate').innerText = meetingDate || '';

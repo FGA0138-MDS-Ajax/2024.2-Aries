@@ -80,3 +80,10 @@ def membros_por_area(request, area_id):
     ]
 
     return JsonResponse({"membros": membros_data})
+
+def delete_meeting(request, meeting_id):
+    if request.method == "POST":
+        meeting = get_object_or_404(Meeting, id=meeting_id)
+        meeting.delete()
+        return JsonResponse({"success": True})
+    return JsonResponse({"success": False}, status=400)
