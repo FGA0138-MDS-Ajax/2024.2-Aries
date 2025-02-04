@@ -190,30 +190,25 @@
 
 
 const openModalBtns = document.querySelectorAll(".flightCard");
-const modalViewFlights = document.querySelectorAll(".modalEditFlight"); // Corrigido para selecionar todos os modais
 
 openModalBtns.forEach((btn) => {
-    const modal = btn.querySelector(".modalEditFlight"); // Pegando o modal dentro do flightCard
+    const modal = btn.querySelector(".modalEditFlight");
 
-    if (!modal) return; // Se não houver modal, pula para o próximo
+    if (!modal) return;
 
+    // Evento para abrir o modal
     btn.addEventListener("click", function () {
         modal.style.display = "block";
     });
 
-    const closeModalViewBtns = modal.querySelectorAll(".closeModalBtnEditFlight"); // Pegando os botões de fechar dentro do modal
-    console.log(closeModalViewBtns)
+    const closeModalViewBtns = modal.querySelectorAll(".closeModalBtnEditFlight");
+
     closeModalViewBtns.forEach((closeBtn) => {
-        closeBtn.addEventListener("click", (event)=> {
-            alert("fecha poha")
-            const target = event.target;
-            const modalOri = target.closest('.modalEditFlight');
-
-            if(modalOri.style.display == "block"){
-                modalOri.style.display = "none"; // Fecha apenas o modal correspondente
-            }
-
+        closeBtn.addEventListener("click", (event) => {
+            event.stopPropagation(); // Impede que o clique se propague para o flightCard
+            modal.style.display = "none"; // Fecha o modal
         });
     });
 });
+
         
