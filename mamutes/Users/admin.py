@@ -13,12 +13,12 @@ class MembroEquipeAdmin(UserAdmin):
     ordering = ('username',)
 
     fieldsets = (
-        (None, {'fields': ('username', 'fullname', 'phone', 'email', 'areas','testearea', 'functions')}),
+        (None, {'fields': ('username', 'fullname', 'phone', 'email', 'areas', 'functions')}),
     )
 
     add_fieldsets = (
         (None, {
-            'fields': ('username', 'fullname', 'phone', 'email', 'password1', 'password2','testearea', 'areas', 'functions')
+            'fields': ('username', 'fullname', 'phone', 'email', 'password1', 'password2', 'areas', 'functions')
         }),
     )
 

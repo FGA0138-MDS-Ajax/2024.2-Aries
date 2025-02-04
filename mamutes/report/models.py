@@ -60,7 +60,7 @@ class Meeting(models.Model):
     is_remote = models.BooleanField(default=False)
     link = models.URLField(blank=True, null=False)
     other_participants = models.TextField(blank=True, null=True)
-    link_pauta = models.URLField(blank=True, null=True)
+    pauta = models.CharField(blank=True, null=True, max_length=255)
     areas = models.ManyToManyField(Area)  
 
     def get_participants(self):
