@@ -185,6 +185,30 @@
 
 }
 
+.personMeeting {
+    display: flex;             /* Alinha as imagens em linha */
+    align-items: center;       /* Centraliza verticalmente as imagens */
+  }
+.responsible-photo {
+    width: 35px;               /* Tamanho da imagem */
+    height: 35px;
+    border-radius: 50%;        /* Torna a imagem redonda */
+    object-fit: cover;         /* Mantém a proporção da imagem, sem distorção */
+    border: 3px solid #fff;    /* Borda branca para destaque */ /* Sombra suave */
+    margin-left: -20px;        /* Efeito de sobreposição */
+    position: relative;        /* Permite o uso de z-index, se necessário */
+    z-index: 1;
+  }
+  
+  /* Garante que a primeira imagem não tenha margem negativa */
+  .personMeeting img:first-child {
+    margin-left: 0;
+  }
+  .responsible-photo:hover {
+    transform: scale(1.4); /* Aumenta 20% */
+    z-index: 999;          /* Coloca a imagem em primeiro plano */
+  }
+
 .personImg {
     display: flex;
     width: 20px;

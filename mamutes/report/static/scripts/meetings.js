@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     meetingCards.forEach(card => {
     card.addEventListener('click', function(e) {
         e.preventDefault();
-        carregarMembrosPorArea(15);
+        
         // Verifica e loga os dados do dataset
         console.log('Card Dataset:', card.dataset);
 
@@ -58,6 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const areasHTML = card.querySelector('.teamsMeeting').innerHTML;
         document.getElementById('uniqueModalAreas').innerHTML = areasHTML;
+
+        const personHTML = card.querySelector('.personMeeting').innerHTML;
+        document.getElementById('uniqueModalPerson').innerHTML = personHTML;
         // Exibe o modal
         modalcard.style.display = 'flex';
     });
@@ -96,29 +99,3 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function carregarMembrosPorArea(areaId) {
-    fetch(`/api/membros/${areaId}/`)
-        .then(response => response.json())
-        .then(data => {
-            const membrosContainer = document.getElementById("membrosArea");
-            membrosContainer.innerHTML = ""; // Limpa antes de exibir novos dados
-
-            if (data.membros.length === 0) {
-                membrosContainer.innerHTML = "<p>Nenhum membro encontrado.</p>";
-                return;
-            }
-
-            data.membros.forEach(membro => {
-                const membroDiv = document.createElement("div");
-                membroDiv.classList.add("membro-item");
-
-                membroDiv.innerHTML = `
-                    <img src="${membro.photo || 'caminho/padrao/avatar.png'}" class="membro-avatar">
-                    <p class="membro-nome">${membro.fullname}</p>
-                `;
-
-                membrosContainer.appendChild(membroDiv);
-            });
-        })
-        .catch(error => console.error("Erro ao carregar membros:", error));
-}

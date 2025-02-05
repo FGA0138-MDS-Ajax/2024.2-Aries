@@ -1,7 +1,8 @@
 from django.http import JsonResponse
+import base64
 from django.shortcuts import render, redirect, get_object_or_404
 
-from .models import FlightLog,Meeting,Area
+from .models import FlightLog,Meeting,Area,MembroEquipe
 from .forms import FlightForm,MeetingsForm
 from django.contrib.auth.decorators import login_required
 
@@ -41,23 +42,73 @@ def flight_delete(request, id):
         return redirect('flight_list')
     return render(request, 'report/flight_confirm_delete.html', {'flight': FlightLog})
 
+def image_to_base64(image):
+    """
+    Converte a imagem do campo ImageField para uma string base64.
+    Lida tanto com arquivos de imagem quanto com dados binários.
+    """
+    if isinstance(image, bytes):  # Se image já for um objeto de bytes
+        return base64.b64encode(image).decode('utf-8')
+    
+    if image:
+        with open(image.path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode('utf-8')
 @login_required
 def meetings(request):
-    meetings = Meeting.objects.all() 
+    profiles = MembroEquipe.objects.all()
+    meetings = Meeting.objects.all()
+    items = []
+    for meeting in meetings:
+        responsible_profiles = meeting.responsible.all()
+        responsible_photos = []
+        
+        for resp in responsible_profiles:
+            if resp.photo:
+                responsible_photos.append(image_to_base64(resp.photo))
+            else:
+                responsible_photos.append(None)
+        pair_r_p = list(zip(meeting.get_responsibles(), responsible_photos))
+        meeting.responsibles_list = pair_r_p
+    print(meetings)
+    for profile in profiles:
+            if profile.photo:
+                profile.photo_base64 = image_to_base64(profile.photo)
+            else:  
+                profile.photo_base64 = None
     if request.method == 'POST':
         post_data = request.POST.copy()  # Cria uma cópia dos dados para modificar
-        post_data.setlist("areas", request.POST.get("areas", "").split(","))  # Converte para lista
 
+        # Converter os IDs de "responsibles" para uma lista
+        responsibles_ids = post_data.get("responsibles", "")
+        if responsibles_ids:  # Se não estiver vazio
+            post_data.setlist("responsible", responsibles_ids.split(","))  # Ajusta para ManyToManyField
+
+        # Converter os IDs de "areas" para lista (caso já existisse no código)
+        post_data.setlist("areas", post_data.get("areas", "").split(","))
+
+        # Criar e validar o formulário
         form = MeetingsForm(post_data)
         print(form.is_valid())
+
         if form.is_valid():
-            form.save()
+            meeting = form.save(commit=False)  # Salva sem ManyToMany
+            meeting.save()  # Primeiro salva a instância
+
+            # Adiciona os relacionamentos ManyToMany manualmente
+            meeting.responsible.set(post_data.getlist("responsible"))  
+            meeting.areas.set(post_data.getlist("areas"))
+
             return redirect('meetingsquadro')
-    
     else:
         form = MeetingsForm()
-    areas = Area.objects.all() 
-    return render(request, 'meetings.html',{'form': form,'meetings': meetings,"areas": areas})
+    areas = Area.objects.all()
+    
+    return render(request, 'meetings.html',
+    {'form': form,
+     'items': items,
+     'meetings': meetings,
+     "areas": areas,
+     "profiles": profiles,})
 
 def flights(request):
     return render(request, 'flights.html')

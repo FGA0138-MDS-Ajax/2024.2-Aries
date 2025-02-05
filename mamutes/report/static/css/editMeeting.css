@@ -62,6 +62,27 @@
   background: #0075F6;
 }
 
+#uniqueModalPerson {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+/* Estilos para as bolinhas dentro desse container */
+#uniqueModalPerson .personImg {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  /* A cor de fundo pode ser definida dinamicamente, mas se quiser um padrão, pode definir aqui: */
+  background: #0075F6;
+}
+
 .membros-container {
   display: flex;
   flex-wrap: wrap;

@@ -62,12 +62,13 @@ class Meeting(models.Model):
     other_participants = models.TextField(blank=True, null=True)
     pauta = models.CharField(blank=True, null=True, max_length=255)
     areas = models.ManyToManyField(Area)  
-
-    def get_participants(self):
-        participants = MembroEquipe.objects.none()
-        for area in self.areas.all():
-            participants = participants | area.membroequipe_set.all()
-        return participants.distinct()
+    responsible = models.ManyToManyField(MembroEquipe)
+     
+    def get_responsibles(self):
+        """
+        Retorna uma lista com os nomes de todos os responsáveis.
+        """
+        return [responsible.fullname for responsible in self.responsible.all()]
 
     def __str__(self):
         return f"Reunião: {self.title} - {self.meeting_date.strftime('%d/%m/%Y %H:%M')} - Áreas: {', '.join([area.name for area in self.areas.all()])}"

@@ -43,6 +43,14 @@
                 {% include 'area_badges.html' with areas=meeting.areas.all %}
             </div>
         </div>
+        <div class="teams"> <!--pegar classe avatars -->
+            <div class="personMeeting" style="display: none;">
+                {% for responsible in meeting.responsibles_list %}
+                    <img title="{{ responsible.0 }}" src="data:image/jpeg;base64,{{ responsible.1 }}" alt="Responsável" class="responsible-photo">
+                {% endfor %}
+            </div>
+            
+        </div>
         <button class="saveButton" type="submit">
             Registrar ata
         </button>
