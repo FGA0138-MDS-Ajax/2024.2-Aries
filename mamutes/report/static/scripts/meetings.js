@@ -76,18 +76,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     });
 
-    const openModalFilterBtn = document.getElementById("openModalFilterBtn"); // js do modal filtro
+    const openModalFilterBtn = document.getElementById("openModalFilterBtn");
     const closeModalFilterBtn = document.getElementById("closeModalFilterBtn");
     const modalFilter = document.getElementById("modalFilter");
 
+    const applyFiltersBtn = document.getElementById("applyFilters");
+    const resetFiltersBtn = document.getElementById("resetFilters");
+    const checkboxes = document.querySelectorAll(".team-checkbox");
+
     openModalFilterBtn.addEventListener("click", function (event) {
         event.preventDefault();
-        // console.log("abrindo o modal");
         modalFilter.style.display = "flex";
     });
 
     closeModalFilterBtn.addEventListener("click", function () {
-        // console.log("fechando o modal");
         modalFilter.style.display = "none";
     });
 
@@ -95,6 +97,42 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target === modalFilter) {
             modalFilter.style.display = "none";
         }
+    });
+
+    applyFiltersBtn.addEventListener("click", function (event) {
+        event.preventDefault(); 
+
+        let selectedAreas = [];
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedAreas.push(checkbox.value);
+            }
+        });
+
+        if (selectedAreas.length === 0) {
+            meetingCards.forEach(card => card.style.display = "block");
+            modalFilter.style.display = "none"; 
+            return;
+        }
+
+        meetingCards.forEach(card => {
+            let cardAreas = card.getAttribute("data-areas").slice(0, -1).split(",");
+
+            if (cardAreas.some(area => selectedAreas.includes(area))) {
+                card.style.display = "block"; 
+            } else {
+                card.style.display = "none"; 
+            }
+        });
+
+        modalFilter.style.display = "none"; 
+    });
+
+    resetFiltersBtn.addEventListener("click", function (event) {
+        event.preventDefault(); 
+        checkboxes.forEach(checkbox => checkbox.checked = false); 
+        meetingCards.forEach(card => card.style.display = "block"); 
+        modalFilter.style.display = "none"; 
     });
 });
 

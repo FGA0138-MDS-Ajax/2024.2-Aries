@@ -11,8 +11,8 @@
     data-link="{{ meeting.link }}"
     data-link-pauta="{{ meeting.link_pauta }}"
     data-other-participants="{{ meeting.other_participants }}"
-    data-areas="{{ meeting.areas.all }}">
-    <div class="tremDeCor"></div>
+    data-areas="{% for area in meeting.areas.all %}{{ area.id }},{% endfor %}">
+    <div class="tremDeCor" style="background-color: {% if meeting.areas.count > 1 %}#0075F6{% else %}{{ meeting.areas.first.color }}{% endif %};"></div>
     <div class="mainCard">
         <div class="headerCardMeeting">
             <div class="idAction">

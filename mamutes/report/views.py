@@ -58,6 +58,13 @@ def meetings(request):
     profiles = MembroEquipe.objects.all()
     meetings = Meeting.objects.all()
     items = []
+
+    areas = Area.objects.all()
+    areas_select = request.GET.getlist("areas", [])
+
+    if areas_select:
+        meetings = meetings.filter(areas__id__in=areas_select).distinct()
+
     for meeting in meetings:
         responsible_profiles = meeting.responsible.all()
         responsible_photos = []
@@ -69,7 +76,9 @@ def meetings(request):
                 responsible_photos.append(None)
         pair_r_p = list(zip(meeting.get_responsibles(), responsible_photos))
         meeting.responsibles_list = pair_r_p
+
     print(meetings)
+    
     for profile in profiles:
             if profile.photo:
                 profile.photo_base64 = image_to_base64(profile.photo)
@@ -101,13 +110,13 @@ def meetings(request):
             return redirect('meetingsquadro')
     else:
         form = MeetingsForm()
-    areas = Area.objects.all()
     
     return render(request, 'meetings.html',
     {'form': form,
      'items': items,
      'meetings': meetings,
      "areas": areas,
+     "areas_select": areas_select,
      "profiles": profiles,})
 
 def flights(request):

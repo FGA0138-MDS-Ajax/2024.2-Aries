@@ -31,35 +31,29 @@
                         </div>
                     </div>
 
-                    <div class="ata-box">
+                    {% comment %} <div class="ata-box">
                         <label class="ata-title">Período</label>
                         <div class="period-box">
                             <label for="" class="period-content">Inserir input de calendário com período</label>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
 
                     <div class="ata-box">
                         <label class="ata-title">Times participantes</label>
                         <div style="display: flex;flex-direction: column; justify-content: flex-end;">
+                            {% for area in areas %}
                             <label class="reuniao-online" style="gap: 4px;">
-                                <input type="checkbox" class="checkbox-subtask">
-                                <span class="ata-content">Adm</span>
+                                <input type="checkbox" class="checkbox-subtask team-checkbox" name="areas" value="{{ area.id }}"
+                                {% if area.id|stringformat:"s" in selected_areas %}checked{% endif %}>
+                                <span class="ata-content"> {{ area.name }} </span>
                             </label>
-                            <label class="reuniao-online" style="gap: 4px;">
-                                <input type="checkbox" class="checkbox-subtask">
-                                <span class="ata-content">Adm</span>
-                            </label>
-                            
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
                 <div class="botoes">
-                    <div class="redefinirBtn">
-                        <span>Redefinir</span>
-                    </div>
-                    <div class="aplicarBtn">
-                        <span>Aplicar</span>
-                    </div>
+                    <button id="resetFilters" class="redefinirBtn">Redefinir</button>
+                    <button id="applyFilters" class="aplicarBtn">Aplicar</button>
                 </div>
             </form>     
     </div>
