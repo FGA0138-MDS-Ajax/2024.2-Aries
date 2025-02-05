@@ -59,6 +59,12 @@ def meetings(request):
     meetings = Meeting.objects.all()
     items = []
 
+    order = request.GET.get("order", "recentes")
+    if order == "recentes":
+        meetings = meetings.order_by("-meeting_date") 
+    elif order == "antigos":
+        meetings = meetings.order_by("meeting_date")
+
     areas = Area.objects.all()
     areas_select = request.GET.getlist("areas", [])
 
@@ -78,7 +84,7 @@ def meetings(request):
         meeting.responsibles_list = pair_r_p
 
     print(meetings)
-    
+
     for profile in profiles:
             if profile.photo:
                 profile.photo_base64 = image_to_base64(profile.photo)
@@ -117,6 +123,7 @@ def meetings(request):
      'meetings': meetings,
      "areas": areas,
      "areas_select": areas_select,
+     "order": order,
      "profiles": profiles,})
 
 def flights(request):
