@@ -56,6 +56,7 @@ path{
     gap: 24px;
     flex: 1 0 0;
     align-self: stretch;
+    overflow-y: auto;
 }
 .header{
     display: flex;
@@ -355,6 +356,7 @@ path{
 }
 .cards{
     display: flex;
+    min-width: 720px;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
