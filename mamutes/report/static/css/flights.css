@@ -211,6 +211,17 @@ path{
     font-weight: 600;
     line-height: normal;
 }
+.textInfoDetails{
+    align-self: stretch;
+    color: #1E1E1E;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
 .detailsIcon2{
     display: flex;
     width: 40px;
@@ -449,7 +460,7 @@ path{
 }
 .flightCards{
     display: flex;
-    min-width: 504px;
+    /* min-width: 504px; */
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
@@ -512,6 +523,7 @@ path{
     justify-content: center;
     align-items: center;
     border-radius: 40px;
+    border: 1px solid #FEFEFE;
 }
 .profPicture{
     display: flex;
@@ -573,22 +585,6 @@ path{
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    cursor: pointer;
-}
-.lineActions{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.dotsButton{
-    display: flex;
-    width: 20px;
-    height: 20px;
-    padding: 9px 4px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
     cursor: pointer;
 }
 .errorIcon{
