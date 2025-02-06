@@ -133,8 +133,8 @@
 
         <button class="ImgName">
             <div class="ProfilePicture">
-                {% if member.photo %}
-                <img class="photo-profile" src="{{ member.photo.url }}" alt="foto de {{member.fullname}}">
+                {% if user.photo %}
+                <img class="photo-profile" src="{{ user.photo.url }}" alt="foto de {{member.fullname}}">
                 {% else %}
                 <img class="photo-profile" src="{% static 'img/defaultPicture.jpg' %}" alt="foto de {{member.fullname}}">
                 {% endif %}

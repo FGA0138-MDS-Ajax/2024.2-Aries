@@ -102,6 +102,7 @@ path{
     gap: 24px;
     align-self: stretch;
     padding-inline: 32px;
+    padding-bottom: 8px
 }
 .presentSearch h1{
     color: #1E1E1E;
