@@ -114,10 +114,10 @@
 
 ### `tests_views.py`
 
-| **Teste**                   | **Descrição**                                                                                       | **Resultado Esperado**                                                                                                                                    |
-|-----------------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **test_index_view**          | Testa se a view 'index' renderiza o template correto.                                               | A resposta deve ter o status code 200 e o template `index.html` deve ser usado.                                                                         |
-| **test_competition_view**    | Testa se a view 'competition' renderiza o template correto.                                          | A resposta deve ter o status code 200 e o template `comp.html` deve ser usado.                                                                          |
+| **Teste**                   | **Descrição**                                                 | **Resultado Esperado**     |
+|-----------------------------|---------------------------------------------------------------|----------------------------|
+| **test_index_view**          | Testa se a view 'index' renderiza o template correto.        | A resposta deve ter o status code 200 e o template `index.html` deve ser usado. |
+| **test_competition_view**    | Testa se a view 'competition' renderiza o template correto.                                          | A resposta deve ter o status code 200 e o template `comp.html` deve ser usado.  |                                                                |
 
 ### `Tests_models.py`
 
@@ -125,3 +125,57 @@
 |-----------------------------|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | **test_create_admission_state** | Testa a criação de um novo `AdmissionState`.                                                         | O estado de admissão deve ser criado corretamente, e o valor de `is_open` deve ser `True`.                      |
 | **test_default_admission_state** | Testa se o valor default do campo `is_open` em `AdmissionState` é `True`.                           | O estado de admissão deve ser criado com o valor padrão `is_open=True`.                                          |
+
+
+## APP: MEMBERS
+
+### `tests_views.py`
+
+| Teste                              | Descrição                                                        | Resultado Esperado |
+|------------------------------------|----------------------------------------------------------------|------------------------------|
+| test_create_task_view              | Testa a criação de uma nova tarefa via requisição POST.        | Retorna status 200 e verifica se a tarefa foi criada corretamente. |
+| test_delete_task_view              | Testa a exclusão de uma tarefa via requisição POST.            | Retorna status 302 (redirect) após a exclusão bem-sucedida da tarefa. |
+| test_edit_task_view                | Testa a edição de uma tarefa existente via requisição POST.    | Retorna status 302 (redirect) após a atualização bem-sucedida da tarefa. |
+| test_kanban_view                   | Testa o acesso à visualização do Kanban.                       | Retorna status 302 (redirect), possivelmente por exigir autenticação. |
+| test_create_post_or_event_view     | Testa a criação de um post ou evento via requisição POST.      | Retorna status 302 (redirect) indicando que a criação foi processada com sucesso. |
+| test_delete_announcement_view      | Testa a exclusão de um anúncio/post via requisição POST.       | Retorna status 302 (redirect) após a exclusão bem-sucedida do post. |
+| test_delete_event_view             | Testa a exclusão de um evento via requisição POST.             | Retorna status 302 (redirect) após a exclusão bem-sucedida do evento. |
+| test_task_board_view               | Testa o acesso ao quadro de tarefas.                           | Retorna status 200, indicando que a página foi carregada corretamente. |
+| test_profile_list_view (comentado) | Testa a listagem de perfis (atualmente comentado).             | Retorna status 200, indicando que a página de listagem de perfis foi carregada corretamente. |
+
+
+
+### `Tests_models.py`
+
+| Teste                   | Descrição                                                       | Resultado Esperado |
+|-------------------------|-----------------------------------------------------------------|------------------------------|
+| test_task_creation      | Testa a criação de uma tarefa e verifica seus atributos.       | O título deve ser "Test Task", o status "Pendente" e a tarefa deve existir no banco de dados. |
+| test_event_creation     | Testa a criação de um evento e verifica sua associação.        | O título deve ser "Test Event", a descrição "Event Description" e ele deve estar corretamente associado ao membro "Test Member". |
+| test_post_creation      | Testa a criação de um post e verifica sua associação.          | O título deve ser "Test Post", a descrição "Post Description" e ele deve estar corretamente associado ao membro "Test Member". |
+| test_subtask_creation   | Testa a criação de uma subtarefa e verifica seus atributos.    | A descrição deve ser "Test Subtask", o status "done" deve ser falso e a subtarefa deve estar vinculada à tarefa "Test Task". |
+| test_column_creation    | Testa a criação de uma coluna e verifica seu nome.             | O nome da coluna deve ser "Test Column" e ela deve existir no banco de dados. |
+
+
+
+### `tests_forms.py`
+
+| **Nome do Teste**             | **Descrição**                                                                                           | **Resultado Esperado**                                                                                                                                      |
+|-------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `test_subtask_form_valid`      | Testa se o formulário `SubtaskForm` é válido quando os dados fornecidos estão corretos. O teste verifica se o campo de descrição está preenchido corretamente e se a opção de tarefa concluída (done) é corretamente configurada.  | O formulário deve ser válido.   |
+| `test_post_form_valid`         | Testa se o formulário `PostForm` é válido quando os dados fornecidos estão corretos. O teste verifica se o título e a descrição do post são preenchidos corretamente. | O formulário deve ser válido.                                                                |
+| `test_task_form_valid`         | Testa se o formulário `TaskForm` é válido quando os dados fornecidos estão corretos. O teste inclui a verificação dos campos título, descrição, status, datas de conclusão e prazo, além da relação com o responsável pela tarefa.  | O formulário deve ser válido.  |
+| `test_event_form_valid`        | Testa se o formulário `EventForm` é válido quando os dados fornecidos estão corretos. O teste verifica se o título, descrição e outros dados relevantes para um evento estão preenchidos corretamente. | O formulário deve ser válido.                                |
+| `test_meeting_form_valid`      | Testa se o formulário `MeetingForm` é válido quando os dados fornecidos estão corretos. O teste verifica se os dados da reunião, como título, descrição, data e áreas associadas, são corretamente fornecidos e válidos. | O formulário deve ser válido.              |
+
+
+
+### `Tests_urls.py`
+
+| Teste                              | Descrição                                                         | Resultado Esperado                                                                                                                           |
+|------------------------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| test_kanban_url_resolves           | Testa se a URL nomeada 'kanban' está configurada corretamente.    | A função `reverse('kanban')` deve gerar a URL correta e `resolve(url).url_name` deve retornar 'kanban'.                                      |
+| test_update_task_status_url_resolves | Testa se a URL 'update_task_status' está configurada corretamente. | A função `reverse('update_task_status', args=[1])` deve gerar a URL correta e `resolve(url).url_name` deve retornar 'update_task_status'. |
+| test_profile_list_url_resolves     | Testa se a URL 'profile_list' está configurada corretamente.      | A função `reverse('profile_list')` deve gerar a URL correta e `resolve(url).url_name` deve retornar 'profile_list'. |
+| test_delete_announcement_url_resolves | Testa se a URL 'delete_announcement' está configurada corretamente. | A função `reverse('delete_announcement', args=[1])` deve gerar a URL correta e `resolve(url).url_name` deve retornar 'delete_announcement'. |
+| test_delete_event_url_resolves     | Testa se a URL 'delete_event' está configurada corretamente.      | A função `reverse('delete_event', args=[1])` deve gerar a URL correta e `resolve(url).url_name` deve retornar 'delete_event'. |
+| test_task_board_url_resolves       | Testa se a URL 'taskBoard' está configurada corretamente.         | A função `reverse('taskBoard')` deve gerar a URL correta e `resolve(url).url_name` deve retornar 'taskBoard'. |

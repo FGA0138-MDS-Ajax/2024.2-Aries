@@ -46,3 +46,13 @@
 | **test_admission_view_existing_state**              | Testa a visualização de um estado de admissão já existente.                                                        | A resposta deve ser 200, e a página deve conter o link de admissão "http://example.com".                                                        |
 | **test_admission_state_model_str**                  | Testa a representação em string do modelo `AdmissionState`.                                                         | A representação deve ser "Aberto" quando `is_open` for `True`, e "Fechado" quando `is_open` for `False`.                                         |
 | **test_admin_admission_state_display**              | Testa a exibição do link de admissão no modelo `AdmissionState`.                                                    | O estado de admissão recuperado deve ter o link "http://example.com".                                                                            |
+
+
+## APP MEMBERS
+
+| **Nome do Teste**             | **Descrição**                                                                                                           | **Resultado Esperado**                             |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| `test_create_task`             | Testa a criação de uma tarefa usando o formulário `TaskForm`. Verifica se o formulário é válido e se a tarefa criada tem o título correto e está associada ao membro responsável. | O formulário deve ser válido e a tarefa criada deve ter o título "Nova Tarefa" e o membro responsável associado. |
+| `test_create_event`            | Testa a criação de um evento usando o formulário `EventForm`. Verifica se o formulário é válido, salva o evento corretamente e associa o evento ao membro. | O formulário deve ser válido e o evento criado deve ter o título "Novo Evento" e o membro associado. |
+| `test_task_view`               | Testa a view `taskBoard`. Verifica se ela responde corretamente (status 200) e se contém o nome da tarefa criada.  | A view deve responder com status 200 e exibir a tarefa "Teste". |
+| `test_event_view`              | Testa a view `home`. Verifica se ela responde corretamente (status 200) e se contém o título do evento criado. | A view deve responder com status 200 e exibir o evento "Evento Teste". |
