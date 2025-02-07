@@ -4,6 +4,9 @@ from .models import  Minutes
 from .models import  AccidentLog
 from .models import  Meeting
 # Register your models here.
+
+
+
 admin.site.register(FlightLog)
 admin.site.register(Minutes)
 admin.site.register(AccidentLog)

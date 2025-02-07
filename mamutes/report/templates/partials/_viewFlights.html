@@ -58,34 +58,41 @@
             {% csrf_token %}
             <div class="mainEditFlight">
                 <div class="members">
+                    {% if flight.team_members.all %}
                     <div class="setMembers">
                         <p class="textPilot">Piloto</p>
                         <div class="peopleMeeting_">
+                            {% for profile in flight.team_members.all %}
+                            {% if profile.position %}
                             <div class="pilotSelected_">
                                 <div class="namePicture">
                                     <div class="profilePic">
-                                        <img src="{% static 'img/tag-img (4).png' %}" alt="Erro ao carregar imagem">
+                                        <img src="{{profile.photo.url}}" alt="Erro ao carregar imagem">
                                     </div>
                                 </div>
-                                <p class="textNamePilot">José Victor</p>
+                                <p class="textNamePilot">{{profile.fullname}}</p>
                             </div>
+                            {% endif %}
+                            {% endfor %}
                         </div>
+                        
                     </div>
                     <div class="setMembers">
-                        {% if flight.team_members.all %}
+                        
                         <p class="textPilot">Membros envolvidos</p>
                         <div class="peopleMeeting_">
                             {% for profile in flight.team_members.all %}
+                            {% if not profile.position %}
                             <div class="namePicture">
                                 <div class="profilePic">
                                     <img src="{{profile.photo.url}}" alt="Erro ao carregar imagem">
                                 </div>
-                    
                             </div>
+                            {% endif %}
                             {% endfor %}
                         </div>
-                        {% endif %}
                     </div>
+                    {% endif %}
                 </div>
                 <div class="details_">
                     <div class="smallDescription">

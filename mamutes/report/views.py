@@ -12,57 +12,64 @@ def flight_list(request):
     flight = FlightLog.objects.all()
     return render(request, 'report/flight_list.html', {'flights': flight})
 
-# Criar um novo voo
-# def flight_create(request):
-#     if request.method == 'POST':
-#         form = FlightForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('flights')
-#     else:
-#         form = FlightForm()
-#     return redirect('flights')
+
 from django.shortcuts import render, redirect
 from .models import FlightLog
 
+from django.shortcuts import render, redirect
+from django.http import HttpResponseBadRequest
+from .models import FlightLog, AccidentLog  # Certifique-se de importar os modelos corretos
+
 def flight_create(request):
     if request.method == 'POST':
-        # Capturando os dados diretamente do request.POST
-        flight_log = FlightLog(
-            title=request.POST.get('title'),
-            date=request.POST.get('date'),
-            start_time=request.POST.get('start_time'),
-            end_time=request.POST.get('end_time'),
-            location=request.POST.get('location'),
-            flight_success_rating=request.POST.get('flight_success_rating'),
-            flight_objective_description=request.POST.get('flight_objective_description'),
-            results=request.POST.get('results'),
-            pilot_impressions=request.POST.get('pilot_impressions'),
-            improvements=request.POST.get('improvements'),
-            wind_speed=request.POST.get('wind_speed'),
-            wind_direction=request.POST.get('wind_direction'),
-            atmospheric_pressure=request.POST.get('atmospheric_pressure'),
-            total_takeoff_weight=request.POST.get('total_takeoff_weight'),
-            flight_cycles=request.POST.get('flight_cycles'),
-            telemetry_link=request.POST.get('telemetry_link'),
-            occurred_accident=request.POST.get('occurred_accident', False)  # Valor default False
-        )
-        flight_log.save()
+        # Criando o objeto FlightLog com os dados recebidos do formulário
+        try:
+            flight_log = FlightLog.objects.create(
+                title=request.POST.get('title'),
+                date=request.POST.get('date'),
+                start_time=request.POST.get('start_time'),
+                end_time=request.POST.get('end_time'),
+                location=request.POST.get('location'),
+                flight_success_rating=request.POST.get('flight_success_rating'),
+                flight_objective_description=request.POST.get('flight_objective_description'),
+                results=request.POST.get('results'),
+                pilot_impressions=request.POST.get('pilot_impressions'),
+                improvements=request.POST.get('improvements'),
+                wind_speed=request.POST.get('wind_speed'),
+                wind_direction=request.POST.get('wind_direction'),
+                atmospheric_pressure=request.POST.get('atmospheric_pressure'),
+                total_takeoff_weight=request.POST.get('total_takeoff_weight'),
+                flight_cycles=request.POST.get('flight_cycles'),
+                telemetry_link=request.POST.get('telemetry_link'),
+            )
 
-        # Adicionando relacionamentos ManyToMany (pilots e team_members)
-        pilots = request.POST.getlist('pilots')  # Lista de IDs
-        team_members = request.POST.get('responsibles')
-        if team_members:
-            team_members = team_members.split(',')
-            print(team_members)
-            flight_log.team_members.set(team_members)
-        if pilots:
-            flight_log.pilot_name.set(pilots)  # Define os pilotos relacionados
-        
-        return redirect('flights')
-    else:
-        # Renderize o formulário vazio caso não seja uma requisição POST
-        return render(request, 'flight_create.html')
+            # Verificando se ocorreu um acidente
+            occurred_accident = request.POST.get('occurred_accident') == "on"
+
+            if occurred_accident:
+                AccidentLog.objects.create(
+                    id_flightLog=flight_log,
+                    description=request.POST.get('descriptionAccident'),
+                    damaged_parts=request.POST.get('damaged_parts'),
+                    damaged_parts_photo=request.POST.get('damaged_parts_photo')  # Use FILES para imagens
+                )
+                print(AccidentLog)
+
+            # Adicionando membros da equipe ao FlightLog
+            team_members = request.POST.get('responsibles')
+            if team_members:
+                team_members_ids = team_members.split(',')  # Supondo que os IDs sejam separados por vírgulas
+                flight_log.team_members.set(team_members_ids)
+
+            return redirect('flights')
+
+        except Exception as e:
+            # Tratamento de erro para depuração
+            print(f"Erro ao criar o flight log: {e}")
+            return HttpResponseBadRequest("Ocorreu um erro ao criar o log de voo.")
+
+    # Renderiza o formulário vazio caso não seja uma requisição POST
+    return render(request, 'flight_create.html')
 
 # Editar um voo existente
 def flight_edit(request, id):
@@ -124,8 +131,6 @@ def meetings(request):
                 responsible_photos.append(None)
         pair_r_p = list(zip(meeting.get_responsibles(), responsible_photos))
         meeting.responsibles_list = pair_r_p
-
-    print(meetings)
 
     for profile in profiles:
             if profile.photo:

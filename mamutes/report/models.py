@@ -22,11 +22,10 @@ class FlightLog(models.Model):
 
     end_time = models.TimeField()
     
-
-    
     location = models.CharField(max_length=255)
     
     pilot_name = models.ManyToManyField(MembroEquipe, related_name='pilot_flight_logs')
+
     team_members = models.ManyToManyField(MembroEquipe, related_name='team_flight_logs')
     
     flight_success_rating = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)], null=True) 
@@ -60,11 +59,10 @@ class AccidentLog(models.Model):
     id = models.AutoField(primary_key=True)
     id_flightLog = models.ForeignKey(FlightLog, on_delete=models.CASCADE)
     description = models.TextField()  
+
     damaged_parts = models.TextField() 
+
     damaged_parts_photo = models.URLField() 
-    was_turbulent = models.BooleanField(default=False)  
-    pilot_flight_count = models.PositiveIntegerField()  
-    pilot_impressions = models.TextField()  
 
     def __str__(self):
         return f"Accident Log {self.id} - Flight {self.flight_log.id}"

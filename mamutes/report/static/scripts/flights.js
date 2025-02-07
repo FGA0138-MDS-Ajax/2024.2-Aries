@@ -16,59 +16,6 @@ const submitCancelBotao = document.querySelector(".submitCancelBotao");
         submitCancelBotao.classList.remove("active");
     });
 
-// document.addEventListener("click", (e) => {
-//     let target = e.target;
-
-//     if (target.classList.contains("btns")) {
-//         alert('MAUARA')
-//         let modal = document.querySelector(".modal");                        
-//         // if (!modalPrime.modalHTML) {
-//         //     modalPrime.modalHTML = modal.innerHTML;
-//         // }      
-//         if (modal) {
-//             modal.showModal();
-//             alert('OLA')
-//         }
-//         alert('OI MUNDO')
-//     }
-// })
-
-
-// Função para abrir o modal correto
-// function openModal(modalId) {
-//     document.getElementById(modalId).style.display = "flex";
-// }
-
-// // Função para fechar o modal correto
-// function closeModal(modalId) {
-//     document.getElementById(modalId).style.display = "none";
-// }
-
-// // Adiciona eventos de clique para abrir os modais
-// document.getElementById("modalNewFlight").addEventListener("click", function () {
-//     openModal("modalNewFlight");
-// });
-
-// document.getElementById("modalViewFlight").addEventListener("click", function () {
-//     openModal("modalViewFlight");
-// });
-
-// // Adiciona eventos para fechar os modais ao clicar no botão de fechar
-// document.querySelectorAll("closeModalBtn").forEach(btn => {
-//     btn.addEventListener("click", function () {
-//         closeModal(this.getAttribute("data-modal"));
-//     });
-// });
-
-// // Fecha o modal ao clicar fora da caixa
-// window.addEventListener("click", function (event) {
-//     document.querySelectorAll(".modal").forEach(modal => {
-//         if (event.target === modal) {
-//             modal.style.display = "none";
-//         }
-//     });
-// });
- 
 // abrir modal novo flight
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -90,15 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    
-
-
-
-    // window.addEventListener("click", function (event) {
-    //     if (event.target === modal) {
-    //         modalView.style.display = "none";
-    //     }
-    // });
 })
 
 // rating de voo
@@ -120,6 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
 
 // mostra div adcional se checkbox marcado
 document.addEventListener("DOMContentLoaded", function () {
