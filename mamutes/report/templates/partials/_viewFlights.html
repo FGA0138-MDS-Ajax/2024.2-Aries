@@ -72,29 +72,19 @@
                         </div>
                     </div>
                     <div class="setMembers">
+                        {% if flight.team_members.all %}
                         <p class="textPilot">Membros envolvidos</p>
                         <div class="peopleMeeting_">
+                            {% for profile in flight.team_members.all %}
                             <div class="namePicture">
                                 <div class="profilePic">
-                                    <img src="{% static 'img/tag-img (4).png' %}" alt="Erro ao carregar imagem">
+                                    <img src="{{profile.photo.url}}" alt="Erro ao carregar imagem">
                                 </div>
+                    
                             </div>
-                            <div class="namePicture">
-                                <div class="profilePic">
-                                    <img src="{% static 'img/tag-img (4).png' %}" alt="Erro ao carregar imagem">
-                                </div>
-                            </div>
-                            <div class="namePicture">
-                                <div class="profilePic">
-                                    <img src="{% static 'img/tag-img (4).png' %}" alt="Erro ao carregar imagem">
-                                </div>
-                            </div>
-                            <div class="namePicture">
-                                <div class="profilePic">
-                                    <img src="{% static 'img/tag-img (4).png' %}" alt="Erro ao carregar imagem">
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="details_">

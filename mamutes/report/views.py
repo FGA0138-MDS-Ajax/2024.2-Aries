@@ -51,12 +51,13 @@ def flight_create(request):
 
         # Adicionando relacionamentos ManyToMany (pilots e team_members)
         pilots = request.POST.getlist('pilots')  # Lista de IDs
-        team_members = request.POST.getlist('team_members')  # Lista de IDs
-        
+        team_members = request.POST.get('responsibles')
+        if team_members:
+            team_members = team_members.split(',')
+            print(team_members)
+            flight_log.team_members.set(team_members)
         if pilots:
             flight_log.pilot_name.set(pilots)  # Define os pilotos relacionados
-        if team_members:
-            flight_log.team_members.set(team_members)  # Define os membros relacionados
         
         return redirect('flights')
     else:
@@ -172,7 +173,6 @@ def flights(request):
     count_flights = FlightLog.objects.all().count()
     count_accidents = FlightLog.objects.filter(occurred_accident = True).count()
     accidents_percentage = count_accidents/count_flights * 100
-
 
     profiles = MembroEquipe.objects.all()
     return render(request, 'flights.html', {'flights': flights, 'profiles': profiles, 'count_flights': count_flights, 'count_accidents': count_accidents, 'accidents_percentage':  accidents_percentage})
