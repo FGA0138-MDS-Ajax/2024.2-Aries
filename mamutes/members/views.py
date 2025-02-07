@@ -79,7 +79,7 @@ def create_task(request):
                  # Salva os relacionamentos ManyToMany
     else:
             form = TaskForm()
-
+    return HttpResponse()
 
 
 def delete_task(request):
