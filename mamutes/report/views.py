@@ -1,8 +1,9 @@
+import profile
 from django.http import JsonResponse
 import base64
 from django.shortcuts import render, redirect, get_object_or_404
 
-from .models import FlightLog,Meeting,Area,MembroEquipe
+from .models import AccidentLog, FlightLog,Meeting,Area,MembroEquipe
 from .forms import FlightForm,MeetingsForm
 from django.contrib.auth.decorators import login_required
 
@@ -168,7 +169,13 @@ def meetings(request):
 
 def flights(request):
     flights = FlightLog.objects.all()
-    return render(request, 'flights.html', {'flights': flights})
+    count_flights = FlightLog.objects.all().count()
+    count_accidents = FlightLog.objects.filter(occurred_accident = True).count()
+    accidents_percentage = count_accidents/count_flights * 100
+
+
+    profiles = MembroEquipe.objects.all()
+    return render(request, 'flights.html', {'flights': flights, 'profiles': profiles, 'count_flights': count_flights, 'count_accidents': count_accidents, 'accidents_percentage':  accidents_percentage})
 
 def membros_por_area(request, area_id):
     """Retorna os membros de uma determinada área."""

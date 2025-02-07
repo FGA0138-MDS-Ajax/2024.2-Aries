@@ -26,8 +26,8 @@ class FlightLog(models.Model):
     
     location = models.CharField(max_length=255)
     
-    # pilot_name = models.ManyToManyField(MembroEquipe, related_name='pilot_flight_logs', default=MembroEquipe.objects.get(id=18))
-    # team_members = models.ManyToManyField(MembroEquipe, related_name='team_flight_logs', default=MembroEquipe.objects.get(id=18))
+    pilot_name = models.ManyToManyField(MembroEquipe, related_name='pilot_flight_logs')
+    team_members = models.ManyToManyField(MembroEquipe, related_name='team_flight_logs')
     
     flight_success_rating = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)], null=True) 
 
