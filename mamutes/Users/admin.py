@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .forms import MembroEquipeCreationForm, MembroEquipeChangeForm
-from .models import MembroEquipe, Area, Function
+from .models import MembroEquipe, Area, Function, Position
 
 class MembroEquipeAdmin(UserAdmin):
     add_form = MembroEquipeCreationForm
@@ -13,7 +13,7 @@ class MembroEquipeAdmin(UserAdmin):
     ordering = ('username',)
 
     fieldsets = (
-        (None, {'fields': ('username', 'fullname', 'phone', 'email','area', 'functions')}),
+        (None, {'fields': ('username', 'fullname', 'phone', 'email','area', 'functions', 'position')}),
     )
 
     add_fieldsets = (
@@ -38,6 +38,11 @@ class FunctionAdmin(admin.ModelAdmin):
         return ", ".join([membro.username for membro in obj.membros.all()])
     listar_membros.short_description = 'Membros da Função'
 
+class PositionAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+
+admin.site.register(Position, PositionAdmin)
 admin.site.register(MembroEquipe, MembroEquipeAdmin)
 admin.site.register(Area, AreaAdmin)
 admin.site.register(Function, FunctionAdmin)
