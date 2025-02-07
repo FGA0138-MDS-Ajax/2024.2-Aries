@@ -10,9 +10,9 @@ class TestViews(TestCase):
         self.event = Event.objects.create(title='Test Event', description='Event Description', member=self.user)
         self.post = Post.objects.create(title='Test Post', description='Post Description', member=self.user)
 
-    # def test_create_task_view(self):
-    #     response = self.client.post(reverse('create_task'), {'title': 'New Task', 'description': 'Details'})
-    #     self.assertEqual(response.status_code, 302)
+    def test_create_task_view(self):
+        response = self.client.post(reverse('create_task'), {'title': 'New Task', 'description': 'Details'})
+        self.assertEqual(response.status_code, 200)
 
     def test_delete_task_view(self):
         response = self.client.post(reverse('delete_task'), {'id_task': self.task.id})

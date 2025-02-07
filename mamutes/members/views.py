@@ -16,6 +16,8 @@ from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from django.http import HttpResponse
+
 from .forms import EventForm, PostForm, TaskForm
 from .models import (
     Area, Column, Event, MembroEquipe, Meeting, Post, Subtask, Task
@@ -77,6 +79,7 @@ def create_task(request):
                  # Salva os relacionamentos ManyToMany
     else:
             form = TaskForm()
+
 
 
 def delete_task(request):
