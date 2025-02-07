@@ -12,15 +12,55 @@ def flight_list(request):
     return render(request, 'report/flight_list.html', {'flights': flight})
 
 # Criar um novo voo
+# def flight_create(request):
+#     if request.method == 'POST':
+#         form = FlightForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('flights')
+#     else:
+#         form = FlightForm()
+#     return redirect('flights')
+from django.shortcuts import render, redirect
+from .models import FlightLog
+
 def flight_create(request):
     if request.method == 'POST':
-        form = FlightForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('flight_list')
+        # Capturando os dados diretamente do request.POST
+        flight_log = FlightLog(
+            title=request.POST.get('title'),
+            date=request.POST.get('date'),
+            start_time=request.POST.get('start_time'),
+            end_time=request.POST.get('end_time'),
+            location=request.POST.get('location'),
+            flight_success_rating=request.POST.get('flight_success_rating'),
+            flight_objective_description=request.POST.get('flight_objective_description'),
+            results=request.POST.get('results'),
+            pilot_impressions=request.POST.get('pilot_impressions'),
+            improvements=request.POST.get('improvements'),
+            wind_speed=request.POST.get('wind_speed'),
+            wind_direction=request.POST.get('wind_direction'),
+            atmospheric_pressure=request.POST.get('atmospheric_pressure'),
+            total_takeoff_weight=request.POST.get('total_takeoff_weight'),
+            flight_cycles=request.POST.get('flight_cycles'),
+            telemetry_link=request.POST.get('telemetry_link'),
+            occurred_accident=request.POST.get('occurred_accident', False)  # Valor default False
+        )
+        flight_log.save()
+
+        # Adicionando relacionamentos ManyToMany (pilots e team_members)
+        pilots = request.POST.getlist('pilots')  # Lista de IDs
+        team_members = request.POST.getlist('team_members')  # Lista de IDs
+        
+        if pilots:
+            flight_log.pilot_name.set(pilots)  # Define os pilotos relacionados
+        if team_members:
+            flight_log.team_members.set(team_members)  # Define os membros relacionados
+        
+        return redirect('flights')
     else:
-        form = FlightForm()
-    return render(request, 'report/flight_form.html', {'form': form})
+        # Renderize o formulário vazio caso não seja uma requisição POST
+        return render(request, 'flight_create.html')
 
 # Editar um voo existente
 def flight_edit(request, id):
@@ -39,8 +79,8 @@ def flight_delete(request, id):
     flight = get_object_or_404(FlightLog, id=id)
     if request.method == 'POST':
         flight.delete()
-        return redirect('flight_list')
-    return render(request, 'report/flight_confirm_delete.html', {'flight': FlightLog})
+        return redirect('flights')
+    return redirect('flights')
 
 def image_to_base64(image):
     """
@@ -127,7 +167,8 @@ def meetings(request):
      "profiles": profiles,})
 
 def flights(request):
-    return render(request, 'flights.html')
+    flights = FlightLog.objects.all()
+    return render(request, 'flights.html', {'flights': flights})
 
 def membros_por_area(request, area_id):
     """Retorna os membros de uma determinada área."""

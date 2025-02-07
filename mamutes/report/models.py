@@ -14,24 +14,43 @@ class Minutes(models.Model):
     
 class FlightLog(models.Model):
     id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=255, null=True, blank=True)
+
     date = models.DateField()
+
     start_time = models.TimeField()
+
     end_time = models.TimeField()
-    document_username = models.CharField(max_length=255)
-    pilot_name = models.CharField(max_length=255)
+    
+
+    
     location = models.CharField(max_length=255)
-    team_members = models.TextField()  
-    flight_success_rating = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)]) 
+    
+    # pilot_name = models.ManyToManyField(MembroEquipe, related_name='pilot_flight_logs', default=MembroEquipe.objects.get(id=18))
+    # team_members = models.ManyToManyField(MembroEquipe, related_name='team_flight_logs', default=MembroEquipe.objects.get(id=18))
+    
+    flight_success_rating = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)], null=True) 
+
     flight_objective_description = models.TextField() #########
+
     results = models.TextField()  
+
     pilot_impressions = models.TextField()
+
     improvements = models.TextField()
+
     wind_speed = models.DecimalField(max_digits=4, decimal_places=3) 
+
     wind_direction = models.CharField(max_length=100)  
+
     atmospheric_pressure = models.DecimalField(max_digits=4, decimal_places=3)  
+
     total_takeoff_weight = models.DecimalField(max_digits=4, decimal_places=3) 
+
     flight_cycles = models.PositiveIntegerField()
+
     telemetry_link = models.URLField()
+
     occurred_accident = models.BooleanField(default=False)
 
     def __str__(self):

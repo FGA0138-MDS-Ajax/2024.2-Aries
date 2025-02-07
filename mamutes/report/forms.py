@@ -7,6 +7,7 @@ class FlightForm(forms.ModelForm):
     class Meta:
         model = FlightLog
         fields = '__all__'  # Inclui todos os campos do modelo Voo
+        
 class MeetingsForm(forms.ModelForm):
     areas = forms.ModelMultipleChoiceField(
         queryset=Area.objects.all(),
