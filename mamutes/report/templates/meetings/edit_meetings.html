@@ -29,6 +29,7 @@
         font-weight: bold;
         color: white;
         cursor: pointer;
+        margin: 5px;
         transition: transform 0.2s;
     }
     
@@ -43,18 +44,18 @@
    
     
 </style>
-    <!-- modal add reuniao -->
+    <!-- modal edit reuniao -->
     {% load static %}
     <script src="{% static 'scripts/_add_members.js' %}"></script>
     <script src="{% static 'scripts/_viewMembers.js' %}"></script>
 
-    <div id="modalAdd" class="modal">
+    <div id="modalEdit" class="modal">
         <div class="modal-content">
             <div style="display: flex; justify-content: flex-end;">
-            <span class="close-btn" id="closeModalAddBtn">&times;</span>
+            <span class="close-btn" id="closeModalEditBtn">&times;</span>
             </div>
             <div class="modal-form">
-            <h2 class="head-label">Adicionar nova reunião</h2>
+            <h2 class="head-label">Editar reunião</h2>
             <form method="POST" class="form">
                 {% csrf_token %}
                 
@@ -103,7 +104,7 @@
                 </div>
             
                 <div class="description-task">
-                    <label class="title-form">Convidar times</label>
+                    <label class="title-form">Editar times</label>
                     <div class="teamsMeeting">
                         {% for area in areas %}
                         <div class="personImg1 area-option"
@@ -111,9 +112,9 @@
                             data-area-id="{{ area.id }}"
                             title="{{ area.name }}" 
                             onclick="toggleAreaSelection(this)">
-                            {{ area.name|first }}
+                            {{ area.name|first }} 
                         </div>
-                    {% endfor %}
+                        {% endfor %}
                     </div>
                 </div>
                 <input type="hidden" name="areas" id="selectedAreas" value="">
@@ -129,7 +130,7 @@
                 </div> 
 
                 <div class="description-task">
-                    <h3 class="ataLabel">Registrar ata</h3>
+                    <h3 class="ataLabel">Editar ata</h3>
                 </div> 
 
                 <div class="description-task">
@@ -168,6 +169,7 @@
                 <div id="tooltip" class="tooltip"></div>
             </form>
             </div>
+            
         </div>
         </div>
     <div>
