@@ -284,3 +284,6 @@
   align-items: center;
   cursor: pointer;
 }
+.hidden{
+  display: none;
+}

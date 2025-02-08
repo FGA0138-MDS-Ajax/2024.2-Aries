@@ -176,19 +176,41 @@ def meetings(request):
      "order": order,
      "profiles": profiles,})
 
+from django.db.models import Sum
 def flights(request):
+
     flights = FlightLog.objects.all()
     count_flights = FlightLog.objects.all().count()
     count_accidents = FlightLog.objects.filter(occurred_accident = True).count()
+    sum_stars = FlightLog.objects.aggregate(Sum('flight_success_rating'))['flight_success_rating__sum']
+
+    if sum_stars != 0:
+        mid_sucess = sum_stars/count_flights
+    else: 
+        mid_sucess= 0
+
     if count_flights != 0:
         accidents_percentage = (count_accidents / count_flights) * 100
         accidents_percentage = round(accidents_percentage, 2)
     else: 
         accidents_percentage = 0
 
-
     profiles = MembroEquipe.objects.all()
-    return render(request, 'flights.html', {'flights': flights, 'profiles': profiles, 'count_flights': count_flights, 'count_accidents': count_accidents, 'accidents_percentage':  accidents_percentage})
+
+    context = {
+        'flights': flights,
+        'profiles': profiles,
+        'count_flights': count_flights,
+        'count_accidents': count_accidents,
+        'accidents_percentage':  accidents_percentage,
+        'mid_sucess':mid_sucess
+    }
+    if request.method == 'POST':
+        filter_search = request.POST.get('search')
+        flights = FlightLog.objects.filter(title__icontains=filter_search)
+        context['flights'] = flights
+        return render(request, 'flights.html', context)
+    return render(request, 'flights.html', context)
 
 def membros_por_area(request, area_id):
     """Retorna os membros de uma determinada área."""
