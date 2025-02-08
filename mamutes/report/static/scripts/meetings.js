@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const local = card.dataset.local;
             const isRemote = card.dataset.isRemote;
             const link = card.dataset.link;
-            const linkPauta = card.dataset.linkPauta;
+            const pauta = card.dataset.pauta;
             const other = card.dataset.otherParticipants;
             
             // Atualiza os elementos do modal
@@ -89,12 +89,12 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('modalTimeEnd').innerText = meetingTimeEnd || '';
             document.getElementById('modalLocal').innerText = local || '';
 
-            document.getElementById('modallink_pauta').innerText = linkPauta || '';
+            document.getElementById('modallink_pauta').innerText = pauta || '';
             document.getElementById('modallink').innerText = link || '';
             document.getElementById('modalother_participants').innerText = other || ''; 
             
             // input do edit-modal
-            
+            document.getElementById('id_meeting_id').value = id || 'Sem id';
             document.getElementById('id_title').value = title || 'Sem Título';
             document.getElementById('id_description').value = description || 'Sem Descrição';
             document.getElementById('id_meeting_date').value = converterData(meetingDate) || '';
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('id_local').value = local || '';
             document.getElementById('id_is_remote').value = isRemote || '';
             document.getElementById('id_link').value = link || '';
-            document.getElementById('id_link_pauta').value = linkPauta || '';
+            document.getElementById('id_link_pauta').value = pauta || '';
             document.getElementById('id_other_participants').value = other || '';
             
             
