@@ -171,7 +171,6 @@
         </div>
     </div>
     <div class="flightsList">
-        {% include 'partials/_nothingToShow.html'%}
         <div class="cards">
             <div class="titleTable">
                 <div class="id">
@@ -256,6 +255,8 @@
                     </div>
                     {% include 'partials/_viewFlights.html' with flight=flight %}
                </div> 
+               {% empty %}
+                    {% include 'partials/_nothingToShow.html'%}
                {% endfor %}
         </div>
         <div class="paginatorControls">

@@ -184,16 +184,17 @@ def flights(request):
     count_accidents = FlightLog.objects.filter(occurred_accident = True).count()
     sum_stars = FlightLog.objects.aggregate(Sum('flight_success_rating'))['flight_success_rating__sum']
 
-    if sum_stars != 0:
-        mid_sucess = sum_stars/count_flights
-    else: 
-        mid_sucess= 0
 
     if count_flights != 0:
         accidents_percentage = (count_accidents / count_flights) * 100
         accidents_percentage = round(accidents_percentage, 2)
+        mid_sucess = sum_stars/count_flights
     else: 
         accidents_percentage = 0
+        mid_sucess= 0
+
+
+
 
     profiles = MembroEquipe.objects.all()
 
