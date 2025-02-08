@@ -1,20 +1,34 @@
 const submitCancelBotao = document.querySelector(".submitCancelBotao");
-    const modalFilter = document.querySelector(".modalFilter");
-    const closeModalBtn = document.getElementById("closeModalBtn");
+const modalFilter = document.querySelector(".modalFilter");
+const closeModalBtn = document.getElementById("closeModalBtn");
 
+modalFilter.style.display = "none";
+
+submitCancelBotao.addEventListener("click", function (event) {
+    const isVisible = modalFilter.style.display === "flex";
+
+    modalFilter.style.display = isVisible ? "none" : "flex";
+    submitCancelBotao.classList.toggle("active", !isVisible);
+
+    if (!isVisible) {
+        document.addEventListener("click", closeOnClickOutside);
+    }
+});
+
+closeModalBtn.addEventListener("click", function () {
     modalFilter.style.display = "none";
+    submitCancelBotao.classList.remove("active");
+    document.removeEventListener("click", closeOnClickOutside);
+});
 
-    submitCancelBotao.addEventListener("click", function () {
-        const isVisible = modalFilter.style.display === "flex";
-
-        modalFilter.style.display = isVisible ? "none" : "flex";
-        submitCancelBotao.classList.toggle("active", !isVisible);
-    });
-
-    closeModalBtn.addEventListener("click", function () {
+function closeOnClickOutside(event) {
+    if (!modalFilter.contains(event.target) && !submitCancelBotao.contains(event.target)) {
         modalFilter.style.display = "none";
         submitCancelBotao.classList.remove("active");
-    });
+        document.removeEventListener("click", closeOnClickOutside);
+    }
+}
+
 
 // abrir modal novo flight
 document.addEventListener("DOMContentLoaded", function () {

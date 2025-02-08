@@ -16,7 +16,7 @@
     color: #717171;
     text-align: center;
     font-family: Inter;
-    font-size: clamp(10px, 1vw, 14px);
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 150%; /* 24px */
@@ -26,10 +26,11 @@
 .modalFilter{
     display: none;
     position: absolute;
-    top: calc(100% + 8px);
+    top: calc(100% + 2px);
     right: 0;
     width: 240px;
     height: 360px;
+    z-index: 2;
 }
 .form{
     display: flex;
@@ -44,7 +45,7 @@
     background: white;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 5px 15px #0000004d;
+    box-shadow: 0px 4px 32px 0px rgba(30, 30, 30, 0.16);
     flex: 1 0 0;
 }
 .filterMain{
@@ -58,6 +59,11 @@
     flex: 1 0 0;
     align-self: stretch;
 }
+
+.form{
+    gap: 0;
+}
+
 .close-btn-2 {
     width: 24px;
     height: 24px;
@@ -95,7 +101,7 @@
 }
 .stars{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     text-align: left;
     gap: 8px;
     align-self: stretch;
@@ -106,7 +112,7 @@
     leading-trim: both;
     text-edge: cap;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 18px */

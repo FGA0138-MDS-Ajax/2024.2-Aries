@@ -105,13 +105,15 @@ path{
 }
 .searchFieldBox{
     display: flex;
-    padding: 14px 16px;
+    padding-inline: 16px;
     align-items: center;
     gap: 8px;
     flex: 1 0 0;
     border-radius: 8px;
     background: #FEFEFE;
+    height: 48px;
 }
+
 .searchIcon{
     display: flex;
     width: 16px;
@@ -120,6 +122,7 @@ path{
     justify-content: center;
     align-items: center;
 }
+
 .searchField{
     background-color: transparent;
     border: none;
@@ -129,12 +132,14 @@ path{
     /* leading-trim: both;
     text-edge: cap; */
     font-family: Inter;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 15px */
     letter-spacing: -0.11px;
+    padding-block: 16px;
 }
+
 .searchField:focus{
     outline: none;
 }

@@ -1,4 +1,6 @@
 {% load static %}
+
+{% block css %}
 <link rel="stylesheet" href="{% static 'css/meetings.css' %}">
 <link rel="stylesheet" href="{% static 'css/newMeeting.css' %}">
 <link rel="stylesheet" href="{% static 'css/editMeeting.css' %}">
@@ -42,6 +44,7 @@
         });
         
     </script>
+{% endblock %}
     <div id="modalcard" class="modalcard">
         <div class="modal-content-card">
             

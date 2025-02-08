@@ -13,7 +13,7 @@
   /* display: none; */
   padding-top: 20px;
   position: fixed;
-  z-index: 999; /* Coloca o modal acima de outros elementos */
+  z-index: 1000; /* Coloca o modal acima de outros elementos */
   left: 0;
   top: 0;
   width: 100%;

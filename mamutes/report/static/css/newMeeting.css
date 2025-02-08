@@ -24,7 +24,7 @@
 .modal {
   /* display: none; */
   position: fixed;
-  z-index: 999; /* Coloca o modal acima de outros elementos */
+  z-index: 1000; /* Coloca o modal acima de outros elementos */
   left: 0;
   top: 0;
   width: 100%;
@@ -46,7 +46,7 @@
   max-width: 600px;
   padding: 32px;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 16px;
   flex: 1 0 0;
   overflow: hidden;

@@ -5,6 +5,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/flights.css' %}">
+<link rel="stylesheet" href="{% static 'css/newFlight.css' %}">
 <link rel="stylesheet" href="{% static 'css/filterFlights.css' %}">
 {% endblock %}
 
@@ -20,27 +21,25 @@
             <p class="titleReport">Voos e acidentes</p>
         </div>
         <div class="actions">
-            <form method="POST" action="{% url 'flights' %}" class="searchFieldBox">
-                {% csrf_token %}
+            <form method="get" action="" class="searchFieldBox">
+                <input type="text" id="search" name="search" placeholder="Buscar" class="searchField">
                 <div class="searchIcon">
-                    <button type="submit" style="background: none; border: none; padding: 0; margin: 0;">
+                    <button type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path d="M13.0001 13.0001L10.1048 10.1048M10.1048 10.1048C10.6001 9.60955 10.9929 9.02159 11.261 8.3745C11.529 7.72742 11.6669 7.03387 11.6669 6.33347C11.6669 5.63307 11.529 4.93953 11.261 4.29244C10.9929 3.64535 10.6001 3.0574 10.1048 2.56214C9.60955 2.06688 9.02159 1.67402 8.3745 1.40599C7.72742 1.13795 7.03387 1 6.33347 1C5.63307 1 4.93953 1.13795 4.29244 1.40599C3.64535 1.67402 3.0574 2.06688 2.56214 2.56214C1.56192 3.56236 1 4.91895 1 6.33347C1 7.748 1.56192 9.10458 2.56214 10.1048C3.56236 11.105 4.91895 11.6669 6.33347 11.6669C7.748 11.6669 9.10458 11.105 10.1048 10.1048Z" stroke="#1F1A99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                 </div>
-                <input type="text" id="search" name="search" placeholder="Buscar" class="searchField">
             </form>
         
-                <button id="openModalBtn" type="submit" class="actionBtn">
-                    <div class="boxIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                            <path d="M11.1429 6.85714H6.85714V11.1429C6.85714 11.3702 6.76684 11.5882 6.60609 11.7489C6.44535 11.9097 6.22733 12 6 12C5.77267 12 5.55465 11.9097 5.39391 11.7489C5.23316 11.5882 5.14286 11.3702 5.14286 11.1429V6.85714H0.857143C0.629814 6.85714 0.411797 6.76684 0.251051 6.60609C0.090306 6.44535 0 6.22733 0 6C0 5.77267 0.090306 5.55465 0.251051 5.39391C0.411797 5.23316 0.629814 5.14286 0.857143 5.14286H5.14286V0.857143C5.14286 0.629814 5.23316 0.411797 5.39391 0.251051C5.55465 0.0903056 5.77267 0 6 0C6.22733 0 6.44535 0.0903056 6.60609 0.251051C6.76684 0.411797 6.85714 0.629814 6.85714 0.857143V5.14286H11.1429C11.3702 5.14286 11.5882 5.23316 11.7489 5.39391C11.9097 5.55465 12 5.77267 12 6C12 6.22733 11.9097 6.44535 11.7489 6.60609C11.5882 6.76684 11.3702 6.85714 11.1429 6.85714Z" fill="#D7EAFF"/>
-                        </svg>
-                    </div>
-                    <span class="textAddButton">Novo</span>
-                </button>
-
+            <button id="openModalBtn" type="submit" class="actionBtn">
+                <div class="boxIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M11.1429 6.85714H6.85714V11.1429C6.85714 11.3702 6.76684 11.5882 6.60609 11.7489C6.44535 11.9097 6.22733 12 6 12C5.77267 12 5.55465 11.9097 5.39391 11.7489C5.23316 11.5882 5.14286 11.3702 5.14286 11.1429V6.85714H0.857143C0.629814 6.85714 0.411797 6.76684 0.251051 6.60609C0.090306 6.44535 0 6.22733 0 6C0 5.77267 0.090306 5.55465 0.251051 5.39391C0.411797 5.23316 0.629814 5.14286 0.857143 5.14286H5.14286V0.857143C5.14286 0.629814 5.23316 0.411797 5.39391 0.251051C5.55465 0.0903056 5.77267 0 6 0C6.22733 0 6.44535 0.0903056 6.60609 0.251051C6.76684 0.411797 6.85714 0.629814 6.85714 0.857143V5.14286H11.1429C11.3702 5.14286 11.5882 5.23316 11.7489 5.39391C11.9097 5.55465 12 5.77267 12 6C12 6.22733 11.9097 6.44535 11.7489 6.60609C11.5882 6.76684 11.3702 6.85714 11.1429 6.85714Z" fill="#D7EAFF"/>
+                    </svg>
+                </div>
+                <span class="textAddButton">Novo</span>
+            </button>
         </div>
     </div>
     <div class="details">
@@ -110,63 +109,63 @@
                             </svg>
                         </div>
                     </div>
-                <form method="POST" class="form">
-                    <div class="filterMain">
-                        <div class="successnivel">
-                            <label class="flight-title">Nível de sucesso</label>
-                            <label class="stars">
-                                <input type="checkbox" class="checkbox-subtask">
-                                <span class="filterSelector">1 estrela</span>
-                            </label>
+                    <form method="POST" class="form">
+                        <div class="filterMain">
+                            <div class="successnivel">
+                                <label class="flight-title">Nível de sucesso</label>
+                                <label class="stars">
+                                    <input type="checkbox" class="checkbox-subtask">
+                                    <span class="filterSelector">1 estrela</span>
+                                </label>
 
-                            <label class="stars">
-                                <input type="checkbox" class="checkbox-subtask">
-                                <span class="filterSelector">2 estrelas</span>
-                            </label>
+                                <label class="stars">
+                                    <input type="checkbox" class="checkbox-subtask">
+                                    <span class="filterSelector">2 estrelas</span>
+                                </label>
 
-                            <label class="stars">
-                                <input type="checkbox" class="checkbox-subtask">
-                                <span class="filterSelector">3 estrelas</span>
-                            </label>
+                                <label class="stars">
+                                    <input type="checkbox" class="checkbox-subtask">
+                                    <span class="filterSelector">3 estrelas</span>
+                                </label>
 
-                            <label class="stars">
-                                <input type="checkbox" class="checkbox-subtask">
-                                <span class="filterSelector">4 estrelas</span>
-                            </label>
+                                <label class="stars">
+                                    <input type="checkbox" class="checkbox-subtask">
+                                    <span class="filterSelector">4 estrelas</span>
+                                </label>
 
-                            <label class="stars">
-                                <input type="checkbox" class="checkbox-subtask">
-                                <span class="filterSelector">5 estrelas</span>
-                            </label>
+                                <label class="stars">
+                                    <input type="checkbox" class="checkbox-subtask">
+                                    <span class="filterSelector">5 estrelas</span>
+                                </label>
+                            </div>
+                            <div class="timeFilter">
+                                <label class="flight-title">Período</label>
+                                <label class="stars">
+                                    <input type="checkbox" class="checkbox-subtask">
+                                    <span class="filterSelector">Esta semana</span>
+                                </label>
+
+                                <label class="stars">
+                                    <input type="checkbox" class="checkbox-subtask">
+                                    <span class="filterSelector">Último mês</span>
+                                </label>
+
+                                <label class="stars">
+                                    <input type="checkbox" class="checkbox-subtask">
+                                    <span class="filterSelector">Últimos 6 meses</span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="timeFilter">
-                            <label class="flight-title">Período</label>
-                            <label class="stars">
-                                <input type="checkbox" class="checkbox-subtask">
-                                <span class="filterSelector">Esta semana</span>
-                            </label>
-
-                            <label class="stars">
-                                <input type="checkbox" class="checkbox-subtask">
-                                <span class="filterSelector">Último mês</span>
-                            </label>
-
-                            <label class="stars">
-                                <input type="checkbox" class="checkbox-subtask">
-                                <span class="filterSelector">Últimos 6 meses</span>
-                            </label>
+                        <div class="botoes">
+                            <div class="redefinirBtn">
+                                <span>Redefinir</span>
+                            </div>
+                            <div class="aplicarBtn">
+                                <span>Aplicar</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="botoes">
-                        <div class="redefinirBtn">
-                            <span>Redefinir</span>
-                        </div>
-                        <div class="aplicarBtn">
-                            <span>Aplicar</span>
-                        </div>
-                    </div>
-                </form>
-            </div> 
+                    </form>
+                </div> 
             </div>
         </div>
     </div>
