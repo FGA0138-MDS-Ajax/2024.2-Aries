@@ -74,17 +74,6 @@ def flight_create(request):
 
     return render(request, 'flights.html')  # Renderiza a página em caso de GET
 
-# Editar um voo existente
-def flight_edit(request, id):
-    flight = get_object_or_404(FlightLog, id=id)
-    if request.method == 'POST':
-        form = FlightForm(request.POST, instance=flight)
-        if form.is_valid():
-            form.save()
-            return redirect('flight_list')
-    else:
-        form = FlightForm(instance=flight)
-    return render(request, 'report/flight_form.html', {'form': form})
 
 # Deletar um voo
 def flight_delete(request, id):
@@ -193,9 +182,6 @@ def flights(request):
         accidents_percentage = 0
         mid_sucess= 0
 
-
-
-
     profiles = MembroEquipe.objects.all()
 
     context = {
@@ -238,3 +224,75 @@ def delete_meeting(request, meeting_id):
         meeting.delete()
         return JsonResponse({"success": True})
     return JsonResponse({"success": False}, status=400)
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseBadRequest
+from .models import FlightLog, AccidentLog, MembroEquipe
+
+def editFlight(request, flight_id):
+    flight = get_object_or_404(FlightLog, id=flight_id)
+    profiles = MembroEquipe.objects.all()
+
+    # Tenta obter um log de acidente relacionado ao voo, se existir
+    accident_log = AccidentLog.objects.filter(id_flightLog=flight).first()
+
+    if request.method == 'POST':
+        try:
+            flight.title = request.POST.get('title')
+            flight.date = request.POST.get('date')
+            flight.start_time = request.POST.get('start_time')
+            flight.end_time = request.POST.get('end_time')
+            flight.location = request.POST.get('location')
+            flight.wind_speed = request.POST.get('wind_speed', 0)
+            flight.wind_direction = request.POST.get('wind_direction')
+            flight.atmospheric_pressure = request.POST.get('atmospheric_pressure', 0)
+            flight.flight_objective_description = request.POST.get('flight_objective_description')
+            flight.results = request.POST.get('results')
+            flight.pilot_impressions = request.POST.get('pilot_impressions')
+            flight.improvements = request.POST.get('improvements')
+            flight.total_takeoff_weight = request.POST.get('total_takeoff_weight')
+            flight.telemetry_link = request.POST.get('telemetry_link')
+            flight.flight_success_rating = request.POST.get('flight_success_rating') or 0
+
+            # Verifica se houve acidente
+            occurred_accident = 'occurred_accident' in request.POST
+            flight.occurred_accident = occurred_accident
+
+            flight.save()
+
+            # Atualiza os membros responsáveis
+            team_members = request.POST.get('responsibles')
+            if team_members:
+                team_members_ids = [int(id.strip()) for id in team_members.split(',') if id.strip().isdigit()]
+                flight.team_members.set(team_members_ids)
+
+            # Se houver um acidente, cria ou atualiza o log de acidente
+            if occurred_accident:
+                if accident_log:
+                    accident_log.description = request.POST.get('descriptionAccident')
+                    accident_log.damaged_parts = request.POST.get('damaged_parts')
+                    accident_log.damaged_parts_photo = request.POST.get('damaged_parts_photo')
+                    accident_log.save()
+                else:
+                    AccidentLog.objects.create(
+                        id_flightLog=flight,
+                        description=request.POST.get('descriptionAccident'),
+                        damaged_parts=request.POST.get('damaged_parts'),
+                        damaged_parts_photo=request.POST.get('damaged_parts_photo')
+                    )
+            else:
+                # Se o acidente foi removido, exclui o log de acidente se existir
+                if accident_log:
+                    accident_log.delete()
+
+            return redirect('flights')
+
+        except Exception as e:
+            print(f"Erro ao editar o flight log: {e}")
+            return HttpResponseBadRequest("Ocorreu um erro ao editar o log de voo.")
+
+    context = {
+        'flight': flight,
+        'profiles': profiles,
+        'accident_log': accident_log  # Passa o acidente para o template
+    }
+    return render(request, '_editFlight.html', context)

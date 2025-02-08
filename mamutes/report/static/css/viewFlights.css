@@ -20,6 +20,18 @@
     font-weight: 400;
     line-height: normal;
 }
+
+.textWithAccident{
+  color:rgb(215, 0, 0);
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 .head-label-edit{
     color: #1E1E1E;
     text-align: left;
