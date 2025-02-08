@@ -22,8 +22,11 @@ from .models import FlightLog, AccidentLog  # Certifique-se de importar os model
 
 def flight_create(request):
     if request.method == 'POST':
-        # Criando o objeto FlightLog com os dados recebidos do formulário
+        occurred_accident = request.POST.get('occurred_accident') == 'on'  # Converte direto para booleano
+        print(occurred_accident)
+
         try:
+            # Criando o objeto FlightLog e salvando no banco
             flight_log = FlightLog.objects.create(
                 title=request.POST.get('title'),
                 date=request.POST.get('date'),
@@ -41,35 +44,33 @@ def flight_create(request):
                 total_takeoff_weight=request.POST.get('total_takeoff_weight'),
                 flight_cycles=request.POST.get('flight_cycles'),
                 telemetry_link=request.POST.get('telemetry_link'),
+                occurred_accident=occurred_accident,
             )
 
-            # Verificando se ocorreu um acidente
-            occurred_accident = request.POST.get('occurred_accident') == "on"
+            # Adicionando membros da equipe ao FlightLog
+            team_members = request.POST.get('responsibles')
+            if team_members:
+                team_members_ids = [int(id.strip()) for id in team_members.split(',') if id.strip().isdigit()]
+                flight_log.team_members.set(team_members_ids)  # Define os membros corretamente
+            
+            print(f"FlightLog criado com ID: {flight_log.id}")
 
+            # Criando log de acidente se necessário
             if occurred_accident:
                 AccidentLog.objects.create(
                     id_flightLog=flight_log,
                     description=request.POST.get('descriptionAccident'),
                     damaged_parts=request.POST.get('damaged_parts'),
-                    damaged_parts_photo=request.POST.get('damaged_parts_photo')  # Use FILES para imagens
+                    damaged_parts_photo=request.FILES.get('damaged_parts_photo')  # Corrigido para usar FILES corretamente
                 )
-                print(AccidentLog)
 
-            # Adicionando membros da equipe ao FlightLog
-            team_members = request.POST.get('responsibles')
-            if team_members:
-                team_members_ids = team_members.split(',')  # Supondo que os IDs sejam separados por vírgulas
-                flight_log.team_members.set(team_members_ids)
-
-            return redirect('flights')
+            return redirect('flights')  # Redireciona corretamente
 
         except Exception as e:
-            # Tratamento de erro para depuração
             print(f"Erro ao criar o flight log: {e}")
             return HttpResponseBadRequest("Ocorreu um erro ao criar o log de voo.")
 
-    # Renderiza o formulário vazio caso não seja uma requisição POST
-    return render(request, 'flight_create.html')
+    return render(request, 'flights.html')  # Renderiza a página em caso de GET
 
 # Editar um voo existente
 def flight_edit(request, id):

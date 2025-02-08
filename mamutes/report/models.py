@@ -62,7 +62,7 @@ class AccidentLog(models.Model):
 
     damaged_parts = models.TextField() 
 
-    damaged_parts_photo = models.URLField() 
+    damaged_parts_photo = models.URLField(null=True, blank=True) 
 
     def __str__(self):
         return f"Accident Log {self.id} - Flight {self.flight_log.id}"
