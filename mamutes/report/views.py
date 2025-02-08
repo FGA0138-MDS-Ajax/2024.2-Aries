@@ -33,7 +33,6 @@ def flight_create(request):
                 start_time=request.POST.get('start_time'),
                 end_time=request.POST.get('end_time'),
                 location=request.POST.get('location'),
-                flight_success_rating=request.POST.get('flight_success_rating'),
                 flight_objective_description=request.POST.get('flight_objective_description'),
                 results=request.POST.get('results'),
                 pilot_impressions=request.POST.get('pilot_impressions'),
@@ -45,10 +44,13 @@ def flight_create(request):
                 flight_cycles=request.POST.get('flight_cycles'),
                 telemetry_link=request.POST.get('telemetry_link'),
                 occurred_accident=occurred_accident,
+                flight_success_rating = request.POST.get('stars'),
             )
 
             # Adicionando membros da equipe ao FlightLog
             team_members = request.POST.get('responsibles')
+            
+
             if team_members:
                 team_members_ids = [int(id.strip()) for id in team_members.split(',') if id.strip().isdigit()]
                 flight_log.team_members.set(team_members_ids)  # Define os membros corretamente
@@ -61,7 +63,7 @@ def flight_create(request):
                     id_flightLog=flight_log,
                     description=request.POST.get('descriptionAccident'),
                     damaged_parts=request.POST.get('damaged_parts'),
-                    damaged_parts_photo=request.FILES.get('damaged_parts_photo')  # Corrigido para usar FILES corretamente
+                    damaged_parts_photo=request.POST.get('damaged_parts_photo')  # Corrigido para usar FILES corretamente
                 )
 
             return redirect('flights')  # Redireciona corretamente
@@ -178,7 +180,12 @@ def flights(request):
     flights = FlightLog.objects.all()
     count_flights = FlightLog.objects.all().count()
     count_accidents = FlightLog.objects.filter(occurred_accident = True).count()
-    accidents_percentage = count_accidents/count_flights * 100
+    if count_flights != 0:
+        accidents_percentage = (count_accidents / count_flights) * 100
+        accidents_percentage = round(accidents_percentage, 2)
+    else: 
+        accidents_percentage = 0
+
 
     profiles = MembroEquipe.objects.all()
     return render(request, 'flights.html', {'flights': flights, 'profiles': profiles, 'count_flights': count_flights, 'count_accidents': count_accidents, 'accidents_percentage':  accidents_percentage})

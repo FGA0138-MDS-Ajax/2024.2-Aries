@@ -38,13 +38,13 @@ class FlightLog(models.Model):
 
     improvements = models.TextField()
 
-    wind_speed = models.DecimalField(max_digits=4, decimal_places=3) 
+    wind_speed = models.DecimalField(max_digits=6, decimal_places=3) 
 
     wind_direction = models.CharField(max_length=100)  
 
-    atmospheric_pressure = models.DecimalField(max_digits=4, decimal_places=3)  
+    atmospheric_pressure = models.DecimalField(max_digits=5, decimal_places=3)  
 
-    total_takeoff_weight = models.DecimalField(max_digits=4, decimal_places=3) 
+    total_takeoff_weight = models.DecimalField(max_digits=6, decimal_places=3) 
 
     flight_cycles = models.PositiveIntegerField()
 
@@ -57,7 +57,9 @@ class FlightLog(models.Model):
 
 class AccidentLog(models.Model):
     id = models.AutoField(primary_key=True)
-    id_flightLog = models.ForeignKey(FlightLog, on_delete=models.CASCADE)
+    id_flightLog = models.ForeignKey(FlightLog, on_delete=models.CASCADE, related_name="accident")
+
+
     description = models.TextField()  
 
     damaged_parts = models.TextField() 

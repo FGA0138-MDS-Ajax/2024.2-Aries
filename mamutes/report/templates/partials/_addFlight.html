@@ -121,7 +121,7 @@
                             </svg>
                             {% include 'partials/_add_members.html' %}
                         </div>
-                        <input type="text" name="responsibles" id="responsibles" name="responsibles" rows="4" cols="50" readonly></textarea>
+                        <input type="text" style="display: none;" name="responsibles" id="responsibles" name="responsibles" rows="4" cols="50" readonly></textarea>
                     </div>
                 </div>
                 <div class="description">
@@ -181,6 +181,7 @@
                                 </svg>
                             </div>
                         </div>
+                        <input type="text" style="display: none;" name="stars" value="">
                         <p id="ratingText"></p>
                     </div>
                 </div>
@@ -239,6 +240,29 @@
         </button>
         </form>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const stars = document.querySelectorAll(".starIcon .star"); // Seleciona todas as estrelas
+          const input = document.querySelector("input[name='stars']"); // Seleciona o input
+      
+          stars.forEach((star) => {
+            star.addEventListener("click", function () {
+              const value = star.getAttribute("data-value"); // Obtém o valor da estrela clicada
+              input.value = value; // Define o valor no input
+      
+              // Remove a classe 'selected' de todas as estrelas
+              stars.forEach((s) => s.classList.remove("selected"));
+      
+              // Adiciona a classe 'selected' à estrela clicada e às anteriores
+              for (let i = 0; i < value; i++) {
+                stars[i].classList.add("selected");
+              }
+            });
+          });
+        });
+      </script>
+
+      
 </div>
 
 <!-- <script src="{% static 'scripts/flights.js' %}"></script> -->
