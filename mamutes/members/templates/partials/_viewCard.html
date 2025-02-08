@@ -53,7 +53,6 @@
                             <input type="checkbox" name="checkbox-subtask-{{ subtask.id }}" class="checkbox-subtask" {% if subtask.done %}checked{% endif %}>
                                 <span class="checkmark"></span>
                                 <p>{{ subtask.description }}</p> 
-                            
                             </label>
                         {% endfor %}
                         <input type="text" style="display:none;" name="id_task" value="{{id}}">

@@ -1,9 +1,11 @@
 {% load static %}
+
+{% block css %}
 <link rel="stylesheet" href="{% static 'css/meetings.css' %}">
 <link rel="stylesheet" href="{% static 'css/newMeeting.css' %}">
 <link rel="stylesheet" href="{% static 'css/editMeeting.css' %}">
 <link rel="stylesheet" href="{% static 'css/filterMeeting.css' %}">
-    <!-- editar reuniao modal -->
+    <!-- visualizar reuniao modal -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".thrashBtn").addEventListener("click", function () {
@@ -42,12 +44,13 @@
         });
         
     </script>
+{% endblock %}
     <div id="modalcard" class="modalcard">
         <div class="modal-content-card">
             
             <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; width: 100%;">
                 <div style="display: flex; justify-content: flex-start; gap: 8px;">
-                    <div class="editBtn">
+                    <div class="editBtn" id="openModalEditBtn">
                         <svg class="editImg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <path d="M8.58042 1.83929H2.68454C2.23777 1.83929 1.8093 2.01677 1.49339 2.33268C1.17748 2.6486 1 3.07706 1 3.52383V15.3156C1 15.7624 1.17748 16.1908 1.49339 16.5067C1.8093 16.8226 2.23777 17.0001 2.68454 17.0001H14.4763C14.9231 17.0001 15.3515 16.8226 15.6674 16.5067C15.9834 16.1908 16.1608 15.7624 16.1608 15.3156V9.41971" stroke="#0075F6" stroke-width="1.68454" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M13.9499 1.52344C14.285 1.18837 14.7394 1.00012 15.2133 1.00012C15.6872 1.00012 16.1416 1.18837 16.4767 1.52344C16.8118 1.85852 17 2.31298 17 2.78684C17 3.26071 16.8118 3.71517 16.4767 4.05025L8.88535 11.6425C8.68535 11.8423 8.43828 11.9886 8.1669 12.0678L5.74706 12.7753C5.67458 12.7964 5.59776 12.7977 5.52462 12.779C5.45149 12.7602 5.38474 12.7222 5.33136 12.6688C5.27797 12.6154 5.23992 12.5487 5.22118 12.4755C5.20245 12.4024 5.20371 12.3256 5.22485 12.2531L5.93236 9.83326C6.01198 9.56209 6.15854 9.31531 6.35855 9.11565L13.9499 1.52344Z" stroke="#0075F6" stroke-width="1.68454" stroke-linecap="round" stroke-linejoin="round"/>
@@ -62,7 +65,7 @@
                     </div>
                 </div>
                 <div>
-                    <span class="close-btn" id="closeModalEditBtn">&times;</span>
+                    <span class="close-btn" id="closeModalSeeBtn">&times;</span>
                 </div>
             </div><br>
             
@@ -159,4 +162,5 @@
             </div>
         </div>
     </div>
-    <div>
+
+{% include 'meetings/edit_meetings.html'%}

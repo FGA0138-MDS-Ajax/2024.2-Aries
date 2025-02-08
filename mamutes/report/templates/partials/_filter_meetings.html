@@ -1,0 +1,60 @@
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/filterFlights.css' %}">
+{% endblock %}
+
+<div id="modal" class="modalFilter">
+    <div class="close">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 16px 8px 16px; border-bottom: 1px solid #EEE;">
+            <h2 class="head-label-filter" style="margin: 0; justify-self: flex-start;">Filtrar reunião</h2>
+            <div class="close-btn-2" id="closeModalBtn" style="justify-self: flex-end;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="2" viewBox="0 0 12 2" fill="none">
+                    <path d="M1 2C0.71667 2 0.479337 1.904 0.288004 1.712C0.0966702 1.52 0.000670115 1.28267 3.44827e-06 1C-0.000663218 0.717333 0.0953369 0.48 0.288004 0.288C0.48067 0.0960001 0.718003 0 1 0H11C11.2833 0 11.521 0.0960001 11.713 0.288C11.905 0.48 12.0007 0.717333 12 1C11.9993 1.28267 11.9033 1.52033 11.712 1.713C11.5207 1.90567 11.2833 2.00133 11 2H1Z" fill="#808080"/>
+                </svg>
+            </div>
+        </div>
+        <form method="GET" class="form">            
+            <div class="modal-form-filter">
+                <div class="ata-box">
+                    <label class="ata-title">Ata</label>
+                    <div class="successnivel">
+                        <label class="stars" style="gap: 4px;">
+                            <input type="checkbox" class="checkbox-subtask">
+                            <span class="ata-content">Ata disponível</span>
+                        </label>
+                        
+                        <label class="stars" style="gap: 4px;">
+                            <input type="checkbox" class="checkbox-subtask">
+                            <span class="ata-content">Ata não disponível</span>
+                        </label>
+                    </div>
+                </div>
+
+                {% comment %} <div class="ata-box">
+                    <label class="ata-title">Período</label>
+                    <div class="period-box">
+                        <label for="" class="period-content">Inserir input de calendário com período</label>
+                    </div>
+                </div> {% endcomment %}
+
+                <div class="ata-box">
+                    <label class="ata-title">Times participantes</label>
+                    <div class="successnivel">
+                        {% for area in areas %}
+                        <label class="stars" style="gap: 4px;">
+                            <input type="checkbox" class="checkbox-subtask team-checkbox" name="areas" value="{{ area.id }}"
+                            {% if area.id|stringformat:"s" in selected_areas %}checked{% endif %}>
+                            <span class="ata-content"> {{ area.name }} </span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="botoes">
+                <button id="resetFilters" class="redefinirBtn">Redefinir</button>
+                <button id="applyFilters" class="aplicarBtn">Aplicar</button>
+            </div>
+        </form>     
+    </div> 
+</div>
