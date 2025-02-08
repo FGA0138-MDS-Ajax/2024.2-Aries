@@ -170,7 +170,7 @@
   flex: 1 0 0;
 } 
 .person-team .text-email { 
-  align-self: stretch;
+  /* align-self: stretch; */
   color: #717171;
   leading-trim: both;
   text-edge: cap;
@@ -246,4 +246,41 @@
 .mini-modal::-webkit-scrollbar {
   width: 0;
   display: none;
+}
+
+
+.searchField2{
+  display: flex;
+  height: 32px;
+  padding: 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #F3F3F3;
+}
+.searchField2 input{
+  width: 100%;
+  color: #717171;
+  border: none;
+  background: #F3F3F3;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 15px */
+  letter-spacing: -0.11px;
+}
+.searchField2 input:focus{
+  border: none;
+  outline: none;
+}
+.search-icon{
+  display: flex;
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
