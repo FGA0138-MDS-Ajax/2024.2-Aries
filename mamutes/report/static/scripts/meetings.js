@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('modalother_participants').innerText = other || ''; 
             
             // input do edit-modal
-            document.getElementById('id_meeting_id').value = id || 'Sem id';
+            // document.getElementById('id_meeting_id').value = id || 'Sem id';
             document.getElementById('id_title').value = title || 'Sem Título';
             document.getElementById('id_description').value = description || 'Sem Descrição';
             document.getElementById('id_meeting_date').value = converterData(meetingDate) || '';
