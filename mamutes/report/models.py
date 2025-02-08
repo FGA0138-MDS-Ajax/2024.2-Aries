@@ -38,13 +38,13 @@ class FlightLog(models.Model):
 
     improvements = models.TextField()
 
-    wind_speed = models.DecimalField(max_digits=6, decimal_places=3) 
+    wind_speed = models.DecimalField(max_digits=6, decimal_places=2) 
 
     wind_direction = models.CharField(max_length=100)  
 
     atmospheric_pressure = models.DecimalField(max_digits=5, decimal_places=3)  
 
-    total_takeoff_weight = models.DecimalField(max_digits=6, decimal_places=3) 
+    total_takeoff_weight = models.DecimalField(max_digits=6, decimal_places=2) 
 
     flight_cycles = models.PositiveIntegerField()
 
