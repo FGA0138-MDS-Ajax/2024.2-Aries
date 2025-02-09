@@ -3,7 +3,7 @@
     function toggleAreaSelection(element) {
         element.classList.toggle('selected'); // Adiciona ou remove a seleção
 
-        let selectedAreasInput = document.getElementById("selectedAreas");
+        let selectedAreasInput = document.getElementById("selectedAreasMeeting");
         let selectedAreas = selectedAreasInput.value ? selectedAreasInput.value.split(",") : [];
 
         let areaId = element.getAttribute("data-area-id");
@@ -118,7 +118,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                <input type="hidden" name="areas" id="selectedAreas" value="">
+                <input type="hidden" name="areas" id="selectedAreasMeeting" value="">
 
                 <div class="description-task">
                     <label class="title-form">Link da reunião</label>
@@ -147,7 +147,7 @@
                       </div>
                     </div>
                 </div>
-                <input type="text" id="responsibles" name="responsibles" value="" style="display: none;">
+                <!-- <input type="text" id="responsibles" name="responsibles" value="" style="display: none;"> -->
                 <div class="description-task">
                     <label class="title-form">Presentes</label>
                     <input id='id_other_participants' type="text" class="Titulo-input" name="other_participants" placeholder="Informe os presentes na reunião" required>

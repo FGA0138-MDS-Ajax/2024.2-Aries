@@ -227,17 +227,17 @@ def meetings(request):
     if areas_select:
         meetings = meetings.filter(areas__id__in=areas_select).distinct()
 
-    for meeting in meetings:
-        responsible_profiles = meeting.responsible.all()
-        responsible_photos = []
+    # for meeting in meetings:
+    #     responsible_profiles = meeting.responsible.all()
+    #     responsible_photos = []
         
-        for resp in responsible_profiles:
-            if resp.photo:
-                responsible_photos.append(image_to_base64(resp.photo))
-            else:
-                responsible_photos.append(None)
-        pair_r_p = list(zip(meeting.get_responsibles(), responsible_photos))
-        meeting.responsibles_list = pair_r_p
+    #     for resp in responsible_profiles:
+    #         if resp.photo:
+    #             responsible_photos.append(image_to_base64(resp.photo))
+    #         else:
+    #             responsible_photos.append(None)
+    #     pair_r_p = list(zip(meeting.get_responsibles(), responsible_photos))
+    #     meeting.responsibles_list = pair_r_p
 
     for profile in profiles:
             if profile.photo:
@@ -248,9 +248,9 @@ def meetings(request):
         post_data = request.POST.copy()  # Cria uma cópia dos dados para modificar
 
         # Converter os IDs de "responsibles" para uma lista
-        responsibles_ids = post_data.get("responsibles", "")
-        if responsibles_ids:  # Se não estiver vazio
-            post_data.setlist("responsible", responsibles_ids.split(","))  # Ajusta para ManyToManyField
+        # responsibles_ids = post_data.get("responsibles", "")
+        # if responsibles_ids:  # Se não estiver vazio
+        #     post_data.setlist("responsible", responsibles_ids.split(","))  # Ajusta para ManyToManyField
 
         # Converter os IDs de "areas" para lista (caso já existisse no código)
         post_data.setlist("areas", post_data.get("areas", "").split(","))
@@ -258,13 +258,14 @@ def meetings(request):
         # Criar e validar o formulário
         form = MeetingsForm(post_data)
         print(form.is_valid())
+        print(form.errors)
 
         if form.is_valid():
             meeting = form.save(commit=False)  # Salva sem ManyToMany
             meeting.save()  # Primeiro salva a instância
 
             # Adiciona os relacionamentos ManyToMany manualmente
-            meeting.responsible.set(post_data.getlist("responsible"))  
+            # meeting.responsible.set(post_data.getlist("responsible"))  
             meeting.areas.set(post_data.getlist("areas"))
 
             return redirect('meetingsquadro')

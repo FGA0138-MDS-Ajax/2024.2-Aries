@@ -81,7 +81,7 @@ class Meeting(models.Model):
     other_participants = models.TextField(blank=True, null=True)
     pauta = models.CharField(blank=True, null=True, max_length=255)
     areas = models.ManyToManyField(Area)  
-    responsible = models.ManyToManyField(MembroEquipe)
+    # responsible = models.ManyToManyField(MembroEquipe)
      
     def get_responsibles(self):
         """
