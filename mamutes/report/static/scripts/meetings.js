@@ -110,13 +110,13 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('modalother_participants').innerText = other || ''; 
             
             // input do edit-modal
-            // document.getElementById('id_meeting_id').value = id || 'Sem id';
+            document.getElementById('id_meeting_id').value = id || 'Sem id';
             document.getElementById('id_title').value = title || 'Sem Título';
             document.getElementById('id_description').value = description || 'Sem Descrição';
             document.getElementById('id_meeting_date').value = converterData(meetingDate) || '';
             // console.log('meetingDate:', converterData(meetingDate));
             document.getElementById('id_meeting_time_begin').value = meetingTimeBegin || '';
-            document.getElementById('id_meeting_time_end ').value = meetingTimeEnd || '';
+            document.getElementById('id_meeting_time_end').value = meetingTimeEnd || '';
             document.getElementById('id_local').value = local || '';
             document.getElementById('id_is_remote').value = isRemote || '';
             document.getElementById('id_link').value = link || '';

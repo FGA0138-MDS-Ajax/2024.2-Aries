@@ -226,7 +226,7 @@ def meetings(request):
     areas_select = request.GET.getlist("areas", [])
 
     if areas_select:
-        meetings = meetings.filter(areas_id_in=areas_select).distinct()
+        meetings = meetings.filter(areas__id__in=areas_select).distinct()
 
     # for meeting in meetings:
     #     responsible_profiles = meeting.responsible.all()
@@ -286,38 +286,26 @@ def meetings(request):
 
 
 
-def meetings_edit(request, id_meeting_id):
+def meetings_edit(request, meeting_id):
     # Carrega a reunião existente para edição
-    meeting = get_object_or_404(Meeting, id=id_meeting_id)
-    print(meeting.id)
-
+    meeting = get_object_or_404(Meeting, id=meeting_id)
+    
     if request.method == 'POST':
-        # Copia os dados POST para manipulação
         post_data = request.POST.copy()
-
-        # Separa os IDs das áreas (do campo "areas")
         post_data.setlist("areas", post_data.get("areas", "").split(","))
 
-        # Criar e validar o formulário com os dados POST
-        form = MeetingsForm(post_data, instance=meeting)  # Preenche o formulário com a instância do objeto Meeting
-        print(form.is_valid())
-        print(form.errors)
+        form = MeetingsForm(post_data, instance=meeting)
 
         if form.is_valid():
-            # Salva a instância do Meeting (sem o ManyToMany)
             meeting = form.save(commit=False)
-            meeting.save()  # Salva as alterações do Meeting
+            meeting.save()
+            meeting.areas.set(post_data.getlist("areas"))
 
-            # Atualiza o relacionamento ManyToMany com as áreas
-            meeting.areas.set(post_data.getlist("areas"))  # Atualiza o campo ManyToMany 'areas'
+            return JsonResponse({"success": True, "message": "Reunião editada com sucesso!"})
 
-            return redirect('meetingsquadro')  # Redireciona para a página de reuniões
+        return JsonResponse({"success": False, "message": "Erro na validação do formulário.", "errors": form.errors}, status=400)
 
-    else:
-        # Se não for uma requisição POST, preenche o formulário com os dados existentes da reunião
-        form = MeetingsForm(instance=meeting)
-
-    return render(request, 'meetings.html', {'form': form, 'meeting': meeting})
+    return JsonResponse({"success": False, "message": "Método inválido."}, status=405)
 
 
 

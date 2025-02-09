@@ -42,6 +42,72 @@
                 return document.querySelector("[name=csrfmiddlewaretoken]").value;
             }
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector(".editBtn1").addEventListener("click", function () {
+                // Obtém o ID da reunião a partir do input
+                let meetingId = document.querySelector("#id_meeting_id").value.trim();
+        
+                if (!meetingId) {
+                    alert("Erro: ID da reunião não encontrado.");
+                    return;
+                }
+        
+                // Obtém os valores dos campos do formulário
+                let title = document.querySelector("#id_title").value.trim();
+                let description = document.querySelector("#id_description").value.trim();
+                let meetingDate = document.querySelector("#id_meeting_date").value.trim();
+                let meetingTimeBegin = document.querySelector("#id_meeting_time_begin").value.trim();
+                let meetingTimeEnd = document.querySelector("#id_meeting_time_end").value.trim();
+                let local = document.querySelector("#id_local").value.trim();
+                let isRemote = document.querySelector("#id_is_remote").checked ? "true" : "false";  // Se checkbox, converte para "true" ou "false"
+                let link = document.querySelector("#id_link").value.trim();
+                let pauta = document.querySelector("#id_link_pauta").value.trim();
+                let otherParticipants = document.querySelector("#id_other_participants").value.trim();
+        
+                // Captura as áreas e transforma em lista (separadas por vírgula)
+                let areas = document.querySelector("#selectedAreasEdit").value.trim().split(",").map(area => area.trim());
+        
+                // Cria um objeto com os dados do formulário
+                let formData = new FormData();
+                formData.append("id_meeting_id", meetingId);
+                formData.append("title", title);
+                formData.append("description", description);
+                formData.append("meeting_date", meetingDate);
+                formData.append("meeting_time_begin", meetingTimeBegin);
+                formData.append("meeting_time_end", meetingTimeEnd);
+                formData.append("local", local);
+                formData.append("is_remote", isRemote);
+                formData.append("link", link);
+                formData.append("link_pauta", pauta);
+                formData.append("other_participants", otherParticipants);
+        
+                // Adiciona as áreas ao FormData (como array)
+                formData.append("areas", areas.join(",")); // Django espera lista separada por vírgula
+        
+                fetch(`/meetings/edit/${meetingId}/`, {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": getCSRFToken()
+                    },
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Reunião editada com sucesso!");
+                        window.location.href = "/meetingsquadro/";  // Redireciona para a página de reuniões
+                    } else {
+                        alert("Erro ao editar reunião.");
+                    }
+                })
+                .catch(error => console.error("Erro na requisição:", error));
+            });
+        
+            function getCSRFToken() {
+                return document.querySelector("[name=csrfmiddlewaretoken]").value;
+            }
+        });
+        
         
     </script>
 {% endblock %}
@@ -58,7 +124,8 @@
                         <span>Editar reunião</span>
                     </div>
                     <span class="others" id="modalId" style='display: none'></span>
-                    <div class="thrashBtn"  data-meeting-id="{{ meeting.id }}">
+                    <div class="thrashBtn" data-meeting-id="{{ meeting.id }}">
+                        <div>{{ meeting.id }}</div>
                         <svg class="thrashImg" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path d="M12.3333 2.66667H9.66667V2C9.66667 1.46957 9.45595 0.960859 9.08088 0.585786C8.70581 0.210714 8.1971 0 7.66667 0H6.33333C5.8029 0 5.29419 0.210714 4.91912 0.585786C4.54405 0.960859 4.33333 1.46957 4.33333 2V2.66667H1.66667C1.48986 2.66667 1.32029 2.7369 1.19526 2.86193C1.07024 2.98695 1 3.15652 1 3.33333C1 3.51014 1.07024 3.67971 1.19526 3.80474C1.32029 3.92976 1.48986 4 1.66667 4H2.33333V11.3333C2.33333 11.8638 2.54405 12.3725 2.91912 12.7475C3.29419 13.1226 3.8029 13.3333 4.33333 13.3333H9.66667C10.1971 13.3333 10.7058 13.1226 11.0809 12.7475C11.456 12.3725 11.6667 11.8638 11.6667 11.3333V4H12.3333C12.5101 4 12.6797 3.92976 12.8047 3.80474C12.9298 3.67971 13 3.51014 13 3.33333C13 3.15652 12.9298 2.98695 12.8047 2.86193C12.6797 2.7369 12.5101 2.66667 12.3333 2.66667ZM5.66667 2C5.66667 1.82319 5.7369 1.65362 5.86193 1.5286C5.98695 1.40357 6.15652 1.33333 6.33333 1.33333H7.66667C7.84348 1.33333 8.01305 1.40357 8.13807 1.5286C8.2631 1.65362 8.33333 1.82319 8.33333 2V2.66667H5.66667V2ZM10.3333 11.3333C10.3333 11.5101 10.2631 11.6797 10.1381 11.8047C10.013 11.9298 9.84348 12 9.66667 12H4.33333C4.15652 12 3.98695 11.9298 3.86193 11.8047C3.7369 11.6797 3.66667 11.5101 3.66667 11.3333V4H10.3333V11.3333Z" fill="#D70000"/>
                         </svg>

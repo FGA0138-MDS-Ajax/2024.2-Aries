@@ -36,26 +36,30 @@ function closeOnClickOutside(event) {
 
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
     const checkboxes = document.querySelectorAll(".accidentCheckbox");
 
-    checkboxes.forEach(function(checkbox, index) {
+    checkboxes.forEach(function(checkbox) {
         checkbox.addEventListener("change", function () {
             const div = checkbox.closest('.form');
-
-            
             const showAccidentForm = div.querySelector('.additionalInputs');
+            const fields = showAccidentForm.querySelectorAll("input, textarea");
+
             if (this.checked) {
-            
                 showAccidentForm.classList.remove("accidentBox");
+                fields.forEach(function(field) {
+                    field.required = true;
+                });
             } else {
-            
                 showAccidentForm.classList.add("accidentBox");
+                fields.forEach(function(field) {
+                    field.required = false;
+                });
             }
         });
     });
 });
+
 
 
 

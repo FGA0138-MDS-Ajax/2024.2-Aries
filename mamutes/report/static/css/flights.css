@@ -495,7 +495,7 @@ path{
     leading-trim: both;
     text-edge: cap;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -514,7 +514,9 @@ path{
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
+    text-align: start;
+    text-transform: lowercase;
     line-height: normal;
 }
 .textTime{
@@ -540,6 +542,7 @@ path{
 }
 .profPicture{
     display: flex;
+    object-fit: cover;
     flex-direction: column;
     justify-content: center;
     align-items: center;

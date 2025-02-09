@@ -14,6 +14,7 @@ class Minutes(models.Model):
     
 class FlightLog(models.Model):
     id = models.AutoField(primary_key=True)
+    
     title = models.CharField(max_length=255, null=True, blank=True)
 
     date = models.DateField()
@@ -83,11 +84,14 @@ class Meeting(models.Model):
     areas = models.ManyToManyField(Area)  
     # responsible = models.ManyToManyField(MembroEquipe)
      
-    # def get_responsibles(self):
-    #     """
-    #     Retorna uma lista com os nomes de todos os responsáveis.
-    #     """
-    #     return [responsible.fullname for responsible in self.responsible.all()]
+    def get_responsibles(self):
+        """
+        Retorna uma lista com os nomes de todos os responsáveis.
+        """
+        return [responsible.fullname for responsible in self.responsible.all()]
 
     def __str__(self):
         return f"Reunião: {self.title} - {self.meeting_date.strftime('%d/%m/%Y %H:%M')} - Áreas: {', '.join([area.name for area in self.areas.all()])}"
+
+
+
