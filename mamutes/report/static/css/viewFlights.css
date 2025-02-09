@@ -107,7 +107,7 @@
   min-width: 160px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  /* gap: 8px; */
   flex: 1 0 0;
 }
 .textSmallDesc{
@@ -162,7 +162,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  /* gap: 8px; */
   align-self: stretch;
 }
 .titleDescription{
@@ -472,4 +472,10 @@
   font-weight: 500;
   line-height: 150%; /* 18px */
   letter-spacing: -0.132px;
+}
+
+@media (max-width: 480px), (max-height: 480px){
+  .textInfoDescription{
+    font-size: 14px;
+  }
 }

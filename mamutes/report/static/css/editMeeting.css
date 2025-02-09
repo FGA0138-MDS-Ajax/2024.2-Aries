@@ -38,7 +38,7 @@
   flex: 1 0 0;
   overflow: hidden;
   overflow-y: auto;
-  clip-path: border-box;
+  /* clip-path: border-box; */
 }
 
 #uniqueModalAreas {
@@ -60,6 +60,9 @@
   color: white;
   /* A cor de fundo pode ser definida dinamicamente, mas se quiser um padrão, pode definir aqui: */
   background: #0075F6;
+  margin-left: -8px;
+  outline: 3px solid #FEFEFE;
+  font-size: 16px;
 }
 
 #uniqueModalPerson {
@@ -274,9 +277,9 @@
     leading-trim: both;
     text-edge: cap;
     font-family: Inter;
-    font-size: 11px;
+    font-size: 12px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 150%; /* 16.5px */
     letter-spacing: -0.121px;
     margin-bottom: -5px;
@@ -307,7 +310,7 @@
 
   .rows-sections{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
     align-self: stretch;
   }
@@ -323,3 +326,7 @@
     line-height: normal;
     letter-spacing: -0.154px;
   }
+
+.teamsMeeting{
+  padding-left: 8px;
+}

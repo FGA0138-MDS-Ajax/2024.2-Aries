@@ -24,6 +24,16 @@
     letter-spacing: -0.176px;
     height: auto;
 }
+
+.dot{
+    display: flex;
+    display: none;
+    width: 12px;
+    height: 12px;
+    flex-direction: column;
+    background: #0075F6;
+}
+
 #filterButton.active{
     background: #0075F6;
     border: none;
@@ -32,18 +42,16 @@
 #filterButton.active svg path{
     fill: #fefefe; 
 }
-.dot{
+#filterButton.filled{
+    background: #E4E4E4;
+    border: #E4E4E4;
+    color: #1e1e1e;
+}
+#filterButton.filled svg path{
+    fill: #1e1e1e; 
+}
+#filterButton.filled .dot{
     display: flex;
-    width: 12px;
-    height: 12px;
-    flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
-    top: -2px;
-    right: -6px;
-    border-radius: 50%;
-    border: 1px solid #F2F2F2;
-    background: #0075F6;
 }
 
 .stars{
@@ -211,3 +219,10 @@ line-height: 150%; /* 18px */
 letter-spacing: -0.132px;
 cursor: pointer;
 }
+
+@media (max-width: 480px), (max-height: 480px){
+    .modalFilter{
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+} 

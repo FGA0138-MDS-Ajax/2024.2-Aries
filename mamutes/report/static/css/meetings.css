@@ -183,7 +183,7 @@
     align-items: center;
     gap: 8px;
     align-self: stretch;
-    padding-inline: 8px;
+    /* padding-inline: 8px; */
 }
 
 .teamsMeeting{
@@ -194,6 +194,10 @@
     gap: 8px;
     opacity: 0px;
 
+}
+
+.teamsMeeting.cardMeeting{
+    gap: 0;
 }
 
 .personMeeting {
@@ -242,6 +246,13 @@
     background: #DDD;
     margin-left: -4px;
   }
+
+.personImg{
+    margin-left: -4px;
+}
+.personImg1.area-option{
+    margin: 0;
+}
 
 .personImg.plusTwo{
     color: #808080;
@@ -755,11 +766,38 @@
     .cards{
         grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
     }
+
+    .personImg1{
+        margin: 0;
+    }
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px), (max-height: 480px){
     .centerBase{
         padding-inline: 16px;
+        padding: 0 24px;
         /* padding-block: 0; */
+    }
+    .actionsHeader{
+        gap: 8px;
+        min-width: 200px;
+    }
+    .actionNew{
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        height: 48px;
+        width: 48px;
+        padding: 0;
+        gap: 0;
+        justify-content: center;
+    }
+    .textAddButton{
+        display: none;
+    }
+    .titleReport{
+        font-size: 24px;
+    }
+    .centerBase{
+        padding-bottom: 16px;
     }
 }

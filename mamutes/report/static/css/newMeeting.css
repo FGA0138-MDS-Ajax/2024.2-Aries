@@ -51,7 +51,7 @@
   flex: 1 0 0;
   overflow: hidden;
   overflow-y: auto;
-  clip-path: border-box;
+  /* clip-path: border-box; */
 }
 .form{
   display: flex;
@@ -240,7 +240,7 @@
 
 @media (max-width: 480px) {
   .modal-content{
-    padding: 16px;
+    padding: 32px;
     max-height: 98%;
     max-width: 95%;
   }
