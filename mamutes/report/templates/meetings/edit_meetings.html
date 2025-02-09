@@ -1,4 +1,10 @@
 {% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/editMeeting.css' %}">
+<script src="{% static 'scripts/_add_members.js' %}" defer></script>
+<script src="{% static 'scripts/_viewMembers.js' %}" defer></script>
+
 <script>
     function toggleAreaSelection(element) {
         element.classList.toggle('selected'); // Adiciona ou remove a seleção
@@ -29,7 +35,6 @@
         font-weight: bold;
         color: white;
         cursor: pointer;
-        margin: 5px;
         transition: transform 0.2s;
     }
     
@@ -42,12 +47,8 @@
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
    
-    
 </style>
-    <!-- modal edit reuniao -->
-    {% load static %}
-    <script src="{% static 'scripts/_add_members.js' %}"></script>
-    <script src="{% static 'scripts/_viewMembers.js' %}"></script>
+{% endblock %}
 
     <div id="modalEdit" class="modal">
         <div class="modal-content">
@@ -163,7 +164,7 @@
                     
                 {% endcomment %}
                 
-                </div><br>
+                </div>
 
                 <button class="button-form" type="submit">Concluido</button>
                 <div id="tooltip" class="tooltip"></div>

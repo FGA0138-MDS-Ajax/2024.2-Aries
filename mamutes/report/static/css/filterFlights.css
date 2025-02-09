@@ -21,6 +21,7 @@
     font-weight: 600;
     line-height: 150%; /* 24px */
     letter-spacing: -0.176px;
+    z-index: 5;
 }
 
 .modalFilter{

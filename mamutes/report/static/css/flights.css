@@ -190,20 +190,36 @@ path{
     border-radius: 8px;
     background: #FEFEFE;
 }
-.detailsIcon1{
+.detailsIcon{
     display: flex;
     width: 40px;
     height: 40px;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+}
+
+.detailsIcon.flights{
     background: rgba(0, 117, 246, 0.20);
 }
+
+.detailsIcon.accidents{
+    background: rgba(215, 0, 0, 0.20);
+}
+
+.detailsIcon.rate{
+    background: rgba(255, 139, 38, 0.20);
+}
+
+.detailsIcon.average{
+    background: rgba(0, 135, 7, 0.20);
+}
+
 .titleIcon{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    /* gap: 8px; */
     flex: 1 0 0;
 }
 .textDetails{
@@ -228,33 +244,6 @@ path{
     font-weight: 800;
     line-height: normal;
 }
-.detailsIcon2{
-    display: flex;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    background: rgba(215, 0, 0, 0.20);
-}
-.detailsIcon3{
-    display: flex;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    background: rgba(255, 139, 38, 0.20)
-}
-.detailsIcon4{
-    display: flex;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    background: rgba(0, 135, 7, 0.20);
-}
 /* .titleSection{
     display: flex;
     justify-content: space-between;
@@ -266,6 +255,7 @@ path{
 } */
 .partFilterOrder{
     display: flex;
+    width: 100%;
     row-gap: 8px;
     align-self: flex-end;
     flex-wrap: wrap;
@@ -323,7 +313,7 @@ path{
     fill: #fefefe; 
 }
 .dot{
-    display: flex;
+    display: none;
     width: 12px;
     height: 12px;
     flex-direction: column;
@@ -335,6 +325,21 @@ path{
     border: 1px solid #F2F2F2;
     background: #0075F6;
 }
+
+.submitCancelBotao.filled{
+    background: #E4E4E4;
+    border: #E4E4E4;
+    color: #1e1e1e;
+}
+
+.submitCancelBotao.filled .dot{
+    display: flex;
+}
+
+.submitCancelBotao.filled svg path{
+    fill: #1e1e1e; 
+}
+
 .flightsList{
     display: flex;
     flex-direction: column;
@@ -368,7 +373,9 @@ path{
     align-self: stretch;
 }
 .titleTable{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 100px 1fr 1fr 80px;
+    gap: 8px;
     min-width: 504px;
     padding: 8px 16px;
     justify-content: space-between;
@@ -397,9 +404,10 @@ path{
 }
 .date{
     display: flex;
-    width: 120px;
+    min-width: 120px;
     justify-content: center;
     align-items: center;
+    text-align: start;
 }
 .textTableDate{
     display: -webkit-box;
@@ -474,7 +482,9 @@ path{
     align-self: stretch;
 }
 .flightCard{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 100px 1fr 1fr 80px;
+    gap: 8px;
     padding: 16px;
     justify-content: space-between;
     align-items: center;
@@ -485,6 +495,9 @@ path{
     cursor: pointer;
 }
 .IdText{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
     align-self: stretch;
     color: #1E1E1E;
     leading-trim: both;
@@ -494,6 +507,8 @@ path{
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .textDate{
     display: -webkit-box;
@@ -510,6 +525,7 @@ path{
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    text-align: start;
 }
 .textTime{
     flex: 1 0 0;
@@ -673,4 +689,71 @@ path{
     height: 100%;
     flex: 1 0 0;
     align-self: stretch;
+}
+
+@media (max-width: 768px), (max-height: 480px){
+    .header{
+        position: sticky;
+        left: 0;
+    }
+    
+    .details{
+        position: sticky;
+        left: 0;
+    }
+    
+    .partFilterOrder{
+        position: sticky;
+        left: 0;
+        z-index: 10;
+    }
+}
+
+
+@media (max-width: 480px), (max-height: 480px){
+    .actions{
+        min-width: 200px;
+        gap: 8px;
+    }
+
+    .actionBtn{
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        height: 48px;
+        width: 48px;
+        padding: 0;
+        gap: 0;
+        justify-content: center;
+    }
+
+    .textAddButton{
+        display: none;
+    }
+
+    .details{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .cardDetails{
+        min-width: 0;
+        height: 72px;
+    }
+
+    .textInfoDetails{
+        font-size: 16px;
+    }
+
+    .textDetails{
+        font-size: 10px;
+    }
+
+    .titleReport{
+        font-size: 24px;
+    }
+
+    .detailsIcon{
+        width: 32px;
+        height: 32px;
+    }
 }

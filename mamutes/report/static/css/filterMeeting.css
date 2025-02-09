@@ -24,16 +24,9 @@
     letter-spacing: -0.176px;
     height: auto;
 }
-#filterButton.active{
-    background: #0075F6;
-    border: none;
-    color: #FEFEFE;
-}
-#filterButton.active svg path{
-    fill: #fefefe; 
-}
+
 .dot{
-    display: flex;
+    display: none;
     width: 12px;
     height: 12px;
     flex-direction: column;
@@ -44,6 +37,29 @@
     border-radius: 50%;
     border: 1px solid #F2F2F2;
     background: #0075F6;
+}
+
+#filterButton.active{
+    background: #0075F6;
+    border: none;
+    color: #FEFEFE;
+}
+#filterButton.active svg path{
+    fill: #fefefe; 
+}
+
+#filterButton.filled{
+    background: #E4E4E4;
+    border: #E4E4E4;
+    color: #1e1e1e;
+}
+
+#filterButton.filled svg path{
+    fill: #1e1e1e; 
+}
+
+#filterButton.filled .dot{
+    display: flex;
 }
 
 .stars{
@@ -104,8 +120,7 @@
     flex-direction: column;
     align-items: flex-start;
     align-self: stretch;
-    margin-bottom: -8px;
-    margin-top: -8px; 
+    gap: 8px;
 }
 
 .ata-title{
@@ -211,3 +226,10 @@ line-height: 150%; /* 18px */
 letter-spacing: -0.132px;
 cursor: pointer;
 }
+
+@media (max-width: 480px), (max-height: 480px){
+    .modalFilter{
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+} 

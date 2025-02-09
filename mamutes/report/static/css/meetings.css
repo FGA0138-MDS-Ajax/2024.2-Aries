@@ -183,7 +183,7 @@
     align-items: center;
     gap: 8px;
     align-self: stretch;
-    padding-inline: 8px;
+    /* padding-left: 8px; */
 }
 
 .teamsMeeting{
@@ -193,13 +193,17 @@
     flex-wrap: wrap;
     gap: 8px;
     opacity: 0px;
+}
 
+.teamsMeeting.cardMeeting{
+    gap: 0;
 }
 
 .personMeeting {
     display: flex;             /* Alinha as imagens em linha */
     align-items: center;       /* Centraliza verticalmente as imagens */
   }
+
 .responsible-photo {
     width: 35px;               /* Tamanho da imagem */
     height: 35px;
@@ -240,8 +244,16 @@
     line-height: 150%; /* 15px */
     letter-spacing: -0.11px;
     background: #DDD;
-    margin-left: -4px;
+    margin-left: -8px;
   }
+
+.personImg{
+    margin-left: -4px;
+}
+
+.personImg1.area-option{
+    margin: 0;
+}
 
 .personImg.plusTwo{
     color: #808080;
@@ -542,6 +554,7 @@
     gap: 8px;
     width: 100%;
     flex-wrap: wrap;
+    z-index: 10;
     /* align-self: stretch;
     flex-wrap: wrap; */
 }
@@ -733,7 +746,11 @@
     overflow-y: auto;
 }
 
-@media (max-width: 768px){
+.personImg1{
+    margin: 0;
+}
+
+@media (max-width: 768px), (max-height: 480px){
     .centerBase{
         /* padding: 16px; */
         height: 100%;
@@ -741,7 +758,7 @@
         overflow-y: auto;
         /* max-width: 600px; */
         padding-inline: 8%;
-        padding-block: 16px;
+        padding-block: 24px;
     }
 
     .mainHome{
@@ -757,9 +774,36 @@
     }
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px), (max-height: 480px){
     .centerBase{
-        padding-inline: 16px;
+        padding: 0 24px;
         /* padding-block: 0; */
+    }
+
+    .actionsHeader{
+        gap: 8px;
+        min-width: 200px;
+    }
+
+    .actionNew{
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        height: 48px;
+        width: 48px;
+        padding: 0;
+        gap: 0;
+        justify-content: center;
+    }
+
+    .textAddButton{
+        display: none;
+    }
+
+    .titleReport{
+        font-size: 24px;
+    }
+
+    .centerBase{
+        padding-bottom: 16px;
     }
 }

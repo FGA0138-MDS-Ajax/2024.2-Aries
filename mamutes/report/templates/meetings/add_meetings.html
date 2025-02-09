@@ -1,4 +1,10 @@
 {% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/newMeeting.css' %}">
+<script src="{% static 'scripts/_add_members.js' %}" defer></script>
+<script src="{% static 'scripts/_viewMembers.js' %}" defer></script>
+
 <script>
     function toggleAreaSelection(element) {
         element.classList.toggle('selected'); // Adiciona ou remove a seleção
@@ -30,6 +36,7 @@
         color: white;
         cursor: pointer;
         transition: transform 0.2s;
+        margin: 0;
     }
     
     .personImg1:hover {
@@ -43,10 +50,8 @@
    
     
 </style>
-    <!-- modal add reuniao -->
-    {% load static %}
-    <script src="{% static 'scripts/_add_members.js' %}"></script>
-    <script src="{% static 'scripts/_viewMembers.js' %}"></script>
+{% endblock %}
+
 
     <div id="modalAdd" class="modal">
         <div class="modal-content">
@@ -162,7 +167,7 @@
                     
                 {% endcomment %}
                 
-                </div><br>
+                </div>
 
                 <button class="button-form" type="submit">Concluido</button>
                 <div id="tooltip" class="tooltip"></div>

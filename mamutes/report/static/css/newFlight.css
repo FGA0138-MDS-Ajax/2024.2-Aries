@@ -50,7 +50,7 @@ modal {
   flex: 1 0 0;
   overflow: hidden;
   overflow-y: auto;
-  clip-path: border-box;
+  /* clip-path: border-box; */
 }
 .mainNewFlight{
     display: flex;
@@ -307,7 +307,7 @@ input:focus{
   gap: 8px;
   align-self: stretch;
   flex: 1 0 0;
-  min-width: 100px;
+  min-width: 200px;
 }
 .setMembers{
   display: flex;
@@ -407,14 +407,23 @@ input:focus{
 }
 .publishButton{
   display: flex;
-  height: 33px;
+  /* height: 33px; */
+  /* width: 100%; */
   padding: 12px 24px;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
   align-self: stretch;
   border-radius: 8px;
   background: #1F1A99;
+  color: #FEFEFE;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 18px */
+  letter-spacing: -0.132px;
+  border: none;
 }
 .textSubmitButton{
   color: #FEFEFE;
