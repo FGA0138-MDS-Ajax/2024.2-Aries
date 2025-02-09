@@ -19,8 +19,9 @@ from django.http import HttpResponse
 
 from .forms import EventForm, PostForm, TaskForm
 from .models import (
-    Area, Column, Event, MembroEquipe, Meeting, Post, Subtask, Task
-)
+    Area, Column, Event, MembroEquipe, Post, Subtask, Task)
+
+from report.models import Meeting
 from .serializers import ColumnSerializer, TaskSerializer
 
 

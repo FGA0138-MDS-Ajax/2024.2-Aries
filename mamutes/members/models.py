@@ -101,24 +101,7 @@ class Subtask(models.Model):
     def __str__(self):
         return self.description
 
-
-
-class Meeting(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    meeting_date = models.DateTimeField()
-    areas = models.ManyToManyField(Area)  
-
-    def get_participants(self):
-        participants = MembroEquipe.objects.none()
-        for area in self.areas.all():
-            participants = participants | area.membroequipe_set.all()
-        return participants.distinct()
-
-    def __str__(self):
-        return f"Reunião: {self.title} - {self.meeting_date.strftime('%d/%m/%Y %H:%M')} - Áreas: {', '.join([area.name for area in self.areas.all()])}"
-    
-    
+        
 class Column(models.Model):
     name = models.CharField(max_length=100)
 

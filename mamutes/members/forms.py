@@ -1,5 +1,5 @@
 from django import forms
-from .models import Task, Event, Meeting, Subtask, MembroEquipe, Post
+from .models import Task, Event, Subtask, MembroEquipe, Post
 from django.forms.models import inlineformset_factory
 from datetime import datetime
 class SubtaskForm(forms.ModelForm):
@@ -42,16 +42,3 @@ class EventForm(forms.ModelForm):
             'event_time',
         ]
 
-class MeetingForm(forms.ModelForm):
-    class Meta:
-        model = Meeting
-        fields = [
-            'title',
-            'description',
-            'meeting_date',
-            'areas'
-        ]
-        widgets = {
-            'meeting_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-            'areas': forms.CheckboxSelectMultiple(),
-        }

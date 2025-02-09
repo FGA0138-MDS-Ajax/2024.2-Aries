@@ -4,6 +4,7 @@ from django.urls import path, include
 from Users.views import login,logoutUser, register, recoverAccount, redefinePassword, pagConfig, editar_usuario, configPassword
 from guest.views import index, competition, admission
 from members.views import *
+from report.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 from stock.views import stock
@@ -31,6 +32,9 @@ urlpatterns = [
 
     # report
     path('report/', include('report.urls')),
+    path('meetings/', meetings, name='meetings'),
+    path('flights/', flights, name='flights'),
+    path('', include('report.urls')),
 
     # members
     path('sidebar/', sidebar , name="sidebar"),

@@ -20,16 +20,6 @@ class TaskAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 
-@admin.register(Meeting)
-class MeetingAdmin(admin.ModelAdmin):
-    list_display = ('title', 'meeting_date', 'get_areas')  
-    list_filter = ('meeting_date',)  
-    search_fields = ('title',)  
-
-    def get_areas(self, obj):
-        return ", ".join([area.name for area in obj.areas.all()])
-    get_areas.short_description = 'Áreas'
-
 from django.contrib import admin
 from .models import Post, Event
 
