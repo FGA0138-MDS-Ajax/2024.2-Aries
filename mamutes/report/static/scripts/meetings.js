@@ -56,11 +56,27 @@ document.addEventListener("DOMContentLoaded", function () {
             modalEdit.style.display = "none";
         }
     });
-    
+
+    const searchInput = document.getElementById("search");
     const meetingCards = document.querySelectorAll('.cardMeet');
     const modalcard = document.getElementById('modalcard');
     const closeModalSeeBtn = document.getElementById('closeModalSeeBtn');
     
+    searchInput.addEventListener("input", function (event) {
+        event.preventDefault();
+        const searchTerm = searchInput.value.trim().toLowerCase();
+
+        meetingCards.forEach(card => {
+            const title = card.dataset.title ? card.dataset.title.toLowerCase() : "";
+
+            if (title.includes(searchTerm)) {
+                card.style.display = "block"; 
+            } else {
+                card.style.display = "none"; 
+            }
+        });
+    });
+
     meetingCards.forEach(card => {
         card.addEventListener('click', function(e) {
             e.preventDefault();
@@ -128,9 +144,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     });
 
-    const openModalFilterBtn = document.getElementById("openModalFilterBtn");
-    const closeModalFilterBtn = document.getElementById("closeModalFilterBtn");
-    const modalFilter = document.getElementById("modalFilter");
+    const openModalFilterBtn = document.getElementById("filterButton");
+    const closeModalFilterBtn = document.getElementById("closeModalBtn");
+    const modalFilter = document.getElementById("modal");
 
     const applyFiltersBtn = document.getElementById("applyFilters");
     const resetFiltersBtn = document.getElementById("resetFilters");
@@ -168,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         meetingCards.forEach(card => {
-            let cardAreas = card.getAttribute("data-areas").slice(0, -1).split(",");
+            let cardAreas = card.getAttribute("data-areas").split(",");
 
             if (cardAreas.some(area => selectedAreas.includes(area))) {
                 card.style.display = "block"; 

@@ -14,9 +14,7 @@
                 </svg>
             </div>
         </div>
-        <form method="POST" class="form">
-            {% csrf_token %}
-            
+        <form method="GET" class="form">            
             <div class="modal-form-filter">
                 <div class="ata-box">
                     <label class="ata-title">Ata</label>
@@ -46,7 +44,7 @@
                         {% for area in areas %}
                         <label class="stars" style="gap: 4px;">
                             <input type="checkbox" class="checkbox-subtask team-checkbox" name="areas" value="{{ area.id }}"
-                            {% if area.id|stringformat:"s" in selected_areas %}checked{% endif %}>
+                            {% if area.id|stringformat:"s" in areas_select %}checked{% endif %}>
                             <span class="ata-content"> {{ area.name }} </span>
                         </label>
                         {% endfor %}

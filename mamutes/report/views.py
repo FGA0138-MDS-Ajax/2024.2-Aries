@@ -211,6 +211,10 @@ def meetings(request):
     meetings = Meeting.objects.all()
     items = []
 
+    search_meetings = request.GET.get("search", "")
+    if search_meetings:
+        meetings = meetings.filter(title__icontains=search_meetings)
+    
     order = request.GET.get("order", "recentes")
     if order == "recentes":
         meetings = meetings.order_by("-meeting_date") 
@@ -274,7 +278,8 @@ def meetings(request):
      "areas": areas,
      "areas_select": areas_select,
      "order": order,
-     "profiles": profiles,})
+     "profiles": profiles,
+     "search_meetings": search_meetings,})
 
 
 def membros_por_area(request, area_id):
