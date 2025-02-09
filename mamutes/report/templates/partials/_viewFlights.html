@@ -83,21 +83,21 @@
                         </div>
                         
                     </div>
-                    <div class="setMembers">
-                        
-                        <p class="textPilot">Membros envolvidos</p>
-                        <div class="peopleMeeting_">
-                            {% for profile in flight.team_members.all %}
-                            {% if not profile.position %}
-                            <div class="namePicture">
-                                <div class="profilePic">
-                                    <img src="{{profile.photo.url}}" alt="Erro ao carregar imagem">
+                        {% if flight.team_members.all %}
+                        <div class="setMembers">
+                            
+                            <p class="textPilot">Membros envolvidos</p>
+                            <div class="peopleMeeting_">
+                                {% for profile in flight.team_members.all %}
+                                <div class="namePicture">
+                                    <div class="profilePic">
+                                        <img src="{{profile.photo.url}}" alt="Erro ao carregar imagem">
+                                    </div>
                                 </div>
+                                {% endfor %}
                             </div>
-                            {% endif %}
-                            {% endfor %}
                         </div>
-                    </div>
+                        {% endif %}
                     {% endif %}
                 </div>
             
