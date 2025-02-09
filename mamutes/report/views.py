@@ -2,7 +2,7 @@ import profile
 from django.http import JsonResponse
 import base64
 from django.shortcuts import render, redirect, get_object_or_404
-
+from django.db.models import Sum
 from .models import AccidentLog, FlightLog,Meeting,Area,MembroEquipe
 from .forms import FlightForm,MeetingsForm
 from django.contrib.auth.decorators import login_required
@@ -19,6 +19,45 @@ from .models import FlightLog
 from django.shortcuts import render, redirect
 from django.http import HttpResponseBadRequest
 from .models import FlightLog, AccidentLog  # Certifique-se de importar os modelos corretos
+
+@login_required
+def flights(request):
+
+    flights = FlightLog.objects.all()
+    count_flights = FlightLog.objects.all().count()
+    count_accidents = FlightLog.objects.filter(occurred_accident = True).count()
+    sum_stars = FlightLog.objects.aggregate(Sum('flight_success_rating'))['flight_success_rating__sum']
+
+    if sum_stars != 0:
+        mid_sucess = sum_stars/count_flights
+    else: 
+        mid_sucess= 0
+    mid_sucess = round(mid_sucess, 2)
+    if count_flights != 0:
+        accidents_percentage = (count_accidents / count_flights) * 100
+        accidents_percentage = round(accidents_percentage, 2)
+    else: 
+        accidents_percentage = 0
+
+    profiles = MembroEquipe.objects.all()
+
+    context = {
+        'flights': flights,
+        'profiles': profiles,
+        'count_flights': count_flights,
+        'count_accidents': count_accidents,
+        'accidents_percentage':  accidents_percentage,
+        'mid_sucess':mid_sucess
+    }
+    if request.method == 'POST':
+        filter_search = request.POST.get('search')
+        print(filter_search)
+        flights = FlightLog.objects.filter(title__icontains=filter_search)
+        context['flights'] = flights
+        return render(request, 'flights.html', context)
+    return render(request, 'flights.html', context)
+
+
 
 def flight_create(request):
     if request.method == 'POST':
@@ -44,7 +83,7 @@ def flight_create(request):
                 flight_cycles=request.POST.get('flight_cycles'),
                 telemetry_link=request.POST.get('telemetry_link'),
                 occurred_accident=occurred_accident,
-                flight_success_rating = request.POST.get('stars'),
+                flight_success_rating = request.POST.get('stars') or 0,
             )
 
             # Adicionando membros da equipe ao FlightLog
@@ -77,14 +116,72 @@ def flight_create(request):
 # Editar um voo existente
 def flight_edit(request, id):
     flight = get_object_or_404(FlightLog, id=id)
+    profiles = MembroEquipe.objects.all()
+
+    # Tenta obter um log de acidente relacionado ao voo, se existir
+    accident_log = AccidentLog.objects.filter(id_flightLog=flight).first()
+
     if request.method == 'POST':
-        form = FlightForm(request.POST, instance=flight)
-        if form.is_valid():
-            form.save()
-            return redirect('flight_list')
-    else:
-        form = FlightForm(instance=flight)
-    return render(request, 'report/flight_form.html', {'form': form})
+        try:
+            flight.title = request.POST.get('title')
+            flight.date = request.POST.get('date')
+            flight.start_time = request.POST.get('start_time')
+            flight.end_time = request.POST.get('end_time')
+            flight.location = request.POST.get('location')
+            flight.wind_speed = request.POST.get('wind_speed', 0)
+            flight.wind_direction = request.POST.get('wind_direction')
+            flight.atmospheric_pressure = request.POST.get('atmospheric_pressure', 0)
+            flight.flight_objective_description = request.POST.get('flight_objective_description')
+            flight.results = request.POST.get('results')
+            flight.pilot_impressions = request.POST.get('pilot_impressions')
+            flight.improvements = request.POST.get('improvements')
+            flight.total_takeoff_weight = request.POST.get('total_takeoff_weight')
+            flight.telemetry_link = request.POST.get('telemetry_link')
+            flight.flight_success_rating = request.POST.get('stars') or 0
+
+            # Verifica se houve acidente
+            occurred_accident = 'occurred_accident' in request.POST
+            flight.occurred_accident = occurred_accident
+
+            flight.save()
+
+            # Atualiza os membros responsáveis
+            team_members = request.POST.get('responsibles')
+            if team_members:
+                team_members_ids = [int(id.strip()) for id in team_members.split(',') if id.strip().isdigit()]
+                flight.team_members.set(team_members_ids)
+
+            # Se houver um acidente, cria ou atualiza o log de acidente
+            if occurred_accident:
+                if accident_log:
+                    accident_log.description = request.POST.get('descriptionAccident')
+                    accident_log.damaged_parts = request.POST.get('damaged_parts')
+                    accident_log.damaged_parts_photo = request.POST.get('damaged_parts_photo')
+                    accident_log.save()
+                else:
+                    AccidentLog.objects.create(
+                        id_flightLog=flight,
+                        description=request.POST.get('descriptionAccident'),
+                        damaged_parts=request.POST.get('damaged_parts'),
+                        damaged_parts_photo=request.POST.get('damaged_parts_photo')
+                    )
+            else:
+                # Se o acidente foi removido, exclui o log de acidente se existir
+                if accident_log:
+                    accident_log.delete()
+
+            return redirect('flights')
+
+        except Exception as e:
+            print(f"Erro ao editar o flight log: {e}")
+            return HttpResponseBadRequest("Ocorreu um erro ao editar o log de voo.")
+
+    context = {
+        'flight': flight,
+        'profiles': profiles,
+        'accident_log': accident_log  # Passa o acidente para o template
+    }
+    return render(request, '_editFlight.html', context)
 
 # Deletar um voo
 def flight_delete(request, id):
@@ -175,43 +272,6 @@ def meetings(request):
      "areas_select": areas_select,
      "order": order,
      "profiles": profiles,})
-
-from django.db.models import Sum
-def flights(request):
-
-    flights = FlightLog.objects.all()
-    count_flights = FlightLog.objects.all().count()
-    count_accidents = FlightLog.objects.filter(occurred_accident = True).count()
-    sum_stars = FlightLog.objects.aggregate(Sum('flight_success_rating'))['flight_success_rating__sum']
-
-
-    if count_flights != 0:
-        accidents_percentage = (count_accidents / count_flights) * 100
-        accidents_percentage = round(accidents_percentage, 2)
-        mid_sucess = sum_stars/count_flights
-    else: 
-        accidents_percentage = 0
-        mid_sucess= 0
-
-
-
-
-    profiles = MembroEquipe.objects.all()
-
-    context = {
-        'flights': flights,
-        'profiles': profiles,
-        'count_flights': count_flights,
-        'count_accidents': count_accidents,
-        'accidents_percentage':  accidents_percentage,
-        'mid_sucess':mid_sucess
-    }
-    if request.method == 'POST':
-        filter_search = request.POST.get('search')
-        flights = FlightLog.objects.filter(title__icontains=filter_search)
-        context['flights'] = flights
-        return render(request, 'flights.html', context)
-    return render(request, 'flights.html', context)
 
 def membros_por_area(request, area_id):
     """Retorna os membros de uma determinada área."""

@@ -546,7 +546,7 @@ textarea::placeholder{
   gap: 8px;
   align-self: stretch;
 }
-#additionalInputs{
+.additionalInputs{
   width: 100%;
 }
 .dropdownFlight{
@@ -679,4 +679,7 @@ select.placeholder{
 }
 .options-container::-webkit-scrollbar-thumb {
   background-color: rgb(100, 100, 100);
+}
+.modalViewFlight{
+  display: none;
 }

@@ -30,64 +30,45 @@ function closeOnClickOutside(event) {
 }
 
 
-// abrir modal novo flight
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
+    const checkboxes = document.querySelectorAll(".accidentCheckbox");
 
-    const openModalBtn = document.getElementById("openModalBtn");
-    const modal = document.getElementById("modalNewFlight");
-    const closeModalBtn = document.getElementById("closeModalBtnNew");
+    checkboxes.forEach(function(checkbox, index) {
+        checkbox.addEventListener("change", function () {
+            const div = checkbox.closest('.form');
 
-    openModalBtn.addEventListener("click", function () {
-        modal.style.display = "block";
-    });
-
-    closeModalBtn.addEventListener("click", function () {
-        modal.style.display = "none";
-    });
-
-    window.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-
-})
-
-// rating de voo
-document.addEventListener("DOMContentLoaded", function () {
-    const stars = document.querySelectorAll(".star");
-    const ratingText = document.getElementById("ratingText");
-    const ratings = ["Ruim", "Regular", "Bom", "Muito Bom", "Ótimo"];
-    stars.forEach((star, index) => {
-        star.addEventListener("click", function () {
-            let selectedValue = this.getAttribute("data-value");
-            stars.forEach((s, i) => {
-                if (i < selectedValue) {
-                    s.classList.add("selected");
-                } else {
-                    s.classList.remove("selected");
-                }
-            });
-            ratingText.textContent = ratings[selectedValue - 1];
+            
+            const showAccidentForm = div.querySelector('.additionalInputs');
+            if (this.checked) {
+            
+                showAccidentForm.classList.remove("accidentBox");
+            } else {
+            
+                showAccidentForm.classList.add("accidentBox");
+            }
         });
     });
 });
 
 
 
-// mostra div adcional se checkbox marcado
-document.addEventListener("DOMContentLoaded", function () {
-    const checkbox = document.getElementById("accidentCheckbox");
-    const extraContent = document.getElementById("additionalInputs");
 
-    checkbox.addEventListener("change", function () {
-        if (this.checked) {
-            extraContent.classList.remove("accidentBox");
-        } else {
-            extraContent.classList.add("accidentBox");
-        }
-    });
-});
+
+
+
+
+
+
+
+
+
 
 // estilização para dropdown
 function showOptions(e) {
@@ -111,6 +92,7 @@ function hideOptions(e) {
         divOptions.style.display = "none";
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     let checkbox = document.querySelectorAll("#divOptions input");
@@ -139,26 +121,3 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-const openModalBtns = document.querySelectorAll(".flightCard");
-
-openModalBtns.forEach((btn) => {
-    const modal = btn.querySelector(".modalEditFlight");
-
-    if (!modal) return;
-
-    // Evento para abrir o modal
-    btn.addEventListener("click", function () {
-        modal.style.display = "block";
-    });
-
-    const closeModalViewBtns = modal.querySelectorAll(".closeModalBtnEditFlight");
-
-    closeModalViewBtns.forEach((closeBtn) => {
-        closeBtn.addEventListener("click", (event) => {
-            event.stopPropagation(); // Impede que o clique se propague para o flightCard
-            modal.style.display = "none"; // Fecha o modal
-        });
-    });
-});
-
-        

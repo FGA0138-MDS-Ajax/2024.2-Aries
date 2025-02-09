@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona todos os botões de "adicionar membros"
     const plusMembers = document.querySelectorAll('.plus-members');
 
     plusMembers.forEach(member => {
@@ -7,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!memberId) {
                 return;
             }
-
 
             // Encontra o input #responsibles mais próximo do clique
             const responsiblesField = member.closest('.form')?.querySelector('#responsibles');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentValues.push(memberId);
             }
 
-            // Atualresponsibles-containeriza o campo com os novos valores
+            // Atualiza o campo com os novos valores
             responsiblesField.value = currentValues.join(',');
 
             const personTeam = member.closest('.person-team'); // Encontra o elemento pai .person-team
@@ -40,10 +40,16 @@ document.addEventListener("click", (e) => {
 
     // Verifica se o clique foi no botão que abre o mini modal
     if (eve.classList.contains("plus-people")) {
-        let modal = eve.closest(".modal-form");
+        let modal = eve.closest(".modal-form"); // Encontra o modal mais próximo do botão
         let miniModal = modal.querySelector(".mini-modal");
 
         if (miniModal) {
+            // Fecha todos os modais antes de abrir o modal correspondente
+            document.querySelectorAll('.mini-modal').forEach(modal => {
+                modal.style.display = "none";
+            });
+
+            // Alterna a exibição do mini modal do botão clicado
             miniModal.style.display = miniModal.style.display === "flex" ? "none" : "flex";
         }
     } 
@@ -66,7 +72,6 @@ document.querySelectorAll('.searchToAddMember').forEach(inputSearcher => {
         if (currentValue !== lastValue) {
             lastValue = currentValue; 
 
-
             const modalContent = inputSearcher.closest('.mini-modal-content');
             const peopleList = modalContent.querySelector('.center-people-list'); 
 
@@ -87,7 +92,6 @@ document.querySelectorAll('.searchToAddMember').forEach(inputSearcher => {
         }
     });
 
-    
     inputSearcher.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
