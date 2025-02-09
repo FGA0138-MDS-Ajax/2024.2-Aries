@@ -1,4 +1,5 @@
 import profile
+from urllib import request
 from django.http import JsonResponse
 import base64
 from django.shortcuts import render, redirect, get_object_or_404
@@ -281,6 +282,43 @@ def meetings(request):
      "order": order,
      "profiles": profiles,
      "search_meetings": search_meetings,})
+
+
+
+
+def meetings_edit(request, id_meeting_id):
+    # Carrega a reunião existente para edição
+    meeting = get_object_or_404(Meeting, id_meeting_id=id)
+    print(meeting.id)
+
+    if request.method == 'POST':
+        # Copia os dados POST para manipulação
+        post_data = request.POST.copy()
+
+        # Separa os IDs das áreas (do campo "areas")
+        post_data.setlist("areas", post_data.get("areas", "").split(","))
+
+        # Criar e validar o formulário com os dados POST
+        form = MeetingsForm(post_data, instance=meeting)  # Preenche o formulário com a instância do objeto Meeting
+        print(form.is_valid())
+        print(form.errors)
+
+        if form.is_valid():
+            # Salva a instância do Meeting (sem o ManyToMany)
+            meeting = form.save(commit=False)
+            meeting.save()  # Salva as alterações do Meeting
+
+            # Atualiza o relacionamento ManyToMany com as áreas
+            meeting.areas.set(post_data.getlist("areas"))  # Atualiza o campo ManyToMany 'areas'
+
+            return redirect('meetingsquadro')  # Redireciona para a página de reuniões
+
+    else:
+        # Se não for uma requisição POST, preenche o formulário com os dados existentes da reunião
+        form = MeetingsForm(instance=meeting)
+
+    return render(request, 'meetings.html', {'form': form, 'meeting': meeting})
+
 
 
 def membros_por_area(request, area_id):

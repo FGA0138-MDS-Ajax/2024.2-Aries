@@ -14,6 +14,7 @@ class Minutes(models.Model):
     
 class FlightLog(models.Model):
     id = models.AutoField(primary_key=True)
+    
     title = models.CharField(max_length=255, null=True, blank=True)
 
     date = models.DateField()

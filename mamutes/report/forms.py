@@ -1,7 +1,5 @@
 from django import forms
-
-
-from .models import FlightLog,Meeting,Area
+from .models import FlightLog, Meeting, Area
 
 class FlightForm(forms.ModelForm):
     class Meta:
