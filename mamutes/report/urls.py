@@ -8,7 +8,7 @@ urlpatterns = [
     path('create/', views.flight_create, name='flight_create'), # Criar um novo voo
     path('<int:id>/edit/', views.flight_edit, name='flight_edit'), # Editar um voo
     path('delete/<int:id>/', views.flight_delete, name='flight_delete'), # Deletar um voo
-    path('meetings_edit/', views.meetings_edit, name='meetings_edit'),
+    path('meetings/edit/<int:meeting_id>/', views.meetings_edit, name='meetings_edit'),
     path('api/membros/<int:area_id>/', membros_por_area, name='membros_por_area'),
     path('delete_meeting/<int:meeting_id>/', delete_meeting, name='delete_meeting'),
 ]

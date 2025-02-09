@@ -86,6 +86,28 @@
   background: #0075F6;
 }
 
+.editBtn1{
+  display: flex;
+  /* height: 33px; */
+  /* width: 100%; */
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #1F1A99;
+  color: #FEFEFE;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 18px */
+  letter-spacing: -0.132px;
+  border: none;
+  margin-top: 10px;
+}
+
 .membros-container {
   display: flex;
   flex-wrap: wrap;

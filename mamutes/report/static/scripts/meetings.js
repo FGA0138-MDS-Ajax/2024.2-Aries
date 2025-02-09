@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('id_meeting_date').value = converterData(meetingDate) || '';
             // console.log('meetingDate:', converterData(meetingDate));
             document.getElementById('id_meeting_time_begin').value = meetingTimeBegin || '';
-            document.getElementById('id_meeting_time_end ').value = meetingTimeEnd || '';
+            document.getElementById('id_meeting_time_end').value = meetingTimeEnd || '';
             document.getElementById('id_local').value = local || '';
             document.getElementById('id_is_remote').value = isRemote || '';
             document.getElementById('id_link').value = link || '';

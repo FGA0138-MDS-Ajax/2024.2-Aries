@@ -1,36 +1,56 @@
 {% load static %}
 
-<style>
-    .personImg1 {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        color: white;
-        cursor: pointer;
-        margin: 5px;
-        transition: transform 0.2s;
-    }
-    
-    .personImg1:hover {
-        transform: scale(1.1);
-    }
-    
-    .personImg1.selected {
-        border: 3px solid #fff;  /* Adiciona uma borda branca para indicar seleção */
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
+
    
-</style>
     <!-- modal edit reuniao -->
     {% load static %}
     <script src="{% static 'scripts/_add_members.js' %}"></script>
     <script src="{% static 'scripts/_viewMembers.js' %}"></script>
     <script>src="{% static 'scripts/meetings.js' %}"</script>
-
+    <script>
+        function toggleAreaSelection1(element) {
+            element.classList.toggle('selected'); // Adiciona ou remove a seleção
+    
+            let selectedAreasInput = document.getElementById("selectedAreasEdit");
+            let selectedAreas = selectedAreasInput.value ? selectedAreasInput.value.split(",") : [];
+    
+            let areaId = element.getAttribute("data-area-id");
+    
+            if (selectedAreas.includes(areaId)) {
+                selectedAreas = selectedAreas.filter(id => id !== areaId); // Remove se já estiver selecionado
+            } else {
+                selectedAreas.push(areaId); // Adiciona se não estiver
+            }
+    
+            selectedAreasInput.value = selectedAreas.join(",");
+    
+            // Exibe os valores no console para debugar
+            console.log("IDs selecionados:", selectedAreas.join(","));
+        }
+    </script>
+    <style>
+        .personImg2 {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .personImg2:hover {
+            transform: scale(1.1);
+        }
+        
+        .personImg2.selected {
+            border: 3px solid rgb(255, 255, 255);  /* Adiciona uma borda branca para indicar seleção */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+    </style>
     <div id="modalEdit" class="modal">
         <div class="modal-content">
             <div style="display: flex; justify-content: flex-end;">
@@ -38,10 +58,10 @@
             </div>
             <div class="modal-form">
             <h2 class="head-label">Editar reunião</h2>
-            <form method="POST" class="form" action = "{% url 'meetings_edit' id_meeting_id %}">
+                <form method="POST" action="">
                 {% csrf_token %}
-
-                <input id='id_meeting_id' value = "id_meeting_id" type="text" class="Titulo-input" name="title" placeholder="Informe o título da nova reunião" required>
+                <input type="hidden" id="id_meeting_id" name="id_meeting_id" class="data-input" required>
+                
                 <div class="description-task">
                     <label class="title-form">Título</label>
                     <input id='id_title' type="text" class="Titulo-input" name="title" placeholder="Informe o título da nova reunião" required>
@@ -63,7 +83,7 @@
                     </div >
                     <div class="description-task">
                         <label class="title-form">Horário de término </label>
-                        <input type="time" id="id_meeting_time_end " name="meeting_time_end" class="data-input" required>
+                        <input type="time" id="id_meeting_time_end" name="meeting_time_end" class="data-input" required>
                     </div >
                 </div>      
 
@@ -90,17 +110,17 @@
                     <label class="title-form">Editar times</label>
                     <div class="teamsMeeting">
                         {% for area in areas %}
-                        <div class="personImg1 area-option"
+                        <div class="personImg2 area-option"
                             style="background: {{ area.color }}; {% if area.color|lower == '#fefefe' or area.color|lower == '#fff' %} outline: solid 1px #717171; color: #1e1e1e; {% endif %}"
                             data-area-id="{{ area.id }}"
                             title="{{ area.name }}" 
-                            onclick="toggleAreaSelection(this)">
+                            onclick="toggleAreaSelection1(this)">
                             {{ area.name|first }} 
                         </div>
                         {% endfor %}
                     </div>
                 </div>
-                <input type="text" name="areas" id="selectedAreasEdit" value="">
+                <input type="text" name="areas" id="selectedAreasEdit" value="" style="display: none;">
 
                 <div class="description-task">
                     <label class="title-form">Link da reunião</label>
@@ -143,8 +163,8 @@
                 <div style='position: relative;'>
                     {% include 'partials/_add_members.html' %}
                 </div>
-
-                <button class="button-form" type="submit">Concluido</button>
+               
+                <div class="editBtn1" style="cursor: pointer;"> Concluido</div>
                 <div id="tooltip" class="tooltip"></div>
             </form>
             </div>
@@ -153,46 +173,6 @@
         </div>
         <script>
             // Garantir que o código só execute após o carregamento completo do DOM
-            document.addEventListener("DOMContentLoaded", function() {
-                // Função que será chamada ao clicar nas áreas
-                function toggleAreaSelection(element) {
-                    // Verificar se o clique está funcionando
-                    console.log("Elemento clicado:", element);
-        
-                    // Adiciona ou remove a classe 'selected' para indicar visualmente a seleção
-                    element.classList.toggle('selected'); 
-        
-                    // Obtenha o campo input onde os IDs selecionados serão armazenados
-                    let selectedAreasInputEdit = document.getElementById("selectedAreasEdit");
-        
-                    // Obtenha a lista de IDs de áreas selecionadas a partir do campo de texto
-                    let selectedAreas = selectedAreasInputEdit.value ? selectedAreasInputEdit.value.split(",") : [];
-                    
-                    console.log("Áreas antes da alteração:", selectedAreas);
-        
-                    // Pegue o ID da área clicada
-                    let areaId = element.getAttribute("data-area-id");
-        
-                    // Adicione ou remova o ID da lista de IDs selecionados
-                    if (selectedAreas.includes(areaId)) {
-                        selectedAreas = selectedAreas.filter(id => id !== areaId); // Remove se já estiver selecionado
-                    } else {
-                        selectedAreas.push(areaId); // Adiciona se não estiver selecionado
-                    }
-        
-                    // Atualize o campo de texto com os novos valores
-                    selectedAreasInputEdit.value = selectedAreas.join(",");
-        
-                    // Exibe o valor atualizado no console
-                    console.log("IDs selecionados após a alteração:", selectedAreas.join(","));
-                }
-        
-                // Adiciona o evento de clique a todos os elementos que possuem a classe 'area-option'
-                document.querySelectorAll('.area-option').forEach(function(areaElement) {
-                    areaElement.addEventListener('click', function() {
-                        toggleAreaSelection(areaElement);
-                    });
-                });
-            });
+          
         </script>
     <div>
