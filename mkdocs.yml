@@ -1,7 +1,7 @@
 site_name: Documentação Mamutes do Cerrado
 
 nav:
-  # - Landing Page: "landing.html"
+  - Landing Page: "landing.html"
   - Apresentação: index.md
 
   - Atas:
@@ -34,6 +34,7 @@ nav:
   - Documentação:
       - Visão Geral: "documento-visao/documento-visao.md"
       - Arquitetura: "documento-arquitetura/documento-arquitetura.md"
+      - Requisitos: "documento-requisitos/documento-requisitos.md"
 
       - Testes: 
         - Plano de Testes: "documento-plano-testes/documento-plano-testes.md"
