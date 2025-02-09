@@ -226,8 +226,8 @@ O o seguinte quadro apresenta os principais papéis e responsabilidades dentro d
 |----------------------|------------------------------------------------------------|-----------------------------|
 | **Cliente**          | Fornecer feedback e acompanhar o progresso                 | Membro da Mamutes - Marina Mello             |
 | **Scrum Master**  | Atualizar escopo e validar entregas                        | Caio Duarte    |
-| **Líderes de Equipe**    | Fomentar os desenvolvedores, aliada ao squad que o compete, sendo eles: Front, Back, Banco de Dados e Testes, e atuar como reviwers quanto ao versionamento e afins. | Ludmila Aysha,	Rafael Welz,	Felipe Freire e Felipe Duarte    |
-| **Desenvolvedores**    | Codificar e realizar implementações                      | Amanda Cruz, Mayara Marques, Othavio Araujo, Vinicius Alves e Isaque Camargos   |
+| **Líderes de Equipe**    | Fomentar os desenvolvedores, aliada ao squad que o compete, sendo eles: Front, Back, Banco de Dados e Testes, e atuar como reviwers quanto ao versionamento e afins. | Ludmila Aysha,	Rafael Welz e	Felipe Duarte    |
+| **Desenvolvedores**    | Codificar e realizar implementações                      | Amanda Cruz, Mayara Marques, Othavio Araujo, Vinicius Alves, Isaque Camargos e Felipe Freire    |
 | **Analistas de Qualidade** | Garantir qualidade e executar testes de software    | Felipe Freire e Felipe Duarte  |
 
 Acesse este link para saber com detalhes cada equipe: [Integrantes Equipe](https://github.com/FGA0138-MDS-Ajax/2024.2-Aries/tree/main)
@@ -259,10 +259,10 @@ As fases serão detalhadas e adaptadas em cada sprint, com priorização do back
 | 5      | Página Home da parte Restrita, Back-end da parte de registro de voos, Modelagem de Dados                                          | 09/12/24    | 29/12/24   | 100%          |
 | 6      | Página de Tasks (KanBan), Página 404, Página de Estoque, Calendário, Testes de Integração                                              | 30/12/24    | 06/01/25   | 100%          |
 | 7      | Página Estoque, Página Home                                              | 07/01/25    | 13/01/25   | 100%          |
-| 8      | Página de Tarefas (KanBan), Back-end página Home, Calendário, Página Estoque                   | 14/01/25    | 20/01/25   | 60%          |
-| 9      | Página Registro de Acidentes, Página registro de voo, Página de Reuniões                    | 21/01/25    | 27/01/25   | 60%          |
-| 10     | Testes de Integração, Página registro de voos e acidentes, Página de Reuniões                                                            | 28/01/25    | 03/02/25   | 60%          |
-| 11     | Testes de Integração e Aceitação, Deploy                                                            | 04/02/25    | 10/02/25   | 20%          |
+| 8      | Página de Tarefas (KanBan), Back-end página Home, Calendário, Página Estoque                   | 14/01/25    | 20/01/25   | 90%          |
+| 9      | Página Registro de Acidentes, Página registro de voo, Página de Reuniões                    | 21/01/25    | 27/01/25   | 90%          |
+| 10     | Testes de Integração, Página registro de voos e acidentes, Página de Reuniões                                                            | 09/02/25    | 03/02/25   | 95%          |
+| 11     | Testes de Integração e Aceitação, Deploy                                                            | 09/02/25    | 10/02/25   | 100%          |
 
 
 
@@ -274,7 +274,7 @@ As fases do projeto serão realizadas de maneira incremental, organizadas em spr
 
 Na <strong>Sprint 1</strong>, a equipe focará na <strong>definição do produto</strong>, alinhando objetivos e estabelecendo as bases para o desenvolvimento. Este passo inicial é essencial para assegurar que todos os membros tenham uma visão clara do escopo do projeto. <br> <br> 
 
-A <strong>Sprint 2</strong> envolverá a produção da <strong>documentação de arquitetura</strong>, a criação do banco de dados em MySQL, a finalização do documento de visão e a entrega da página "Quem Somos". Essa etapa organizará os fundamentos técnicos do sistema. <br> <br>
+A <strong>Sprint 2</strong> envolverá a produção da <strong>documentação de arquitetura</strong>, a criação do banco de dados em SQLite, a finalização do documento de visão e a entrega da página "Quem Somos". Essa etapa organizará os fundamentos técnicos do sistema. <br> <br>
 
 As etapas seguintes, começando pela <strong>Sprint 3</strong>, irão abordar a implementação das páginas "Competição", "Processo Seletivo" e "Configurações de Conta", além de funcionalidades específicas como menus e avisos. Esse fluxo de trabalho visa manter um ritmo consistente e alinhado às prioridades do backlog. <br>
 
@@ -591,3 +591,4 @@ Descrição: Trabalharam na criação das páginas do projeto, integrando-as de 
 | 1.9 | 10/12/2024 | Inserção na gitpages | Felipe Freire |
 | 1.10 | 19/12/2024 | Correções nos artefatos com base nas sugestões do professor  | Felipe Freire |
 | 2.0 | 02/02/2025 | Atualização do artefato de acordo com o desenvolvimento da aplicação  | Mayara Marques |
+| 2.1 | 09/02/2025 | Revisão do Documento e atualização do tópico 2.3 | Felipe Freire |

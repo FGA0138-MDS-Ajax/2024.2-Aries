@@ -1,5 +1,6 @@
 
 # Relatório de Testes Unitários
+---
 
 ## App: Users
 
@@ -35,6 +36,8 @@
 |test_form_invalid_area|Testa o formulário com uma área inválida (ID inexistente).|Formulário inválido|
 |test_form_invalid_function|Testa o formulário com uma função inválida (ID inexistente).|Formulário inválido|
 
+---
+
 ## App: Stock
 
 ### `tests_views.py`
@@ -46,7 +49,7 @@
 |test_editar_ferramenta|Testa a edição de uma ferramenta existente.|Status 302, redirecionamento e alterações na ferramenta "Furadeira Alterada"|
 |test_deletar_ferramenta|Testa a exclusão de uma ferramenta.|Status 302, redirecionamento e ferramenta removida do banco de dados|
 
-### tests_url.py`
+### `tests_url.py`
 
 |Teste|Descrição|Resultado Esperado|
 |---|---|---|
@@ -64,6 +67,7 @@
 |test_str_method|Testa o método `__str__` do modelo Tool.|Retorno esperado: "Hammer"|
 |test_tool_default_values|Testa se os valores padrões do modelo Tool estão funcionando corretamente.|Campos `observation` como `None` e `being_used` como `False`|
 
+---
 
 ## APP: REPORT
 
@@ -107,10 +111,9 @@
 | **test_flight_log_creation**       | Testa a criação de um `FlightLog` e verifica se os campos estão corretos.                        | O objeto `FlightLog` deve ser salvo corretamente no banco de dados, com todos os campos correspondendo aos dados fornecidos, incluindo o campo `occurred_accident` como `False`. |
 | **test_default_occurred_accident** | Testa o valor padrão do campo `occurred_accident` para garantir que ele seja `False` por padrão. | O campo `occurred_accident` deve ter o valor `False` após a criação de um `FlightLog`, a menos que seja explicitamente alterado.                                                 |
 
-
+---
 
 ## APP: GUEST
-
 
 ### `tests_views.py`
 
@@ -126,6 +129,7 @@
 | **test_create_admission_state** | Testa a criação de um novo `AdmissionState`.                                                         | O estado de admissão deve ser criado corretamente, e o valor de `is_open` deve ser `True`.                      |
 | **test_default_admission_state** | Testa se o valor default do campo `is_open` em `AdmissionState` é `True`.                           | O estado de admissão deve ser criado com o valor padrão `is_open=True`.                                          |
 
+---
 
 ## APP: MEMBERS
 
@@ -144,7 +148,6 @@
 | test_profile_list_view (comentado) | Testa a listagem de perfis (atualmente comentado).             | Retorna status 200, indicando que a página de listagem de perfis foi carregada corretamente. |
 
 
-
 ### `Tests_models.py`
 
 | Teste                   | Descrição                                                       | Resultado Esperado |
@@ -154,7 +157,6 @@
 | test_post_creation      | Testa a criação de um post e verifica sua associação.          | O título deve ser "Test Post", a descrição "Post Description" e ele deve estar corretamente associado ao membro "Test Member". |
 | test_subtask_creation   | Testa a criação de uma subtarefa e verifica seus atributos.    | A descrição deve ser "Test Subtask", o status "done" deve ser falso e a subtarefa deve estar vinculada à tarefa "Test Task". |
 | test_column_creation    | Testa a criação de uma coluna e verifica seu nome.             | O nome da coluna deve ser "Test Column" e ela deve existir no banco de dados. |
-
 
 
 ### `tests_forms.py`
@@ -167,8 +169,6 @@
 | `test_event_form_valid`        | Testa se o formulário `EventForm` é válido quando os dados fornecidos estão corretos. O teste verifica se o título, descrição e outros dados relevantes para um evento estão preenchidos corretamente. | O formulário deve ser válido.                                |
 | `test_meeting_form_valid`      | Testa se o formulário `MeetingForm` é válido quando os dados fornecidos estão corretos. O teste verifica se os dados da reunião, como título, descrição, data e áreas associadas, são corretamente fornecidos e válidos. | O formulário deve ser válido.              |
 
-
-
 ### `Tests_urls.py`
 
 | Teste                              | Descrição                                                         | Resultado Esperado                                                                                                                           |
@@ -179,3 +179,12 @@
 | test_delete_announcement_url_resolves | Testa se a URL 'delete_announcement' está configurada corretamente. | A função `reverse('delete_announcement', args=[1])` deve gerar a URL correta e `resolve(url).url_name` deve retornar 'delete_announcement'. |
 | test_delete_event_url_resolves     | Testa se a URL 'delete_event' está configurada corretamente.      | A função `reverse('delete_event', args=[1])` deve gerar a URL correta e `resolve(url).url_name` deve retornar 'delete_event'. |
 | test_task_board_url_resolves       | Testa se a URL 'taskBoard' está configurada corretamente.         | A função `reverse('taskBoard')` deve gerar a URL correta e `resolve(url).url_name` deve retornar 'taskBoard'. |
+
+---
+
+## 11. Tabela de Versionamento
+
+| Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
+| :----: | :--: | :--------------------: | :-------------------: |
+| 1.0 | 09/02/2025 | Desenvolvimento do documento de testes unitários | Felipe Duarte |
+| 1.1 | 09/02/2025 | Revisão do Documento | Felipe Freire |

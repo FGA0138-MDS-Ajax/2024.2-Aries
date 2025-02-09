@@ -1,4 +1,5 @@
 # Relatorios de testes de integração
+---
 
 ## APP USERS
 
@@ -15,6 +16,7 @@
 | **test_edit_user_get**               | Testa a renderização da página de edição de usuário.                                                        | A página de edição deve ser carregada com status 200 e usar o template `pagConfig.html`.                                                   |
 | **test_edit_user_post**              | Testa o envio do formulário de edição de usuário.                                                            | As informações do usuário devem ser atualizadas corretamente e o usuário deve ser redirecionado para a página `pagConfig`.                  |
 
+---
 
 ## APP STOCK
 
@@ -26,6 +28,7 @@
 | **test_download_pdf**                 | Testa o download do estoque em formato PDF.                                                              | O conteúdo da resposta deve ser do tipo `application/pdf` e o status da resposta deve ser 200.                                          |
 | **test_download_csv**                 | Testa o download do estoque em formato CSV.                                                              | O conteúdo da resposta deve ser do tipo `text/csv` e o status da resposta deve ser 200.                                                  |
 
+---
 
 ## APP REPORT
 
@@ -36,7 +39,7 @@
 | **test_flight_edit_integration**   | Testa a edição de um registro de voo existente.                                                              | O formulário deve ser válido, a resposta deve ser 302 (redirecionamento), o campo `pilot_name` do voo deve ser atualizado para "Pilot Edited".  |
 | **test_flight_delete_integration** | Testa a exclusão de um registro de voo.                                                                       | A resposta deve ser 302 (redirecionamento), e o número de registros de voos deve diminuir para 0.                                              |
 
-
+---
 
 ## APP GUEST
 
@@ -47,6 +50,7 @@
 | **test_admission_state_model_str**                  | Testa a representação em string do modelo `AdmissionState`.                                                         | A representação deve ser "Aberto" quando `is_open` for `True`, e "Fechado" quando `is_open` for `False`.                                         |
 | **test_admin_admission_state_display**              | Testa a exibição do link de admissão no modelo `AdmissionState`.                                                    | O estado de admissão recuperado deve ter o link "http://example.com".                                                                            |
 
+---
 
 ## APP MEMBERS
 
@@ -56,3 +60,12 @@
 | `test_create_event`            | Testa a criação de um evento usando o formulário `EventForm`. Verifica se o formulário é válido, salva o evento corretamente e associa o evento ao membro. | O formulário deve ser válido e o evento criado deve ter o título "Novo Evento" e o membro associado. |
 | `test_task_view`               | Testa a view `taskBoard`. Verifica se ela responde corretamente (status 200) e se contém o nome da tarefa criada.  | A view deve responder com status 200 e exibir a tarefa "Teste". |
 | `test_event_view`              | Testa a view `home`. Verifica se ela responde corretamente (status 200) e se contém o título do evento criado. | A view deve responder com status 200 e exibir o evento "Evento Teste". |
+
+---
+
+## Tabela de Versionamento
+
+| Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
+| :----: | :--: | :--------------------: | :-------------------: |
+| 1.0 | 09/02/2025 | Desenvolvimento do documento de testes de integração | Felipe Duarte |
+| 1.1 | 09/02/2025 | Revisão do Documento| Felipe Freire |

@@ -50,14 +50,14 @@ Link para a documentação do projeto: [MkDocs - Aries 2024.2](https://fga0138-m
       Ponto Focal - Back End
     </td>
     <td align="center">
-      <img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100><br>
-      <b><a href="https://github.com/FelipeFreire-gf">Felipe Freire</a></b><br>
-      Ponto Focal - Banco de Dados
-    </td>
-    <td align="center">
       <img src="https://avatars.githubusercontent.com/u/173021374?v=4" width=100><br>
       <b><a href="https://github.com/Felipej3ds">Felipe Duarte</a></b><br>
       Ponto Focal - Testes
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/62055315?v=4" width=100><br>
+      <b><a href="https://github.com/FelipeFreire-gf">Felipe Freire</a></b><br>
+      DEV
     </td>
   </tr>
   <tr>

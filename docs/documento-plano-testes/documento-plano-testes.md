@@ -168,7 +168,8 @@ Critérios de Aceitação Não Funcional:
 
 ## 11. Tabela de Versionamento
 
-| Nome               | Cargo                   |  Data       |
-|--------------------|-------------------------|------------|
-| Felipe Duarte      | Leader Squad - Testes   | 19/01/25     |
+| Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
+| :----: | :--: | :--------------------: | :-------------------: |
+| 1.0 | 09/02/2025 | Desenvolvimento do plano de testes  | Felipe Duarte |
+| 1.1 | 09/02/2025 | Revisão do Documento| Felipe Freire |
 
