@@ -66,7 +66,7 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
 
 ### Organização Dos testes:
 
-- Os testes serão organizados em uma pasta tests, uma única pasta para cada app, e dentro dessa pasta tera outras três pastas cada uma para armazenar um tipo de teste, as pastas de testes serão divididas em:
+- Os testes serão organizados em uma pasta tests, com uma única subpasta para cada app. Dentro dessa subpasta, haverá outras três pastas, cada uma destinada a armazenar um tipo de teste. As pastas de testes serão divididas conforme exemplificado na tabela abaixo. No entanto, dependendo do tamanho de cada app ou da completude de cada arquivo de teste, as pastas de testes podem conter menos arquivos:
 
 - Testes Unitários  
 
@@ -101,8 +101,17 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
 - Após a conclusão dos testes unitários, os testes de integração começam, seguidos pelos testes de sistema.
 - A execução de testes de aceitação ocorre depois que os testes funcionais forem validados.
 
-### Registros e Relatórios:
+### Arquivação dos testes
 
+- A documentação dos testes será consolidada em um arquivo específico, onde cada teste será detalhado, incluindo sua descrição/objetivo, e resultados esperados. Essa prática assegura uma compreensão clara do propósito de cada teste e dos critérios de sucesso, facilitando a identificação de falhas e garantindo que o software atenda aos requisitos estabelecidos. Além disso, uma documentação bem estruturada promove a rastreabilidade e a colaboração entre as equipes de desenvolvimento e teste, servindo como referência para futuras manutenções e melhorias no sistema.
+
+### Outras formas de testes:
+
+- Após a identificação de um problema, o código é modificado e os testes são repetidos até que apresentem os resultados esperados. Além disso, uma parte significativa dos testes é realizada por meio de abordagens conhecidas como testes exploratórios.
+
+- Os testes exploratórios são uma abordagem de teste de software que enfatiza a aprendizagem simultânea, o design e a execução dos testes. Nessa metodologia, os testadores exploram o sistema de forma dinâmica, adaptando suas estratégias conforme descobrem comportamentos inesperados ou áreas de risco. Essa flexibilidade permite a identificação de defeitos que podem não ser detectados por testes tradicionais baseados em scripts. 
+
+- Ao adotar os testes exploratórios, a equipe de desenvolvimento assegura que os problemas sejam identificados e corrigidos de maneira proativa, contribuindo para a qualidade e a estabilidade do software.
 
 ## 7. Ambiente de Teste
 
@@ -132,10 +141,10 @@ obs: O planejamento ínicial é fazer os testes na branch teste para mitigar o r
 
 | Data       | Atividade                           | Responsável |
 |------------|-------------------------------------|-------------|
-| 2025-01-10 | Testes Unitários                    | [Nome]      |
-| 2025-01-15 | Testes de Integração                | [Nome]      |
-| 2025-02-04 | Testes de Sistema                   | [Nome]      |
-| 2025-02-08 | Testes de Aceitação                 | [Nome]      |
+| 2025-01-10 | Testes Unitários                    | Equipe      |
+| 2025-01-15 | Testes de Integração                | Equipe      |
+| 2025-02-04 | Testes de Sistema                   | Equipe      |
+| 2025-02-08 | Testes de Aceitação                 | Equipe      |
 
 ## 9. Critérios de Aceitação
 
@@ -159,7 +168,7 @@ Critérios de Aceitação Não Funcional:
 
 ## 11. Tabela de Versionamento
 
-| Nome               | Cargo         |  Data       |
-|--------------------|---------------|------------|
-| Felipe Duarte | Leader Squad - Testes   | 19/01/25     |
+| Nome               | Cargo                   |  Data       |
+|--------------------|-------------------------|------------|
+| Felipe Duarte      | Leader Squad - Testes   | 19/01/25     |
 
