@@ -182,7 +182,7 @@
 
 ---
 
-## 11. Tabela de Versionamento
+## Tabela de Versionamento
 
 | Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
 | :----: | :--: | :--------------------: | :-------------------: |
