@@ -1,7 +1,7 @@
 site_name: Documentação Mamutes do Cerrado
 
 nav:
-  - Landing Page: "landing.html"
+  # - Landing Page: "landing.html"
   - Apresentação: index.md
 
   - Atas:
@@ -29,10 +29,12 @@ nav:
           - Ata 10: "atas-reuniao/equipe/ata-reuniao-10-equipe.md"
           - Ata 11: "atas-reuniao/equipe/ata-reuniao-11-equipe.md"
           - Ata 12: "atas-reuniao/equipe/ata-reuniao-12-equipe.md"
+          - Ata 13: "atas-reuniao/equipe/ata-reuniao-13-equipe.md"
 
   - Documentação:
       - Visão Geral: "documento-visao/documento-visao.md"
       - Arquitetura: "documento-arquitetura/documento-arquitetura.md"
+      - Requisitos: "documento-requisitos/documento-requisitos.md"
       - Testes: "documento-plano-testes/documento-plano-testes.md"
 
   - Links: "links/links.md"

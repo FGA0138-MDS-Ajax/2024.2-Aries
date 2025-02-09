@@ -87,10 +87,6 @@ Baseado em um documento prévio elaborado pelo líder do grupo, que continha inf
 8. Loja virtual
 
 ---
-
-**Fim da ATA**
-
----
 # Tabela de Versionamento 
 
 | Versão | Data | Descrição da Alteração | Nome(s) Integrante(s) |
@@ -98,3 +94,4 @@ Baseado em um documento prévio elaborado pelo líder do grupo, que continha inf
 | 1.0 | 25/11/2024 | Criação da ata | Mayara Marques |
 | 1.1 | 26/11/2024 | Inserção da tabela de participantes | Mayara Marques |
 | 1.2 | 02/12/2024 | Reorganização da tabela de versionamento | Mayara Marques |
+| 1.3 | 09/02/2025 | Reorganização de itens da ata | Mayara Marques |
