@@ -1,10 +1,11 @@
 import profile
+from urllib import request
 from django.http import JsonResponse
 import base64
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
 from .models import AccidentLog, FlightLog,Meeting,Area,MembroEquipe
-from .forms import FlightForm, MeetingsForm
+from .forms import FlightForm,MeetingsForm
 from django.contrib.auth.decorators import login_required
 
 # Listar todos os voos
@@ -225,19 +226,19 @@ def meetings(request):
     areas_select = request.GET.getlist("areas", [])
 
     if areas_select:
-        meetings = meetings.filter(areas__id__in=areas_select).distinct()
+        meetings = meetings.filter(areas_id_in=areas_select).distinct()
 
-    for meeting in meetings:
-        responsible_profiles = meeting.responsible.all()
-        responsible_photos = []
+    # for meeting in meetings:
+    #     responsible_profiles = meeting.responsible.all()
+    #     responsible_photos = []
         
-        for resp in responsible_profiles:
-            if resp.photo:
-                responsible_photos.append(image_to_base64(resp.photo))
-            else:
-                responsible_photos.append(None)
-        pair_r_p = list(zip(meeting.get_responsibles(), responsible_photos))
-        meeting.responsibles_list = pair_r_p
+    #     for resp in responsible_profiles:
+    #         if resp.photo:
+    #             responsible_photos.append(image_to_base64(resp.photo))
+    #         else:
+    #             responsible_photos.append(None)
+    #     pair_r_p = list(zip(meeting.get_responsibles(), responsible_photos))
+    #     meeting.responsibles_list = pair_r_p
 
     for profile in profiles:
             if profile.photo:
@@ -248,9 +249,9 @@ def meetings(request):
         post_data = request.POST.copy()  # Cria uma cópia dos dados para modificar
 
         # Converter os IDs de "responsibles" para uma lista
-        responsibles_ids = post_data.get("responsibles", "")
-        if responsibles_ids:  # Se não estiver vazio
-            post_data.setlist("responsible", responsibles_ids.split(","))  # Ajusta para ManyToManyField
+        # responsibles_ids = post_data.get("responsibles", "")
+        # if responsibles_ids:  # Se não estiver vazio
+        #     post_data.setlist("responsible", responsibles_ids.split(","))  # Ajusta para ManyToManyField
 
         # Converter os IDs de "areas" para lista (caso já existisse no código)
         post_data.setlist("areas", post_data.get("areas", "").split(","))
@@ -258,13 +259,14 @@ def meetings(request):
         # Criar e validar o formulário
         form = MeetingsForm(post_data)
         print(form.is_valid())
+        print(form.errors)
 
         if form.is_valid():
             meeting = form.save(commit=False)  # Salva sem ManyToMany
             meeting.save()  # Primeiro salva a instância
 
             # Adiciona os relacionamentos ManyToMany manualmente
-            meeting.responsible.set(post_data.getlist("responsible"))  
+            # meeting.responsible.set(post_data.getlist("responsible"))  
             meeting.areas.set(post_data.getlist("areas"))
 
             return redirect('meetingsquadro')
@@ -280,6 +282,43 @@ def meetings(request):
      "order": order,
      "profiles": profiles,
      "search_meetings": search_meetings,})
+
+
+
+
+def meetings_edit(request, id_meeting_id):
+    # Carrega a reunião existente para edição
+    meeting = get_object_or_404(Meeting, id=id_meeting_id)
+    print(meeting.id)
+
+    if request.method == 'POST':
+        # Copia os dados POST para manipulação
+        post_data = request.POST.copy()
+
+        # Separa os IDs das áreas (do campo "areas")
+        post_data.setlist("areas", post_data.get("areas", "").split(","))
+
+        # Criar e validar o formulário com os dados POST
+        form = MeetingsForm(post_data, instance=meeting)  # Preenche o formulário com a instância do objeto Meeting
+        print(form.is_valid())
+        print(form.errors)
+
+        if form.is_valid():
+            # Salva a instância do Meeting (sem o ManyToMany)
+            meeting = form.save(commit=False)
+            meeting.save()  # Salva as alterações do Meeting
+
+            # Atualiza o relacionamento ManyToMany com as áreas
+            meeting.areas.set(post_data.getlist("areas"))  # Atualiza o campo ManyToMany 'areas'
+
+            return redirect('meetingsquadro')  # Redireciona para a página de reuniões
+
+    else:
+        # Se não for uma requisição POST, preenche o formulário com os dados existentes da reunião
+        form = MeetingsForm(instance=meeting)
+
+    return render(request, 'meetings.html', {'form': form, 'meeting': meeting})
+
 
 
 def membros_por_area(request, area_id):

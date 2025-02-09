@@ -1,0 +1,184 @@
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/meetings.css' %}">
+<link rel="stylesheet" href="{% static 'css/newMeeting.css' %}">
+<link rel="stylesheet" href="{% static 'css/editMeeting.css' %}">
+<link rel="stylesheet" href="{% static 'css/filterMeeting.css' %}">
+    <!-- visualizar reuniao modal -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector(".thrashBtn").addEventListener("click", function () {
+                // Obtém o ID da reunião a partir do span dentro da div atual
+                let meetingId = document.querySelector("#modalId").textContent.trim();
+        
+                if (!meetingId) {
+                    alert("Erro: ID da reunião não encontrado.");
+                    return;
+                }
+        
+                if (confirm("Tem certeza que deseja excluir esta reunião?")) {
+                    fetch(`/delete_meeting/${meetingId}/`, {
+                        method: "POST",
+                        headers: {
+                            "X-CSRFToken": getCSRFToken(),
+                            "Content-Type": "application/json",
+                        },
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Reunião excluída com sucesso!");
+                            location.reload();
+                        } else {
+                            alert("Erro ao excluir reunião.");
+                        }
+                    })
+                    .catch(error => console.error("Erro na requisição:", error));
+                }
+            });
+        
+            function getCSRFToken() {
+                return document.querySelector("[name=csrfmiddlewaretoken]").value;
+            }
+        });
+        
+    </script>
+{% endblock %}
+    <div id="modalcard" class="modalcard">
+        <div class="modal-content-card">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; width: 100%;">
+                <div style="display: flex; justify-content: flex-start; gap: 8px;">
+                    <div class="editBtn" id="openModalEditBtn">
+                        <svg class="editImg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path d="M8.58042 1.83929H2.68454C2.23777 1.83929 1.8093 2.01677 1.49339 2.33268C1.17748 2.6486 1 3.07706 1 3.52383V15.3156C1 15.7624 1.17748 16.1908 1.49339 16.5067C1.8093 16.8226 2.23777 17.0001 2.68454 17.0001H14.4763C14.9231 17.0001 15.3515 16.8226 15.6674 16.5067C15.9834 16.1908 16.1608 15.7624 16.1608 15.3156V9.41971" stroke="#0075F6" stroke-width="1.68454" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13.9499 1.52344C14.285 1.18837 14.7394 1.00012 15.2133 1.00012C15.6872 1.00012 16.1416 1.18837 16.4767 1.52344C16.8118 1.85852 17 2.31298 17 2.78684C17 3.26071 16.8118 3.71517 16.4767 4.05025L8.88535 11.6425C8.68535 11.8423 8.43828 11.9886 8.1669 12.0678L5.74706 12.7753C5.67458 12.7964 5.59776 12.7977 5.52462 12.779C5.45149 12.7602 5.38474 12.7222 5.33136 12.6688C5.27797 12.6154 5.23992 12.5487 5.22118 12.4755C5.20245 12.4024 5.20371 12.3256 5.22485 12.2531L5.93236 9.83326C6.01198 9.56209 6.15854 9.31531 6.35855 9.11565L13.9499 1.52344Z" stroke="#0075F6" stroke-width="1.68454" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Editar reunião</span>
+                    </div>
+                    <span class="others" id="modalId" style='display: none'></span>
+                    <div class="thrashBtn"  data-meeting-id="{{ meeting.id }}">
+                        <svg class="thrashImg" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M12.3333 2.66667H9.66667V2C9.66667 1.46957 9.45595 0.960859 9.08088 0.585786C8.70581 0.210714 8.1971 0 7.66667 0H6.33333C5.8029 0 5.29419 0.210714 4.91912 0.585786C4.54405 0.960859 4.33333 1.46957 4.33333 2V2.66667H1.66667C1.48986 2.66667 1.32029 2.7369 1.19526 2.86193C1.07024 2.98695 1 3.15652 1 3.33333C1 3.51014 1.07024 3.67971 1.19526 3.80474C1.32029 3.92976 1.48986 4 1.66667 4H2.33333V11.3333C2.33333 11.8638 2.54405 12.3725 2.91912 12.7475C3.29419 13.1226 3.8029 13.3333 4.33333 13.3333H9.66667C10.1971 13.3333 10.7058 13.1226 11.0809 12.7475C11.456 12.3725 11.6667 11.8638 11.6667 11.3333V4H12.3333C12.5101 4 12.6797 3.92976 12.8047 3.80474C12.9298 3.67971 13 3.51014 13 3.33333C13 3.15652 12.9298 2.98695 12.8047 2.86193C12.6797 2.7369 12.5101 2.66667 12.3333 2.66667ZM5.66667 2C5.66667 1.82319 5.7369 1.65362 5.86193 1.5286C5.98695 1.40357 6.15652 1.33333 6.33333 1.33333H7.66667C7.84348 1.33333 8.01305 1.40357 8.13807 1.5286C8.2631 1.65362 8.33333 1.82319 8.33333 2V2.66667H5.66667V2ZM10.3333 11.3333C10.3333 11.5101 10.2631 11.6797 10.1381 11.8047C10.013 11.9298 9.84348 12 9.66667 12H4.33333C4.15652 12 3.98695 11.9298 3.86193 11.8047C3.7369 11.6797 3.66667 11.5101 3.66667 11.3333V4H10.3333V11.3333Z" fill="#D70000"/>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <span class="close-btn" id="closeModalSeeBtn">&times;</span>
+                </div>
+            </div><br>
+            
+        <div class="modal-form">
+                <h2 class="head-label-edit" id="modalTitle"></h2>
+                <form method="POST" class="form">
+                {% csrf_token %}
+                
+                    <div class="description-task">
+                        <div style="display: flex; justify-content: flex-end; gap: 4px; margin-top: -10x;">
+                            <span class="others" id="modalDescription"><b>Objetivo:</b>a</span>
+                        </div>
+                    </div>
+
+                    <div class="status-data" style="display: flex; flex-direction: row; width: 100%;">
+                        <div class="description-task">
+                            <label class="titles">Data</label>
+                            <div class="rows-sections">
+                                <div class="infoIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
+                                        <path d="M1.16699 5.66671H12.8337M3.90766 2.66671V1.33337M10.0743 2.66671V1.33337M10.5003 2.66671H3.50033C2.88149 2.66671 2.28799 2.91254 1.85041 3.35012C1.41282 3.78771 1.16699 4.3812 1.16699 5.00004V11.3334C1.16699 11.9522 1.41282 12.5457 1.85041 12.9833C2.28799 13.4209 2.88149 13.6667 3.50033 13.6667H10.5003C11.1192 13.6667 11.7127 13.4209 12.1502 12.9833C12.5878 12.5457 12.8337 11.9522 12.8337 11.3334V5.00004C12.8337 4.3812 12.5878 3.78771 12.1502 3.35012C11.7127 2.91254 11.1192 2.66671 10.5003 2.66671Z" stroke="#1F1A99" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="textLabel" id="modalDate"></span>
+                            </div>
+                        </div>
+
+                        <div class="description-task">
+                            <label class="titles">Início</label>
+                            <div class="rows-sections">
+                                <div class="infoIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
+                                        <path d="M9.13301 9.9L7.68461 8.4516C7.45955 8.22661 7.33308 7.92143 7.33301 7.6032V3.9M13.333 7.5C13.333 10.8137 10.6467 13.5 7.33301 13.5C4.0193 13.5 1.33301 10.8137 1.33301 7.5C1.33301 4.18629 4.0193 1.5 7.33301 1.5C10.6467 1.5 13.333 4.18629 13.333 7.5Z" stroke="#1F1A99" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="textLabel" id="modalTimeBegin"></span>
+                            </div>
+                        </div>
+
+                        <div class="description-task">
+                            <label class="titles">Término</label>
+                            <div class="rows-sections">
+                                <div class="infoIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
+                                        <path d="M9.13301 9.9L7.68461 8.4516C7.45955 8.22661 7.33308 7.92143 7.33301 7.6032V3.9M13.333 7.5C13.333 10.8137 10.6467 13.5 7.33301 13.5C4.0193 13.5 1.33301 10.8137 1.33301 7.5C1.33301 4.18629 4.0193 1.5 7.33301 1.5C10.6467 1.5 13.333 4.18629 13.333 7.5Z" stroke="#1F1A99" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="textLabel" id="modalTimeEnd"></span>
+                            </div>
+                        </div>
+
+                        <div class="description-task">
+                            <label class="titles">Local</label>
+                            <div class="infoEvent">
+                                <div class="labelOnline">
+                                     <div class="infoIcon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
+                                            <path d="M8.5 7C8.5 6.60218 8.34196 6.22064 8.06066 5.93934C7.77936 5.65804 7.39782 5.5 7 5.5C6.60218 5.5 6.22064 5.65804 5.93934 5.93934C5.65804 6.22064 5.5 6.60218 5.5 7C5.5 7.39782 5.65804 7.77936 5.93934 8.06066C6.22064 8.34196 6.60218 8.5 7 8.5C7.39782 8.5 7.77936 8.34196 8.06066 8.06066C8.34196 7.77936 8.5 7.39782 8.5 7ZM13 7C13 9.874 9.903 13.016 8.159 14.558C7.84011 14.8428 7.42754 15.0002 7 15.0002C6.57246 15.0002 6.15989 14.8428 5.841 14.558C4.097 13.016 1 9.874 1 7C1 6.21207 1.15519 5.43185 1.45672 4.7039C1.75825 3.97595 2.20021 3.31451 2.75736 2.75736C3.31451 2.20021 3.97595 1.75825 4.7039 1.45672C5.43185 1.15519 6.21207 1 7 1C7.78793 1 8.56815 1.15519 9.2961 1.45672C10.0241 1.75825 10.6855 2.20021 11.2426 2.75736C11.7998 3.31451 12.2417 3.97595 12.5433 4.7039C12.8448 5.43185 13 6.21207 13 7ZM12 7C12 5.67392 11.4732 4.40215 10.5355 3.46447C9.59785 2.52678 8.32608 2 7 2C5.67392 2 4.40215 2.52678 3.46447 3.46447C2.52678 4.40215 2 5.67392 2 7C2 8.108 2.615 9.395 3.57 10.683C4.504 11.941 5.657 13.06 6.503 13.809C6.63912 13.9324 6.81628 14.0007 7 14.0007C7.18372 14.0007 7.36088 13.9324 7.497 13.809C8.343 13.06 9.497 11.942 10.43 10.683C11.385 9.395 12 8.108 12 7Z" fill="#1F1A99" stroke="#1F1A99" stroke-width="0.5"/>
+                                        </svg>
+                                     </div>
+                                     <p id="modalLocal" class="textLabel">FGA</p>
+                                </div> 
+                             </div>
+                            <div class="rows-sections">
+                                <div class="infoIcon">
+                                    <svg class="images" xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
+                                        <path d="M3 14.6666V4.99996C3 4.64634 3.14048 4.3072 3.39052 4.05715C3.64057 3.8071 3.97971 3.66663 4.33333 3.66663C4.68696 3.66663 5.02609 3.8071 5.27614 4.05715C5.52619 4.3072 5.66667 4.64634 5.66667 4.99996V11.6666L13.3333 13.3333V14.6666" stroke="#1F1A99" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M3.00033 8.41665C1.63466 7.88331 0.666992 6.55465 0.666992 4.99998C0.666992 2.97498 2.30866 1.33331 4.33366 1.33331C6.35866 1.33331 8.00033 2.97498 8.00033 4.99998C8.00033 6.55465 7.03266 7.88331 5.66699 8.41665" stroke="#1F1A99" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="textLabel" id="modalisremote">Reunião online</span>
+                            </div>
+                        </div>
+                    </div>  
+                   
+                    <div class="description-task">
+                        <label class="title-form">Áreas</label>
+                        <div class="teamsMeeting">
+                        <div id="uniqueModalAreas" class="meeting-areas-modal"></div>
+                        </div>
+                      </div>
+                     
+                      <div class="description-task" style="display: none;">
+                        <label class="title-form">Membros da Área</label>
+                        <div class="personMeeting">
+                            <div id="uniqueModalPerson" class="meeting-areas-modal"></div>
+                        </div>
+                      </div>
+
+                    <div class="description-task">
+                        <label class="title-form">Presentes</label>
+                        <span class="others" id="modalother_participants"></span>
+                    </div>
+
+                    <div class="description-task">
+                        <label class="title-form">Pauta e registros da reunião</label>
+                        <span class="pauta" id="modallink_pauta">
+                        </span>
+                    </div>
+
+                    <div class="description-task">
+                        <label class="title-form">Link</label>
+                        <div class="Titulo-input-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 12 6" fill="none">
+                                <path d="M3 6C2.17 6 1.4626 5.7074 0.8778 5.1222C0.293 4.537 0.00040041 3.8296 4.09556e-07 3C-0.00039959 2.1704 0.2922 1.463 0.8778 0.8778C1.4634 0.2926 2.1708 0 3 0H4.8C4.97 0 5.1126 0.0576001 5.2278 0.1728C5.343 0.288 5.4004 0.4304 5.4 0.6C5.3996 0.7696 5.342 0.9122 5.2272 1.0278C5.1124 1.1434 4.97 1.2008 4.8 1.2H3C2.5 1.2 2.075 1.375 1.725 1.725C1.375 2.075 1.2 2.5 1.2 3C1.2 3.5 1.375 3.925 1.725 4.275C2.075 4.625 2.5 4.8 3 4.8H4.8C4.97 4.8 5.1126 4.8576 5.2278 4.9728C5.343 5.088 5.4004 5.2304 5.4 5.4C5.3996 5.5696 5.342 5.7122 5.2272 5.8278C5.1124 5.9434 4.97 6.0008 4.8 6H3ZM4.2 3.6C4.03 3.6 3.8876 3.5424 3.7728 3.4272C3.658 3.312 3.6004 3.1696 3.6 3C3.5996 2.8304 3.6572 2.688 3.7728 2.5728C3.8884 2.4576 4.0308 2.4 4.2 2.4H7.8C7.97 2.4 8.1126 2.4576 8.2278 2.5728C8.343 2.688 8.4004 2.8304 8.4 3C8.3996 3.1696 8.342 3.3122 8.2272 3.4278C8.1124 3.5434 7.97 3.6008 7.8 3.6H4.2ZM7.2 6C7.03 6 6.8876 5.9424 6.7728 5.8272C6.658 5.712 6.6004 5.5696 6.6 5.4C6.5996 5.2304 6.6572 5.088 6.7728 4.9728C6.8884 4.8576 7.0308 4.8 7.2 4.8H9C9.5 4.8 9.925 4.625 10.275 4.275C10.625 3.925 10.8 3.5 10.8 3C10.8 2.5 10.625 2.075 10.275 1.725C9.925 1.375 9.5 1.2 9 1.2H7.2C7.03 1.2 6.8876 1.1424 6.7728 1.0272C6.658 0.912 6.6004 0.7696 6.6 0.6C6.5996 0.4304 6.6572 0.288 6.7728 0.1728C6.8884 0.0576001 7.0308 0 7.2 0H9C9.83 0 10.5376 0.2926 11.1228 0.8778C11.708 1.463 12.0004 2.1704 12 3C11.9996 3.8296 11.707 4.5372 11.1222 5.1228C10.5374 5.7084 9.83 6.0008 9 6H7.2Z" fill="#0075F6"/>
+                            </svg>
+                            <a href="" target="_blank" id="modallink" class="link" title="Abrir link"></a>
+                        </div>
+                </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% include 'partials/edit_meetings.html'%}

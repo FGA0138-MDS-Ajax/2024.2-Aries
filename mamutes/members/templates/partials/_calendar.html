@@ -110,12 +110,12 @@
                     {% if meetings %}
                         {% for meeting in meetings %}
                             <div class="importantEvent">
-                                <div class="borderImportantEvent" style="background: {% if day.meetings_multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};">
+                                <div class="borderImportantEvent" style="background: {% if meeting.multiple_teams %}#0075F6{% else %}{{ user_area_color }}{% endif %};">
                                 </div>
                                 <div class="contentImportantEvent">
                                     <h4>{{ meeting.title }}</h4>
                                     <div class="moreInfoEvent">
-                                        <p class="hourEvent">{{ meeting.time }}</p>
+                                        <p class="hourEvent">{{ meeting.time_begin }} - {{ meeting.time_end }}</p>
                                         <div class="peopleMeeting">
                                             {% if meeting.areas|length > 3 %}
                                                 {% for area in meeting.areas|slice:":3" %}

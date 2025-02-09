@@ -1,0 +1,332 @@
+.modalcard {
+  display: none; /* Esconde o modal por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  justify-content: center;
+  align-items: center;
+}
+.modalcard {
+  /* display: none; */
+  padding-top: 20px;
+  position: fixed;
+  z-index: 1000; /* Coloca o modal acima de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+  font-family: Inter;
+}
+.modal-content-card {
+  background: #FEFEFE;;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-height: 90%;
+  max-width: 600px;
+  padding: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  overflow: hidden;
+  overflow-y: auto;
+  /* clip-path: border-box; */
+}
+
+#uniqueModalAreas {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+/* Estilos para as bolinhas dentro desse container */
+#uniqueModalAreas .personImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  /* A cor de fundo pode ser definida dinamicamente, mas se quiser um padrão, pode definir aqui: */
+  background: #0075F6;
+  margin-left: -8px;
+  outline: 3px solid #FEFEFE;
+  font-size: 16px;
+}
+
+#uniqueModalPerson {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+/* Estilos para as bolinhas dentro desse container */
+#uniqueModalPerson .personImg {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  /* A cor de fundo pode ser definida dinamicamente, mas se quiser um padrão, pode definir aqui: */
+  background: #0075F6;
+}
+
+.membros-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.membro-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80px;
+}
+
+.membro-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.membro-nome {
+  font-size: 12px;
+  margin-top: 5px;
+}
+.head-label-edit{
+    color: #1E1E1E;
+    text-align: left;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.22px;
+    margin-bottom: -10px;
+  }
+
+.objective{
+    color: #717171;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.154px;
+}
+
+.objective-s{
+    color: #717171;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.154px;
+    border: none;
+}
+  
+.pic-responsible-edit{
+    display: flex;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    outline: 2px solid #f2f2f2;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    overflow: hidden;
+    border-radius: 500px;
+    /* border: 2px solid #F2F2F2; */
+    background: #DDD;
+    color: #fefefe;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.132px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .others{
+    color: #717171;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    letter-spacing: -0.154px;
+  }
+
+  .pauta{
+    color: #1E1E1E;
+    text-align: justify;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+  }
+  
+  .link{
+    overflow: hidden;
+    color: #0075F6;
+    leading-trim: both;
+    text-edge: cap;
+    text-overflow: ellipsis;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 21px */
+    letter-spacing: -0.154px;
+  }
+
+  
+.Titulo-input-link{
+    display: flex;
+    flex: 1 0 0;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: none;
+    }
+
+.editBtn{
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: #D7EAFF;
+    color: #0075F6;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.132px;
+    cursor: pointer;
+}
+
+.editImg{
+    width: 16px;
+    height: 16px;
+}
+
+.thrashBtn{
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: rgba(215, 0, 0, 0.20);
+    cursor: pointer;
+}
+
+
+.thrashImg{
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+
+  .titles{
+    color: #717171;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 16.5px */
+    letter-spacing: -0.121px;
+    margin-bottom: -5px;
+  }
+
+  .data{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    color: #0075F6;
+    leading-trim: both;
+    text-edge: cap;
+    text-overflow: ellipsis;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+  }
+
+  .images{
+    width: 11.667px;
+    height: 12.333px;
+    flex-shrink: 0;
+  }
+
+  .rows-sections{
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+  }
+
+  .textData{
+    color: #717171;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.154px;
+  }
+
+.teamsMeeting{
+  padding-left: 8px;
+}

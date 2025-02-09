@@ -1,0 +1,15 @@
+{% for member in responsibles|slice:":12" %}
+    <div class="personImg" style="background: black">
+        {% if member.photo %}
+            <img src="{{ member.photo.url }}" alt="{{ member.fullname }}" class="personPhoto">
+        {% else %}
+            {{ member.fullname|first }}
+        {% endif %}
+    </div>
+{% endfor %}
+
+{% if responsibles|length > 12 %}
+    <div class="personImg plusTwo">
+        +{{ responsibles|length|add:"-12" }}
+    </div>
+{% endif %}

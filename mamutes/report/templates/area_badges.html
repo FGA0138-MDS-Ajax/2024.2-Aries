@@ -1,0 +1,11 @@
+{% for area in areas|slice:":6" %}
+    <div class="personImg" style="background: {{ area.color }}">
+        {{ area.name|first }}
+    </div>
+{% endfor %}
+
+{% if areas|length > 6 %}
+    <div class="personImg plusTwo">
+        +{{ areas|length|add:"-6" }}
+    </div>
+{% endif %}

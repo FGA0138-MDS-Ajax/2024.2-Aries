@@ -1,0 +1,88 @@
+.nothingToShow{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    color: #1E1E1E;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 19.2px */
+    letter-spacing: -0.176px;
+}
+
+.centerBase{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    /* position: relative; */
+    /* background-color: #f2f2f2; */
+    width: 100%;
+    flex: 1 0 0;
+    overflow: hidden;
+  }
+
+  input[type="checkbox"]{
+    /* all: unset; */
+    display: flex;
+    width: 16px;
+    height: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 2px solid #AEAEAE;
+    cursor: pointer;
+}
+/* input[type="checkbox"]:checked{
+    background: #0075F6;
+    border: 2px solid #0075F6;
+}
+input[type="checkbox"]::after, input[type="checkbox"]::before{
+    color: white;
+    background: white;
+    border: white;
+} */
+label{
+    align-items: center;
+}
+.infoEvent{
+    display: flex;
+    max-width: 160px;
+    min-width: 80px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0;
+}
+.labelOnline{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.infoIcon{
+    display: flex;
+    width: 16px;
+    height: 16px;
+    justify-content: center;
+    align-items: center;
+}
+.textLabel{
+    color: #0075F6;
+    text-align: start;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 14.4px */
+    letter-spacing: -0.132px;
+}

@@ -57,11 +57,6 @@
                 <img title="{{name}}" src="path/to/default-photo.jpg" alt="Responsável" class="responsible-photo">
             {% endif%}
         {% endfor %}
-        {% if responsible_photos|length > 3 %}
-            {% with extra_photos=responsible_photos|length|add:"-3" %} {# Subtrai 3 do comprimento #}
-                <div class="more-photos">+{{ extra_photos }}</div>
-            {% endwith %}
-        {% endif %}
       </div>
     <div class="tasks-task">
         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11" fill="none">

@@ -8,6 +8,7 @@ from report.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 from stock.views import stock
+from report.views import meetings, flights
 
 
 

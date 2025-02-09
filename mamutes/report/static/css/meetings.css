@@ -1,0 +1,803 @@
+/* Reset CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que largura e altura incluam bordas e padding */
+    font-family: Inter;
+    position: relative;
+  }
+  
+  html{
+      scroll-behavior: smooth;
+  }
+  
+  html, body {
+    overflow: hidden;
+  }
+  
+  body {
+      line-height: 1.5; /* Ajusta o espaçamento entre linhas */
+      text-size-adjust: 100%; /* Previne redimensionamento de texto automático em dispositivos móveis */
+      background: #F9F9F9;
+  }
+  
+  ul, ol {
+      list-style: none; /* Remove as bolinhas e números de listas */
+  }
+  
+  a {
+      text-decoration: none; /* Remove sublinhado de links */
+      color: inherit; /*Faz os links herdarem a cor do texto ao invés de ter uma cor padrão */
+  }
+  
+  img {
+      max-width: 100%; /* Garante que imagens não extrapolem o tamanho do contêiner */
+      height: auto;
+  }
+  
+  button {
+      all: unset;
+      cursor: pointer;
+  }
+  
+  svg{
+      overflow: hidden;
+  }
+  
+  path{
+      width: 100%;
+      height: auto;
+  }
+
+  p{
+    margin: 0;
+    margin-bottom: 0;
+  }
+
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    align-content: start;
+    gap: 16px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+.pageTitle{
+    display: flex;
+    min-width: 200px;
+    max-width: 320px;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+}
+.flightIcon{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titleReport{
+    color: #1E1E1E;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 48px */
+    letter-spacing: -0.352px;
+}
+.actionsHeader{
+    display: flex;
+    width: 100%;
+    min-width: 400px;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    gap: 16px;
+    flex: 1 0 0;
+    flex-wrap: wrap;
+}
+.searchFieldBox{
+    display: flex;
+    padding-inline: 16px;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border-radius: 8px;
+    background: #FEFEFE;
+    height: 48px;
+}
+.searchIcon{
+    display: flex;
+    width: 16px;
+    height: 16px;
+    padding: 2.667px;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchField{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    color: #717171;
+    /* leading-trim: both;
+    text-edge: cap; */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 15px */
+    letter-spacing: -0.11px;
+    padding-block: 16px;
+}
+
+.searchIconButton{
+    all: unset;
+
+}
+
+.searchField:focus{
+    outline: none;
+}
+.actionNew{
+    display: flex;
+    padding-inline: 16px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: #1F1A99;
+    height: 48px;
+}
+.boxIcon{
+    display: flex;
+    width: 12px;
+    height: 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+}
+.textAddButton{
+    color: #FEFEFE;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 14.4px */
+    letter-spacing: -0.132px;
+}
+
+
+
+
+.teams{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    /* padding-inline: 8px; */
+}
+
+.teamsMeeting{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+    opacity: 0px;
+
+}
+
+.teamsMeeting.cardMeeting{
+    gap: 0;
+}
+
+.personMeeting {
+    display: flex;             /* Alinha as imagens em linha */
+    align-items: center;       /* Centraliza verticalmente as imagens */
+  }
+.responsible-photo {
+    width: 35px;               /* Tamanho da imagem */
+    height: 35px;
+    border-radius: 50%;        /* Torna a imagem redonda */
+    object-fit: cover;         /* Mantém a proporção da imagem, sem distorção */
+    border: 3px solid #fff;    /* Borda branca para destaque */ /* Sombra suave */
+    margin-left: -20px;        /* Efeito de sobreposição */
+    position: relative;        /* Permite o uso de z-index, se necessário */
+    z-index: 1;
+  }
+  
+  /* Garante que a primeira imagem não tenha margem negativa */
+  .personMeeting img:first-child {
+    margin-left: 0;
+  }
+  .responsible-photo:hover {
+    transform: scale(1.4); /* Aumenta 20% */
+    z-index: 999;          /* Coloca a imagem em primeiro plano */
+  }
+
+.personImg {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    outline: 2px solid #FEFEFE;
+
+    color: #FEFEFE;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 15px */
+    letter-spacing: -0.11px;
+    background: #DDD;
+    margin-left: -4px;
+  }
+
+.personImg{
+    margin-left: -4px;
+}
+.personImg1.area-option{
+    margin: 0;
+}
+
+.personImg.plusTwo{
+    color: #808080;
+}
+  
+
+.btnSim{
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border: none;
+    width: 100%;
+    min-width: 200px;
+}
+
+.dotsButtons{
+    display: none;
+}
+
+.ataYesNo{
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border: none;
+    background: none;
+    min-width: 200px;
+}
+
+.textAtaNo{
+    color: #0075F6;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.textAtaYes{
+    color: #808080;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.saveButton{
+    display: flex;
+    border-radius: 8px;
+    opacity: 0.88;
+    background: #36B5FF;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border: none;
+
+    color: #FEFEFE;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.saveButton:hover{
+    opacity: 1;
+}
+
+.saveButton.available{
+    background: none;
+    color: #0075F6;
+}
+
+.saveButton.available:hover{
+    background: #f7f7f7;
+}
+
+.saveButton.nonavailable{
+    background: none;
+    color: #808080;
+}
+
+.textRegAta{
+    color: #FEFEFE;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.meetingCards{
+    display: flex;
+    /* min-width: 432px; */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.monthlyCards{
+    display: flex;
+    /* min-width: 432px; */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.month{
+    display: flex;
+    padding: 8px 0px;
+    align-items: center;
+    align-self: stretch;
+}
+
+.meetMonth{
+    color: #1F1A99;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.cards{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* align-items: flex-start;
+    align-content: flex-start; */
+    gap: 16px;
+    /* align-self: stretch; */
+    /* flex-wrap: wrap; */
+}
+
+.cardMeet{
+    display: flex;
+    height: auto;
+    /* min-width: 200px;
+    max-width: 400px; */
+    align-self: stretch;
+    align-items: flex-start;
+    flex: 1 0 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #FEFEFE;
+    box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+}
+
+.tremDeCor{
+    display: flex;
+    width: 5px;
+    /* padding: 3px; */
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 10px; */
+    align-self: stretch;
+    background: #0075F6;
+    border-radius: 8px 0 0 8px;
+    box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.06);
+}
+
+.mainCard{
+    display: flex;
+    /* min-width: 240px; */
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
+}
+
+.headerCardMeeting{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.idAction{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+.id{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1 0 0;
+}
+
+.actions{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dateId{
+    color: #0075F6;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.dateTimeLevel{
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.sateTime{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+}
+
+.textDate{
+    overflow: hidden;
+    color: #1E1E1E;
+    leading-trim: both;
+    text-edge: cap;
+    text-overflow: ellipsis;
+    font-family: Inter;
+    font-size: 14px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    flex: 1 0 0;
+}
+
+.time{
+    display: flex;
+    width: 36px;
+    align-items: center;
+
+    flex: 1 0 0;
+    color: #717171;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.partFilterOrder{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    gap: 8px;
+    width: 100%;
+    flex-wrap: wrap;
+    /* align-self: stretch;
+    flex-wrap: wrap; */
+}
+
+.btns{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tabsViews{
+    display: flex;
+    min-width: 200px;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+}
+
+.viewMode{
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.viewMode:hover{
+    background: #eee;
+}
+
+.viewMode.active{
+    background: #DAECFF;
+}
+
+.viewMode svg .listMode{
+    fill: #808080;
+    stroke: #808080;
+}
+
+.viewMode.active svg .listMode{
+    fill: #0075F6;
+    stroke: #0075F6;
+}
+
+.viewMode svg path{
+    fill: #808080;
+    /* stroke: #808080; */
+}
+
+.viewMode.active svg path{
+    fill: #0075F6;
+    /* stroke: #0075F6; */
+}
+
+.dropdown-item.active, .dropdown-item:active{
+    background-color: #f0f0f0;
+    color:#1E1E1E;
+}
+
+
+.btn.btn-secondary.dropdown-toggle{
+    all: unset;
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 8px;
+    border: 1px solid #717171;
+
+    color: #717171;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+    cursor: pointer;
+}
+
+.btn.btn-secondary.dropdown-toggle.show{
+    /* all: unset; */
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 8px;
+    border: 1px solid #0075F6;
+    background: #0075F6;
+
+    color: #fefefe;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.132px;
+}
+
+.btn.btn-secondary.dropdown-toggle.show svg path{
+    stroke: #fefefe;
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+
+.dropdown-menu{
+    --bs-dropdown-border-color: none;
+    box-shadow: 0px 4px 32px 0px rgba(30, 30, 30, 0.16);
+}
+
+.dropdown-menu.show{
+    margin-top: 4px;
+}
+
+.dropdown-item{
+    padding-block: 8px;
+    padding-inline: 16px;
+    font-size: 14px;
+    font-family: Inter;
+}
+
+
+.submitCancelBotao{
+
+    display: flex;
+    /* width: 12px; */
+    /* height: 12px; */
+    justify-content: center;
+    align-items: center;
+    border: none;
+    min-width: 200px;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    /* padding: 16px 24px; */
+    height: 44px;
+    
+    /* display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center; */
+    gap: 8px;
+    flex: 1 0 0;
+    border: none;
+    min-width: 200px;
+    border: 1px solid #717171; 
+    text-decoration: none;
+    
+}
+
+/* .cancelLabel{
+    color: #717171;
+    text-align: center;
+    font-family: Inter;
+    font-size: clamp(10px, 1vw, 14px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: -0.176px;
+} */
+
+
+
+.nothingToShow{
+    display: none;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.center{
+    width: 100%;
+    height: 100%;
+}
+
+.centerBase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+@media (max-width: 768px){
+    .centerBase{
+        /* padding: 16px; */
+        height: 100%;
+        overflow: hidden;
+        overflow-y: auto;
+        /* max-width: 600px; */
+        padding-inline: 8%;
+        padding-block: 16px;
+    }
+
+    .mainHome{
+        overflow-y: auto;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        gap: 0;
+    }
+
+    .cards{
+        grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+    }
+
+    .personImg1{
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px), (max-height: 480px){
+    .centerBase{
+        padding-inline: 16px;
+        padding: 0 24px;
+        /* padding-block: 0; */
+    }
+    .actionsHeader{
+        gap: 8px;
+        min-width: 200px;
+    }
+    .actionNew{
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        height: 48px;
+        width: 48px;
+        padding: 0;
+        gap: 0;
+        justify-content: center;
+    }
+    .textAddButton{
+        display: none;
+    }
+    .titleReport{
+        font-size: 24px;
+    }
+    .centerBase{
+        padding-bottom: 16px;
+    }
+}
