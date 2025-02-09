@@ -33,7 +33,11 @@ nav:
   - Documentação:
       - Visão Geral: "documento-visao/documento-visao.md"
       - Arquitetura: "documento-arquitetura/documento-arquitetura.md"
-      - Testes: "documento-plano-testes/documento-plano-testes.md"
+
+      - Testes: 
+        - Plano de Testes: "documento-plano-testes/documento-plano-testes.md"
+        - Testes de Integração: "documento-Testes-Integracao/documento-Testes-Integracao.md"
+        - Testes Unitários: "documento-Testes-Unitarios/documento-Testes-Unitarios.md"
 
   - Links: "links/links.md"
 

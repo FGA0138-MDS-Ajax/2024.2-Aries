@@ -239,9 +239,9 @@ Todo o desenvolvimento backend será baseado no Django 4.2 LTS, incluindo o supo
 
 <div style="text-align: justify;">
 
-O sistema vai utilizar <strong>PostgreSQL</strong> como banco de dados principal, com suporte a armazenamento de até 100 GB de dados, que é basicamente o plano escolhido para o projeto e atende às necessidades nesse primeiro momento. <br></br>
+O sistema vai utilizar <strong>SQLite</strong> como banco de dados principal, com suporte a armazenamento de até 100 GB de dados, que é basicamente o plano escolhido para o projeto e atende às necessidades nesse primeiro momento. <br></br>
 
-<strong>Justificativa:</strong> PostgreSQL oferece alto desempenho e suporte para operações complexas,
+<strong>Justificativa:</strong> SQLite oferece alto desempenho e suporte para operações complexas,
 além de ser escalável e compatível com o Django.
 
 </div>
@@ -395,7 +395,7 @@ O diagrama de classes, ilustrado na próxima figura, coincide com a versão atua
 
 </div>
 
-Diagrrama de Atividades encontra-se no link: <a target="_blank" href="https://www.figma.com/board/MvMowYd0J4NuHSZtLhvr6d/Untitled?node-id=0-1&t=bTk0I6htwaQWrYIt-1" >https://www.figma.com/board/MvMowYd0J4NuHSZtLhvr6d/Untitled?node-id=0-1&t=bTk0I6htwaQWrYIt-1</a>
+Diagrama de Atividades encontra-se no link: <a target="_blank" href="https://www.figma.com/board/MvMowYd0J4NuHSZtLhvr6d/Untitled?node-id=0-1&t=bTk0I6htwaQWrYIt-1" >https://www.figma.com/board/MvMowYd0J4NuHSZtLhvr6d/Untitled?node-id=0-1&t=bTk0I6htwaQWrYIt-1</a>
 
 ## 7. Visão de Implementação
 
@@ -638,7 +638,7 @@ O software será implantado utilizando servidores que possam suportar o tráfego
 
 
 
-### 8.2 tecnologia e justificativa
+### 8.2 Tecnologia e Justificativa
 
 
 <div style="text-align: justify;">
@@ -666,9 +666,9 @@ O software será implantado utilizando servidores que possam suportar o tráfego
 </ul>
 
 
-<strong>Banco de Dados PostgreSQL:</strong> O PostgreSQL foi escolhido por ser um banco de dados relacional altamente eficiente, com suporte à escalabilidade e alta disponibilidade.
+<strong>Banco de Dados SQLite:</strong> O SQLite foi escolhido por ser um banco de dados relacional altamente eficiente, com suporte à escalabilidade e alta disponibilidade.
 <ul>
-    <li>Justificativa: Ele é adequado para armazenar grandes volumes de dados, como registros de membros da equipe, inventário e logs de atividades, além de ser bem suportado pelo Django.</li>
+    <li>Justificativa: Ele é adequado para armazenar grandes volumes de dados, como registros de membros da equipe, inventário e logs de atividades, além de ser bem suportado pelo Django. E o principal: já vem nativamente nele "django".</li>
 </ul>
 
 
@@ -790,4 +790,5 @@ As restrições adicionais do sistema foram definidas para garantir que o softwa
 | 1.3 | 18/12/2024 | Desenvolvimento do tópico 7, visão de implememtação | Othavio Bolzan |
 | 1.4 | 18/12/2024 | Desenvolvimento do tópico 5, visão de casos de uso | Amanda Cruz |
 | 1.5 | 18/12/2024 | Desenvolvimento do tópico 6, visão lógica (diagrama de classes e de atividades) | Isaque Camargos e Rafael Schadt |
-| 2.0 | 19/12/2024 | Revisão final do documento | Caio Duarte e Mayara Marques |
+| 2.0 | 19/12/2024 | Revisão do documento | Caio Duarte e Mayara Marques |
+| 2.1 | 09/02/2024 | Revisão do documento e atualização dos tópicos 4.5 e 8.2 | Felipe Freire |
