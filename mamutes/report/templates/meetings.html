@@ -88,7 +88,6 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item {% if order == 'recentes' %} active {% endif %}" href="?order=recentes">Mais recentes</a></li>
                     <li><a class="dropdown-item {% if order == 'antigos' %} active {% endif %}" href="?order=antigos">Mais antigos</a></li>
-                    <li><a class="dropdown-item {% if not order %}active {% endif %}" href="?">Padrão</a></li>
                 </ul> 
             </div>
         </div>
@@ -112,8 +111,8 @@
     {% endif %}
 </div>
 
-{% include 'meetings/see_meetings.html' %}
-{% include 'meetings/add_meetings.html' with form=form %}
+{% include 'partials/see_meetings.html' %}
+{% include 'partials/add_meetings.html' with form=form %}
 <script src="{% static 'scripts/flights.js' %}"></script>
 
 

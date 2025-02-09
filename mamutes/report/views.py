@@ -202,6 +202,9 @@ def image_to_base64(image):
     if image:
         with open(image.path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode('utf-8')
+
+
+
 @login_required
 def meetings(request):
     profiles = MembroEquipe.objects.all()
@@ -272,6 +275,7 @@ def meetings(request):
      "areas_select": areas_select,
      "order": order,
      "profiles": profiles,})
+
 
 def membros_por_area(request, area_id):
     """Retorna os membros de uma determinada área."""

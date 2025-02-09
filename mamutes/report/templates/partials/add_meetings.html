@@ -59,7 +59,7 @@
                 {% csrf_token %}
                 
                 <div class="description-task">
-                    <label class="title-form">Titulo</label>
+                    <label class="title-form">Título</label>
                     <input id='id_title' type="text" class="Titulo-input" name="title" placeholder="Informe o título da nova reunião" required>
                 </div>
         
@@ -103,7 +103,7 @@
                 </div>
             
                 <div class="description-task">
-                    <label class="title-form">Equipes</label>
+                    <label class="title-form">Convidar times</label>
                     <div class="teamsMeeting">
                         {% for area in areas %}
                         <div class="personImg1 area-option"
@@ -119,7 +119,7 @@
                 <input type="hidden" name="areas" id="selectedAreas" value="">
 
                 <div class="description-task">
-                    <label class="title-form">Link</label>
+                    <label class="title-form">Link da reunião</label>
                     <div class="Titulo-input">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" viewBox="0 0 12 6" fill="none">
                             <path d="M3 6C2.17 6 1.4626 5.7074 0.8778 5.1222C0.293 4.537 0.00040041 3.8296 4.09556e-07 3C-0.00039959 2.1704 0.2922 1.463 0.8778 0.8778C1.4634 0.2926 2.1708 0 3 0H4.8C4.97 0 5.1126 0.0576001 5.2278 0.1728C5.343 0.288 5.4004 0.4304 5.4 0.6C5.3996 0.7696 5.342 0.9122 5.2272 1.0278C5.1124 1.1434 4.97 1.2008 4.8 1.2H3C2.5 1.2 2.075 1.375 1.725 1.725C1.375 2.075 1.2 2.5 1.2 3C1.2 3.5 1.375 3.925 1.725 4.275C2.075 4.625 2.5 4.8 3 4.8H4.8C4.97 4.8 5.1126 4.8576 5.2278 4.9728C5.343 5.088 5.4004 5.2304 5.4 5.4C5.3996 5.5696 5.342 5.7122 5.2272 5.8278C5.1124 5.9434 4.97 6.0008 4.8 6H3ZM4.2 3.6C4.03 3.6 3.8876 3.5424 3.7728 3.4272C3.658 3.312 3.6004 3.1696 3.6 3C3.5996 2.8304 3.6572 2.688 3.7728 2.5728C3.8884 2.4576 4.0308 2.4 4.2 2.4H7.8C7.97 2.4 8.1126 2.4576 8.2278 2.5728C8.343 2.688 8.4004 2.8304 8.4 3C8.3996 3.1696 8.342 3.3122 8.2272 3.4278C8.1124 3.5434 7.97 3.6008 7.8 3.6H4.2ZM7.2 6C7.03 6 6.8876 5.9424 6.7728 5.8272C6.658 5.712 6.6004 5.5696 6.6 5.4C6.5996 5.2304 6.6572 5.088 6.7728 4.9728C6.8884 4.8576 7.0308 4.8 7.2 4.8H9C9.5 4.8 9.925 4.625 10.275 4.275C10.625 3.925 10.8 3.5 10.8 3C10.8 2.5 10.625 2.075 10.275 1.725C9.925 1.375 9.5 1.2 9 1.2H7.2C7.03 1.2 6.8876 1.1424 6.7728 1.0272C6.658 0.912 6.6004 0.7696 6.6 0.6C6.5996 0.4304 6.6572 0.288 6.7728 0.1728C6.8884 0.0576001 7.0308 0 7.2 0H9C9.83 0 10.5376 0.2926 11.1228 0.8778C11.708 1.463 12.0004 2.1704 12 3C11.9996 3.8296 11.707 4.5372 11.1222 5.1228C10.5374 5.7084 9.83 6.0008 9 6H7.2Z" fill="#0075F6"/>
@@ -133,7 +133,7 @@
                 </div> 
 
                 <div class="description-task">
-                    <label class="title-form">Designar membros</label>
+                    <label class="title-form">Membros presentes</label>
                     <div class="people-meeting-card"> 
                       <div class="plus-people" id="plus-people" style="z-index: 101;">
                         <svg style="pointer-events: none;" xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
@@ -157,11 +157,7 @@
                 </div>
 
                 <div style='position: relative;'>
-                    {% comment %}
-                    {% include 'add_members.html'%}
-                    
-                {% endcomment %}
-                
+                    {% include 'partials/_add_members.html' %}
                 </div><br>
 
                 <button class="button-form" type="submit">Concluido</button>
