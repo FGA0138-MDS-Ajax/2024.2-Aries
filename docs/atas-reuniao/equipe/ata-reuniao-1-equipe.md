@@ -4,7 +4,7 @@
 **Hora:** 21:00  
 **Local:** Teams  
 
-**Responsável pela Reunião e ATA:** Caio Duarte  
+**Responsável pela reunião e ata:** Caio Duarte  
 
 ---
 
@@ -103,3 +103,4 @@ Definir tecnologias, organização de equipe e designação de tarefas.
 | 1.0 | 26/11/2024 | Criação da ata | Mayara Marques |
 | 1.1 | 26/11/2024 | Renumeração das reuniões | Mayara Marques |
 | 1.2 | 02/12/2024 | Reorganização da tabela de versionamento | Mayara Marques |
+| 1.3 | 09/02/2024 | Reorganização do documento | Mayara Marques |
