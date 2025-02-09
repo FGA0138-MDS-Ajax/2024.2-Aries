@@ -554,18 +554,21 @@
     display: flex;
     overflow: hidden;
     width: 100%;
-    padding: 16px;
+    padding-inline: 8px;
+    padding-block: 24px;
+    mask-image: linear-gradient(90deg, white -5%, black 6%, black 94%, white 105%);
 
 }
 
 .carrosselAirPlaneCards{
     display: flex;
     align-items: center;
-    gap: 16px;
+    /* gap: 16px; */
     transition: transform 0.5s ease-in-out;
     transform: translateX(0);
     /* padding: 2px; */
     box-shadow: none;
+    width: 100%;
 }
 
 .cardAirPlane{
@@ -580,7 +583,8 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    min-width: 30%;
+    /* min-width: calc((33.33%) - 8px); */
+    min-width: 33.33%;
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease;
 }
 
@@ -713,6 +717,10 @@
 
 
 @media (max-width: 768px) {
+    .cardAirPlane{
+        min-width: 50%;
+    }
+
     .icons{
         order: -1;
     }
@@ -741,7 +749,7 @@
     }
 
     .picture{
-        min-width: 300px;
+        min-width: 100%;
     }
 
     .journeyText{
@@ -784,6 +792,10 @@
 
     .prinComp{
         padding-inline: 10%;
+    }
+
+    .cardAirPlane{
+        min-width: 100%;
     }
 }
 

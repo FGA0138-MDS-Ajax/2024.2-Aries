@@ -266,16 +266,16 @@ dialog[open]{
 
         /* display: flex; */
         padding: 24px;
-        flex-direction: column;
-        align-items: flex-start;
+        /* flex-direction: column;
+        align-items: center;
         gap: 8px;
         flex: 1 0 0;
-        align-self: stretch;
+        align-self: stretch; */
         /* border-radius: 16px;
         background: #F2F2F2; */
         /* width: 100%; */
         /* height: auto; */
-        overflow: hidden;
+        /* overflow: hidden; */
         /* max-width: 600px;
         min-width: 200px; */
 

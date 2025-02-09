@@ -210,15 +210,14 @@ path{
     gap: 24px;
     flex: 1 0 0;
 }
-.tab{
+.tabContent{
     display: flex;
     padding: 8px;
     justify-content: center;
     align-items: center;
     gap: 10px;
-}
-.tabContent{
     color: #696969;
+    border-radius: 8px;
     leading-trim: both;
     text-edge: cap;
     font-family: Inter;
@@ -229,10 +228,13 @@ path{
     letter-spacing: -0.132px;
     cursor: pointer;
 }
+
 .tabContent.active{
-    color: #1E1E1E;
+    background: #DAECFF;
+    color: #0075F6;
     font-weight: 700;
 }
+
 .addButton{
     display: flex;
     padding: 16px 24px;

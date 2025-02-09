@@ -265,4 +265,24 @@ body{
     .texto{
         display: none;
     }
+
+    .abas a#generalPanel {
+        order: 3;
+    }
+
+    .abas a:nth-child(1):not(#generalPanel) {
+        order: 1;
+    }
+
+    .abas a:nth-child(2):not(#generalPanel) {
+        order: 2;
+    }
+
+    .abas a:nth-child(4) {
+        order: 4;
+    }
+
+    .abas a:nth-child(5) {
+        order: 5;
+    }
 }

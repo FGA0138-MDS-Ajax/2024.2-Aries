@@ -91,14 +91,18 @@ def configPassword(request):
                     user.save()
                     update_session_auth_hash(request, user) 
                     print('Senha alterada com sucesso!')
+                    message = 'Senha alterada com sucesso!' 
                 else:
                     print( 'As novas senhas não coincidem!')
+                    message = 'As senhas não coincidem!' 
             else:
                 print( 'A senha atual está incorreta!')
+                message = 'A senha atual está incorreta!' 
         else:
             print( 'Por favor, preencha todos os campos!')
+            message = 'Por favor, preencha todos os campos!' 
 
-        return redirect('pagConfig')  # Redireciona para a página de configuração
+        return render(request, 'pagConfig.html', {'message': message})
     return redirect('pagConfig')  # Redireciona caso o método não seja POST
 
 def recoverAccount(request):

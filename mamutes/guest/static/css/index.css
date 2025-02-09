@@ -415,7 +415,7 @@ path{
     flex: 1 0 0;
     align-self: stretch;
     border-radius: 16px 32px;
-    background: #36B5FF;
+    /* background: #36B5FF; */
     overflow: hidden;
     min-width: 0;
 }
@@ -721,7 +721,7 @@ path{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 120px;
+    gap: 80px;
     align-self: stretch;
     background: #E4EFF6;
 }
@@ -792,7 +792,7 @@ path{
 
 .carrossel-hall{
     display: flex;
-    height: 240px;
+    /* height: 240px; */
     justify-content: center;
     align-items: center;
     gap: 24px;
@@ -830,7 +830,7 @@ path{
 .card-hall{
     display: flex;
     width: 280px;
-    height: 280px;
+    height: 300px;
     padding: 56px 24px 32px 24px;
     flex-direction: column;
     align-items: center;
@@ -913,7 +913,7 @@ path{
     color: #1E1E1E;
     text-align: center;
     width: 100%;
-    height: 5rem;
+    /* height: 5rem; */
 }
 
 
@@ -1351,6 +1351,12 @@ path{
     width: 100%;
     transition: transform 1s ease;
     transform: translateX(-200%);
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.menu::-webkit-scrollbar {
+    display: none; /* para Chrome, Safari e Edge */
 }
 
 .menu.shown {
@@ -1431,6 +1437,7 @@ path{
     justify-content: center;
     align-items: center;
     align-self: stretch;
+    margin-top: 24px;
 }
 
 .writtenLogo svg{
@@ -1760,6 +1767,10 @@ path{
 
     .knowmore-quemsomos{
         padding: 12px 16px;
+    }
+
+    .swiperControls{
+        width: 100%;
     }
 
 }

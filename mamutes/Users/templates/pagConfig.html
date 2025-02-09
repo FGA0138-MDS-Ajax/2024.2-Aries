@@ -20,6 +20,7 @@
     .minhaconta-page{
       width: 100%;
       padding: 0px 12%;
+      position: inherit;
     }
 
     @media (max-width: 480px) {
@@ -261,5 +262,11 @@
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
 <!-- </html> -->
-
+ {% if message %}
+    {% if message == 'Senha alterada com sucesso!' %}
+      {% include 'partials/_success-alert.html' %}
+    {% else %}
+      {% include 'partials/_danger-alert.html' %}
+    {% endif %}
+  {% endif %}
 {% endblock %}

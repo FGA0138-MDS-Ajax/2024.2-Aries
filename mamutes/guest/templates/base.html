@@ -5,18 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Minha Página{% endblock %} | Mamutes do Cerrado</title>
+
+    <!-- Meta Tags para SEO -->
+    <meta name="description" content="Conheça a equipe Mamutes do Cerrado, participantes da competição SAE Brasil AeroDesign.">
+    <meta name="author" content="Mamutes do Cerrado">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="Mamutes do Cerrado, engenharia aeroespacial, SAE Brasil AeroDesign, competições, projetos de engenharia, equipe de engenharia, inovação em engenharia, aerodesign">
+    
+    <!-- Open Graph (para redes sociais) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mamutes do Cerrado - Equipe de competição de Engenharia Aeroespacial da UnB">
+    <meta property="og:description" content="Saiba mais sobre a equipe Mamutes do Cerrado, nossa participação na competição SAE AeroDesign e como fazemos a diferença na engenharia aeroespacial.">
+    <meta property="og:image" content="{% static 'img/thumbSite.jpg.png' %}">
+    <!-- <meta property="og:url" content="https://www.seusite.com"> -->
+    <meta property="og:site_name" content="Mamutes do Cerrado">
+    
+    <!-- Twitter Cards (para Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mamutes do Cerrado - Engenharia Aeroespacial">
+    <meta name="twitter:description" content="Conheça a equipe Mamutes do Cerrado, nossos projetos inovadores e como participamos da competição SAE AeroDesign.">
+    <meta name="twitter:image" content="{% static 'img/thumbSite.jpg' %}">
+    
+
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
-    <meta name="description" content="Conheça a equipe Mamutes do Cerrado, participantes da competição SAE Brasil AeroDesign. Aprenda mais sobre nossos projetos e conquistas.">
-    <meta name="author" content="Equipe Mamutes do Cerrado">
-    <meta property="og:title" content="Conheça a Equipe Mamutes do Cerrado - Engenharia Aeroespacial">
-    <meta property="og:description" content="Saiba mais sobre a equipe Mamutes do Cerrado, nossa participação na competição SAE AeroDesign e como fazemos a diferença na engenharia aeroespacial.">
-    <meta property="og:image" content="{% static 'img/hero-alterar.css' %}"><!--ALTERARRRRRRRRRRR-->
-    <meta property="og:url" content="https://www.seusite.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <meta property="og:type" content="website">
     {% block css %}{% endblock %}
 </head>
 </head>

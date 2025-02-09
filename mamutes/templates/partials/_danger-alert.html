@@ -10,7 +10,7 @@
         overflow: hidden;
         border-radius: 8px;
         border: 0.5px solid rgba(132, 32, 41, 0.14);
-        background: #F8D7DA;
+        background: #fee1e3;
 
         color: #842029;
         font-family: Inter;
@@ -23,6 +23,7 @@
         top: 16px;
         left: 50%;
         transform: translate(-50%, 0);
+        z-index: 9999;
     }
 
     .text-alert-login{
@@ -34,7 +35,7 @@
 
     .progress-bar-login{
         display: flex;
-        width: 0%;
+        width: 100%;
         height: 4px;
         align-items: flex-start;
         border-radius: 16px;
@@ -44,7 +45,7 @@
 
     @keyframes expand {
     to {
-        width: 100%;
+        width: 0%;
     }
     }
     </style>

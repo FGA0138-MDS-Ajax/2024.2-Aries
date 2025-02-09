@@ -43,5 +43,9 @@
             </a>
         </ul>
     </div>
-    <p>&copy; 2024 Mamutes do Cerrado. Todos os direitos reservados.</p>
+    <p>&copy; <span id="year"></span> Mamutes do Cerrado. Todos os direitos reservados.</p>
 </footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
