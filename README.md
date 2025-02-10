@@ -145,3 +145,8 @@ Acesse a aplicação em <http://127.0.0.1:8000/>.
 
 
 
+## Como rodar os testes?
+Ainda na pasta mamutes rode o comando:
+```
+python manage.py test
+```
