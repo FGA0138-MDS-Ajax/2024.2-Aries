@@ -310,7 +310,8 @@
                     </div>
                     <div class="telemetry">
                         
-                        <a class="textLink" href="{{flight.telemetry_link}}" target="_blank">Link</a>
+                        <a class="textLink" href="{% if 'http' not in flight.telemetry_link %}https://{{ flight.telemetry_link }}{% else %}{{ flight.telemetry_link }}{% endif %}" target="_blank">Link</a>
+
                     </div>
                     {% include 'partials/_viewFlights.html' with flight=flight %}
                     {% include 'partials/_editFlights.html' with flight=flight %}
