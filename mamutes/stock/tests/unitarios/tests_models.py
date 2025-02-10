@@ -18,11 +18,11 @@ class ToolModelTest(TestCase):
         """Testa a criação de uma instância do modelo Tool"""
         tool = self.tool
         self.assertEqual(tool.name, 'Hammer')  # Verifica se o nome foi atribuído corretamente
-        self.assertEqual(tool.brand, 'XYZ')  # Verifica a marca
-        self.assertEqual(tool.quantity, 10)  # Verifica a quantidade
-        self.assertEqual(tool.observation, 'Used for construction.')  # Verifica a observação
-        self.assertEqual(tool.location, 'Toolbox 1')  # Verifica a localização
-        self.assertFalse(tool.being_used)  # Verifica o campo being_used (default False)
+        self.assertEqual(tool.brand, 'XYZ')  
+        self.assertEqual(tool.quantity, 10) 
+        self.assertEqual(tool.observation, 'Used for construction.') 
+        self.assertEqual(tool.location, 'Toolbox 1')  
+        self.assertFalse(tool.being_used)  
 
     def test_str_method(self):
         """Testa o método __str__ do modelo Tool"""
@@ -39,5 +39,5 @@ class ToolModelTest(TestCase):
             location='Toolbox 2'
         )
         
-        self.assertEqual(tool.observation, None)  # Verifica se o campo observation é None por padrão
-        self.assertFalse(tool.being_used)  # Verifica se o campo being_used é False por padrão
+        self.assertEqual(tool.observation, None) 
+        self.assertFalse(tool.being_used) 

@@ -15,7 +15,7 @@ class FlightUrlsTest(TestCase):
     def test_flight_create_url(self):
         url = reverse('flight_create')
         response = self.client.get(url)
-        self.assertEqual(response.status_code, 302)  # Esperando redirecionamento (provavelmente para login)
+        self.assertEqual(response.status_code, 302)  # Esperando redirecionamento 
 
     def test_flight_edit_url(self):
         url = reverse('flight_edit', args=[1])  # Simulando edição de voo com ID 1
@@ -30,7 +30,7 @@ class FlightUrlsTest(TestCase):
     def test_meetings_edit_url(self):
         url = reverse('meetings_edit', args=[1])  # Simulando edição de reunião com ID 1
         response = self.client.get(url)
-        self.assertEqual(response.status_code, 302)  # Provavelmente exige login
+        self.assertEqual(response.status_code, 302)  
 
     def test_membros_por_area_url(self):
         url = reverse('membros_por_area', args=[1])

@@ -1,20 +1,20 @@
 from django.test import TestCase
 from django.urls import reverse
 from stock.models import Tool
-from Users.models import MembroEquipe  # Ajuste para o modelo MembroEquipe
+from Users.models import MembroEquipe
 from django.test import Client
 from django.contrib.auth import get_user_model
 
 class ToolUrlsTestCase(TestCase):
     def setUp(self):
         # Crie e autentique um usuário
-        User = get_user_model()  # Use o modelo de usuário personalizado
+        User = get_user_model()  
         self.user = User.objects.create_user(username='testuser', password='testpassword')
 
-        # Faça o login
+        # login
         self.client.login(username='testuser', password='testpassword')
 
-        # Crie uma ferramenta para ser editada
+        # Cria uma ferramenta para ser editada
         self.ferramenta = Tool.objects.create(
             name='Ferramenta Teste',
             type='Tipo Teste',
@@ -31,12 +31,6 @@ class ToolUrlsTestCase(TestCase):
         url = reverse('stock')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-
-    # def test_adicionar_ferramenta_url(self):
-    #     """Testa se a URL de adicionar ferramenta carrega corretamente"""
-    #     url = reverse('adicionar_ferramenta')
-    #     response = self.client.get(url)
-    #     self.assertEqual(response.status_code, 200)
 
     def test_editar_ferramenta_url(self):
         """Testa se a URL de editar ferramenta redireciona corretamente"""
