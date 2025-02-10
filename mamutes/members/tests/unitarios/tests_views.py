@@ -44,6 +44,3 @@ class TestViews(TestCase):
         response = self.client.get(reverse('taskBoard'))
         self.assertEqual(response.status_code, 200)
 
-    # def test_profile_list_view(self):
-    #     response = self.client.get(reverse('profile_list'))
-    #     self.assertEqual(response.status_code, 200)

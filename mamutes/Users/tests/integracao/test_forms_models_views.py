@@ -91,7 +91,7 @@ class RecoverAccountTests(TestCase):
         # Verifica o status da resposta
         self.assertEqual(response.status_code, 200)
 
-        # A resposta é JSON, então verificamos o conteúdo da chave 'mensagem'
+      
         response_json = response.json()
         self.assertIn('mensagem', response_json)
         self.assertEqual(response_json['mensagem'], 'Enviamos um email de recuperação de conta para testuser@example.com, cheque em sua caixa postal.')

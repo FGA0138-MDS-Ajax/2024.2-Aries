@@ -7,11 +7,11 @@ class StockViewsTest(TestCase):
     def setUp(self):
         self.client = Client()
 
-        # Criar um usuário de teste corretamente
+        # Cria um usuário de teste
         self.user = MembroEquipe.objects.create_user(
             username='testuser',
             password='testpassword',
-            fullname="Test User",  # Campo obrigatório
+            fullname="Test User", 
             email="test@example.com",
             phone="123456789"
         )
