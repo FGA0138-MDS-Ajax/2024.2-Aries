@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.conf.urls import handler404
 from django.urls import path, include
-from Users.views import login,logoutUser, register, recoverAccount, redefinePassword, pagConfig, editar_usuario, configPassword
+from Users.views import login,logoutUser, register, recoverAccount, redefinePassword, pagConfig, editar_usuario, configPassword, update_photo, delete_photo
 from guest.views import index, competition, admission
 from members.views import *
 from report.views import *
@@ -25,6 +25,8 @@ urlpatterns = [
     path('redefine_password/<str:username>/<str:token>', redefinePassword, name="redefinePassword"),
     path ('pagConfig/', pagConfig, name = 'pagConfig'),
     path('editar/', editar_usuario, name='editar_usuario'),
+    path("pagConfig/update_photo/", update_photo, name="update_photo"),
+    path("pagConfig/delete_photo/", delete_photo, name="delete_photo"),
 
     # guest
     path('', index, name="index"),

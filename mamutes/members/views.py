@@ -451,6 +451,7 @@ def home(request):
 
     tasks = filters(Task, 'Prazo', year, month, day, request.user)
     meetings = filters(Meeting, 'meeting_date', year, month, day).filter(areas__membros=request.user).distinct()
+    print(meetings)
 
     user_area = request.user.areas.first()
     meetings_data = get_meeting(meetings)
@@ -548,6 +549,7 @@ def get_events_tasks(request):
         events = filters(Event, 'event_date', year, month, day)
         tasks = filters(Task, 'Prazo', year, month, day, request.user)
         meetings = filters(Meeting, 'meeting_date', year, month, day).filter(areas__membros=request.user).distinct()
+        print(meetings)
 
         events_data = [{"title": event.title, "time": event.event_time.strftime('%Hh%M') if event.event_time else None} for event in events]
         tasks_data = [{"title": task.title, "time": localtime(make_aware(datetime.combine(task.Prazo, datetime.min.time()))).strftime('%Hh%M') if task.Prazo and isinstance(task.Prazo, datetime) else None} for task in tasks]

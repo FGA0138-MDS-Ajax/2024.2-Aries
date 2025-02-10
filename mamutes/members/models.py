@@ -12,7 +12,7 @@ class Post(models.Model):
     member = models.ForeignKey(MembroEquipe, on_delete=models.CASCADE)
 
     def time_since_posted(self):
-        now = datetime.now(timezone.utc)
+        now = timezone.now()
         delta = now - self.posted_at
 
         if delta.days > 0:
@@ -40,8 +40,6 @@ class Event(models.Model):
     is_online = models.BooleanField(default=False) 
 
 
-    def __str__(self):
-        return f"{self.base_event.title} - {'Online' if not self.location else self.location}"
 
 
 class Task(models.Model):

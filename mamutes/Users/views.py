@@ -5,10 +5,12 @@ from django.contrib.auth import authenticate,  update_session_auth_hash, logout,
 from .models import * 
 from .forms import *
 from .models import MembroEquipe
+from django.core.exceptions import ValidationError
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.core.mail import send_mail
 from mamutes import settings
 from django.contrib import messages
+import os
 
 def login (request):
     if request.method ==  'GET':
@@ -193,6 +195,33 @@ def update_photo(request):
         user = request.user
         photo = request.FILES['photo']
         
-        # Atualiza a foto do perfil
-        user.photo = photo
+        try:
+            # Aqui você pode adicionar qualquer validação de imagem, como tamanho ou formato.
+            if photo.size > 2 * 1024 * 1024:  # Limite de 2MB
+                return JsonResponse({'error': 'A imagem deve ter no máximo 2MB!'}, status=400)
+            
+            # Atualiza a foto do perfil
+            user.photo = photo
+            user.save()
+            
+            # Retorna a URL da foto ou uma confirmação de sucesso
+            return JsonResponse({'success': 'Foto de perfil atualizada com sucesso!', 'photo_url': user.photo.url})
+        
+        except ValidationError as e:
+            return JsonResponse({'error': str(e)}, status=400)
+        except Exception as e:
+            return JsonResponse({'error': 'Erro ao atualizar a foto'}, status=500)
+    
+    return JsonResponse({'error': 'Nenhuma foto enviada'}, status=400)
+
+@login_required
+def delete_photo(request):
+    if request.method == 'POST':
+        user = request.user
+        user.photo = 'fotos_membros/media/fotos_membros/default.png'  
         user.save()
+
+        return JsonResponse({'success': True})
+
+
+    return JsonResponse({'success': False, 'message': 'Método inválido.'})
