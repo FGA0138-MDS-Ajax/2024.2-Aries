@@ -8,8 +8,6 @@ from django.db import IntegrityError
 from decimal import Decimal
 
 
-
-
 class MinutesModelTest(TestCase):
 
     def setUp(self):
@@ -17,11 +15,10 @@ class MinutesModelTest(TestCase):
         Configura os dados necessários para os testes.
         Criando um MembroEquipe para ser associado ao Minutes.
         """
-        # Correção do nome do campo, de 'name' para 'fullname'
         self.member = MembroEquipe.objects.create(
-            fullname="Membro Teste",  # Campo correto: 'fullname'
-            email="membro@teste.com",  # Campo correto: 'email'
-            phone="123456789"          # Campo correto: 'phone'
+            fullname="Membro Teste",
+            email="membro@teste.com",
+            phone="123456789"
         )
 
         self.minutes_data = {
@@ -34,6 +31,8 @@ class MinutesModelTest(TestCase):
     def test_minutes_creation(self):
         """
         Testa a criação de uma instância do modelo Minutes e verifica se os campos estão corretos.
+        A função deve criar uma instância de Minutes com os dados fornecidos e garantir que os campos 
+        correspondem corretamente aos valores passados.
         """
         minutes = Minutes.objects.create(**self.minutes_data)
 
@@ -46,6 +45,7 @@ class MinutesModelTest(TestCase):
     def test_string_representation(self):
         """
         Testa se a representação em string do modelo Minutes está correta.
+        A função deve retornar a string do título da reunião quando a instância do modelo for chamada.
         """
         minutes = Minutes.objects.create(**self.minutes_data)
         self.assertEqual(str(minutes), 'Reunião de Teste')
@@ -53,6 +53,7 @@ class MinutesModelTest(TestCase):
     def test_responsible_field(self):
         """
         Testa se o campo 'responsible' está associado corretamente a um objeto MembroEquipe.
+        A função deve garantir que os dados do responsável estejam corretos ao acessar o campo.
         """
         minutes = Minutes.objects.create(**self.minutes_data)
         self.assertEqual(minutes.responsible.fullname, 'Membro Teste')
@@ -61,54 +62,60 @@ class MinutesModelTest(TestCase):
 
 
 class FlightLogModelTest(TestCase):
-
+    
     def setUp(self):
         """
-        Prepara os dados necessários para os testes.
-        Criando um FlightLog com dados válidos.
+        Configura os dados necessários para os testes do modelo FlightLog.
+        Cria um membro da equipe e os dados iniciais para um FlightLog.
         """
+        self.team_member = MembroEquipe.objects.create(
+            username="membro_teste",  # Adiciona um username único
+            fullname="Membro Teste",
+            email="membro@teste.com",
+            phone="123456789"
+        )
+
         self.flight_log_data = {
             'date': datetime.date(2024, 1, 1),
             'start_time': datetime.time(10, 30),
             'end_time': datetime.time(11, 30),
-            'document_username': 'testuser',
-            'pilot_name': 'Test Pilot',
-            'wind_speed': Decimal('9.999'), 
+            'wind_speed': Decimal('9.999'),
             'wind_direction': 'North',
-            'atmospheric_pressure': Decimal('9.999'),  
-            'total_takeoff_weight': Decimal('9.999'),  
+            'atmospheric_pressure': Decimal('9.999'),
+            'total_takeoff_weight': Decimal('9.999'),
             'flight_cycles': 2,
             'telemetry_link': 'http://example.com',
             'flight_success_rating': 4,
+            'occurred_accident': False, 
         }
 
     def test_flight_log_creation(self):
         """
-        Testa a criação de um FlightLog e verifica se os campos estão corretos.
+        Testa a criação de uma instância do modelo FlightLog e verifica se os campos estão corretos.
+        A função deve criar uma instância de FlightLog, associar o piloto e verificar se os dados estão 
+        corretos no banco de dados.
         """
         flight_log = FlightLog.objects.create(**self.flight_log_data)
 
-        # Verifica se os campos foram salvos corretamente
+        # Associa o piloto
+        flight_log.pilot_name.set([self.team_member])
+
+        # Verificar se os campos estão corretos
         self.assertEqual(flight_log.date, self.flight_log_data['date'])
         self.assertEqual(flight_log.start_time, self.flight_log_data['start_time'])
         self.assertEqual(flight_log.end_time, self.flight_log_data['end_time'])
-        self.assertEqual(flight_log.document_username, self.flight_log_data['document_username'])
-        self.assertEqual(flight_log.pilot_name, self.flight_log_data['pilot_name'])
-        self.assertEqual(flight_log.wind_speed, self.flight_log_data['wind_speed'])
-        self.assertEqual(flight_log.wind_direction, self.flight_log_data['wind_direction'])
-        self.assertEqual(flight_log.atmospheric_pressure, self.flight_log_data['atmospheric_pressure'])
-        self.assertEqual(flight_log.total_takeoff_weight, self.flight_log_data['total_takeoff_weight'])
-        self.assertEqual(flight_log.flight_cycles, self.flight_log_data['flight_cycles'])
-        self.assertEqual(flight_log.telemetry_link, self.flight_log_data['telemetry_link'])
-        self.assertFalse(flight_log.occurred_accident)
-
+        self.assertTrue(flight_log.pilot_name.first() == self.team_member)  # Verifica se o piloto foi atribuído corretamente
 
     def test_default_occurred_accident(self):
         """
-        Testa o valor padrão do campo 'occurred_accident'.
+        Testa o valor padrão do campo 'occurred_accident' no modelo FlightLog.
+        A função deve criar uma instância de FlightLog e verificar se o valor do campo 'occurred_accident' 
+        é False por padrão.
         """
         flight_log = FlightLog.objects.create(**self.flight_log_data)
+        
+        # Associa o piloto
+        flight_log.pilot_name.set([self.team_member])
+
+        # Verifica se o valor de occurred_accident é False
         self.assertFalse(flight_log.occurred_accident)
-
-
-

@@ -5,7 +5,7 @@
 ## App: Users
 
 ### `tests_views.py`
-
+ 
 |Teste|Descrição|Resultado Esperado|
 |---|---|---|
 |test_login_page_loads_correctly|Testa se a página de login carrega corretamente.|Status 200 e template `login.html`|
@@ -15,26 +15,13 @@
 
 ### `test_models.py`
 
-|Teste|Descrição|Resultado Esperado|
-|---|---|---|
-|test_area_creation|Testa a criação de uma instância do modelo `Area`.|Nome da área "Área de Teste"|
-|test_str_method|Testa o método `__str__` do modelo `Area`.|Resultado esperado: "Área de Teste"|
-|test_function_creation_with_valid_name|Testa a criação de uma instância do modelo `Function`.|Nome da função "Desenvolvedor"|
-|test_function_str_method_returns_correct_name|Testa o método `__str__` do modelo `Function`.|Resultado esperado: "Desenvolvedor"|
-|test_membro_creation|Testa a criação de uma instância de `MembroEquipe` com dados válidos.|Usuário "johndoe", nome completo "John Doe", email "[johndoe@example.com](mailto:johndoe@example.com)" e telefone "1234567890"|
-|test_membro_str_method|Testa o método `__str__` do modelo `MembroEquipe`.|Resultado esperado: "johndoe"|
-|test_membro_creation_without_required_fields|Testa a criação de `MembroEquipe` sem campos obrigatórios.|Lança `IntegrityError`|
-
-### `tests_forms.py`
-
-|Teste|Descrição|Resultado Esperado|
-|---|---|---|
-|test_form_valid_data|Testa se o formulário é válido com dados corretos.|Formulário válido|
-|test_form_invalid_data|Testa se o formulário é inválido quando as senhas não coincidem.|Formulário inválido|
-|test_fields_in_form|Verifica se os campos adicionais (áreas e funções) estão presentes no formulário.|Campos 'areas' e 'functions' presentes no formulário|
-|test_form_no_areas_or_functions|Testa o formulário sem áreas ou funções.|Formulário válido|
-|test_form_invalid_area|Testa o formulário com uma área inválida (ID inexistente).|Formulário inválido|
-|test_form_invalid_function|Testa o formulário com uma função inválida (ID inexistente).|Formulário inválido|
+| Teste                                        | Descrição                                                                 | Resultado Esperado                                 |
+|----------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------|
+| `test_area_creation`                         | Testa a criação de uma instância de `Area`.                              | A instância deve ser criada corretamente.         |
+| `test_str_method`                            | Testa o método `__str__` do modelo `Area`.                               | Deve retornar o nome da área como string.        |
+| `test_membro_creation`                       | Testa a criação de uma instância de `MembroEquipe` com dados válidos.    | A instância deve ser criada com os dados corretos. |
+| `test_membro_str_method`                     | Testa o método `__str__` de `MembroEquipe`.                              | Deve retornar o `username` como string.          |
+| `test_membro_creation_without_required_fields` | Testa a criação de `MembroEquipe` sem os campos obrigatórios.           | Deve gerar um erro de integridade (`IntegrityError`). |
 
 ---
 
@@ -51,13 +38,14 @@
 
 ### `tests_url.py`
 
-|Teste|Descrição|Resultado Esperado|
-|---|---|---|
-|test_stock_url|Testa se a URL de estoque carrega corretamente.|Status 200 para URL `/stock/`|
-|test_editar_ferramenta_url|Testa se a URL de editar ferramenta redireciona corretamente.|Status 302, redirecionamento para `/stock/` após edição da ferramenta|
-|test_deletar_ferramenta_url|Testa se a URL de deletar ferramenta redireciona corretamente.|Status 302 após confirmação de exclusão|
-|test_download_pdf_url|Testa se a URL para download do PDF carrega corretamente.|Status 200 para URL `/download_pdf/`|
-|test_download_csv_url|Testa se a URL para download do CSV carrega corretamente.|Status 200 para URL `/download_csv/`|
+| Teste                          | Descrição                                                              | Resultado Esperado                           |
+|--------------------------------|------------------------------------------------------------------------|---------------------------------------------|
+| `test_stock_url`               | Testa se a URL de estoque carrega corretamente.                        | Deve retornar status 200.                   |
+| `test_editar_ferramenta_url`   | Testa se a URL de edição de ferramenta redireciona corretamente.       | Deve retornar status 302 e redirecionar para `stock`. |
+| `test_deletar_ferramenta_url`  | Testa se a URL de exclusão de ferramenta redireciona corretamente.     | Deve retornar status 302.                   |
+| `test_download_pdf_url`        | Testa se a URL para download do PDF carrega corretamente.              | Deve retornar status 200.                   |
+| `test_download_csv_url`        | Testa se a URL para download do CSV carrega corretamente.              | Deve retornar status 200.                   |
+
 
 ### `tests_models.py`
 

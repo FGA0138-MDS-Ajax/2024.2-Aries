@@ -3,27 +3,30 @@ from report.forms import FlightForm
 from report.models import FlightLog
 from django.core.exceptions import ValidationError
 import datetime
-
+from Users.models import MembroEquipe 
 class FlightFormTest(TestCase):
 
     def setUp(self):
+
+        self.membro = MembroEquipe.objects.create(fullname="Teste Membro", username="membro_teste")
+        
         # Dados iniciais para os testes
         self.flight_data = {
             'date': datetime.date(2024, 1, 1),
             'start_time': datetime.time(10, 0, 0),
             'end_time': datetime.time(11, 0, 0),
             'document_username': 'testeuser',
-            'pilot_name': 'Piloto Teste',
+            'pilot_name': [self.membro],  
+            'team_members': [self.membro], 
             'location': 'Local Teste',
-            'team_members': 'Membro1, Membro2',
             'flight_success_rating': 4,
             'flight_objective_description': 'Descrição do objetivo do voo teste.',
             'results': 'Resultados do teste.',
             'pilot_impressions': 'Impressões do piloto.',
             'improvements': 'Melhorias sugeridas.',
-            'wind_speed': 1.234,  # Valor válido para wind_speed
+            'wind_speed': 1.23, 
             'wind_direction': 'Norte',
-            'atmospheric_pressure': 9.99,  # Valor válido para atmospheric_pressure
+            'atmospheric_pressure': 9.99,  
             'total_takeoff_weight': 2.5,
             'flight_cycles': 5,
             'telemetry_link': 'http://example.com/telemetry',
@@ -36,7 +39,6 @@ class FlightFormTest(TestCase):
         Espera-se que o formulário seja validado corretamente.
         """
         form = FlightForm(self.flight_data)
-        print(form.errors)  # Adicionando print para depuração
         self.assertTrue(form.is_valid(), "O formulário deve ser válido quando os dados são corretos")
 
     def test_form_is_invalid_missing_required_field(self):
@@ -48,7 +50,7 @@ class FlightFormTest(TestCase):
         del invalid_data['pilot_name']  
         form = FlightForm(invalid_data)
         self.assertFalse(form.is_valid(), "O formulário não deve ser válido sem campos obrigatórios")
-        self.assertIn('pilot_name', form.errors) 
+        self.assertIn('pilot_name', form.errors)
 
     def test_form_save(self):
         """
@@ -56,10 +58,10 @@ class FlightFormTest(TestCase):
         Após salvar, verifica-se se o objeto FlightLog foi criado corretamente.
         """
         form = FlightForm(self.flight_data)
-        if form.is_valid(): # Adicione esta verificação
+        if form.is_valid():
             flight = form.save()
             self.assertEqual(FlightLog.objects.count(), 1)
-            self.assertEqual(flight.pilot_name, self.flight_data['pilot_name'])
+            self.assertEqual(flight.pilot_name.first().fullname, self.flight_data['pilot_name'][0].fullname)
             # Verifique outros campos conforme necessário
 
     def test_flight_success_rating_validation(self):
@@ -80,14 +82,14 @@ class FlightFormTest(TestCase):
         form_high = FlightForm(invalid_data_high)
         self.assertFalse(form_high.is_valid())
         self.assertIn('flight_success_rating', form_high.errors)
-    
+
     def test_invalid_date_format(self):
         """
         Testa se o campo 'date' é validado corretamente.
         O campo 'date' deve ser uma data válida. Aqui, um valor inválido é fornecido ('invalid date').
         """
         invalid_data = self.flight_data.copy()
-        invalid_data['date'] = 'invalid date'
+        invalid_data['date'] = 'invalid date'  # Data inválida
         form = FlightForm(invalid_data)
         self.assertFalse(form.is_valid())
         self.assertIn('date', form.errors)
@@ -98,7 +100,8 @@ class FlightFormTest(TestCase):
         O campo 'start_time' deve ser um horário válido. Aqui, um valor inválido é fornecido ('invalid time').
         """
         invalid_data = self.flight_data.copy()
-        invalid_data['start_time'] = 'invalid time'
+        invalid_data['start_time'] = 'invalid time'  
         form = FlightForm(invalid_data)
         self.assertFalse(form.is_valid())  
         self.assertIn('start_time', form.errors)
+

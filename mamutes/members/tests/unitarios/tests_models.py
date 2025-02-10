@@ -1,5 +1,5 @@
 from django.test import TestCase
-from members.models import Task, Event, Meeting, Post, Subtask, MembroEquipe, Column
+from members.models import Task, Event, Post, Subtask, MembroEquipe, Column
 from django.utils import timezone
 
 class TestModels(TestCase):
