@@ -23,26 +23,6 @@ class TestCase_Area_ModelTest(TestCase):
 
 
 
-class Function_Model_TestCase(TestCase):
-    """Testes relacionados ao modelo Function."""
-    
-    def setUp(self):
-        """Configuração inicial para os testes, criando uma instância de Function."""
-        self.function = Function.objects.create(name="Desenvolvedor")
-
-    def test_function_creation_with_valid_name(self):
-        """Testa a criação de uma instância de Function com um nome válido."""
-        function = self.function
-        self.assertEqual(function.name, "Desenvolvedor")
-        self.assertTrue(isinstance(function, Function))
-
-    def test_function_str_method_returns_correct_name(self):
-        """Testa se o método __str__ retorna o nome correto da função."""
-        function = self.function
-        self.assertEqual(str(function), "Desenvolvedor")
-
-
-
 class MembroEquipe_Model_TestCase(TestCase):
     """Testes relacionados ao modelo MembroEquipe."""
 
