@@ -71,22 +71,18 @@
 | test_invalid_time_format                    | Testa se o campo 'start_time' aceita apenas horários válidos.                             | O formulário deve ser inválido para valores de horário incorretos       |
 
 
-### `tests_views.py`
-
-| **Teste**                   | **Descrição**                                                                                       | **Resultado Esperado**                                                                                                                                   |
-|-----------------------------|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **test_flight_list_view**    | Verifica se a lista de voos é carregada corretamente.                                                | A resposta deve conter o nome do piloto do voo registrado, confirmando que a lista de voos foi carregada corretamente.                                 |
-| **test_flight_create_view**  | Verifica se a página de criação de voo carrega corretamente e se o voo é criado ao enviar o formulário. | O template correto (`flight_form.html`) deve ser utilizado. Após enviar os dados do voo, a resposta deve redirecionar para a lista de voos (`flight_list`) com status 302.  |
-| **test_flight_edit_view**    | Verifica se a página de edição de voo carrega corretamente e se o voo é atualizado após a edição.     | O template correto (`flight_form.html`) deve ser utilizado. Após enviar os dados de edição, a resposta deve redirecionar para a lista de voos (`flight_list`) com status 302. O voo deve ser atualizado no banco de dados. |
-| **test_flight_delete_view**  | Verifica se a página de exclusão de voo carrega corretamente e se o voo é excluído após confirmação.  | O template correto (`flight_confirm_delete.html`) deve ser utilizado. Após enviar a solicitação de exclusão, o voo deve ser excluído e a resposta deve redirecionar para a lista de voos (`flight_list`) com status 302. |
-
-
 ### `Tests_urls.py`
 
-| **Teste**                   | **Descrição**                                                                                       | **Resultado Esperado**                                                                                                                                    |
-|-----------------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **test_flight_list_url**     | Verifica se a URL para a lista de voos está acessível e retorna o código de status 200.            | A resposta deve ter o status code 200, indicando que a página da lista de voos foi carregada corretamente.                                              |
-| **test_flight_create_url**   | Verifica se a URL para a criação de voos está acessível e retorna o código de status 200.           | A resposta deve ter o status code 200, indicando que a página de criação de voo foi carregada corretamente.                                              |
+| **Teste**                        | **Descrição**                                    | **Resultado Esperado**                                            |
+|------------------------------|------------------------------------------------------|------------------------------------------------------------------|
+| `test_meetingsquadro_url`    | Testa a página de reuniões                          | Acessa a URL `meetingsquadro` e verifica se retorna status 302   |
+| `test_flight_list_url`       | Testa a página de lista de voos                     | Acessa a URL `flight_list` e verifica se retorna status 200      |
+| `test_flight_create_url`     | Testa a criação de voos                             | Acessa a URL `flight_create` e verifica se retorna status 302    |
+| `test_flight_edit_url`       | Testa a edição de um voo                            | Acessa a URL `flight_edit/1` e verifica se retorna status 302    |
+| `test_flight_delete_url`     | Testa a exclusão de um voo                          | Acessa a URL `flight_delete/1` e verifica se retorna status 302  |
+| `test_meetings_edit_url`     | Testa a edição de uma reunião                       | Acessa a URL `meetings_edit/1` e verifica se retorna status 302  |
+| `test_membros_por_area_url`  | Testa a visualização de membros por área            | Acessa a URL `membros_por_area/1` e verifica se retorna status 302 |
+| `test_delete_meeting_url`    | Testa a exclusão de uma reunião                     | Acessa a URL `delete_meeting/1` e verifica se retorna status 302 |
 
 
 ### `Tests_models.py`
@@ -133,8 +129,6 @@
 | test_delete_announcement_view      | Testa a exclusão de um anúncio/post via requisição POST.       | Retorna status 302 (redirect) após a exclusão bem-sucedida do post. |
 | test_delete_event_view             | Testa a exclusão de um evento via requisição POST.             | Retorna status 302 (redirect) após a exclusão bem-sucedida do evento. |
 | test_task_board_view               | Testa o acesso ao quadro de tarefas.                           | Retorna status 200, indicando que a página foi carregada corretamente. |
-| test_profile_list_view (comentado) | Testa a listagem de perfis (atualmente comentado).             | Retorna status 200, indicando que a página de listagem de perfis foi carregada corretamente. |
-
 
 ### `Tests_models.py`
 

@@ -30,17 +30,6 @@
 
 ---
 
-## APP REPORT
-
-| **Teste**                          | **Descrição**                                                                                               | **Resultado Esperado**                                                                                                                          |
-|------------------------------------|-------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| **test_flight_list**               | Testa a listagem de registros de voos.                                                                        | A resposta deve ser 200, e a página deve conter o nome do piloto "Pilot Test".                                                                  |
-| **test_flight_create_integration** | Testa a criação de um novo registro de voo com um formulário válido.                                          | O formulário deve ser válido, a resposta deve ser 302 (redirecionamento), e o número de registros de voos deve aumentar para 2.                 |
-| **test_flight_edit_integration**   | Testa a edição de um registro de voo existente.                                                              | O formulário deve ser válido, a resposta deve ser 302 (redirecionamento), o campo `pilot_name` do voo deve ser atualizado para "Pilot Edited".  |
-| **test_flight_delete_integration** | Testa a exclusão de um registro de voo.                                                                       | A resposta deve ser 302 (redirecionamento), e o número de registros de voos deve diminuir para 0.                                              |
-
----
-
 ## APP GUEST
 
 | **Teste**                                           | **Descrição**                                                                                                      | **Resultado Esperado**                                                                                                                           |

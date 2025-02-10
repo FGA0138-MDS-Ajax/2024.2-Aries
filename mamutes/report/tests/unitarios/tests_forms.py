@@ -4,6 +4,8 @@ from report.models import FlightLog
 from django.core.exceptions import ValidationError
 import datetime
 from Users.models import MembroEquipe 
+
+
 class FlightFormTest(TestCase):
 
     def setUp(self):
@@ -89,7 +91,7 @@ class FlightFormTest(TestCase):
         O campo 'date' deve ser uma data válida. Aqui, um valor inválido é fornecido ('invalid date').
         """
         invalid_data = self.flight_data.copy()
-        invalid_data['date'] = 'invalid date'  # Data inválida
+        invalid_data['date'] = 'invalid date'  
         form = FlightForm(invalid_data)
         self.assertFalse(form.is_valid())
         self.assertIn('date', form.errors)
@@ -97,7 +99,7 @@ class FlightFormTest(TestCase):
     def test_invalid_time_format(self):
         """
         Testa se o campo 'start_time' é validado corretamente.
-        O campo 'start_time' deve ser um horário válido. Aqui, um valor inválido é fornecido ('invalid time').
+        O campo 'start_time' deve ser um horário válido. Aqui, um valor inválido é fornecido.
         """
         invalid_data = self.flight_data.copy()
         invalid_data['start_time'] = 'invalid time'  
