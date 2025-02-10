@@ -91,7 +91,6 @@ O objetivo deste documento é descrever o plano de testes a ser executado para o
 
 | Componente/Funcionalidade              | Descrição do Teste                                                                 | Localização do Teste                              |
 |----------------------------------------|-------------------------------------------------------------------------------------|--------------------------------------------------|
-| **Funcionalidade principal**           | Verificar se o sistema como um todo está atendendo aos requisitos funcionais esperados. | `testes/sistema/test_system_functionality.py`|
 | **Fluxo completo do usuário**          | Simular o fluxo de ações de um usuário real, incluindo login, navegação e interações. | `testes/sistema/test_user_flow.py`             |
 | **Testes de UI e Usabilidade**         | Avaliar a interface do usuário para garantir que ela esteja acessível e fácil de usar. | `testes/sistema/test_ui_usability.py`        |
 
@@ -172,4 +171,3 @@ Critérios de Aceitação Não Funcional:
 | :----: | :--: | :--------------------: | :-------------------: |
 | 1.0 | 09/02/2025 | Desenvolvimento do plano de testes  | Felipe Duarte |
 | 1.1 | 09/02/2025 | Revisão do Documento| Felipe Freire |
-
