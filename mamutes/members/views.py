@@ -451,6 +451,8 @@ def home(request):
 
     tasks = filters(Task, 'Prazo', year, month, day, request.user)
     meetings = filters(Meeting, 'meeting_date', year, month, day).filter(areas__membros=request.user).distinct()
+    areas = Area.objects.filter(membros=request.user)
+    print(areas)
     print(meetings)
 
     user_area = request.user.areas.first()
