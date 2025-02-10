@@ -195,7 +195,7 @@
                                      <p id="modalLocal" class="textLabel">FGA</p>
                                 </div> 
                              </div>
-                            <div class="rows-sections">
+                            <!-- <div class="rows-sections">
                                 <div class="infoIcon">
                                     <svg class="images" xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
                                         <path d="M3 14.6666V4.99996C3 4.64634 3.14048 4.3072 3.39052 4.05715C3.64057 3.8071 3.97971 3.66663 4.33333 3.66663C4.68696 3.66663 5.02609 3.8071 5.27614 4.05715C5.52619 4.3072 5.66667 4.64634 5.66667 4.99996V11.6666L13.3333 13.3333V14.6666" stroke="#1F1A99" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
@@ -203,14 +203,14 @@
                                     </svg>
                                 </div>
                                 <span class="textLabel" id="modalisremote">Reunião online</span>
-                            </div>
+                            </div> -->
                         </div>
                     </div>  
                    
                     <div class="description-task">
                         <label class="title-form">Áreas</label>
                         <div class="teamsMeeting">
-                        <div id="uniqueModalAreas" class="meeting-areas-modal"></div>
+                        <div id="uniqueModalAreas" class="meeting-areas-modal" style="{% if area.color|lower == '#fefefe' or area.color|lower == '#fff' %} outline: solid 1px #717171; color: #1e1e1e; {% endif %}"></div>
                         </div>
                       </div>
                      

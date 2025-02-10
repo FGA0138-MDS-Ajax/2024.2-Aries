@@ -39,7 +39,7 @@
     }
     
     .personImg1.selected {
-        border: 3px solid rgb(255, 255, 255);  /* Adiciona uma borda branca para indicar seleção */
+        transform: scale(0.9);
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
    
@@ -109,13 +109,13 @@
                     <div class="teamsMeeting">
                         {% for area in areas %}
                         <div class="personImg1 area-option"
-                            style="background: {{ area.color }}; {% if area.color|lower == '#fefefe' or area.color|lower == '#fff' %} outline: solid 1px #717171; color: #1e1e1e; {% endif %}"
+                            style="background: {{ area.color }}; {% if area.color|lower == '#fefefe' or area.color|lower == '#fff' %} border: solid 1px #717171; color: #1e1e1e; {% endif %}"
                             data-area-id="{{ area.id }}"
                             title="{{ area.name }}" 
                             onclick="toggleAreaSelection(this)">
                             {{ area.name|first }}
                         </div>
-                    {% endfor %}
+                        {% endfor %}
                     </div>
                     <input type="hidden" name="areas" id="selectedAreasMeetings" value="">
                 </div>

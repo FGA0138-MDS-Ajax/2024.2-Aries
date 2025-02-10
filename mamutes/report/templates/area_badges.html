@@ -1,5 +1,5 @@
 {% for area in areas|slice:":6" %}
-    <div class="personImg" style="background: {{ area.color }}">
+    <div class="personImg" style="background: {{ area.color }}; {% if area.color|lower == '#fefefe' or area.color|lower == '#fff' %} border: solid 1px #bbb; color: #1e1e1e; {% endif %}">
         {{ area.name|first }}
     </div>
 {% endfor %}
