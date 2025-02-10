@@ -61,10 +61,12 @@ label{
     align-items: flex-start;
     gap: 4px;
     flex: 1 0 0;
+    width: 100%;
+    overflow: hidden;
 }
 .labelOnline{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
 }
 .infoIcon{
@@ -75,14 +77,19 @@ label{
     align-items: center;
 }
 .textLabel{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
     color: #0075F6;
     text-align: start;
     leading-trim: both;
     text-edge: cap;
+    text-overflow: ellipsis;
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 120%; /* 14.4px */
     letter-spacing: -0.132px;
 }

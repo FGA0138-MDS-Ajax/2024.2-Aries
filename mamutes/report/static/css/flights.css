@@ -384,6 +384,7 @@ path{
     justify-content: center;
     align-items: center;
     flex: 1 0 0;
+    overflow: hidden;
 }
 .textTableId{
     align-self: stretch;
@@ -485,6 +486,7 @@ path{
     background: #FEFEFE;
     box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.06);
     cursor: pointer;
+    gap: 8px;
 }
 .IdText{
     display: -webkit-box;

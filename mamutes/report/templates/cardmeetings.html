@@ -11,7 +11,7 @@
     data-pauta="{{ meeting.pauta }}"
     data-other-participants="{{ meeting.other_participants }}"
     data-areas="{% for area in meeting.areas.all %}{{ area.id }},{% endfor %}">
-    <div class="tremDeCor" style="background-color: {% if meeting.areas.count > 1 %}#0075F6{% else %}{{ meeting.areas.first.color }}{% endif %};"></div>
+    <div class="tremDeCor" style="background-color: {% if meeting.areas.count > 1 %}#0075F6{% else %}{% if meeting.areas.first.color|lower == '#fefefe' or meeting.areas.first.color|lower == '#ffffff' %}#ddd{% else %}{{ meeting.areas.first.color }}{% endif %}{% endif %}; "></div>
     <div class="mainCard">
         <div class="headerCardMeeting">
             <div class="idAction">
@@ -51,7 +51,7 @@
             
         </div>
         <button class="saveButton" type="submit">
-            Registrar ata
+            Visualizar ata
         </button>
     </div>
 </div>
