@@ -76,7 +76,7 @@ def register(request):
        
     return render(request, 'register.html', {'areas': areas, 'functions': functions})
 
-
+@login_required
 def configPassword(request):
     if request.method == 'POST':
         pw_actually = request.POST.get('pw_actually')

@@ -9,6 +9,7 @@ from .forms import FlightForm,MeetingsForm
 from django.contrib.auth.decorators import login_required
 
 # Listar todos os voos
+@login_required
 def flight_list(request):
     flight = FlightLog.objects.all()
     return render(request, 'report/flight_list.html', {'flights': flight})
@@ -60,7 +61,7 @@ def flights(request):
     return render(request, 'flights.html', context)
 
 
-
+@login_required
 def flight_create(request):
     if request.method == 'POST':
         occurred_accident = request.POST.get('occurred_accident') == 'on'  # Converte direto para booleano
@@ -116,6 +117,7 @@ def flight_create(request):
     return render(request, 'flights.html')  # Renderiza a página em caso de GET
 
 # Editar um voo existente
+@login_required
 def flight_edit(request, id):
     flight = get_object_or_404(FlightLog, id=id)
     profiles = MembroEquipe.objects.all()
@@ -186,6 +188,7 @@ def flight_edit(request, id):
     return render(request, '_editFlight.html', context)
 
 # Deletar um voo
+@login_required
 def flight_delete(request, id):
     flight = get_object_or_404(FlightLog, id=id)
     if request.method == 'POST':
@@ -204,7 +207,6 @@ def image_to_base64(image):
     if image:
         with open(image.path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode('utf-8')
-
 
 
 @login_required
@@ -286,7 +288,7 @@ def meetings(request):
 
 
 
-
+@login_required
 def meetings_edit(request, meeting_id):
     # Carrega a reunião existente para edição
     meeting = get_object_or_404(Meeting, id=meeting_id)
@@ -309,7 +311,7 @@ def meetings_edit(request, meeting_id):
     return JsonResponse({"success": False, "message": "Método inválido."}, status=405)
 
 
-
+@login_required
 def membros_por_area(request, area_id):
     """Retorna os membros de uma determinada área."""
     area = get_object_or_404(Area, id=area_id)
@@ -329,6 +331,7 @@ def membros_por_area(request, area_id):
 
     return JsonResponse({"membros": membros_data})
 
+@login_required
 def delete_meeting(request, meeting_id):
     if request.method == "POST":
         meeting = get_object_or_404(Meeting, id=meeting_id)
