@@ -31,7 +31,6 @@ class MembroEquipe(AbstractUser):
     areas = models.ManyToManyField(Area, related_name='membros', blank=True)
     area = models.ManyToManyField(Area, related_name='area', blank=True)
     functions = models.ManyToManyField(Function, related_name='membros', blank=True)
-
     @property
     def first_name_display(self):
         """Retorna apenas o primeiro nome do usuário."""

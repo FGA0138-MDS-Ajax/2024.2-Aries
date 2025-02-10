@@ -1,40 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Seleciona todos os botões de "adicionar membros"
     const plusMembers = document.querySelectorAll('.plus-members');
-
+  
     plusMembers.forEach(member => {
-        member.addEventListener('click', () => {
-            const memberId = member.getAttribute('data-id');
-            if (!memberId) {
-                return;
-            }
-
-            // Encontra o input #responsibles mais próximo do clique
-            const responsiblesField = member.closest('.form')?.querySelector('#responsibles');
-
-            if (!responsiblesField) {
-                return;
-            }
-
-            // Obtém o valor atual do campo
-            let currentValues = responsiblesField.value ? responsiblesField.value.split(',') : [];
-
-            // Adiciona o novo ID se ainda não estiver na lista
-            if (!currentValues.includes(memberId)) {
-                currentValues.push(memberId);
-            }
-
-            // Atualiza o campo com os novos valores
-            responsiblesField.value = currentValues.join(',');
-
-            const personTeam = member.closest('.person-team'); // Encontra o elemento pai .person-team
-            if (personTeam) {
-                personTeam.classList.toggle('selected-person-team');
-            }
-        });
+      member.addEventListener('click', () => {
+        const memberId = member.getAttribute('data-id');
+        if (!memberId) {
+          return;
+        }
+  
+        // Encontra o input #responsibles mais próximo do clique
+        const responsiblesField = member.closest('.form')?.querySelector('#responsibles');
+        if (!responsiblesField) {
+          return;
+        }
+  
+        // Obtém o valor atual do campo e transforma em array
+        let currentValues = responsiblesField.value ? responsiblesField.value.split(',') : [];
+  
+        // Adiciona o novo ID se ainda não estiver na lista
+        if (!currentValues.includes(memberId)) {
+          currentValues.push(memberId);
+        }
+  
+        // Atualiza o campo com os novos valores
+        responsiblesField.value = currentValues.join(',');
+  
+        // Depuração: verifica o elemento pai .person-team
+        const personTeam = member.closest('.person-team');
+        console.log('Elemento .person-team encontrado:', personTeam);
+  
+        // Alterna a classe manualmente
+        if (personTeam) {
+          if (personTeam.classList.contains('selected-person-team')) {
+            personTeam.classList.remove('selected-person-team');
+            console.log('Classe "selected-person-team" removida');
+          } else {
+            personTeam.classList.add('selected-person-team');
+            console.log('Classe "selected-person-team" adicionada');
+          }
+        }
+      });
     });
-});
-
+  });
+  
 document.addEventListener("click", (e) => {
     let eve = e.target;
 

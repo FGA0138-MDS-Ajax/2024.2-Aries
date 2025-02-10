@@ -207,7 +207,7 @@
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="7">Nenhum item cadastrado com esses parâmetros</td>
+                        <td colspan="7">{% include 'partials/_nothingToShow.html'%}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

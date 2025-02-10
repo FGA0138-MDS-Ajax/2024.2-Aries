@@ -25,15 +25,16 @@ from .models import FlightLog, AccidentLog  # Certifique-se de importar os model
 def flights(request):
 
     flights = FlightLog.objects.all()
-    count_flights = FlightLog.objects.all().count()
+    count_flights = FlightLog.objects.all().count() or 0
     count_accidents = FlightLog.objects.filter(occurred_accident = True).count()
-    sum_stars = FlightLog.objects.aggregate(Sum('flight_success_rating'))['flight_success_rating__sum']
+    sum_stars = FlightLog.objects.aggregate(Sum('flight_success_rating'))['flight_success_rating__sum'] or 0
 
     if sum_stars != 0:
         mid_sucess = sum_stars/count_flights
     else: 
         mid_sucess= 0
     mid_sucess = round(mid_sucess, 2)
+
     if count_flights != 0:
         accidents_percentage = (count_accidents / count_flights) * 100
         accidents_percentage = round(accidents_percentage, 2)

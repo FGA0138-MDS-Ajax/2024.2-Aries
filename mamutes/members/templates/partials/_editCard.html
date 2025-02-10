@@ -1,3 +1,5 @@
+
+{% load static %}
 <dialog class="editCardModal">
 <style>
 .editCardModal {
@@ -115,5 +117,6 @@ padding: 24px;
             <input type="text" id="responsibles" name="responsibles" value="">
             <button class="button-form" type="submit">Salvar</button>
             </form>
+            <script src="{% static 'scripts/_add_members.js' %}" defer></script>
       </div>
 </dialog>
