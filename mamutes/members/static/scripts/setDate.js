@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".data-input").forEach(input => {
+    document.querySelectorAll('input[type="date"]').forEach(input => {
         input.addEventListener("input", function () {
-            if (this.type === "date") {
-                let parts = this.value.split("-");
-                if (parts[0] && parts[0].length > 4) {
-                    parts[0] = parts[0].slice(0, 4);
-                    this.value = parts.join("-");
-                }
+            let parts = this.value.split("-");
+            if (parts[0] && parts[0].length > 4) {
+                parts[0] = parts[0].slice(0, 4); // Limita o ano a 4 dígitos
+                this.value = parts.join("-");
             }
         });
     });
