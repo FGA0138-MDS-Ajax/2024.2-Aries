@@ -44,6 +44,12 @@ def flights(request):
 
     profiles = MembroEquipe.objects.all()
 
+    for profile in profiles:
+        if profile.photo:
+            profile.photo_base64 = image_to_base64(profile.photo)
+        else:  
+            profile.photo_base64 = None
+
     context = {
         'flights': flights,
         'profiles': profiles,
@@ -121,6 +127,12 @@ def flight_create(request):
 def flight_edit(request, id):
     flight = get_object_or_404(FlightLog, id=id)
     profiles = MembroEquipe.objects.all()
+
+    for profile in profiles:
+        if profile.photo:
+            profile.photo_base64 = image_to_base64(profile.photo)
+        else:  
+            profile.photo_base64 = None
 
     # Tenta obter um log de acidente relacionado ao voo, se existir
     accident_log = AccidentLog.objects.filter(id_flightLog=flight).first()
@@ -316,7 +328,6 @@ def membros_por_area(request, area_id):
     """Retorna os membros de uma determinada área."""
     area = get_object_or_404(Area, id=area_id)
     membros = area.membros.all()  # Pega todos os membros que pertencem a essa área
-    print("membros:  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     print(membros)
     membros_data = [
         {

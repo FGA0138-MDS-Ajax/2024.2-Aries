@@ -55,7 +55,7 @@ class Task(models.Model):
     creation_date = models.DateField(auto_now_add=True)
     completion_date = models.DateField(null=True, blank=True)
     Prazo = models.DateField(null=True, blank=True)
-    area = models.ManyToManyField(Area, related_name='areatask', blank=True)
+    areas = models.ManyToManyField(Area, related_name='areatask', blank=True)
     responsible = models.ManyToManyField(MembroEquipe)
     has_subtasks = models.BooleanField(default=False)
     vetor_subtasks = models.CharField(max_length=500, null=True, blank=True)  

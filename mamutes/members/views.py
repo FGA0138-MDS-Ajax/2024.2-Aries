@@ -198,7 +198,7 @@ def kanban_view(request):
     # Filtra as tarefas pela área, se especificada
     if area_id:
         # Filtra as tarefas pela área especificada na URL
-        tasks = Task.objects.filter(area__id=area_id)
+        tasks = Task.objects.filter(areas__id=area_id)
     else:
         # Caso nenhuma área seja especificada, exibe todas as tarefas
         tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
@@ -216,13 +216,12 @@ def kanban_view(request):
             
 
     if area_id:
-        profileFiltered = MembroEquipe.objects.filter(area=area_id);
+        profileFiltered = MembroEquipe.objects.filter(areas=area_id)
     else:
-        profileFiltered = MembroEquipe.objects.all();
+        profileFiltered = MembroEquipe.objects.all()
 
     for profile in profileFiltered:
-        
-        areas = [area.name for area in profile.area.all()]
+        areas = [area.name for area in profile.areas.all()]
         members.append({
             'email': profile.email,
             'fullname': profile.fullname,
@@ -231,7 +230,7 @@ def kanban_view(request):
             'area': ", ".join(areas),
         })
 
-    members_count = len(members)-5
+    members_count = len(members) - 5
 
     total_tasks = tasks.count()
     completed_task_count = tasks.filter(status='Concluída').count()
@@ -246,7 +245,6 @@ def kanban_view(request):
         pending_percentage = in_progress_percentage = completed_percentage = 0
     
     # Processa as tarefas
-    
     for task in tasks:
         prazo = task.Prazo
         today = datetime.now().date()
@@ -283,11 +281,10 @@ def kanban_view(request):
 
         pair_r_p = list(zip(task.get_responsibles(), responsible_photos))
 
-
         items.append({
             'id': task.id,
             'status': task.status,
-            # 'area': task.area.all,
+            'areas': task.areas.all(),  # Atualizado para usar areas
             'title': task.title,
             'description': task.description,
             'creation_date': task.creation_date,
@@ -304,7 +301,6 @@ def kanban_view(request):
             'subtasks': subtasks,
         })
     
-    
     # Adicionar nova tarefa via POST
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -317,7 +313,6 @@ def kanban_view(request):
         subtasks_list = request.POST.getlist('inputTask')
         checkbox_input = request.POST.get('inputSubTask')
 
-        
         task = Task.objects.create(
             title=title,
             description=description,
@@ -326,11 +321,11 @@ def kanban_view(request):
             Prazo=prazo,
         )
 
-        task.area.set(area_id)
+        task.areas.set(area_id)  # Esta linha já está correta
 
         if checkbox_input:
             subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]
-            checkbox_input= checkbox_input.split(',')
+            checkbox_input = checkbox_input.split(',')
             
             for i in range(len(checkbox_input)):
                 if checkbox_input[i] == 'true':
@@ -360,7 +355,7 @@ def kanban_view(request):
         'all_areas': all_areas,
         'completed_task_count': completed_task_count,
         'Em_Progresso_task_count': Em_Progresso_task_count,
-        'Pendente_count':  Pendente_count,
+        'Pendente_count': Pendente_count,
         'pending_percentage': pending_percentage,
         'in_progress_percentage': in_progress_percentage,
         'completed_percentage': completed_percentage,
@@ -596,7 +591,7 @@ def taskBoard(request):
     # Filtra as tarefas pela área, se especificada
     if area_id:
         # Filtra as tarefas pela área especificada na URL
-        tasks = Task.objects.filter(area__id=area_id)
+        tasks = Task.objects.filter(areas__id=area_id)
     else:
         # Caso nenhuma área seja especificada, exibe todas as tarefas
         tasks = Task.objects.all()  # Caso nenhuma área seja especificada, retorna todas as tarefas
@@ -614,13 +609,13 @@ def taskBoard(request):
             
 
     if area_id:
-        profileFiltered = MembroEquipe.objects.filter(area=area_id);
+        profileFiltered = MembroEquipe.objects.filter(areas=area_id);
     else:
         profileFiltered = MembroEquipe.objects.all();
 
     for profile in profileFiltered:
         
-        areas = [area.name for area in profile.area.all()]
+        areas = [area.name for area in profile.areas.all()]
         members.append({
             'email': profile.email,
             'fullname': profile.fullname,
@@ -724,7 +719,7 @@ def taskBoard(request):
             Prazo=prazo,
         )
 
-        task.area.set(area_id)
+        task.areas.set(area_id)
 
         if checkbox_input:
             subtasks_list = [elemento for elemento in subtasks_list if elemento != ""]

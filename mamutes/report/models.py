@@ -67,8 +67,7 @@ class AccidentLog(models.Model):
 
     damaged_parts_photo = models.URLField(null=True, blank=True) 
 
-    def __str__(self):
-        return f"Accident Log {self.id} - Flight {self.flight_log.id}"
+   
 
 class Meeting(models.Model):
     title = models.CharField(max_length=255)

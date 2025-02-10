@@ -82,8 +82,20 @@
             <div class="text-wrapper">@{{ user.username }}</div>
             <div class="div">{{ user.fullname }}</div>
             <div class="infos-cargo-area">
-              <p class="p">Gerente de operações | Capitão | Piloto</p>
-              <div class="text-wrapper-2">Marketing | Estruturas</div>
+              <p class="p">
+                {% if user.position %}{{ user.position }}{% endif %}
+                {% if user.position and user.functions.all %} | {% endif %}
+                {% for function in user.functions.all %}
+                    {{ function.name }}{% if not forloop.last %} | {% endif %}
+                {% endfor %}
+              </p>
+              <div class="text-wrapper-2">
+                {% for area in user.areas.all %}
+                    {{ area.name }}{% if not forloop.last %} | {% endif %}
+                {% empty %}
+                    Nenhuma área cadastrada
+                {% endfor %}
+              </div>
             </div>
           </div>
         </div>
