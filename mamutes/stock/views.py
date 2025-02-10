@@ -18,6 +18,7 @@ def stock(request):
     return render(request, 'stock.html', {'ferramentas': ferramentas})
 
 # Adicionar ferramenta
+@login_required
 def adicionar_ferramenta(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -43,6 +44,7 @@ def adicionar_ferramenta(request):
     return render(request, 'additem.html', {'title': 'Adicionar Ferramenta'})
 
 # Editar ferramenta
+@login_required
 def editar_ferramenta(request, pk):
     ferramenta = get_object_or_404(Tool, pk=pk)
 
@@ -63,6 +65,7 @@ def editar_ferramenta(request, pk):
     return redirect('stock')
 
 # Deletar ferramenta novo funcional com modal
+@login_required
 def deletar_ferramenta(request, pk):
     ferramenta = get_object_or_404(Tool, pk=pk)
     if request.method == "POST":
@@ -71,6 +74,7 @@ def deletar_ferramenta(request, pk):
     return redirect('stock') 
 
 # Download PDF
+@login_required
 def download_pdf(request):
     # Configurar a resposta como PDF
     response = HttpResponse(content_type='application/pdf')
@@ -126,6 +130,7 @@ def download_pdf(request):
     return response
 
 # Download CSV
+@login_required
 def download_csv(request):
     # Configurar a resposta como CSV
     response = HttpResponse(content_type='text/csv')
@@ -154,8 +159,8 @@ def download_csv(request):
     return response
 
 
-@login_required
 # Buscador
+@login_required
 def stock(request):
     query = request.GET.get('search', '').strip()  # Obter e limpar o termo de busca
     ferramentas = Tool.objects.all()  # Recuperar todas as ferramentas por padrão
