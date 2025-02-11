@@ -107,6 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.getElementById('modallink_pauta').innerText = pauta || '';
             document.getElementById('modallink').innerText = link || '';
+            document.getElementById('modallink').href = link || '';
+
             document.getElementById('modalother_participants').innerText = other || ''; 
             
             // input do edit-modal
