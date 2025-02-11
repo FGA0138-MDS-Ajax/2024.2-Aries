@@ -20,6 +20,38 @@
         console.log("IDs selecionados:", selectedAreas.join(","));
     }
 </script>
+
+<script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Seleciona o botão que abre o modal de edição
+        const openModalEditBtn = document.getElementById("openModalEditBtn");
+
+        // Seleciona os modais
+        const visualizarModal = document.getElementById("modalcard");
+        const editarModal = document.getElementById("modalEdit");
+
+        // Adiciona um evento de clique ao botão de edição
+        openModalEditBtn.addEventListener("click", function () {
+            // Fecha o modal de visualização
+            visualizarModal.style.display = "none";
+
+            // Abre o modal de edição
+            editarModal.style.display = "block";
+        });
+
+        // Fechar o modal de edição quando o botão de fechar for clicado
+        const closeModalEditBtn = document.getElementById("closeModalEditBtn");
+        closeModalEditBtn.addEventListener("click", function () {
+            editarModal.style.display = "none";
+        });
+
+        // Fechar o modal de visualização quando o botão de fechar for clicado
+        const closeModalSeeBtn = document.getElementById("closeModalSeeBtn");
+        closeModalSeeBtn.addEventListener("click", function () {
+            visualizarModal.style.display = "none";
+        });
+    });
+</script>
 <style>
     .personImg1 {
         width: 40px;
