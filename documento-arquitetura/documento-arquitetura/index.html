@@ -1,0 +1,3024 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../documento-visao/documento-visao/">
+      
+      
+        <link rel="next" href="../../documento-requisitos/documento-requisitos/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Arquitetura - Documentação Mamutes do Cerrado</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/styles.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documento-de-arquitetura" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Documentação Mamutes do Cerrado" class="md-header__button md-logo" aria-label="Documentação Mamutes do Cerrado" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação Mamutes do Cerrado
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arquitetura
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="light-blue"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../landing.html" class="md-tabs__link">
+        
+  
+    
+  
+  Landing Page
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Apresentação
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../atas-reuniao/cliente/ata-reuniao-1/" class="md-tabs__link">
+          
+  
+  Atas
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../documento-visao/documento-visao/" class="md-tabs__link">
+          
+  
+  Documentação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../links/links/" class="md-tabs__link">
+        
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação Mamutes do Cerrado" class="md-nav__button md-logo" aria-label="Documentação Mamutes do Cerrado" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentação Mamutes do Cerrado
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../landing.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Landing Page
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apresentação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Atas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cliente
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cliente
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Equipe
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Equipe
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-1-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-2-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-3-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-4-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-5-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-6-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-7-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-8-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-9-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-10-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-11-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 11
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-12-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-13-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 13
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Documentação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Documentação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-visao/documento-visao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Arquitetura
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Arquitetura
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introdução
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introdução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Propósito
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Escopo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-representacao-arquitetural" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Representação Arquitetural
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Representação Arquitetural">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-definicoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Definições
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Justificativa
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Justificativa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-separacao-de-responsabilidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 Separação de Responsabilidades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-reutilizacao-de-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 Reutilização de Componentes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-facilidade-de-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3 Facilidade de Teste
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-desenvolvimento-paralelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.4 Desenvolvimento Paralelo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#225-escalabilidade-e-adaptacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.5 Escalabilidade e Adaptação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#226-alinhamento-as-necessidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.6 Alinhamento às Necessidades
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-detalhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Detalhamento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Detalhamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-camada-de-logica-de-negocios-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Camada de Lógica de Negócios (Model)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-camada-de-apresentacao-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Camada de Apresentação (Template)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-camada-de-controle-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Camada de Controle (View)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-beneficios-do-padrao-mvt-no-contexto-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Benefícios do Padrão MVT no Contexto do Sistema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-metas-e-restricoes-arquiteturais" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Metas e restrições arquiteturais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Metas e restrições arquiteturais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metas-arquiteturais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metas Arquiteturais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metas Arquiteturais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-escalabilidade-horizontal" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Escalabilidade Horizontal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-manutenibilidade-modular" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Manutenibilidade Modular
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restricoes-arquiteturais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restrições Arquiteturais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restrições Arquiteturais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#43-compatibilidade-multiplataforma" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Compatibilidade Multiplataforma
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-uso-do-framework-django" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Uso do Framework Django
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-armazenamento-e-banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Armazenamento e Banco de Dados
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-visao-de-casos-de-uso-escopo-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Visão de Casos de uso (escopo do produto)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-visao-logica" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Visão lógica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-visao-de-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Visão de Implementação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Visão de Implementação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-camada-de-apresentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Camada de Apresentação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-logica-e-regras-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Lógica e Regras de Negócio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-comunicacao-com-o-banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Comunicação com o Banco de Dados
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-visao-de-implantacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Visão de Implantação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Visão de Implantação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-infraestrutura-de-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Infraestrutura de hardware
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-tecnologia-e-justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Tecnologia e Justificativa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-estrategia-de-implantacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Estratégia de implantação:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-monitoramento-e-manutencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 Monitoramento e manutenção:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-diagrama-de-implantacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 Diagrama de implantação:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-restricoes-adicionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Restrições adicionais
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-bibliografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Bibliografia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabela-de-versionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabela de Versionamento
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-requisitos/documento-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Testes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Testes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-plano-testes/documento-plano-testes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plano de Testes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-Testes-Integracao/documento-Testes-Integracao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testes de Integração
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-Testes-Unitarios/documento-Testes-Unitarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testes Unitários
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introdução
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introdução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Propósito
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Escopo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-representacao-arquitetural" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Representação Arquitetural
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Representação Arquitetural">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-definicoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Definições
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Justificativa
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Justificativa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-separacao-de-responsabilidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 Separação de Responsabilidades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-reutilizacao-de-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 Reutilização de Componentes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-facilidade-de-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3 Facilidade de Teste
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-desenvolvimento-paralelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.4 Desenvolvimento Paralelo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#225-escalabilidade-e-adaptacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.5 Escalabilidade e Adaptação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#226-alinhamento-as-necessidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.6 Alinhamento às Necessidades
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-detalhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Detalhamento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Detalhamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-camada-de-logica-de-negocios-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Camada de Lógica de Negócios (Model)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-camada-de-apresentacao-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Camada de Apresentação (Template)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-camada-de-controle-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Camada de Controle (View)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-beneficios-do-padrao-mvt-no-contexto-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Benefícios do Padrão MVT no Contexto do Sistema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-metas-e-restricoes-arquiteturais" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Metas e restrições arquiteturais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Metas e restrições arquiteturais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metas-arquiteturais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metas Arquiteturais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metas Arquiteturais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-escalabilidade-horizontal" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Escalabilidade Horizontal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-manutenibilidade-modular" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Manutenibilidade Modular
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restricoes-arquiteturais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restrições Arquiteturais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restrições Arquiteturais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#43-compatibilidade-multiplataforma" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Compatibilidade Multiplataforma
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-uso-do-framework-django" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Uso do Framework Django
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-armazenamento-e-banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Armazenamento e Banco de Dados
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-visao-de-casos-de-uso-escopo-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Visão de Casos de uso (escopo do produto)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-visao-logica" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Visão lógica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-visao-de-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Visão de Implementação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Visão de Implementação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-camada-de-apresentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Camada de Apresentação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-logica-e-regras-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Lógica e Regras de Negócio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-comunicacao-com-o-banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Comunicação com o Banco de Dados
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-visao-de-implantacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Visão de Implantação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Visão de Implantação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-infraestrutura-de-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Infraestrutura de hardware
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-tecnologia-e-justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Tecnologia e Justificativa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-estrategia-de-implantacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Estratégia de implantação:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-monitoramento-e-manutencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 Monitoramento e manutenção:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-diagrama-de-implantacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 Diagrama de implantação:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-restricoes-adicionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Restrições adicionais
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-bibliografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Bibliografia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabela-de-versionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabela de Versionamento
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="documento-de-arquitetura">Documento de Arquitetura</h1>
+<h2 id="1-introducao">1. Introdução</h2>
+<h3 id="11-proposito">1.1 Propósito</h3>
+<div style="text-align: justify;">
+
+Este documento apresenta a arquitetura do sistema desenvolvido para o sistema web para a equipe de competição <strong>Mamutes do Cerrado</strong> da Universidade de Brasília (UnB). O objetivo é descrever detalhadamente as funcionalidades, integrações e especificações técnicas, fornecendo uma visão abrangente para desenvolvedores, testadores e demais envolvidos no projeto. O sistema busca aprimorar a gestão interna e aumentar a visibilidade externa da equipe, alinhando-se às suas necessidades e objetivos estratégicos. <br></br>
+
+</div>
+
+<hr />
+<h3 id="12-escopo">1.2 Escopo</h3>
+<div style="text-align: justify;">
+
+O sistema desenvolvido busca melhorar a organização interna da equipe e aumentar sua
+visibilidade externa. Ele contará com ferramentas para gerenciar calendários, inventário,
+documentos e tarefas, além de oferecer perfis de acesso personalizados para diferentes membros. <br></br>
+Também terá um site público para divulgar a equipe, suas conquistas, projetos e
+informações sobre o processo seletivo. Internamente, o sistema inclui funcionalidades de
+lembrete para o calendário e registro de dados importantes, como voos e acidentes, bem como
+gerenciamento de estoque. <br></br>
+Com isso, o objetivo é otimizar processos, centralizar informações e destacar a equipe em
+competições e no meio acadêmico. <br></br>
+Demais detalhes com relação ao escopo do projeto se encontram no documento
+“Documento de Visão - Áries”, na seção 4. <br></br>
+
+</div>
+
+<hr />
+<h2 id="2-representacao-arquitetural">2. Representação Arquitetural</h2>
+<h3 id="21-definicoes">2.1 Definições</h3>
+<div style="text-align: justify;">
+
+O sistema da equipe <strong>Mamutes do Cerrado</strong> adotará a arquitetura em camadas, alinhada ao padrão <strong>Model-View-Template (MVT)</strong>, utilizado pelo framework Django. Essa abordagem organiza o sistema em três componentes principais, cada um com funções bem definidas. <br></br>
+
+</div>
+
+<hr />
+<h3 id="22-justificativa">2.2 Justificativa</h3>
+<div style="text-align: justify;">
+
+A escolha da arquitetura <strong>MVT</strong>, fornecida pelo Django, foi motivada por suas diversas vantagens, que se alinham diretamente às necessidades do desenvolvimento do sistema Web. Entre os principais benefícios, destacam-se: <br></br>
+
+</div>
+
+<h4 id="221-separacao-de-responsabilidades">2.2.1 Separação de Responsabilidades</h4>
+<div style="text-align: justify;">
+
+A arquitetura MVT separa claramente as funções do sistema, o que:
+
+<ul>
+    <li>Facilita a manutenção e a evolução independente de cada componente. </li>
+    <li>Permite alterações no <strong>Template</strong> (interface do usuário) sem impactar a lógica de negócios no <strong>Model</strong>.</li>
+    <li>Simplifica o desenvolvimento contínuo e modular do sistema.</li>
+</ul>
+
+</div>
+
+<h4 id="222-reutilizacao-de-componentes">2.2.2 Reutilização de Componentes</h4>
+<div style="text-align: justify;">
+
+A estrutura dos templates do Django permite a reutilização de layouts e blocos de código, agilizando a criação de páginas consistentes e minimizando redundâncias. <br></br> 
+
+</div>
+
+<h4 id="223-facilidade-de-teste">2.2.3 Facilidade de Teste</h4>
+<div style="text-align: justify;">
+
+Com o MVT, as camadas podem ser testadas isoladamente:
+
+</div>
+
+<ul>
+<li><strong>Models</strong> podem ser validados com testes unitários para garantir a integridade dos dados.</li>
+<li><strong>Views</strong> podem ser testadas para confirmar o comportamento esperado das requisições.</li>
+<li><strong>Templates</strong> podem ser revisados para verificar se os dados estão sendo apresentados corretamente.</li>
+</ul>
+<h4 id="224-desenvolvimento-paralelo">2.2.4 Desenvolvimento Paralelo</h4>
+<div style="text-align: justify;">
+
+A separação em camadas permite que diferentes equipes trabalhem simultaneamente:
+
+</div>
+
+<ul>
+<li>Uma equipe pode desenvolver os <strong>Models</strong>, configurando o banco de dados e regras de negócio.</li>
+<li>Outra pode focar na criação de <strong>Templates</strong> e no design das páginas.</li>
+<li>Uma terceira equipe pode trabalhar nas <strong>Views</strong>, integrando os dados e ajustando a lógica de controle.</li>
+</ul>
+<h4 id="225-escalabilidade-e-adaptacao">2.2.5 Escalabilidade e Adaptação</h4>
+<div style="text-align: justify;">
+
+A arquitetura MVT é flexível e escalável, permitindo que novas funcionalidades sejam adicionadas ou modificadas com facilidade. Isso é crucial para suportar:
+
+</div>
+
+<ul>
+<li>Expansões futuras, como novos módulos para gerenciamento de eventos ou integração com novos sistemas.</li>
+<li>Adaptações às demandas específicas da equipe Mamutes do Cerrado, como melhorias no controle de estoque e comunicação automatizada.</li>
+</ul>
+<h4 id="226-alinhamento-as-necessidades">2.2.6 Alinhamento às Necessidades</h4>
+<div style="text-align: justify;">
+
+A arquitetura MVT atende perfeitamente à necessidade de um sistema robusto, modular e de fácil manutenção, conectando <strong>gestão interna</strong> (estoques, cronogramas, tarefas) e <strong>divulgação externa</strong> (site público, eventos), permitindo que a Mamutes do Cerrado se organize e cresça de forma sustentável e eficiente.
+
+</div>
+
+<hr />
+<h2 id="3-detalhamento">3. Detalhamento</h2>
+<div style="text-align: justify;">
+
+O padrão arquitetural utilizado será em camadas, implementado com o framework Django, seguindo o design <strong>Model-View-Template (MVT)</strong>. Cada componente do MVT desempenhará funções específicas, assegurando as vantagens descritas no item 2.2 deste documento. Abaixo, detalha-se o papel de cada camada no sistema da equipe:
+
+</div>
+
+<h3 id="31-camada-de-logica-de-negocios-model">3.1 Camada de Lógica de Negócios (Model)</h3>
+<div style="text-align: justify;">
+
+Essa camada gerencia os dados e a lógica de negócios da aplicação. No contexto do sistema Mamutes, será responsável por:
+
+</div>
+
+<ul>
+<li><strong>Armazenar informações</strong> sobre membros, estoques, cronogramas e documentos em um banco de dados relacional.</li>
+<li><strong>Gerenciar processos internos</strong>, como registro de atividades, cálculo de métricas (presenças e disponibilidade de recursos) e controle de acesso.</li>
+<li><strong>Fornecer suporte aos relatórios e indicadores</strong> de desempenho da equipe.</li>
+</ul>
+<h3 id="32-camada-de-apresentacao-template">3.2 Camada de Apresentação (Template)</h3>
+<div style="text-align: justify;">
+
+Os templates são responsáveis pela renderização de conteúdo dinâmico para o usuário, utilizando HTML integrado com variáveis e expressões do Django Template Language (DTL). Exemplos de funcionalidades nesta camada incluem:
+
+</div>
+
+<ul>
+<li><strong>Exibição de dashboards</strong> com cronogramas, indicadores-chave e relatórios dinâmicos.</li>
+<li><strong>Criação de páginas públicas</strong> para divulgar eventos, identidade visual e novidades da equipe.</li>
+<li><strong>Interfaces amigáveis e responsivas </strong>para facilitar o gerenciamento interno de recursos como estoques e cronogramas.</li>
+</ul>
+<h3 id="33-camada-de-controle-view">3.3 Camada de Controle (View)</h3>
+<div style="text-align: justify;">
+
+As views atuam como intermediárias, processando as solicitações dos usuários e interagindo com o Model e o Template. São responsáveis por:
+
+</div>
+
+<ul>
+<li>Receber requisições do usuário e retornar respostas adequadas, como páginas HTML ou dados em formato JSON.</li>
+<li><strong>Gerenciar lógica de apresentação dinâmica</strong>, como filtrar dados de cronogramas ou estoques com base no perfil do usuário.</li>
+<li><strong>Integração com APIs externas</strong>, como o Google Maps, para funcionalidades avançadas, como cálculo de rotas. </li>
+</ul>
+<h3 id="34-beneficios-do-padrao-mvt-no-contexto-do-sistema">3.4 Benefícios do Padrão MVT no Contexto do Sistema</h3>
+<ul>
+<li><strong>Organização Modular:</strong> Cada camada desempenha um papel distinto, facilitando manutenção e futuras expansões.</li>
+<li><strong>Reutilização e Consistência:</strong> Templates reutilizáveis para páginas públicas e privadas garantem consistência visual.</li>
+<li><strong>Escalabilidade:</strong> Novas funcionalidades podem ser integradas sem grandes reestruturações.</li>
+<li><strong>Desenvolvimento Colaborativo:</strong> Permite que diferentes equipes trabalhem simultaneamente nas três camadas, otimizando o tempo de desenvolvimento.</li>
+</ul>
+<p>A figura abaixo ilustra a arquitetura MVT utilizada no desenvolvimento do sistema Mamutes do Cerrado, destacando a interação entre os componentes e suas responsabilidades:</p>
+<p><img alt="Esquema MVT" src="https://raw.githubusercontent.com/FGA0138-MDS-Ajax/2024.2-Aries/refs/heads/main/docs/view/img/mvt.png" /></p>
+<div style="text-align: center;">
+
+<strong>Figura 1.</strong> Esquema da arquitetura MVT adaptada ao sistema Mamutes do Cerrado.
+
+</div>
+
+<hr />
+<h2 id="4-metas-e-restricoes-arquiteturais">4. Metas e restrições arquiteturais</h2>
+<h3 id="metas-arquiteturais">Metas Arquiteturais</h3>
+<div style="text-align: justify;">
+
+As metas arquiteturais do nosso sistema foram definidas para atender às necessidades funcionais e não funcionais da aplicação, garantindo eficiência, segurança e escalabilidade:
+
+</div>
+
+<h4 id="41-escalabilidade-horizontal">4.1 Escalabilidade Horizontal</h4>
+<div style="text-align: justify;">
+
+O sistema deve suportar a adição de servidores para aumentar a capacidade de processamento em cenários de crescimento da equipe ou de dados.<br></br>
+
+<strong>Justificativa:</strong> Escalabilidade horizontal garante que o sistema possa crescer sem a necessidade de reformulações arquiteturais.
+
+</div>
+
+<h4 id="42-manutenibilidade-modular">4.2 Manutenibilidade Modular</h4>
+<div style="text-align: justify;">
+
+Novas funcionalidades devem ser integradas ao sistema sem impactar componentes existentes, graças à separação de responsabilidades proporcionada pelo padrão <strong>MVT.</strong><br></br>
+
+<strong>Justificativa:</strong> A arquitetura modular simplifica a adição de novos recursos e facilita correções de erros ou atualizações de componentes.
+
+</div>
+
+<h3 id="restricoes-arquiteturais">Restrições Arquiteturais</h3>
+<h4 id="43-compatibilidade-multiplataforma">4.3  Compatibilidade Multiplataforma</h4>
+<div style="text-align: justify;">
+
+O sistema deve ser compatível com navegadores modernos (Chrome, Firefox, Edge, Safari) e dispositivos móveis com tela mínima de 5 polegadas.<br></br>
+
+<strong>Justificativa:</strong> Garantir o acesso universal é essencial para que todos os membros possam usar o sistema sem barreiras tecnológicas.
+
+</div>
+
+<h4 id="44-uso-do-framework-django">4.4 Uso do Framework Django</h4>
+<div style="text-align: justify;">
+
+Todo o desenvolvimento backend será baseado no Django 4.2 LTS, incluindo o suporte ao padrão <strong>MVT</strong> e <strong>ORM</strong> nativo.<br></br>
+
+<strong>Justificativa:</strong> O Django é robusto, oferece ferramentas integradas para desenvolvimento ágil e segue boas práticas de segurança e escalabilidade.
+
+</div>
+
+<h4 id="45-armazenamento-e-banco-de-dados">4.5 Armazenamento e Banco de Dados</h4>
+<div style="text-align: justify;">
+
+O sistema vai utilizar <strong>SQLite</strong> como banco de dados principal, com suporte a armazenamento de até 100 GB de dados, que é basicamente o plano escolhido para o projeto e atende às necessidades nesse primeiro momento. <br></br>
+
+<strong>Justificativa:</strong> SQLite oferece alto desempenho e suporte para operações complexas,
+além de ser escalável e compatível com o Django.
+
+</div>
+
+<h2 id="5-visao-de-casos-de-uso-escopo-do-produto">5. Visão de Casos de uso (escopo do produto)</h2>
+<div style="text-align:justify;">
+    A arquitetura do sistema segue o padrão <strong>Model-View-Template (MVT)</strong>, implementado
+    pelo framework Django, escolhido pela familiaridade da maioria dos integrantes e pelos
+    requisitos técnicos, como a necessidade de autenticação robusta e gerenciamento de
+    diferentes níveis de acesso, que serão explicados ao decorrer da seção.
+    <br>
+    Ademais, outros
+    pontos fizeram-se importantes durante a escolha, entre eles estão: a escalabilidade do projeto,
+    facilitando integrações futuras (novos módulos e API's (Interface de Programação de
+    Aplicação) externas, a manutenção descomplicada. O <strong>PostgreSQL</strong> foi escolhido como banco
+    de dados devido à experiência prévia de membros da equipe com bancos relacionais e ao
+    suporte robusto do Django, enquanto o frontend foi implementado com <strong>HTML, CSS</strong> e
+    <strong>JavaScript</strong>. <br></br>
+
+    No que se diz a respeito do escopo geral do sistema, ele pode ser dividido em partes
+    que têm funcionalidades como:
+</div>
+
+<ul>
+    <li>Gerenciamento de calendários, tarefas e inventários;</li>
+    <li>Controle de acesso baseado em perfis personalizados;</li>
+    <li>Exibição de informações públicas sobre a equipe, projetos e eventos;</li>
+    <li>Gerenciamento de documentação, como logs de voos, ocorrências e administração do estoque de produtos da equipe.</li>
+</ul>
+
+<p>Além disso, o sistema suporta múltiplos níveis de acesso (perfis) , cada um com
+permissões específicas:</p>
+<ol>
+<li><strong>Capitão:</strong> Acesso irrestrito (superusuário);</li>
+<li><strong>Gerente:</strong> Pode designar tarefas em todas as áreas (superusuário);</li>
+<li><strong>Líderes:</strong> Restritos à designar tarefas apenas em suas áreas específicas, como, por exemplo, o líder do Marketing, poderá gerenciar apenas o Marketing (superusuário);</li>
+<li><strong>Membros:</strong> Limitados às suas áreas de atuação, com permissões para alterar calendários e marcar tarefas concluídas;</li>
+<li><strong>Trainees:</strong> Podem acessar áreas restritas, mas tem permissão apenas para visualizar;</li>
+<li><strong>Visitantes:</strong> Usuários comuns, com acesso apenas à parte pública do site – página inicial e a de inscrição do processo seletivo.</li>
+</ol>
+<p>O diagrama abaixo destaca os casos de uso da aplicação e suas interações citadas
+acima:</p>
+<p><img alt="Diagrama de casos de uso" src="../../view/img/CasesDiagram.jpeg" /></p>
+<div style="text-align: center;">
+
+<strong>Figura 2.</strong> Diagrama de Casos de uso.
+
+</div>
+
+<h2 id="6-visao-logica">6. Visão lógica</h2>
+<div style="text-align: justify;">
+
+O sistema é dividido em quatro aplicativos principais, organizados para atender às necessidades dos usuários conforme suas funções:
+
+</div>
+<p><strong>Guest:</strong></p>
+<ul>
+  <li><strong>Objetivo:</strong> Oferecer uma interface visual para usuários não cadastrados.</li>
+  <li><strong>Principais Funcionalidades:</strong>
+    <ul>
+      <li>Página inicial com informações públicas;</li>
+      <li>Navegação básica nas áreas públicas (apenas visual).</li>
+    </ul>
+  </li>
+  <li><strong>Componentes:</strong>
+    <ul>
+      <li>Templates: Arquivos HTML para páginas como "Quem somos";</li>
+      <li>Views: Controladores para renderizar essas páginas.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Users:</strong></p>
+<ul>
+  <li><strong>Objetivo:</strong> Atender usuários cadastrados, fornecendo ferramentas de gerenciamento pessoal.</li>
+  <li><strong>Principais Funcionalidades:</strong>
+    <ul>
+      <li>Criação de eventos;</li>
+      <li>Visualização de tarefas;</li>
+      <li>Controle de áreas ocupadas pelos usuários.</li>
+    </ul>
+  </li>
+  <li><strong>Componentes:</strong>
+    <ul>
+      <li>Models: Estruturas de dados para usuários, tarefas e eventos;</li>
+      <li>Views: Regras de negócio e exibição das funcionalidades;</li>
+      <li>Templates: Páginas para interagir com as funcionalidades.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Stock:</strong></p>
+<ul>
+  <li><strong>Objetivo:</strong> Gerenciar a entrada, saída e monitoramento de itens no estoque.</li>
+  <li><strong>Principais Funcionalidades:</strong>
+    <ul>
+      <li>Verificar itens em falta;</li>
+      <li>Atualizar quantidades de itens;</li>
+      <li>Relatórios de consumo e necessidades.</li>
+    </ul>
+  </li>
+  <li><strong>Componentes:</strong>
+    <ul>
+      <li>Models: Representação de itens e histórico de movimentações;</li>
+      <li>Views: Controle de lógica para movimentação de estoque;</li>
+      <li>Templates: Páginas para visualização e atualização.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Report:</strong></p>
+<ul>
+  <li><strong>Objetivo:</strong> Criar e organizar relatórios específicos do sistema.</li>
+  <li><strong>Principais Funcionalidades:</strong>
+    <ul>
+      <li>Relatórios de voo;</li>
+      <li>Atas de documentos;</li>
+      <li>Exportação e formatação de dados.</li>
+    </ul>
+  </li>
+  <li><strong>Componentes:</strong>
+    <ul>
+      <li>Models: Estruturas para armazenar dados necessários aos relatórios;</li>
+      <li>Views: Criação e manipulação dos relatórios;</li>
+      <li>Templates: Páginas para configuração e visualização.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>O diagrama de classes, ilustrado na próxima figura, coincide com a versão atual do código:</p>
+<p><img alt="Diagrama de classes" src="../../view/img/ClassDiagram.jpeg" /></p>
+<div style="text-align: center;">
+
+<strong>Figura 3.</strong> Diagrama de Classes.
+
+</div>
+
+<p><img alt="Diagrama de casos de uso" src="../../view/img/StatesDiagram.png" /></p>
+<div style="text-align: center;">
+
+<strong>Figura 4.</strong> Diagrama de estados da aplicação.
+
+</div>
+
+<p>Diagrama de Atividades encontra-se no link: <a target="_blank" href="https://www.figma.com/board/MvMowYd0J4NuHSZtLhvr6d/Untitled?node-id=0-1&t=bTk0I6htwaQWrYIt-1" >https://www.figma.com/board/MvMowYd0J4NuHSZtLhvr6d/Untitled?node-id=0-1&amp;t=bTk0I6htwaQWrYIt-1</a></p>
+<h2 id="7-visao-de-implementacao">7. Visão de Implementação</h2>
+<h3 id="71-camada-de-apresentacao">7.1 Camada de Apresentação</h3>
+<div style="text-align: justify;">
+    A camada de apresentação é composta pelos templates HTML responsáveis pela interface com o usuário e pelos arquivos estáticos (CSS, JS e imagens) que fornecem o design e a interatividade para a aplicação.  Tantos os templates quantos as pastas de arquivos   estáticos estão organizadas dentro das aplicações guest e users. <br>
+        Em relação aos templates, a aplicação guest contém os templates públicos que podem ser acessados sem a necessidade de uma permissão específica, sendo alguns deles:
+</div>
+
+<ul>
+<li><strong>index.html:</strong> Página inicial com informações básicas sobre a equipe de competição Mamutes, incluindo as seções "Quem somos", "O que fazemos", "Hall da fama" e "Apoiadores".</li>
+<li><strong>comp.html:</strong> Página com informações sobre a SAE Brasil Aerodesign e a jornada da equipe Mamutes na competição.</li>
+<li><strong>admission.html:</strong> Página utilizada para divulgação dos processos seletivos da equipe.</li>
+</ul>
+<p>Na aplicação users, encontram-se os templates relacionados ao usuário, como cadastro e login, que também são acessíveis ao público. Entre eles estão: <br></p>
+<ul>
+<li><strong>login.html:</strong> Página de login de usuários.</li>
+<li><strong>recoverAccount.html:</strong> Página para solicitar o envio de um e-mail de recuperação de senha.</li>
+<li><strong>redefinePassword.html:</strong>  Página para redefinição de senha.</li>
+<li><strong>register.html:</strong>  Página para cadastro de novos usuários.</li>
+</ul>
+<div style="text-align: justify;">
+Já nas pastas de arquivos estáticos estão os recursos essenciais para a apresentação visual e interatividade do site, utilizados para estruturar e melhorar a interface com o usuário. No  projeto as pastas são subdivididas em pastas CSS (com os arquivos CSS responsáveis pela aparência visual das página), scripts (com os arquivos JavaScript que adicionam interatividade do usuário à aplicação) e  img (que contêm as imagens utilizadas no site, como as logos da equipe da Mamute).</div>
+
+<h3 id="72-logica-e-regras-de-negocio">7.2 Lógica e Regras de Negócio</h3>
+<div style="text-align: justify;">
+Essa camada é responsável por implementar as regras do funcionamento da aplicação e suas interações com os usuários e os dados. No nosso contexto, ela abrange a gestão dos membros da equipe, o processo de autenticação e recuperação de contas, além do controle de acesso às funcionalidades do sistema. As regras de negócios são implementadas principalmente por meio de modelos e formulários, que garantem a validação dos dados e a execução correta das operações. Cada funcionalidade, como o registro e a edição de membros, a recuperação de senha e a autenticação, possui regras específicas para garantir a integridade e a segurança do sistema. Abaixo, são detalhadas as principais áreas da lógica de negócios implementadas.
+</div>
+
+<p><strong>1. Modelos:</strong></p>
+<ul>
+    <li>
+        <strong>MembroEquipe:</strong> É uma extensão do modelo padrão AbstractUser do
+        Django, personalizado para incluir atributos adicionais relevantes ao
+        domínio da empresa, como fullname, email e phone. Além disso, ele
+        possui relações Many-to-Many com os modelos Area e Function,
+        permitindo que um membro seja vinculado a múltiplas áreas e funções.
+    </li>
+
+<li>
+    <strong>Area:</strong> Modelo que é utilizado como base para criar as áreas da equipe que
+    o um Membro pode fazer parte.
+</li>
+<li>
+    <strong>Function:</strong> Modelo que é utilizado como base para criar as funções que um
+    Membro pode exercer dentro da equipe.
+</li>
+</ul>
+
+<p><strong>2. Formulários:</strong></p>
+<ul>
+    <li>
+        <strong>MembroEquipeCreationForm:</strong> Permite criar novos membros com
+campos personalizados e adiciona campos de seleção múltipla (areas e
+functions) utilizando ModelMultipleChoiceField com
+CheckboxSelectMultiple.
+    </li>
+<li>
+    <strong>MembroEquipeChangeForm:</strong>  É utilizado para edição das informações
+de um membro, mantendo os mesmos campos personalizados do
+formulário de criação.
+</li>
+</ul>
+
+<p><strong>3. Recuperação de Conta: </strong></p>
+<ul>
+    <li>
+        <strong>Fluxo de Recuperação:</strong> 
+A lógica para recuperação de conta é implementada na view
+recoverAccount. Quando um usuário insere seu e-mail, o sistema
+verifica se existe um registro correspondente no modelo
+MembroEquipe. <br>
+Se o e-mail existir, um token é gerado utilizando
+PasswordResetTokenGenerator do Django, e um e-mail é enviado
+com o link para redefinir a senha. <br>
+Caso contrário, o sistema retorna uma mensagem indicando que o
+e-mail não está registrado
+    </li>
+<li>
+    <strong>Regras de Negócio:</strong> 
+    Apenas e-mails cadastrados no sistema podem receber links de
+redefinição.
+O token de redefinição de senha é validado antes de permitir a
+redefinição.
+</li>
+</ul>
+
+<p><strong>4. Autenticação: </strong></p>
+<ul>
+    <li>
+        <strong> Fluxo de Login:</strong> 
+ A view login permite que um usuário insira seu nome de usuário e
+senha. O sistema utiliza o método authenticate do Django para
+verificar as credenciais. Caso as credenciais sejam válidas, o
+usuário é autenticado e redirecionado. <br>
+Se inválidas, o usuário é redirecionado para a página de login com
+uma mensagem apropriada.
+    </li>
+<li>
+    <strong> Regras de Negócio:</strong> 
+Somente usuários com credenciais válidas podem acessar o
+sistema.
+A autenticação utiliza os recursos padrão do Django, garantindo
+segurança e escalabilidade.
+</li>
+</ul>
+
+<p><strong>5. Controle de Acesso: </strong></p>
+<ul>
+    <li>
+        <strong>Permissões de superusuário:</strong> 
+A função isSuperUser verifica se o usuário
+atual é um superusuário. Essa lógica é usada como decorador em views
+como register, restringindo o acesso apenas a usuários administradores.
+    </li>
+<li>
+    <strong>  Permissões de membros:</strong> 
+A função login_required delimita áreas que
+somente membros registrados da equipe de competição possuem acesso
+</li>
+</ul>
+
+<h3 id="73-comunicacao-com-o-banco-de-dados">7.3  Comunicação com o Banco de Dados</h3>
+<div style="text-align: justify;">
+    A comunicação com o banco de dados no sistema é gerida pelo Django ORM, que
+    facilita a interação com as tabelas do banco sem a necessidade de escrever SQL diretamente.
+</div>
+<p><strong>1. Estrutura do Banco de Dados:</strong></p>
+<ul>
+    <li>
+        O banco de dados armazena as informações dos membros da equipe, áreas
+        de atuação e funções. Essas informações são representadas por três
+        modelos principais: MembroEquipe, Área e Function.
+    </li>
+    <li>
+        O modelo MembroEquipe é uma extensão do modelo de usuário padrão do
+        Django, com campos adicionais para o nome completo, e-mail e telefone.
+        Ele também se relaciona com os modelos Área e Function, permitindo que
+        um membro pertença a várias áreas e tenha várias funções.
+    </li>
+    <li>
+        O Django automaticamente cria as tabelas no banco de dados com base
+        nesses modelos durante o processo de migração.
+    </li>
+</ul>
+
+<p><strong>2. Operações com o Banco de Dados:</strong></p>
+<ul>
+    <li>
+        <strong>Criação: </strong>Quando um novo membro é registrado, os dados são salvos no
+        banco através do formulário MembroEquipeCreationForm, utilizando o
+        método .save() do Django.
+    </li>
+    <li>
+        <strong>Leitura:</strong> As informações dos membros, como e-mail, são consultadas no
+        banco utilizando métodos do ORM, como filter().
+    </li>
+    <li>
+        <strong>Atualização:</strong> Para alterar os dados de um membro, como a senha, o
+        sistema utiliza o método set_password() do Django, que atualiza a senha
+        de forma segura no banco de dados.
+    </li>
+     <li>
+        <strong>Exclusão:</strong> A exclusão de registros pode ser feita usando o método
+        .delete() do Django.
+    </li>
+</ul>
+
+<p><strong>3. Validações e Integridade:</strong></p>
+<ul>
+    <li>
+        O Django cuida da integridade dos dados, como garantir que os campos de
+        e-mail sejam válidos e que os relacionamentos entre os modelos, como os
+        vínculos de um membro com áreas e funções, sejam mantidos
+        corretamente no banco.
+    </li>
+</ul>
+
+<p><strong>4. Consultas Simples:</strong></p>
+<ul>
+    <li>
+        O sistema utiliza o ORM do Django para realizar consultas simples e
+        recuperar informações de maneira eficiente. As consultas podem ser feitas
+        diretamente nos modelos, como recuperar todos os membros de uma área
+        específica.
+    </li>
+</ul>
+
+<p>Uma representação pode ser observada no seguinte diagrama de pacotes:</p>
+<p><img alt="Diagrama de Pacotes" src="../../view/img/PackageDiagram.jpeg" /></p>
+<div style="text-align: center;">
+
+<strong>Figura 5.</strong> Diagrama de Pacotes.
+
+</div>
+
+<h2 id="8-visao-de-implantacao">8. Visão de Implantação</h2>
+<div style="text-align: justify;">
+O software será implantado utilizando servidores que possam suportar o tráfego de usuário simultâneos e a carga de trabalho do sistema, o objetivo da implantação é tornar o sistema funcional e acessível aos usuários finais de forma eficiente e segura e isso envolve garantir que a infraestrutura de hardware e software sejam adequadas. <br>
+</div>
+
+<h3 id="81-infraestrutura-de-hardware">8.1 Infraestrutura de hardware</h3>
+<div style="text-align: justify;">  
+  A infraestrutura física necessária para suportar o sistema inclui servidores, a configuração de rede e como esses servidores serão dimensionados para garantir o desempenho esperado:  
+
+
+  <strong>Servidores Web:</strong> Os servidores responsáveis por hospedar a aplicação e atender às requisições HTTP/HTTPS dos usuários.
+  <ul>
+    <li>Especificações: De acordo com a necessidade de processamento, a escolha pode ser feita entre servidores dedicados ou servidores em nuvem (AWS, Azure, Google Cloud).</li>
+    <li>Justificativa: Dependendo do tráfego esperado, o número de servidores pode variar para garantir a escalabilidade horizontal.</li>
+  </ul>
+
+
+  <strong>Servidores de Banco de Dados:</strong> O banco de dados PostgreSQL será hospedado em um servidor dedicado ou como parte da infraestrutura em nuvem.  
+  <ul>
+      <li>Especificações: O banco de dados deverá ser dimensionado para suportar a quantidade de dados prevista (por exemplo, até 1 TB no primeiro ano).</li>
+    <li>Redundância e Backup: Configuração de backup e replicação do banco de dados para garantir a continuidade dos negócios em caso de falhas.</li>
+  </ul>
+
+
+  <ul>
+    <li><strong>Escalabilidade:</strong> Em um ambiente de nuvem, a escalabilidade pode ser garantida com balanceadores de carga e instâncias de servidores adicionais conforme necessário.</li>
+  </ul>
+</div>
+
+<h3 id="82-tecnologia-e-justificativa">8.2 Tecnologia e Justificativa</h3>
+<div style="text-align: justify;">
+
+
+<strong>Framework Django:</strong> O Django foi escolhido pela sua robustez e facilidade de escalabilidade, além de ter boa integração com o banco de dados PostgreSQL.
+<ul>
+    <li>Justificativa:  O Django oferece um desenvolvimento rápido e seguro, com muitos recursos prontos para produção, como autenticação, gerenciamento de banco de dados e segurança.</li>
+</ul>
+
+
+<strong>Servidor Web:</strong> pache ou Nginx podem ser usados para hospedar a aplicação Django, dependendo da preferência da equipe e dos requisitos de desempenho.
+<ul>
+    <li>O Nginx, por exemplo, é altamente eficiente para servir conteúdo estático e pode atuar como um balanceador de carga, se necessário.</li>
+
+
+<strong>Segurança:</strong> TLS 1.3 será utilizado para garantir a segurança das comunicações entre o cliente e o servidor, e a criptografia de dados sensíveis será realizada com AES-256.<ul>
+    <li>Justificativa: A segurança é essencial, pois o sistema lidará com informações sensíveis, como dados pessoais e logs da equipe.</li>
+</ul>
+
+
+<strong>Escalabilidade Horizontal:</strong> O sistema será projetado para permitir a adição de novos servidores para distribuir a carga conforme o aumento no número de usuários ou de dados.
+<ul>
+    <li>Justificativa: A escalabilidade horizontal é essencial para que o sistema continue funcionando sem falhas à medida que a equipe cresce ou quando o número de acessos simultâneos aumenta.</li>
+</ul>
+
+
+<strong>Banco de Dados SQLite:</strong> O SQLite foi escolhido por ser um banco de dados relacional altamente eficiente, com suporte à escalabilidade e alta disponibilidade.
+<ul>
+    <li>Justificativa: Ele é adequado para armazenar grandes volumes de dados, como registros de membros da equipe, inventário e logs de atividades, além de ser bem suportado pelo Django. E o principal: já vem nativamente nele "django".</li>
+</ul>
+
+
+</div>
+
+<h3 id="83-estrategia-de-implantacao">8.3 Estratégia de implantação:</h3>
+<div style="text-align: justify;">
+<strong>Fases de Implantação:</strong>
+<ul>
+    <li><strong>Preparação do Ambiente:</strong> Configuração do ambiente de desenvolvimento e testes, com servidores e banco de dados configurados.</li>
+    <li><strong>Testes:</strong> A realização de testes em ambiente de homologação para validar as funcionalidades e o desempenho do sistema.</li>
+    <li><strong>Implantação em Produção:</strong> Após os testes, a aplicação será implantada no ambiente de produção. Esta fase inclui a migração do banco de dados e a configuração final de servidores.</li>
+</ul>
+
+
+<strong>Implantação Contínua:</strong>
+<ul>
+    <li>A implantação será realizada de forma contínua, utilizando ferramentas como Docker, Kubernetes, ou CI/CD (Integração Contínua/Entrega Contínua) para facilitar atualizações e manutenção contínua.</li>
+        <li>Justificativa: A utilização de CI/CD garante um ciclo de vida de desenvolvimento ágil e permite que novas versões sejam disponibilizadas rapidamente, sem impactar os usuários finais.</li>
+</ul>
+</div>
+
+<h3 id="84-monitoramento-e-manutencao">8.4 Monitoramento e manutenção:</h3>
+<div style="text-align: justify;">
+<ul>
+Backup e Recuperação:
+    <li>Será implementado um sistema de backup automático para garantir que os dados estejam protegidos e possam ser restaurados em caso de falha. </li>
+        <li>Justificativa: O backup frequente é necessário para evitar a perda de dados críticos, como registros de membros e inventários. </li>
+</ul>
+</div>
+
+<h3 id="85-diagrama-de-implantacao">8.5 Diagrama de implantação:</h3>
+<div style="text-align: justify;">
+
+
+Uma representação pode ser observada no seguinte diagrama:
+
+</div>
+
+<p><img alt="Diagrama de Implantação" src="../../view/img/ImplatationDiagram.jpg" /></p>
+<div style="text-align: center;">
+
+<strong>Figura 6.</strong> Diagrama de Implatação.
+
+</div>
+
+<h2 id="9-restricoes-adicionais">9. Restrições adicionais</h2>
+<div style="text-align: justify;">
+As restrições adicionais do sistema foram definidas para garantir que o software atenda aos requisitos de negócios e de qualidade necessários ao seu funcionamento, além de proporcionar uma experiência segura e eficiente para os usuários. <br></br>
+
+<strong>Restrições de Negócios</strong>
+</div>
+
+<ol>
+<li><strong>Autenticação Obrigatória</strong><ul>
+<li>O sistema será acessível diretamente pela internet, mas exigirá que membros da equipe se autentiquem utilizando credenciais específicas (matrícula e senha), caso o usuário seja um interessado em se inscrever no processo seletivo ou um interessado em patrocinar realizar um cadastro como usuário externo é necessário nesse caso (e-mail e senha).</li>
+<li><strong>Justificativa:</strong> A autenticação garante que somente usuários autorizados (como administradores, capitães e membros) tenham acesso às informações e funcionalidades sensíveis do sistema, protegendo a integridade dos dados. </li>
+</ul>
+</li>
+<li><strong>Acesso Restrito a Perfis</strong><ul>
+<li>Funcionalidades críticas, como gerenciamento de estoque, relatório e cronogramas estarão disponíveis apenas para perfis de membros, enquanto trainee terão acesso apenas a funções específicas. </li>
+<li><strong>Justificativa:</strong> A segmentação de funcionalidades por perfis de acesso melhora a segurança e organiza o fluxo de trabalho.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Restrições de Qualidade</strong></p>
+<ol>
+<li><strong>Usabilidade</strong><ul>
+<li>O sistema será intuitivo e responsivo, com interfaces que atendam aos princípios de design de <strong>usabilidade (ISO 9241-11)</strong> com o auxílio das técnicas ágeis, no caso as sprints semanais, permitindo que usuários executem tarefas comuns com eficiência e sem necessidade de treinamento extensivo.</li>
+<li><strong>Justificativa:</strong> Um design acessível facilita o uso do sistema por diferentes perfis de usuários, incluindo membros menos experientes com tecnologia.</li>
+</ul>
+</li>
+<li><strong>Portabilidade</strong>  <ul>
+<li>O software será compatível com dispositivos móveis (Android e iOS) e navegadores modernos (Chrome, Firefox, Safari, Edge).</li>
+<li><strong>Justificativa:</strong> Garantir o acesso em múltiplas plataformas facilita o uso por membros em diferentes contextos e dispositivos.</li>
+</ul>
+</li>
+<li><strong>Manutenibilidade</strong><ul>
+<li>O código será modular e bem documentado, seguindo os padrões de desenvolvimento do Django, para facilitar correções de erros e futuras expansões.</li>
+<li><strong>Justificativa:</strong> A capacidade de realizar manutenção eficiente é fundamental para garantir a evolução contínua do sistema e atender a novas demandas.</li>
+</ul>
+</li>
+<li><strong>Escabilidade</strong><ul>
+<li>O sistema será preparado para aumentar a capacidade de processamento com a adição de servidores, permitindo a expansão conforme a equipe cresça ou os dados aumentem.</li>
+<li><strong>Justificativa:</strong> Uma infraestrutura escalável garante que o sistema se adapte ao crescimento, evitando gargalos de desempenho.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="10-bibliografia">10. Bibliografia</h2>
+<div>
+
+<strong>ALURA.</strong> Django: o que é, para que serve e um guia desse framework Python. Disponível em: <a target="_blank" href="https://www.alura.com.br/artigos/django-framework">https://www.alura.com.br/artigos/django-framework</a>. Acesso em: 9 dez. 2024. <br><br>
+
+<strong>NORMANDO</strong>, Célio. Arquitetura MVC e princípios de projeto. Disponível em: <a target="_blank" href="https://medium.com/@celionormando/arquitetura-mvc-e-princípios-de-projeto-3d0b278ef910">https://medium.com/@celionormando/arquitetura-mvc-e-princípios-de-projeto-3d0b278ef910</a>. Acesso em: 12 dez. 2024.   <br><br>
+
+<strong>DJANGO SOFTWARE FOUNDATION</strong>. Documentação do Django. Disponível em: <a target="_blank" href="https://docs.djangoproject.com/pt-br/5.1/">https://docs.djangoproject.com/pt-br/5.1/</a>. Acesso em: 18 dez. 2024.   <br><br>
+
+<strong>LUCIDCHART</strong>. Tudo sobre diagramas de pacotes UML. Disponível em: <a target="_blank" href="https://www.lucidchart.com/pages/pt/diagrama-de-pacotes-uml">https://www.lucidchart.com/pages/pt/diagrama-de-pacotes-uml</a>. Acesso em: 18 dez. 2024.   <br><br>
+
+<strong>DIAGRAMA DE CLASSES</strong>. Disponível em: <a target="_blank" href="https://www.figma.com/board/MvMowYd0J4NuHSZtLhvr6d/Untitled?node-id=0-1&t=TOB4ZlAFt7XZZCeW-1">https://www.figma.com/board/MvMowYd0J4NuHSZtLhvr6d/Untitled?node-id=0-1&t=TOB4ZlAFt7XZZCeW-1</a> Acesso em: 18 dez. 2024  <br><br>
+
+</div>
+
+<hr />
+<h2 id="tabela-de-versionamento">Tabela de Versionamento</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Versão</th>
+<th style="text-align: center;">Data</th>
+<th style="text-align: center;">Descrição da Alteração</th>
+<th style="text-align: center;">Nome(s) Integrante(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1.0</td>
+<td style="text-align: center;">25/11/2024</td>
+<td style="text-align: center;">Criação inicial e estrutura do artefato</td>
+<td style="text-align: center;">Felipe Freire</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.1</td>
+<td style="text-align: center;">12/12/2024</td>
+<td style="text-align: center;">Desenvolvimento dos artefatos de <strong>propósito</strong>, <strong>escopo</strong>, <strong>definições</strong>, <strong>justificativa</strong>, <strong>detalhamento</strong> e <strong>metas</strong> e <strong>restrições arquiteturais</strong></td>
+<td style="text-align: center;">Felipe Freire</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.2</td>
+<td style="text-align: center;">18/12/2024</td>
+<td style="text-align: center;">Desenvolvimento do tópico 8, visão de implantação</td>
+<td style="text-align: center;">Felipe Duarte</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.3</td>
+<td style="text-align: center;">18/12/2024</td>
+<td style="text-align: center;">Desenvolvimento do tópico 7, visão de implememtação</td>
+<td style="text-align: center;">Othavio Bolzan</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.4</td>
+<td style="text-align: center;">18/12/2024</td>
+<td style="text-align: center;">Desenvolvimento do tópico 5, visão de casos de uso</td>
+<td style="text-align: center;">Amanda Cruz</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.5</td>
+<td style="text-align: center;">18/12/2024</td>
+<td style="text-align: center;">Desenvolvimento do tópico 6, visão lógica (diagrama de classes e de atividades)</td>
+<td style="text-align: center;">Isaque Camargos e Rafael Schadt</td>
+</tr>
+<tr>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">19/12/2024</td>
+<td style="text-align: center;">Revisão do documento</td>
+<td style="text-align: center;">Caio Duarte e Mayara Marques</td>
+</tr>
+<tr>
+<td style="text-align: center;">2.1</td>
+<td style="text-align: center;">09/02/2024</td>
+<td style="text-align: center;">Revisão do documento e atualização dos tópicos 4.5 e 8.2</td>
+<td style="text-align: center;">Felipe Freire</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "header.autohide", "navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>
