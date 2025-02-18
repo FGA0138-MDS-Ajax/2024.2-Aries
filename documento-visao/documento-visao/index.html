@@ -1,0 +1,3376 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../atas-reuniao/equipe/ata-reuniao-13-equipe/">
+      
+      
+        <link rel="next" href="../../documento-arquitetura/documento-arquitetura/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Visão Geral - Documentação Mamutes do Cerrado</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/styles.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-visao-geral-do-produto-e-projeto" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Documentação Mamutes do Cerrado" class="md-header__button md-logo" aria-label="Documentação Mamutes do Cerrado" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação Mamutes do Cerrado
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Visão Geral
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="light-blue"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../landing.html" class="md-tabs__link">
+        
+  
+    
+  
+  Landing Page
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Apresentação
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../atas-reuniao/cliente/ata-reuniao-1/" class="md-tabs__link">
+          
+  
+  Atas
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Documentação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../links/links/" class="md-tabs__link">
+        
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação Mamutes do Cerrado" class="md-nav__button md-logo" aria-label="Documentação Mamutes do Cerrado" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentação Mamutes do Cerrado
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../landing.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Landing Page
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apresentação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Atas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cliente
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cliente
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/cliente/ata-reuniao-9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Equipe
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Equipe
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-1-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-2-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-3-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-4-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-5-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-6-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-7-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-8-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-9-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-10-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-11-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 11
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-12-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/equipe/ata-reuniao-13-equipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 13
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Documentação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Documentação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Problema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Problema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-contexto-do-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1 Contexto do Problema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-problema-encontrado" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2 Problema Encontrado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-diagrama-de-ishikawa-espinha-de-peixe" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.3 Diagrama de Ishikawa (Espinha de Peixe)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-solucao-proposta" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.3 Solução Proposta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-justificativa-da-solucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.4 Justificativa da Solução
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-declaracao-de-posicao-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Declaração de Posição do Produto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-objetivos-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Objetivos do Produto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-tecnologias-a-serem-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Tecnologias a Serem Utilizadas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-visao-geral-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Visão Geral do Projeto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Visão Geral do Projeto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ciclo-de-vida-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Ciclo de Vida do Projeto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-organizacao-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Organização do Projeto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-planejamento-das-fases" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Planejamento das Fases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Planejamento das Fases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-detalhamento-da-tabela" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 Detalhamento da Tabela
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-matriz-de-comunicacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Matriz de Comunicação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-gerenciamento-de-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Gerenciamento de Riscos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-criterios-de-replanejamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Critérios de Replanejamento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-processo-de-desenvolvimento-de-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Processo de Desenvolvimento de Software
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-declaracao-de-escopo-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Declaração de Escopo do Projeto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Declaração de Escopo do Projeto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-backlog-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Backlog do Produto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-perfis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Perfis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-cenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Cenários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-tabela-de-backlog-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Tabela de Backlog do Produto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tabela-de-contribuicao-da-equipe-inicio-da-sprint-1-fim-da-sprint-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Tabela de Contribuição da Equipe (início da sprint 1 - fim da sprint 2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias-bibliograficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências Bibliográficas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabela-de-versionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabela de Versionamento
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-arquitetura/documento-arquitetura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arquitetura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-requisitos/documento-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Testes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Testes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-plano-testes/documento-plano-testes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plano de Testes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-Testes-Integracao/documento-Testes-Integracao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testes de Integração
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-Testes-Unitarios/documento-Testes-Unitarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testes Unitários
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Problema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Problema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-contexto-do-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1 Contexto do Problema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-problema-encontrado" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2 Problema Encontrado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-diagrama-de-ishikawa-espinha-de-peixe" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.3 Diagrama de Ishikawa (Espinha de Peixe)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-solucao-proposta" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.3 Solução Proposta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-justificativa-da-solucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.4 Justificativa da Solução
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-declaracao-de-posicao-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Declaração de Posição do Produto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-objetivos-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Objetivos do Produto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-tecnologias-a-serem-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Tecnologias a Serem Utilizadas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-visao-geral-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Visão Geral do Projeto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Visão Geral do Projeto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ciclo-de-vida-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Ciclo de Vida do Projeto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-organizacao-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Organização do Projeto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-planejamento-das-fases" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Planejamento das Fases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Planejamento das Fases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-detalhamento-da-tabela" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 Detalhamento da Tabela
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-matriz-de-comunicacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Matriz de Comunicação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-gerenciamento-de-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Gerenciamento de Riscos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-criterios-de-replanejamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Critérios de Replanejamento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-processo-de-desenvolvimento-de-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Processo de Desenvolvimento de Software
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-declaracao-de-escopo-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Declaração de Escopo do Projeto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Declaração de Escopo do Projeto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-backlog-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Backlog do Produto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-perfis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Perfis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-cenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Cenários
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-tabela-de-backlog-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Tabela de Backlog do Produto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tabela-de-contribuicao-da-equipe-inicio-da-sprint-1-fim-da-sprint-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Tabela de Contribuição da Equipe (início da sprint 1 - fim da sprint 2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias-bibliograficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências Bibliográficas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabela-de-versionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabela de Versionamento
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-visao-geral-do-produto-e-projeto">1. Visão Geral do Produto e Projeto</h1>
+<div style="text-align: justify;">
+
+Este documento será usado como guia para registrar as informações gerais do produto e projeto. Ele será refinado e atualizado ao longo do ciclo de vida do desenvolvimento, conforme o padrão ABNT para documentos técnicos.
+
+</div>
+
+<hr />
+<h2 id="11-problema">1.1 Problema</h2>
+<h3 id="111-contexto-do-problema">1.1.1 Contexto do Problema</h3>
+<div style="text-align: justify;">
+
+A equipe de competição <strong>Mamutes do Cerrado</strong>, da Universidade de Brasília (UnB) - FCTE, enfrenta desafios significativos em dois pilares centrais: <strong>divulgação externa</strong> e <strong>gestão interna</strong>. Como uma equipe acadêmica que busca representar a instituição em competições, é crucial manter uma forte presença pública para atrair novos membros, patrocinadores e reconhecimento institucional. Simultaneamente, a organização interna é essencial para otimizar processos, garantir transparência e alcançar um desempenho competitivo. <br> <br>
+
+Atualmente, a equipe carece de ferramentas integradas que unifiquem a gestão de seus recursos como estoque, tarefas (calendários e reuniões) e documentação de voo.
+
+</div>
+
+<hr />
+<h3 id="112-problema-encontrado">1.1.2 Problema Encontrado</h3>
+<div style="text-align: justify;">
+
+O principal problema enfrentado pela equipe <strong>mamutes</strong> é a falta de uma <strong>plataforma centralizada</strong> que conecte as necessidades de <strong>divulgação externa</strong> e <strong>gestão interna</strong>. Isso resulta em:
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Problema Encontrado</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Baixa visibilidade externa</strong></td>
+<td>Falta de uma identidade visual unificada e dificuldade em atrair novos membros e patrocinadores.</td>
+</tr>
+<tr>
+<td><strong>Desorganização interna</strong></td>
+<td>Ausência de ferramentas adequadas para gerenciar tarefas, compromissos, recursos materiais e financeiros, gerando atrasos, retrabalho e perda de eficiência.</td>
+</tr>
+<tr>
+<td><strong>Risco de perda de informações</strong></td>
+<td>Armazenamento descentralizado de documentos e atas compromete a transparência e dificulta o acesso às informações essenciais.</td>
+</tr>
+<tr>
+<td><strong>Solução Proposta</strong></td>
+<td>Desenvolvimento de um software para otimizar processos internos e fortalecer a presença externa da equipe.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="113-diagrama-de-ishikawa-espinha-de-peixe">1.1.3 Diagrama de Ishikawa (Espinha de Peixe)</h3>
+<div style="text-align: justify;"> 
+
+De acordo com os problemas já citados a respeito da equipe, cintetizamos em algumas tabelas para facilitar na escolha de escopo do projeto:
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th><strong>Aspecto</strong></th>
+<th><strong>Problemas Identificados</strong></th>
+<th><strong>Impactos</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Visibilidade Externa</strong></td>
+<td>Falta de identidade visual unificada e dificuldade em atrair novos membros e patrocinadores.</td>
+<td>Baixa captação de talentos e financiamentos, além de menor reconhecimento institucional.</td>
+</tr>
+<tr>
+<td><strong>Gestão Interna</strong></td>
+<td>Ausência de ferramentas adequadas para organizar tarefas, compromissos, materiais e finanças.</td>
+<td>Atrasos, retrabalho, perda de eficiência e dificuldade em planejar ações estratégicas.</td>
+</tr>
+<tr>
+<td><strong>Armazenamento de Dados</strong></td>
+<td>Armazenamento descentralizado de documentos e atas.</td>
+<td>Compromete a transparência, dificulta o acesso à informação e aumenta o risco de perda de dados.</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: justify;"> 
+
+Esses problemas apontam para a urgência de implementar um software que centralize e integre as funcionalidades necessárias. A plataforma deverá:  
+
+</div>
+
+<ol>
+<li><strong>Fortalecer a presença externa</strong> com uma identidade visual consolidada e ferramentas para atrair novos membros e patrocinadores.  </li>
+<li><strong>Otimizar a gestão interna</strong>, promovendo organização, eficiência e transparência nos processos da equipe.  </li>
+<li><strong>Garantir segurança de dados</strong> com armazenamento centralizado e fácil acesso a informações essenciais.  </li>
+</ol>
+<div style="text-align: justify;"> 
+
+A adoção dessa solução tecnológica é crucial para superar os gargalos atuais, fortalecer a equipe e maximizar seu desempenho competitivo.
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Causas Identificadas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pessoas</strong></td>
+<td>Falta de integração entre os membros; dificuldade em acompanhar tarefas e reuniões.</td>
+</tr>
+<tr>
+<td><strong>Processos</strong></td>
+<td>Gestão manual ou uso de ferramentas dispersas; ausência de um padrão de operação.</td>
+</tr>
+<tr>
+<td><strong>Tecnologia</strong></td>
+<td>Inexistência de uma plataforma de integração única e dedicada às necessidades específicas da equipe.</td>
+</tr>
+<tr>
+<td><strong>Comunicação</strong></td>
+<td>Divulgação fragmentada, impactando o alcance do público-alvo e a captação de recursos.</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: justify;">
+
+A tabela resume as principais causas da ineficiência na gestão e divulgação da equipe. Entre elas, a falta de integração entre os membros dificulta o acompanhamento de tarefas e reuniões, enquanto a ausência de um padrão nos processos e o uso de ferramentas dispersas tornam a gestão desorganizada. <br> <br>
+
+Além disso, a inexistência de uma plataforma única que atenda às necessidades específicas da equipe agrava os problemas tecnológicos. Por fim, a divulgação fragmentada impacta negativamente o alcance do público-alvo e dificulta a captação de recursos. Esses fatores evidenciam a urgência de uma solução centralizada para melhorar a organização interna e fortalecer a comunicação externa.
+
+O digrama abaixo identifica as causas do problema central: Ineficiência na gestão e divulgação da equipe: <br> <br>
+
+</div>
+
+<p><img alt="Diagrama de Ishikawa" src="https://raw.githubusercontent.com/FGA0138-MDS-Ajax/2024.2-Aries/refs/heads/main/docs/view/img/Ishikawa.jpg" /></p>
+<hr />
+<h3 id="113-solucao-proposta">1.1.3 Solução Proposta</h3>
+<div style="text-align: justify;">
+
+A solução proposta é a criação de um aplicativo web unificado que aborda os principais desafios da equipe. Na dimensão de Divulgação Externa, o sistema oferecerá uma página inicial atraente que fortaleça a identidade visual dos Mamutes do Cerrado, com informações relevantes sobre os integrantes, competições e o processo seletivo. Na dimensão de Gestão Interna, incluirá módulos para organizar tarefas e eventos com ferramentas visuais como Kanban e calendário, controlar o estoque de materiais e peças, registrar atas de reuniões e gerenciar documentos de forma centralizada e acessível. Essa abordagem visa melhorar tanto a organização interna quanto a presença externa da equipe. <br> <br>
+
+A seguinte tabela demonstra a dimensão do problema analoga a sua proposta de solucão aliada a funcionalidade:
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>Funcionalidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Divulgação Externa</strong></td>
+<td>Página inicial atraente com identidade visual, informações sobre integrantes, competições e processo seletivo.</td>
+</tr>
+<tr>
+<td><strong>Gestão Interna</strong></td>
+<td><strong>Calendário e Tarefas</strong>: Organização visual com Kanban e calendário consolidado.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Estoque</strong>: Controle de materiais e peças.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Reuniões</strong>: Registro de atas e controle de presença.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Documentos</strong>: Centralização e fácil acesso a arquivos importantes.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="114-justificativa-da-solucao">1.1.4 Justificativa da Solução</h3>
+<div style="text-align: justify;">
+
+A justificativa para a criação do aplicativo está nos benefícios que ele traz para a equipe. A centralização das operações permitirá maior eficiência operacional, reduzindo o tempo gasto com tarefas administrativas e permitindo mais foco nas competições. Além disso, a solução promove transparência e organização, com dados acessíveis e bem estruturados para todos os membros. Na dimensão externa, o aplicativo fortalecerá o engajamento, aumentando a visibilidade da equipe e atraindo talentos e recursos estratégicos. Por fim, ao oferecer um ambiente mais estruturado e motivador, o aplicativo contribuirá diretamente para o sucesso da equipe, resolvendo os problemas atuais. <br> <br>
+
+Podendo ser analisados com mais detalhes na tabela seguinte: <br> 
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Benefício</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Eficiência Operacional</strong></td>
+<td>Redução do tempo gasto em tarefas administrativas, permitindo maior foco nas competições.</td>
+</tr>
+<tr>
+<td><strong>Transparência e Organização</strong></td>
+<td>Centralização de dados, garantindo acesso fácil e claro para os membros da equipe.</td>
+</tr>
+<tr>
+<td><strong>Engajamento Externo</strong></td>
+<td>Aumento da visibilidade, atração de novos talentos e captação de recursos estratégicos.</td>
+</tr>
+<tr>
+<td><strong>Ambiente Estruturado</strong></td>
+<td>Proporciona maior motivação e organização, contribuindo para o sucesso da equipe.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="12-declaracao-de-posicao-do-produto">1.2 Declaração de Posição do Produto</h3>
+<div style="text-align: justify;">
+
+O <strong>produto</strong> proposto oferece ferramentas de organização interna, como o controle de tarefas, agendamento de compromissos e gestão de documentos, além de facilitar a <strong>divulgação externa</strong> com recursos para promover a equipe, aumentar sua visibilidade e atrair novos membros e patrocinadores. Dessa forma, ele aborda tanto as necessidades internas quanto as externas de forma prática e eficiente. <br> <br>
+
+Ao contrário das soluções dispersas ou inexistentes que dificultam a comunicação e a organização, o <strong>nosso produto</strong> integra todas essas funcionalidades em um único ambiente digital, acessível a todos os membros da equipe, proporcionando uma experiência mais fluida, organizada e profissional para os Mamutes do Cerrado. Todos esses pontos podem ser visualizados com detalhes no quadro abaixo:
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th><strong>Para</strong></th>
+<th>Mamutes do Cerrado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Necessidade</strong></td>
+<td>Centralizar a gestão e melhorar a visibilidade da equipe.</td>
+</tr>
+<tr>
+<td><strong>O Produto</strong></td>
+<td>Uma aplicação web.</td>
+</tr>
+<tr>
+<td><strong>Que</strong></td>
+<td>Oferece ferramentas de organização interna e divulgação externa.</td>
+</tr>
+<tr>
+<td><strong>Ao Contrário</strong></td>
+<td>De uma situação atual onde a equipe enfrenta desafios de organização devido a ferramentas dispersas ou inexistentes.</td>
+</tr>
+<tr>
+<td><strong>Nosso Produto</strong></td>
+<td>Integra gestão e divulgação em um único ambiente acessível, proporcionando eficiência e maior visibilidade.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="13-objetivos-do-produto">1.3 Objetivos do Produto</h3>
+<div style="text-align: justify;">
+
+O objetivo <strong>principal</strong> da solução é otimizar a gestão interna da equipe e fortalecer sua presença externa, abordando as dificuldades atuais de organização e visibilidade. Para isso, a aplicação proposta busca automatizar tarefas administrativas, permitindo que a equipe se concentre mais nas atividades essenciais. Além disso, a plataforma facilita a <strong>comunicação interna e externa</strong>, proporcionando uma interação mais eficiente entre os membros da equipe e com o público-alvo. <br> <br>
+
+Outro aspecto importante é garantir <strong>acessibilidade aos documentos e recursos</strong> da equipe, permitindo que todos os membros possam acessar informações relevantes de forma rápida e organizada de acordo com seu perfil de acesso. Dessa forma, a solução não só melhora a operação interna, mas também contribui para uma maior visibilidade e engajamento externo, com uma gestão mais fluida e transparente.
+
+</div>
+
+<p>Podendo ser analisados com mais detalhes na tabela seguinte: <br> </p>
+<table>
+<thead>
+<tr>
+<th>Objetivo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Principal</strong></td>
+<td>Otimizar a gestão interna e fortalecer a presença externa da equipe.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Objetivos Secundários</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Automatizar tarefas administrativas</strong></td>
+<td>Reduzir o tempo gasto com atividades repetitivas, permitindo mais foco nas ações principais.</td>
+</tr>
+<tr>
+<td><strong>Facilitar a comunicação interna e externa</strong></td>
+<td>Melhorar a troca de informações dentro da equipe e com o público externo, tornando-a mais eficiente.</td>
+</tr>
+<tr>
+<td><strong>Garantir acessibilidade aos documentos e recursos</strong></td>
+<td>Proporcionar fácil acesso a arquivos e materiais importantes, garantindo que todos os membros tenham as informações necessárias.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="14-tecnologias-a-serem-utilizadas">1.4 Tecnologias a Serem Utilizadas</h3>
+<div class="text-align: justify;">
+    <p><em><strong></strong> Tecnologias e ferramentas utilizadas no desenvolvimento do sistema:</em></p>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Definição</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Linguagem</strong>: Python 🐍</td>
+<td>Linguagem de programação de alto nível utilizada para desenvolvimento de aplicações web e scripts.</td>
+<td>Utilizada para o desenvolvimento do backend do sistema, garantindo flexibilidade e escalabilidade.</td>
+</tr>
+<tr>
+<td><strong>Framework</strong>: Django 🖥️</td>
+<td>Framework web de alto nível para construção de aplicações rápidas e seguras em Python.</td>
+<td>Facilita a criação de APIs e integração com banco de dados, além de proporcionar segurança ao sistema.</td>
+</tr>
+<tr>
+<td><strong>Banco de Dados</strong>: SQLite 🗄️</td>
+<td>Sistema de gerenciamento de banco de dados relacional que utiliza SQL para consultas.</td>
+<td>Utilizado para armazenar dados estruturados da aplicação, como informações de usuários e registros de atividades.</td>
+</tr>
+<tr>
+<td><strong>Front-End</strong>: HTML, CSS, Bootstrap 💻</td>
+<td>Tecnologias utilizadas para construir a interface de usuário do sistema, proporcionando um design responsivo e atraente.</td>
+<td>Usadas para criar a estrutura, o estilo visual e tornar o sistema acessível em diversos dispositivos.</td>
+</tr>
+<tr>
+<td><strong>Ferramentas</strong>: Visual Studio Code 🖱️, Astah 🌐, Figma, Git e GitHub 💼</td>
+<td>Ferramentas utilizadas na prototipação, processo de desenvolvimento e versionamento do código.</td>
+<td>Visual Studio Code é utilizado para programação, Astah para diagramas e Git/GitHub para controle de versões.</td>
+</tr>
+<tr>
+<td><strong>Metodologia</strong>: Scrum e XP 📅</td>
+<td>Metodologias ágeis utilizadas para organização e execução do projeto, focando na entrega contínua de valor.</td>
+<td>Usadas para garantir entregas rápidas e melhoria contínua no processo de desenvolvimento.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-visao-geral-do-projeto">2. Visão Geral do Projeto</h2>
+<h3 id="21-ciclo-de-vida-do-projeto">2.1 Ciclo de Vida do Projeto</h3>
+<div style="text-align: justify;">
+Com base no sequinte diagrama estudado em aula:
+</div>
+
+<p><img alt="Diagrama de Ishikawa" src="https://raw.githubusercontent.com/FGA0138-MDS-Ajax/2024.2-Aries/refs/heads/main/docs/view/img/cicloDeVida.png" /></p>
+<div style="text-align: justify;">
+
+O ciclo de vida do projeto será ágil, baseado nas metodologias <strong>SCRUM</strong> e <strong>XP</strong>, visando garantir eficiência e organização no desenvolvimento. Com essa abordagem, espera-se que o projeto seja concluído dentro do prazo estipulado e atenda a todos os requisitos definidos. Para isso, será utilizado como referência o <strong>SCRUM Guide</strong> e o <strong>XP Guide</strong>, além de boas práticas amplamente discutidas na literatura técnica. <br> <br>
+
+Entre os métodos aplicados estão <strong>pair programming</strong>, que acelera o desenvolvimento e promove a troca de conhecimento entre os desenvolvedores, e <strong>code review</strong>, garantindo maior qualidade no código. Outros métodos incluem o uso de padrões de codificação, planejamento de <strong>releases e sprints</strong>, além de execução de testes de aceitação. Essas práticas contribuem para um desenvolvimento mais controlado e de alta qualidade, atendendo às demandas do projeto. <br> <br>
+
+Quanto às ferramentas, serão utilizados o <strong>GitHub</strong> para repositório e controle de versionamento do código, bem como o <strong>Astah</strong> para modelagem de diagramas, o <strong>Figma</strong> prototipação das páginas e o <strong>Miro</strong> para organização visual e gerenciamento do backlog. 
+
+</div>
+
+<hr />
+<h3 id="22-organizacao-do-projeto">2.2 Organização do Projeto</h3>
+<div style="text-align: justify;">
+
+O o seguinte quadro apresenta os principais papéis e responsabilidades dentro do projeto. O <strong>Cliente</strong> (Equipe Mamutes) é responsável por fornecer feedback contínuo e acompanhar o progresso das entregas, garantindo que o produto final atenda às suas necessidades. <br> <br>
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Papel</th>
+<th>Atribuições</th>
+<th>Responsáveis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cliente</strong></td>
+<td>Fornecer feedback e acompanhar o progresso</td>
+<td>Membro da Mamutes - Marina Mello</td>
+</tr>
+<tr>
+<td><strong>Scrum Master</strong></td>
+<td>Atualizar escopo e validar entregas</td>
+<td>Caio Duarte</td>
+</tr>
+<tr>
+<td><strong>Líderes de Equipe</strong></td>
+<td>Fomentar os desenvolvedores, aliada ao squad que o compete, sendo eles: Front, Back, Banco de Dados e Testes, e atuar como reviwers quanto ao versionamento e afins.</td>
+<td>Ludmila Aysha,  Rafael Welz e   Felipe Duarte</td>
+</tr>
+<tr>
+<td><strong>Desenvolvedores</strong></td>
+<td>Codificar e realizar implementações</td>
+<td>Amanda Cruz, Mayara Marques, Othavio Araujo, Vinicius Alves, Isaque Camargos e Felipe Freire</td>
+</tr>
+<tr>
+<td><strong>Analistas de Qualidade</strong></td>
+<td>Garantir qualidade e executar testes de software</td>
+<td>Felipe Freire e Felipe Duarte</td>
+</tr>
+</tbody>
+</table>
+<p>Acesse este link para saber com detalhes cada equipe: <a href="https://github.com/FGA0138-MDS-Ajax/2024.2-Aries/tree/main">Integrantes Equipe</a></p>
+<div style="text-align: justify;">
+
+O <strong>Scrum Master</strong> (Caio Duarte) atualiza o escopo do projeto e valida as entregas, assegurando que o time siga os processos ágeis de Scrum e que o trabalho seja entregue com qualidade. <br> <br>
+
+Os <strong>Líderes de Equipe</strong> lideram as equipes de desenvolvimento, incentivando e orientando os membros. Eles também atuam como revisores de código, garantindo que o versionamento e as práticas de desenvolvimento sejam seguidos corretamente. Os <strong>Desenvolvedores</strong> são os responsáveis por codificar e implementar as funcionalidades do sistema, transformando as necessidades em soluções práticas e operacionais. <br> <br>
+
+Por fim, os <strong>Analistas de Qualidade</strong> executam testes de software para garantir que o produto esteja livre de erros e com a qualidade necessária. Cada papel tem uma função essencial para o sucesso do projeto, garantindo colaboração, organização e entrega de um produto confiável e bem executado.
+
+</div>
+
+<hr />
+<h3 id="23-planejamento-das-fases">2.3 Planejamento das Fases</h3>
+<p>As fases serão detalhadas e adaptadas em cada sprint, com priorização do backlog com entregas claras e incrementais:  </p>
+<table>
+<thead>
+<tr>
+<th>Sprint</th>
+<th>Produto (Entrega)</th>
+<th>Data Início</th>
+<th>Data Fim</th>
+<th>% Conclusão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Definição do Produto</td>
+<td>02/11/24</td>
+<td>10/11/24</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Página de Cadastro, Login, Index</td>
+<td>10/11/24</td>
+<td>18/11/24</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Documentação de arquitetura, Finalizar Documento da Visão, Página Quem Somos</td>
+<td>18/11/24</td>
+<td>25/11/24</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Página de Participação em Competições, Página de Processo Seletivo</td>
+<td>25/11/24</td>
+<td>02/12/24</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Página Configurações de Conta, Página Processo Seletivo</td>
+<td>02/12/24</td>
+<td>09/12/24</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Página Home da parte Restrita, Back-end da parte de registro de voos, Modelagem de Dados</td>
+<td>09/12/24</td>
+<td>29/12/24</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Página de Tasks (KanBan), Página 404, Página de Estoque, Calendário, Testes de Integração</td>
+<td>30/12/24</td>
+<td>06/01/25</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Página Estoque, Página Home</td>
+<td>07/01/25</td>
+<td>13/01/25</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Página de Tarefas (KanBan), Back-end página Home, Calendário, Página Estoque</td>
+<td>14/01/25</td>
+<td>20/01/25</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Página Registro de Acidentes, Página registro de voo, Página de Reuniões</td>
+<td>21/01/25</td>
+<td>27/01/25</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Testes de Integração, Página registro de voos e acidentes, Página de Reuniões</td>
+<td>09/02/25</td>
+<td>03/02/25</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Testes de Integração e Aceitação, Deploy</td>
+<td>09/02/25</td>
+<td>10/02/25</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="231-detalhamento-da-tabela">2.3.1 Detalhamento da Tabela</h4>
+<div style="text-align: justify;">
+
+As fases do projeto serão realizadas de maneira incremental, organizadas em sprints para priorizar entregas específicas e garantir progresso contínuo.  
+
+Na <strong>Sprint 1</strong>, a equipe focará na <strong>definição do produto</strong>, alinhando objetivos e estabelecendo as bases para o desenvolvimento. Este passo inicial é essencial para assegurar que todos os membros tenham uma visão clara do escopo do projeto. <br> <br> 
+
+A <strong>Sprint 2</strong> envolverá a produção da <strong>documentação de arquitetura</strong>, a criação do banco de dados em SQLite, a finalização do documento de visão e a entrega da página "Quem Somos". Essa etapa organizará os fundamentos técnicos do sistema. <br> <br>
+
+As etapas seguintes, começando pela <strong>Sprint 3</strong>, irão abordar a implementação das páginas "Competição", "Processo Seletivo" e "Configurações de Conta", além de funcionalidades específicas como menus e avisos. Esse fluxo de trabalho visa manter um ritmo consistente e alinhado às prioridades do backlog. <br>
+
+</div>
+
+<hr />
+<h3 id="24-matriz-de-comunicacao">2.4 Matriz de Comunicação</h3>
+<table>
+<thead>
+<tr>
+<th>Descrição</th>
+<th>Área/Envolvidos</th>
+<th>Periodicidade</th>
+<th>Produtos Gerados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acompanhamento das Atividades em Andamento e situação do projeto</td>
+<td>Equipe do Projeto, Monitor e PO</td>
+<td>Semanal</td>
+<td>Ata de reunião</td>
+</tr>
+<tr>
+<td>Acompanhamento de atividades em andamento (Stand-up meetings)</td>
+<td>Líderes Squad, Scrum Master</td>
+<td>Diário</td>
+<td>Comunicação de alinhamento entre membros do squad</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: justify;">
+
+O Acompanhamento das Atividades em Andamento e Situação do Projeto, realizado semanalmente pela Equipe do Projeto, Monitor e PO (Product Owner), tem como objetivo revisar o progresso das tarefas, discutir o estado atual do projeto e planejar ações para mitigar possíveis riscos. Como resultado, são gerados a Ata de Reunião, que registra as discussões e decisões. <br> <br>
+
+Já o Acompanhamento de Atividades em Andamento (Stand-up Meetings) ocorre diariamente, sendo conduzido pelos Líderes de Squad e o Scrum Master. Esse encontro tem foco no alinhamento entre os membros do squad, promovendo a comunicação e garantindo que todos estejam cientes do progresso e dos próximos passos. A principal entrega desse acompanhamento é a Comunicação de Alinhamento, que mantém todos informados sobre o andamento das atividades e facilita a colaboração contínua.
+
+</div>
+
+<hr />
+<h3 id="25-gerenciamento-de-riscos">2.5 Gerenciamento de Riscos</h3>
+<table>
+<thead>
+<tr>
+<th>Risco</th>
+<th>Grau de Exposição</th>
+<th>Mitigação</th>
+<th>Plano de Contingência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atrasos no cronograma</td>
+<td>Alto</td>
+<td>Reorganização do backlog</td>
+<td>Redistribuir tarefas</td>
+</tr>
+<tr>
+<td>Perda de dados</td>
+<td>Médio</td>
+<td>Backup semanal</td>
+<td>Recuperação de backups</td>
+</tr>
+<tr>
+<td>Falta de comunicação eficiente na equipe</td>
+<td>Médio</td>
+<td>Estabelecer reuniões regulares e usar ferramentas para comunicação rápida (whatsapp) ou padronizada (teams)</td>
+<td>Acionar o Srcum Master para centralizar informações e resolver dúvidas urgentes</td>
+</tr>
+<tr>
+<td>Falta de conhecimento de membros da equipe</td>
+<td>Alto</td>
+<td>Identificar a deficiência e estudar</td>
+<td>Redirecionar tarefas críticas para membros mais experientes ou buscar ajuda externa</td>
+</tr>
+<tr>
+<td>Escopo mal definido ou mudanças de requisitos</td>
+<td>Alto</td>
+<td>Validar o escopo com o cliente antes de iniciar o desenvolvimento</td>
+<td>Ajustar o cronograma e priorizar entregas essenciais em caso de mudanças inesperadas</td>
+</tr>
+<tr>
+<td>Falta de recursos (tempo, ferramentas)</td>
+<td>Médio</td>
+<td>Monitorar os recursos necessários e informar problemas com antecedência</td>
+<td>Ajustar o cronograma, buscar ferramentas gratuitas/alternativas e se necessário reavaliar o escopo do projeto</td>
+</tr>
+<tr>
+<td>Problemas de compatibilidade no site</td>
+<td>Baixo</td>
+<td>Realizar testes em navegadores e dispositivos diferentes durante o processo</td>
+<td>Corrigir problemas emergenciais e desativar funcionalidades que não comprometam o todo</td>
+</tr>
+<tr>
+<td>Desistência de integrantes da equipe</td>
+<td>Médio</td>
+<td>Dividir tarefas de forma justa, manter boa comunicação e resolver</td>
+<td>Dividir tarefas de forma justa, manter boa comunicação e resolver</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="26-criterios-de-replanejamento">2.6 Critérios de Replanejamento</h3>
+<div style="text-align: justify;">
+
+<strong>Mudanças nos requisitos: </strong> Sempre que houver alterações nos requisitos do projeto, seja por solicitação do cliente ou identificação de novas necessidades, o impacto dessas mudanças será avaliado. Se o impacto for significativo, será necessário ajustar o escopo e o cronograma, garantindo que os novos requisitos sejam integrados de maneira eficiente. <br> <br> 
+
+<strong> Problemas de recursos: </strong> A indisponibilidade de recursos, como membros da equipe, ferramentas ou infraestrutura, exigirá uma reavaliação das atividades. Nessa situação, o replanejamento priorizará o uso dos recursos disponíveis para assegurar que as entregas críticas sejam concluídas. <br> <br> 
+
+<strong> Baixa qualidade nas entregas: </strong> Caso entregas apresentem qualidade abaixo do esperado, problemas técnicos recorrentes ou as entregas planejadas não sejam cumpridas dentro do prazo acordado, será necessário revisar os processos e redefinir prazos para corrigir as falhas. <br> <br> 
+
+<strong> Feedback do cliente: </strong> Se o cliente identificar insatisfações ou oportunidades de melhoria significativas no produto em desenvolvimento, as sugestões serão avaliadas. Caso aprovadas, o planejamento será revisado para incorporá-las, mediante a existência de período ágil.<br> <br> 
+
+</div>
+
+<hr />
+<h2 id="3-processo-de-desenvolvimento-de-software">3. Processo de Desenvolvimento de Software</h2>
+<div style="text-align: justify;">
+
+O desenvolvimento do software para a equipe <strong>Mamutes do Cerrado</strong> será guiado pelas metodologias <strong>SCRUM</strong> e <strong>XP</strong>, escolhidas por sua eficácia em organizar equipes e promover práticas de programação de alta qualidade. O <strong>SCRUM</strong> será responsável por estruturar o trabalho da equipe, garantindo controle de tempo e produtividade, enquanto o <strong>XP</strong> trará suporte com técnicas específicas para o desenvolvimento do software. <br> <br>
+
+O <strong>SCRUM</strong> será aplicado por meio de eventos como <strong>reuniões semanais de Planejamento e Entrega de Sprints</strong>, realizadas às segundas-feiras, e revisões de sprint, que permitirão avaliar o progresso e planejar melhorias. Além disso, as <strong>Stand-up Meetings diárias</strong> serão fundamentais para monitorar as atividades em andamento, identificar obstáculos e alinhar prioridades. Esses encontros irão reforçar a comunicação dentro da equipe, que é um elemento essencial para o sucesso do projeto. Sendo gerenciadas por meio dos lideres de squad. <br> <br>
+
+Complementando, a metodologia <strong>XP</strong> será implementada com a formação de pares de programação, <strong>code review</strong>, uso de <strong>padrões de codificação</strong> e execução de <strong>testes de aceitação</strong>. Esses métodos garantirão que o software seja desenvolvido com qualidade, respeitando os prazos estabelecidos e atendendo às expectativas do cliente. Essa combinação de práticas ágeis proporcionará uma abordagem eficiente e colaborativa ao desenvolvimento do projeto. <br> <br>
+
+</div>
+
+<hr />
+<h2 id="4-declaracao-de-escopo-do-projeto">4. Declaração de Escopo do Projeto</h2>
+<p><strong>Backlog do Produto</strong>:<br />
+- Requisitos obrigatórios (<em>Must</em>): Módulos de gestão e divulgação.<br />
+- Requisitos desejáveis (<em>Should/Could</em>): Customização e integração com redes sociais.  </p>
+<table>
+<thead>
+<tr>
+<th>Cenário</th>
+<th>Requisito</th>
+<th>Sprint</th>
+<th>Priorização</th>
+<th>Tipo de Requisito</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Divulgação</td>
+<td>Página inicial</td>
+<td>1</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Apresentar a equipe</td>
+</tr>
+<tr>
+<td>Divulgação</td>
+<td>Página de Competição</td>
+<td>3</td>
+<td>Could</td>
+<td>Funcional</td>
+<td>Seção de notícias no site</td>
+</tr>
+<tr>
+<td>Divulgação</td>
+<td>Página de Processo Seletivo</td>
+<td>3</td>
+<td>Could</td>
+<td>Funcional</td>
+<td>Informações do processo seletivo</td>
+</tr>
+<tr>
+<td>Gestão</td>
+<td>Página Configurações de Conta</td>
+<td>4</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Configuração de conta</td>
+</tr>
+<tr>
+<td>Navegação</td>
+<td>Menu lateral (área restrita)</td>
+<td>5</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Navegação e pesquisa</td>
+</tr>
+<tr>
+<td>Gestão</td>
+<td>Aba home</td>
+<td>5</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Aba principal e de aviso</td>
+</tr>
+<tr>
+<td>Gestão</td>
+<td>Calendário</td>
+<td>6</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Gerenciamento de tarefas</td>
+</tr>
+<tr>
+<td>Gestão</td>
+<td>Criação de tarefas</td>
+<td>6</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Criar e atribuir tarefas</td>
+</tr>
+<tr>
+<td>Gestão</td>
+<td>Rastreio de tarefas</td>
+<td>6</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Rastreamento do que deve ser feito e do que foi realizado</td>
+</tr>
+<tr>
+<td>Gestão</td>
+<td>Times da equipe</td>
+<td>6</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Destacando membros</td>
+</tr>
+<tr>
+<td>Organização</td>
+<td>Kanban</td>
+<td>6</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Organizar, gerenciar e visualizar tarefas</td>
+</tr>
+<tr>
+<td>Organização</td>
+<td>Página Estoque</td>
+<td>7</td>
+<td>Should</td>
+<td>Funcional</td>
+<td>Gerenciamento do estoque de peças</td>
+</tr>
+<tr>
+<td>Gestão</td>
+<td>Página Registro de Acidentes</td>
+<td>9</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Documentação de acidentes</td>
+</tr>
+<tr>
+<td>Gestão</td>
+<td>Página Registro de Voo</td>
+<td>9</td>
+<td>Must</td>
+<td>Funcional</td>
+<td>Documentação de voos</td>
+</tr>
+<tr>
+<td>Gestão</td>
+<td>Página Reuniões</td>
+<td>9</td>
+<td>Should</td>
+<td>Funcional</td>
+<td>Documentação de reuniões e atas</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: justify;">
+
+A equipe reconhece que os requisitos obrigatórios (Must) representam a base funcional mínima do sistema e, portanto, são prioritários para garantir o atendimento às principais necessidades da equipe. Esses requisitos serão entregues dentro do prazo estipulado no cronograma, pois sua implementação é essencial para que o sistema cumpra seus objetivos de gestão interna e divulgação externa. Esses requisitos foram discutidos na primeira ata. 
+
+</div>
+
+<p>Acesse este link para acessar as atas: <a href="https://fga0138-mds-ajax.github.io/2024.2-Aries/atas-reuniao/cliente/ata-reuniao-1/">Atas</a></p>
+<div style="text-align: justify;">
+
+Em relação aos requisitos desejáveis (Could/Should), como a customização e integração com redes sociais, a equipe avalia que alguns desses itens possuem potencial para agregar valor ao sistema, mas não comprometem o funcionamento principal caso sejam adiados. Por exemplo, as páginas de Competição e Processo Seletivo podem ser deixadas para uma fase de manutenção evolutiva, uma vez que o foco inicial será consolidar funcionalidades essenciais e estabilizar a plataforma. Essa decisão garante que os esforços da equipe sejam concentrados nos itens críticos para a entrega inicial, ao mesmo tempo que permite planejar evoluções futuras. <br> <br>
+
+A escolha de quais requisitos desejáveis serão implementados depende de fatores como a complexidade técnica, disponibilidade de recursos e relevância para os objetivos a curto prazo. Itens que demandam maior tempo de desenvolvimento ou possuem impacto reduzido no atendimento imediato às necessidades da equipe serão priorizados em fases futuras, assegurando a entrega de um sistema funcional e escalável dentro do prazo inicial. <br> <br>
+
+</div>
+<hr />
+<h3 id="41-backlog-do-produto">4.1 Backlog do Produto</h3>
+<div style="text-align: justify;">
+
+Tendo em vista o objetivo central do projeto, foram realizadas entrevistas com o cliente para compreender suas necessidades e estabelecer prioridades. Por meio de sessões de brainstorming e decisões conjuntas com o Product Owner, as funcionalidades principais foram definidas. Abaixo, estão as funcionalidades prioritárias para o sucesso do projeto:
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th><strong>Funcionalidade</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Site de Divulgação</strong></td>
+<td>Apresentar a identidade e atividades da equipe.</td>
+</tr>
+<tr>
+<td><strong>Cronograma e Calendário</strong></td>
+<td>Planejamento de reuniões e eventos internos.</td>
+</tr>
+<tr>
+<td><strong>Sistema de Login</strong></td>
+<td>Acesso ao sistema de gerenciamento para membros e capitães.</td>
+</tr>
+<tr>
+<td><strong>Sistema de Gerenciamento de Inventário</strong></td>
+<td>Controle de materiais e equipamentos da equipe.</td>
+</tr>
+<tr>
+<td><strong>Administração e Registro de Reuniões</strong></td>
+<td>Garantir a documentação de atas de reuniões.</td>
+</tr>
+<tr>
+<td><strong>Gestão de Documentos da Equipe</strong></td>
+<td>Armazenamento de links de acesso rápido a documentos da equipe.</td>
+</tr>
+</tbody>
+</table>
+<p>Além dessas funcionalidades prioritárias, outras funcionalidades foram identificadas para fortalecer a divulgação externa e a organização interna da equipe. Estas incluem:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Funcionalidade</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Página de Apresentação</strong></td>
+<td>Destacar membros e a história da equipe.</td>
+</tr>
+<tr>
+<td><strong>Página de Eventos Passados e Conquistas</strong></td>
+<td>Valorizar o legado e os resultados obtidos pela equipe.</td>
+</tr>
+<tr>
+<td><strong>Seção de Informações sobre o Processo Seletivo</strong></td>
+<td>Atração de novos talentos para a equipe.</td>
+</tr>
+<tr>
+<td><strong>Apresentação Detalhada dos Drones</strong></td>
+<td>Exibir os drones com os quais a equipe trabalha, destacando sua expertise técnica.</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: justify;">
+
+Essas funcionalidades estão alinhadas com os objetivos estratégicos do projeto, focando tanto em visibilidade externa quanto em eficiência interna para os membros da equipe.
+
+</div>
+
+<hr />
+<h3 id="42-perfis">4.2 Perfis</h3>
+<div style="text-align: justify;">
+
+Os perfis de acesso do projeto foram criados para atender às necessidades específicas de cada tipo de usuário, garantindo organização e segurança. O Administrador tem o maior nível de acesso, sendo responsável por gerenciar os perfis de usuários, configurar o sistema e administrar permissões. <br> <br>
+
+O Capitão lidera a equipe com acesso completo para gerenciar planilhas, atas, processo seletivo, presenças, estoque e a disponibilidade dos membros. Já os Membros têm permissões ajustadas pelo capitão às suas funções, permitindo a atualização de informações pessoais, visualização e edição de planilhas (quando autorizado), e gestão de estoques, se necessário. <br> <br>
+
+Por fim, o Visitante pode acessar apenas o site de divulgação para conhecer a equipe, enquanto os Trainees, novos integrantes em treinamento, possuem acesso restrito às ferramentas essenciais para seu aprendizado e integração. Essa divisão garante eficiência no trabalho e um uso adequado do sistema. Pdendo ser analisados de maneira detalhada na seguinte tabela:
+
+</div>
+
+<p>Tabela : Perfis de acesso</p>
+<table>
+<thead>
+<tr>
+<th>Nome do Perfil</th>
+<th>Características do Perfil</th>
+<th>Permissões de Acesso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Administrador</td>
+<td>Responsável por manter os perfis de acesso da aplicação, criar novos usuários, alterar usuários existentes ou excluir usuários (Manter usuários).</td>
+<td>Manter usuários, controle completo sobre configurações do sistema e acessos administrativos.</td>
+</tr>
+<tr>
+<td>Capitão</td>
+<td>Membro responsável pela Mamutes como um todo. Um membro é capitão (verificar capitães).</td>
+<td>Terá login. Acesso completo a CRUD de planilhas, atas, processo seletivo, presenças, estoque e disponibilidade de membros.</td>
+</tr>
+<tr>
+<td>Membro</td>
+<td>Membro da Mamutes de alguma das áreas existentes na equipe.</td>
+<td>Terá login. Manter suas informações atualizadas, visualizar planilhas e editá-las quando permitido, gerenciar estoque (quando necessário).</td>
+</tr>
+<tr>
+<td>Visitante</td>
+<td>Usuário interessado em obter informações sobre a Mamutes e conhecer a equipe.</td>
+<td>Não terá login. Acesso ao site de divulgação.</td>
+</tr>
+<tr>
+<td>Treinee</td>
+<td>Membro em período inicial na equipe, destinado a aprendizagem e integração com a Mamutes.</td>
+<td>Terá login. Acesso restrito para visualizar planilhas, consultar documentos e acompanhar cronogramas de tarefas.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="43-cenarios">4.3 Cenários</h3>
+<div style="text-align: justify;">
+
+Os <strong>cenários funcionais</strong> definidos para o sistema dos <strong>Mamutes do Cerrado</strong> abrangem desde a concepção inicial do projeto até a gestão completa de atividades e estoques, promovendo eficiência e organização. O ciclo inicia com a <strong>definição do produto</strong>, onde o backlog, identidade visual e documento de visão são estruturados, seguido pelo planejamento do <strong>MVP</strong> e organização das entregas do projeto. <br> <br> 
+
+Funcionalidades voltadas para a interação com os usuários incluem <strong>login</strong> e <strong>cadastro de novos usuários</strong>, além da visualização de perfis. Já no âmbito operacional, o sistema permite a <strong>criação, edição e exclusão de atividades</strong>, garantindo flexibilidade na gestão das tarefas. Adicionalmente, há funcionalidades específicas para o <strong>estoque</strong>, como registro, atualização e exclusão de itens, essenciais para o controle dos recursos da equipe.  <br> <br>
+
+Por fim, o sistema integra um <strong>calendário</strong> para gerenciamento de datas importantes, como eventos e prazos de entrega, ajudando na coordenação do time. Podem ser analisadas na seguinte tabela:
+
+</div>
+
+<p>Tabela : Cenários funcionais</p>
+<table>
+<thead>
+<tr>
+<th>Numeração do Cenário</th>
+<th>Nome do Cenário</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Definição do produto, backlog, identidade visual, documento de visão</td>
+<td>Definir os principais aspectos do produto, incluindo backlog inicial, identidade visual e documento de visão.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>MVP e planejamento do projeto</td>
+<td>Planejar o desenvolvimento do MVP e estruturar as entregas ao longo do projeto.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Login de Usuário</td>
+<td>Implementar funcionalidade para autenticação de usuários no sistema.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Cadastro de Novo Usuário</td>
+<td>Permitir o registro de novos usuários no sistema.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Visualização de Perfil do Usuário</td>
+<td>Permitir aos usuários visualizar seus próprios perfis, com informações detalhadas.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Criação de Atividade</td>
+<td>Implementar a funcionalidade de adicionar novas atividades no sistema.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Edição de Atividade</td>
+<td>Permitir a modificação de atividades existentes no sistema.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Exclusão de Atividade</td>
+<td>Implementar a funcionalidade para excluir atividades do sistema.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Criação de Estoque</td>
+<td>Criar e registrar novos itens no estoque através do sistema.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Edição de Estoque</td>
+<td>Permitir a atualização das informações de itens no estoque.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Exclusão de Estoque</td>
+<td>Implementar a funcionalidade de remover itens do estoque no sistema.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Gerenciamento de Calendário</td>
+<td>Implementar um calendário para marcar eventos internos como reuniões, competições e datas importantes.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Agendamento de Entregas</td>
+<td>Permitir aos membros definir e acompanhar datas de entrega de tarefas e projetos no calendário.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Notificações de Eventos e Prazos</td>
+<td>Adicionar funcionalidade de notificações automáticas para lembrar membros sobre eventos e prazos registrados.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="44-tabela-de-backlog-do-produto">4.4 Tabela de Backlog do Produto</h3>
+<!--
+
+<p style="text-align: justify;">
+
+
+
+</p>
+
+<iframe width="768" height="432" src="https://miro.com/welcomeonboard/aGh1UkhGYkpsMGUxdUxkTE9kYnRkdlR4ZEdSYUdEQ0lQVmE5dDFwc3NnS1l0czB4VTJJNnl3TXN6cWRvRXVIU1pqSlJEc1lHUmw5Q25VNmZnZks1RVdqQ05wSHAwbEcrNTloazlNdGg2VHJNVUNPTnBmcFRLY3lGOG80VUZKbEQhZQ==?share_link_id=967577464010" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+
+<p style="text-align:center;">
+    Figura 1 - <a href ="https://miro.com/welcomeonboard/aGh1UkhGYkpsMGUxdUxkTE9kYnRkdlR4ZEdSYUdEQ0lQVmE5dDFwc3NnS1l0czB4VTJJNnl3TXN6cWRvRXVIU1pqSlJEc1lHUmw5Q25VNmZnZks1RVdqQ05wSHAwbEcrNTloazlNdGg2VHJNVUNPTnBmcFRLY3lGOG80VUZKbEQhZQ==?share_link_id=967577464010">Backlog do Produto</a> <br />
+    Fonte: Autores.
+</p>
+
+-->
+
+<p>Tabela : Backlog do produto</p>
+<table>
+<thead>
+<tr>
+<th>Numeração</th>
+<th>Sprint</th>
+<th>Nome do requisito</th>
+<th>Tipo de requisito</th>
+<th>Priorização</th>
+<th>Descrição sucinta do requisito</th>
+<th>User stories (U.S.) associadas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>1</td>
+<td>Cadastro</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Usuário consegue registrar no sistema</td>
+<td>"Como um visitante, quero criar uma conta no sistema para utilizar suas funcionalidades."</td>
+</tr>
+<tr>
+<td>002</td>
+<td>1</td>
+<td>Login</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Usuário com registro no site tem a capacidade de autenticar no sistema</td>
+<td>"Como um usuário registrado, quero fazer login no sistema para acessar as funcionalidades disponíveis."</td>
+</tr>
+<tr>
+<td>003</td>
+<td>1</td>
+<td>Barra de navegação</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Menu que possibilita o usuário transitar no site</td>
+<td>"Como um usuário, quero acessar a barra de navegação para me mover facilmente entre as páginas do site."</td>
+</tr>
+<tr>
+<td>004</td>
+<td>1</td>
+<td>Index</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Definir o escopo, objetivos e visão do produto no documento.</td>
+<td>"Como um visitante, quero acessar a página inicial para visualizar o conteúdo introdutório do site."</td>
+</tr>
+<tr>
+<td>005</td>
+<td>2</td>
+<td>Página “Quem Somos”</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Página inicial do site</td>
+<td>"Como um visitante, quero acessar a página 'Quem Somos' para conhecer mais sobre a equipe Mamutes do Cerrado."</td>
+</tr>
+<tr>
+<td>006</td>
+<td>3</td>
+<td>Página de Competição</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>Página que mostra mais sobre a Mamutes do Cerrado</td>
+<td>"Como um visitante, quero acessar a página de competição para ver as fotos e detalhes dos aviões competidores."</td>
+</tr>
+<tr>
+<td>007</td>
+<td>3</td>
+<td>Página de Processo Seletivo</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>Página dedicada a competição SAE, com uma galeria de fotos da equipe</td>
+<td>"Como um candidato, quero acessar a página do Processo Seletivo para me inscrever na equipe."</td>
+</tr>
+<tr>
+<td>008</td>
+<td>3</td>
+<td>Página de Configurações de Conta</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Página dedicada ao Processo Seletivo, com um formulário de inscrição</td>
+<td>"Como um usuário autenticado, quero acessar a página de configurações para editar minhas informações."</td>
+</tr>
+<tr>
+<td>009</td>
+<td>5</td>
+<td>Menu Lateral (área restrita)</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Uma página com o objetivo de exibir informações da conta do usuário</td>
+<td>"Como um usuário autorizado, quero usar o menu lateral para acessar ferramentas de gerenciamento interno."</td>
+</tr>
+<tr>
+<td>010</td>
+<td>5</td>
+<td>Aba Home</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Menu com as outras opções do software, como estoque, registros de voo</td>
+<td>"Como um membro da equipe, quero acessar a aba home para acompanhar os avisos gerais e o calendário."</td>
+</tr>
+<tr>
+<td>011</td>
+<td>4</td>
+<td>Configurações de Administrador</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Seção onde o administrador consegue total controle sobre o CRUD</td>
+<td>"Como um administrador, quero criar, visualizar, editar e deletar informações pelo site, desde avisos, tarefas etc."</td>
+</tr>
+<tr>
+<td>012</td>
+<td>6</td>
+<td>Calendário</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>Calendário que possibilita visibilidade de tarefas e eventos importantes</td>
+<td>"Como um usuário, quero visualizar um calendário para acompanhar tarefas e eventos importantes da equipe."</td>
+</tr>
+<tr>
+<td>013</td>
+<td>6</td>
+<td>Criação de Tarefas</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>Criação de tarefas e eventos para serem registrados no calendário</td>
+<td>"Como um usuário autorizado, quero criar tarefas e eventos no calendário para organizar os compromissos da equipe."</td>
+</tr>
+<tr>
+<td>014</td>
+<td>6</td>
+<td>Rastreio de Tarefas</td>
+<td>Não Funcional</td>
+<td>Must</td>
+<td>Rastrear tarefas da equipe</td>
+<td>"Como líder, quero rastrear as tarefas da equipe para garantir que as atribuições sejam claras e prazos cumpridos."</td>
+</tr>
+<tr>
+<td>015</td>
+<td>6</td>
+<td>Kanban</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>Criação de quadro Kanban para organização de atividades</td>
+<td>"Como membro da equipe, quero usar um quadro Kanban para organizar e acompanhar atividades para melhorar a eficiência."</td>
+</tr>
+<tr>
+<td>016</td>
+<td>7</td>
+<td>Página de Estoque</td>
+<td>Funcional</td>
+<td>Should</td>
+<td>Usuário consegue visualizar e adicionar itens no estoque</td>
+<td>"Como usuário do sistema, quero visualizar os itens no estoque e adicionar novos itens, para manter o controle do inventário."</td>
+</tr>
+<tr>
+<td>017</td>
+<td>9</td>
+<td>Página de Registro de Acidentes</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Página em que os membros registram acidentes de voo</td>
+<td>"Como membro da equipe, quero registrar acidentes de voo, para garantir rastreabilidade e análise de incidentes."</td>
+</tr>
+<tr>
+<td>018</td>
+<td>9</td>
+<td>Página de Registro de Voo</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>Membros registram documentações de voo</td>
+<td>"Como integrante da equipe, quero registrar as documentações de voo no sistema, para manter registros organizados."</td>
+</tr>
+<tr>
+<td>019</td>
+<td>9</td>
+<td>Página de Reuniões</td>
+<td>Funcional</td>
+<td>Should</td>
+<td>Membros registram documentações de reuniões</td>
+<td>"Como integrante da equipe, quero registrar as documentações de reuniões no sistema, para manter registros organizados e atualizados."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-tabela-de-contribuicao-da-equipe-inicio-da-sprint-1-fim-da-sprint-2">5. Tabela de Contribuição da Equipe (início da sprint 1 - fim da sprint 2)</h2>
+<table>
+<thead>
+<tr>
+<th>Matrícula</th>
+<th>Nome da Equipe</th>
+<th>Descrição das atividades realizadas</th>
+<th>% de contribuição ao trabalho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>231027023</td>
+<td>AMANDA CRUZ LIMA</td>
+<td>Desenvolvimento de documentação e de back-end.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>231026901</td>
+<td>CAIO FERREIRA DUARTE</td>
+<td>Desenvolvimento de documentação, Scrum e implementação de páginas web.</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>231012192</td>
+<td>FELIPE JUNIOR DUARTE DA SILVA</td>
+<td>Desenvolvimento de documentação e de back-end.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>231011515</td>
+<td>ISAQUE CAMARGOS NASCIMENTO</td>
+<td>Desenvolvimento de documentação, back-end e implementação de páginas web.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>231026750</td>
+<td>LUDMILA AYSHA OLIVEIRA NUNES</td>
+<td>Prototipação de páginas de alta fidelidade, desenvolvimento de documentos de requisitos, e implementação de páginas web.</td>
+<td>12%</td>
+</tr>
+<tr>
+<td>231035731</td>
+<td>MAYARA MARQUES SILVA</td>
+<td>Prototipação de páginas de alta fidelidade, desenvolvimento de ATAS.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>231039150</td>
+<td>OTHAVIO ARAUJO BOLZAN</td>
+<td>Desenvolvimento Full-stack e modelagem de dados de autenticação.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>231011800</td>
+<td>RAFAEL WELZ SCHADT</td>
+<td>Desenvolvimento de documentação, back-end, Scrum.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>190039116</td>
+<td>VINÍCIUS ALVES FREITAS LIVRAMENTO</td>
+<td>Desenvolvimento de diagrama de classes e implementação de página.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td>202046102</td>
+<td>FELIPE DAS NEVES FREIRE</td>
+<td>Desenvolvimento de documentação e back-end.</td>
+<td>12%</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: justify;">
+
+No desenvolvimento deste documento, a equipe foi organizada em grupos distintos, cada um com responsabilidades específicas. A divisão das equipes visou otimizar o processo de coleta e organização das informações, garantindo uma estrutura sólida para a entrega do documento oficial em formato PDF e a implementação na plataforma GitHub Pages. Este último recurso foi destinado a análises e revisões por parte do monitor da disciplina. Abaixo detalhamos as equipes e as respectivas atividades realizadas: <br> <br>
+
+<strong>Equipes e Responsabilidades:</strong> <br>
+
+<strong> 1. Equipe de Documentação</strong> <br>
+<strong>Responsáveis:</strong> Caio Ferreira, Felipe Freire, Amanda Cruz, Felipe Duarte, Mayara Marques e Rafael Schadt. <br>
+Descrição: Esta equipe focou na síntese das informações oriundas das discussões do grupo, estruturando-as para compor o documento final. Além disso, contribuíram na elaboração de atas e requisitos essenciais para o desenvolvimento do projeto, estruturação da github pages e sintetização das informações obtidas de todas as fontes do projeto. <br> <br>
+
+<strong> 2. Equipe de Desenvolvimento Back-end</strong><br>
+<strong>Responsáveis:</strong> Rafael Schadt, Felipe Duarte, Othavio Araujo, Caio Ferreira, Amanda Cruz, Vinícius Alves e Felipe Freire. <br>
+Descrição: Atuaram na construção e manutenção das funcionalidades do sistema, integrando dados e desenvolvendo soluções de autenticação, além de contribuir com informações para o desenvolvimento de todo o tópico 1 e 2 e tabela de backlog do produto. <br> <br>
+
+<strong> 3. Equipe de Implementação de Páginas</strong><br>
+<strong>Responsáveis:</strong> Caio Ferreira, Ludmila Aysha, Mayara Marques, Vinícius Alves, Isaque Camargos e Othavio Araujo. <br>
+Descrição: Trabalharam na criação das páginas do projeto, integrando-as de forma eficiente com o back-end e garantindo uma interface coerente e funcional contribuindo com informações para o desenvolvimento de todo o tópico 1 e 2 e tabela de backlog do produto. <br>
+
+</div>
+
+<h2 id="referencias-bibliograficas">Referências Bibliográficas</h2>
+<ul>
+<li>
+<p><strong>Quais são os 12 Princípios da Gestão de Projetos Ágeis?</strong><br />
+  Disponível em: <a href="https://businessmap.io/pt/metodologia-agil/principios-manifesto-agil">https://businessmap.io/pt/metodologia-agil/principios-manifesto-agil</a>  </p>
+</li>
+<li>
+<p><strong>SWEBOK - Software Engineering Body of Knowledge</strong><br />
+  Disponível em: <a href="https://www.computer.org/education/bodies-of-knowledge/software-engineering">https://www.computer.org/education/bodies-of-knowledge/software-engineering</a>  </p>
+</li>
+<li>
+<p><strong>O que é backlog do produto Scrum e como fazer um</strong><br />
+  Disponível em: <a href="https://www.lucidchart.com/blog/pt/como-fazer-um-backlog-do-produto">https://www.lucidchart.com/blog/pt/como-fazer-um-backlog-do-produto</a>  </p>
+</li>
+<li>
+<p><strong>Diagrama de Ishikawa</strong><br />
+  Disponível em: <a href="https://miro.com/pt/diagrama/o-que-e-diagrama-ishikawa/">https://miro.com/pt/diagrama/o-que-e-diagrama-ishikawa/</a>  </p>
+</li>
+<li>
+<p><strong>Documento de Visão do Produto</strong><br />
+  Disponível em: <a href="https://kb.ufla.br/books/termos-e-definicoes/page/documento-de-visao-do-produto">https://kb.ufla.br/books/termos-e-definicoes/page/documento-de-visao-do-produto</a>  </p>
+</li>
+</ul>
+<hr />
+<h2 id="tabela-de-versionamento">Tabela de Versionamento</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Versão</th>
+<th style="text-align: center;">Data</th>
+<th style="text-align: center;">Descrição da Alteração</th>
+<th style="text-align: center;">Nome(s) Integrante(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1.0</td>
+<td style="text-align: center;">25/11/2024</td>
+<td style="text-align: center;">Criação inicial e desenvolvimento dos artefatos: <strong>contexto do problema</strong>, <strong>declaração do produto</strong>, <strong>objetivo do produto</strong> e <strong>tecnologias a serem utilizadas</strong></td>
+<td style="text-align: center;">Felipe Freire e Amanda Cruz Lima</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.1</td>
+<td style="text-align: center;">29/11/2024</td>
+<td style="text-align: center;">Evolução dos artefatos <strong>contexto do problema</strong>, <strong>declaração do produto</strong>, <strong>objetivo do produto</strong> e <strong>tecnologias a serem utilizadas</strong></td>
+<td style="text-align: center;">Felipe Freire</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.2</td>
+<td style="text-align: center;">29/11/2024</td>
+<td style="text-align: center;">Desenvolvimento dos artefatos <strong>ciclo de vida do projeto</strong></td>
+<td style="text-align: center;">Felipe Freire</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.3</td>
+<td style="text-align: center;">29/11/2024</td>
+<td style="text-align: center;">Desenvolvimento dos artefatos <strong>backlog do produto</strong>, <strong>perfis</strong> e <strong>cenários</strong></td>
+<td style="text-align: center;">Felipe Freire e Felipe Duarte</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.4</td>
+<td style="text-align: center;">02/12/2024</td>
+<td style="text-align: center;">Desenvolvimento dos artefatos <strong>Gerenciamento de Riscos</strong> e <strong>Critérios de Replanejamento</strong></td>
+<td style="text-align: center;">Isaque Camargos</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.5</td>
+<td style="text-align: center;">02/12/2024</td>
+<td style="text-align: center;">Upgrade nos artefatos <strong>backlog do produto</strong>, <strong>perfis</strong>, <strong>cenários</strong> e <strong>declaração de escopo</strong></td>
+<td style="text-align: center;">Felipe Freire e Felipe Duarte</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.6</td>
+<td style="text-align: center;">02/12/2024</td>
+<td style="text-align: center;">Desenvolvimento dos artefatos <strong>Gerenciamento de Riscos</strong> e <strong>Critérios de Replanejamento</strong></td>
+<td style="text-align: center;">Isaque Camargos</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.7</td>
+<td style="text-align: center;">02/12/2024</td>
+<td style="text-align: center;">Desenvolvimento dos artefatos <strong>Tabela de Backlog do Produto</strong></td>
+<td style="text-align: center;">Amanda Cruz, Caio Duarte e Rafael Schadt</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.8</td>
+<td style="text-align: center;">02/12/2024</td>
+<td style="text-align: center;">Revisão final dos artefatos <strong>"Doc"</strong></td>
+<td style="text-align: center;">Caio Ferreira, Felipe Freire, Isaque Camargos e Amanda Cruz</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.9</td>
+<td style="text-align: center;">10/12/2024</td>
+<td style="text-align: center;">Inserção na gitpages</td>
+<td style="text-align: center;">Felipe Freire</td>
+</tr>
+<tr>
+<td style="text-align: center;">1.10</td>
+<td style="text-align: center;">19/12/2024</td>
+<td style="text-align: center;">Correções nos artefatos com base nas sugestões do professor</td>
+<td style="text-align: center;">Felipe Freire</td>
+</tr>
+<tr>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">02/02/2025</td>
+<td style="text-align: center;">Atualização do artefato de acordo com o desenvolvimento da aplicação</td>
+<td style="text-align: center;">Mayara Marques</td>
+</tr>
+<tr>
+<td style="text-align: center;">2.1</td>
+<td style="text-align: center;">09/02/2025</td>
+<td style="text-align: center;">Revisão do Documento e atualização do tópico 2.3</td>
+<td style="text-align: center;">Felipe Freire</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "header.autohide", "navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>
