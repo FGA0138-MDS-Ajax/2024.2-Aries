@@ -65,3 +65,44 @@ function validateForm() {
     msg.style.display = "flex";
         
   });
+
+
+
+  //para alterar a senha:
+  document.addEventListener("DOMContentLoaded", function () {
+    const keyButton = document.querySelector(".key-button");
+    const cancelButton = document.getElementById("cancelButton");
+    const submitButton = document.getElementById("submitButton");
+    const passwordFields = document.querySelectorAll(".password-field");
+
+    // Oculta os botões inicialmente e desativa os inputs
+    cancelButton.style.display = "none";
+    submitButton.style.display = "none";
+    passwordFields.forEach(input => {
+        input.disabled = true;
+    });
+
+    keyButton.addEventListener("click", function () {
+        keyButton.style.display = "none"; 
+        cancelButton.style.display = "flex"; 
+        submitButton.style.display = "flex"; 
+        
+        // Ativa os inputs e adiciona borda escura
+        passwordFields.forEach(input => {
+            input.disabled = false;
+            input.style.border = "2px solid black";
+        });
+    });
+
+    cancelButton.addEventListener("click", function () {
+        keyButton.style.display = "flex"; 
+        cancelButton.style.display = "none";
+        submitButton.style.display = "none";
+        
+        // Desativa os inputs e remove borda escura
+        passwordFields.forEach(input => {
+            input.disabled = true;
+            input.style.border = "";
+        });
+    });
+});
